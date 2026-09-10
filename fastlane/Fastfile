@@ -1,0 +1,211 @@
+# Delivery for the whole AGL portfolio, from one place.
+#
+# Every app already has a correct Fastfile of its own — flavours, export
+# options, an IPA existence check, the dSYM upload. This does not replace any of
+# that. It checks the apps out, then runs each app's own lanes with
+# BUNDLE_GEMFILE pointing back here, so fastlane is installed once for the batch
+# instead of 37 times.
+#
+#   bundle exec fastlane batch platform:android lane:beta apps:all
+#   bundle exec fastlane batch platform:ios lane:beta apps:CalcMaster,MyHealth
+#   bundle exec fastlane validate apps:all
+#
+# Auth is entirely env-driven, exactly as in the app repos:
+#
+#   AGL_PACKAGES_TOKEN  read access to AmericanGroupLLC-Backend, for the shared
+#                       packages and for cloning the app repos
+#   ASC_KEY_ID / ASC_ISSUER_ID / ASC_KEY_CONTENT      App Store Connect
+#   MATCH_GIT_URL / MATCH_PASSWORD                    optional iOS signing
+#   PLAY_JSON_KEY_FILE                                Play service account
+#   ANDROID_KEYSTORE_PATH / _PASSWORD / KEY_ALIAS / KEY_PASSWORD
+
+require "json"
+require "shellwords"
+
+default_platform(:android)
+
+MANIFEST = JSON.parse(File.read(File.expand_path("../apps.json", __dir__))).freeze
+WORK = File.expand_path("../work", __dir__).freeze
+
+def manifest_apps(spec)
+  apps = MANIFEST["apps"]
+  case spec.to_s
+  when "", "all" then apps
+  when "android-deliverable" then apps.select { |a| a.dig("deliverable", "android") }
+  when "ios-deliverable" then apps.select { |a| a.dig("deliverable", "ios") }
+  when "ads" then apps.select { |a| a["ads"] }
+  else
+    wanted = spec.split(",").map { |s| s.strip.downcase }
+    chosen = apps.select { |a| wanted.include?(a["repo"].downcase) }
+    missing = wanted - chosen.map { |a| a["repo"].downcase }
+    UI.user_error!("unknown app(s): #{missing.join(', ')}") unless missing.empty?
+    chosen
+  end
+end
+
+def app_path(app)
+  app["dir"] == "." ? File.join(WORK, app["repo"]) : File.join(WORK, app["repo"], app["dir"])
+end
+
+def checkout!(spec)
+  sh("cd .. && python3 scripts/checkout.py --apps #{spec.shellescape}")
+end
+
+# Runs a command inside an app, with this repository's bundle rather than the
+# app's own. Bundler's environment has to be stripped for Flutter — it breaks
+# CocoaPods detection — and then reapplied for fastlane.
+def in_app(app, command)
+  path = app_path(app)
+  UI.user_error!("#{app['repo']}: #{path} does not exist — run checkout first") unless Dir.exist?(path)
+  runner = lambda { sh("cd #{path.shellescape} && #{command}") }
+  if defined?(Bundler) && Bundler.respond_to?(:with_unbundled_env)
+    Bundler.with_unbundled_env(&runner)
+  else
+    runner.call
+  end
+end
+
+# Never let one bad app stop the batch. Every failure is collected and the lane
+# fails at the end with the full list, so one run tells you everything that is
+# broken rather than only the first thing.
+def run_batch(apps)
+  failures = []
+  apps.each_with_index do |app, i|
+    UI.header("[#{i + 1}/#{apps.size}] #{app['repo']}")
+    begin
+      yield app
+    rescue StandardError => e
+      failures << "#{app['repo']}: #{e.message.lines.first.to_s.strip}"
+      UI.error("#{app['repo']} failed: #{e.message.lines.first}")
+    end
+  end
+
+  UI.header("Summary")
+  UI.success("#{apps.size - failures.size}/#{apps.size} succeeded")
+  unless failures.empty?
+    failures.each { |f| UI.error(f) }
+    UI.user_error!("#{failures.size} app(s) failed")
+  end
+end
+
+desc "Analyze and test every selected app. Replaces 37 separate CI runs."
+lane :validate do |options|
+  spec = options[:apps] || "all"
+  checkout!(spec)
+  run_batch(manifest_apps(spec)) do |app|
+    in_app(app, "flutter pub get")
+    in_app(app, "flutter analyze")
+    in_app(app, "flutter test")
+  end
+end
+
+desc "Build every selected app for a platform without signing or uploading."
+lane :build_all do |options|
+  spec = options[:apps] || "all"
+  platform = options[:platform] || "android"
+  checkout!(spec)
+  run_batch(manifest_apps(spec)) do |app|
+    in_app(app, "flutter pub get")
+    if platform == "ios"
+      in_app(app, "flutter build ios --release --no-codesign")
+    else
+      in_app(app, "flutter build appbundle --release")
+    end
+  end
+end
+
+desc "Run one of each app's own lanes across the batch: platform:, lane:, apps:"
+lane :batch_lane do |options|
+  platform = options[:platform] or UI.user_error!("platform: is required (ios or android)")
+  lane_name = options[:lane] or UI.user_error!("lane: is required (test, beta, release)")
+  spec = options[:apps] || "all"
+  UI.user_error!("platform must be ios or android") unless %w[ios android].include?(platform)
+
+  checkout!(spec)
+  apps = manifest_apps(spec).select { |a| a.dig("deliverable", platform) }
+  skipped = manifest_apps(spec) - apps
+  skipped.each { |a| UI.important("#{a['repo']} is not #{platform}-deliverable yet — skipped") }
+
+  # This repository's Gemfile, so each app does not install its own fastlane.
+  gemfile = File.expand_path("../Gemfile", __dir__)
+  run_batch(apps) do |app|
+    in_app(app, "BUNDLE_GEMFILE=#{gemfile.shellescape} bundle exec fastlane #{platform} #{lane_name}")
+  end
+end
+
+# `batch` reads better at the command line than `batch_lane`.
+lane :batch do |options|
+  batch_lane(options)
+end
+
+desc "Build installable artifacts and publish them to each app's GitHub Releases"
+lane :publish_artifacts do |options|
+  spec = options[:apps] || "all"
+  platform = options[:platform] || "android"
+  tag_suffix = options[:tag] # optional; defaults to the app's own version
+  draft = options[:draft].to_s != "false"
+
+  checkout!(spec)
+  gh_token = ENV["AGL_PACKAGES_TOKEN"].to_s
+  UI.user_error!("AGL_PACKAGES_TOKEN is required to create releases") if gh_token.empty?
+
+  run_batch(manifest_apps(spec)) do |app|
+    path = app_path(app)
+    in_app(app, "flutter pub get")
+
+    assets = []
+    if platform == "android"
+      # An APK, not just the bundle. A .aab cannot be installed on a phone —
+      # it is a Play upload format — so a tester who wants to sideload needs
+      # the APK. Both are published: the AAB for the store, the APK for people.
+      in_app(app, "flutter build apk --release")
+      in_app(app, "flutter build appbundle --release")
+      assets << Dir[File.join(path, "build/app/outputs/flutter-apk/app-release.apk")]
+      assets << Dir[File.join(path, "build/app/outputs/bundle/release/*.aab")]
+    else
+      # Unsigned, so it cannot go on a device — but it runs in the simulator,
+      # which is enough for a designer or a PM to look at a build. TestFlight
+      # remains the only route to real hardware.
+      in_app(app, "flutter build ios --simulator --debug")
+      built = Dir[File.join(path, "build/ios/iphonesimulator/Runner.app")].first
+      if built
+        zip = File.join(path, "build/#{app['repo']}-simulator.app.zip")
+        sh("cd #{File.dirname(built).shellescape} && zip -qry #{zip.shellescape} Runner.app")
+        assets << [zip]
+      end
+    end
+
+    assets = assets.flatten.compact.select { |f| File.exist?(f) }
+    UI.user_error!("#{app['repo']}: nothing was built") if assets.empty?
+
+    version = app["version"].to_s.split("+").first
+    version = "0.0.0" if version.empty?
+    tag = tag_suffix ? "v#{version}-#{tag_suffix}" : "v#{version}-#{platform}"
+
+    notes = <<~NOTES
+      Automated build from agl-manifest.
+
+      Platform: #{platform}
+      Version:  #{app['version']}
+      Source:   #{app['repo']}@#{app['branch']}
+
+      #{platform == 'android' ?
+        'app-release.apk installs directly on a device (enable "install unknown apps"). The .aab is the Play upload format and cannot be sideloaded.' :
+        'A simulator build. Unsigned, so it will not run on a phone — unzip and drag onto a running iOS Simulator. TestFlight is the route to real hardware.'}
+    NOTES
+
+    # `gh release create` is idempotent enough for this: delete-and-recreate
+    # would drop download counts, so an existing tag is updated instead.
+    args = assets.map { |a| a.shellescape }.join(" ")
+    repo = "#{MANIFEST['org']}/#{app['repo']}"
+    exists = system("GH_TOKEN=#{gh_token.shellescape} gh release view #{tag.shellescape} --repo #{repo} >/dev/null 2>&1")
+    if exists
+      sh("GH_TOKEN=#{gh_token.shellescape} gh release upload #{tag.shellescape} #{args} --repo #{repo} --clobber")
+    else
+      sh("GH_TOKEN=#{gh_token.shellescape} gh release create #{tag.shellescape} #{args} " \
+         "--repo #{repo} --title #{"#{app['repo']} #{version} (#{platform})".shellescape} " \
+         "--notes #{notes.shellescape} #{draft ? '--draft' : ''} --prerelease")
+    end
+    UI.success("#{app['repo']}: #{assets.size} asset(s) → #{repo} #{tag}")
+  end
+end

@@ -1,0 +1,14 @@
+# Checked-out app repositories. Transient build inputs, never committed.
+work/
+
+# Bundler
+vendor/bundle/
+.bundle/
+
+# Nothing secret is ever written here, but be explicit.
+*.jks
+*.keystore
+*.p8
+*.p12
+*.mobileprovision
+play-service-account.json

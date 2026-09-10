@@ -1,0 +1,153 @@
+name: Deliver
+
+# Ships the portfolio, or any slice of it, through each app's own Fastlane
+# lanes. Manual only: nothing reaches a store on a push.
+#
+# The `release` lane runs in the `production` GitHub environment. Add required
+# reviewers under Settings → Environments → production and a store-facing
+# delivery waits for a human. `beta` does not, so TestFlight and the Play
+# internal track stay one click away.
+
+on:
+  workflow_dispatch:
+    inputs:
+      platform:
+        description: Platform to deliver
+        required: true
+        default: android
+        type: choice
+        options: [android, ios]
+      lane:
+        description: 'test, beta (TestFlight / Play internal), release (store draft), metadata (listing only)'
+        required: true
+        default: beta
+        type: choice
+        options: [test, beta, release, metadata]
+      apps:
+        description: 'all, android-deliverable, ios-deliverable, ads, or a comma-separated list'
+        required: true
+        default: all
+        type: string
+
+concurrency:
+  # One delivery at a time per platform. Two concurrent uploads of the same
+  # build number is a rejected binary and a confusing store listing.
+  group: deliver-${{ inputs.platform }}
+  cancel-in-progress: false
+
+env:
+  FLUTTER_VERSION: '3.44.2'
+
+jobs:
+  deliver:
+    name: ${{ inputs.platform }} ${{ inputs.lane }} → ${{ inputs.apps }}
+    runs-on: ${{ inputs.platform == 'ios' && 'macos-latest' || 'ubuntu-latest' }}
+    environment: ${{ inputs.lane == 'release' && 'production' || '' }}
+    timeout-minutes: 360
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Authenticate git for the org's private repositories
+        env:
+          TOKEN: ${{ secrets.AGL_PACKAGES_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "::error::AGL_PACKAGES_TOKEN is not set. It needs read access to every AmericanGroupLLC app repo and to AmericanGroupLLC-Backend."
+            exit 1
+          fi
+          git config --global \
+            url."https://x-access-token:$TOKEN@github.com/".insteadOf \
+            "https://github.com/"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Cache pub packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.pub-cache
+          key: pub-${{ runner.os }}-${{ hashFiles('apps.json') }}
+          restore-keys: pub-${{ runner.os }}-
+
+      - name: Cache CocoaPods
+        if: inputs.platform == 'ios'
+        uses: actions/cache@v4
+        with:
+          path: ~/.cocoapods
+          key: pods-${{ hashFiles('apps.json') }}
+          restore-keys: pods-
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      # Written to the runner's temp directory, never to the workspace, so a
+      # later step cannot pick them up as build inputs or upload them.
+      - name: Materialise Android signing material
+        if: inputs.platform == 'android'
+        env:
+          KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$KEYSTORE" ] || [ -z "$PLAY_JSON" ]; then
+            echo "::error::ANDROID_KEYSTORE_BASE64 and PLAY_SERVICE_ACCOUNT_JSON are both required to deliver to Play."
+            exit 1
+          fi
+          echo "$KEYSTORE" | base64 -d > "$RUNNER_TEMP/upload.jks"
+          printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/play.json"
+
+      - name: Deliver
+        env:
+          # iOS — App Store Connect API key
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_CONTENT: ${{ secrets.ASC_KEY_CONTENT }}
+          # iOS — match. Omit these and the lanes fall back to Xcode automatic
+          # signing rather than failing.
+          MATCH_GIT_URL: ${{ secrets.MATCH_GIT_URL }}
+          MATCH_PASSWORD: ${{ secrets.MATCH_PASSWORD }}
+          MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
+          # Android
+          PLAY_JSON_KEY_FILE: ${{ runner.temp }}/play.json
+          ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/upload.jks
+          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          # Production AdMob unit ids, so a release build serves live ads. A
+          # build without them serves Google's test units, which is the safe
+          # default rather than a broken one.
+          ADMOB_BANNER_ANDROID: ${{ secrets.ADMOB_BANNER_ANDROID }}
+          ADMOB_INTERSTITIAL_ANDROID: ${{ secrets.ADMOB_INTERSTITIAL_ANDROID }}
+          ADMOB_BANNER_IOS: ${{ secrets.ADMOB_BANNER_IOS }}
+          ADMOB_INTERSTITIAL_IOS: ${{ secrets.ADMOB_INTERSTITIAL_IOS }}
+        run: |
+          bundle exec fastlane batch \
+            platform:${{ inputs.platform }} \
+            lane:${{ inputs.lane }} \
+            apps:${{ inputs.apps }}
+
+      # Kept for 90 days: a crash reported weeks after a release can still be
+      # symbolicated by hand if the automatic upload failed.
+      - name: Collect mapping files
+        if: always() && inputs.platform == 'android'
+        uses: actions/upload-artifact@v4
+        with:
+          name: mappings-${{ github.run_id }}
+          path: work/*/**/build/app/outputs/mapping/release/mapping.txt
+          retention-days: 90
+          if-no-files-found: ignore
+
+      - name: Collect build artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: artifacts-${{ inputs.platform }}-${{ github.run_id }}
+          path: |
+            work/*/**/build/app/outputs/bundle/release/*.aab
+            work/*/**/build/ios/ipa/*.ipa
+          retention-days: 14
+          if-no-files-found: ignore

@@ -1,2 +1,123 @@
 # agl-manifest
-agl-manifest
+
+Delivery for the whole American Group LLC mobile portfolio, from one place.
+
+37 Flutter apps live in 37 repositories. Each one used to run its own CI on
+every push — a runner boot, a Flutter SDK download, a cold pub cache, an Android
+build and a macOS iOS build. That is 37× the setup cost for work that is
+identical every time, and the macOS half bills at **10×**.
+
+This repository does the same work once for the batch.
+
+```
+apps.json                  generated from the backend's measured audit
+fastlane/Fastfile          the batch lanes
+scripts/checkout.py        shallow-clones the selected apps into work/
+.github/workflows/
+  validate.yml             analyze + test + iOS build, whole portfolio, nightly
+  deliver.yml              manual: TestFlight / Play, per platform and lane
+  artifacts.yml            installable builds attached to each app's Releases
+  sync-manifest.yml        notices when apps.json stops matching the org
+```
+
+## What runs where
+
+| | Where | When | Cost |
+| --- | --- | --- | --- |
+| Analyze + release sanity checks | the app repo | every pull request | ~2 min, ubuntu |
+| Full test suite, all apps | here | nightly, or on demand | one ubuntu job |
+| iOS build, all apps | here | nightly, after tests pass | one macOS job |
+| TestFlight / Play | here | manual dispatch | one job per delivery |
+| Installable APK / simulator build | here | weekly, or on demand | one job |
+
+The app repos deliberately have **no `push` trigger**. Pushing to a default
+branch is covered by the nightly batch. Paying for a full pipeline on every push
+to every one of 37 repositories is the thing this replaces.
+
+## Where the saving comes from
+
+Not from doing less work — the analyzing and testing is the same wherever it
+happens. From not paying the fixed costs 37 times:
+
+- one runner boot instead of 37
+- one Flutter SDK download instead of 37
+- one warm pub cache instead of 37 cold ones
+- one CocoaPods spec fetch instead of 37 — every app pulls the same Firebase
+  and AdMob pods
+- **one macOS runner instead of 37**, which is the whole game at 10× billing
+
+## Running it
+
+```sh
+bundle install
+
+# Everything, or a slice: all | android-deliverable | ios-deliverable | ads | Name,Name
+bundle exec fastlane validate apps:all
+bundle exec fastlane build_all platform:ios apps:CalcMaster,MyHealth
+
+# Each app's own lanes, run across the batch
+bundle exec fastlane batch platform:android lane:beta apps:all
+bundle exec fastlane batch platform:ios lane:release apps:TripNest
+
+# Installable builds attached to each app's GitHub Releases
+bundle exec fastlane publish_artifacts platform:android apps:all
+```
+
+Each app keeps its own `Fastfile` — flavours, export options, the dSYM upload,
+an IPA existence check. This does not replace any of that. It checks the apps
+out and runs their lanes with `BUNDLE_GEMFILE` pointing back here, so fastlane
+is installed once for the batch instead of 37 times.
+
+One bad app never stops the batch. Failures are collected and reported together
+at the end, so a single run tells you everything that is broken rather than the
+first thing.
+
+## apps.json is generated, not written
+
+```sh
+# in AmericanGroupLLC-Backend
+python3 scripts/audit_release_readiness.py
+python3 scripts/generate_manifest.py --out ../agl-manifest/apps.json
+```
+
+The audit measures the repositories — where each Flutter project actually
+lives, what its application id is, whether it has a real signing config. A new
+app, a moved project directory or a renamed bundle id reaches delivery by
+re-running that, not by someone remembering to edit a list. `sync-manifest.yml`
+fails if `apps.json` and the org drift apart.
+
+## Secrets
+
+One organization secret does most of the work:
+
+| Secret | Why |
+| --- | --- |
+| `AGL_PACKAGES_TOKEN` | Clones the app repos, and lets `flutter pub get` reach the shared packages in the **private** backend repo. Without it every job dies with `could not read Username for 'https://github.com'`. Needs **write** access too if you publish releases. |
+
+Delivery additionally needs the store credentials, all env-driven and never in
+the repository:
+
+```
+ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_CONTENT          App Store Connect API key
+MATCH_GIT_URL, MATCH_PASSWORD                       optional; automatic signing without them
+PLAY_SERVICE_ACCOUNT_JSON                           Play Developer API
+ANDROID_KEYSTORE_BASE64, ANDROID_KEYSTORE_PASSWORD,
+ANDROID_KEY_ALIAS, ANDROID_KEY_PASSWORD             upload key
+ADMOB_BANNER_ANDROID, ADMOB_INTERSTITIAL_ANDROID,
+ADMOB_BANNER_IOS, ADMOB_INTERSTITIAL_IOS            live ad units; without them a build serves Google's test units
+```
+
+The `release` lane runs in the `production` GitHub environment. Add required
+reviewers under **Settings → Environments → production** and anything
+store-facing waits for a human. `beta` does not.
+
+## What this cannot do yet
+
+- **Report a crash.** No app has its Firebase config files; they can only come
+  from the console.
+- **Deliver the six apps that are not Flutter yet** — AGStudio,
+  ApexMarketWatch, BuddyPlay, MyCard, PlantPulse, and CodeDeal, which is a
+  partial port that does not compile.
+
+See `AmericanGroupLLC-Backend/docs/STORE_RELEASE_PLAYBOOK.md` for the full
+pending list and the values that can only come from a console.

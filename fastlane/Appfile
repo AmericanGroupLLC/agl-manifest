@@ -1,0 +1,5 @@
+# Intentionally empty of identifiers.
+#
+# This repository does not own an app — it orchestrates 37 of them, each with
+# its own Appfile carrying its own bundle id and team. Putting an identifier
+# here would silently apply it to whichever app ran last.
