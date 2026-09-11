@@ -57,6 +57,19 @@ def assets(repo: str, tag: str) -> list[str]:
     return [a for a in (raw or "").strip().split(",") if a]
 
 
+def gh_is_working() -> bool:
+    """Whether `gh` can actually read the org's repositories.
+
+    This matters because every query below swallows its own failure and returns
+    an empty string. Without this check, a run with no credentials produces a
+    document that confidently says no app has a release and no keystore is
+    loaded — which is worse than not running at all, because it looks like an
+    answer. `--offline` is the way to say "I know, do it anyway".
+    """
+    return bool(gh(["repo", "view", f"{ORG}/agl-manifest", "--json", "name",
+                    "--jq", ".name"]).strip())
+
+
 def manifest_secrets() -> set[str]:
     raw = gh(["secret", "list", "--repo", f"{ORG}/agl-manifest",
               "--json", "name", "--jq", '[.[].name]|join(",")'])
@@ -424,11 +437,22 @@ def build(offline: bool) -> None:
           f"{downloadable} with a binary, {len(matched)} with a store record")
 
 
-def main() -> None:
+def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--offline", action="store_true")
-    build(ap.parse_args().offline)
+    ap.add_argument("--offline", action="store_true",
+                    help="skip the GitHub queries and leave those columns blank")
+    args = ap.parse_args()
+
+    if not args.offline and not gh_is_working():
+        print("::error::`gh` cannot read the organization, so releases and "
+              "secrets would all come back empty and this would write a "
+              "document that looks like an answer. Authenticate `gh` (or set "
+              "GH_TOKEN), or pass --offline to accept the gaps deliberately.")
+        return 1
+
+    build(args.offline)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

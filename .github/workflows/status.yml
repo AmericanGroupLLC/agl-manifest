@@ -22,10 +22,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # Deliberately not falling back to github.token. That token can only
+      # read this repository, so every `gh release list` against an app repo
+      # would come back empty and the run would commit a document claiming no
+      # app has a release. The script refuses in that case; this fails earlier
+      # and says why.
       - name: Regenerate
         env:
-          GH_TOKEN: ${{ secrets.AGL_PACKAGES_TOKEN || github.token }}
-        run: python3 scripts/status.py
+          GH_TOKEN: ${{ secrets.AGL_PACKAGES_TOKEN }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "::error::AGL_PACKAGES_TOKEN is not set. Refusing to refresh: without it the release and secret columns would all read empty, which looks like an answer rather than a gap."
+            exit 1
+          fi
+          python3 scripts/status.py
 
       - name: Commit if anything changed
         run: |

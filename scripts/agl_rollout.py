@@ -31,9 +31,9 @@ AUDIT = BACKEND / "docs" / "release-readiness.json"
 
 GIT_DEP = """  agl_observability:
     git:
-      url: https://github.com/AmericanGroupLLC/AmericanGroupLLC-Backend.git
+      url: https://github.com/AmericanGroupLLC/agl-manifest.git
       path: packages/agl_observability
-      ref: dev
+      ref: master
 """
 
 # Applied after the plugins block. Conditional on purpose: the Google Services
