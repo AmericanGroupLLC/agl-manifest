@@ -1,0 +1,185 @@
+#!/usr/bin/env python3
+"""Build agl-manifest/apps.json from the measured readiness audit.
+
+The manifest is not hand-maintained. It is derived from
+docs/release-readiness.json, which is itself measured from the repositories, so
+a new app, a moved project directory or a renamed bundle id reaches the
+delivery pipeline by re-running the audit rather than by someone remembering.
+
+    python3 scripts/audit_release_readiness.py
+    python3 scripts/generate_manifest.py --out ~/agl/agl-manifest/apps.json
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import pathlib
+
+BACKEND = pathlib.Path(__file__).resolve().parent.parent
+AUDIT = BACKEND / "docs" / "release-readiness.json"
+ORG = "AmericanGroupLLC"
+
+
+
+# admob-ids.json predates the repo names in a couple of places.
+_ADMOB_ALIAS = {"radiotune": "RadioTune", "Uscis-Case": "USCIS Case"}
+
+
+def _admob(repo: str) -> dict:
+    path = BACKEND / "docs" / "admob-ids.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text())
+    return data.get(_ADMOB_ALIAS.get(repo, repo), {})
+
+
+def _has_description(repo: str) -> bool:
+    """Whether this app has English store copy a listing could actually use."""
+    path = BACKEND / "store" / "apps" / f"{repo}.json"
+    if not path.exists():
+        return False
+    english = json.loads(path.read_text()).get("copy", {}).get("en", {})
+    return bool(english.get("description") or english.get("full_description"))
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", required=True)
+    args = ap.parse_args()
+
+    rows = json.loads(AUDIT.read_text())
+
+    # The portfolio is 42 mobile apps, not 37. Six are not Flutter yet and one
+    # has been transferred out of the org — they belong in the tables with
+    # their real status rather than being silently dropped, because "why is
+    # this app missing" is the question a partial list always produces.
+    # Package names reserved ahead of the ports. `com.americangroupllc.<app>` is
+    # what 31 of the 37 existing apps use, so the six follow it rather than the
+    # `com.americangroup.` variant six older apps happen to have.
+    #
+    # They are reserved deliberately: an AdMob app, a Play record, an App Store
+    # record and an upload keystore can all be created from the package name
+    # alone, before a line of Flutter exists. Registering them now takes the
+    # console work off the critical path of the port — and an id, once
+    # published, can never be changed.
+    not_flutter = {
+        "AeroSwift": ("TypeScript monorepo (npm workspaces): tracking, personal, transit",
+                      "com.americangroupllc.aeroswift"),
+        "AGStudio": ("React Native — port pending", "com.americangroupllc.agstudio"),
+        "ApexMarketWatch": ("not Flutter yet", "com.americangroupllc.apexmarketwatch"),
+        "BuddyPlay": ("native Swift + Kotlin — port pending",
+                      "com.americangroupllc.buddyplay"),
+        "MyCard": ("native Swift + Kotlin + TS — port pending",
+                   "com.americangroupllc.mycard"),
+        "PlantPulse": ("not Flutter yet", "com.americangroupllc.plantpulse"),
+    }
+    moved_out = {"Kinnav": "transferred to srpatcha/Kinnav; pushes follow a redirect"}
+
+    apps = []
+    for r in sorted((x for x in rows if x.get("flutter")), key=lambda x: x["repo"].lower()):
+        lanes = r.get("fastlane_lanes") or []
+        apps.append({
+            "repo": r["repo"],
+            "url": f"https://github.com/{ORG}/{r['repo']}.git",
+            "branch": r.get("git_branch") or "main",
+            # Eleven apps keep the Flutter project in a subdirectory; every
+            # Flutter and Fastlane command has to run from here.
+            "dir": r.get("app_dir", "."),
+            "application_id": r.get("application_id", ""),
+            "bundle_id": r.get("ios_bundle_id", ""),
+            "version": r.get("version", ""),
+            # What delivery can actually attempt today.
+            "deliverable": {
+                "android": bool(r.get("release_signing")) and "beta" in lanes,
+                "ios": "beta" in lanes,
+            },
+            "ads": bool(r.get("dep_google_mobile_ads")),
+            "platforms": {
+                "android": bool(r.get("platform_android")),
+                "ios": bool(r.get("platform_ios")),
+            },
+            "auth": {
+                "providers": r.get("auth_providers", []),
+                "login_screen": bool(r.get("has_login_screen")),
+                "account_optional": bool(r.get("account_optional")),
+            },
+            # The application ids are what the binary declares; the unit ids
+            # come from the console record. A build only serves the live units
+            # when they are passed at build time.
+            "admob": {
+                "integrated": bool(r.get("dep_google_mobile_ads")),
+                "android_app_id": r.get("android_admob_id", ""),
+                "ios_app_id": r.get("ios_admob_id", ""),
+                **{k: v for k, v in _admob(r["repo"]).items()
+                   if k in ("android_banner", "android_interstitial",
+                            "ios_banner", "ios_interstitial")},
+            },
+            "needs_private_packages": bool(
+                r.get("dep_agl_i18n") or r.get("dep_agl_observability") or r.get("dep_agl_ads")
+            ),
+            # What is still missing per app, so the manifest can render a
+            # pending table without reaching back into this repository.
+            "pending": {
+                "firebase_android": not r.get("firebase_android_config"),
+                "firebase_ios": not r.get("firebase_ios_config"),
+                "admob_android_id": bool(r.get("dep_google_mobile_ads"))
+                and not r.get("android_admob_id"),
+                "admob_ios_id": bool(r.get("dep_google_mobile_ads"))
+                and not r.get("ios_admob_id"),
+                "store_description": not _has_description(r["repo"]),
+            },
+        })
+
+    for repo, (why, package) in sorted(not_flutter.items(), key=lambda kv: kv[0].lower()):
+        apps.append({
+            "repo": repo,
+            "url": f"https://github.com/{ORG}/{repo}.git",
+            "branch": "main",
+            "dir": ".",
+            "flutter": False,
+            "status": why,
+            # Reserved, not yet in a build. Marked so a table can say so.
+            "application_id": package,
+            "bundle_id": package,
+            "package_reserved": True,
+            "version": "",
+            "deliverable": {"android": False, "ios": False},
+            "ads": False,
+            "needs_private_packages": False,
+            "platforms": {"android": False, "ios": False},
+            "auth": {"providers": [], "login_screen": False, "account_optional": False},
+            "admob": {"integrated": False, "android_app_id": "", "ios_app_id": ""},
+            "pending": {
+                "firebase_android": True, "firebase_ios": True,
+                "admob_android_id": False, "admob_ios_id": False,
+                "store_description": True,
+            },
+        })
+
+    for app in apps:
+        app.setdefault("flutter", True)
+        if app["repo"] in moved_out:
+            app["status"] = moved_out[app["repo"]]
+            app["in_org"] = False
+        else:
+            app["in_org"] = app["repo"] not in moved_out
+
+    manifest = {
+        "_comment": (
+            "Generated by AmericanGroupLLC-Backend/scripts/generate_manifest.py "
+            "from docs/release-readiness.json. Do not edit by hand — re-run the "
+            "audit and regenerate."
+        ),
+        "org": ORG,
+        "flutter_version": "3.44.2",
+        "apps": apps,
+    }
+    out = pathlib.Path(args.out).expanduser()
+    out.parent.mkdir(parents=True, exist_ok=True)
+    out.write_text(json.dumps(manifest, indent=2) + "\n")
+    print(f"{len(apps)} apps → {out}")
+
+
+if __name__ == "__main__":
+    main()

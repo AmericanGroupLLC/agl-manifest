@@ -1,0 +1,26 @@
+{
+  "repo": "FashionFactory",
+  "copy": {
+    "en": {
+      "name": "Fashion Factory: Deals",
+      "title": "Fashion Factory — Deals",
+      "subtitle": "Compare prices, track drops",
+      "short_description": "Compare a product's price at every store that stocks it, and get drop alerts.",
+      "description": "Fashion Factory answers one question well: where is this cheapest right now, and is this a good time to buy?\n\nSearch a product and the app finds its price at every store that stocks it, lays those prices side by side, and shows what the price has been doing over time. Set an alert and you hear about it the moment it drops.\n\n—— Six categories ——\n\nFashion · Shoes · Bags · Perfume · Watches · Tech. One app instead of six, because the question is the same in all of them.\n\n—— What you can do ——\n\nCOMPARE\nA single table of every store carrying the product, with the real total rather than a headline price.\n\nPRICE HISTORY\nSee whether today's \"sale\" is actually a discount or just a return to the usual price.\n\nDROP ALERTS\nSave a product and get notified when its price falls.\n\nBROWSE AND DEALS\nA curated deals feed, plus browsing by category when you do not have something specific in mind.\n\nSAVED\nEverything you are watching in one list.\n\n—— No account needed ——\n\nThere is no sign-up and no login. Open the app and search.\n\n—— About prices ——\n\nPrices and availability come from retailer sources and change constantly. Fashion Factory shows you what it last saw; always confirm the final price at the retailer's own checkout before buying.",
+      "full_description": "Fashion Factory answers one question well: where is this cheapest right now, and is this a good time to buy?\n\nSearch a product and the app finds its price at every store that stocks it, lays those prices side by side, and shows what the price has been doing over time. Set an alert and you hear about it the moment it drops.\n\n<b>Six categories</b>\nFashion, shoes, bags, perfume, watches and tech. One app instead of six, because the question is the same in all of them.\n\n<b>Compare</b>\nA single table of every store carrying the product, with the real total rather than a headline price.\n\n<b>Price history</b>\nSee whether today's \"sale\" is actually a discount or just a return to the usual price.\n\n<b>Drop alerts</b>\nSave a product and get notified when its price falls.\n\n<b>Browse and deals</b>\nA curated deals feed, plus category browsing when you do not have something specific in mind.\n\n<b>No account needed</b>\nNo sign-up and no login. Open the app and search.\n\n<b>About prices</b>\nPrices and availability come from retailer sources and change constantly. Fashion Factory shows what it last saw; always confirm the final price at the retailer's checkout before buying.",
+      "keywords": "deals,price comparison,shopping,fashion,shoes,bags,perfume,watches,tech,discount,sale,price drop",
+      "promotional_text": "Six categories, one price check. Find what a product costs at every store that stocks it, see what that price has done, and get told the moment it drops.",
+      "release_notes": "Fashion Factory 2.2.\n\n• Compare a product's price across every store that stocks it\n• Price history so you can tell a real discount from a fake one\n• Drop alerts on anything you save\n• Six categories: fashion, shoes, bags, perfume, watches and tech\n• Curated deals feed and category browsing\n• No account, no login\n\nFeedback is welcome at contact@safecodeg.com.",
+      "support_url": "https://americangroupllc.github.io/policy/fashionfactory/support.html",
+      "privacy_url": "https://americangroupllc.github.io/policy/fashionfactory/",
+      "marketing_url": "https://americangroupllc.github.io/"
+    }
+  },
+  "review_information": {
+    "first_name": "App",
+    "last_name": "Reviewer",
+    "email_address": "contact@safecodeg.com",
+    "phone_number": "+1 415 555 0142",
+    "notes": "Thanks for reviewing Fashion Factory.\n\nFashion Factory is a shopping price-comparison app across six product categories. There is NO account, NO login and no user-generated content. Every feature is reachable immediately on first launch.\n\nTest instructions:\n1. Launch the app. The Home screen opens with a search field and a deals feed - no sign-in step exists.\n2. Search for any product, then open a result to see its detail screen.\n3. Tap Compare to see the price at every store that stocks the product, side by side.\n4. Scroll to the price history chart to see how that price has moved.\n5. Tap Save, then open the Saved tab - saved products are what drop alerts are attached to.\n6. Open Browse to explore by category, and Deals for the curated feed.\n\nPrivacy:\n• Data collected: The products you save and your search history, held on your device. No account and no personal details.\n• Network: Requests to retailer and price-data sources to fetch current prices and availability.\n• Location: Not requested and not used.\n• Tracking: None. The app does not read the advertising identifier and shows no App Tracking Transparency prompt.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
+  }
+}

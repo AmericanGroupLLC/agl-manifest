@@ -1,0 +1,15 @@
+{
+  "repo": "NexusTransferPay",
+  "slug": "nexustransferpay",
+  "_todo": [
+    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
+    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
+    "Add a language key beside \"en\" only once the app is translated."
+  ],
+  "copy": {
+    "en": {
+      "name": "NexusTransferPay",
+      "short_description": "Payments / money transfer      local payments"
+    }
+  }
+}

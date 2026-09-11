@@ -1,0 +1,17 @@
+{
+  "_comment": [
+    "Values every AGL listing shares. Anything here can be overridden per app",
+    "in store/apps/<repo>.json. The URL templates take {slug}, which defaults",
+    "to the lowercased repository name.",
+    "review_information.notes is deliberately absent: it describes one app to a reviewer, so it belongs in store/apps/<repo>.json, never here."
+  ],
+  "copyright": "2026 American Group LLC",
+  "support_url_template": "https://americangroupllc.github.io/policy/{slug}/support.html",
+  "privacy_url_template": "https://americangroupllc.github.io/policy/{slug}/",
+  "review_information": {
+    "first_name": "App",
+    "last_name": "Reviewer",
+    "email_address": "contact@safecodeg.com",
+    "phone_number": "+1 415 555 0142"
+  }
+}
