@@ -16,7 +16,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "AGrammarly",
@@ -31,7 +38,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "AGRecorder",
@@ -46,7 +60,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "BodyQuest",
@@ -61,7 +82,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "CalcMaster",
@@ -76,7 +104,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "CarDeal",
@@ -91,7 +126,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "ChefCount",
@@ -106,7 +148,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "CodeDeal",
@@ -121,7 +170,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "daily-pulse",
@@ -136,7 +192,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "DriftDate",
@@ -151,7 +214,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "EventSpark",
@@ -166,7 +236,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "FashionFactory",
@@ -181,7 +258,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "GadgetNest",
@@ -196,7 +280,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "GroceryMatch",
@@ -211,7 +302,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "HerJourney",
@@ -226,7 +324,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "HomeWise",
@@ -241,7 +346,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "iMaps",
@@ -256,7 +368,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "iMeasure",
@@ -271,7 +390,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "Kinnav",
@@ -286,7 +412,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "MileMaster",
@@ -301,7 +434,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "MyFinance",
@@ -316,7 +456,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "MyHealth",
@@ -331,7 +478,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "NearServe",
@@ -346,7 +500,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "NewsBoard",
@@ -361,7 +522,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "NexusTransferPay",
@@ -376,7 +544,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "Photriya",
@@ -391,7 +566,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "PilotEnRoute",
@@ -406,7 +588,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "portfolio-board",
@@ -421,7 +610,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "radiotune",
@@ -436,7 +632,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "RideZap",
@@ -451,7 +654,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "RoomCraft",
@@ -466,7 +676,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "TripNest",
@@ -481,7 +698,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "Uscis-Case",
@@ -496,7 +720,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "Verba",
@@ -511,7 +742,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "VirtuBand",
@@ -526,7 +764,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": false
+      }
     },
     {
       "repo": "WiFiTrail",
@@ -541,7 +786,14 @@
         "ios": true
       },
       "ads": false,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     },
     {
       "repo": "yourtube",
@@ -556,7 +808,14 @@
         "ios": true
       },
       "ads": true,
-      "needs_private_packages": true
+      "needs_private_packages": true,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      }
     }
   ]
 }
