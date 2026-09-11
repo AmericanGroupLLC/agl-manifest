@@ -92,7 +92,10 @@ def count_dart_signal(app: pathlib.Path, pattern: re.Pattern) -> int:
 
 
 L10N_CALLSITE = re.compile(r"\bl10n\.|AppLocalizations\.of\(|AglL10n\.of\(")
-SEMANTICS = re.compile(r"\bSemantics\(|semanticLabel:")
+# `tooltip:` counts: Flutter feeds an IconButton's tooltip straight into the
+# semantics tree, so it is what a screen reader announces. Counting only
+# Semantics() and semanticLabel understated how many controls are named.
+SEMANTICS = re.compile(r"\bSemantics\(|semanticLabel:|tooltip:")
 
 
 def audit_repo(repo: pathlib.Path) -> dict:
