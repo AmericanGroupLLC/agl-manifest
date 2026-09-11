@@ -48,12 +48,12 @@ is not wired yet.
 | 35 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `com.americangroupllc.virtuband` | yes | yes | Supabase | yes | yes |
 | 36 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | `com.americangroupllc.wifitrail` | yes | yes | none | — | — |
 | 37 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `com.americangroup.yourtube` | yes | yes | Supabase + Google + Apple | yes | yes |
-| 38 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | _not ported_ | — | — | — | — | — |
-| 39 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | _not ported_ | — | — | — | — | — |
-| 40 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | _not ported_ | — | — | — | — | — |
-| 41 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | _not ported_ | — | — | — | — | — |
-| 42 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | _not ported_ | — | — | — | — | — |
-| 43 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | _not ported_ | — | — | — | — | — |
+| 38 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroupllc.aeroswift` _(reserved)_ | — | — | — | — | — |
+| 39 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | `com.americangroupllc.agstudio` _(reserved)_ | — | — | — | — | — |
+| 40 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | `com.americangroupllc.apexmarketwatch` _(reserved)_ | — | — | — | — | — |
+| 41 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | `com.americangroupllc.buddyplay` _(reserved)_ | — | — | — | — | — |
+| 42 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | `com.americangroupllc.mycard` _(reserved)_ | — | — | — | — | — |
+| 43 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `com.americangroupllc.plantpulse` _(reserved)_ | — | — | — | — | — |
 
 17 of 37 Flutter apps have a sign-in dependency; the rest need no account at all. 6 apps are not ported yet and have no Flutter package name to register.
 

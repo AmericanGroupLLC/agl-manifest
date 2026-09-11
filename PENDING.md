@@ -78,3 +78,25 @@ same as one that is missing.
 | --- | --- |
 | CodeDeal | A partial Flutter port that does not compile — 5 analyzer errors |
 | AGStudio, ApexMarketWatch, BuddyPlay, MyCard, PlantPulse | Not Flutter yet; outside this manifest until ported |
+
+## 5. What is now credentialed, and what one thing is not
+
+Loaded into this repository's secrets on 2026-09-10, read from the material
+already on the build machine:
+
+| Credential | Source | Status |
+| --- | --- | --- |
+| `ASC_KEY_ID` `UV8NYF9767` | `AuthKey_UV8NYF9767.p8` in the backend repo root, untracked | **set** |
+| `ASC_ISSUER_ID` | the planning workbook, sheet 8 | **set** |
+| `ASC_KEY_CONTENT` | the same `.p8`, base64 | **set**, verified a 256-bit EC key |
+| 30 × `KEYSTORE_<APP>_BASE64` | `~/agl/.secrets/keystores/` | **set** — all 30 verified to open with their recorded password |
+| `ANDROID_KEYSTORE_CONFIG` | `~/agl/.secrets/keystores.json` | **set** — alias and passwords for all 30 |
+
+So App Store Connect authentication and Android signing are both credentialed
+here now. **`AGL_PACKAGES_TOKEN` is the one thing still missing**, and nothing
+can build without it — not because of signing, but because `flutter pub get`
+cannot reach the shared packages. It is the single blocker between this
+repository and a set of signed binaries.
+
+Two credentials remain beyond it: the Play service-account JSON (upload), and a
+distribution certificate via `match` (iOS signing).

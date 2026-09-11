@@ -53,12 +53,12 @@ TestFlight is the only route to real hardware.
 | 34 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `com.americangroupllc.virtuband` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | yes | Supabase (optional) | v1.0.0 | **none — tag only** |
 | 35 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | `com.americangroupllc.wifitrail` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | none | v1.0.0 | **none — tag only** |
 | 36 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `com.americangroup.yourtube` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | yes | Supabase + Google + Apple (optional) | no release | — |
-| 37 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | _not ported_ | Not ported | — | — | — | — | — | — |
-| 38 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | _not ported_ | Not ported | — | — | — | — | — | — |
-| 39 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | _not ported_ | Not ported | — | — | — | — | — | — |
-| 40 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | _not ported_ | Not ported | — | — | — | — | — | — |
-| 41 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | _not ported_ | Not ported | — | — | — | — | — | — |
-| 42 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | _not ported_ | Not ported | — | — | — | — | — | — |
+| 37 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroupllc.aeroswift` _(reserved)_ | Not ported | — | — | — | — | — | — |
+| 38 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | `com.americangroupllc.agstudio` _(reserved)_ | Not ported | — | — | — | — | — | — |
+| 39 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | `com.americangroupllc.apexmarketwatch` _(reserved)_ | Not ported | — | — | — | — | — | — |
+| 40 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | `com.americangroupllc.buddyplay` _(reserved)_ | Not ported | — | — | — | — | — | — |
+| 41 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | `com.americangroupllc.mycard` _(reserved)_ | Not ported | — | — | — | — | — | — |
+| 42 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `com.americangroupllc.plantpulse` _(reserved)_ | Not ported | — | — | — | — | — | — |
 
 **1 of 42 apps have a binary anyone can download.** 27 carry a release tag, so most of those tags are empty — they look like a release on the Releases page with nothing attached to install. 36 apps are Flutter and buildable; 6 are not ported yet and have no Flutter package name to register anywhere.
 

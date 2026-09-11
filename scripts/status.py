@@ -83,6 +83,8 @@ def _ids(app: dict) -> str:
     ios = app.get("bundle_id") or ""
     if not android and not ios:
         return "_not ported_"
+    if app.get("package_reserved"):
+        return f"`{android}` _(reserved)_"
     if android == ios:
         return f"`{android}`"
     parts = []
@@ -298,7 +300,7 @@ def write_matrix(offline: bool) -> None:
     for number, app in enumerate(APPS, start=1):
         if not app["flutter"]:
             lines.append(
-                f"| {number} | {_link(app['repo'])} | _not ported_ | — | — "
+                f"| {number} | {_link(app['repo'])} | {_ids(app)} | — | — "
                 f"| — | — | — |"
             )
             continue

@@ -86,19 +86,64 @@ jobs:
           bundler-cache: true
 
       # Written to the runner's temp directory, never to the workspace, so a
-      # later step cannot pick them up as build inputs or upload them.
-      - name: Materialise Android signing material
+      # later step cannot pick them up as a build input or upload them.
+      #
+      # Each app has its own upload keystore — Play binds an upload key per app,
+      # and losing one means that app can never be updated again. So this
+      # cannot be a single keystore the way a one-app pipeline would be.
+      - name: Check out the apps
+        run: python3 scripts/checkout.py --apps ${{ inputs.apps }}
+
+      - name: Materialise per-app signing material
         if: inputs.platform == 'android'
         env:
-          KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          ANDROID_KEYSTORE_CONFIG: ${{ secrets.ANDROID_KEYSTORE_CONFIG }}
           PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          # One secret per app. Names are KEYSTORE_<APP>_BASE64; the script
+          # reads whichever ones the selected batch needs.
+          KEYSTORE_AGCLEANER_BASE64: ${{ secrets.KEYSTORE_AGCLEANER_BASE64 }}
+          KEYSTORE_AGRAMMARLY_BASE64: ${{ secrets.KEYSTORE_AGRAMMARLY_BASE64 }}
+          KEYSTORE_AGRECORDER_BASE64: ${{ secrets.KEYSTORE_AGRECORDER_BASE64 }}
+          KEYSTORE_BODYQUEST_BASE64: ${{ secrets.KEYSTORE_BODYQUEST_BASE64 }}
+          KEYSTORE_CALCMASTER_BASE64: ${{ secrets.KEYSTORE_CALCMASTER_BASE64 }}
+          KEYSTORE_CARDEAL_BASE64: ${{ secrets.KEYSTORE_CARDEAL_BASE64 }}
+          KEYSTORE_CHEFCOUNT_BASE64: ${{ secrets.KEYSTORE_CHEFCOUNT_BASE64 }}
+          KEYSTORE_DAILY_PULSE_BASE64: ${{ secrets.KEYSTORE_DAILY_PULSE_BASE64 }}
+          KEYSTORE_DRIFTDATE_BASE64: ${{ secrets.KEYSTORE_DRIFTDATE_BASE64 }}
+          KEYSTORE_EVENTSPARK_BASE64: ${{ secrets.KEYSTORE_EVENTSPARK_BASE64 }}
+          KEYSTORE_FASHIONFACTORY_BASE64: ${{ secrets.KEYSTORE_FASHIONFACTORY_BASE64 }}
+          KEYSTORE_GADGETNEST_BASE64: ${{ secrets.KEYSTORE_GADGETNEST_BASE64 }}
+          KEYSTORE_GROCERYMATCH_BASE64: ${{ secrets.KEYSTORE_GROCERYMATCH_BASE64 }}
+          KEYSTORE_HERJOURNEY_BASE64: ${{ secrets.KEYSTORE_HERJOURNEY_BASE64 }}
+          KEYSTORE_HOMEWISE_BASE64: ${{ secrets.KEYSTORE_HOMEWISE_BASE64 }}
+          KEYSTORE_IMAPS_BASE64: ${{ secrets.KEYSTORE_IMAPS_BASE64 }}
+          KEYSTORE_IMEASURE_BASE64: ${{ secrets.KEYSTORE_IMEASURE_BASE64 }}
+          KEYSTORE_KINNAV_BASE64: ${{ secrets.KEYSTORE_KINNAV_BASE64 }}
+          KEYSTORE_MILEMASTER_BASE64: ${{ secrets.KEYSTORE_MILEMASTER_BASE64 }}
+          KEYSTORE_MYFINANCE_BASE64: ${{ secrets.KEYSTORE_MYFINANCE_BASE64 }}
+          KEYSTORE_MYHEALTH_BASE64: ${{ secrets.KEYSTORE_MYHEALTH_BASE64 }}
+          KEYSTORE_NEARSERVE_BASE64: ${{ secrets.KEYSTORE_NEARSERVE_BASE64 }}
+          KEYSTORE_NEWSBOARD_BASE64: ${{ secrets.KEYSTORE_NEWSBOARD_BASE64 }}
+          KEYSTORE_NEXUSTRANSFERPAY_BASE64: ${{ secrets.KEYSTORE_NEXUSTRANSFERPAY_BASE64 }}
+          KEYSTORE_PHOTRIYA_BASE64: ${{ secrets.KEYSTORE_PHOTRIYA_BASE64 }}
+          KEYSTORE_PILOTENROUTE_BASE64: ${{ secrets.KEYSTORE_PILOTENROUTE_BASE64 }}
+          KEYSTORE_PORTFOLIO_BOARD_BASE64: ${{ secrets.KEYSTORE_PORTFOLIO_BOARD_BASE64 }}
+          KEYSTORE_RADIOTUNE_BASE64: ${{ secrets.KEYSTORE_RADIOTUNE_BASE64 }}
+          KEYSTORE_RIDEZAP_BASE64: ${{ secrets.KEYSTORE_RIDEZAP_BASE64 }}
+          KEYSTORE_ROOMCRAFT_BASE64: ${{ secrets.KEYSTORE_ROOMCRAFT_BASE64 }}
+          KEYSTORE_TRIPNEST_BASE64: ${{ secrets.KEYSTORE_TRIPNEST_BASE64 }}
+          KEYSTORE_USCIS_CASE_BASE64: ${{ secrets.KEYSTORE_USCIS_CASE_BASE64 }}
+          KEYSTORE_VERBA_BASE64: ${{ secrets.KEYSTORE_VERBA_BASE64 }}
+          KEYSTORE_VIRTUBAND_BASE64: ${{ secrets.KEYSTORE_VIRTUBAND_BASE64 }}
+          KEYSTORE_WIFITRAIL_BASE64: ${{ secrets.KEYSTORE_WIFITRAIL_BASE64 }}
+          KEYSTORE_YOURTUBE_BASE64: ${{ secrets.KEYSTORE_YOURTUBE_BASE64 }}
         run: |
-          if [ -z "$KEYSTORE" ] || [ -z "$PLAY_JSON" ]; then
-            echo "::error::ANDROID_KEYSTORE_BASE64 and PLAY_SERVICE_ACCOUNT_JSON are both required to deliver to Play."
-            exit 1
+          python3 scripts/materialise_signing.py --apps "${{ inputs.apps }}" --out "$RUNNER_TEMP"
+          if [ -n "$PLAY_JSON" ]; then
+            printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/play.json"
+          else
+            echo "::warning::PLAY_SERVICE_ACCOUNT_JSON is not set — the build will sign but the Play upload will fail."
           fi
-          echo "$KEYSTORE" | base64 -d > "$RUNNER_TEMP/upload.jks"
-          printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/play.json"
 
       - name: Deliver
         env:
@@ -113,10 +158,10 @@ jobs:
           MATCH_GIT_BASIC_AUTHORIZATION: ${{ secrets.MATCH_GIT_BASIC_AUTHORIZATION }}
           # Android
           PLAY_JSON_KEY_FILE: ${{ runner.temp }}/play.json
-          ANDROID_KEYSTORE_PATH: ${{ runner.temp }}/upload.jks
-          ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-          ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
-          ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+          # No ANDROID_KEYSTORE_* here on purpose: signing comes from the
+          # per-app android/key.properties written in the step above, which is
+          # what each app's Gradle config reads. A single set of keystore
+          # variables would sign 36 apps with one key.
           # Production AdMob unit ids, so a release build serves live ads. A
           # build without them serves Google's test units, which is the safe
           # default rather than a broken one.
