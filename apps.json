@@ -37,7 +37,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "AGrammarly",
@@ -73,7 +75,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "AGRecorder",
@@ -109,7 +113,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "BodyQuest",
@@ -149,7 +155,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "CalcMaster",
@@ -191,7 +199,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "CarDeal",
@@ -227,7 +237,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "ChefCount",
@@ -263,7 +275,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "CodeDeal",
@@ -299,7 +313,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "daily-pulse",
@@ -339,7 +355,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "DriftDate",
@@ -379,7 +397,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "EventSpark",
@@ -415,7 +435,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "FashionFactory",
@@ -451,7 +473,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "GadgetNest",
@@ -487,7 +511,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "GroceryMatch",
@@ -528,7 +554,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "HerJourney",
@@ -568,7 +596,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "HomeWise",
@@ -604,7 +634,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "iMaps",
@@ -646,7 +678,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "iMeasure",
@@ -688,7 +722,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "Kinnav",
@@ -728,7 +764,10 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "status": "transferred to srpatcha/Kinnav; pushes follow a redirect",
+      "in_org": false
     },
     {
       "repo": "MileMaster",
@@ -764,7 +803,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "MyFinance",
@@ -800,7 +841,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "MyHealth",
@@ -840,7 +883,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "NearServe",
@@ -876,7 +921,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "NewsBoard",
@@ -912,7 +959,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "NexusTransferPay",
@@ -950,7 +999,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "Photriya",
@@ -991,7 +1042,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "PilotEnRoute",
@@ -1031,7 +1084,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "portfolio-board",
@@ -1067,7 +1122,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "radiotune",
@@ -1109,7 +1166,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "RideZap",
@@ -1145,7 +1204,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "RoomCraft",
@@ -1181,7 +1242,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "TripNest",
@@ -1219,7 +1282,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "Uscis-Case",
@@ -1261,7 +1326,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "Verba",
@@ -1297,7 +1364,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "VirtuBand",
@@ -1337,7 +1406,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "WiFiTrail",
@@ -1373,7 +1444,9 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
     },
     {
       "repo": "yourtube",
@@ -1413,7 +1486,243 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": true
-      }
+      },
+      "flutter": true,
+      "in_org": true
+    },
+    {
+      "repo": "AeroSwift",
+      "url": "https://github.com/AmericanGroupLLC/AeroSwift.git",
+      "branch": "main",
+      "dir": ".",
+      "flutter": false,
+      "status": "TypeScript monorepo (npm workspaces): tracking, personal, transit",
+      "application_id": "",
+      "bundle_id": "",
+      "version": "",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "needs_private_packages": false,
+      "platforms": {
+        "android": false,
+        "ios": false
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "in_org": true
+    },
+    {
+      "repo": "AGStudio",
+      "url": "https://github.com/AmericanGroupLLC/AGStudio.git",
+      "branch": "main",
+      "dir": ".",
+      "flutter": false,
+      "status": "React Native \u2014 port pending",
+      "application_id": "",
+      "bundle_id": "",
+      "version": "",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "needs_private_packages": false,
+      "platforms": {
+        "android": false,
+        "ios": false
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "in_org": true
+    },
+    {
+      "repo": "ApexMarketWatch",
+      "url": "https://github.com/AmericanGroupLLC/ApexMarketWatch.git",
+      "branch": "main",
+      "dir": ".",
+      "flutter": false,
+      "status": "not Flutter yet",
+      "application_id": "",
+      "bundle_id": "",
+      "version": "",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "needs_private_packages": false,
+      "platforms": {
+        "android": false,
+        "ios": false
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "in_org": true
+    },
+    {
+      "repo": "BuddyPlay",
+      "url": "https://github.com/AmericanGroupLLC/BuddyPlay.git",
+      "branch": "main",
+      "dir": ".",
+      "flutter": false,
+      "status": "native Swift + Kotlin \u2014 port pending",
+      "application_id": "",
+      "bundle_id": "",
+      "version": "",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "needs_private_packages": false,
+      "platforms": {
+        "android": false,
+        "ios": false
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "in_org": true
+    },
+    {
+      "repo": "MyCard",
+      "url": "https://github.com/AmericanGroupLLC/MyCard.git",
+      "branch": "main",
+      "dir": ".",
+      "flutter": false,
+      "status": "native Swift + Kotlin + TS \u2014 port pending",
+      "application_id": "",
+      "bundle_id": "",
+      "version": "",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "needs_private_packages": false,
+      "platforms": {
+        "android": false,
+        "ios": false
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "in_org": true
+    },
+    {
+      "repo": "PlantPulse",
+      "url": "https://github.com/AmericanGroupLLC/PlantPulse.git",
+      "branch": "main",
+      "dir": ".",
+      "flutter": false,
+      "status": "not Flutter yet",
+      "application_id": "",
+      "bundle_id": "",
+      "version": "",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "needs_private_packages": false,
+      "platforms": {
+        "android": false,
+        "ios": false
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "in_org": true
     }
   ]
 }

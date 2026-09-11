@@ -12,3 +12,12 @@ vendor/bundle/
 *.p12
 *.mobileprovision
 play-service-account.json
+
+# Never commit these. The planning workbook carries live credentials — the
+# backend's own RELEASE_PIPELINE.md says so explicitly — and the developer
+# guides and PDF are copies of private backend documentation that has no
+# reason to be duplicated into a delivery repository.
+SFG-AGL-MobileApp_Devlopment-Tools.xlsx*
+AmericanGroupLLC_Developer_Docs.pdf
+AmericanGroupLLC — *.md
+*.xlsx

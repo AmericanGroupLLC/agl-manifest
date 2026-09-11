@@ -15,6 +15,7 @@ Needs `gh` authenticated for the live half.
 from __future__ import annotations
 
 import argparse
+import csv
 import json
 import pathlib
 import subprocess
@@ -63,76 +64,56 @@ def secrets(repo: str) -> set[str]:
     return {s for s in (raw or "").strip().split(",") if s}
 
 
-def write_releases(offline: bool) -> None:
-    lines = [
-        "# Release binaries",
-        "",
-        "Every app, and what you can download and run right now. Regenerate with",
-        "`python3 scripts/status.py`.",
-        "",
-        "`artifacts.yml` publishes these — an APK that installs on a device, the AAB",
-        "Play needs, and for iOS a simulator build. A `.aab` **cannot** be sideloaded;",
-        "it is a Play upload format, which is why both are published. The iOS build is",
-        "unsigned, so it runs in the Simulator and not on a phone — TestFlight is the",
-        "only route to real hardware.",
-        "",
-        "| App | Android | iOS | Ads | Login | Latest build | Assets | Releases |",
-        "| --- | :-: | :-: | :-: | --- | --- | --- | --- |",
-    ]
-    tagged = downloadable = 0
-    for app in APPS:
-        repo = app["repo"]
-        # Two different questions: does the platform exist in the repo, and
-        # can it actually be delivered (signing + a beta lane).
-        android = _support(app, "android")
-        ios = _support(app, "ios")
-        ads = "yes" if app["admob"]["integrated"] else "—"
-        login = _login(app)
-        latest, asset_text = "no release", "—"
-        if not offline:
-            rel = releases(repo)
-            if rel:
-                tagged += 1
-                top = rel[0]
-                latest = top["tagName"] + (" (draft)" if top.get("isDraft") else "")
-                names = assets(repo, top["tagName"])
-                if names:
-                    downloadable += 1
-                    asset_text = ", ".join(f"`{n}`" for n in names)
-                else:
-                    # A tag with nothing attached. It looks like a release on
-                    # the Releases page and there is nothing to install.
-                    asset_text = "**none — tag only**"
-        link = f"[releases](https://github.com/{ORG}/{repo}/releases)"
-        lines.append(
-            f"| {repo} | {android} | {ios} | {ads} | {login} | {latest} "
-            f"| {asset_text} | {link} |"
-        )
 
-    summary = (
-        f"**{downloadable} of {len(APPS)} apps have a binary anyone can download.** "
-        f"{tagged} carry a release tag, so most of those tags are empty — they look "
-        "like a release on the Releases page with nothing attached to install."
-    ) if not offline else ""
-    lines += [
-        "",
-        summary,
-        "",
-        "To produce them:",
-        "",
-        "```sh",
-        "# from the Actions tab: “Publish test builds”, or locally:",
-        "bundle exec fastlane publish_artifacts platform:android apps:all",
-        "bundle exec fastlane publish_artifacts platform:ios apps:all",
-        "```",
-        "",
-        "Nothing will publish until `AGL_PACKAGES_TOKEN` exists with **write** access —",
-        "see [PENDING.md](PENDING.md).",
-        "",
-    ]
-    (ROOT / "RELEASES.md").write_text("\n".join(lines))
-    print(f"RELEASES.md — {len(APPS)} apps")
+def _link(repo: str) -> str:
+    return f"[{repo}](https://github.com/{ORG}/{repo})"
 
+
+def _name(app: dict) -> str:
+    """The repo link, flagged when the repository is not the org's any more."""
+    link = _link(app["repo"])
+    return link if app.get("in_org", True) else f"{link} ⚠️"
+
+
+def _ids(app: dict) -> str:
+    """Android applicationId and iOS bundle id — what you type into AdMob, Play,
+    App Store Connect and `keytool`. Usually the same string, not always, so
+    both are shown when they differ."""
+    android = app.get("application_id") or ""
+    ios = app.get("bundle_id") or ""
+    if not android and not ios:
+        return "_not ported_"
+    if android == ios:
+        return f"`{android}`"
+    parts = []
+    if android:
+        parts.append(f"A `{android}`")
+    if ios:
+        parts.append(f"i `{ios}`")
+    return "<br>".join(parts)
+
+
+# Apps that cannot build at all, with the reason. Everything else is judged
+# from what was measured.
+BROKEN = {
+    "CodeDeal": "Does not compile — 5 analyzer errors",
+}
+
+
+def _status(app: dict, has_binary: bool) -> str:
+    """One phrase describing where this app actually is."""
+    if not app["flutter"]:
+        return "Not ported"
+    if app["repo"] in BROKEN:
+        return BROKEN[app["repo"]]
+    if not app.get("in_org", True):
+        return "Outside the org"
+    if has_binary:
+        return "Binary published"
+    if not (app["deliverable"]["android"] or app["deliverable"]["ios"]):
+        return "Builds, delivery not wired"
+    # Everything else is ready and waiting on the same one thing.
+    return "Ready — needs AGL_PACKAGES_TOKEN"
 
 
 def _support(app: dict, platform: str) -> str:
@@ -157,6 +138,147 @@ def _login(app: dict) -> str:
     return text
 
 
+def write_releases(offline: bool) -> None:
+    in_org = [a for a in APPS if a.get("in_org", True)]
+    outside = [a for a in APPS if not a.get("in_org", True)]
+
+    lines = [
+        "# Release binaries",
+        "",
+        f"All {len(in_org)} mobile apps in the organization: what each one is, where it",
+        "stands, and what you can download and run right now. Regenerate with",
+        "`python3 scripts/status.py`. Also published as",
+        "[`releases.csv`](releases.csv) for a spreadsheet.",
+        "",
+        "The package name in each row is what AdMob, Play, App Store Connect and",
+        "`keytool` all ask for, so this table is the one to work from when creating",
+        "AdMob entries, upload keys or store records.",
+        "",
+        "`artifacts.yml` publishes the binaries — an APK that installs on a device, the",
+        "AAB Play needs, and for iOS a simulator build. A `.aab` **cannot** be",
+        "sideloaded; it is a Play upload format, which is why both are published. The",
+        "iOS build is unsigned, so it runs in the Simulator and not on a phone —",
+        "TestFlight is the only route to real hardware.",
+        "",
+        "| # | App | Package / bundle id | Status | Android | iOS | Ads | Login | Build | Binaries |",
+        "| --: | --- | --- | --- | :-: | :-: | :-: | --- | --- | --- |",
+    ]
+
+    tagged = downloadable = 0
+    rows_csv = []
+    for number, app in enumerate(in_org, start=1):
+        repo = app["repo"]
+        latest, asset_text, names = "—", "—", []
+
+        if app["flutter"] and not offline:
+            rel = releases(repo)
+            if rel:
+                tagged += 1
+                top = rel[0]
+                latest = top["tagName"] + (" (draft)" if top.get("isDraft") else "")
+                names = assets(repo, top["tagName"])
+                if names:
+                    downloadable += 1
+                    asset_text = ", ".join(f"`{n}`" for n in names)
+                else:
+                    # A tag with nothing attached. It looks like a release on
+                    # the Releases page and there is nothing to install.
+                    asset_text = "**none — tag only**"
+            else:
+                latest = "no release"
+
+        status = _status(app, bool(names))
+        android = _support(app, "android") if app["flutter"] else "—"
+        ios = _support(app, "ios") if app["flutter"] else "—"
+        ads = ("yes" if app["admob"]["integrated"] else "—") if app["flutter"] else "—"
+        login = _login(app) if app["flutter"] else "—"
+
+        lines.append(
+            f"| {number} | {_link(repo)} | {_ids(app)} | {status} | {android} | {ios} "
+            f"| {ads} | {login} | {latest} | {asset_text} |"
+        )
+        rows_csv.append({
+            "no": number,
+            "app": repo,
+            "repo_url": f"https://github.com/{ORG}/{repo}",
+            "android_package": app.get("application_id", ""),
+            "ios_bundle_id": app.get("bundle_id", ""),
+            "status": status,
+            "android": android,
+            "ios": ios,
+            "ads": ads,
+            "login": login,
+            "latest_build": latest,
+            "binaries": ", ".join(names),
+            "admob_android_app_id": app["admob"].get("android_app_id", ""),
+            "admob_ios_app_id": app["admob"].get("ios_app_id", ""),
+            "admob_android_banner": app["admob"].get("android_banner", ""),
+            "admob_android_interstitial": app["admob"].get("android_interstitial", ""),
+        })
+
+    flutter_count = sum(1 for a in in_org if a["flutter"])
+    lines += [
+        "",
+        f"**{downloadable} of {len(in_org)} apps have a binary anyone can download.** "
+        f"{tagged} carry a release tag, so most of those tags are empty — they look "
+        "like a release on the Releases page with nothing attached to install. "
+        f"{flutter_count} apps are Flutter and buildable; "
+        f"{len(in_org) - flutter_count} are not ported yet and have no Flutter package "
+        "name to register anywhere.",
+        "",
+    ]
+
+    if outside:
+        lines += [
+            "## Not in the organization",
+            "",
+            "Still delivered by this manifest, but the repository is owned elsewhere and",
+            "reachable only through a GitHub redirect. If that redirect is ever removed,",
+            "delivery for it stops.",
+            "",
+            "| App | Where it lives now | Package |",
+            "| --- | --- | --- |",
+        ]
+        for app in outside:
+            lines.append(
+                f"| {app['repo']} | `{app.get('status', 'moved')}` | {_ids(app)} |"
+            )
+            rows_csv.append({
+                "no": "", "app": app["repo"],
+                "repo_url": f"https://github.com/{ORG}/{app['repo']}",
+                "android_package": app.get("application_id", ""),
+                "ios_bundle_id": app.get("bundle_id", ""),
+                "status": _status(app, False),
+                "android": "", "ios": "", "ads": "", "login": "",
+                "latest_build": "", "binaries": "",
+                "admob_android_app_id": "", "admob_ios_app_id": "",
+                "admob_android_banner": "", "admob_android_interstitial": "",
+            })
+        lines.append("")
+
+    lines += [
+        "## Producing the binaries",
+        "",
+        "```sh",
+        "# from the Actions tab: “Publish test builds”, or locally:",
+        "bundle exec fastlane publish_artifacts platform:android apps:all",
+        "bundle exec fastlane publish_artifacts platform:ios apps:all",
+        "```",
+        "",
+        "Nothing will publish until `AGL_PACKAGES_TOKEN` exists with **write** access —",
+        "see [PENDING.md](PENDING.md).",
+        "",
+    ]
+    (ROOT / "RELEASES.md").write_text("\n".join(lines))
+
+    with (ROOT / "releases.csv").open("w", newline="", encoding="utf-8") as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(rows_csv[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows_csv)
+
+    print(f"RELEASES.md + releases.csv — {len(in_org)} apps in the org")
+
+
 def write_matrix(offline: bool) -> None:
     lines = [
         "# Capability matrix",
@@ -170,27 +292,37 @@ def write_matrix(offline: bool) -> None:
         "config and a `beta` lane. `build only` means the project builds but delivery",
         "is not wired yet.",
         "",
-        "| App | Android | iOS | Sign-in | Login screen | Account optional |",
-        "| --- | :-: | :-: | --- | :-: | :-: |",
+        "| # | App | Package / bundle id | Android | iOS | Sign-in | Login screen | Account optional |",
+        "| --: | --- | --- | :-: | :-: | --- | :-: | :-: |",
     ]
-    for app in APPS:
+    for number, app in enumerate(APPS, start=1):
+        if not app["flutter"]:
+            lines.append(
+                f"| {number} | {_link(app['repo'])} | _not ported_ | — | — "
+                f"| — | — | — |"
+            )
+            continue
         auth = app["auth"]
         lines.append(
-            f"| {app['repo']} | {_support(app, 'android')} | {_support(app, 'ios')} "
+            f"| {number} | {_name(app)} | {_ids(app)} "
+            f"| {_support(app, 'android')} | {_support(app, 'ios')} "
             f"| {' + '.join(auth['providers']) or 'none'} "
             f"| {'yes' if auth['login_screen'] else '—'} "
             f"| {'yes' if auth['account_optional'] else '—'} |"
         )
 
     with_ads = [a for a in APPS if a["admob"]["integrated"]]
+    flutter = [a for a in APPS if a["flutter"]]
     lines += [
         "",
-        f"{sum(1 for a in APPS if a['auth']['providers'])} of {len(APPS)} apps have a "
-        "sign-in dependency; the rest need no account at all.",
+        f"{sum(1 for a in flutter if a['auth']['providers'])} of {len(flutter)} Flutter "
+        f"apps have a sign-in dependency; the rest need no account at all. "
+        f"{len(APPS) - len(flutter)} apps are not ported yet and have no Flutter "
+        "package name to register.",
         "",
         "## AdMob",
         "",
-        f"{len(with_ads)} of {len(APPS)} apps serve ads.",
+        f"{len(with_ads)} of {len(flutter)} Flutter apps serve ads.",
         "",
         "**Application ids** are declared in `AndroidManifest.xml` and `Info.plist` and",
         "must match what is passed to `AglAds.configure`. A mismatch is not a degraded",
@@ -202,8 +334,12 @@ def write_matrix(offline: bool) -> None:
         "default rather than a broken one. The values below are the console record,",
         "shown here so there is one place to check them against AdMob.",
         "",
-        "| App | Android app id | iOS app id | Android banner | Android interstitial |",
-        "| --- | --- | --- | --- | --- |",
+        "The package name in each row is what AdMob asks for when you add the app,",
+        "and what Play and `keytool` use — so this table is the one to work from when",
+        "creating AdMob entries, upload keys or store records.",
+        "",
+        "| # | App | Package / bundle id | Android app id | iOS app id | Android banner | Android interstitial |",
+        "| --: | --- | --- | --- | --- | --- | --- |",
     ]
 
     def cell(value: str) -> str:
@@ -215,10 +351,12 @@ def write_matrix(offline: bool) -> None:
             return f"`{value}` _(Google test)_"
         return f"`{value}`"
 
+    numbers = {a["repo"]: i for i, a in enumerate(APPS, start=1)}
     for app in with_ads:
         ad = app["admob"]
         lines.append(
-            f"| {app['repo']} | {cell(ad.get('android_app_id',''))} "
+            f"| {numbers[app['repo']]} | {_link(app['repo'])} | {_ids(app)} "
+            f"| {cell(ad.get('android_app_id',''))} "
             f"| {cell(ad.get('ios_app_id',''))} "
             f"| {cell(ad.get('android_banner',''))} "
             f"| {cell(ad.get('android_interstitial',''))} |"
@@ -247,13 +385,108 @@ def write_matrix(offline: bool) -> None:
     print(f"MATRIX.md — {len(with_ads)} ad apps, {len(APPS)} rows")
 
 
+
+def write_files(offline: bool) -> None:
+    """Every file that has to be dropped into a repository before it can ship."""
+    in_org = [a for a in APPS if a.get("in_org", True) and a["flutter"]]
+
+    lines = [
+        "# Required files",
+        "",
+        "Every file that has to exist before an app can be built, signed and shipped,",
+        "and exactly where it goes. Regenerate with `python3 scripts/status.py`;",
+        "also published as [`files.csv`](files.csv).",
+        "",
+        "None of these are in git. Two reasons, and they are different: the signing",
+        "material is secret and must never be committed, while the Firebase files are",
+        "not secret — Google documents them as shipping inside the binary — and are",
+        "absent only because nobody has downloaded them yet.",
+        "",
+        "## Once for the whole portfolio",
+        "",
+        "| File | Where it comes from | Where it goes | Needed for |",
+        "| --- | --- | --- | --- |",
+        "| `AuthKey_<KEYID>.p8` | App Store Connect → Users and Access → Keys. "
+        "Downloads once. | `ASC_KEY_CONTENT` secret, base64 | every iOS lane |",
+        "| Play service-account JSON | Play Console → Setup → API access → create a "
+        "service account → grant *Release manager* | `PLAY_SERVICE_ACCOUNT_JSON` "
+        "secret | Play upload |",
+        "| Apple distribution certificate + provisioning profiles | "
+        "`bundle exec fastlane match appstore` on a Mac signed into the Apple "
+        "account | the `match-certificates` branch | iOS signing on CI |",
+        "| A GitHub token | GitHub → Developer settings | `AGL_PACKAGES_TOKEN` "
+        "organization secret | cloning the apps, and `flutter pub get` reaching the "
+        "shared packages |",
+        "",
+        "## Per app",
+        "",
+        "`google-services.json` and `GoogleService-Info.plist` come from the Firebase",
+        "console for project `americangroupllc-5bdfc`, registered against the package",
+        "name and bundle id in the row. A mismatched package name is not a warning —",
+        "Crashlytics silently reports nothing, which looks exactly like an app that",
+        "never crashes.",
+        "",
+        "`key.properties` and the keystore are the Android upload key. **Lose a",
+        "keystore with Play App Signing off and that app can never be updated again.**",
+        "",
+        "| # | App | Package / bundle id | google-services.json | GoogleService-Info.plist | key.properties | Keystore |",
+        "| --: | --- | --- | --- | --- | --- | --- |",
+    ]
+
+    rows_csv = []
+    for number, app in enumerate(in_org, start=1):
+        prefix = "" if app["dir"] == "." else f"{app['dir']}/"
+        gs = f"`{prefix}android/app/google-services.json`"
+        gi = f"`{prefix}ios/Runner/GoogleService-Info.plist`"
+        kp = f"`{prefix}android/key.properties`"
+        ks = f"`~/agl/.secrets/keystores/{app['repo']}-upload.jks`"
+        lines.append(
+            f"| {number} | {_link(app['repo'])} | {_ids(app)} | {gs} | {gi} | {kp} | {ks} |"
+        )
+        rows_csv.append({
+            "no": number,
+            "app": app["repo"],
+            "android_package": app.get("application_id", ""),
+            "ios_bundle_id": app.get("bundle_id", ""),
+            "google_services_json": f"{prefix}android/app/google-services.json",
+            "google_service_info_plist": f"{prefix}ios/Runner/GoogleService-Info.plist",
+            "key_properties": f"{prefix}android/key.properties",
+            "keystore": f"~/agl/.secrets/keystores/{app['repo']}-upload.jks",
+            "firebase_android_present": not app["pending"]["firebase_android"],
+            "firebase_ios_present": not app["pending"]["firebase_ios"],
+        })
+
+    missing_android = sum(1 for a in in_org if a["pending"]["firebase_android"])
+    lines += [
+        "",
+        f"**{missing_android} of {len(in_org)} apps have no Firebase config at all.** "
+        "Until they do, `AglCrash.isActive` is false in every build and no crash is "
+        "reported. The Gradle plugins apply themselves the moment the JSON appears — "
+        "there is no code change waiting behind it.",
+        "",
+        "The keystores already exist for most apps; the five repositories whose "
+        "GitHub secrets are missing or misnamed are listed in "
+        "[PENDING.md](PENDING.md) §3.",
+        "",
+    ]
+    (ROOT / "FILES.md").write_text("\n".join(lines))
+
+    with (ROOT / "files.csv").open("w", newline="", encoding="utf-8") as fh:
+        writer = csv.DictWriter(fh, fieldnames=list(rows_csv[0].keys()))
+        writer.writeheader()
+        writer.writerows(rows_csv)
+
+    print(f"FILES.md + files.csv — {len(in_org)} apps, {missing_android} missing Firebase")
+
+
 def write_pending(offline: bool) -> None:
     per_repo = {} if offline else {a["repo"]: secrets(a["repo"]) for a in APPS}
 
     def count(predicate) -> int:
         return sum(1 for a in APPS if predicate(a))
 
-    missing_desc = [a["repo"] for a in APPS if a["pending"]["store_description"]]
+    missing_desc = [a["repo"] for a in APPS
+                    if a["flutter"] and a["pending"]["store_description"]]
     with_ads = [a for a in APPS if a["admob"]["integrated"]]
     def _no_live_admob(app: dict) -> bool:
         """No AdMob record behind this app, so it earns nothing.
@@ -357,7 +590,8 @@ def write_pending(offline: bool) -> None:
         "",
         "## 2. Store listing copy",
         "",
-        f"{len(missing_desc)} of {len(APPS)} apps have no description, which both stores",
+        f"{len(missing_desc)} of {sum(1 for a in APPS if a['flutter'])} Flutter apps "
+        "have no description, which both stores",
         "require. A description makes claims about what an app does, so it is written by",
         "someone who knows the product, not generated.",
         "",
@@ -426,6 +660,7 @@ def main() -> None:
     args = ap.parse_args()
     write_releases(args.offline)
     write_matrix(args.offline)
+    write_files(args.offline)
     write_pending(args.offline)
 
 
