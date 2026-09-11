@@ -100,3 +100,27 @@ repository and a set of signed binaries.
 
 Two credentials remain beyond it: the Play service-account JSON (upload), and a
 distribution certificate via `match` (iOS signing).
+
+## 6. What a full sweep of the backend actually turned up
+
+`/Users/spatchava/agl/AmericanGroupLLC-Backend` was searched for every
+credential-shaped file — `.p8`, `.p12`, `.cer`, `.pem`, `.mobileprovision`,
+`.jks`, service-account JSON, `.env`, and both Firebase config filenames.
+
+| Looking for | Found |
+| --- | --- |
+| App Store Connect API key | **yes** — `AuthKey_UV8NYF9767.p8`, now in secrets |
+| In-app-purchase key | `SubscriptionKey_PX7TXTDSHP.p8` — for the App Store Server API, not delivery |
+| ASC issuer id | **yes** — sheet 8 of the planning workbook, now in secrets |
+| Apple Team ID `TLH7Z3G27A` | in `RELEASE_PIPELINE.md` |
+| Android upload keystores | **yes** — 30, in `~/agl/.secrets/`, all verified and now in secrets |
+| Play service-account JSON | **no** — nothing anywhere in the mirror |
+| Distribution certificate / provisioning profiles | **no** — `certs/` holds only a Supabase CA |
+| Real Firebase configs | **no** |
+
+The last row needs care. Two `google-services.json` files exist under MyHealth,
+and both are placeholders: project `myhealth-local-dev`, project_number
+`000000000000`. A placeholder is worse than nothing — it makes Crashlytics
+initialise against a project that does not exist, so `AglCrash.isActive` turns
+true and every report vanishes, which reads as an app that never crashes. The
+sanity suite now rejects any config that is not `americangroupllc-5bdfc`.
