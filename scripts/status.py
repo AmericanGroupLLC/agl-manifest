@@ -481,6 +481,90 @@ def write_files(offline: bool) -> None:
     print(f"FILES.md + files.csv — {len(in_org)} apps, {missing_android} missing Firebase")
 
 
+
+def appstore_records() -> dict:
+    """Bundle id -> App Store Connect app name, from the last API sync.
+
+    Refresh with scripts/appstore_records.rb. Absent, the column simply says
+    "unknown" rather than guessing.
+    """
+    path = ROOT / "docs" / "appstore-records.json"
+    if not path.exists():
+        return {}
+    return {r["bundleId"]: r["name"] for r in json.loads(path.read_text())}
+
+
+def write_appstore(offline: bool) -> None:
+    records = appstore_records()
+    if not records:
+        print("APPSTORE.md skipped — run scripts/appstore_records.rb first")
+        return
+
+    in_org = [a for a in APPS if a.get("in_org", True)]
+    matched, missing = [], []
+    for app in in_org:
+        bid = app.get("bundle_id") or ""
+        (matched if bid and bid in records else missing).append(app)
+
+    used = {a["bundle_id"] for a in matched}
+    orphans = {b: n for b, n in records.items() if b not in used}
+
+    lines = [
+        "# App Store Connect records",
+        "",
+        f"Live from the API on the last sync: **{len(records)} app records exist**,",
+        f"and **{len(matched)} of {len(in_org)}** match a bundle id this portfolio",
+        "actually builds. Refresh with `bundle exec ruby scripts/appstore_records.rb`.",
+        "",
+        "This matters because a bundle id that does not match a record is not a",
+        "warning at upload time — it is a rejected build.",
+        "",
+        "## Matched",
+        "",
+        "| # | App | Bundle id | Store record |",
+        "| --: | --- | --- | --- |",
+    ]
+    numbers = {a["repo"]: i for i, a in enumerate(in_org, start=1)}
+    for app in matched:
+        lines.append(f"| {numbers[app['repo']]} | {_link(app['repo'])} "
+                     f"| `{app['bundle_id']}` | {records[app['bundle_id']]} |")
+
+    lines += [
+        "",
+        "## No matching record",
+        "",
+        "Each of these needs a record created — or, where the app was renamed, the",
+        "existing record below reused by changing the app's bundle id back to it.",
+        "A bundle id is permanent once published, so decide before the first upload.",
+        "",
+        "| # | App | Bundle id it builds with |",
+        "| --: | --- | --- |",
+    ]
+    for app in missing:
+        lines.append(f"| {numbers[app['repo']]} | {_link(app['repo'])} "
+                     f"| `{app.get('bundle_id') or '—'}` |")
+
+    lines += [
+        "",
+        "## Records with no app",
+        "",
+        "Mostly the portfolio's rename history — FoodRadar became GroceryMatch,",
+        "OfflineBuddy became Verba, DealZap became GadgetNest, StayDeal became",
+        "TripNest. Each is a decision: rename the record and keep its history, or",
+        "leave it and create a new one.",
+        "",
+        "| Bundle id | Store record |",
+        "| --- | --- |",
+    ]
+    for bid, name in sorted(orphans.items()):
+        lines.append(f"| `{bid}` | {name} |")
+    lines.append("")
+
+    (ROOT / "APPSTORE.md").write_text("\n".join(lines))
+    print(f"APPSTORE.md — {len(matched)} matched, {len(missing)} missing, "
+          f"{len(orphans)} orphaned records")
+
+
 def write_pending(offline: bool) -> None:
     per_repo = {} if offline else {a["repo"]: secrets(a["repo"]) for a in APPS}
 
@@ -663,6 +747,7 @@ def main() -> None:
     write_releases(args.offline)
     write_matrix(args.offline)
     write_files(args.offline)
+    write_appstore(args.offline)
     write_pending(args.offline)
 
 

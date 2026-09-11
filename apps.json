@@ -1131,8 +1131,8 @@
       "url": "https://github.com/AmericanGroupLLC/radiotune.git",
       "branch": "master",
       "dir": ".",
-      "application_id": "com.americangroup.ratiotune",
-      "bundle_id": "com.americangroup.ratiotune",
+      "application_id": "com.americangroup.radiotune",
+      "bundle_id": "com.americangroup.radiotune",
       "version": "2.0.1+2",
       "deliverable": {
         "android": true,

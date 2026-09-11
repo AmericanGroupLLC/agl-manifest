@@ -3288,7 +3288,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.ratiotune",
+    "application_id": "com.americangroup.radiotune",
     "min_sdk": "Version",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3322,7 +3322,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.ratiotune",
+    "ios_bundle_id": "com.americangroup.radiotune",
     "ios_podfile_platform": "13.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
