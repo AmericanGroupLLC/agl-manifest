@@ -1,0 +1,35 @@
+name: agl_ads
+description: >-
+  Shared Google AdMob integration for the American Group LLC mobile portfolio:
+  UMP consent, test-versus-production unit selection, a frequency-capped
+  interstitial, and an adaptive banner that occupies no space until it fills.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Wide on purpose: the portfolio runs 5.3.1 and 9.1.0 side by side, and
+  # pinning either would force the other family to move in the same commit that
+  # adds a consent flow. The UMP surface this package uses — ConsentInformation,
+  # ConsentForm, canRequestAds, getPrivacyOptionsRequirementStatus — is
+  # identical in both, and both are exercised by the rollout.
+  google_mobile_ads: ">=5.2.0 <10.0.0"
+  # The same git descriptor the apps use, not `path: ../agl_observability`.
+  # Pub treats a path source and a git source for one package as two different
+  # packages, so a path dependency here made every app that also depends on
+  # agl_observability directly fail to resolve.
+  agl_observability:
+    git:
+      url: https://github.com/AmericanGroupLLC/agl-manifest.git
+      path: packages/agl_observability
+      ref: master
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0

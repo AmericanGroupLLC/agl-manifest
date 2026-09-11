@@ -1,0 +1,267 @@
+{
+  "@@locale": "en",
+  "actionSave": "Save",
+  "@actionSave": {
+    "description": "Button: commit a change."
+  },
+  "actionCancel": "Cancel",
+  "@actionCancel": {
+    "description": "Button: abandon a dialog or flow."
+  },
+  "actionDelete": "Delete",
+  "@actionDelete": {
+    "description": "Button: destroy something permanently."
+  },
+  "actionRemove": "Remove",
+  "@actionRemove": {
+    "description": "Button: take out of a list, not destroy."
+  },
+  "actionAdd": "Add",
+  "@actionAdd": {
+    "description": "Button: create or attach a new item."
+  },
+  "actionEdit": "Edit",
+  "@actionEdit": {
+    "description": "Button: open something for changes."
+  },
+  "actionRetry": "Retry",
+  "@actionRetry": {
+    "description": "Button shown after a failure."
+  },
+  "actionClose": "Close",
+  "@actionClose": {
+    "description": "Button: dismiss a sheet or dialog."
+  },
+  "actionBack": "Back",
+  "@actionBack": {
+    "description": "Button: return to the previous screen."
+  },
+  "actionContinue": "Continue",
+  "@actionContinue": {
+    "description": "Button: proceed in a multi-step flow."
+  },
+  "actionNext": "Next",
+  "@actionNext": {
+    "description": "Button: advance one step."
+  },
+  "actionSkip": "Skip",
+  "@actionSkip": {
+    "description": "Button: bypass an optional step."
+  },
+  "actionDone": "Done",
+  "@actionDone": {
+    "description": "Button: finish and leave."
+  },
+  "actionReset": "Reset",
+  "@actionReset": {
+    "description": "Button: return to defaults."
+  },
+  "actionShare": "Share",
+  "@actionShare": {
+    "description": "Button: open the system share sheet."
+  },
+  "actionSearch": "Search",
+  "@actionSearch": {
+    "description": "Button or field label for searching."
+  },
+  "actionClear": "Clear",
+  "@actionClear": {
+    "description": "Button: empty a field."
+  },
+  "actionClearAll": "Clear all",
+  "@actionClearAll": {
+    "description": "Button: empty every filter or entry at once."
+  },
+  "actionClearSearch": "Clear search",
+  "@actionClearSearch": {
+    "description": "Accessible label on the X inside a search field."
+  },
+  "actionSeeAll": "See all",
+  "@actionSeeAll": {
+    "description": "Link at the end of a preview row."
+  },
+  "actionRefresh": "Refresh",
+  "@actionRefresh": {
+    "description": "Button: fetch again."
+  },
+  "actionApply": "Apply",
+  "@actionApply": {
+    "description": "Button: commit filter choices."
+  },
+  "actionConfirm": "Confirm",
+  "@actionConfirm": {
+    "description": "Button: agree to a consequential action."
+  },
+  "actionStart": "Start",
+  "@actionStart": {
+    "description": "Button: begin a timed or recorded activity."
+  },
+  "actionStop": "Stop",
+  "@actionStop": {
+    "description": "Button: end a timed or recorded activity."
+  },
+  "navHome": "Home",
+  "@navHome": {
+    "description": "Bottom navigation tab."
+  },
+  "navSearch": "Search",
+  "@navSearch": {
+    "description": "Bottom navigation tab."
+  },
+  "navSaved": "Saved",
+  "@navSaved": {
+    "description": "Bottom navigation tab."
+  },
+  "navProfile": "Profile",
+  "@navProfile": {
+    "description": "Bottom navigation tab."
+  },
+  "navSettings": "Settings",
+  "@navSettings": {
+    "description": "Bottom navigation tab or menu entry."
+  },
+  "navBrowse": "Browse",
+  "@navBrowse": {
+    "description": "Bottom navigation tab for exploring a catalogue."
+  },
+  "navActivity": "Activity",
+  "@navActivity": {
+    "description": "Bottom navigation tab for recent events."
+  },
+  "navAccount": "Account",
+  "@navAccount": {
+    "description": "Settings section for the signed-in user."
+  },
+  "navNotifications": "Notifications",
+  "@navNotifications": {
+    "description": "Settings section or screen title."
+  },
+  "authSignIn": "Sign in",
+  "@authSignIn": {
+    "description": "Button and screen title."
+  },
+  "authSignOut": "Sign out",
+  "@authSignOut": {
+    "description": "Destructive-ish menu entry."
+  },
+  "authSignUp": "Create account",
+  "@authSignUp": {
+    "description": "Button: register a new account."
+  },
+  "authEmail": "Email",
+  "@authEmail": {
+    "description": "Text field label."
+  },
+  "authPassword": "Password",
+  "@authPassword": {
+    "description": "Text field label."
+  },
+  "authContinueWithGoogle": "Continue with Google",
+  "@authContinueWithGoogle": {
+    "description": "OAuth button. \"Google\" is a brand and stays."
+  },
+  "authContinueWithApple": "Continue with Apple",
+  "@authContinueWithApple": {
+    "description": "OAuth button. \"Apple\" is a brand and stays."
+  },
+  "authContinueAsGuest": "Continue as guest",
+  "@authContinueAsGuest": {
+    "description": "Button: use the app without an account."
+  },
+  "authName": "Name",
+  "@authName": {
+    "description": "Text field label."
+  },
+  "stateLoading": "Loading…",
+  "@stateLoading": {
+    "description": "Shown while waiting. Ends with an ellipsis."
+  },
+  "stateNothingSaved": "Nothing saved yet",
+  "@stateNothingSaved": {
+    "description": "Empty state on a saved/bookmarks screen."
+  },
+  "stateNoResults": "No results",
+  "@stateNoResults": {
+    "description": "Empty state after a search."
+  },
+  "stateSomethingWentWrong": "Something went wrong",
+  "@stateSomethingWentWrong": {
+    "description": "Generic error heading."
+  },
+  "stateOffline": "You're offline",
+  "@stateOffline": {
+    "description": "Shown when the device has no connection."
+  },
+  "stateCheckConnection": "Check your connection and try again",
+  "@stateCheckConnection": {
+    "description": "Advice under an offline or network error."
+  },
+  "miscLanguage": "Language",
+  "@miscLanguage": {
+    "description": "Settings entry and title of the language picker."
+  },
+  "miscSystemDefault": "System default",
+  "@miscSystemDefault": {
+    "description": "Language picker option: follow the device."
+  },
+  "miscFollowDeviceLanguage": "Follow the device language",
+  "@miscFollowDeviceLanguage": {
+    "description": "Explanation under the system-default option."
+  },
+  "miscDarkMode": "Dark mode",
+  "@miscDarkMode": {
+    "description": "Settings toggle."
+  },
+  "miscPrivacyPolicy": "Privacy policy",
+  "@miscPrivacyPolicy": {
+    "description": "Settings link."
+  },
+  "miscTermsOfService": "Terms of service",
+  "@miscTermsOfService": {
+    "description": "Settings link."
+  },
+  "miscAbout": "About",
+  "@miscAbout": {
+    "description": "Settings section."
+  },
+  "miscVersion": "Version",
+  "@miscVersion": {
+    "description": "Settings row showing the build version."
+  },
+  "miscFilters": "Filters",
+  "@miscFilters": {
+    "description": "Title of a filter sheet."
+  },
+  "miscSort": "Sort",
+  "@miscSort": {
+    "description": "Button that opens sort options."
+  },
+  "miscToday": "Today",
+  "@miscToday": {
+    "description": "Relative date."
+  },
+  "miscYesterday": "Yesterday",
+  "@miscYesterday": {
+    "description": "Relative date."
+  },
+  "miscTotal": "Total",
+  "@miscTotal": {
+    "description": "Label before a summed figure."
+  },
+  "miscAll": "All",
+  "@miscAll": {
+    "description": "Filter option meaning no restriction."
+  },
+  "miscAny": "Any",
+  "@miscAny": {
+    "description": "Filter option meaning no preference."
+  },
+  "miscQuickActions": "Quick actions",
+  "@miscQuickActions": {
+    "description": "Section heading on a home screen."
+  },
+  "miscSampleData": "Sample data — not a live feed",
+  "@miscSampleData": {
+    "description": "Disclaimer shown wherever demonstration data appears."
+  }
+}

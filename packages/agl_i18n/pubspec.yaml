@@ -1,0 +1,27 @@
+name: agl_i18n
+description: >-
+  Shared internationalization for the American Group LLC mobile portfolio: the
+  standard locale set, a persisted locale controller, a language picker, and the
+  common UI vocabulary translated once for every app.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  intl: any
+  shared_preferences: ^2.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  generate: true
