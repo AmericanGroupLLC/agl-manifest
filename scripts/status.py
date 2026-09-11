@@ -76,14 +76,18 @@ def write_releases(offline: bool) -> None:
         "unsigned, so it runs in the Simulator and not on a phone — TestFlight is the",
         "only route to real hardware.",
         "",
-        "| App | Android | iOS | Latest build | Assets | Releases |",
-        "| --- | :-: | :-: | --- | --- | --- |",
+        "| App | Android | iOS | Ads | Login | Latest build | Assets | Releases |",
+        "| --- | :-: | :-: | :-: | --- | --- | --- | --- |",
     ]
     tagged = downloadable = 0
     for app in APPS:
         repo = app["repo"]
-        android = "yes" if app["deliverable"]["android"] else "—"
-        ios = "yes" if app["deliverable"]["ios"] else "—"
+        # Two different questions: does the platform exist in the repo, and
+        # can it actually be delivered (signing + a beta lane).
+        android = _support(app, "android")
+        ios = _support(app, "ios")
+        ads = "yes" if app["admob"]["integrated"] else "—"
+        login = _login(app)
         latest, asset_text = "no release", "—"
         if not offline:
             rel = releases(repo)
@@ -100,7 +104,10 @@ def write_releases(offline: bool) -> None:
                     # the Releases page and there is nothing to install.
                     asset_text = "**none — tag only**"
         link = f"[releases](https://github.com/{ORG}/{repo}/releases)"
-        lines.append(f"| {repo} | {android} | {ios} | {latest} | {asset_text} | {link} |")
+        lines.append(
+            f"| {repo} | {android} | {ios} | {ads} | {login} | {latest} "
+            f"| {asset_text} | {link} |"
+        )
 
     summary = (
         f"**{downloadable} of {len(APPS)} apps have a binary anyone can download.** "
@@ -127,6 +134,119 @@ def write_releases(offline: bool) -> None:
     print(f"RELEASES.md — {len(APPS)} apps")
 
 
+
+def _support(app: dict, platform: str) -> str:
+    """`yes` when the platform is present and deliverable, `build only` when the
+    project exists but delivery is not wired, `—` when there is no target."""
+    if not app["platforms"][platform]:
+        return "—"
+    return "yes" if app["deliverable"][platform] else "build only"
+
+
+def _login(app: dict) -> str:
+    auth = app["auth"]
+    providers = auth["providers"]
+    if not providers:
+        return "none"
+    text = " + ".join(providers)
+    if auth["account_optional"]:
+        text += " (optional)"
+    elif not auth["login_screen"]:
+        # A dependency is declared but nothing reaches a sign-in screen.
+        text += " (no screen)"
+    return text
+
+
+def write_matrix(offline: bool) -> None:
+    lines = [
+        "# Capability matrix",
+        "",
+        "Platform support, sign-in, and every AdMob identifier the portfolio uses.",
+        "Regenerate with `python3 scripts/status.py`.",
+        "",
+        "## Platforms and sign-in",
+        "",
+        "`yes` means the platform is present **and** deliverable — a real signing",
+        "config and a `beta` lane. `build only` means the project builds but delivery",
+        "is not wired yet.",
+        "",
+        "| App | Android | iOS | Sign-in | Login screen | Account optional |",
+        "| --- | :-: | :-: | --- | :-: | :-: |",
+    ]
+    for app in APPS:
+        auth = app["auth"]
+        lines.append(
+            f"| {app['repo']} | {_support(app, 'android')} | {_support(app, 'ios')} "
+            f"| {' + '.join(auth['providers']) or 'none'} "
+            f"| {'yes' if auth['login_screen'] else '—'} "
+            f"| {'yes' if auth['account_optional'] else '—'} |"
+        )
+
+    with_ads = [a for a in APPS if a["admob"]["integrated"]]
+    lines += [
+        "",
+        f"{sum(1 for a in APPS if a['auth']['providers'])} of {len(APPS)} apps have a "
+        "sign-in dependency; the rest need no account at all.",
+        "",
+        "## AdMob",
+        "",
+        f"{len(with_ads)} of {len(APPS)} apps serve ads.",
+        "",
+        "**Application ids** are declared in `AndroidManifest.xml` and `Info.plist` and",
+        "must match what is passed to `AglAds.configure`. A mismatch is not a degraded",
+        "experience — on iOS the SDK throws `GADInvalidInitializationException` and iOS",
+        "terminates the app on every launch.",
+        "",
+        "**Unit ids** are never committed. They are read from `--dart-define` at build",
+        "time, so a build without them serves Google's public test units — the safe",
+        "default rather than a broken one. The values below are the console record,",
+        "shown here so there is one place to check them against AdMob.",
+        "",
+        "| App | Android app id | iOS app id | Android banner | Android interstitial |",
+        "| --- | --- | --- | --- | --- |",
+    ]
+
+    def cell(value: str) -> str:
+        if not value:
+            return "**missing**"
+        if value.startswith("$"):
+            return f"`{value}` _(build-time)_"
+        if "3940256099942544" in value:
+            return f"`{value}` _(Google test)_"
+        return f"`{value}`"
+
+    for app in with_ads:
+        ad = app["admob"]
+        lines.append(
+            f"| {app['repo']} | {cell(ad.get('android_app_id',''))} "
+            f"| {cell(ad.get('ios_app_id',''))} "
+            f"| {cell(ad.get('android_banner',''))} "
+            f"| {cell(ad.get('android_interstitial',''))} |"
+        )
+
+    test_ids = [a["repo"] for a in with_ads
+                if "3940256099942544" in a["admob"].get("ios_app_id", "")]
+    lines += [
+        "",
+        f"**{len(test_ids)} apps still carry Google's test application id on iOS** "
+        "— correct while an app has no iOS AdMob app of its own, and the thing to "
+        "replace when one is created: " + ", ".join(test_ids) + ".",
+        "",
+        "No app has iOS unit ids at all, so iOS release builds serve test ads by",
+        "design until an iOS AdMob app exists for them.",
+        "",
+        "## Consent",
+        "",
+        "Every ad app gates its requests on UMP consent — `AglConsent` in `agl_ads`,",
+        "with a per-app test that fails if any ad is constructed without a check in",
+        "the enclosing method. It stays dormant until a GDPR message is published in",
+        "AdMob → Privacy & messaging; see [PENDING.md](PENDING.md) row 7.",
+        "",
+    ]
+    (ROOT / "MATRIX.md").write_text("\n".join(lines))
+    print(f"MATRIX.md — {len(with_ads)} ad apps, {len(APPS)} rows")
+
+
 def write_pending(offline: bool) -> None:
     per_repo = {} if offline else {a["repo"]: secrets(a["repo"]) for a in APPS}
 
@@ -134,6 +254,25 @@ def write_pending(offline: bool) -> None:
         return sum(1 for a in APPS if predicate(a))
 
     missing_desc = [a["repo"] for a in APPS if a["pending"]["store_description"]]
+    with_ads = [a for a in APPS if a["admob"]["integrated"]]
+    def _no_live_admob(app: dict) -> bool:
+        """No AdMob record behind this app, so it earns nothing.
+
+        Either the application id is Google's public test id, or it is a
+        build-time placeholder with no unit ids recorded to inject — which
+        amounts to the same thing, because the placeholder defaults to the
+        test id.
+        """
+        ad = app["admob"]
+        android = ad.get("android_app_id", "")
+        if "3940256099942544" in android:
+            return True
+        placeholder = android.startswith("$") or not android
+        return placeholder and not ad.get("android_banner")
+
+    no_admob_record = [a["repo"] for a in with_ads if _no_live_admob(a)]
+    test_ios = [a["repo"] for a in with_ads
+                if "3940256099942544" in a["admob"].get("ios_app_id", "")]
     missing_admob_android = [a["repo"] for a in APPS if a["pending"]["admob_android_id"]]
     missing_admob_ios = [a["repo"] for a in APPS if a["pending"]["admob_ios_id"]]
 
@@ -184,11 +323,18 @@ def write_pending(offline: bool) -> None:
          "iOS signing on CI. Without it the lanes fall back to Xcode automatic "
          "signing, which a runner cannot do",
          "missing"),
-        ("6", "**AdMob production unit ids** (banner, interstitial, per platform)",
-         "AdMob console → each app → Ad units",
-         "Live ads. A build without them serves Google's test units — the safe "
-         "default, not a broken one",
-         "no repo carries them; they are read from `--dart-define`"),
+        ("6", f"**An AdMob app + unit ids** for the {len(no_admob_record)} apps that "
+         "have neither: " + ", ".join(no_admob_record),
+         "AdMob console → Apps → Add app, then Ad units",
+         "They serve ads today against Google's **test** application id, so they "
+         "earn nothing. Everything else has an Android app id; see "
+         "[MATRIX.md](MATRIX.md)",
+         f"{len(no_admob_record)} of {len(with_ads)} ad apps have no console record"),
+        ("6b", "**iOS AdMob apps and unit ids**",
+         "AdMob console → Apps → Add app (iOS)",
+         "iOS ads. No app has iOS unit ids, so an iOS release build serves test "
+         "ads by design",
+         f"{len(test_ios)} of {len(with_ads)} ad apps carry Google's test iOS app id"),
         ("7", "**A GDPR message published** in AdMob",
          "AdMob console → Privacy & messaging",
          "The UMP consent form. The code is in every ad app and gated; until a "
@@ -279,6 +425,7 @@ def main() -> None:
     ap.add_argument("--offline", action="store_true")
     args = ap.parse_args()
     write_releases(args.offline)
+    write_matrix(args.offline)
     write_pending(args.offline)
 
 

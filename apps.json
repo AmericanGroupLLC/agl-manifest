@@ -16,6 +16,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -38,6 +52,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -60,6 +88,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -82,6 +124,24 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-3940256099942544~3347511713",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -104,6 +164,26 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-8528784688453695~5377349094",
+        "ios_app_id": "ca-app-pub-8528784688453695~9148987425",
+        "android_banner": "ca-app-pub-8528784688453695/7665581023",
+        "android_interstitial": "ca-app-pub-8528784688453695/7474009334"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -126,6 +206,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -148,6 +242,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -170,6 +278,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -192,6 +314,24 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -214,6 +354,24 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -236,6 +394,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -258,6 +430,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -280,6 +466,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -302,6 +502,25 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Firebase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -324,6 +543,24 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -346,6 +583,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -368,6 +619,26 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "${admobAppId}",
+        "ios_app_id": "$(ADMOB_APP_ID)",
+        "android_banner": "ca-app-pub-8528784688453695/1143402684",
+        "android_interstitial": "ca-app-pub-8528784688453695/8340879191"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -390,6 +661,26 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-8528784688453695~9265279754",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
+        "android_banner": "ca-app-pub-8528784688453695/1222409251",
+        "android_interstitial": "ca-app-pub-8528784688453695/9950162694"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -412,6 +703,24 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -434,6 +743,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -456,6 +779,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -478,6 +815,24 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -500,6 +855,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -522,6 +891,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -544,6 +927,22 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Biometric"
+        ],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -566,6 +965,25 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Firebase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -588,6 +1006,24 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "${admobAppId}",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -610,6 +1046,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -632,6 +1082,26 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-8528784688453695~7770953426",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
+        "android_banner": "ca-app-pub-8528784688453695/4087643109",
+        "android_interstitial": "ca-app-pub-8528784688453695/2327055058"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -654,6 +1124,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -676,6 +1160,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -698,6 +1196,22 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-8528784688453695~8044208178",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
+        "android_banner": "ca-app-pub-8528784688453695/3721819782",
+        "android_interstitial": "ca-app-pub-8528784688453695/5528514029"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -720,6 +1234,26 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-8528784688453695~2309537905",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
+        "android_banner": "ca-app-pub-8528784688453695/5539491423",
+        "android_interstitial": "ca-app-pub-8528784688453695/9095593054"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -742,6 +1276,20 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-3940256099942544~3347511713",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -764,6 +1312,24 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-8528784688453695~2836542125",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
+        "android_banner": "ca-app-pub-8528784688453695/6914604113",
+        "android_interstitial": "ca-app-pub-8528784688453695/9569471431"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -786,6 +1352,20 @@
         "ios": true
       },
       "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
@@ -808,6 +1388,24 @@
         "ios": true
       },
       "ads": true,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Supabase",
+          "Google",
+          "Apple"
+        ],
+        "login_screen": true,
+        "account_optional": true
+      },
+      "admob": {
+        "integrated": true,
+        "android_app_id": "ca-app-pub-3940256099942544~3347511713",
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
+      },
       "needs_private_packages": true,
       "pending": {
         "firebase_android": true,
