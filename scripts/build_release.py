@@ -1,0 +1,340 @@
+#!/usr/bin/env python3
+"""Produce signed Android release bundles locally, and prove each one is signed.
+
+Why this exists rather than a CI job: GitHub's macOS minutes are the expensive
+resource this programme is trying to avoid, and Android bundles do not need
+them. Building here also means a bundle can be produced before the CI
+credentials (AGL_PACKAGES_TOKEN and friends) are in place.
+
+Three things about this build machine are load-bearing and were each found the
+hard way, so they are set here rather than left to the operator:
+
+1.  The JVM's AF_INET6 connect() is denied with EPERM. A plain
+    `java` loopback connect fails; the same connect with
+    -Djava.net.preferIPv4Stack=true succeeds. Without it Gradle reports
+    "Could not connect to the Gradle daemon" and no build starts at all.
+
+2.  Direct egress is blocked; the machine reaches the internet through a local
+    proxy. The shell honours HTTP_PROXY, the JVM does not — it reads only
+    the http.proxyHost/proxyPort system properties. Without them dependency
+    downloads fail as "Got socket exception ... Operation not permitted".
+
+3.  Both the Gradle *client* and the Gradle *daemon* are separate JVMs and both
+    need the above. JAVA_TOOL_OPTIONS is the one channel every JVM picks up,
+    including daemons Gradle forks itself. Putting the flags in a project's
+    org.gradle.jvmargs does not work: the daemon did not pick them up, and a
+    project setting org.gradle.jvmargs also silently replaces the global
+    ~/.gradle value rather than merging with it.
+
+None of this is committed to the app repositories, because none of it is true
+of the app — it is true of this machine.
+
+Signature verification is not optional here. A release build with a
+misconfigured signingConfig falls back to the debug key and still produces a
+perfectly valid-looking .aab; Play rejects it on upload, long after the point
+where the mistake is cheap to find. So every bundle's certificate fingerprint
+is compared against the keystore it was supposed to be signed with, and a
+mismatch is a failure.
+"""
+
+from __future__ import annotations
+
+import argparse
+import base64
+import hashlib
+import json
+import os
+import pathlib
+import re
+import shutil
+import subprocess
+import sys
+import time
+
+ROOT = pathlib.Path("/Users/spatchava/agl")
+MANIFEST = ROOT / "agl-manifest"
+AUDIT = MANIFEST / "docs/release-readiness.json"
+SECRETS = ROOT / ".secrets"
+KEYSTORES = SECRETS / "keystores.json"
+FLUTTER = ROOT / ".flutter-sdk/bin/flutter"
+KEYTOOL = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/keytool"
+EVIDENCE = MANIFEST / "docs/build-evidence.json"
+
+# Bundles are collected here and the build tree is then deleted. A Flutter
+# release tree is 0.5–4 GB, so keeping 37 of them needs ~36 GB that this machine
+# does not have — a first attempt at the full run died with ENOSPC partway
+# through. The tree is entirely regenerable; the .aab is the artefact worth
+# keeping, and it is two orders of magnitude smaller.
+#
+# Deliberately outside every git repository, so a stray `git add -A` cannot
+# commit 50 MB binaries.
+DIST = ROOT / ".dist"
+
+PROXY = "127.0.0.1:10054"
+
+JAVA_TOOL_OPTIONS = " ".join([
+    "-Djava.net.preferIPv4Stack=true",
+    f"-Dhttp.proxyHost={PROXY.split(':')[0]}",
+    f"-Dhttp.proxyPort={PROXY.split(':')[1]}",
+    f"-Dhttps.proxyHost={PROXY.split(':')[0]}",
+    f"-Dhttps.proxyPort={PROXY.split(':')[1]}",
+    "-Dhttp.nonProxyHosts=localhost|127.0.0.1",
+])
+
+# A flavour has to be chosen explicitly. `flutter build appbundle` on a flavoured
+# project builds every flavour and then looks for the unflavoured output, so it
+# reports "failed to produce an .aab" while the bundles sit on disk. Preferring
+# the production flavour by name avoids shipping a staging build to the store.
+PROD_FLAVOUR_PREFERENCE = ("prod", "production", "release", "live", "store")
+
+
+def app_list() -> list[dict]:
+    return [a for a in json.loads(AUDIT.read_text()) if a.get("flutter")]
+
+
+def app_path(app: dict) -> pathlib.Path:
+    base = ROOT / app["repo"]
+    return base if app["app_dir"] == "." else base / app["app_dir"]
+
+
+def flavours(app_dir: pathlib.Path) -> list[str]:
+    """Product flavour names declared by the Android module, if any."""
+    for name in ("app/build.gradle.kts", "app/build.gradle"):
+        f = app_dir / "android" / name
+        if not f.exists():
+            continue
+        text = f.read_text(errors="replace")
+        m = re.search(r"productFlavors\s*\{", text)
+        if not m:
+            continue
+        # Walk the braces so nested blocks don't end the scan early.
+        i = text.index("{", m.start())
+        depth, j = 1, i + 1
+        while j < len(text) and depth:
+            if text[j] == "{":
+                depth += 1
+            elif text[j] == "}":
+                depth -= 1
+            j += 1
+        block = text[i + 1:j - 1]
+        # Flavour names are the identifiers opening a block at depth 0.
+        names, depth = [], 0
+        for line in block.splitlines():
+            stripped = line.strip()
+            if depth == 0:
+                fm = re.match(r'(?:create\(")?([A-Za-z][A-Za-z0-9_]*)"?\)?\s*\{', stripped)
+                if fm:
+                    names.append(fm.group(1))
+            depth += line.count("{") - line.count("}")
+        return names
+    return []
+
+
+def pick_flavour(names: list[str]) -> str | None:
+    if not names:
+        return None
+    lowered = {n.lower(): n for n in names}
+    for pref in PROD_FLAVOUR_PREFERENCE:
+        if pref in lowered:
+            return lowered[pref]
+    return names[-1]
+
+
+def write_key_properties(app_dir: pathlib.Path, entry: dict) -> pathlib.Path:
+    """Point the Gradle signingConfig at the real upload keystore.
+
+    Written rather than committed: android/key.properties is gitignored in every
+    app precisely so the passwords never reach a repository.
+    """
+    ks = SECRETS / "keystores" / pathlib.Path(entry["keystore"]).name
+    if not ks.exists():
+        raise FileNotFoundError(ks)
+    p = app_dir / "android/key.properties"
+    p.write_text(
+        f"storeFile={ks}\n"
+        f"storePassword={entry['storePassword']}\n"
+        f"keyAlias={entry['alias']}\n"
+        f"keyPassword={entry['keyPassword']}\n"
+    )
+    return p
+
+
+def keystore_fingerprint(entry: dict) -> str | None:
+    ks = SECRETS / "keystores" / pathlib.Path(entry["keystore"]).name
+    out = subprocess.run(
+        [KEYTOOL, "-list", "-v", "-keystore", str(ks),
+         "-storepass", entry["storePassword"], "-alias", entry["alias"]],
+        capture_output=True, text=True,
+    ).stdout
+    m = re.search(r"SHA256:\s*([0-9A-F:]+)", out)
+    return m.group(1).replace(":", "") if m else None
+
+
+def bundle_fingerprint(aab: pathlib.Path) -> str | None:
+    """SHA-256 of the certificate the bundle is actually signed with."""
+    import zipfile
+    with zipfile.ZipFile(aab) as z:
+        blocks = [n for n in z.namelist()
+                  if n.startswith("META-INF/") and n.upper().endswith((".RSA", ".EC", ".DSA"))]
+        if not blocks:
+            return None
+        der = z.read(blocks[0])
+    pem = subprocess.run(
+        ["openssl", "pkcs7", "-inform", "DER", "-print_certs"],
+        input=der, capture_output=True,
+    ).stdout
+    fp = subprocess.run(
+        ["openssl", "x509", "-noout", "-fingerprint", "-sha256"],
+        input=pem, capture_output=True,
+    ).stdout.decode(errors="replace")
+    m = re.search(r"=([0-9A-Fa-f:]+)", fp)
+    return m.group(1).replace(":", "").upper() if m else None
+
+
+def build_one(app: dict, entry: dict | None, timeout: int, keep_build: bool = False) -> dict:
+    d = app_path(app)
+    rec: dict = {"repo": app["repo"], "app_dir": app["app_dir"]}
+
+    if entry is None:
+        rec["result"] = "NO_KEYSTORE"
+        rec["detail"] = "no upload keystore exists for this app yet"
+        return rec
+
+    try:
+        write_key_properties(d, entry)
+    except FileNotFoundError as e:
+        rec["result"] = "NO_KEYSTORE"
+        rec["detail"] = f"keystore file missing: {e}"
+        return rec
+
+    names = flavours(d)
+    flavour = pick_flavour(names)
+    rec["flavours"] = names
+    rec["flavour_built"] = flavour
+
+    cmd = [str(FLUTTER), "build", "appbundle", "--release"]
+    if flavour:
+        cmd += ["--flavor", flavour]
+
+    env = dict(os.environ, JAVA_TOOL_OPTIONS=JAVA_TOOL_OPTIONS)
+    started = time.time()
+    proc = subprocess.run(cmd, cwd=d, capture_output=True, text=True, env=env, timeout=timeout)
+    rec["seconds"] = round(time.time() - started, 1)
+
+    # Take the path Flutter reports rather than guessing. Modification time is
+    # not a usable signal: an incremental build that has nothing to redo leaves
+    # a perfectly good bundle untouched, and treating that as failure would
+    # discard real artefacts.
+    aab = None
+    m = re.search(r"✓\s*Built\s+(\S+\.aab)", proc.stdout)
+    if m:
+        candidate = pathlib.Path(m.group(1))
+        aab = candidate if candidate.is_absolute() else d / candidate
+
+    if aab is None or not aab.exists():
+        # Flutter mis-reports flavoured builds as failures, so fall back to the
+        # expected output directory before believing it.
+        outdir = d / "build/app/outputs/bundle"
+        found = sorted(outdir.rglob("*.aab"), key=lambda p: p.stat().st_mtime, reverse=True) \
+            if outdir.exists() else []
+        if flavour:
+            want = flavour.lower() + "release"
+            found = [c for c in found if c.parent.name.lower() == want] or found
+        aab = found[0] if found else None
+
+    if aab is None:
+        rec["result"] = "BUILD_FAILED"
+        # Gradle's own timestamped debug lines drown the message; drop them, and
+        # keep stderr too — a fast failure often says nothing at all on stdout.
+        tail = [ln for ln in proc.stdout.splitlines() if not re.match(r"^\d{4}-", ln)]
+        err = [ln for ln in proc.stderr.splitlines() if not re.match(r"^\d{4}-", ln)]
+        rec["detail"] = ("\n".join(tail[-15:]) + "\n--- stderr ---\n" + "\n".join(err[-15:])).strip()
+        rec["exit_code"] = proc.returncode
+        return rec
+    rec["aab"] = str(aab.relative_to(ROOT))
+    rec["bytes"] = aab.stat().st_size
+    rec["sha256"] = hashlib.sha256(aab.read_bytes()).hexdigest()
+
+    want_fp = keystore_fingerprint(entry)
+    got_fp = bundle_fingerprint(aab)
+    rec["keystore_sha256"] = want_fp
+    rec["signer_sha256"] = got_fp
+    if want_fp and got_fp and want_fp == got_fp:
+        rec["result"] = "SIGNED"
+    else:
+        # Most often means the release signingConfig silently fell back to debug.
+        rec["result"] = "SIGNATURE_MISMATCH"
+        rec["detail"] = "bundle is not signed with this app's upload key"
+
+    # Keep the bundle, drop the tree. Done after verification so a bundle is
+    # never preserved without having been checked.
+    DIST.mkdir(exist_ok=True)
+    kept = DIST / f"{app['repo']}-{aab.name}"
+    shutil.copy2(aab, kept)
+    rec["artifact"] = str(kept.relative_to(ROOT))
+    if not keep_build:
+        build_dir = d / "build"
+        # Never delete anything git is tracking. "build" is an output directory
+        # by convention, not by guarantee — DriftDate keeps its desktop icons in
+        # one — and a cleanup step that eats source files is far worse than a
+        # full disk.
+        tracked = subprocess.run(
+            ["git", "-C", str(ROOT / app["repo"]), "ls-files", "--error-unmatch", "--", str(build_dir)],
+            capture_output=True, text=True,
+        )
+        if tracked.returncode == 0 and tracked.stdout.strip():
+            rec["kept_build"] = "contains tracked files"
+        else:
+            freed = subprocess.run(["du", "-sk", str(build_dir)], capture_output=True, text=True).stdout
+            shutil.rmtree(build_dir, ignore_errors=True)
+            try:
+                rec["freed_mb"] = round(int(freed.split()[0]) / 1024)
+            except (ValueError, IndexError):
+                pass
+    return rec
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("apps", nargs="*", help="repo names; default is every Flutter app")
+    ap.add_argument("--timeout", type=int, default=2400)
+    ap.add_argument("--keep-build", action="store_true",
+                    help="do not delete the build tree afterwards (needs ~1-4 GB per app)")
+    args = ap.parse_args()
+
+    keystores = json.loads(KEYSTORES.read_text())
+    apps = app_list()
+    if args.apps:
+        wanted = set(args.apps)
+        apps = [a for a in apps if a["repo"] in wanted]
+        missing = wanted - {a["repo"] for a in apps}
+        if missing:
+            print(f"unknown apps: {', '.join(sorted(missing))}", file=sys.stderr)
+            return 2
+
+    records = []
+    if EVIDENCE.exists():
+        records = {r["repo"]: r for r in json.loads(EVIDENCE.read_text())}
+    else:
+        records = {}
+
+    for i, app in enumerate(apps, 1):
+        print(f"[{i}/{len(apps)}] {app['repo']} ... ", end="", flush=True)
+        try:
+            rec = build_one(app, keystores.get(app["repo"]), args.timeout)
+        except subprocess.TimeoutExpired:
+            rec = {"repo": app["repo"], "app_dir": app["app_dir"],
+                   "result": "TIMEOUT", "detail": f"exceeded {args.timeout}s"}
+        rec["built_at"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
+        records[app["repo"]] = rec
+        extra = f" ({rec['seconds']}s)" if rec.get("seconds") else ""
+        print(rec["result"] + extra)
+        EVIDENCE.write_text(json.dumps(sorted(records.values(), key=lambda r: r["repo"]), indent=2) + "\n")
+
+    signed = sum(1 for r in records.values() if r.get("result") == "SIGNED")
+    print(f"\n{signed} signed bundle(s); evidence in {EVIDENCE.relative_to(ROOT)}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

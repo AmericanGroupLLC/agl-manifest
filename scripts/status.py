@@ -34,6 +34,18 @@ TEST_ADMOB = "3940256099942544"
 
 # ── data ────────────────────────────────────────────────────────────────────
 
+
+def build_evidence() -> dict:
+    """What scripts/build_release.py last observed, keyed by repo.
+
+    Absent rather than fabricated when the script has never run: an empty table
+    is honest, a table of dashes claiming "no binary" would not be.
+    """
+    p = pathlib.Path(__file__).resolve().parent.parent / "docs/build-evidence.json"
+    if not p.exists():
+        return {}
+    return {r["repo"]: r for r in json.loads(p.read_text())}
+
 def gh(args: list[str]) -> str:
     try:
         out = subprocess.run(["gh", *args], capture_output=True, text=True, timeout=60)
@@ -228,6 +240,7 @@ def build(offline: bool) -> None:
     # Only apps in the org; `rows` also carries the transferred-out one, which
     # made this count exceed the total.
     missing_fb = sum(1 for a in flutter if not by_repo[a["repo"]]["firebase_present"])
+    evidence = build_evidence()
 
     L: list[str] = []
     add = L.append
@@ -253,6 +266,9 @@ def build(offline: bool) -> None:
     add(f"| Upload keystores loaded into this repo's secrets | {keystores} |")
     add(f"| Firebase config present | {len(flutter) - missing_fb} of {len(flutter)} |")
     add(f"| Binary anyone can download | {downloadable} |")
+    signed = sum(1 for r in evidence.values() if r.get("result") == "SIGNED")
+    add(f"| Signed release bundle, verified against its upload key | {signed} of {len(flutter)} |")
+
     add("")
 
     add("## 1. Every app")
@@ -283,7 +299,48 @@ def build(offline: bool) -> None:
             add(f"| {app['repo']} | `{app.get('status', 'moved')}` | {ids(app)} |")
         add("")
 
-    add("## 2. AdMob")
+    add("## 2. Signed release bundles")
+    add("")
+    add("Built locally with `python3 scripts/build_release.py`, which is cheaper than")
+    add("a runner and works today — Android needs no macOS minutes and no CI secret.")
+    add("")
+    add("Every bundle's signing certificate is compared against the upload keystore it")
+    add("was meant to use, and the fingerprint is shown so the claim can be checked")
+    add("rather than taken on faith. This is not ceremony: a release build with a")
+    add("misconfigured `signingConfig` silently falls back to the debug key, exits 0,")
+    add("and is rejected at upload. One app in this table was caught exactly that way.")
+    add("")
+    if not evidence:
+        add("No build evidence yet — run `python3 scripts/build_release.py`.")
+        add("")
+    else:
+        ok = sum(1 for r in evidence.values() if r.get("result") == "SIGNED")
+        add(f"**{ok} of {len(evidence)}** apps produce a verified signed bundle.")
+        add("")
+        add("| # | App | Bundle | Size | Flavour | Signing certificate (SHA-256) | Result |")
+        add("| --: | --- | --- | ---: | --- | --- | --- |")
+        for app in in_org:
+            e = evidence.get(app["repo"])
+            if not e:
+                continue
+            r = by_repo[app["repo"]]
+            fp = e.get("signer_sha256") or ""
+            size = f"{e['bytes'] / 1e6:.0f} MB" if e.get("bytes") else "—"
+            name = pathlib.PurePath(e["artifact"]).name if e.get("artifact") else "—"
+            verdict = {"SIGNED": "signed",
+                       "SIGNATURE_MISMATCH": "**wrong key**",
+                       "NO_KEYSTORE": "no keystore",
+                       "BUILD_FAILED": "**build failed**"}.get(e["result"], e["result"])
+            add(f"| {r['no']} | {link(app['repo'])} | `{name}` | {size} "
+                f"| {e.get('flavour_built') or '—'} | `{fp[:16] or '—'}` | {verdict} |")
+        add("")
+        add("Bundles are kept outside every git repository (`~/agl/.dist/`) so a stray")
+        add("`git add -A` cannot commit 60 MB binaries. The build tree each one came")
+        add("from is deleted afterwards — 37 Flutter release trees are about 36 GB, and")
+        add("keeping them filled this machine's disk on the first attempt.")
+        add("")
+
+    add("## 3. AdMob")
     add("")
     add("Application ids are declared in `AndroidManifest.xml` and `Info.plist` and must")
     add("match what is passed to `AglAds.configure`. A mismatch is not a degraded")
@@ -321,7 +378,7 @@ def build(offline: bool) -> None:
     add("")
 
     if records:
-        add("## 3. App Store Connect records")
+        add("## 4. App Store Connect records")
         add("")
         add(f"Live from the API on the last sync: **{len(records)} records exist**, and")
         add(f"**{len(matched)} of {len(in_org)}** match a bundle id this portfolio builds.")
@@ -351,7 +408,7 @@ def build(offline: bool) -> None:
                 add(f"| `{bid}` | {name} |")
             add("")
 
-    add("## 4. Required files")
+    add("## 5. Required files")
     add("")
     add("None of these are in git, for two different reasons. The signing material is")
     add("secret and must never be committed. The Firebase files are **not** secret —")
@@ -392,7 +449,7 @@ def build(offline: bool) -> None:
     add("rejects any config that is not `americangroupllc-5bdfc`.")
     add("")
 
-    add("## 5. Still to create")
+    add("## 6. Still to create")
     add("")
     add("Everything here needs an account this repository does not have.")
     add("")

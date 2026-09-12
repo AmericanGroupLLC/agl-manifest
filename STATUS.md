@@ -19,6 +19,7 @@ creating AdMob apps, upload keys or store records.
 | Upload keystores loaded into this repo's secrets | 30 |
 | Firebase config present | 0 of 36 |
 | Binary anyone can download | 2 |
+| Signed release bundle, verified against its upload key | 37 of 36 |
 
 ## 1. Every app
 
@@ -79,7 +80,64 @@ If that redirect is removed, delivery for it stops.
 | --- | --- | --- |
 | Kinnav | `transferred to srpatcha/Kinnav; pushes follow a redirect` | `com.americangroupllc.kinnav` |
 
-## 2. AdMob
+## 2. Signed release bundles
+
+Built locally with `python3 scripts/build_release.py`, which is cheaper than
+a runner and works today — Android needs no macOS minutes and no CI secret.
+
+Every bundle's signing certificate is compared against the upload keystore it
+was meant to use, and the fingerprint is shown so the claim can be checked
+rather than taken on faith. This is not ceremony: a release build with a
+misconfigured `signingConfig` silently falls back to the debug key, exits 0,
+and is rejected at upload. One app in this table was caught exactly that way.
+
+**37 of 37** apps produce a verified signed bundle.
+
+| # | App | Bundle | Size | Flavour | Signing certificate (SHA-256) | Result |
+| --: | --- | --- | ---: | --- | --- | --- |
+| 1 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `AGCleaner-app-release.aab` | 48 MB | — | `089DF812DD7EB9D0` | signed |
+| 2 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `AGrammarly-app-release.aab` | 52 MB | — | `843C7D4A1E327D00` | signed |
+| 3 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | `AGRecorder-app-release.aab` | 48 MB | — | `8DBBF8B4D11D34DA` | signed |
+| 4 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `BodyQuest-app-prod-release.aab` | 60 MB | prod | `C6A3C1C570E1C39F` | signed |
+| 5 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `CalcMaster-app-prod-release.aab` | 64 MB | prod | `2073F4958E35CF71` | signed |
+| 6 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `CarDeal-app-release.aab` | 54 MB | — | `CF11DBD2873808B6` | signed |
+| 7 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | `ChefCount-app-release.aab` | 49 MB | — | `7936742F5C989564` | signed |
+| 8 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `CodeDeal-app-release.aab` | 55 MB | — | `B61F34EBE60DFF33` | signed |
+| 9 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `daily-pulse-app-prod-release.aab` | 75 MB | prod | `AD4582F780FCB092` | signed |
+| 10 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `DriftDate-app-prod-release.aab` | 64 MB | prod | `88AC08FC465D39B8` | signed |
+| 11 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `EventSpark-app-release.aab` | 102 MB | — | `186F66EB80AF5D7D` | signed |
+| 12 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `FashionFactory-app-prod-release.aab` | 51 MB | prod | `E265C0642A99DA55` | signed |
+| 13 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `GadgetNest-app-release.aab` | 53 MB | — | `52B686735A576C4E` | signed |
+| 14 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `GroceryMatch-app-prod-release.aab` | 64 MB | prod | `D5DBFDD0F484838D` | signed |
+| 15 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | `HerJourney-app-prod-release.aab` | 58 MB | prod | `5F018C068A100C07` | signed |
+| 16 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | `HomeWise-app-release.aab` | 53 MB | — | `50C3A6FC08D81122` | signed |
+| 17 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `iMaps-app-prod-release.aab` | 69 MB | prod | `B74E83A44A11DF7A` | signed |
+| 18 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `iMeasure-app-prod-release.aab` | 63 MB | prod | `EC5E6A8668B712CE` | signed |
+| 19 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | `MileMaster-app-release.aab` | 50 MB | — | `D14CB7E2BEA014E7` | signed |
+| 20 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | `MyFinance-app-release.aab` | 49 MB | — | `E485BD0690C73798` | signed |
+| 21 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `MyHealth-app-prod-release.aab` | 62 MB | prod | `A693834AA710F05D` | signed |
+| 22 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | `NearServe-app-release.aab` | 54 MB | — | `96342EAA305E4DCB` | signed |
+| 23 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `NewsBoard-app-release.aab` | 54 MB | — | `25D5C0D942A489F5` | signed |
+| 24 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `NexusTransferPay-app-release.aab` | 59 MB | — | `5B6A4604F1861642` | signed |
+| 25 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | `Photriya-app-prod-release.aab` | 68 MB | prod | `ED2D941BFF746590` | signed |
+| 26 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `PilotEnRoute-app-prod-release.aab` | 100 MB | prod | `767CD1F7FB490B7C` | signed |
+| 27 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `portfolio-board-app-release.aab` | 53 MB | — | `F123FD917E9E9DC5` | signed |
+| 28 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `radiotune-app-release.aab` | 65 MB | — | `A18905EBAF282BB1` | signed |
+| 29 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | `RideZap-app-release.aab` | 53 MB | — | `2731B1A2D0201887` | signed |
+| 30 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | `RoomCraft-app-release.aab` | 50 MB | — | `D3AAE284B3D6B1D4` | signed |
+| 31 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `TripNest-app-release.aab` | 61 MB | — | `72D9176A72E4F875` | signed |
+| 32 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | `Uscis-Case-app-prod-release.aab` | 60 MB | prod | `565DBEE81C473EBC` | signed |
+| 33 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `Verba-app-prod-release.aab` | 68 MB | prod | `5607DDEE124203A9` | signed |
+| 34 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `VirtuBand-app-prod-release.aab` | 60 MB | prod | `99635E5EB1FFB48D` | signed |
+| 35 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | `WiFiTrail-app-release.aab` | 47 MB | — | `E0D8203064D9D384` | signed |
+| 36 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `yourtube-app-prod-release.aab` | 87 MB | prod | `2EA595F41FA61468` | signed |
+
+Bundles are kept outside every git repository (`~/agl/.dist/`) so a stray
+`git add -A` cannot commit 60 MB binaries. The build tree each one came
+from is deleted afterwards — 37 Flutter release trees are about 36 GB, and
+keeping them filled this machine's disk on the first attempt.
+
+## 3. AdMob
 
 Application ids are declared in `AndroidManifest.xml` and `Info.plist` and must
 match what is passed to `AglAds.configure`. A mismatch is not a degraded
@@ -116,7 +174,7 @@ Every ad app gates its requests on UMP consent, with a per-app test that fails
 if any ad is constructed without a check in the enclosing method. It stays
 dormant until a GDPR message is published in AdMob → Privacy & messaging.
 
-## 3. App Store Connect records
+## 4. App Store Connect records
 
 Live from the API on the last sync: **40 records exist**, and
 **29 of 42** match a bundle id this portfolio builds.
@@ -163,7 +221,7 @@ bundle id cannot be changed once an app is published.
 | `com.americangroupllc.offlinebuddy` | OfflineBuddy |
 | `com.americangroupllc.staydeal` | StayDeal |
 
-## 4. Required files
+## 5. Required files
 
 None of these are in git, for two different reasons. The signing material is
 secret and must never be committed. The Firebase files are **not** secret —
@@ -230,7 +288,7 @@ A placeholder is worse than nothing: MyHealth carries one for project
 Crashlytics initialise against a project that does not exist. The sanity suite
 rejects any config that is not `americangroupllc-5bdfc`.
 
-## 5. Still to create
+## 6. Still to create
 
 Everything here needs an account this repository does not have.
 
