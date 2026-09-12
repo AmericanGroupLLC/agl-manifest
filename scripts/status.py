@@ -41,10 +41,15 @@ def build_evidence() -> dict:
     Absent rather than fabricated when the script has never run: an empty table
     is honest, a table of dashes claiming "no binary" would not be.
     """
-    p = pathlib.Path(__file__).resolve().parent.parent / "docs/build-evidence.json"
-    if not p.exists():
-        return {}
-    return {r["repo"]: r for r in json.loads(p.read_text())}
+    root = pathlib.Path(__file__).resolve().parent.parent
+    out: dict = {}
+    for kind, name in (("aab", "build-evidence.json"), ("apk", "build-evidence-apk.json")):
+        f = root / "docs" / name
+        if not f.exists():
+            continue
+        for r in json.loads(f.read_text()):
+            out.setdefault(r["repo"], {})[kind] = r
+    return out
 
 def gh(args: list[str]) -> str:
     try:
@@ -266,7 +271,8 @@ def build(offline: bool) -> None:
     add(f"| Upload keystores loaded into this repo's secrets | {keystores} |")
     add(f"| Firebase config present | {len(flutter) - missing_fb} of {len(flutter)} |")
     add(f"| Binary anyone can download | {downloadable} |")
-    signed = sum(1 for r in evidence.values() if r.get("result") == "SIGNED")
+    signed = sum(1 for r in evidence.values()
+                 if r.get("aab", {}).get("result") == "SIGNED")
     add(f"| Signed release bundle, verified against its upload key | {signed} of {len(flutter)} |")
 
     add("")
@@ -314,27 +320,41 @@ def build(offline: bool) -> None:
         add("No build evidence yet — run `python3 scripts/build_release.py`.")
         add("")
     else:
-        ok = sum(1 for r in evidence.values() if r.get("result") == "SIGNED")
+        ok = sum(1 for r in evidence.values()
+                 if r.get("aab", {}).get("result") == "SIGNED")
         add(f"**{ok} of {len(evidence)}** apps produce a verified signed bundle.")
         add("")
-        add("| # | App | Bundle | Size | Flavour | Signing certificate (SHA-256) | Result |")
-        add("| --: | --- | --- | ---: | --- | --- | --- |")
+        add("| # | App | AAB (Play) | APK (sideload) | Flavour | Signing certificate (SHA-256) |")
+        add("| --: | --- | --- | --- | --- | --- |")
+        verdicts = {"SIGNED": None,
+                    "SIGNATURE_MISMATCH": "**wrong key**",
+                    "NO_KEYSTORE": "no keystore",
+                    "BUILD_FAILED": "**build failed**"}
+
+        def cell(e):
+            if not e:
+                return "—"
+            bad = verdicts.get(e["result"], e["result"])
+            if bad:
+                return bad
+            return f"{e['bytes'] / 1e6:.0f} MB" if e.get("bytes") else "signed"
+
         for app in in_org:
             e = evidence.get(app["repo"])
             if not e:
                 continue
             r = by_repo[app["repo"]]
-            fp = e.get("signer_sha256") or ""
-            size = f"{e['bytes'] / 1e6:.0f} MB" if e.get("bytes") else "—"
-            name = pathlib.PurePath(e["artifact"]).name if e.get("artifact") else "—"
-            verdict = {"SIGNED": "signed",
-                       "SIGNATURE_MISMATCH": "**wrong key**",
-                       "NO_KEYSTORE": "no keystore",
-                       "BUILD_FAILED": "**build failed**"}.get(e["result"], e["result"])
-            add(f"| {r['no']} | {link(app['repo'])} | `{name}` | {size} "
-                f"| {e.get('flavour_built') or '—'} | `{fp[:16] or '—'}` | {verdict} |")
+            aab, apk = e.get("aab"), e.get("apk")
+            fp = (aab or apk or {}).get("signer_sha256") or ""
+            add(f"| {r['no']} | {link(app['repo'])} | {cell(aab)} | {cell(apk)} "
+                f"| {(aab or apk or {}).get('flavour_built') or '—'} | `{fp[:16] or '—'}` |")
         add("")
-        add("Bundles are kept outside every git repository (`~/agl/.dist/`) so a stray")
+        add("Both are published to a GitHub Release in each app's own repository, so an")
+        add("app can be installed and tried without a build machine, a keystore or a Play")
+        add("account. The APK sideloads onto a device; the AAB is what Play accepts and")
+        add("cannot be installed by hand — neither one does both jobs.")
+        add("")
+        add("Locally they are kept outside every git repository (`~/agl/.dist/`) so a stray")
         add("`git add -A` cannot commit 60 MB binaries. The build tree each one came")
         add("from is deleted afterwards — 37 Flutter release trees are about 36 GB, and")
         add("keeping them filled this machine's disk on the first attempt.")

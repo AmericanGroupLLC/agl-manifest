@@ -24,9 +24,19 @@ records.
 | Mobile apps in the org | 42 |
 | Flutter, buildable today | 36 |
 | Not ported yet | 6 |
-| Apps with a downloadable binary | 2 |
-| Apps whose delivery is blocked on one missing secret | 36 |
+| Apps with a signed Android binary you can download and install | 36 |
+| Apps with a verified signed `.aab` and `.apk` built | 37 of 37 |
+| Apps whose **iOS** delivery is blocked on a signing certificate | 37 |
 | App Store Connect records that already exist | 40 (29 matching a live bundle id) |
+
+Every Android artefact has had its signing certificate compared against the
+upload keystore it was meant to use, and the fingerprint is published with it —
+so the claim is checkable with `apksigner verify --print-certs` rather than
+taken on trust. Section 2 of [STATUS.md](STATUS.md) lists them.
+
+Nothing iOS has been built or verified yet. Treat the iOS columns as structural
+(the plist keys and privacy manifests are in place), not as evidence that an
+`.ipa` compiles — see [`docs/KNOWN_ISSUES.md`](docs/KNOWN_ISSUES.md).
 
 One app, **Kinnav**, has been transferred out to `srpatcha/Kinnav` and is
 reachable only through a GitHub redirect. It is still delivered by this

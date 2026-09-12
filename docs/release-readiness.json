@@ -40,7 +40,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.agcleaner",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -139,7 +139,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.agrecorder",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -237,7 +237,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroup.agrammarly",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -617,7 +617,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.chefcount",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -704,7 +704,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.codedeal",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -810,7 +810,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.driftdate",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -991,7 +991,7 @@
       "13.0"
     ],
     "ios_bundle_id": "com.americangroupllc.styleradar",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": false,
@@ -1357,7 +1357,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.homewise",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1540,7 +1540,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.milemaster",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1638,7 +1638,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.myfinance",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1815,7 +1815,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.nearserve",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1896,7 +1896,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroup.newsboard",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1991,7 +1991,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.nexuspay",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2105,7 +2105,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.photriya",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2206,7 +2206,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.pilotenroute",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -2301,7 +2301,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.ridezap",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2466,7 +2466,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.tripnest",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -2549,7 +2549,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.usciscase",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -2734,7 +2734,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.virtuband",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -2917,7 +2917,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroup.dailypulse",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -3137,7 +3137,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.imeasure",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -3228,7 +3228,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.portfolioboard",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -3323,7 +3323,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroup.radiotune",
-    "ios_podfile_platform": "13.0",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -3388,7 +3388,7 @@
     "gradle_google_services": true,
     "gradle_crashlytics": true,
     "application_id": "com.americangroup.yourtube",
-    "min_sdk": "21",
+    "min_sdk": "flutter",
     "target_sdk": "35",
     "compile_sdk": "35",
     "release_signing": true,

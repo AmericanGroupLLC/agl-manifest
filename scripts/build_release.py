@@ -170,6 +170,22 @@ def keystore_fingerprint(entry: dict) -> str | None:
     return m.group(1).replace(":", "") if m else None
 
 
+APKSIGNER = "/Users/spatchava/Library/Android/sdk/build-tools/34.0.0/apksigner"
+
+
+def apk_fingerprint(apk: pathlib.Path) -> str | None:
+    """SHA-256 of the certificate an APK is signed with.
+
+    Uses apksigner rather than reading META-INF: an APK signed only with the v2
+    or v3 scheme keeps its signature in the APK Signing Block, where a plain zip
+    read finds nothing and would wrongly report the artefact unsigned.
+    """
+    out = subprocess.run([APKSIGNER, "verify", "--print-certs", str(apk)],
+                         capture_output=True, text=True).stdout
+    m = re.search(r"certificate SHA-?256 digest:\s*([0-9a-fA-F]+)", out)
+    return m.group(1).upper() if m else None
+
+
 def bundle_fingerprint(aab: pathlib.Path) -> str | None:
     """SHA-256 of the certificate the bundle is actually signed with."""
     import zipfile
@@ -191,7 +207,8 @@ def bundle_fingerprint(aab: pathlib.Path) -> str | None:
     return m.group(1).replace(":", "").upper() if m else None
 
 
-def build_one(app: dict, entry: dict | None, timeout: int, keep_build: bool = False) -> dict:
+def build_one(app: dict, entry: dict | None, timeout: int,
+              keep_build: bool = False, kind: str = "aab") -> dict:
     d = app_path(app)
     rec: dict = {"repo": app["repo"], "app_dir": app["app_dir"]}
 
@@ -212,7 +229,8 @@ def build_one(app: dict, entry: dict | None, timeout: int, keep_build: bool = Fa
     rec["flavours"] = names
     rec["flavour_built"] = flavour
 
-    cmd = [str(FLUTTER), "build", "appbundle", "--release"]
+    target = "apk" if kind == "apk" else "appbundle"
+    cmd = [str(FLUTTER), "build", target, "--release"]
     if flavour:
         cmd += ["--flavor", flavour]
 
@@ -225,8 +243,9 @@ def build_one(app: dict, entry: dict | None, timeout: int, keep_build: bool = Fa
     # not a usable signal: an incremental build that has nothing to redo leaves
     # a perfectly good bundle untouched, and treating that as failure would
     # discard real artefacts.
+    ext = "apk" if kind == "apk" else "aab"
     aab = None
-    m = re.search(r"✓\s*Built\s+(\S+\.aab)", proc.stdout)
+    m = re.search(rf"✓\s*Built\s+(\S+\.{ext})", proc.stdout)
     if m:
         candidate = pathlib.Path(m.group(1))
         aab = candidate if candidate.is_absolute() else d / candidate
@@ -234,10 +253,11 @@ def build_one(app: dict, entry: dict | None, timeout: int, keep_build: bool = Fa
     if aab is None or not aab.exists():
         # Flutter mis-reports flavoured builds as failures, so fall back to the
         # expected output directory before believing it.
-        outdir = d / "build/app/outputs/bundle"
-        found = sorted(outdir.rglob("*.aab"), key=lambda p: p.stat().st_mtime, reverse=True) \
+        outdir = d / ("build/app/outputs/flutter-apk" if kind == "apk"
+                      else "build/app/outputs/bundle")
+        found = sorted(outdir.rglob(f"*.{ext}"), key=lambda p: p.stat().st_mtime, reverse=True) \
             if outdir.exists() else []
-        if flavour:
+        if flavour and kind != "apk":
             want = flavour.lower() + "release"
             found = [c for c in found if c.parent.name.lower() == want] or found
         aab = found[0] if found else None
@@ -256,7 +276,7 @@ def build_one(app: dict, entry: dict | None, timeout: int, keep_build: bool = Fa
     rec["sha256"] = hashlib.sha256(aab.read_bytes()).hexdigest()
 
     want_fp = keystore_fingerprint(entry)
-    got_fp = bundle_fingerprint(aab)
+    got_fp = apk_fingerprint(aab) if kind == "apk" else bundle_fingerprint(aab)
     rec["keystore_sha256"] = want_fp
     rec["signer_sha256"] = got_fp
     if want_fp and got_fp and want_fp == got_fp:
@@ -298,6 +318,8 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("apps", nargs="*", help="repo names; default is every Flutter app")
     ap.add_argument("--timeout", type=int, default=2400)
+    ap.add_argument("--kind", choices=("aab", "apk"), default="aab",
+                    help="aab for Play upload; apk for sideloading and manual testing")
     ap.add_argument("--keep-build", action="store_true",
                     help="do not delete the build tree afterwards (needs ~1-4 GB per app)")
     args = ap.parse_args()
@@ -312,16 +334,17 @@ def main() -> int:
             print(f"unknown apps: {', '.join(sorted(missing))}", file=sys.stderr)
             return 2
 
-    records = []
-    if EVIDENCE.exists():
-        records = {r["repo"]: r for r in json.loads(EVIDENCE.read_text())}
-    else:
-        records = {}
+    # Kept in separate files so building APKs cannot overwrite the record of the
+    # bundles that are going to the store.
+    evidence_path = EVIDENCE if args.kind == "aab" else EVIDENCE.with_name("build-evidence-apk.json")
+    records = {r["repo"]: r for r in json.loads(evidence_path.read_text())} \
+        if evidence_path.exists() else {}
 
     for i, app in enumerate(apps, 1):
         print(f"[{i}/{len(apps)}] {app['repo']} ... ", end="", flush=True)
         try:
-            rec = build_one(app, keystores.get(app["repo"]), args.timeout)
+            rec = build_one(app, keystores.get(app["repo"]), args.timeout,
+                            args.keep_build, args.kind)
         except subprocess.TimeoutExpired:
             rec = {"repo": app["repo"], "app_dir": app["app_dir"],
                    "result": "TIMEOUT", "detail": f"exceeded {args.timeout}s"}
@@ -329,10 +352,10 @@ def main() -> int:
         records[app["repo"]] = rec
         extra = f" ({rec['seconds']}s)" if rec.get("seconds") else ""
         print(rec["result"] + extra)
-        EVIDENCE.write_text(json.dumps(sorted(records.values(), key=lambda r: r["repo"]), indent=2) + "\n")
+        evidence_path.write_text(json.dumps(sorted(records.values(), key=lambda r: r["repo"]), indent=2) + "\n")
 
     signed = sum(1 for r in records.values() if r.get("result") == "SIGNED")
-    print(f"\n{signed} signed bundle(s); evidence in {EVIDENCE.relative_to(ROOT)}")
+    print(f"\n{signed} signed {args.kind}(s); evidence in {evidence_path.relative_to(ROOT)}")
     return 0
 
 

@@ -192,7 +192,11 @@ def audit_repo(repo: pathlib.Path) -> dict:
     out["ios_deployment_targets"] = targets
     out["ios_bundle_id"] = first(r"PRODUCT_BUNDLE_IDENTIFIER = ([\w.\-]+);", pbxproj) or ""
     podfile = read(app / "ios" / "Podfile")
-    out["ios_podfile_platform"] = first(r"platform :ios, '([\d.]+)'", podfile) or ""
+    # Anchored and comment-aware. Flutter's template ships a commented
+    # `# platform :ios, '13.0'` above the real line, and an unanchored match
+    # picked that up — so this reported a 13.0 floor for apps actually set to
+    # 15.0, which is the difference between "Firebase cannot build" and "fine".
+    out["ios_podfile_platform"] = first(r"(?m)^\s*platform :ios, '([\d.]+)'", podfile) or ""
     podfile_lock = read(app / "ios" / "Podfile.lock")
     out["ios_pods_installed"] = bool(podfile_lock)
     out["ios_pod_admob"] = "Google-Mobile-Ads-SDK" in podfile_lock
