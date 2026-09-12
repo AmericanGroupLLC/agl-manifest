@@ -4,20 +4,20 @@ The one file to read at the start of a session, after `CLAUDE.md`. Kept short on
 purpose. Numbers here are measured; if one disagrees with `STATUS.md`, `STATUS.md`
 is right and this file is stale.
 
-**As of 2026-09-11.**
+**As of 2026-09-12.**
 
 ## Where the portfolio is
 
 | | |
 | --- | ---: |
 | Mobile apps in the org | 42 |
-| Flutter apps | 37 (36 in-org + Kinnav, transferred out) |
-| Not ported to Flutter | 6 |
-| Verified signed `.aab` | 37 of 37 |
-| Verified signed `.apk` | 37 of 37 |
-| Published to a GitHub Release | 36 (Kinnav skipped — outside the org) |
+| Flutter apps | **43 of 43** |
+| Not ported to Flutter | 0 |
+| Verified signed `.aab` | 43 of 43 |
+| Verified signed `.apk` | 43 of 43 |
+| Published to a GitHub Release | 42 (Kinnav skipped — outside the org) |
 | Signature mismatches | 0 |
-| Apps analysing clean | 37 |
+| Apps analysing clean | 43 |
 | iOS artefacts built | **0** |
 
 Android is done to the point of an uploadable, installable, signature-verified
@@ -49,6 +49,20 @@ Everything genuinely blocked needs a human. In priority order, from
   makes the `applicationId` permanent.
 
 ## Recently finished
+
+- **The six non-Flutter apps are ported.** AGStudio, AeroSwift, ApexMarketWatch,
+  BuddyPlay, MyCard and PlantPulse are Flutter apps under `mobile/`, each with a
+  verified signed bundle and APK on a GitHub Release. Two of them were not ports
+  at all: AeroSwift's mobile app was a 57-line placeholder and
+  ApexMarketWatch's was a single web page, so both were built from the spec.
+- Each port carries an honest offline mode rather than fabricated data — AGStudio
+  burns "NOT AI GENERATED" into preview pixels, OmniControl states that nothing
+  is transmitted, ApexMarketWatch marks sample quotes, AeroSwift distinguishes
+  ADS-B observations from schedules.
+- Generated launcher icons for all six; `flutter create` had left them as
+  identical Flutter logos, which both stores reject.
+- Fixed a manifest generator that emitted every newly ported app twice, which
+  had inflated the status tables to "48 apps" for an org of 42.
 
 - Every Flutter app now produces a signed, certificate-verified `.aab` and
   `.apk`, published to a GitHub Release in its own repo.

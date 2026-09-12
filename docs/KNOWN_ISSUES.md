@@ -30,13 +30,23 @@ and Play's spam policy. What each should actually do is a product decision.
 
 ---
 
-## P1 · Six apps are not Flutter and have not been ported
+## Resolved · The six non-Flutter apps are ported
 
-`AGStudio`, `AeroSwift`, `ApexMarketWatch`, `BuddyPlay`, `MyCard`, `PlantPulse`.
+`AGStudio`, `AeroSwift`, `ApexMarketWatch`, `BuddyPlay`, `MyCard` and
+`PlantPulse` are now Flutter apps under `mobile/` in their own repositories,
+each with a verified signed `.aab` and `.apk` published to a GitHub Release.
+The portfolio is 43 of 43 Flutter.
 
-They are counted in the portfolio's 42 but cannot be built, tested or delivered
-by any of this tooling. Porting them is weeks of work, not a configuration
-change, and nothing here should be read as implying they are close to shipping.
+Two of the six were not ports. AeroSwift's entire mobile app was a 57-line
+placeholder rendering a title and a card, and ApexMarketWatch's was a single
+280-line web page — both were built from the product spec rather than
+translated. That distinction matters when judging how much behaviour was
+preserved: for those two, there was none to preserve.
+
+What each app cannot yet do is listed in its own commit message rather than
+here, because it is app-specific: BLE peripheral mode, NFC, barcode scanning,
+notifications, accounts and credits, and real hardware transports all need
+either platform channels or credentials that do not exist.
 
 ---
 

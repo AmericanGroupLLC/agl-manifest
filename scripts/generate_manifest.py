@@ -131,7 +131,15 @@ def main() -> None:
             },
         })
 
+    # Skip any repo the audit has already emitted as a Flutter app. This list is
+    # hand-maintained, and every entry in it eventually gets ported — at which
+    # point leaving it here silently produces a second entry for the same app.
+    # That is exactly what happened: apps.json grew to 49 entries for 43 apps and
+    # the status tables reported "48 apps" for an org that has 42.
+    already = {a["repo"] for a in apps}
     for repo, (why, package) in sorted(not_flutter.items(), key=lambda kv: kv[0].lower()):
+        if repo in already:
+            continue
         apps.append({
             "repo": repo,
             "url": f"https://github.com/{ORG}/{repo}.git",
@@ -175,6 +183,17 @@ def main() -> None:
         "flutter_version": "3.44.2",
         "apps": apps,
     }
+    # Refuse to write a manifest that lists an app twice. Everything downstream
+    # counts these rows, so a duplicate does not fail loudly — it just inflates
+    # every total in STATUS.md and status.csv, which is harder to notice and
+    # harder to trust once noticed.
+    seen: dict[str, int] = {}
+    for a in apps:
+        seen[a["repo"]] = seen.get(a["repo"], 0) + 1
+    dupes = sorted(r for r, n in seen.items() if n > 1)
+    if dupes:
+        raise SystemExit(f"refusing to write: duplicated repos {', '.join(dupes)}")
+
     out = pathlib.Path(args.out).expanduser()
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(manifest, indent=2) + "\n")

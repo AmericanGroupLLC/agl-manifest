@@ -32,6 +32,22 @@
     "built_at": "2026-09-11T16:21:18-0700"
   },
   {
+    "repo": "AGStudio",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 111.5,
+    "aab": "AGStudio/mobile/build/app/outputs/bundle/release/app-release.aab",
+    "bytes": 52786867,
+    "sha256": "887c92fbd3e17ad89f8af9809ed0292d8a5e5c66a59a376f648ba632831d12cd",
+    "keystore_sha256": "7D73F0C37088E29FAFB297C5DE6075415306EF6D60B10AACEC5E68D43EEA4FC4",
+    "signer_sha256": "7D73F0C37088E29FAFB297C5DE6075415306EF6D60B10AACEC5E68D43EEA4FC4",
+    "result": "SIGNED",
+    "artifact": ".dist/AGStudio-app-release.aab",
+    "freed_mb": 1607,
+    "built_at": "2026-09-11T23:52:44-0700"
+  },
+  {
     "repo": "AGrammarly",
     "app_dir": "mobile",
     "flavours": [],
@@ -46,6 +62,38 @@
     "artifact": ".dist/AGrammarly-app-release.aab",
     "freed_mb": 939,
     "built_at": "2026-09-11T17:18:43-0700"
+  },
+  {
+    "repo": "AeroSwift",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 93.3,
+    "aab": "AeroSwift/mobile/build/app/outputs/bundle/release/app-release.aab",
+    "bytes": 51288937,
+    "sha256": "f6e7dadad44bb880b11868bc296df772b0b17cb78e5cadb714d3514444217ff1",
+    "keystore_sha256": "6C50F95AD50C5EFFA20B4FC4C349C0364E94C9DF850B9DD43E834BD4E21ABD35",
+    "signer_sha256": "6C50F95AD50C5EFFA20B4FC4C349C0364E94C9DF850B9DD43E834BD4E21ABD35",
+    "result": "SIGNED",
+    "artifact": ".dist/AeroSwift-app-release.aab",
+    "freed_mb": 1370,
+    "built_at": "2026-09-11T23:32:42-0700"
+  },
+  {
+    "repo": "ApexMarketWatch",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 98.1,
+    "aab": "ApexMarketWatch/mobile/build/app/outputs/bundle/release/app-release.aab",
+    "bytes": 51943851,
+    "sha256": "e0b11b8c440d8e3b90de968137b7c94a3381da7774b62428e661028952b6c2f5",
+    "keystore_sha256": "0CD6B8946B12A62C2612D7EB594309195A73C164EDA60B794925737D208C1478",
+    "signer_sha256": "0CD6B8946B12A62C2612D7EB594309195A73C164EDA60B794925737D208C1478",
+    "result": "SIGNED",
+    "artifact": ".dist/ApexMarketWatch-app-release.aab",
+    "freed_mb": 1461,
+    "built_at": "2026-09-11T22:52:52-0700"
   },
   {
     "repo": "BodyQuest",
@@ -66,6 +114,22 @@
     "artifact": ".dist/BodyQuest-app-prod-release.aab",
     "freed_mb": 1232,
     "built_at": "2026-09-11T16:22:20-0700"
+  },
+  {
+    "repo": "BuddyPlay",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 94.4,
+    "aab": "BuddyPlay/mobile/build/app/outputs/bundle/release/app-release.aab",
+    "bytes": 52101993,
+    "sha256": "76d313b43f7c22bbcb09145f0e0fd1c2a33f1cd79d73708e10d8ece65c218149",
+    "keystore_sha256": "0E601B3D12D0B4384439E9092297E4A4FE9A908EE34C85610AB849D83A875F96",
+    "signer_sha256": "0E601B3D12D0B4384439E9092297E4A4FE9A908EE34C85610AB849D83A875F96",
+    "result": "SIGNED",
+    "artifact": ".dist/BuddyPlay-app-release.aab",
+    "freed_mb": 1330,
+    "built_at": "2026-09-11T23:40:41-0700"
   },
   {
     "repo": "CalcMaster",
@@ -300,6 +364,22 @@
     "built_at": "2026-09-11T16:35:07-0700"
   },
   {
+    "repo": "MyCard",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 147.0,
+    "aab": "MyCard/mobile/build/app/outputs/bundle/release/app-release.aab",
+    "bytes": 52510850,
+    "sha256": "61a292725c97b7e4282f18528d7b0c7e459b2cae17e7d133a08f565c6e5bed17",
+    "keystore_sha256": "18054934B2F1B6ABB0C5943FB13528E1C48552F65BCD784A774AE5C271656711",
+    "signer_sha256": "18054934B2F1B6ABB0C5943FB13528E1C48552F65BCD784A774AE5C271656711",
+    "result": "SIGNED",
+    "artifact": ".dist/MyCard-app-release.aab",
+    "freed_mb": 1701,
+    "built_at": "2026-09-11T22:25:07-0700"
+  },
+  {
     "repo": "MyFinance",
     "app_dir": ".",
     "flavours": [],
@@ -324,7 +404,7 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 126.9,
+    "seconds": 174.3,
     "aab": "MyHealth/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
     "bytes": 61988820,
     "sha256": "2ce819659580eb172b65f4a98876bd312f26db3d9889b0268fb27e6992dae682",
@@ -332,8 +412,8 @@
     "signer_sha256": "A693834AA710F05D5DDFC63AFEA4C21A82E029779463F4E0FE9D74FF7B5D2E26",
     "result": "SIGNED",
     "artifact": ".dist/MyHealth-app-prod-release.aab",
-    "freed_mb": 1795,
-    "built_at": "2026-09-11T17:22:35-0700"
+    "freed_mb": 1106,
+    "built_at": "2026-09-11T22:02:56-0700"
   },
   {
     "repo": "NearServe",
@@ -422,6 +502,22 @@
     "artifact": ".dist/PilotEnRoute-app-prod-release.aab",
     "freed_mb": 2798,
     "built_at": "2026-09-11T16:44:52-0700"
+  },
+  {
+    "repo": "PlantPulse",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 95.3,
+    "aab": "PlantPulse/mobile/build/app/outputs/bundle/release/app-release.aab",
+    "bytes": 50359420,
+    "sha256": "929d5ae602d8c5e0570dfcc967df2ddbf14231a13a7221a00b6eaf94572baae9",
+    "keystore_sha256": "101E79E6A14864C75DF2DA5EDBCE9A7661EA92235973A43AB0292C22BAB40971",
+    "signer_sha256": "101E79E6A14864C75DF2DA5EDBCE9A7661EA92235973A43AB0292C22BAB40971",
+    "result": "SIGNED",
+    "artifact": ".dist/PlantPulse-app-release.aab",
+    "freed_mb": 1288,
+    "built_at": "2026-09-11T22:39:05-0700"
   },
   {
     "repo": "RideZap",

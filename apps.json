@@ -4,6 +4,44 @@
   "flutter_version": "3.44.2",
   "apps": [
     {
+      "repo": "AeroSwift",
+      "url": "https://github.com/AmericanGroupLLC/AeroSwift.git",
+      "branch": "master",
+      "dir": "mobile",
+      "application_id": "com.americangroup.aeroswift",
+      "bundle_id": "com.americangroup.aeroswift",
+      "version": "1.0.0+1",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "needs_private_packages": false,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "flutter": true,
+      "in_org": true
+    },
+    {
       "repo": "AGCleaner",
       "url": "https://github.com/AmericanGroupLLC/AGCleaner.git",
       "branch": "main",
@@ -118,6 +156,82 @@
       "in_org": true
     },
     {
+      "repo": "AGStudio",
+      "url": "https://github.com/AmericanGroupLLC/AGStudio.git",
+      "branch": "main",
+      "dir": "mobile",
+      "application_id": "com.americangroupllc.agstudio",
+      "bundle_id": "com.americangroupllc.agstudio",
+      "version": "1.0.0+1",
+      "deliverable": {
+        "android": true,
+        "ios": true
+      },
+      "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "needs_private_packages": false,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "flutter": true,
+      "in_org": true
+    },
+    {
+      "repo": "ApexMarketWatch",
+      "url": "https://github.com/AmericanGroupLLC/ApexMarketWatch.git",
+      "branch": "main",
+      "dir": "mobile",
+      "application_id": "com.americangroupllc.apexmarketwatch",
+      "bundle_id": "com.americangroupllc.apexmarketwatch",
+      "version": "1.0.0+1",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "needs_private_packages": false,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "flutter": true,
+      "in_org": true
+    },
+    {
       "repo": "BodyQuest",
       "url": "https://github.com/AmericanGroupLLC/BodyQuest.git",
       "branch": "master",
@@ -155,6 +269,44 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
+      },
+      "flutter": true,
+      "in_org": true
+    },
+    {
+      "repo": "BuddyPlay",
+      "url": "https://github.com/AmericanGroupLLC/BuddyPlay.git",
+      "branch": "main",
+      "dir": "mobile",
+      "application_id": "com.americangroupllc.buddyplay",
+      "bundle_id": "com.americangroupllc.buddyplay",
+      "version": "1.0.0+1",
+      "deliverable": {
+        "android": true,
+        "ios": true
+      },
+      "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "needs_private_packages": false,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
       },
       "flutter": true,
       "in_org": true
@@ -808,6 +960,46 @@
       "in_org": true
     },
     {
+      "repo": "MyCard",
+      "url": "https://github.com/AmericanGroupLLC/MyCard.git",
+      "branch": "main",
+      "dir": "mobile",
+      "application_id": "com.americangroupllc.mycard",
+      "bundle_id": "com.americangroupllc.mycard",
+      "version": "1.0.0+1",
+      "deliverable": {
+        "android": true,
+        "ios": true
+      },
+      "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [
+          "Biometric"
+        ],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "needs_private_packages": false,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
+      },
+      "flutter": true,
+      "in_org": true
+    },
+    {
       "repo": "MyFinance",
       "url": "https://github.com/AmericanGroupLLC/MyFinance.git",
       "branch": "main",
@@ -1084,6 +1276,44 @@
         "admob_android_id": false,
         "admob_ios_id": false,
         "store_description": false
+      },
+      "flutter": true,
+      "in_org": true
+    },
+    {
+      "repo": "PlantPulse",
+      "url": "https://github.com/AmericanGroupLLC/PlantPulse.git",
+      "branch": "main",
+      "dir": "mobile",
+      "application_id": "com.americangroupllc.plantpulse",
+      "bundle_id": "com.americangroupllc.plantpulse",
+      "version": "1.0.0+1",
+      "deliverable": {
+        "android": false,
+        "ios": false
+      },
+      "ads": false,
+      "platforms": {
+        "android": true,
+        "ios": true
+      },
+      "auth": {
+        "providers": [],
+        "login_screen": false,
+        "account_optional": false
+      },
+      "admob": {
+        "integrated": false,
+        "android_app_id": "",
+        "ios_app_id": ""
+      },
+      "needs_private_packages": false,
+      "pending": {
+        "firebase_android": true,
+        "firebase_ios": true,
+        "admob_android_id": false,
+        "admob_ios_id": false,
+        "store_description": true
       },
       "flutter": true,
       "in_org": true
@@ -1488,246 +1718,6 @@
         "store_description": true
       },
       "flutter": true,
-      "in_org": true
-    },
-    {
-      "repo": "AeroSwift",
-      "url": "https://github.com/AmericanGroupLLC/AeroSwift.git",
-      "branch": "main",
-      "dir": ".",
-      "flutter": false,
-      "status": "TypeScript monorepo (npm workspaces): tracking, personal, transit",
-      "application_id": "com.americangroupllc.aeroswift",
-      "bundle_id": "com.americangroupllc.aeroswift",
-      "package_reserved": true,
-      "version": "",
-      "deliverable": {
-        "android": false,
-        "ios": false
-      },
-      "ads": false,
-      "needs_private_packages": false,
-      "platforms": {
-        "android": false,
-        "ios": false
-      },
-      "auth": {
-        "providers": [],
-        "login_screen": false,
-        "account_optional": false
-      },
-      "admob": {
-        "integrated": false,
-        "android_app_id": "",
-        "ios_app_id": ""
-      },
-      "pending": {
-        "firebase_android": true,
-        "firebase_ios": true,
-        "admob_android_id": false,
-        "admob_ios_id": false,
-        "store_description": true
-      },
-      "in_org": true
-    },
-    {
-      "repo": "AGStudio",
-      "url": "https://github.com/AmericanGroupLLC/AGStudio.git",
-      "branch": "main",
-      "dir": ".",
-      "flutter": false,
-      "status": "React Native \u2014 port pending",
-      "application_id": "com.americangroupllc.agstudio",
-      "bundle_id": "com.americangroupllc.agstudio",
-      "package_reserved": true,
-      "version": "",
-      "deliverable": {
-        "android": false,
-        "ios": false
-      },
-      "ads": false,
-      "needs_private_packages": false,
-      "platforms": {
-        "android": false,
-        "ios": false
-      },
-      "auth": {
-        "providers": [],
-        "login_screen": false,
-        "account_optional": false
-      },
-      "admob": {
-        "integrated": false,
-        "android_app_id": "",
-        "ios_app_id": ""
-      },
-      "pending": {
-        "firebase_android": true,
-        "firebase_ios": true,
-        "admob_android_id": false,
-        "admob_ios_id": false,
-        "store_description": true
-      },
-      "in_org": true
-    },
-    {
-      "repo": "ApexMarketWatch",
-      "url": "https://github.com/AmericanGroupLLC/ApexMarketWatch.git",
-      "branch": "main",
-      "dir": ".",
-      "flutter": false,
-      "status": "not Flutter yet",
-      "application_id": "com.americangroupllc.apexmarketwatch",
-      "bundle_id": "com.americangroupllc.apexmarketwatch",
-      "package_reserved": true,
-      "version": "",
-      "deliverable": {
-        "android": false,
-        "ios": false
-      },
-      "ads": false,
-      "needs_private_packages": false,
-      "platforms": {
-        "android": false,
-        "ios": false
-      },
-      "auth": {
-        "providers": [],
-        "login_screen": false,
-        "account_optional": false
-      },
-      "admob": {
-        "integrated": false,
-        "android_app_id": "",
-        "ios_app_id": ""
-      },
-      "pending": {
-        "firebase_android": true,
-        "firebase_ios": true,
-        "admob_android_id": false,
-        "admob_ios_id": false,
-        "store_description": true
-      },
-      "in_org": true
-    },
-    {
-      "repo": "BuddyPlay",
-      "url": "https://github.com/AmericanGroupLLC/BuddyPlay.git",
-      "branch": "main",
-      "dir": ".",
-      "flutter": false,
-      "status": "native Swift + Kotlin \u2014 port pending",
-      "application_id": "com.americangroupllc.buddyplay",
-      "bundle_id": "com.americangroupllc.buddyplay",
-      "package_reserved": true,
-      "version": "",
-      "deliverable": {
-        "android": false,
-        "ios": false
-      },
-      "ads": false,
-      "needs_private_packages": false,
-      "platforms": {
-        "android": false,
-        "ios": false
-      },
-      "auth": {
-        "providers": [],
-        "login_screen": false,
-        "account_optional": false
-      },
-      "admob": {
-        "integrated": false,
-        "android_app_id": "",
-        "ios_app_id": ""
-      },
-      "pending": {
-        "firebase_android": true,
-        "firebase_ios": true,
-        "admob_android_id": false,
-        "admob_ios_id": false,
-        "store_description": true
-      },
-      "in_org": true
-    },
-    {
-      "repo": "MyCard",
-      "url": "https://github.com/AmericanGroupLLC/MyCard.git",
-      "branch": "main",
-      "dir": ".",
-      "flutter": false,
-      "status": "native Swift + Kotlin + TS \u2014 port pending",
-      "application_id": "com.americangroupllc.mycard",
-      "bundle_id": "com.americangroupllc.mycard",
-      "package_reserved": true,
-      "version": "",
-      "deliverable": {
-        "android": false,
-        "ios": false
-      },
-      "ads": false,
-      "needs_private_packages": false,
-      "platforms": {
-        "android": false,
-        "ios": false
-      },
-      "auth": {
-        "providers": [],
-        "login_screen": false,
-        "account_optional": false
-      },
-      "admob": {
-        "integrated": false,
-        "android_app_id": "",
-        "ios_app_id": ""
-      },
-      "pending": {
-        "firebase_android": true,
-        "firebase_ios": true,
-        "admob_android_id": false,
-        "admob_ios_id": false,
-        "store_description": true
-      },
-      "in_org": true
-    },
-    {
-      "repo": "PlantPulse",
-      "url": "https://github.com/AmericanGroupLLC/PlantPulse.git",
-      "branch": "main",
-      "dir": ".",
-      "flutter": false,
-      "status": "not Flutter yet",
-      "application_id": "com.americangroupllc.plantpulse",
-      "bundle_id": "com.americangroupllc.plantpulse",
-      "package_reserved": true,
-      "version": "",
-      "deliverable": {
-        "android": false,
-        "ios": false
-      },
-      "ads": false,
-      "needs_private_packages": false,
-      "platforms": {
-        "android": false,
-        "ios": false
-      },
-      "auth": {
-        "providers": [],
-        "login_screen": false,
-        "account_optional": false
-      },
-      "admob": {
-        "integrated": false,
-        "android_app_id": "",
-        "ios_app_id": ""
-      },
-      "pending": {
-        "firebase_android": true,
-        "firebase_ios": true,
-        "admob_android_id": false,
-        "admob_ios_id": false,
-        "store_description": true
-      },
       "in_org": true
     }
   ]

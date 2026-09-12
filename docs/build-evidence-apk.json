@@ -32,6 +32,22 @@
     "built_at": "2026-09-11T18:05:33-0700"
   },
   {
+    "repo": "AGStudio",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 84.1,
+    "aab": "AGStudio/mobile/build/app/outputs/flutter-apk/app-release.apk",
+    "bytes": 53962523,
+    "sha256": "466bfc76ebf2c32a7218c686947286e2f7884d2142c10ed440f7577bb5814011",
+    "keystore_sha256": "7D73F0C37088E29FAFB297C5DE6075415306EF6D60B10AACEC5E68D43EEA4FC4",
+    "signer_sha256": "7D73F0C37088E29FAFB297C5DE6075415306EF6D60B10AACEC5E68D43EEA4FC4",
+    "result": "SIGNED",
+    "artifact": ".dist/AGStudio-app-release.apk",
+    "freed_mb": 1320,
+    "built_at": "2026-09-12T00:00:59-0700"
+  },
+  {
     "repo": "AGrammarly",
     "app_dir": "mobile",
     "flavours": [],
@@ -46,6 +62,38 @@
     "artifact": ".dist/AGrammarly-app-release.apk",
     "freed_mb": 849,
     "built_at": "2026-09-11T18:06:30-0700"
+  },
+  {
+    "repo": "AeroSwift",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 84.5,
+    "aab": "AeroSwift/mobile/build/app/outputs/flutter-apk/app-release.apk",
+    "bytes": 52267058,
+    "sha256": "2d951eff37dad9cbda0548bd26a2a5add5de024992219a3ef244a06ef6d9145e",
+    "keystore_sha256": "6C50F95AD50C5EFFA20B4FC4C349C0364E94C9DF850B9DD43E834BD4E21ABD35",
+    "signer_sha256": "6C50F95AD50C5EFFA20B4FC4C349C0364E94C9DF850B9DD43E834BD4E21ABD35",
+    "result": "SIGNED",
+    "artifact": ".dist/AeroSwift-app-release.apk",
+    "freed_mb": 1184,
+    "built_at": "2026-09-12T00:02:27-0700"
+  },
+  {
+    "repo": "ApexMarketWatch",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 78.3,
+    "aab": "ApexMarketWatch/mobile/build/app/outputs/flutter-apk/app-release.apk",
+    "bytes": 52967842,
+    "sha256": "94a5cff7896dca61b26db205e3071c4396a930135acb3ea5080c0f2a025da872",
+    "keystore_sha256": "0CD6B8946B12A62C2612D7EB594309195A73C164EDA60B794925737D208C1478",
+    "signer_sha256": "0CD6B8946B12A62C2612D7EB594309195A73C164EDA60B794925737D208C1478",
+    "result": "SIGNED",
+    "artifact": ".dist/ApexMarketWatch-app-release.apk",
+    "freed_mb": 1198,
+    "built_at": "2026-09-12T00:03:49-0700"
   },
   {
     "repo": "BodyQuest",
@@ -66,6 +114,22 @@
     "artifact": ".dist/BodyQuest-app-prod-release.apk",
     "freed_mb": 1087,
     "built_at": "2026-09-11T18:07:52-0700"
+  },
+  {
+    "repo": "BuddyPlay",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 68.4,
+    "aab": "BuddyPlay/mobile/build/app/outputs/flutter-apk/app-release.apk",
+    "bytes": 53226254,
+    "sha256": "63a402d321cff305a33941b3ff7e911f52911ce3c5f4be7bb13d8b2d819501c8",
+    "keystore_sha256": "0E601B3D12D0B4384439E9092297E4A4FE9A908EE34C85610AB849D83A875F96",
+    "signer_sha256": "0E601B3D12D0B4384439E9092297E4A4FE9A908EE34C85610AB849D83A875F96",
+    "result": "SIGNED",
+    "artifact": ".dist/BuddyPlay-app-release.apk",
+    "freed_mb": 1192,
+    "built_at": "2026-09-12T00:05:00-0700"
   },
   {
     "repo": "CalcMaster",
@@ -300,6 +364,22 @@
     "built_at": "2026-09-11T18:34:42-0700"
   },
   {
+    "repo": "MyCard",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 96.1,
+    "aab": "MyCard/mobile/build/app/outputs/flutter-apk/app-release.apk",
+    "bytes": 53514048,
+    "sha256": "10d7e9a7326b50d43094da3b36c88d7001a2ec0b1f816ed84a3ebab07961a447",
+    "keystore_sha256": "18054934B2F1B6ABB0C5943FB13528E1C48552F65BCD784A774AE5C271656711",
+    "signer_sha256": "18054934B2F1B6ABB0C5943FB13528E1C48552F65BCD784A774AE5C271656711",
+    "result": "SIGNED",
+    "artifact": ".dist/MyCard-app-release.apk",
+    "freed_mb": 1301,
+    "built_at": "2026-09-12T00:06:41-0700"
+  },
+  {
     "repo": "MyFinance",
     "app_dir": ".",
     "flavours": [],
@@ -422,6 +502,22 @@
     "artifact": ".dist/PilotEnRoute-app-prod-release.apk",
     "freed_mb": 1394,
     "built_at": "2026-09-11T18:48:36-0700"
+  },
+  {
+    "repo": "PlantPulse",
+    "app_dir": "mobile",
+    "flavours": [],
+    "flavour_built": null,
+    "seconds": 67.9,
+    "aab": "PlantPulse/mobile/build/app/outputs/flutter-apk/app-release.apk",
+    "bytes": 51022978,
+    "sha256": "7f431e6ef002a5332c7cc3e5b56b4a1e57b30b03c80a8a2e8d4a18189f1e99c2",
+    "keystore_sha256": "101E79E6A14864C75DF2DA5EDBCE9A7661EA92235973A43AB0292C22BAB40971",
+    "signer_sha256": "101E79E6A14864C75DF2DA5EDBCE9A7661EA92235973A43AB0292C22BAB40971",
+    "result": "SIGNED",
+    "artifact": ".dist/PlantPulse-app-release.apk",
+    "freed_mb": 1153,
+    "built_at": "2026-09-12T00:07:52-0700"
   },
   {
     "repo": "RideZap",

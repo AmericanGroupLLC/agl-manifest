@@ -1,34 +1,38 @@
 # Store-release readiness
 
-Measured across 43 repositories (37 of them Flutter apps) by `scripts/audit_release_readiness.py`. Raw data: [`release-readiness.json`](release-readiness.json).
+Measured across 43 repositories (43 of them Flutter apps) by `scripts/audit_release_readiness.py`. Raw data: [`release-readiness.json`](release-readiness.json).
 
 ## Portfolio totals
 
 | Signal | Apps with it | Apps without |
 | --- | ---: | ---: |
-| Release signing config | 37 | 0 |
-| Crashlytics wired in main() | 36 | 1 |
-| firebase_crashlytics dependency | 6 | 31 |
-| google-services.json | 0 | 37 |
-| GoogleService-Info.plist | 0 | 37 |
-| google_mobile_ads dependency | 11 | 26 |
-| Android AdMob app id | 11 | 26 |
-| iOS AdMob app id | 11 | 26 |
-| Fastlane Fastfile | 37 | 0 |
-| Release workflow | 37 | 0 |
-| CI workflow | 37 | 0 |
-| Store metadata | 37 | 0 |
-| l10n.yaml | 10 | 27 |
-| iOS privacy manifest | 37 | 0 |
+| Release signing config | 43 | 0 |
+| Crashlytics wired in main() | 36 | 7 |
+| firebase_crashlytics dependency | 6 | 37 |
+| google-services.json | 0 | 43 |
+| GoogleService-Info.plist | 0 | 43 |
+| google_mobile_ads dependency | 11 | 32 |
+| Android AdMob app id | 11 | 32 |
+| iOS AdMob app id | 11 | 32 |
+| Fastlane Fastfile | 40 | 3 |
+| Release workflow | 40 | 3 |
+| CI workflow | 41 | 2 |
+| Store metadata | 42 | 1 |
+| l10n.yaml | 11 | 32 |
+| iOS privacy manifest | 37 | 6 |
 
 ## Per-app
 
 | App | ver | sign | crash | ads(A/i) | fastlane | CI | locales | l10n calls | tests |
 | --- | --- | :-: | :-: | :-: | :-: | :-: | ---: | ---: | ---: |
+| AeroSwift | 1.0.0+1 | yes | — | —/— | — | — | 0 | 0 | 9 |
 | AGCleaner | 1.0.0+1 | yes | yes | —/— | yes | yes | 12 | 3 | 4 |
 | AGrammarly | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 6 |
 | AGRecorder | 1.0.0+1 | yes | yes | —/— | yes | yes | 12 | 3 | 4 |
+| AGStudio | 1.0.0+1 | yes | — | —/— | yes | yes | 12 | 135 | 10 |
+| ApexMarketWatch | 1.0.0+1 | yes | — | —/— | — | — | 0 | 0 | 9 |
 | BodyQuest | 1.1.0+2 | yes | yes | yes/yes | yes | yes | 0 | 0 | 6 |
+| BuddyPlay | 1.0.0+1 | yes | — | —/— | yes | yes | 0 | 0 | 10 |
 | CalcMaster | 4.0.2+5 | yes | yes | yes/yes | yes | yes | 12 | 58 | 21 |
 | CarDeal | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 5 |
 | ChefCount | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 4 |
@@ -45,6 +49,7 @@ Measured across 43 repositories (37 of them Flutter apps) by `scripts/audit_rele
 | iMeasure | 5.0.1+3 | yes | yes | yes/yes | yes | yes | 0 | 0 | 11 |
 | Kinnav | 1.0.1+4 | yes | yes | —/— | yes | yes | 6 | 159 | 23 |
 | MileMaster | 1.0.0+1 | yes | yes | —/— | yes | yes | 12 | 3 | 3 |
+| MyCard | 1.0.0+1 | yes | — | —/— | yes | yes | 0 | 0 | 8 |
 | MyFinance | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 4 |
 | MyHealth | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 8 |
 | NearServe | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 5 |
@@ -52,6 +57,7 @@ Measured across 43 repositories (37 of them Flutter apps) by `scripts/audit_rele
 | NexusTransferPay | 1.0.0+1 | yes | yes | —/— | yes | yes | 25 | 16 | 8 |
 | Photriya | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 17 |
 | PilotEnRoute | 1.0.0+1 | yes | yes | yes/yes | yes | yes | 0 | 0 | 14 |
+| PlantPulse | 1.0.0+1 | yes | — | —/— | — | — | 0 | 0 | 11 |
 | portfolio-board | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 4 |
 | radiotune | 2.0.1+2 | yes | yes | yes/yes | yes | yes | 0 | 0 | 12 |
 | RideZap | 1.0.0+1 | yes | yes | —/— | yes | yes | 0 | 0 | 5 |
@@ -65,4 +71,10 @@ Measured across 43 repositories (37 of them Flutter apps) by `scripts/audit_rele
 
 ## Blocking gaps, by app
 
+- **AeroSwift** — crash reporting not initialised in main(); no Fastlane lanes; no release workflow
+- **AGStudio** — crash reporting not initialised in main()
+- **ApexMarketWatch** — crash reporting not initialised in main(); no Fastlane lanes; no release workflow
+- **BuddyPlay** — crash reporting not initialised in main()
 - **FashionFactory** — crash reporting not initialised in main()
+- **MyCard** — crash reporting not initialised in main()
+- **PlantPulse** — crash reporting not initialised in main(); no Fastlane lanes; no release workflow

@@ -12,14 +12,14 @@ creating AdMob apps, upload keys or store records.
 | | Count |
 | --- | ---: |
 | Mobile apps in the org | 42 |
-| Flutter, buildable today | 36 |
-| Not ported yet | 6 |
+| Flutter, buildable today | 42 |
+| Not ported yet | 0 |
 | Serving ads | 11 |
 | App Store record matching a live bundle id | 29 |
 | Upload keystores loaded into this repo's secrets | 30 |
-| Firebase config present | 0 of 36 |
-| Binary anyone can download | 37 |
-| Signed release bundle, verified against its upload key | 37 of 36 |
+| Firebase config present | 0 of 42 |
+| Binary anyone can download | 43 |
+| Signed release bundle, verified against its upload key | 43 of 42 |
 
 ## 1. Every app
 
@@ -29,48 +29,48 @@ wired.
 
 | # | App | Package / bundle id | Status | Android | iOS | Ads | Sign-in | Store record | Build | Binaries |
 | --: | --- | --- | --- | :-: | :-: | :-: | --- | --- | --- | --- |
-| 1 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `com.americangroupllc.agcleaner` | Binary published | yes | yes | — | none | AGCleaner | v1.0.0-android | `AGCleaner-app-release.aab`, `AGCleaner-app-release.apk` |
-| 2 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `com.americangroup.agrammarly` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `AGrammarly-app-release.aab`, `AGrammarly-app-release.apk` |
-| 3 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | `com.americangroupllc.agrecorder` | Binary published | yes | yes | — | none | AGRecorder | v1.0.0-android | `AGRecorder-app-release.aab`, `AGRecorder-app-release.apk` |
-| 4 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `com.americangroup.bodyquest` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | BodyQuest | v1.1.0-android | `BodyQuest-app-prod-release.aab`, `BodyQuest-app-prod-release.apk` |
-| 5 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `com.americangroupllc.calcmaster` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | Calculator: World Class | v4.0.2-android | `CalcMaster-app-prod-release.aab`, `CalcMaster-app-prod-release.apk` |
-| 6 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `com.americangroupllc.cardeal` | Binary published | yes | yes | — | none | iCarDeal | v1.0.0-android | `CarDeal-app-release.aab`, `CarDeal-app-release.apk` |
-| 7 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | `com.americangroupllc.chefcount` | Binary published | yes | yes | — | none | ChefCount | v1.0.0-android | `ChefCount-app-release.aab`, `ChefCount-app-release.apk` |
-| 8 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `com.americangroupllc.codedeal` | Does not compile — 5 analyzer errors | yes | yes | — | none | CodeDeal | v1.4.0-android | `CodeDeal-app-release.aab`, `CodeDeal-app-release.apk` |
-| 9 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `com.americangroup.dailypulse` | Binary published | yes | yes | — | Supabase + Google + Apple (optional) | **none** | v1.0.0-android | `daily-pulse-app-prod-release.aab`, `daily-pulse-app-prod-release.apk` |
-| 10 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `com.americangroupllc.driftdate` | Binary published | yes | yes | — | Supabase + Google + Apple | iDriftDate | v1.0.0-android | `DriftDate-app-prod-release.aab`, `DriftDate-app-prod-release.apk` |
-| 11 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `com.americangroupllc.eventspark` | Binary published | yes | yes | — | none | iEventSpark | v1.0.0-android | `EventSpark-app-release.aab`, `EventSpark-app-release.apk` |
-| 12 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `com.americangroupllc.styleradar` | Binary published | yes | yes | — | none | StyleRadar | v2.2.0-android | `FashionFactory-app-prod-release.aab`, `FashionFactory-app-prod-release.apk` |
-| 13 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `com.americangroupllc.gadgetnest` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `GadgetNest-app-release.aab`, `GadgetNest-app-release.apk` |
-| 14 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `com.americangroupllc.grocerymatch` | Binary published | yes | yes | — | Supabase + Firebase + Google + Apple (optional) | **none** | v2.1.0-android | `GroceryMatch-app-prod-release.aab`, `GroceryMatch-app-prod-release.apk` |
-| 15 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | A `com.americangroupllc.her_journey`<br>i `com.americangroupllc.herJourney` | Binary published | yes | yes | — | Supabase + Google + Apple (no screen) | **none** | v1.2.0-android | `HerJourney-app-prod-release.aab`, `HerJourney-app-prod-release.apk` |
-| 16 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | `com.americangroupllc.homewise` | Binary published | yes | yes | — | none | iHomeWise | v1.0.0-android | `HomeWise-app-release.aab`, `HomeWise-app-release.apk` |
-| 17 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `com.americangroupllc.imaps` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | iMaps Route | v1.0.2-android | `iMaps-app-prod-release.aab`, `iMaps-app-prod-release.apk` |
-| 18 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `com.americangroupllc.imeasure` | Binary published | yes | yes | yes | Supabase + Google + Apple | **none** | v5.0.1-android | `iMeasure-app-prod-release.aab`, `iMeasure-app-prod-release.apk` |
-| 19 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | `com.americangroupllc.milemaster` | Binary published | yes | yes | — | none | iMileMaster | v1.0.0-android | `MileMaster-app-release.aab`, `MileMaster-app-release.apk` |
-| 20 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | `com.americangroupllc.myfinance` | Binary published | yes | yes | — | none | iMyFinance | v1.0.0-android | `MyFinance-app-release.aab`, `MyFinance-app-release.apk` |
-| 21 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `com.americangroupllc.myhealth` | Binary published | yes | yes | — | Supabase + Google + Apple (optional) | **none** | v1.0.0-android | `MyHealth-app-prod-release.aab`, `MyHealth-app-prod-release.apk` |
-| 22 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | `com.americangroupllc.nearserve` | Binary published | yes | yes | — | none | NearServe | v1.0.0-android | `NearServe-app-release.aab`, `NearServe-app-release.apk` |
-| 23 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `com.americangroup.newsboard` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `NewsBoard-app-release.aab`, `NewsBoard-app-release.apk` |
-| 24 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `com.americangroupllc.nexuspay` | Binary published | yes | yes | — | Biometric (no screen) | **none** | v1.0.0-android | `NexusTransferPay-app-release.aab`, `NexusTransferPay-app-release.apk` |
-| 25 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | `com.americangroupllc.photriya` | Binary published | yes | yes | — | Supabase + Firebase + Google + Apple (optional) | Photriya Camera Colors | v1.0.0-android | `Photriya-app-prod-release.aab`, `Photriya-app-prod-release.apk` |
-| 26 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `com.americangroupllc.pilotenroute` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | PilotEnRoute | v1.0.0-android | `PilotEnRoute-app-prod-release.aab`, `PilotEnRoute-app-prod-release.apk` |
-| 27 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `com.americangroupllc.portfolioboard` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `portfolio-board-app-release.aab`, `portfolio-board-app-release.apk` |
-| 28 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `com.americangroup.radiotune` | Binary published | yes | yes | yes | Supabase + Google + Apple | RadioTune World | v2.0.1-android | `radiotune-app-release.aab`, `radiotune-app-release.apk` |
-| 29 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | `com.americangroupllc.ridezap` | Binary published | yes | yes | — | none | RideZap | v1.0.0-android | `RideZap-app-release.aab`, `RideZap-app-release.apk` |
-| 30 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | `com.americangroupllc.roomcraft` | Binary published | yes | yes | — | none | iRoomCraft | v1.0.0-android | `RoomCraft-app-release.aab`, `RoomCraft-app-release.apk` |
-| 31 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `com.americangroupllc.tripnest` | Binary published | yes | yes | yes | none | TravelZap | v1.0.0-android | `TripNest-app-release.aab`, `TripNest-app-release.apk` |
-| 32 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | `com.americangroupllc.usciscase` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | USCIS Case Lookup | v1.0.2-android | `Uscis-Case-app-prod-release.aab`, `Uscis-Case-app-prod-release.apk` |
-| 33 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `com.americangroupllc.verba` | Binary published | yes | yes | yes | none | **none** | v1.0.0-android | `Verba-app-prod-release.aab`, `Verba-app-prod-release.apk` |
-| 34 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `com.americangroupllc.virtuband` | Binary published | yes | yes | yes | Supabase (optional) | VirtuBand | v1.0.1-android | `VirtuBand-app-prod-release.aab`, `VirtuBand-app-prod-release.apk` |
-| 35 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | `com.americangroupllc.wifitrail` | Binary published | yes | yes | — | none | WifiTrail | v1.0.0-android | `WiFiTrail-app-release.aab`, `WiFiTrail-app-release.apk` |
-| 36 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `com.americangroup.yourtube` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | YourTube: Watch & Discover | v1.0.2-android | `yourtube-app-prod-release.aab`, `yourtube-app-prod-release.apk` |
-| 37 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroupllc.aeroswift` _(reserved)_ | Not ported | — | — | — | — | **none** | — | — |
-| 38 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | `com.americangroupllc.agstudio` _(reserved)_ | Not ported | — | — | — | — | AGStudio | — | — |
-| 39 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | `com.americangroupllc.apexmarketwatch` _(reserved)_ | Not ported | — | — | — | — | ApexMarketWatch | — | — |
-| 40 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | `com.americangroupllc.buddyplay` _(reserved)_ | Not ported | — | — | — | — | iBuddyPlay | — | — |
-| 41 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | `com.americangroupllc.mycard` _(reserved)_ | Not ported | — | — | — | — | iMyCard | — | — |
-| 42 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `com.americangroupllc.plantpulse` _(reserved)_ | Not ported | — | — | — | — | **none** | — | — |
+| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroup.aeroswift` | Binary published | build only | build only | — | none | **none** | v1.0.0-android | `AeroSwift-app-release.aab`, `AeroSwift-app-release.apk` |
+| 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `com.americangroupllc.agcleaner` | Binary published | yes | yes | — | none | AGCleaner | v1.0.0-android | `AGCleaner-app-release.aab`, `AGCleaner-app-release.apk` |
+| 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `com.americangroup.agrammarly` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `AGrammarly-app-release.aab`, `AGrammarly-app-release.apk` |
+| 4 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | `com.americangroupllc.agrecorder` | Binary published | yes | yes | — | none | AGRecorder | v1.0.0-android | `AGRecorder-app-release.aab`, `AGRecorder-app-release.apk` |
+| 5 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | `com.americangroupllc.agstudio` | Binary published | yes | yes | — | none | AGStudio | v1.0.0-android | `AGStudio-app-release.aab`, `AGStudio-app-release.apk` |
+| 6 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | `com.americangroupllc.apexmarketwatch` | Binary published | build only | build only | — | none | ApexMarketWatch | v1.0.0-android | `ApexMarketWatch-app-release.aab`, `ApexMarketWatch-app-release.apk` |
+| 7 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `com.americangroup.bodyquest` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | BodyQuest | v1.1.0-android | `BodyQuest-app-prod-release.aab`, `BodyQuest-app-prod-release.apk` |
+| 8 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | `com.americangroupllc.buddyplay` | Binary published | yes | yes | — | none | iBuddyPlay | v1.0.0-android | `BuddyPlay-app-release.aab`, `BuddyPlay-app-release.apk` |
+| 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `com.americangroupllc.calcmaster` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | Calculator: World Class | v4.0.2-android | `CalcMaster-app-prod-release.aab`, `CalcMaster-app-prod-release.apk` |
+| 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `com.americangroupllc.cardeal` | Binary published | yes | yes | — | none | iCarDeal | v1.0.0-android | `CarDeal-app-release.aab`, `CarDeal-app-release.apk` |
+| 11 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | `com.americangroupllc.chefcount` | Binary published | yes | yes | — | none | ChefCount | v1.0.0-android | `ChefCount-app-release.aab`, `ChefCount-app-release.apk` |
+| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `com.americangroupllc.codedeal` | Does not compile — 5 analyzer errors | yes | yes | — | none | CodeDeal | v1.4.0-android | `CodeDeal-app-release.aab`, `CodeDeal-app-release.apk` |
+| 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `com.americangroup.dailypulse` | Binary published | yes | yes | — | Supabase + Google + Apple (optional) | **none** | v1.0.0-android | `daily-pulse-app-prod-release.aab`, `daily-pulse-app-prod-release.apk` |
+| 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `com.americangroupllc.driftdate` | Binary published | yes | yes | — | Supabase + Google + Apple | iDriftDate | v1.0.0-android | `DriftDate-app-prod-release.aab`, `DriftDate-app-prod-release.apk` |
+| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `com.americangroupllc.eventspark` | Binary published | yes | yes | — | none | iEventSpark | v1.0.0-android | `EventSpark-app-release.aab`, `EventSpark-app-release.apk` |
+| 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `com.americangroupllc.styleradar` | Binary published | yes | yes | — | none | StyleRadar | v2.2.0-android | `FashionFactory-app-prod-release.aab`, `FashionFactory-app-prod-release.apk` |
+| 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `com.americangroupllc.gadgetnest` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `GadgetNest-app-release.aab`, `GadgetNest-app-release.apk` |
+| 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `com.americangroupllc.grocerymatch` | Binary published | yes | yes | — | Supabase + Firebase + Google + Apple (optional) | **none** | v2.1.0-android | `GroceryMatch-app-prod-release.aab`, `GroceryMatch-app-prod-release.apk` |
+| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | A `com.americangroupllc.her_journey`<br>i `com.americangroupllc.herJourney` | Binary published | yes | yes | — | Supabase + Google + Apple (no screen) | **none** | v1.2.0-android | `HerJourney-app-prod-release.aab`, `HerJourney-app-prod-release.apk` |
+| 20 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | `com.americangroupllc.homewise` | Binary published | yes | yes | — | none | iHomeWise | v1.0.0-android | `HomeWise-app-release.aab`, `HomeWise-app-release.apk` |
+| 21 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `com.americangroupllc.imaps` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | iMaps Route | v1.0.2-android | `iMaps-app-prod-release.aab`, `iMaps-app-prod-release.apk` |
+| 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `com.americangroupllc.imeasure` | Binary published | yes | yes | yes | Supabase + Google + Apple | **none** | v5.0.1-android | `iMeasure-app-prod-release.aab`, `iMeasure-app-prod-release.apk` |
+| 23 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | `com.americangroupllc.milemaster` | Binary published | yes | yes | — | none | iMileMaster | v1.0.0-android | `MileMaster-app-release.aab`, `MileMaster-app-release.apk` |
+| 24 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | `com.americangroupllc.mycard` | Binary published | yes | yes | — | Biometric (no screen) | iMyCard | v1.0.0-android | `MyCard-app-release.aab`, `MyCard-app-release.apk` |
+| 25 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | `com.americangroupllc.myfinance` | Binary published | yes | yes | — | none | iMyFinance | v1.0.0-android | `MyFinance-app-release.aab`, `MyFinance-app-release.apk` |
+| 26 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `com.americangroupllc.myhealth` | Binary published | yes | yes | — | Supabase + Google + Apple (optional) | **none** | v1.0.0-android | `MyHealth-app-prod-release.aab`, `MyHealth-app-prod-release.apk` |
+| 27 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | `com.americangroupllc.nearserve` | Binary published | yes | yes | — | none | NearServe | v1.0.0-android | `NearServe-app-release.aab`, `NearServe-app-release.apk` |
+| 28 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `com.americangroup.newsboard` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `NewsBoard-app-release.aab`, `NewsBoard-app-release.apk` |
+| 29 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `com.americangroupllc.nexuspay` | Binary published | yes | yes | — | Biometric (no screen) | **none** | v1.0.0-android | `NexusTransferPay-app-release.aab`, `NexusTransferPay-app-release.apk` |
+| 30 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | `com.americangroupllc.photriya` | Binary published | yes | yes | — | Supabase + Firebase + Google + Apple (optional) | Photriya Camera Colors | v1.0.0-android | `Photriya-app-prod-release.aab`, `Photriya-app-prod-release.apk` |
+| 31 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `com.americangroupllc.pilotenroute` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | PilotEnRoute | v1.0.0-android | `PilotEnRoute-app-prod-release.aab`, `PilotEnRoute-app-prod-release.apk` |
+| 32 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `com.americangroupllc.plantpulse` | Binary published | build only | build only | — | none | **none** | v1.0.0-android | `PlantPulse-app-release.aab`, `PlantPulse-app-release.apk` |
+| 33 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `com.americangroupllc.portfolioboard` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `portfolio-board-app-release.aab`, `portfolio-board-app-release.apk` |
+| 34 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `com.americangroup.radiotune` | Binary published | yes | yes | yes | Supabase + Google + Apple | RadioTune World | v2.0.1-android | `radiotune-app-release.aab`, `radiotune-app-release.apk` |
+| 35 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | `com.americangroupllc.ridezap` | Binary published | yes | yes | — | none | RideZap | v1.0.0-android | `RideZap-app-release.aab`, `RideZap-app-release.apk` |
+| 36 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | `com.americangroupllc.roomcraft` | Binary published | yes | yes | — | none | iRoomCraft | v1.0.0-android | `RoomCraft-app-release.aab`, `RoomCraft-app-release.apk` |
+| 37 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `com.americangroupllc.tripnest` | Binary published | yes | yes | yes | none | TravelZap | v1.0.0-android | `TripNest-app-release.aab`, `TripNest-app-release.apk` |
+| 38 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | `com.americangroupllc.usciscase` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | USCIS Case Lookup | v1.0.2-android | `Uscis-Case-app-prod-release.aab`, `Uscis-Case-app-prod-release.apk` |
+| 39 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `com.americangroupllc.verba` | Binary published | yes | yes | yes | none | **none** | v1.0.0-android | `Verba-app-prod-release.aab`, `Verba-app-prod-release.apk` |
+| 40 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `com.americangroupllc.virtuband` | Binary published | yes | yes | yes | Supabase (optional) | VirtuBand | v1.0.1-android | `VirtuBand-app-prod-release.aab`, `VirtuBand-app-prod-release.apk` |
+| 41 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | `com.americangroupllc.wifitrail` | Binary published | yes | yes | — | none | WifiTrail | v1.0.0-android | `WiFiTrail-app-release.aab`, `WiFiTrail-app-release.apk` |
+| 42 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `com.americangroup.yourtube` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | YourTube: Watch & Discover | v1.0.2-android | `yourtube-app-prod-release.aab`, `yourtube-app-prod-release.apk` |
 
 **Not in the organization.** Still delivered by this manifest, but the
 repository is owned elsewhere and reachable only through a GitHub redirect.
@@ -91,46 +91,52 @@ rather than taken on faith. This is not ceremony: a release build with a
 misconfigured `signingConfig` silently falls back to the debug key, exits 0,
 and is rejected at upload. One app in this table was caught exactly that way.
 
-**37 of 37** apps produce a verified signed bundle.
+**43 of 43** apps produce a verified signed bundle.
 
 | # | App | AAB (Play) | APK (sideload) | Flavour | Signing certificate (SHA-256) |
 | --: | --- | --- | --- | --- | --- |
-| 1 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | 48 MB | 48 MB | — | `089DF812DD7EB9D0` |
-| 2 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | 52 MB | 52 MB | — | `843C7D4A1E327D00` |
-| 3 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | 48 MB | 48 MB | — | `8DBBF8B4D11D34DA` |
-| 4 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | 60 MB | 59 MB | prod | `C6A3C1C570E1C39F` |
-| 5 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | 64 MB | 64 MB | prod | `2073F4958E35CF71` |
-| 6 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | 54 MB | 54 MB | — | `CF11DBD2873808B6` |
-| 7 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | 49 MB | 50 MB | — | `7936742F5C989564` |
-| 8 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | 55 MB | 55 MB | — | `B61F34EBE60DFF33` |
-| 9 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | 75 MB | 78 MB | prod | `AD4582F780FCB092` |
-| 10 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | 64 MB | 66 MB | prod | `88AC08FC465D39B8` |
-| 11 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | 102 MB | 147 MB | — | `186F66EB80AF5D7D` |
-| 12 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | 51 MB | 52 MB | prod | `E265C0642A99DA55` |
-| 13 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | 53 MB | 53 MB | — | `52B686735A576C4E` |
-| 14 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | 64 MB | 64 MB | prod | `D5DBFDD0F484838D` |
-| 15 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | 58 MB | 59 MB | prod | `5F018C068A100C07` |
-| 16 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | 53 MB | 53 MB | — | `50C3A6FC08D81122` |
-| 17 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | 69 MB | 68 MB | prod | `B74E83A44A11DF7A` |
-| 18 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | 63 MB | 61 MB | prod | `EC5E6A8668B712CE` |
-| 19 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | 50 MB | 50 MB | — | `D14CB7E2BEA014E7` |
-| 20 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | 49 MB | 49 MB | — | `E485BD0690C73798` |
-| 21 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | 62 MB | 64 MB | prod | `A693834AA710F05D` |
-| 22 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | 54 MB | 54 MB | — | `96342EAA305E4DCB` |
-| 23 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | 54 MB | 55 MB | — | `25D5C0D942A489F5` |
-| 24 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | 59 MB | 61 MB | — | `5B6A4604F1861642` |
-| 25 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | 68 MB | 68 MB | prod | `ED2D941BFF746590` |
-| 26 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | 100 MB | 105 MB | prod | `767CD1F7FB490B7C` |
-| 27 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | 53 MB | 53 MB | — | `F123FD917E9E9DC5` |
-| 28 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | 65 MB | 63 MB | — | `A18905EBAF282BB1` |
-| 29 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | 53 MB | 53 MB | — | `2731B1A2D0201887` |
-| 30 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | 50 MB | 50 MB | — | `D3AAE284B3D6B1D4` |
-| 31 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | 61 MB | 60 MB | — | `72D9176A72E4F875` |
-| 32 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | 60 MB | 59 MB | prod | `565DBEE81C473EBC` |
-| 33 | [Verba](https://github.com/AmericanGroupLLC/Verba) | 68 MB | 68 MB | prod | `5607DDEE124203A9` |
-| 34 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | 60 MB | 59 MB | prod | `99635E5EB1FFB48D` |
-| 35 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | 47 MB | 47 MB | — | `E0D8203064D9D384` |
-| 36 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | 87 MB | 89 MB | prod | `2EA595F41FA61468` |
+| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | 51 MB | 52 MB | — | `6C50F95AD50C5EFF` |
+| 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | 48 MB | 48 MB | — | `089DF812DD7EB9D0` |
+| 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | 52 MB | 52 MB | — | `843C7D4A1E327D00` |
+| 4 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | 48 MB | 48 MB | — | `8DBBF8B4D11D34DA` |
+| 5 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | 53 MB | 54 MB | — | `7D73F0C37088E29F` |
+| 6 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | 52 MB | 53 MB | — | `0CD6B8946B12A62C` |
+| 7 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | 60 MB | 59 MB | prod | `C6A3C1C570E1C39F` |
+| 8 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | 52 MB | 53 MB | — | `0E601B3D12D0B438` |
+| 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | 64 MB | 64 MB | prod | `2073F4958E35CF71` |
+| 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | 54 MB | 54 MB | — | `CF11DBD2873808B6` |
+| 11 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | 49 MB | 50 MB | — | `7936742F5C989564` |
+| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | 55 MB | 55 MB | — | `B61F34EBE60DFF33` |
+| 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | 75 MB | 78 MB | prod | `AD4582F780FCB092` |
+| 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | 64 MB | 66 MB | prod | `88AC08FC465D39B8` |
+| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | 102 MB | 147 MB | — | `186F66EB80AF5D7D` |
+| 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | 51 MB | 52 MB | prod | `E265C0642A99DA55` |
+| 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | 53 MB | 53 MB | — | `52B686735A576C4E` |
+| 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | 64 MB | 64 MB | prod | `D5DBFDD0F484838D` |
+| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | 58 MB | 59 MB | prod | `5F018C068A100C07` |
+| 20 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | 53 MB | 53 MB | — | `50C3A6FC08D81122` |
+| 21 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | 69 MB | 68 MB | prod | `B74E83A44A11DF7A` |
+| 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | 63 MB | 61 MB | prod | `EC5E6A8668B712CE` |
+| 23 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | 50 MB | 50 MB | — | `D14CB7E2BEA014E7` |
+| 24 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | 53 MB | 54 MB | — | `18054934B2F1B6AB` |
+| 25 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | 49 MB | 49 MB | — | `E485BD0690C73798` |
+| 26 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | 62 MB | 64 MB | prod | `A693834AA710F05D` |
+| 27 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | 54 MB | 54 MB | — | `96342EAA305E4DCB` |
+| 28 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | 54 MB | 55 MB | — | `25D5C0D942A489F5` |
+| 29 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | 59 MB | 61 MB | — | `5B6A4604F1861642` |
+| 30 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | 68 MB | 68 MB | prod | `ED2D941BFF746590` |
+| 31 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | 100 MB | 105 MB | prod | `767CD1F7FB490B7C` |
+| 32 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | 50 MB | 51 MB | — | `101E79E6A14864C7` |
+| 33 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | 53 MB | 53 MB | — | `F123FD917E9E9DC5` |
+| 34 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | 65 MB | 63 MB | — | `A18905EBAF282BB1` |
+| 35 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | 53 MB | 53 MB | — | `2731B1A2D0201887` |
+| 36 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | 50 MB | 50 MB | — | `D3AAE284B3D6B1D4` |
+| 37 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | 61 MB | 60 MB | — | `72D9176A72E4F875` |
+| 38 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | 60 MB | 59 MB | prod | `565DBEE81C473EBC` |
+| 39 | [Verba](https://github.com/AmericanGroupLLC/Verba) | 68 MB | 68 MB | prod | `5607DDEE124203A9` |
+| 40 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | 60 MB | 59 MB | prod | `99635E5EB1FFB48D` |
+| 41 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | 47 MB | 47 MB | — | `E0D8203064D9D384` |
+| 42 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | 87 MB | 89 MB | prod | `2EA595F41FA61468` |
 
 Both are published to a GitHub Release in each app's own repository, so an
 app can be installed and tried without a build machine, a keystore or a Play
@@ -155,17 +161,17 @@ than a broken one. The values below are the console record.
 
 | # | App | Package | Android app id | iOS app id | Android banner | Android interstitial |
 | --: | --- | --- | --- | --- | --- | --- |
-| 4 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `com.americangroup.bodyquest` | `ca-app-pub-3940256099942544~3347511713` _(Google test)_ | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | **missing** | **missing** |
-| 5 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `com.americangroupllc.calcmaster` | `ca-app-pub-8528784688453695~5377349094` | `ca-app-pub-8528784688453695~9148987425` | `ca-app-pub-8528784688453695/7665581023` | `ca-app-pub-8528784688453695/7474009334` |
-| 17 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `com.americangroupllc.imaps` | `${admobAppId}` _(build-time)_ | `$(ADMOB_APP_ID)` _(build-time)_ | `ca-app-pub-8528784688453695/1143402684` | `ca-app-pub-8528784688453695/8340879191` |
-| 18 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `com.americangroupllc.imeasure` | `ca-app-pub-8528784688453695~9265279754` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/1222409251` | `ca-app-pub-8528784688453695/9950162694` |
-| 26 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `com.americangroupllc.pilotenroute` | `${admobAppId}` _(build-time)_ | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | **missing** | **missing** |
-| 28 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `com.americangroup.radiotune` | `ca-app-pub-8528784688453695~7770953426` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/4087643109` | `ca-app-pub-8528784688453695/2327055058` |
-| 31 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `com.americangroupllc.tripnest` | `ca-app-pub-8528784688453695~8044208178` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/3721819782` | `ca-app-pub-8528784688453695/5528514029` |
-| 32 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | `com.americangroupllc.usciscase` | `ca-app-pub-8528784688453695~2309537905` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/5539491423` | `ca-app-pub-8528784688453695/9095593054` |
-| 33 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `com.americangroupllc.verba` | `ca-app-pub-3940256099942544~3347511713` _(Google test)_ | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | **missing** | **missing** |
-| 34 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `com.americangroupllc.virtuband` | `ca-app-pub-8528784688453695~2836542125` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/6914604113` | `ca-app-pub-8528784688453695/9569471431` |
-| 36 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `com.americangroup.yourtube` | `ca-app-pub-3940256099942544~3347511713` _(Google test)_ | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | **missing** | **missing** |
+| 7 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `com.americangroup.bodyquest` | `ca-app-pub-3940256099942544~3347511713` _(Google test)_ | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | **missing** | **missing** |
+| 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `com.americangroupllc.calcmaster` | `ca-app-pub-8528784688453695~5377349094` | `ca-app-pub-8528784688453695~9148987425` | `ca-app-pub-8528784688453695/7665581023` | `ca-app-pub-8528784688453695/7474009334` |
+| 21 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `com.americangroupllc.imaps` | `${admobAppId}` _(build-time)_ | `$(ADMOB_APP_ID)` _(build-time)_ | `ca-app-pub-8528784688453695/1143402684` | `ca-app-pub-8528784688453695/8340879191` |
+| 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `com.americangroupllc.imeasure` | `ca-app-pub-8528784688453695~9265279754` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/1222409251` | `ca-app-pub-8528784688453695/9950162694` |
+| 31 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `com.americangroupllc.pilotenroute` | `${admobAppId}` _(build-time)_ | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | **missing** | **missing** |
+| 34 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `com.americangroup.radiotune` | `ca-app-pub-8528784688453695~7770953426` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/4087643109` | `ca-app-pub-8528784688453695/2327055058` |
+| 37 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `com.americangroupllc.tripnest` | `ca-app-pub-8528784688453695~8044208178` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/3721819782` | `ca-app-pub-8528784688453695/5528514029` |
+| 38 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | `com.americangroupllc.usciscase` | `ca-app-pub-8528784688453695~2309537905` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/5539491423` | `ca-app-pub-8528784688453695/9095593054` |
+| 39 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `com.americangroupllc.verba` | `ca-app-pub-3940256099942544~3347511713` _(Google test)_ | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | **missing** | **missing** |
+| 40 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `com.americangroupllc.virtuband` | `ca-app-pub-8528784688453695~2836542125` | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | `ca-app-pub-8528784688453695/6914604113` | `ca-app-pub-8528784688453695/9569471431` |
+| 42 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `com.americangroup.yourtube` | `ca-app-pub-3940256099942544~3347511713` _(Google test)_ | `ca-app-pub-3940256099942544~1458002511` _(Google test)_ | **missing** | **missing** |
 
 **4 of these have no AdMob record at all** — they serve ads
 against Google's test application id, so they earn nothing: BodyQuest, PilotEnRoute, Verba, yourtube.
@@ -192,19 +198,19 @@ it is a rejected build.
 
 | # | App | Bundle id it builds with |
 | --: | --- | --- |
-| 2 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `com.americangroup.agrammarly` |
-| 9 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `com.americangroup.dailypulse` |
-| 13 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `com.americangroupllc.gadgetnest` |
-| 14 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `com.americangroupllc.grocerymatch` |
-| 15 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | `com.americangroupllc.herJourney` |
-| 18 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `com.americangroupllc.imeasure` |
-| 21 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `com.americangroupllc.myhealth` |
-| 23 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `com.americangroup.newsboard` |
-| 24 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `com.americangroupllc.nexuspay` |
-| 27 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `com.americangroupllc.portfolioboard` |
-| 33 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `com.americangroupllc.verba` |
-| 37 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroupllc.aeroswift` |
-| 42 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `com.americangroupllc.plantpulse` |
+| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroup.aeroswift` |
+| 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `com.americangroup.agrammarly` |
+| 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `com.americangroup.dailypulse` |
+| 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `com.americangroupllc.gadgetnest` |
+| 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `com.americangroupllc.grocerymatch` |
+| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | `com.americangroupllc.herJourney` |
+| 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `com.americangroupllc.imeasure` |
+| 26 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `com.americangroupllc.myhealth` |
+| 28 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `com.americangroup.newsboard` |
+| 29 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `com.americangroupllc.nexuspay` |
+| 32 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `com.americangroupllc.plantpulse` |
+| 33 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `com.americangroupllc.portfolioboard` |
+| 39 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `com.americangroupllc.verba` |
 
 **11 records match no app.** Mostly the rename history —
 iFoodRadar became GroceryMatch, OfflineBuddy became Verba, iDealZap
@@ -247,44 +253,50 @@ a keystore with Play App Signing off and that app can never be updated again.**
 
 | # | App | google-services.json | GoogleService-Info.plist | Keystore |
 | --: | --- | --- | --- | --- |
-| 1 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 2 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
-| 3 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 4 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 5 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | **missing** |
-| 6 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
-| 7 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 8 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `mobile/codedeal_app/android/app/google-services.json` | `mobile/codedeal_app/ios/Runner/GoogleService-Info.plist` | **missing** |
-| 9 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 10 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | **missing** |
-| 11 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
-| 12 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 13 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 14 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 15 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 16 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
-| 17 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 18 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 19 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 20 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 21 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 22 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
-| 23 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
-| 24 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `flutter-mobile-app/android/app/google-services.json` | `flutter-mobile-app/ios/Runner/GoogleService-Info.plist` | **missing** |
-| 25 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 26 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 27 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
-| 28 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 29 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
-| 30 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 31 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
-| 32 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 33 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 34 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 35 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 36 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 4 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 5 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 6 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 7 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 8 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | **missing** |
+| 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 11 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `mobile/codedeal_app/android/app/google-services.json` | `mobile/codedeal_app/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | **missing** |
+| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 20 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 21 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 23 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 24 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 25 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 26 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 27 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 28 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 29 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `flutter-mobile-app/android/app/google-services.json` | `flutter-mobile-app/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 30 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 31 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 32 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 33 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 34 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 35 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 36 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 37 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 38 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 39 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 40 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 41 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
+| 42 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 
-**36 apps have no Firebase config.** Until they do, `AglCrash.isActive` is
+**42 apps have no Firebase config.** Until they do, `AglCrash.isActive` is
 false in every build and no crash is reported. The Gradle plugins apply
 themselves the moment the JSON appears — there is no code change waiting.
 
@@ -302,13 +314,13 @@ Everything here needs an account this repository does not have.
 | 1 | **`AGL_PACKAGES_TOKEN`** | GitHub → Developer settings. Read on the app repos and this manifest; **write** to publish binaries. Store it as an organization secret. | **Everything** — without it `flutter pub get` cannot reach the shared packages and nothing builds | **missing** |
 | 2 | Play service-account JSON | Play Console → Setup → API access | Play upload, and listing which apps already have Play records | **missing** |
 | 3 | `match` password / distribution certificate | A Mac signed into the Apple account | iOS signing on CI | **missing** |
-| 4 | Firebase config files | Firebase console, project `americangroupllc-5bdfc` | Crash reporting | **36 of 36 missing** |
+| 4 | Firebase config files | Firebase console, project `americangroupllc-5bdfc` | Crash reporting | **42 of 42 missing** |
 | 5 | AdMob apps + unit ids | AdMob console | Live ads for the apps that earn nothing today | **4 apps have no record** |
 | 6 | A GDPR message | AdMob → Privacy & messaging | The consent form; the code is already in every ad app | **not published** |
-| 7 | Store descriptions | `store/apps/<repo>.json`, then `scripts/store_metadata.py generate` | Both listings require one | **18 apps have none** |
+| 7 | Store descriptions | `store/apps/<repo>.json`, then `scripts/store_metadata.py generate` | Both listings require one | **24 apps have none** |
 | 8 | Privacy policy + support URLs | Your hosting | Both listings | templated; the pages must exist |
 
 Already done and verified: the App Store Connect key and its issuer id, both
 confirmed against the live API, and 30 upload keystores loaded here.
 
-Apps still needing a store description: AGCleaner, AGRecorder, CarDeal, ChefCount, CodeDeal, EventSpark, GadgetNest, HomeWise, MileMaster, MyFinance, NearServe, NewsBoard, NexusTransferPay, portfolio-board, RideZap, RoomCraft, WiFiTrail, yourtube.
+Apps still needing a store description: AeroSwift, AGCleaner, AGRecorder, AGStudio, ApexMarketWatch, BuddyPlay, CarDeal, ChefCount, CodeDeal, EventSpark, GadgetNest, HomeWise, MileMaster, MyCard, MyFinance, NearServe, NewsBoard, NexusTransferPay, PlantPulse, portfolio-board, RideZap, RoomCraft, WiFiTrail, yourtube.

@@ -24,6 +24,7 @@ import json
 import pathlib
 import subprocess
 import sys
+import time
 
 ROOT = pathlib.Path("/Users/spatchava/agl")
 MANIFEST = ROOT / "agl-manifest"
@@ -69,24 +70,48 @@ def notes(repo: str, version: str, aab: dict | None, apk: dict | None) -> str:
     return "\n".join(lines)
 
 
+ATTEMPTS = 4
+
+
 def publish(repo: str, tag: str, version: str,
             assets: list[pathlib.Path], body: str, dry: bool) -> str:
     if dry:
         return f"would publish {tag} with {len(assets)} asset(s)"
 
+    # The release is created empty first, and assets are attached afterwards one
+    # at a time. Passing them to `gh release create` looks tidier but is worse
+    # here: if any upload fails, gh deletes the release it just made, so a flaky
+    # 50 MB upload loses the whole thing and the next run starts over. Creating
+    # first makes the operation resumable.
     exists = subprocess.run(["gh", "release", "view", tag, "--repo", f"{ORG}/{repo}"],
                             capture_output=True, text=True).returncode == 0
-    if exists:
-        cmd = ["gh", "release", "upload", tag, *map(str, assets),
-               "--repo", f"{ORG}/{repo}", "--clobber"]
-    else:
-        cmd = ["gh", "release", "create", tag, *map(str, assets),
-               "--repo", f"{ORG}/{repo}",
-               "--title", f"{repo} {version}",
-               "--notes", body]
-    r = subprocess.run(cmd, capture_output=True, text=True)
-    if r.returncode != 0:
-        return "FAILED: " + (r.stderr.strip().splitlines() or ["unknown"])[-1][:160]
+    if not exists:
+        r = subprocess.run(["gh", "release", "create", tag,
+                            "--repo", f"{ORG}/{repo}",
+                            "--title", f"{repo} {version}",
+                            "--notes", body], capture_output=True, text=True)
+        if r.returncode != 0:
+            return "FAILED to create: " + (r.stderr.strip().splitlines() or ["?"])[-1][:140]
+
+    # This machine uploads through a local egress proxy that intermittently
+    # corrupts large bodies ("tls: bad record MAC", "http2: client connection
+    # lost"). One asset per request and a few attempts is enough to get through;
+    # --clobber makes a retry replace a partial rather than collide with it.
+    failed = []
+    for asset in assets:
+        for attempt in range(1, ATTEMPTS + 1):
+            r = subprocess.run(["gh", "release", "upload", tag, str(asset),
+                                "--repo", f"{ORG}/{repo}", "--clobber"],
+                               capture_output=True, text=True)
+            if r.returncode == 0:
+                break
+            if attempt < ATTEMPTS:
+                time.sleep(5 * attempt)
+        else:
+            failed.append(asset.name)
+
+    if failed:
+        return f"PARTIAL: {len(assets) - len(failed)}/{len(assets)} uploaded; failed {', '.join(failed)}"
     return "updated" if exists else "created"
 
 
@@ -125,7 +150,10 @@ def main() -> int:
         body = notes(repo, version, aab, apk)
         outcome = publish(repo, tag, version, assets, body, args.dry_run)
         print(f"[{i}/{len(repos)}] {repo}: {outcome} ({len(assets)} asset(s))")
-        if outcome.startswith("FAILED"):
+        # PARTIAL counts as a failure. A summary reading "0 failed" while an
+        # asset is missing from a release is worse than no summary — it is the
+        # line someone reads instead of checking.
+        if outcome.startswith(("FAILED", "PARTIAL")):
             failed += 1
         else:
             created += 1
