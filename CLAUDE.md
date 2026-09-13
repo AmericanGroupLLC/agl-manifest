@@ -31,6 +31,7 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | Package names, bundle ids, AdMob ids | `docs/APP_IDENTIFIERS.md`, `docs/admob-ids.json` |
 | Store metadata and requirements | `docs/STORE_METADATA.md`, `docs/STORE_RELEASE_PLAYBOOK.md` |
 | Crash reporting | `docs/CRASHLYTICS.md` |
+| Test counts, suite runtimes, coverage gaps | `docs/TEST_HEALTH.md` |
 | Translations | `docs/I18N.md` |
 | Per-app measured facts (63 fields × 43 rows) | `docs/release-readiness.json` |
 
