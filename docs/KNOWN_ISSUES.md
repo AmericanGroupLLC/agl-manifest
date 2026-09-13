@@ -15,18 +15,38 @@ rotation and GitHub Support. Verified still open 2026-09-11.
 
 ---
 
-## P1 · Five apps are the same scaffold
+## Resolved · The five identical shells now carry their own product
 
-`CarDeal`, `HomeWise`, `NearServe`, `RideZap`, `portfolio-board`.
+`CarDeal`, `HomeWise`, `NearServe`, `RideZap` and `portfolio-board` were one
+939-line four-screen scaffold — home, search, profile, settings — on 2026-09-09.
+They are not any more. Counted on 2026-09-13, both by
+`scripts/audit_product_quality.py` and by hand with `find … | wc -l`, which
+agree exactly:
 
-Near-identical 939–950-line templates — home, search, profile, settings — with
-no domain functionality. Each analyses clean, passes its tests, and now produces
-a verified signed bundle, so **every automated gate reports green**. That is
-precisely the problem: the gates measure build health, not whether there is an
-app.
+| App | lib LOC then | lib LOC now | hand-written | lib files | test files |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| CarDeal | 939 | 7,390 | 6,171 | 32 | 17 |
+| NearServe | 939 | 6,408 | 5,250 | 32 | 21 |
+| RideZap | 939 | 6,255 | 5,033 | 38 | 16 |
+| HomeWise | 939 | 5,582 | 4,399 | 30 | 9 |
+| portfolio-board | 939 | 5,522 | 4,734 | 22 | 9 |
 
-Submitting five near-duplicates invites rejection under App Store guideline 4.3
-and Play's spam policy. What each should actually do is a product decision.
+*hand-written* excludes blank lines, comment-only lines and generated files.
+
+Size alone would not settle it — five inflated copies would still be copies —
+but the file lists have diverged into different domains: HomeWise has a mortgage
+and affordability engine (`core/finance/mortgage.dart`,
+`features/affordability/`), NearServe a provider booking flow
+(`features/booking/booking_flow_screen.dart`), RideZap flight/hotel/ride quote
+search (`features/search/*_search_form.dart`), CarDeal comparison and budget
+screens (`features/compare/`, `features/budget/`), portfolio-board a
+markdown-backed project board (`core/markdown/markdown_parser.dart`). No two of
+the five share a file list, and no two apps in the portfolio now share both a
+line count and a file count.
+
+Whether five apps from one publisher still read as duplicates to a reviewer is a
+judgement under guideline 4.3, not a measurement, and nothing here proves the
+features work — only that the code is no longer shared.
 
 ---
 
@@ -78,19 +98,23 @@ decision, and it is cheap **only until a store record exists** — an
 
 ## P2 · Test coverage is very thin in the largest apps
 
-Measured as lib LOC per test file:
+Measured as lib LOC per test file on 2026-09-13 by
+`scripts/audit_product_quality.py`. This has improved — each of these apps has
+more test files than it had on 2026-09-09 — but the ratio is still poor:
 
 | App | lib LOC | Test files | LOC per test file |
 | --- | ---: | ---: | ---: |
-| MyHealth | 44,887 | 8 | 5,610 |
-| PilotEnRoute | 39,615 | 14 | 2,829 |
-| daily-pulse | 19,639 | 9 | 2,182 |
-| EventSpark | 19,375 | 9 | 2,152 |
-| Photriya | 36,226 | 17 | 2,130 |
+| MyHealth | 45,370 | 22 | 2,062 |
+| NexusTransferPay | 16,044 | 9 | 1,783 |
+| PilotEnRoute | 40,100 | 26 | 1,542 |
+| EventSpark | 19,585 | 13 | 1,507 |
+| Photriya | 36,721 | 25 | 1,469 |
 
-The suites pass, which says less than it appears to. A green run across 8 files
-for 45,000 lines is close to no signal — and this portfolio has already shipped
-an app that passed analysis and tests while opening to a white screen.
+The suites pass, which says less than it appears to. A green run across 22 files
+for 45,000 lines is thin signal — and this portfolio has already shipped an app
+that passed analysis and tests while opening to a white screen. The measure
+counts files, not assertions, so it cannot tell a real flow test from a one-line
+smoke test.
 
 Worth fixing by covering startup, navigation, auth and the primary flow, not by
 generating tests to move a percentage.

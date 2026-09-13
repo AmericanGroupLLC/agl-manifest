@@ -19,7 +19,7 @@ backend repository, so working on delivery needs access to one repo.
 | [STORE_METADATA.md](STORE_METADATA.md) | how listing copy is held and rendered |
 | [CREDENTIALS_STATUS.md](CREDENTIALS_STATUS.md) · [PUBLIC_API_ACCOUNTS.md](PUBLIC_API_ACCOUNTS.md) | what exists, what you must create |
 | [RELEASE_READINESS.md](RELEASE_READINESS.md) · [release-readiness.json](release-readiness.json) | the measured per-app audit |
-| [PRODUCT_AUDIT.md](PRODUCT_AUDIT.md) · [quality-audit.json](quality-audit.json) | product-quality scorecard and backlog |
+| [PRODUCT_AUDIT.md](PRODUCT_AUDIT.md) · [quality-audit.json](quality-audit.json) | product-quality scorecard and backlog — generated, never hand-edited: re-run `scripts/audit_product_quality.py` |
 
 ## Not here, deliberately
 

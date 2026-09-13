@@ -139,11 +139,13 @@ lists which apps still need a description, keywords and screenshots.
 
 ## Not a manual action, but needs a human decision
 
-**Five apps are the same scaffold.** `CarDeal`, `HomeWise`, `NearServe`,
-`RideZap` and `portfolio-board` are near-identical 939–950-line templates —
-home, search, profile, settings — with no domain functionality. They analyse
-clean and their tests pass, so every automated gate reports green.
+**Do five sibling apps still read as duplicates?** `CarDeal`, `HomeWise`,
+`NearServe`, `RideZap` and `portfolio-board` were one 939-line scaffold. They
+are not any more: measured on 2026-09-13 they are 5,522–7,390 lines of Dart
+across 22–38 files each, with different domain code in each (mortgage maths,
+service booking, travel quotes, car comparison, a markdown project board). The
+table is in `docs/KNOWN_ISSUES.md`.
 
-Submitting five near-duplicate apps invites rejection under App Store guideline
-4.3 (spam) and the Play equivalent. They need building, not polishing, and what
-they should *do* is a product call.
+What remains is a judgement no script can make: whether five apps from one
+publisher, built on a shared house style, still invite an App Store guideline
+4.3 (spam) rejection. That is a human call before submission, not a build gap.
