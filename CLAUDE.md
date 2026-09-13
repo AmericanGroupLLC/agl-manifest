@@ -32,7 +32,7 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | Store metadata and requirements | `docs/STORE_METADATA.md`, `docs/STORE_RELEASE_PLAYBOOK.md` |
 | Crash reporting | `docs/CRASHLYTICS.md` |
 | Test counts, suite runtimes, coverage gaps | `docs/TEST_HEALTH.md` |
-| Translations | `docs/I18N.md` |
+| Translations | `docs/I18N.md`, `docs/i18n-audit.json` (generated) |
 | Per-app measured facts (63 fields × 43 rows) | `docs/release-readiness.json` |
 
 `STATUS.md`, `status.csv`, `apps.json` and `docs/release-readiness.json` are
@@ -45,6 +45,7 @@ script and re-run it, or the file starts lying.
 python3 scripts/audit_release_readiness.py   # measures every repo -> release-readiness.json
 python3 scripts/generate_manifest.py --out apps.json
 python3 scripts/status.py                    # -> STATUS.md + status.csv  (needs GH_TOKEN)
+python3 scripts/audit_i18n.py --print        # -> docs/i18n-audit.json (the table in docs/I18N.md)
 ```
 
 ## Building a signed Android release locally
