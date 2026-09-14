@@ -11,5 +11,7 @@
     "no_copy_drafted": "No listing copy can be written. Trips are hard-coded.",
     "evidence": "lib/main.dart:121-125 _recentTrips is a literal list ('Office HQ' -> 'Client Site A', 12.4 mi, 'Today, 9:15 AM'). The dashboard total, the tax-deduction figure (_totalMiles * 0.67) and the weekly chart are all computed from it. Geolocator is called once for a current position (main.dart:144-149) and no trip is ever recorded from it. The `pdf` dependency is declared but nothing in main.dart references it, so there is no export.",
     "to_unblock": "Implement trip recording and persistence before writing a mileage-tracker listing. Shipping this as an IRS-deduction tool on top of four invented trips is the worst risk in the portfolio."
-  }
+  },
+  "primary_category": "BUSINESS",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

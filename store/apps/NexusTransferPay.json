@@ -11,5 +11,7 @@
     "no_copy_drafted": "Copy deliberately not drafted — regulated category, unverified backend.",
     "evidence": "Screens cover transfers, cards, loans, insurance, credit score and an AI chat (lib/screens/*). All of it runs against kBaseUrl = https://nexustransferpay.app (core/api_service.dart:17), which this sandbox cannot reach, so I cannot confirm a single transfer, loan or credit-score feature actually functions. Writing 'send money to anyone' for a money-transmission app I could not verify is a claim I am not willing to make, and both stores apply extra scrutiny to the finance category.",
     "to_unblock": "Copy must come from the product owner, together with the licensing and disclosure text both stores require for a financial-services listing."
-  }
+  },
+  "primary_category": "FINANCE",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

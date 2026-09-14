@@ -34,5 +34,7 @@
       "AGSTUDIO_API_BASE_URL",
       "AGSTUDIO_API_KEY"
     ]
-  }
+  },
+  "primary_category": "PHOTO_AND_VIDEO",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

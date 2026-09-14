@@ -11,5 +11,7 @@
     "no_copy_drafted": "No listing copy can be written. There is no news source.",
     "evidence": "lib/state/app_state.dart:19 constructs NewsRepository() with no fetcher, so news_repository.dart falls through to seedArticles. seed_articles.dart calls itself 'the offline fallback the app renders when no news API is configured' and fakes freshness by resolving each article's age against DateTime.now(). Nothing in the app ever fetches an article.",
     "to_unblock": "Wire an ArticleFetcher to a licensed news API. The seam exists (ArticleFetcher typedef); nothing is plugged into it."
-  }
+  },
+  "primary_category": "NEWS",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

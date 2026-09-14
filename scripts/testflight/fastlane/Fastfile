@@ -148,4 +148,14 @@ platform :ios do
       skip_itc: false
     )
   end
+
+  desc "Upload the App Store privacy details (nutrition label) JSON for one app"
+  lane :privacy do |o|
+    asc_key   # puts the API token in Spaceship::ConnectAPI so no Apple ID login is needed
+    upload_app_privacy_details_to_app_store(
+      app_identifier: o[:bundle_id],
+      json_path: o[:json],
+      skip_json_file_saving: true
+    )
+  end
 end

@@ -1,0 +1,57 @@
+{
+  "data_protections": [
+    {
+      "data_type": "EMAIL_ADDRESS",
+      "protections": [
+        "DATA_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
+    },
+    {
+      "data_type": "NAME",
+      "protections": [
+        "DATA_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
+    },
+    {
+      "data_type": "USER_ID",
+      "protections": [
+        "DATA_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
+    },
+    {
+      "data_type": "DEVICE_ID",
+      "protections": [
+        "DATA_NOT_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "THIRD_PARTY_ADVERTISING"
+      ]
+    },
+    {
+      "data_type": "ADVERTISING_DATA",
+      "protections": [
+        "DATA_NOT_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "THIRD_PARTY_ADVERTISING"
+      ]
+    }
+  ],
+  "_derived_from": {
+    "account": true,
+    "ads": true,
+    "att_prompt": false,
+    "health": false,
+    "iap": false,
+    "date": "2026-09-14"
+  }
+}

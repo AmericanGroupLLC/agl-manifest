@@ -11,5 +11,7 @@
     "no_copy_drafted": "No listing copy can be written. The app has no cleaning implementation.",
     "evidence": "lib/domain/cleaner.dart is a state machine over constants: demoDuplicateContacts ('John Doe', 'Maria Santos', 'Rahul Sharma'), demoDuplicatePhotoGroups, initialMemoryUsed=74, optimizedMemoryUsed=42, clearedSizeLabel='1.84 GB', and fixed delays (scanContactsDelay=1500ms) that exist only to look like work. pubspec has no contacts, photo-library, or storage plugin. The app cannot read your contacts, cannot see your photos, and frees nothing.",
     "to_unblock": "Implement real contact/photo/storage access, or withdraw the app. Any description of this build would be a fabricated claim and an App Store 2.3 rejection."
-  }
+  },
+  "primary_category": "UTILITIES",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

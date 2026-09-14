@@ -1,0 +1,48 @@
+{
+  "data_protections": [
+    {
+      "data_type": "EMAIL_ADDRESS",
+      "protections": [
+        "DATA_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
+    },
+    {
+      "data_type": "NAME",
+      "protections": [
+        "DATA_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
+    },
+    {
+      "data_type": "USER_ID",
+      "protections": [
+        "DATA_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
+    },
+    {
+      "data_type": "HEALTH",
+      "protections": [
+        "DATA_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
+    }
+  ],
+  "_derived_from": {
+    "account": true,
+    "ads": false,
+    "att_prompt": false,
+    "health": true,
+    "iap": false,
+    "date": "2026-09-14"
+  }
+}

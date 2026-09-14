@@ -11,5 +11,7 @@
     "no_copy_drafted": "No listing copy can be written. It neither scans Wi-Fi nor measures speed.",
     "evidence": "lib/domain/models.dart: 'The network list, security checklist and connection details were static in the original app and stay static here' — networks is a const list ('HomeNetwork_5G', 'Office_WiFi'). lib/domain/speed_test.dart computes readings from a step counter (download = step * 94.7) over 25 x 200ms ticks and transfers no bytes; the idle display is a hard-coded 947/473/12. pubspec has no wifi, network-info, or connectivity plugin.",
     "to_unblock": "Implement real scanning and a real throughput test, or withdraw. A speed test that reports 947 Mbps in airplane mode will be caught in review."
-  }
+  },
+  "primary_category": "UTILITIES",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

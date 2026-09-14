@@ -25,5 +25,7 @@
       "primary_category",
       "age rating questionnaire (no field for it in this schema)"
     ]
-  }
+  },
+  "primary_category": "UTILITIES",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

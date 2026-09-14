@@ -33,5 +33,7 @@
       "NEARSERVE_API_BASE_URL",
       "NEARSERVE_API_TOKEN"
     ]
-  }
+  },
+  "primary_category": "LIFESTYLE",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

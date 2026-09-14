@@ -34,5 +34,7 @@
       "SUPABASE_URL + SUPABASE_ANON_KEY for sign-in",
       "a trademark review of the name 'YourTube' before submission"
     ]
-  }
+  },
+  "primary_category": "ENTERTAINMENT",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

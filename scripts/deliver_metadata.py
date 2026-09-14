@@ -1,0 +1,54 @@
+#!/usr/bin/env python3
+"""Push each app's listing to App Store Connect without submitting for review:
+metadata text + URLs + review notes + category (deliver), the age-rating answers,
+the privacy "nutrition label", and — when present — the screenshots.
+
+    source scripts/testflight/env.sh
+    python3 scripts/deliver_metadata.py AGRecorder            # one app
+    python3 scripts/deliver_metadata.py --eligible            # every app with an ASC record and unblocked copy
+    python3 scripts/deliver_metadata.py --eligible --screenshots
+
+Skips apps whose store JSON is `_blocked` (no honest copy exists) and CodeDeal
+(does not compile). Never passes submit_for_review. Results in
+~/agl/.dist/deliver-results.json, logs in ~/agl/.dist/deliver-logs/.
+"""
+import datetime, json, os, pathlib, re, subprocess, sys
+ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+LOGS = ROOT / ".dist/deliver-logs"; LOGS.mkdir(parents=True, exist_ok=True)
+RESULTS = ROOT / ".dist/deliver-results.json"
+KEYJSON = ROOT / ".dist/ios-batch/asc-key.json"
+apps = json.load(open(M / "apps.json"))["apps"]
+recs = {r["bundleId"] for r in json.load(open(M / "docs/appstore-records.json"))}
+names = [x for x in sys.argv[1:] if not x.startswith("--")]
+with_shots = "--screenshots" in sys.argv
+def blocked(repo):
+    p = M / "store/apps" / f"{repo}.json"
+    return p.exists() and "_blocked" in json.load(open(p))
+if names: sel = [a for a in apps if a["repo"] in names]
+else: sel = [a for a in apps if a["bundle_id"] in recs and not blocked(a["repo"]) and a["repo"] != "CodeDeal"]
+results = json.load(open(RESULTS)) if RESULTS.exists() else {}
+env = dict(os.environ, LC_ALL="en_US.UTF-8")
+for a in sel:
+    repo = a["repo"]; d = ROOT / repo / (a["dir"] if a["dir"] != "." else "")
+    ver = a["version"].split("+")[0]
+    rating = M / "store/ratings" / (f"{repo}.json" if (M / "store/ratings" / f"{repo}.json").exists() else "default.json")
+    shots = d / "fastlane/screenshots"
+    use_shots = with_shots and any(shots.glob("en-US/*.png"))
+    log = LOGS / f"{repo}.log"; out = {"repo": repo, "version": ver, "at": datetime.datetime.now().isoformat(timespec="seconds")}
+    cmd = ["bundle", "exec", "fastlane", "run", "deliver", f"api_key_path:{KEYJSON}", f"app_identifier:{a['bundle_id']}", f"app_version:{ver}",
+           f"metadata_path:{d/'fastlane/metadata'}", "skip_binary_upload:true", "force:true", "run_precheck_before_submit:false",
+           "precheck_include_in_app_purchases:false", "ignore_language_directory_validation:true", "submit_for_review:false",
+           f"app_rating_config_path:{rating}"]
+    cmd += [f"screenshots_path:{shots}", "overwrite_screenshots:true", "skip_screenshots:false"] if use_shots else ["skip_screenshots:true"]
+    with open(log, "w") as fh:
+        rc = subprocess.call(cmd, cwd=M / "scripts/testflight", env=env, stdout=fh, stderr=subprocess.STDOUT)
+    text = log.read_text(errors="replace"); out["deliver"] = "ok" if rc == 0 else "failed"
+    if rc: out["deliver_error"] = next((l.strip()[:300] for l in reversed(text.splitlines()) if "[!]" in l or "Error" in l), text[-300:])
+    pj = M / "store/privacy" / f"{repo}.json"
+    with open(log, "a") as fh:
+        fh.write("\n===== privacy details =====\n")
+        rc2 = subprocess.call(["bundle", "exec", "fastlane", "ios", "privacy", f"bundle_id:{a['bundle_id']}", f"json:{pj}"],
+                              cwd=M / "scripts/testflight", env=env, stdout=fh, stderr=subprocess.STDOUT)
+    out["privacy"] = "ok" if rc2 == 0 else "failed"; out["screenshots"] = use_shots
+    results[repo] = out; json.dump(results, open(RESULTS, "w"), indent=1)
+    print(f"{repo:18} deliver={out['deliver']} privacy={out['privacy']} screenshots={use_shots} {out.get('deliver_error','')[:140]}", flush=True)

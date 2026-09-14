@@ -32,5 +32,7 @@
     "requires": [
       "confirm https://api.codedeal.com/api/trpc is live and serving deals"
     ]
-  }
+  },
+  "primary_category": "SHOPPING",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

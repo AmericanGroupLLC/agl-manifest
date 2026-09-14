@@ -11,5 +11,7 @@
     "no_copy_drafted": "No listing copy can be written. Every figure is demo data.",
     "evidence": "lib/domain/demo_data.dart is documented as 'Static demo data, extracted verbatim from the RN App.tsx'. Transactions, subscriptions and budgets are all constants. pubspec has no http, no bank aggregator, and no local database — there is nowhere for a real transaction to come from or be saved to.",
     "to_unblock": "Add real entry and persistence (at minimum manual entry with storage) before any finance listing. A personal-finance app showing another person's invented spending is not shippable."
-  }
+  },
+  "primary_category": "FINANCE",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

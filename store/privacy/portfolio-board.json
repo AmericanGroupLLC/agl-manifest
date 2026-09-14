@@ -1,0 +1,15 @@
+{
+  "data_protections": [
+    {
+      "data_type": "DATA_NOT_COLLECTED"
+    }
+  ],
+  "_derived_from": {
+    "account": false,
+    "ads": false,
+    "att_prompt": false,
+    "health": false,
+    "iap": false,
+    "date": "2026-09-14"
+  }
+}
