@@ -1,0 +1,147 @@
+# Generic TestFlight shipper for any AGL Flutter app. Mirrors CalcMaster's
+# working lane: App Store profile via the ASC API key, manual signing with the
+# "Apple Distribution: American Group LLC" identity already in the keychain,
+# `flutter build ipa`, then upload_to_testflight.
+#
+#   bundle exec fastlane ios ship app_dir:/Users/spatchava/agl/AGCleaner bundle_id:com.americangroupllc.agcleaner build_number:2026091320
+#
+# Env: ASC_KEY_ID, ASC_ISSUER_ID, ASC_KEY_PATH, APPLE_TEAM_ID. PATH must put the
+# pinned Flutter SDK first.
+require "shellwords"
+
+default_platform(:ios)
+
+def asc_key
+  app_store_connect_api_key(
+    key_id: ENV.fetch("ASC_KEY_ID"),
+    issuer_id: ENV.fetch("ASC_ISSUER_ID"),
+    key_filepath: ENV.fetch("ASC_KEY_PATH"),
+    in_house: false
+  )
+end
+
+# Is a build with this CFBundleVersion already on App Store Connect?
+def build_present?(bundle_id, build_number)
+  app = Spaceship::ConnectAPI::App.find(bundle_id)
+  return false unless app
+  Spaceship::ConnectAPI::Build.all(app_id: app.id, sort: "-uploadedDate", limit: 20).any? { |b| b.version.to_s == build_number.to_s }
+rescue StandardError => e
+  UI.important("could not query builds: #{e.message.lines.first}")
+  false
+end
+
+# CFBundleVersion baked into an IPA.
+def ipa_build_number(ipa)
+  require "tmpdir"
+  Dir.mktmpdir do |d|
+    sh("cd #{d.shellescape} && unzip -q -o #{ipa.shellescape} 'Payload/*.app/Info.plist' && plutil -extract CFBundleVersion raw -o - Payload/*.app/Info.plist", log: false).strip
+  end
+rescue StandardError
+  nil
+end
+
+def unbundled(&blk)
+  if defined?(Bundler) && Bundler.respond_to?(:with_unbundled_env)
+    Bundler.with_unbundled_env(&blk)
+  else
+    blk.call
+  end
+end
+
+platform :ios do
+  desc "Build a signed App Store IPA and upload it to TestFlight"
+  lane :ship do |o|
+    app_dir = File.expand_path(o[:app_dir])
+    bundle_id = o[:bundle_id]
+    build_number = o[:build_number]
+    UI.user_error!("app_dir, bundle_id and build_number are required") unless app_dir && bundle_id && build_number
+    UI.user_error!("#{app_dir}/ios/Runner.xcodeproj not found") unless Dir.exist?(File.join(app_dir, "ios/Runner.xcodeproj"))
+
+    key = asc_key
+
+    get_provisioning_profile(
+      api_key: key,
+      app_identifier: bundle_id,
+      force: true,
+      output_path: File.join(app_dir, "build/profiles")
+    )
+
+    update_code_signing_settings(
+      use_automatic_signing: false,
+      path: File.join(app_dir, "ios/Runner.xcodeproj"),
+      team_id: ENV.fetch("APPLE_TEAM_ID", "TLH7Z3G27A"),
+      bundle_identifier: bundle_id,
+      code_sign_identity: "Apple Distribution",
+      profile_name: lane_context[SharedValues::SIGH_NAME],
+      targets: ["Runner"]
+    )
+
+    # Reuse an IPA built earlier today with this build number (a stuck upload
+    # should not cost another archive).
+    existing = Dir[File.join(app_dir, "build/ios/ipa/*.ipa")].max_by { |f| File.mtime(f) }
+    reuse = o[:reuse_ipa].to_s == "true" && existing && File.mtime(existing) > Time.now - 6 * 3600 &&
+            ipa_build_number(existing) == build_number.to_s
+    if reuse
+      UI.important("Reusing #{existing} (build #{build_number}, built #{File.mtime(existing)})")
+    else
+      unbundled do
+        sh("cd #{app_dir.shellescape} && flutter pub get")
+        sh("cd #{app_dir.shellescape} && flutter build ipa --release --export-method app-store --build-number=#{build_number.to_s.shellescape}")
+      end
+    end
+
+    ipa = Dir[File.join(app_dir, "build/ios/ipa/*.ipa")].max_by { |f| File.mtime(f) }
+    UI.user_error!("no .ipa produced under #{app_dir}/build/ios/ipa") if ipa.nil?
+    UI.success("IPA: #{ipa} (#{(File.size(ipa) / 1_048_576.0).round(1)} MB)")
+
+    # Uploads over this network stall or report failure after Apple has in fact
+    # accepted the build. So: bounded attempts, each with a hard timeout, and a
+    # check against App Store Connect before every attempt.
+    require "timeout"
+    attempts = 0
+    loop do
+      if build_present?(bundle_id, build_number)
+        UI.success("UPLOADED #{bundle_id} build #{build_number} (present on App Store Connect)")
+        break
+      end
+      attempts += 1
+      UI.user_error!("upload of #{bundle_id} build #{build_number} failed after #{attempts - 1} attempts") if attempts > 3
+      UI.header("Upload attempt #{attempts}/3")
+      begin
+        Timeout.timeout(25 * 60) do
+          upload_to_testflight(api_key: key, app_identifier: bundle_id, ipa: ipa, skip_waiting_for_build_processing: true)
+        end
+      rescue Timeout::Error
+        UI.error("attempt #{attempts} timed out after 25 minutes; killing altool")
+        sh("pkill -f 'altool --upload-app' || true")
+      rescue StandardError => e
+        UI.error("attempt #{attempts} failed: #{e.message.lines.first}")
+      end
+      # Apple usually has the build even when altool reported a lost connection,
+      # but it takes a few minutes to show up in the API. Poll before retrying,
+      # otherwise the retry is refused as a duplicate CFBundleVersion.
+      12.times do
+        break if build_present?(bundle_id, build_number)
+        UI.message("waiting for App Store Connect to list build #{build_number}…")
+        sleep 60
+      end
+    end
+  end
+
+  desc "Create the App Store Connect record for an app that has none"
+  lane :create_record do |o|
+    # produce has no api_key option; it picks the token up from the lane
+    # context once app_store_connect_api_key has run. `username` is only there
+    # to satisfy option validation — the account owner's Apple ID.
+    asc_key
+    produce(
+      username: ENV.fetch("FASTLANE_USER", "rainbow472.sri@gmail.com"),
+      app_identifier: o[:bundle_id],
+      app_name: o[:app_name],
+      language: "en-US",
+      app_version: o[:version] || "1.0.0",
+      sku: o[:sku] || o[:bundle_id].tr(".", "-"),
+      skip_itc: false
+    )
+  end
+end

@@ -6,6 +6,15 @@ is right and this file is stale.
 
 **As of 2026-09-12.**
 
+## TestFlight delivery started (2026-09-13)
+
+| | |
+| --- | ---: |
+| Builds on App Store Connect, processing state VALID | **2** — CalcMaster 4.0.2 (build 2026091319), AGCleaner 1.0.0 (build 2026091320) |
+| Apps with a record, queued in `scripts/testflight/run_batch.py --wave records` | 27 more |
+| Apps with no App Store Connect record (human, MA-008) | 13 |
+| Google Play uploads | 0 — blocked, MA-009 |
+
 ## Where the portfolio is
 
 | | |

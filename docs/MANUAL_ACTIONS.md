@@ -137,6 +137,54 @@ lists which apps still need a description, keywords and screenshots.
 
 ---
 
+## MA-008 · P1 · Thirteen apps have no App Store Connect record, and the API cannot create one
+
+**Verified 2026-09-13.** `Spaceship::ConnectAPI::App.create` returns *"The
+resource 'apps' does not allow 'CREATE'. Allowed operations are:
+GET_COLLECTION, GET_INSTANCE, UPDATE"*, and fastlane `produce` falls back to an
+Apple ID login, which needs a password this machine does not have. So a build
+can be uploaded to every existing record (`scripts/testflight/`), but nothing
+can create the missing ones.
+
+Bundle ids were registered in the Developer Portal on 2026-09-13 for:
+AeroSwift, GadgetNest, GroceryMatch, HerJourney, iMeasure, NewsBoard,
+PlantPulse, portfolio-board, Verba (MyHealth's already existed).
+
+**Required:** in App Store Connect → My Apps → **+**, create a record for each
+of the ten above using its registered bundle id (`docs/APP_IDENTIFIERS.md`), then
+`python3 scripts/testflight/run_batch.py --apps <names>`.
+
+Three more need a decision first, because an existing record holds a *different*
+bundle id for the same product: AGrammarly (`com.americangroupllc.agrammarly`
+vs the app's `com.americangroup.agrammarly`), daily-pulse
+(`com.americangroup.daily-pulse` vs `com.americangroup.dailypulse`),
+NexusTransferPay (`com.americangroupllc.nexustransferpay` vs
+`com.americangroupllc.nexuspay`). Either change the record's bundle id in App
+Information (possible only while it has no build) or create a new record under a
+new name.
+
+---
+
+## MA-009 · P1 · Google Play: no credential this machine can use, and the console cannot be driven
+
+**Verified 2026-09-13.** MA-003 still stands (no service-account JSON). In
+addition: `~/google-cloud-sdk/bin/gcloud` has no logged-in account, and Play
+Console pages never finish loading for the Claude in Chrome extension, which is
+also blocked from `console.cloud.google.com` by its site permissions. All 43
+signed `.aab` files are staged in `~/agl/.dist/` and
+`scripts/upload_play.py` is written (untested) for the moment a key exists.
+
+**Required, one of:**
+
+1. Create a service account in project `americangroupllc-5bdfc`, grant it
+   *Release manager* in Play Console → Users and permissions, download the JSON
+   key, then `PLAY_JSON_KEY_FILE=<path> python3 scripts/upload_play.py`.
+2. Upload each app's first bundle by hand in Play Console (Internal testing →
+   Create new release); Google requires a manual first upload for a Draft app
+   in any case.
+
+---
+
 ## Not a manual action, but needs a human decision
 
 **Do five sibling apps still read as duplicates?** `CarDeal`, `HomeWise`,
