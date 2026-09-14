@@ -93,6 +93,12 @@ platform :ios do
     ipa = Dir[File.join(app_dir, "build/ios/ipa/*.ipa")].max_by { |f| File.mtime(f) }
     UI.user_error!("no .ipa produced under #{app_dir}/build/ios/ipa") if ipa.nil?
     UI.success("IPA: #{ipa} (#{(File.size(ipa) / 1_048_576.0).round(1)} MB)")
+    # pilot/altool lose an IPA whose name has a space ("Ratio Tune.ipa", radiotune 2026-09-14).
+    if ipa.include?(" ")
+      safe = File.join(File.dirname(ipa), File.basename(ipa).gsub(/\s+/, "_"))
+      FileUtils.cp(ipa, safe); ipa = safe
+      UI.important("copied to #{ipa} (no spaces)")
+    end
 
     # Uploads over this network stall or report failure after Apple has in fact
     # accepted the build. So: bounded attempts, each with a hard timeout, and a
