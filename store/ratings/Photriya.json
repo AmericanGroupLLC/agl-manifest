@@ -19,5 +19,6 @@
   "lootBox": false,
   "parentalControls": false,
   "ageAssurance": false,
-  "healthOrWellnessTopics": false
+  "healthOrWellnessTopics": false,
+  "gunsOrOtherWeapons": "NONE"
 }
