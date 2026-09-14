@@ -130,6 +130,16 @@ instrumented while reporting nothing — which is why none has been invented.
 
 ---
 
+**Update 2026-09-14.** App Store Connect rejects an upload whose Info.plist
+carries the placeholder URL scheme `com.googleusercontent.apps.REVERSED_CLIENT_ID`
+(DriftDate build 2026091400: *"URL schemes need to begin with an alphabetic
+character"*). The placeholder was removed from 13 apps so TestFlight uploads
+can proceed; Google Sign-In on iOS will not return to the app until the real
+`REVERSED_CLIENT_ID` from each `GoogleService-Info.plist` is added back as a
+`CFBundleURLTypes` entry. Add it in the same commit as the plist itself.
+
+---
+
 ## MA-007 · P3 · Store descriptions are missing for 18 apps
 
 Copy is a product decision, not an engineering one. `docs/STORE_METADATA.md`
