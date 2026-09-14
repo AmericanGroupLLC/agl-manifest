@@ -117,8 +117,8 @@ platform :ios do
       rescue StandardError => e
         UI.error("attempt #{attempts} failed: #{e.message.lines.first}")
         # A validation rejection is final; retrying only burns an hour.
-        if e.message =~ /Invalid bundle|ITMS-\d+|ENTITY_ERROR|must be higher than the previously uploaded/
-          UI.user_error!("App Store Connect rejected #{bundle_id} build #{build_number}: #{e.message[/Invalid bundle[^\n]{0,400}|ITMS-\d+[^\n]{0,400}/] || e.message.lines.first}")
+        if e.message =~ /Invalid bundle|ITMS-\d+|ENTITY_ERROR|must be higher than the previously uploaded|not in the correct format|Missing required|Invalid Info\.plist|is not permitted|Asset validation failed/
+          UI.user_error!("App Store Connect rejected #{bundle_id} build #{build_number}: #{e.message[/(?:Invalid bundle|ITMS-\d+|The following URL schemes|Missing required|Invalid Info\.plist|Asset validation failed)[^\n]{0,400}/] || e.message.lines.first}")
         end
       end
       # Apple usually has the build even when altool reported a lost connection,
