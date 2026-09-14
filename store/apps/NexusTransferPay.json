@@ -1,15 +1,15 @@
 {
   "repo": "NexusTransferPay",
   "slug": "nexustransferpay",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "NexusTransferPay",
       "short_description": "Payments / money transfer      local payments"
     }
+  },
+  "_blocked": {
+    "no_copy_drafted": "Copy deliberately not drafted — regulated category, unverified backend.",
+    "evidence": "Screens cover transfers, cards, loans, insurance, credit score and an AI chat (lib/screens/*). All of it runs against kBaseUrl = https://nexustransferpay.app (core/api_service.dart:17), which this sandbox cannot reach, so I cannot confirm a single transfer, loan or credit-score feature actually functions. Writing 'send money to anyone' for a money-transmission app I could not verify is a claim I am not willing to make, and both stores apply extra scrutiny to the finance category.",
+    "to_unblock": "Copy must come from the product owner, together with the licensing and disclosure text both stores require for a financial-services listing."
   }
 }

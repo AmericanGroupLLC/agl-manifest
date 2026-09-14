@@ -1,15 +1,29 @@
 {
   "repo": "AGRecorder",
   "slug": "agrecorder",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "AGRecorder",
-      "short_description": "High-framerate screen recorder with dual-channel system + mic audio"
+      "short_description": "High-framerate screen recorder with dual-channel system + mic audio",
+      "subtitle": "Voice recorder with location",
+      "description": "AGRecorder is a voice recorder that remembers where you were.\n\nRECORD\nOne button. Start, stop, done. Audio is captured as AAC and written straight to your device.\n\nLOCATION\nEach recording can carry the coordinates it was made at. AGRecorder asks the device for GPS first; if that is unavailable it falls back to an approximate lookup, and it always tells you which of the two produced the fix rather than presenting a guess as a reading.\n\nPERMISSIONS, PLAINLY\nMicrophone access is what makes the app work. Location is used only to tag a recording, and only if you let it. Nothing is uploaded on your behalf.",
+      "keywords": "voice recorder,recorder,audio,memo,gps,location,dictation,field recording,notes"
     }
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/domain/recorder.dart (RecordingState machine), lib/platform/record_backend.dart (AudioRecorder, AudioEncoder.aacLc, writes agrecorder_<ts>.m4a), lib/domain/gps.dart (device -> ipFallback -> defaultLocation chain, LocationProvider surfaced to the UI), pubspec: record, geolocator, path_provider, http. CaptureSource.camera exists in the enum but RecordBackend.start() ignores its argument and always records audio — video is therefore NOT claimed.",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
   }
 }

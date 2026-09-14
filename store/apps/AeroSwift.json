@@ -1,0 +1,30 @@
+{
+  "repo": "AeroSwift",
+  "slug": "aeroswift",
+  "copy": {
+    "en": {
+      "name": "AeroSwift",
+      "subtitle": "Flight and airport board",
+      "short_description": "Track a flight, read an airport board, and save the ones you fly.",
+      "description": "AeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\n\nWHAT IT DOES\n• Search a flight by callsign and open a detail view with altitude, aircraft, route, and scheduled versus actual times.\n• Open any airport's board and read its arrivals and departures over a window you choose.\n• Save the flights you follow so they are one tap away next time.\n• A route diagram and a status chip summarise the leg at a glance.\n\nABOUT THE DATA\nAeroSwift ships with an offline sample data set so the app is fully navigable the moment you install it. Switch to live data from the OpenSky Network in Settings — the endpoints AeroSwift uses need no key and no sign-up. A banner in the app always tells you which source you are looking at, so you are never guessing whether a number is real.\n\nNO ACCOUNT\nThere is no login, no profile, and nothing to subscribe to. Saved flights and your data-source choice stay on the device.",
+      "keywords": "flight,tracker,airport,arrivals,departures,aviation,opensky,callsign,aircraft,flights"
+    }
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.short_description",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/features/{search,airports,detail,saved}, lib/services/opensky_data_source.dart, lib/core/env.dart (defaultDataSourceId='sample', runtime switch in settings_screen.dart), lib/widgets/data_source_banner.dart",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
+  }
+}

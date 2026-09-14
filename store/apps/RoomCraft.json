@@ -1,15 +1,29 @@
 {
   "repo": "RoomCraft",
   "slug": "roomcraft",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "RoomCraft",
-      "short_description": "Interior design from square footage and OCR'd room photos, with local"
+      "short_description": "Interior design from square footage and OCR'd room photos, with local",
+      "subtitle": "Room layout, worked out",
+      "description": "RoomCraft turns a room's size and purpose into concrete layout advice.\n\nDESIGN\nTell it the room type, the square footage, and the style you are after. RoomCraft returns a design philosophy, a colour palette, a recommended furniture list, and a layout strategy — plus how many pieces the room can actually hold before it stops working.\n\nREDESIGN\nAlready have notes on what is in the room? Paste them in and RoomCraft works around the fixed elements, giving you a positioning strategy and an ordered set of redesign steps.\n\nSOURCING\nEnter coordinates and RoomCraft names the sourcing zone and the material focus that suits it.\n\nHOW IT WORKS\nAll of it is deterministic rules running on your device — the same inputs always give the same advice, and you can see why. There is no camera, no photo upload, no AI model, and no server. RoomCraft never asks for an account and never sends your room anywhere.",
+      "keywords": "interior design,room,layout,furniture,home,decor,planner,square feet,style,palette"
     }
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/domain/{layout_planner,design_styles,roomcraft_service}.dart — pure functions ported from three Express endpoints; lib/main.dart DesignScreen/RedesignScreen/SourcingScreen. RedesignScreen takes ocrAnalysisText from a TextEditingController (main.dart:361,418) — there is no camera and no OCR dependency, so no photo feature is claimed.",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
   }
 }

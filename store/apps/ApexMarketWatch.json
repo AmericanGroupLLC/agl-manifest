@@ -1,0 +1,30 @@
+{
+  "repo": "ApexMarketWatch",
+  "slug": "apexmarketwatch",
+  "copy": {
+    "en": {
+      "name": "ApexMarketWatch",
+      "subtitle": "Quotes, charts and 13F filings",
+      "short_description": "Live quotes and charts, plus what the big funds filed with the SEC.",
+      "description": "ApexMarketWatch is a market watchlist that shows you its sources.\n\nWATCHLIST\nAdd the tickers you care about and see the last price, the day's high and low, and the 52-week range. Tap through for a price chart and a sparkline over the range you pick.\n\n13F WHALES\nInstitutional holdings read straight from SEC EDGAR — gross buying, gross selling, and what changed. The SEC's public filing data, not a newsletter's summary of it.\n\nCRASH INDEX\nA drawdown-based read on how far a name has fallen from its own high, so a headline number has context.\n\nHONEST PROVENANCE\nEvery screen labels where its numbers came from. Quotes come from Yahoo Finance's public chart endpoint by default; a build can supply a Finnhub key instead. When a source is unavailable the app says so rather than quietly showing you something stale.\n\nNOT ADVICE\nApexMarketWatch reports public market data. It does not recommend trades, hold your money, or connect to a broker.",
+      "keywords": "stocks,watchlist,quotes,ticker,13f,sec,edgar,charts,market,finance,drawdown"
+    }
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.short_description",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/features/{watchlist,ticker,whales,crash}, lib/services/{yahoo_quote_api,sec_edgar_api,finnhub_quote_api}.dart, lib/core/env.dart (yahooEnabled=true, secEdgarEnabled=true by default), lib/widgets/provenance.dart. The Deals tab is NOT described: it needs API_GATEWAY_URL, which has no default.",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
+  }
+}

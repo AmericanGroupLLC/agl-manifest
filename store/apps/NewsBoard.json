@@ -1,15 +1,15 @@
 {
   "repo": "NewsBoard",
   "slug": "newsboard",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "NewsBoard",
       "short_description": "One-news aggregator"
     }
+  },
+  "_blocked": {
+    "no_copy_drafted": "No listing copy can be written. There is no news source.",
+    "evidence": "lib/state/app_state.dart:19 constructs NewsRepository() with no fetcher, so news_repository.dart falls through to seedArticles. seed_articles.dart calls itself 'the offline fallback the app renders when no news API is configured' and fakes freshness by resolving each article's age against DateTime.now(). Nothing in the app ever fetches an article.",
+    "to_unblock": "Wire an ArticleFetcher to a licensed news API. The seam exists (ArticleFetcher typedef); nothing is plugged into it."
   }
 }

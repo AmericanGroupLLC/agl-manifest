@@ -1,15 +1,15 @@
 {
   "repo": "MileMaster",
   "slug": "milemaster",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "MileMaster",
       "short_description": "GPS mileage tracker with IRS-compliant deduction reports for gig workers"
     }
+  },
+  "_blocked": {
+    "no_copy_drafted": "No listing copy can be written. Trips are hard-coded.",
+    "evidence": "lib/main.dart:121-125 _recentTrips is a literal list ('Office HQ' -> 'Client Site A', 12.4 mi, 'Today, 9:15 AM'). The dashboard total, the tax-deduction figure (_totalMiles * 0.67) and the weekly chart are all computed from it. Geolocator is called once for a current position (main.dart:144-149) and no trip is ever recorded from it. The `pdf` dependency is declared but nothing in main.dart references it, so there is no export.",
+    "to_unblock": "Implement trip recording and persistence before writing a mileage-tracker listing. Shipping this as an IRS-deduction tool on top of four invented trips is the worst risk in the portfolio."
   }
 }

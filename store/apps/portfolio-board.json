@@ -1,14 +1,14 @@
 {
   "repo": "portfolio-board",
   "slug": "portfolio-board",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "portfolio-board"
     }
+  },
+  "_blocked": {
+    "no_copy_drafted": "Should probably not be published at all.",
+    "evidence": "lib/services/roadmap_repository.dart loads assets/roadmap/portfolio.json from the bundle and states there is deliberately no network implementation because 'the specs live in the repository'. The UI is AGL's own delivery tracker — stages, gate criteria, portfolio health, 30-day plans, per-project documents. It has no value to a member of the public and it publishes internal roadmap data.",
+    "to_unblock": "A decision: distribute internally (TestFlight / Play internal testing) and drop the public listing, or confirm the bundled roadmap contains nothing confidential."
   }
 }

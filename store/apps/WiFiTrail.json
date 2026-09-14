@@ -1,15 +1,15 @@
 {
   "repo": "WiFiTrail",
   "slug": "wifitrail",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "WiFiTrail",
       "short_description": "Mobile app Wi-Fi security auditor and credential trial utility"
     }
+  },
+  "_blocked": {
+    "no_copy_drafted": "No listing copy can be written. It neither scans Wi-Fi nor measures speed.",
+    "evidence": "lib/domain/models.dart: 'The network list, security checklist and connection details were static in the original app and stay static here' — networks is a const list ('HomeNetwork_5G', 'Office_WiFi'). lib/domain/speed_test.dart computes readings from a step counter (download = step * 94.7) over 25 x 200ms ticks and transfers no bytes; the idle display is a hard-coded 947/473/12. pubspec has no wifi, network-info, or connectivity plugin.",
+    "to_unblock": "Implement real scanning and a real throughput test, or withdraw. A speed test that reports 947 Mbps in airplane mode will be caught in review."
   }
 }

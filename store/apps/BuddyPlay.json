@@ -1,0 +1,30 @@
+{
+  "repo": "BuddyPlay",
+  "slug": "buddyplay",
+  "copy": {
+    "en": {
+      "name": "BuddyPlay",
+      "subtitle": "22 two-player games, offline",
+      "short_description": "22 two-player games, on one phone or two. No account, no internet.",
+      "description": "BuddyPlay is 22 two-player games in one app. Pass one phone back and forth, or put two phones on the same Wi-Fi and play across them.\n\nTHE GAMES\nChess · Checkers · Reversi · Connect Four · Battleship · Ludo · Mancala · Nim · Mastermind · Tic-Tac-Toe · Ultimate Tic-Tac-Toe · Dots and Boxes · Hangman · Word Duel · Trivia Battle · Twenty Questions · Pong · Air Hockey · Racer · Snake Battle · Tank Battle · Coin Flip & Dice.\n\nTWO PHONES, NO SERVER\nHost a match and your phone shows a pairing code. The other player joins over the same Wi-Fi network or your phone's hotspot — the two devices talk to each other directly over the local network. Nothing is relayed through a server, nothing needs an internet connection, and there is no account to create.\n\nRIVALRIES\nBuddyPlay remembers who you play and keeps the running score. Clear it whenever you like.\n\nQUIET BY DESIGN\nNo ads. No sign-up. No analytics profile. Haptic feedback and a default game are the only settings you need to think about.",
+      "keywords": "two player,games,offline,multiplayer,chess,checkers,board games,local,wifi,pass and play"
+    }
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.short_description",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/models/game_kind.dart (22 enum values), lib/core/games/*.dart, lib/services/lan_transport.dart (UDP multicast discovery + TCP frames, dart:io only), lib/features/{lobby,rivalries}. BLE appears in TransportKind but has no implementation, so it is not mentioned.",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
+  }
+}

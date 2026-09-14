@@ -1,15 +1,37 @@
 {
   "repo": "NearServe",
   "slug": "nearserve",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "NearServe",
-      "short_description": "UrbanNeeds — local services consumer app"
+      "short_description": "UrbanNeeds — local services consumer app",
+      "subtitle": "Book a local pro",
+      "description": "NearServe is a directory of local service providers you can actually book from.\n\nFIND\nBrowse by category or search, and see who is available today. Each provider has a profile with what they do, their reviews, and their star rating.\n\nBOOK\nPick a slot inside the provider's booking window, tell them what you need, and get an estimate before you commit. Providers who are not taking bookings say so up front instead of wasting your time.\n\nAFTER\nYour bookings live in one place. Leave a review when the work is done.\n\nSAVED\nKeep the providers you would use again. Everything stays on your device until you book.",
+      "keywords": "local services,book,provider,plumber,electrician,cleaner,appointment,nearby,reviews,estimate"
     }
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/features/{browse,search,provider,booking,bookings,saved}, lib/models/{availability,booking,estimate,service_provider,user_review}.dart, lib/services/{booking_repository,http_directory_source}.dart.",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
+  },
+  "_blocker": {
+    "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
+    "why": "NEARSERVE_API_BASE_URL and NEARSERVE_API_TOKEN have no defaults, so the shipped build runs on sample_directory_source.dart — an invented directory of providers who do not exist and cannot be booked.",
+    "requires": [
+      "NEARSERVE_API_BASE_URL",
+      "NEARSERVE_API_TOKEN"
+    ]
   }
 }

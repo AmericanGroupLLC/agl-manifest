@@ -1,0 +1,30 @@
+{
+  "repo": "PlantPulse",
+  "slug": "plantpulse",
+  "copy": {
+    "en": {
+      "name": "PlantPulse",
+      "subtitle": "Remote for your own hub",
+      "short_description": "TV remote, light control and a gamepad for a smart-home hub you run yourself.",
+      "description": "PlantPulse is a control surface for a smart-home hub you run yourself. Point it at your hub's address and it becomes a remote for whatever that hub drives.\n\nFOUR CONTROLLERS\n• TV — a full remote with a D-pad, transport keys, a number pad, and channel and volume rockers.\n• Lights — per-room brightness, colour temperature, and a colour wheel, with an all-off button.\n• Gamepad — dual analog sticks, a D-pad, and face and shoulder buttons.\n• Hub — your devices in one list, with connection status for each.\n\nYOUR HUB, YOUR RULES\nPlantPulse talks to an HTTP endpoint you give it. There is no PlantPulse cloud, no account, and no third-party service in the path. If you do not enter a hub address the app runs against a built-in simulator so you can try every control before you wire anything up — and it tells you plainly that it is simulating.\n\nBUILT TO FEEL RIGHT\nHaptics on every press, live command feedback, and a transport status indicator so you always know whether a button actually reached the hub.",
+      "keywords": "remote,smart home,tv remote,lights,gamepad,hub,controller,local,home automation"
+    }
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.short_description",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/app/shell.dart (Hub/TV/Lights/Pad tabs), lib/features/{tv,lights,gamepad,devices}, lib/core/providers.dart lines 59-72 (SimulatedTransport when no hub URL, else HttpHubTransport), lib/widgets/{transport_status,command_feedback}.dart, lib/core/haptics.dart. NOTE: the repo name says 'plant' — this app has nothing to do with plants.",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
+  }
+}

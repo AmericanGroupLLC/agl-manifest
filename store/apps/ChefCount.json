@@ -1,15 +1,15 @@
 {
   "repo": "ChefCount",
   "slug": "chefcount",
-  "_todo": [
-    "description is required by both stores and is product writing, not something to generate. Write it here, then run generate.",
-    "review_information.notes tells Apple what this app is and how to reach every feature. Absent, a reviewer guesses.",
-    "Add a language key beside \"en\" only once the app is translated."
-  ],
   "copy": {
     "en": {
       "name": "ChefCount",
       "short_description": "Recipe scaling by headcount + kitchen affiliate listings"
     }
+  },
+  "_blocked": {
+    "no_copy_drafted": "No listing copy can be written. Ingredient detection is fabricated.",
+    "evidence": "lib/domain/fridge_ocr.dart analyzeFridgePicture() hashes the image *filename string* and indexes a fixed ingredientPool with it. It never looks at a single pixel. pubspec has no camera, image_picker, or ML dependency at all.",
+    "to_unblock": "Either implement real recognition, or rebuild the Scan tab as honest manual entry and write the listing around the recipe and kitchen-inventory features, which are real (lib/domain/catalogue.dart, RecipesTab, KitchenTab)."
   }
 }
