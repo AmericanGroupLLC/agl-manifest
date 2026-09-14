@@ -11,9 +11,9 @@
       "keywords": "navigation,traffic,route,gps,scanner,police,radio,weather,alerts,earthquake,wildfire,incident",
       "promotional_text": "Now streaming live police, fire, EMS and weather radio alongside community traffic reports and a 2-mile alert radius drawn from five public data feeds.",
       "release_notes": "First public release of iMaps.\n\n• Worldwide turn-by-turn driving routes powered by OSRM\n• Community incident reporting with automatic severity decay\n• Two-mile live alert radius from USGS, NOAA/NWS, NASA FIRMS, GDACS and Open311\n• Live public safety radio: police, fire, EMS, NOAA Weather Radio and ATC\n• Fifteen languages\n• Companion browser extension for Chrome, Edge and Firefox\n\nFeedback is welcome at contact@safecodeg.com.",
-      "support_url": "https://americangroupllc.github.io/policy/iMaps/support.html",
-      "privacy_url": "https://americangroupllc.github.io/policy/iMaps/",
-      "marketing_url": "https://safecodeg.com"
+      "support_url": "https://www.safecodeg.com/policy/iMaps/support.html",
+      "privacy_url": "https://www.safecodeg.com/policy/iMaps/",
+      "marketing_url": "https://www.safecodeg.com"
     }
   },
   "review_information": {

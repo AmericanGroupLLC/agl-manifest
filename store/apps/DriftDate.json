@@ -11,9 +11,9 @@
       "keywords": "dating,relationships,local dating,singles,match,chat,meet people,nearby,safety,trust",
       "promotional_text": "Most dating apps open with the whole country. DriftDate starts in your ZIP code and widens only when you ask — ZIP, county, state, then everywhere.",
       "release_notes": "First release of DriftDate.\n\n• Layered discovery: ZIP, county, state, then everywhere - you choose when to widen\n• Location is always coarsened; raw coordinates are never exposed to another user\n• Trust Passport and Trust Score show what has actually been verified\n• Safety Centre with blocking, reporting and guidance\n• Chat with tone-matched reply suggestions\n• Date planner and AI compatibility reasons\n\nFeedback is welcome at contact@safecodeg.com.",
-      "support_url": "https://americangroupllc.github.io/policy/driftdate/support.html",
-      "privacy_url": "https://americangroupllc.github.io/policy/driftdate/",
-      "marketing_url": "https://safecodeg.com"
+      "support_url": "https://www.safecodeg.com/policy/driftdate/support.html",
+      "privacy_url": "https://www.safecodeg.com/policy/driftdate/",
+      "marketing_url": "https://www.safecodeg.com"
     }
   },
   "review_information": {

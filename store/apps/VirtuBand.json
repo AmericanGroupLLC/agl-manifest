@@ -11,9 +11,9 @@
       "keywords": "music,studio,instruments,recording,piano,guitar,drums,multitrack,compose,jam,daw,band",
       "promotional_text": "Play a room full of virtual instruments, layer them into multi-track songs, and let the AI composer suggest a part when you are stuck. No gear required.",
       "release_notes": "First release of VirtuBand.\n\n• A library of virtual instruments, each with its own playable interface\n• Multi-track Studio for layering a song a part at a time\n• Recordings library with rename and replay\n• AI Compose for a suggested part when a song stalls\n• Jam mode for loose improvisation\n• Works offline; sign-in is optional via \"Continue as Guest\"\n\nFeedback is welcome at contact@safecodeg.com.",
-      "support_url": "https://americangroupllc.github.io/policy/virtuband/support.html",
-      "privacy_url": "https://americangroupllc.github.io/policy/virtuband/",
-      "marketing_url": "https://safecodeg.com"
+      "support_url": "https://www.safecodeg.com/policy/virtuband/support.html",
+      "privacy_url": "https://www.safecodeg.com/policy/virtuband/",
+      "marketing_url": "https://www.safecodeg.com"
     }
   },
   "review_information": {
