@@ -8,7 +8,17 @@ Writes ~/agl/.dist/ios-batch/results.json after every app so a crash loses nothi
 """
 import argparse, datetime, json, os, pathlib, signal, subprocess, sys, time
 
-PER_APP_TIMEOUT = 60 * 60  # archive + up to three upload attempts
+PER_APP_TIMEOUT = 60 * 60
+def purge_derived_data(max_age_min=5):
+    """Xcode leaves several GB per archive in DerivedData; 43 apps filled the disk
+    on 2026-09-14. Remove Runner-*/Pods-* trees not touched in the last few minutes."""
+    import shutil, time
+    dd = pathlib.Path.home() / "Library/Developer/Xcode/DerivedData"
+    now = time.time()
+    for d in dd.glob("*"):
+        if d.name.startswith(("Runner-", "Pods-")) and d.is_dir() and now - d.stat().st_mtime > max_age_min * 60:
+            shutil.rmtree(d, ignore_errors=True)
+  # archive + up to three upload attempts
 
 ROOT = pathlib.Path("/Users/spatchava/agl")
 HERE = pathlib.Path(__file__).resolve().parent
@@ -36,6 +46,8 @@ build_number = datetime.datetime.now().strftime("%Y%m%d%H")
 LOGS.mkdir(parents=True, exist_ok=True)
 
 for i, a in enumerate(apps, 1):
+    purge_derived_data()
+
     repo = a["repo"]
     if results.get(repo, {}).get("status") == "uploaded":
         print(f"[{i}/{len(apps)}] {repo}: already uploaded, skipping"); continue

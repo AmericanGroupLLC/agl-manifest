@@ -120,12 +120,25 @@ def capture(app, out_ios, out_android):
         if patched: unpatch(app_dir)
     return res
 
+
+def purge_derived_data(max_age_min=5):
+    """Xcode leaves several GB per archive in DerivedData; 43 apps filled the disk
+    on 2026-09-14. Remove Runner-*/Pods-* trees not touched in the last few minutes."""
+    import shutil, time
+    dd = pathlib.Path.home() / "Library/Developer/Xcode/DerivedData"
+    now = time.time()
+    for d in dd.glob("*"):
+        if d.name.startswith(("Runner-", "Pods-")) and d.is_dir() and now - d.stat().st_mtime > max_age_min * 60:
+            shutil.rmtree(d, ignore_errors=True)
+
 def main():
     apps = json.load(open(M / "apps.json"))["apps"]
     names = [a for a in sys.argv[1:] if not a.startswith("--")]
     if names: apps = [a for a in apps if a["repo"] in names]
     results = json.load(open(RESULTS)) if RESULTS.exists() else {}
     for a in sorted(apps, key=lambda x: x["repo"].lower()):
+        purge_derived_data()
+
         if "--skip-done" in sys.argv and results.get(a["repo"], {}).get("screens", {}).get("iphone69", 0) >= 1:
             print(f"{a['repo']}: done, skipping"); continue
         app_dir = ROOT / a["repo"] / (a["dir"] if a["dir"] != "." else "")
