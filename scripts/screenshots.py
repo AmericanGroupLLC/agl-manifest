@@ -82,6 +82,7 @@ def capture(app, out_ios, out_android):
             sh("xcrun", "simctl", "launch", udid, bundle, timeout=60)
             time.sleep(8)
             clear_alerts(udid)   # first-run sheets and permission prompts
+            time.sleep(4); clear_alerts(udid)   # consent forms (UMP) arrive a few seconds after launch
             shots = []
             p = out_ios / f"{dev}-01.png"
             if shot(udid, p): shots.append(p)
@@ -92,11 +93,17 @@ def capture(app, out_ios, out_android):
                 # height in the lowest ~15% of the screen (CalcMaster, 2026-09-14).
                 app_el = next((e for e in els if e.get("type") == "Application"), None)
                 H = app_el["frame"]["height"] if app_el else 956
-                btns = [e for e in els if e.get("type") == "Button" and e["frame"]["y"] > 0.82 * H and e["frame"]["width"] < 0.5 * (app_el["frame"]["width"] if app_el else 440)]
+                W = app_el["frame"]["width"] if app_el else 440
+                btns = [e for e in els if e.get("type") in ("Button", "Tab") and e["frame"]["y"] > 0.80 * H and 40 <= e["frame"]["width"] < 0.5 * W and (e.get("AXLabel") or "").strip()]
                 rows = {}
-                for e in btns: rows.setdefault((round(e["frame"]["y"]), round(e["frame"]["height"])), []).append(e)
-                best = max(rows.values(), key=len, default=[])
-                tabs = best if len(best) >= 2 else []
+                for e in btns: rows.setdefault((round(e["frame"]["y"] / 8), round(e["frame"]["height"] / 8)), []).append(e)
+                # a tab bar: >=3 similarly sized labelled buttons on one line; take the lowest such row
+                cands = []
+                for row in rows.values():
+                    ws = sorted(e["frame"]["width"] for e in row)
+                    if len(row) >= 3 and ws[-1] <= ws[0] * 1.6: cands.append(row)
+                best = max(cands, key=lambda r: r[0]["frame"]["y"], default=[])
+                tabs = best
             # de-duplicate by x position, keep order
             seen = set(); ordered = []
             for e in sorted(tabs, key=lambda e: e["frame"]["x"]):
