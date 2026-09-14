@@ -3,11 +3,12 @@
   "slug": "yourtube",
   "copy": {
     "en": {
-      "name": "yourtube",
+      "name": "YourTube: Watch & Discover",
       "short_description": "Video hub    like videos cloud server",
       "subtitle": "Stock video, worth watching",
       "description": "YourTube is a clean way to watch high-quality stock video on your phone or TV.\n\nWATCH\nBrowse trending and by category, search for what you want, or flick through short-form vertical video. The player supports captions, a queue, and a data-saver mode for when you are not on Wi-Fi.\n\nFOR YOU\nA recommendation feed that learns from what you watch. It is built on your activity in this app only, and you can see what it does in Settings.\n\nSAVE IT\nWatch Later holds anything you want to come back to. Clear it whenever.\n\nMADE FOR THE BIG SCREEN TOO\nYourTube detects a TV and switches to a layout you can drive with a remote.\n\nSign in with Google or Apple to keep your list across devices, or browse without an account. YourTube shows ads.",
-      "keywords": "video,watch,stock video,shorts,streaming,player,trending,for you,tv,watch later"
+      "keywords": "video,watch,stock video,shorts,streaming,player,trending,for you,tv,watch later",
+      "title": "yourtube"
     }
   },
   "_drafted": {
@@ -36,5 +37,6 @@
     ]
   },
   "primary_category": "ENTERTAINMENT",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "_name_note": "App Store name set to the existing App Store Connect record: the copy's original name is registered to another developer (deliver 2026-09-14: 'app name you entered is already being used'). Play keeps `title`."
 }

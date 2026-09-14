@@ -2,7 +2,7 @@
   "repo": "Uscis-Case",
   "copy": {
     "en": {
-      "name": "Case Tracker for USCIS",
+      "name": "USCIS Case Lookup",
       "subtitle": "Immigration case status",
       "short_description": "Track USCIS receipt numbers, processing times, the visa bulletin and NVC status.",
       "description": "Case Tracker for USCIS keeps every receipt number, every processing time and every visa bulletin in one place, so you are not refreshing three government websites to work out where your case stands.\n\n—— Track your cases ——\n\nSave any USCIS receipt number and see its current status, with a full history of every change so you can see when your case actually moved. Track as many cases as you need — a family's petitions live side by side.\n\n—— Know what is next ——\n\nPROCESSING TIMES\nCurrent posted processing times by form and service centre, so you can tell whether your case is inside or outside the normal range.\n\nVISA BULLETIN\nThe monthly Department of State visa bulletin, readable on a phone, with final action and filing dates.\n\nNVC TRACKER\nFollow a case through National Visa Center stages after approval.\n\nALERTS\nA notification when a tracked case changes status, so you do not have to keep checking.\n\n—— Prepare and understand ——\n\nCIVICS TEST\nPractise the naturalisation civics questions with a trainer that tracks what you have learned.\n\nRESOURCES AND GOVERNMENT SOURCES\nPlain-language explanations, with a direct link to the official government page behind every figure so you can verify anything yourself.\n\nIMPACT ADVISOR AND AI CHAT\nAsk questions about the process in plain language and get an explanation of what a form or a stage means.\n\nNEWS FEED\nPolicy and processing news that affects pending cases.\n\n—— Private and offline ——\n\nYour receipt numbers stay on your device. Sign-in is optional — tap \"Continue as guest\" and everything works. Once your cases are saved the app is fully usable offline.\n\n—— Important ——\n\nCase Tracker for USCIS is an independent app. It is not affiliated with, endorsed by, or operated by USCIS, the Department of State, or any government agency, and it does not provide legal advice. Always confirm anything that matters against the official government source, and consult a qualified immigration attorney about your own case.",
@@ -12,7 +12,8 @@
       "release_notes": "First release of Case Tracker for USCIS.\n\n• Track any number of USCIS receipt numbers, with full status history\n• Posted processing times by form and service centre\n• The monthly Department of State visa bulletin\n• NVC stage tracking after approval\n• Status-change alerts\n• Naturalisation civics test trainer with progress tracking\n• Plain-language resources, each linked to its official government source\n• Works offline once your cases are saved; sign-in is optional\n\nNot affiliated with USCIS or any government agency. Feedback: contact@safecodeg.com",
       "support_url": "https://www.safecodeg.com/policy/uscis-case-tracker/support.html",
       "privacy_url": "https://www.safecodeg.com/policy/uscis-case-tracker/",
-      "marketing_url": "https://www.safecodeg.com"
+      "marketing_url": "https://www.safecodeg.com",
+      "title": "Case Tracker for USCIS"
     }
   },
   "review_information": {
@@ -24,5 +25,6 @@
   },
   "slug": "uscis-case-tracker",
   "primary_category": "UTILITIES",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "_name_note": "App Store name set to the existing App Store Connect record: the copy's original name is registered to another developer (deliver 2026-09-14: 'app name you entered is already being used'). Play keeps `title`."
 }

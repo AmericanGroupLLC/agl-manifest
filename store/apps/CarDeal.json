@@ -3,11 +3,12 @@
   "slug": "cardeal",
   "copy": {
     "en": {
-      "name": "CarDeal",
+      "name": "iCarDeal",
       "short_description": "Car deals near. by",
       "subtitle": "Is this car a good price?",
       "description": "CarDeal helps you tell a good used-car price from a confident one.\n\nSEARCH\nFilter inventory by body type, budget, and condition, and save the searches you keep coming back to.\n\nRATED, NOT JUST LISTED\nEvery listing carries a deal rating with the reasoning behind it, so you know whether the number in front of you is fair.\n\nWHAT IT REALLY COSTS\nWork the finance out before you talk to anyone: APR, term, sales tax, and the monthly payment that falls out of them. Set a budget and see what fits inside it.\n\nCOMPARE\nPut candidates side by side on price, mileage, accident history, and specification.\n\nSAVED\nKeep the cars you are still considering. Everything is stored on your device.\n\nCarDeal earns a commission on some outbound links to sellers. That does not change a car's rating.",
-      "keywords": "used cars,car deals,auto,finance,apr,monthly payment,compare,listings,car buying,budget"
+      "keywords": "used cars,car deals,auto,finance,apr,monthly payment,compare,listings,car buying,budget",
+      "title": "CarDeal"
     }
   },
   "_drafted": {
@@ -35,5 +36,6 @@
     ]
   },
   "primary_category": "SHOPPING",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "_name_note": "App Store name set to the existing App Store Connect record: the copy's original name is registered to another developer (deliver 2026-09-14: 'app name you entered is already being used'). Play keeps `title`."
 }

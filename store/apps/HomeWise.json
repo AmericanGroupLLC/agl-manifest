@@ -3,11 +3,12 @@
   "slug": "homewise",
   "copy": {
     "en": {
-      "name": "HomeWise",
+      "name": "iHomeWise",
       "short_description": "House listings, sales and rentals via public real-estate APIs",
       "subtitle": "What house can I afford?",
       "description": "HomeWise answers one question properly: what can you actually afford, and what will it cost you every month?\n\nAFFORDABILITY\nEnter your household income, the cash you have, and your existing debt. HomeWise applies front-end and back-end debt-to-income limits and tells you the price range those limits put you in — and which limit is the one binding you.\n\nPAYMENT\nBreak a monthly payment into principal, interest, taxes, insurance, and the costs that scale with price, so you can see what is loan and what is everything else.\n\nSCHEDULE\nThe full amortization schedule, payment by payment, with the crossover month where you start paying more principal than interest.\n\nCOMPARE\nSave scenarios and put them side by side. Different price, different rate, different down payment — the same maths on all of them.\n\nASSUMPTIONS YOU CONTROL\nRates, tax rates, insurance, and the DTI limits are all yours to change, and HomeWise shows you the assumption behind every number instead of hiding it. It is a calculator, not a lender: it does not pull your credit, does not talk to a bank, and does not need an account.",
-      "keywords": "mortgage,affordability,calculator,amortization,home loan,dti,payment,interest,house,budget"
+      "keywords": "mortgage,affordability,calculator,amortization,home loan,dti,payment,interest,house,budget",
+      "title": "HomeWise"
     }
   },
   "_drafted": {
@@ -27,5 +28,6 @@
     ]
   },
   "primary_category": "FINANCE",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "_name_note": "App Store name set to the existing App Store Connect record: the copy's original name is registered to another developer (deliver 2026-09-14: 'app name you entered is already being used'). Play keeps `title`."
 }

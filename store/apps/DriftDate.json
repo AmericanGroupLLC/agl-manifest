@@ -25,5 +25,7 @@
   },
   "slug": "driftdate",
   "primary_category": "LIFESTYLE",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "secondary_category": "SOCIAL_NETWORKING",
+  "_category_note": "App Store Connect refused the primary because the record's existing secondary category was the same ('You may not select the same category'); a distinct secondary is set explicitly."
 }

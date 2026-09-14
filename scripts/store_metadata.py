@@ -76,6 +76,7 @@ FIELDS = {
 SHARED_FILES = {
     "copyright": "copyright.txt",
     "primary_category": "primary_category.txt",
+    "secondary_category": "secondary_category.txt",
 }
 
 REVIEW_FILES = (

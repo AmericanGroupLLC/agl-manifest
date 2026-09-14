@@ -3,11 +3,12 @@
   "slug": "buddyplay",
   "copy": {
     "en": {
-      "name": "BuddyPlay",
+      "name": "iBuddyPlay",
       "subtitle": "22 two-player games, offline",
       "short_description": "22 two-player games, on one phone or two. No account, no internet.",
       "description": "BuddyPlay is 22 two-player games in one app. Pass one phone back and forth, or put two phones on the same Wi-Fi and play across them.\n\nTHE GAMES\nChess · Checkers · Reversi · Connect Four · Battleship · Ludo · Mancala · Nim · Mastermind · Tic-Tac-Toe · Ultimate Tic-Tac-Toe · Dots and Boxes · Hangman · Word Duel · Trivia Battle · Twenty Questions · Pong · Air Hockey · Racer · Snake Battle · Tank Battle · Coin Flip & Dice.\n\nTWO PHONES, NO SERVER\nHost a match and your phone shows a pairing code. The other player joins over the same Wi-Fi network or your phone's hotspot — the two devices talk to each other directly over the local network. Nothing is relayed through a server, nothing needs an internet connection, and there is no account to create.\n\nRIVALRIES\nBuddyPlay remembers who you play and keeps the running score. Clear it whenever you like.\n\nQUIET BY DESIGN\nNo ads. No sign-up. No analytics profile. Haptic feedback and a default game are the only settings you need to think about.",
-      "keywords": "two player,games,offline,multiplayer,chess,checkers,board games,local,wifi,pass and play"
+      "keywords": "two player,games,offline,multiplayer,chess,checkers,board games,local,wifi,pass and play",
+      "title": "BuddyPlay"
     }
   },
   "_drafted": {
@@ -28,5 +29,8 @@
     ]
   },
   "primary_category": "ENTERTAINMENT",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "_name_note": "App Store name set to the existing App Store Connect record: the copy's original name is registered to another developer (deliver 2026-09-14: 'app name you entered is already being used'). Play keeps `title`.",
+  "secondary_category": "UTILITIES",
+  "_category_note": "App Store Connect refused the primary because the record's existing secondary category was the same ('You may not select the same category'); a distinct secondary is set explicitly."
 }
