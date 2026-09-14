@@ -11,9 +11,9 @@
       "keywords": "calculator,converter,unit,currency,tax,tip,loan,bmi,gps,scientific,fraction,percent,emi,money",
       "promotional_text": "Now with custom region pricing in 7 countries — tap your flag to instantly see local tax brackets, currency, and tip etiquette. Updated for 2026.",
       "release_notes": "Hello, world! This is the first release of CalcMaster.\n\nHighlights of this build:\n• 10 unit converters, 5 calculator modes, 7 finance tools, 8 utilities, and a notes pad\n• New Calendar tool: month view with ISO week, day-of-year, and quarter\n• Region-aware tax + currency for US, UK, EU, CA, AU, IN, JP\n• Live European Central Bank exchange rates with offline fallback\n• Beautiful dark theme with hand-authored line-art icons\n• Optional CalcMaster Pro for ad-free + advanced features\n\nWe'd love to hear from you. Tap Settings → Send feedback to reach the team.",
-      "support_url": "https://americangroupllc.github.io/policy/calcmaster/support.html",
-      "privacy_url": "https://americangroupllc.github.io/policy/calcmaster/",
-      "marketing_url": "https://americangroupllc.github.io/"
+      "support_url": "https://safecodeg.com/policy/calcmaster/support.html",
+      "privacy_url": "https://safecodeg.com/policy/calcmaster/",
+      "marketing_url": "https://safecodeg.com"
     }
   },
   "review_information": {
@@ -22,5 +22,6 @@
     "email_address": "contact@safecodeg.com",
     "phone_number": "+1 415 555 0142",
     "notes": "Thanks for reviewing CalcMaster.\n\nCalcMaster is a calculator + unit converter + finance tool that runs entirely on-device. There is no login, no account, and no user-generated content visible to other users.\n\nTest instructions:\n1. Open the app → Convert tab is the default. Tap any category card to convert units.\n2. Tap the bottom-nav tabs to explore Calculate, Finance, Tools, and Notes.\n3. In Tools, tap Calendar to browse months and inspect any date.\n4. Tap the gear icon in the top-right to open Settings.\n5. From Settings, tap \"Subscribe to Pro\" to see the paywall. Three products are\n   live: CalcMaster Pro Monthly ($2.99), Annual ($19.99), and Lifetime ($49.99,\n   non-consumable). Purchases use StoreKit via the in_app_purchase plugin and\n   work in the sandbox with a sandbox Apple ID.\n6. Tap \"Send feedback\" in Settings to test mailto: contact@safecodeg.com.\n\nPrivacy:\n• Location: requested only when the user explicitly taps \"Use my location\" in the GPS Coordinates tool. Not transmitted.\n• Network: a single GET to api.frankfurter.app for European Central Bank currency rates, used by the Currency converter. Offline fallback is built in.\n• Tracking: none. This build serves no ads and does not access the IDFA, so no\n  App Tracking Transparency prompt is shown. This matches the \"does not use\n  IDFA\" answer in the submission's advertising identifier section.\n\nIf you need anything else, please email contact@safecodeg.com and we'll respond within one business day."
-  }
+  },
+  "slug": "calcmaster"
 }

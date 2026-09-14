@@ -11,9 +11,9 @@
       "keywords": "navigation,traffic,route,gps,scanner,police,radio,weather,alerts,earthquake,wildfire,incident",
       "promotional_text": "Now streaming live police, fire, EMS and weather radio alongside community traffic reports and a 2-mile alert radius drawn from five public data feeds.",
       "release_notes": "First public release of iMaps.\n\n• Worldwide turn-by-turn driving routes powered by OSRM\n• Community incident reporting with automatic severity decay\n• Two-mile live alert radius from USGS, NOAA/NWS, NASA FIRMS, GDACS and Open311\n• Live public safety radio: police, fire, EMS, NOAA Weather Radio and ATC\n• Fifteen languages\n• Companion browser extension for Chrome, Edge and Firefox\n\nFeedback is welcome at contact@safecodeg.com.",
-      "support_url": "https://americangroupllc.github.io/policy/iMaps/support.html",
-      "privacy_url": "https://americangroupllc.github.io/policy/iMaps/",
-      "marketing_url": "https://americangroupllc.github.io/"
+      "support_url": "https://safecodeg.com/policy/iMaps/support.html",
+      "privacy_url": "https://safecodeg.com/policy/iMaps/",
+      "marketing_url": "https://safecodeg.com"
     }
   },
   "review_information": {
@@ -22,5 +22,6 @@
     "email_address": "contact@safecodeg.com",
     "phone_number": "+1 415 555 0142",
     "notes": "Thanks for reviewing iMaps.\n\niMaps is a navigation app with community incident reporting, a two-mile public-hazard alert feed, and live public safety radio streams. There is no account and no sign-in; all features are reachable immediately on first launch.\n\nTest instructions:\n1. Launch the app and allow location when prompted. The map opens on your position. If the simulator has no location set, use Features → Location → Apple to give it one.\n2. Enter any destination in the search field to see an OSRM-generated driving route with step-by-step guidance.\n3. Tap the report button on the map to file a test incident, then tap an existing marker to confirm or dismiss it.\n4. Open the Live Events tab to see aggregated USGS, NOAA/NWS, NASA FIRMS, GDACS and Open311 alerts within two miles of the current position.\n5. Open the Radio tab and tap any stream to hear a live public safety or NOAA Weather Radio feed.\n6. Open Settings to change the language; fifteen are available.\n\nPrivacy:\n• Data collected: Approximate and precise location while the app is in use; incident reports you choose to submit. No name, email, or account.\n• Network: OSRM for routing; USGS, NOAA/NWS, NASA FIRMS, GDACS and Open311 for hazard alerts; OpenMHz, NOAA Weather Radio and LiveATC for audio streams.\n• Location: Requested on first launch and used while the app is in use, to build routes and to filter alerts to a two-mile radius. Never sold.\n• Tracking: None. The app does not read the advertising identifier and shows no App Tracking Transparency prompt.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
-  }
+  },
+  "slug": "iMaps"
 }

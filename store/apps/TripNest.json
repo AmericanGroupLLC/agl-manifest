@@ -11,9 +11,9 @@
       "keywords": "travel,flights,hotels,buses,car rental,booking,trip planner,itinerary,cheap flights,stays,transfer",
       "promotional_text": "Build a trip, not a booking. Add a flight, a bus, a stay and an airport transfer to one itinerary, and compare every option in a single search.",
       "release_notes": "First release of TripNest.\n\n• Build a trip and add flights, hotels, buses, cars, stays and airport transfers to one itinerary\n• Compare options across partners in a single search\n• Save options you are still deciding between\n• Deals surfaced from your own origin\n• No account and no sign-in - everything lives on your device\n\nBooking completes on a partner's site; affiliate links may earn us a commission at no extra cost to you and never affect result order.\n\nFeedback: contact@safecodeg.com",
-      "support_url": "https://americangroupllc.github.io/policy/TripNest/support.html",
-      "privacy_url": "https://americangroupllc.github.io/policy/TripNest/",
-      "marketing_url": "https://americangroupllc.github.io/"
+      "support_url": "https://safecodeg.com/policy/TripNest/support.html",
+      "privacy_url": "https://safecodeg.com/policy/TripNest/",
+      "marketing_url": "https://safecodeg.com"
     }
   },
   "review_information": {
@@ -22,5 +22,6 @@
     "email_address": "contact@safecodeg.com",
     "phone_number": "+1 415 555 0142",
     "notes": "Thanks for reviewing TripNest.\n\nTripNest is a travel metasearch app covering flights, hotels, cars, buses, stays and airport transfers. There is NO account and NO sign-in - the Menu deliberately offers no login. Bookings are not completed in-app: the app hands off to a partner's site through a tracked affiliate link, which is disclosed in the listing, in the terms and in-app.\n\nTest instructions:\n1. Launch the app. Home opens on the four headline categories with deals from the detected origin - no sign-in step exists.\n2. Open Search and pick any of the six categories, then run a search to see the results list.\n3. Open a result to see its detail screen and the real total.\n4. Tap Save, then open the Saved tab to confirm it persisted.\n5. Open Trips and create a trip, then add more than one leg to it - this is the core idea of the app.\n6. Open Menu to confirm there is no login option, by design.\n7. Tapping through to book opens the partner's own site; TripNest does not take payment or hold booking data.\n\nPrivacy:\n• Data collected: Your trips, saved options and search preferences, held on your device. No account and no personal details.\n• Network: Searches sent to travel partner and aggregator APIs to return availability and prices.\n• Location: Used only to detect your origin for deals and nearby search, and only while you are using the app. You can decline and type an origin instead.\n• Tracking: None. The app does not read the advertising identifier and shows no App Tracking Transparency prompt. Outbound partner links carry an affiliate tag identifying TripNest as the referrer, not identifying you.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
-  }
+  },
+  "slug": "TripNest"
 }

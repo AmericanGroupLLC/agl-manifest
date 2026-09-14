@@ -11,9 +11,9 @@
       "keywords": "news,briefing,morning,weather,air quality,stocks,markets,good news,world news,crypto,headlines",
       "promotional_text": "One screen for your morning: weather and air quality where you are, your stock watchlist, and the day's stories - plus a Good News feed for heavy days.",
       "release_notes": "First release of Daily Pulse.\n\n• Morning dashboard: weather, air quality, stock watchlist and the day's top stories\n• Good News feed, scored by sentiment\n• Alerts feed for critical and negative-sentiment breaking news\n• World News with country filtering and hashtag navigation\n• My Feed, shaped by your interests and location\n• Ask the assistant to build a page - crypto, local news, weather or a briefing\n• Nine languages\n\nThe assistant runs on-device and does not send your conversation to an external AI service.\n\nFeedback: contact@safecodeg.com",
-      "support_url": "https://americangroupllc.github.io/policy/dailypulse/support.html",
-      "privacy_url": "https://americangroupllc.github.io/policy/dailypulse/",
-      "marketing_url": "https://americangroupllc.github.io/"
+      "support_url": "https://safecodeg.com/policy/dailypulse/support.html",
+      "privacy_url": "https://safecodeg.com/policy/dailypulse/",
+      "marketing_url": "https://safecodeg.com"
     }
   },
   "review_information": {
@@ -22,5 +22,6 @@
     "email_address": "contact@safecodeg.com",
     "phone_number": "+1 415 555 0142",
     "notes": "Thanks for reviewing Daily Pulse.\n\nDaily Pulse is a morning-briefing app: weather and air quality, a stock watchlist, sentiment-filtered news feeds, and an assistant that builds new pages on request. The assistant runs on a rule-based on-device engine - no OpenAI key ships with the app, so no conversation leaves the device.\n\nTest instructions:\n1. Launch the app and allow location when prompted, or decline and set a city manually - both paths work.\n2. The Morning Dashboard opens with weather, air quality, the stock watchlist and top stories.\n3. Open Good News to see the positively-scored feed, then Alerts to see the inverse filter.\n4. Open World News and change the country filter.\n5. Open the assistant and type \"Add a crypto page\" - a live CoinGecko page is created. Then try \"What's the weather?\".\n6. Open Settings to change language; nine are available, including right-to-left Arabic.\n7. Sign-in exists via Supabase but is not required to read any feed.\n\nPrivacy:\n• Data collected: Your city or approximate location, your chosen interests, and your stock watchlist. Sign-in is optional; if you use it, your email is held by our authentication provider.\n• Network: Open-Meteo for weather and air quality, CoinGecko for crypto, DuckDuckGo for lookups, and public news sources.\n• Location: Used to pick your weather, air quality and local news. You can decline and set a city by name instead.\n• Tracking: None. The app does not read the advertising identifier and shows no App Tracking Transparency prompt.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
-  }
+  },
+  "slug": "dailypulse"
 }

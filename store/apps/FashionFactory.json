@@ -11,9 +11,9 @@
       "keywords": "deals,price comparison,shopping,fashion,shoes,bags,perfume,watches,tech,discount,sale,price drop",
       "promotional_text": "Six categories, one price check. Find what a product costs at every store that stocks it, see what that price has done, and get told the moment it drops.",
       "release_notes": "Fashion Factory 2.2.\n\n• Compare a product's price across every store that stocks it\n• Price history so you can tell a real discount from a fake one\n• Drop alerts on anything you save\n• Six categories: fashion, shoes, bags, perfume, watches and tech\n• Curated deals feed and category browsing\n• No account, no login\n\nFeedback is welcome at contact@safecodeg.com.",
-      "support_url": "https://americangroupllc.github.io/policy/fashionfactory/support.html",
-      "privacy_url": "https://americangroupllc.github.io/policy/fashionfactory/",
-      "marketing_url": "https://americangroupllc.github.io/"
+      "support_url": "https://safecodeg.com/policy/fashionfactory/support.html",
+      "privacy_url": "https://safecodeg.com/policy/fashionfactory/",
+      "marketing_url": "https://safecodeg.com"
     }
   },
   "review_information": {
@@ -22,5 +22,6 @@
     "email_address": "contact@safecodeg.com",
     "phone_number": "+1 415 555 0142",
     "notes": "Thanks for reviewing Fashion Factory.\n\nFashion Factory is a shopping price-comparison app across six product categories. There is NO account, NO login and no user-generated content. Every feature is reachable immediately on first launch.\n\nTest instructions:\n1. Launch the app. The Home screen opens with a search field and a deals feed - no sign-in step exists.\n2. Search for any product, then open a result to see its detail screen.\n3. Tap Compare to see the price at every store that stocks the product, side by side.\n4. Scroll to the price history chart to see how that price has moved.\n5. Tap Save, then open the Saved tab - saved products are what drop alerts are attached to.\n6. Open Browse to explore by category, and Deals for the curated feed.\n\nPrivacy:\n• Data collected: The products you save and your search history, held on your device. No account and no personal details.\n• Network: Requests to retailer and price-data sources to fetch current prices and availability.\n• Location: Not requested and not used.\n• Tracking: None. The app does not read the advertising identifier and shows no App Tracking Transparency prompt.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
-  }
+  },
+  "slug": "fashionfactory"
 }
