@@ -47,6 +47,7 @@ LOGS.mkdir(parents=True, exist_ok=True)
 
 for i, a in enumerate(apps, 1):
     purge_derived_data()
+    LOCK = pathlib.Path("/Users/spatchava/agl/.dist/ios-batch/current_app"); LOCK.write_text(repo)  # screenshots.py waits while this names its app
 
     repo = a["repo"]
     if results.get(repo, {}).get("status") == "uploaded":
@@ -87,6 +88,7 @@ for i, a in enumerate(apps, 1):
     results[repo] = {"status": status, "rc": rc, "seconds": round(time.time() - t0), "build_number": build_number,
                      "bundle_id": a["bundle_id"], "log": str(log), "error": err, "at": datetime.datetime.now().isoformat(timespec="seconds")}
     json.dump(results, open(RESULTS, "w"), indent=1)
+    LOCK.write_text("")
     print(f"    {status} in {results[repo]['seconds']}s {err}", flush=True)
 
 ok = [r for r, v in results.items() if v["status"] == "uploaded"]

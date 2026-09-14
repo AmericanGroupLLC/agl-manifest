@@ -138,6 +138,9 @@ def main():
     results = json.load(open(RESULTS)) if RESULTS.exists() else {}
     for a in sorted(apps, key=lambda x: x["repo"].lower()):
         purge_derived_data()
+        lock = pathlib.Path("/Users/spatchava/agl/.dist/ios-batch/current_app")
+        while lock.exists() and lock.read_text().strip() == a["repo"]:
+            print(f"{a['repo']}: TestFlight is building it — waiting", flush=True); time.sleep(60)
 
         if "--skip-done" in sys.argv and results.get(a["repo"], {}).get("screens", {}).get("iphone69", 0) >= 1:
             print(f"{a['repo']}: done, skipping"); continue
