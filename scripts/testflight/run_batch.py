@@ -47,7 +47,7 @@ LOGS.mkdir(parents=True, exist_ok=True)
 
 for i, a in enumerate(apps, 1):
     purge_derived_data()
-    LOCK = pathlib.Path("/Users/spatchava/agl/.dist/ios-batch/current_app"); LOCK.write_text(repo)  # screenshots.py waits while this names its app
+    LOCK = pathlib.Path("/Users/spatchava/agl/.dist/ios-batch/current_app"); LOCK.write_text(a["repo"])  # screenshots.py waits while this names its app
 
     repo = a["repo"]
     if results.get(repo, {}).get("status") == "uploaded":
