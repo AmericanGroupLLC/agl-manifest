@@ -40,6 +40,23 @@ rescue StandardError
   nil
 end
 
+
+# Xcode resolves a profile by *name*, and sigh reuses one name per app. When a
+# capability is added, the freshly generated profile lands next to the stale one
+# and the stale one can win the archive (BodyQuest, 2026-09-14: "Provisioning
+# profile … doesn't include the Sign In with Apple capability"). Remove every
+# installed profile with that name before fetching the new one.
+def remove_installed_profiles(name)
+  ["~/Library/MobileDevice/Provisioning Profiles", "~/Library/Developer/Xcode/UserData/Provisioning Profiles"].each do |dir|
+    Dir[File.join(File.expand_path(dir), "*.mobileprovision")].each do |f|
+      n = `security cms -D -i #{f.shellescape} 2>/dev/null | plutil -extract Name raw -o - - 2>/dev/null`.strip
+      next unless n == name
+      File.delete(f)
+      UI.message("removed stale installed profile #{File.basename(f)} (#{n})")
+    end
+  end
+end
+
 def unbundled(&blk)
   if defined?(Bundler) && Bundler.respond_to?(:with_unbundled_env)
     Bundler.with_unbundled_env(&blk)
@@ -59,6 +76,7 @@ platform :ios do
 
     key = asc_key
 
+    remove_installed_profiles("#{bundle_id} AppStore")
     get_provisioning_profile(
       api_key: key,
       app_identifier: bundle_id,
@@ -73,6 +91,7 @@ platform :ios do
       bundle_identifier: bundle_id,
       code_sign_identity: "Apple Distribution",
       profile_name: lane_context[SharedValues::SIGH_NAME],
+      profile_uuid: lane_context[SharedValues::SIGH_UUID],
       targets: ["Runner"]
     )
 
