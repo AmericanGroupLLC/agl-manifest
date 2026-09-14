@@ -1,0 +1,346 @@
+[
+  {
+    "repo": "AGCleaner",
+    "app_dir": ".",
+    "seconds": 46.7,
+    "mb": 18.6,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:13:39-0700"
+  },
+  {
+    "repo": "AGRecorder",
+    "app_dir": ".",
+    "seconds": 71.0,
+    "mb": 19.1,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:14:50-0700"
+  },
+  {
+    "repo": "AGStudio",
+    "app_dir": "mobile",
+    "seconds": 46.3,
+    "mb": 17.8,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:15:37-0700"
+  },
+  {
+    "repo": "AGrammarly",
+    "app_dir": "mobile",
+    "seconds": 65.3,
+    "mb": 20.2,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:16:43-0700"
+  },
+  {
+    "repo": "AeroSwift",
+    "app_dir": "mobile",
+    "seconds": 42.2,
+    "mb": 17.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:17:25-0700"
+  },
+  {
+    "repo": "ApexMarketWatch",
+    "app_dir": "mobile",
+    "seconds": 45.4,
+    "mb": 17.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:18:11-0700"
+  },
+  {
+    "repo": "BodyQuest",
+    "app_dir": ".",
+    "seconds": 90.0,
+    "mb": 29.5,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:19:44-0700"
+  },
+  {
+    "repo": "BuddyPlay",
+    "app_dir": "mobile",
+    "seconds": 43.0,
+    "mb": 17.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:20:27-0700"
+  },
+  {
+    "repo": "CalcMaster",
+    "app_dir": ".",
+    "seconds": 86.3,
+    "mb": 31.7,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:21:57-0700"
+  },
+  {
+    "repo": "CarDeal",
+    "app_dir": "mobile",
+    "seconds": 85.7,
+    "mb": 22.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:34:49-0700"
+  },
+  {
+    "repo": "ChefCount",
+    "app_dir": ".",
+    "seconds": 67.6,
+    "mb": 19.3,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:23:56-0700"
+  },
+  {
+    "repo": "CodeDeal",
+    "app_dir": "mobile/codedeal_app",
+    "seconds": 66.7,
+    "mb": 22.1,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:25:04-0700"
+  },
+  {
+    "repo": "DriftDate",
+    "app_dir": ".",
+    "seconds": 110.2,
+    "mb": 32.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:26:55-0700"
+  },
+  {
+    "repo": "EventSpark",
+    "app_dir": "mobile",
+    "seconds": 87.8,
+    "mb": 84.3,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:28:24-0700"
+  },
+  {
+    "repo": "FashionFactory",
+    "app_dir": ".",
+    "seconds": 49.6,
+    "mb": 17.3,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:29:14-0700"
+  },
+  {
+    "repo": "GadgetNest",
+    "app_dir": ".",
+    "seconds": 63.8,
+    "mb": 21.7,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:30:19-0700"
+  },
+  {
+    "repo": "GroceryMatch",
+    "app_dir": ".",
+    "seconds": 109.6,
+    "mb": 34.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:32:12-0700"
+  },
+  {
+    "repo": "HerJourney",
+    "app_dir": ".",
+    "seconds": 95.4,
+    "mb": 26.3,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:33:51-0700"
+  },
+  {
+    "repo": "HomeWise",
+    "app_dir": "mobile",
+    "seconds": 72.2,
+    "mb": 20.9,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:36:02-0700"
+  },
+  {
+    "repo": "Kinnav",
+    "app_dir": ".",
+    "seconds": 75.5,
+    "mb": 46.6,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:37:19-0700"
+  },
+  {
+    "repo": "MileMaster",
+    "app_dir": ".",
+    "seconds": 57.9,
+    "mb": 19.2,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:38:17-0700"
+  },
+  {
+    "repo": "MyCard",
+    "app_dir": "mobile",
+    "seconds": 61.8,
+    "mb": 17.3,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:37:20-0700"
+  },
+  {
+    "repo": "MyFinance",
+    "app_dir": ".",
+    "seconds": 53.3,
+    "mb": 19.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:39:12-0700"
+  },
+  {
+    "repo": "MyHealth",
+    "app_dir": ".",
+    "seconds": 382.8,
+    "mb": 27.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:44:35-0700"
+  },
+  {
+    "repo": "NearServe",
+    "app_dir": "mobile",
+    "seconds": 112.2,
+    "mb": 22.2,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:46:29-0700"
+  },
+  {
+    "repo": "NewsBoard",
+    "app_dir": "mobile",
+    "seconds": 134.1,
+    "mb": 21.6,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:48:48-0700"
+  },
+  {
+    "repo": "NexusTransferPay",
+    "app_dir": "flutter-mobile-app",
+    "seconds": 61.3,
+    "mb": 26.4,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:40:14-0700"
+  },
+  {
+    "repo": "Photriya",
+    "app_dir": ".",
+    "seconds": 195.6,
+    "mb": 36.5,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:54:28-0700"
+  },
+  {
+    "repo": "PilotEnRoute",
+    "app_dir": ".",
+    "seconds": 218.4,
+    "mb": 64.2,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:58:35-0700"
+  },
+  {
+    "repo": "PlantPulse",
+    "app_dir": "mobile",
+    "seconds": 73.6,
+    "mb": 16.4,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T13:59:49-0700"
+  },
+  {
+    "repo": "RideZap",
+    "app_dir": "mobile",
+    "seconds": 113.6,
+    "mb": 22.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:01:49-0700"
+  },
+  {
+    "repo": "RoomCraft",
+    "app_dir": ".",
+    "seconds": 132.7,
+    "mb": 19.1,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:04:05-0700"
+  },
+  {
+    "repo": "TripNest",
+    "app_dir": "mobile",
+    "seconds": 131.8,
+    "mb": 29.0,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:06:21-0700"
+  },
+  {
+    "repo": "Uscis-Case",
+    "app_dir": ".",
+    "seconds": 333.7,
+    "mb": 29.2,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:12:09-0700"
+  },
+  {
+    "repo": "Verba",
+    "app_dir": ".",
+    "seconds": 57.6,
+    "mb": 36.7,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:41:14-0700"
+  },
+  {
+    "repo": "VirtuBand",
+    "app_dir": ".",
+    "seconds": 352.7,
+    "mb": 28.3,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:20:24-0700"
+  },
+  {
+    "repo": "WiFiTrail",
+    "app_dir": ".",
+    "seconds": 73.3,
+    "mb": 18.2,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:21:38-0700"
+  },
+  {
+    "repo": "daily-pulse",
+    "app_dir": ".",
+    "seconds": 105.7,
+    "mb": 45.8,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:23:27-0700"
+  },
+  {
+    "repo": "iMaps",
+    "app_dir": ".",
+    "seconds": 117.1,
+    "mb": 34.8,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:25:26-0700"
+  },
+  {
+    "repo": "iMeasure",
+    "app_dir": ".",
+    "seconds": 235.1,
+    "mb": 31.5,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:29:22-0700"
+  },
+  {
+    "repo": "portfolio-board",
+    "app_dir": "mobile",
+    "seconds": 76.9,
+    "mb": 22.5,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:30:40-0700"
+  },
+  {
+    "repo": "radiotune",
+    "app_dir": ".",
+    "seconds": 102.0,
+    "mb": 30.7,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:32:24-0700"
+  },
+  {
+    "repo": "yourtube",
+    "app_dir": ".",
+    "seconds": 79.9,
+    "mb": 56.5,
+    "result": "COMPILED",
+    "built_at": "2026-09-12T14:45:48-0700"
+  }
+]

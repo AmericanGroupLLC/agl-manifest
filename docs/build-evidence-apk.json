@@ -156,16 +156,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 68.7,
+    "seconds": 70.3,
     "aab": "CarDeal/mobile/build/app/outputs/flutter-apk/app-release.apk",
-    "bytes": 54372284,
-    "sha256": "4086fa71a1556bd0d01a5f114476d6c59245dd4f83febc974da3915422819544",
+    "bytes": 56486928,
+    "sha256": "4fda246dfc2a62851f6982c3998df98932069747efcfa8bdd6c6db94b7f12ad6",
     "keystore_sha256": "CF11DBD2873808B613DAB43A1804F94DF7875FE772351326590B82FCA90D278C",
     "signer_sha256": "CF11DBD2873808B613DAB43A1804F94DF7875FE772351326590B82FCA90D278C",
     "result": "SIGNED",
     "artifact": ".dist/CarDeal-app-release.apk",
-    "freed_mb": 914,
-    "built_at": "2026-09-11T18:10:09-0700"
+    "freed_mb": 934,
+    "built_at": "2026-09-12T15:05:05-0700"
   },
   {
     "repo": "ChefCount",
@@ -224,16 +224,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 195.3,
+    "seconds": 75.2,
     "aab": "EventSpark/mobile/build/app/outputs/flutter-apk/app-release.apk",
     "bytes": 146841156,
-    "sha256": "bea8020618f8bc1499a51ba8320017f8b798d21e88b166d9b2dee30adbd142d3",
+    "sha256": "761b5a9c158da8775a7e13a90790f67dd2d2dff81def75acd829e16876ac6c06",
     "keystore_sha256": "186F66EB80AF5D7DB41B7062598068861F19CF2EFDA7719C129D5E4AB35BA630",
     "signer_sha256": "186F66EB80AF5D7DB41B7062598068861F19CF2EFDA7719C129D5E4AB35BA630",
     "result": "SIGNED",
     "artifact": ".dist/EventSpark-app-release.apk",
     "freed_mb": 1453,
-    "built_at": "2026-09-11T18:17:00-0700"
+    "built_at": "2026-09-12T15:06:26-0700"
   },
   {
     "repo": "FashionFactory",
@@ -316,16 +316,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 136.1,
+    "seconds": 38.9,
     "aab": "HomeWise/mobile/build/app/outputs/flutter-apk/app-release.apk",
-    "bytes": 52962108,
-    "sha256": "3bd4ba2245e97fc44c10b6a19c3072b1369589ba8d21eb8af3af3fb9edfef89e",
+    "bytes": 55800884,
+    "sha256": "d088766c0c27f763e3096ff847b61c70eb66ab44476fbc6b095b6dd73ce951a7",
     "keystore_sha256": "50C3A6FC08D81122A8FD3722D55D3461935A58E3E251147C63AE1A0250D37600",
     "signer_sha256": "50C3A6FC08D81122A8FD3722D55D3461935A58E3E251147C63AE1A0250D37600",
     "result": "SIGNED",
     "artifact": ".dist/HomeWise-app-release.apk",
-    "freed_mb": 901,
-    "built_at": "2026-09-11T18:31:40-0700"
+    "freed_mb": 886,
+    "built_at": "2026-09-12T15:07:08-0700"
   },
   {
     "repo": "Kinnav",
@@ -404,32 +404,32 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 146.8,
+    "seconds": 40.3,
     "aab": "MyHealth/build/app/outputs/flutter-apk/app-prod-release.apk",
-    "bytes": 63546786,
-    "sha256": "1ea6b8cceb73705cc82224e2860d30207d70179bfbf5ce5b7c0cfbab8fedd037",
+    "bytes": 63563170,
+    "sha256": "8715a94f57d1f32b410c77fae8e86c80a4a6acb19d0cc1763a19baa87aa47caa",
     "keystore_sha256": "A693834AA710F05D5DDFC63AFEA4C21A82E029779463F4E0FE9D74FF7B5D2E26",
     "signer_sha256": "A693834AA710F05D5DDFC63AFEA4C21A82E029779463F4E0FE9D74FF7B5D2E26",
     "result": "SIGNED",
     "artifact": ".dist/MyHealth-app-prod-release.apk",
     "freed_mb": 981,
-    "built_at": "2026-09-11T18:38:55-0700"
+    "built_at": "2026-09-12T15:07:52-0700"
   },
   {
     "repo": "NearServe",
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 129.3,
+    "seconds": 49.3,
     "aab": "NearServe/mobile/build/app/outputs/flutter-apk/app-release.apk",
-    "bytes": 54273532,
-    "sha256": "603610eb5412d3dd840830c66e8826ee94f13e032a4aaa892ac698fefd0f7124",
+    "bytes": 57076216,
+    "sha256": "85ae571ecbccdfd91ff0f8f5d91223c590587edd4a8c979522ecf8365bad1d55",
     "keystore_sha256": "96342EAA305E4DCB36A430057A48E6D382600B82B15AC8568A0C8FBCB973A58E",
     "signer_sha256": "96342EAA305E4DCB36A430057A48E6D382600B82B15AC8568A0C8FBCB973A58E",
     "result": "SIGNED",
     "artifact": ".dist/NearServe-app-release.apk",
-    "freed_mb": 913,
-    "built_at": "2026-09-11T18:41:09-0700"
+    "freed_mb": 940,
+    "built_at": "2026-09-12T15:08:47-0700"
   },
   {
     "repo": "NewsBoard",
@@ -472,16 +472,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 84.8,
+    "seconds": 83.9,
     "aab": "Photriya/build/app/outputs/flutter-apk/app-prod-release.apk",
-    "bytes": 67562005,
-    "sha256": "be5475b3db8d0f3367cbac326c1cc53316342ef805c045c644d9642559cceef5",
+    "bytes": 67578389,
+    "sha256": "97bdc8e73e2f3b2dc2889911c2f3e80cc037645782773c7ee3188232eb34a65c",
     "keystore_sha256": "ED2D941BFF746590C43AF767DDCA546729E2F568A8DCFAA3A2A2B69BC16C6AA0",
     "signer_sha256": "ED2D941BFF746590C43AF767DDCA546729E2F568A8DCFAA3A2A2B69BC16C6AA0",
     "result": "SIGNED",
     "artifact": ".dist/Photriya-app-prod-release.apk",
     "freed_mb": 1183,
-    "built_at": "2026-09-11T18:46:41-0700"
+    "built_at": "2026-09-12T15:10:17-0700"
   },
   {
     "repo": "PilotEnRoute",
@@ -492,16 +492,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 110.5,
+    "seconds": 115.6,
     "aab": "PilotEnRoute/build/app/outputs/flutter-apk/app-prod-release.apk",
     "bytes": 105421909,
-    "sha256": "0a20cb1cd40ae2d9849e768a1e35a498dcf0b30a1b377b958a589a58cb79272b",
+    "sha256": "9d8da9af9d59623ae2ece6923acf1418028ac1fef07199c6c7e84febf2d045ca",
     "keystore_sha256": "767CD1F7FB490B7CD41C3609E011EEB686B10244D1A34CD590263682DA788772",
     "signer_sha256": "767CD1F7FB490B7CD41C3609E011EEB686B10244D1A34CD590263682DA788772",
     "result": "SIGNED",
     "artifact": ".dist/PilotEnRoute-app-prod-release.apk",
-    "freed_mb": 1394,
-    "built_at": "2026-09-11T18:48:36-0700"
+    "freed_mb": 1393,
+    "built_at": "2026-09-12T15:12:22-0700"
   },
   {
     "repo": "PlantPulse",
@@ -524,16 +524,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 140.7,
+    "seconds": 65.3,
     "aab": "RideZap/mobile/build/app/outputs/flutter-apk/app-release.apk",
-    "bytes": 52962048,
-    "sha256": "fe28a66c1dc712f36921962b266f2f2bf4a7dc508954c4cb6d9f8b72f7c63307",
+    "bytes": 57971220,
+    "sha256": "6e9097a70e5f05727279a28a2a5d24254930095ed344ca92bf5a2851a307ac59",
     "keystore_sha256": "2731B1A2D0201887E96A5071C31E5E2CA6217067A4EB83B8756CB7DBB80F65B2",
     "signer_sha256": "2731B1A2D0201887E96A5071C31E5E2CA6217067A4EB83B8756CB7DBB80F65B2",
     "result": "SIGNED",
     "artifact": ".dist/RideZap-app-release.apk",
-    "freed_mb": 899,
-    "built_at": "2026-09-11T18:51:02-0700"
+    "freed_mb": 938,
+    "built_at": "2026-09-12T15:13:36-0700"
   },
   {
     "repo": "RoomCraft",
@@ -652,16 +652,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 52.1,
+    "seconds": 70.9,
     "aab": "daily-pulse/build/app/outputs/flutter-apk/app-prod-release.apk",
-    "bytes": 78038237,
-    "sha256": "355af87ee261816830cad1784df932a6bbff6efc8033697311c785fffaa37a88",
+    "bytes": 78218525,
+    "sha256": "730fcf3f1808abee007e81e88d618ccded230ea2ac9dad4b647aeea1150640e3",
     "keystore_sha256": "AD4582F780FCB092D1D47C6E9872D962826C27D3ECD54508643693315160FF8D",
     "signer_sha256": "AD4582F780FCB092D1D47C6E9872D962826C27D3ECD54508643693315160FF8D",
     "result": "SIGNED",
     "artifact": ".dist/daily-pulse-app-prod-release.apk",
-    "freed_mb": 1131,
-    "built_at": "2026-09-11T19:15:17-0700"
+    "freed_mb": 1133,
+    "built_at": "2026-09-12T15:14:53-0700"
   },
   {
     "repo": "iMaps",
@@ -708,16 +708,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 135.6,
+    "seconds": 58.8,
     "aab": "portfolio-board/mobile/build/app/outputs/flutter-apk/app-release.apk",
-    "bytes": 52962056,
-    "sha256": "63ae9979d2ac86de62d2c5c8c9436476a4dbe54711d005dcb26f14a9281ecb34",
+    "bytes": 55700429,
+    "sha256": "c40c6360a4ccd9f416a685a74d921c62a3e1a4cf1c494a13ae48b722a98def25",
     "keystore_sha256": "F123FD917E9E9DC5DEDFBCA9F88E86FD5A7293C0E1B6C1CB51C15386F44F3A6C",
     "signer_sha256": "F123FD917E9E9DC5DEDFBCA9F88E86FD5A7293C0E1B6C1CB51C15386F44F3A6C",
     "result": "SIGNED",
     "artifact": ".dist/portfolio-board-app-release.apk",
-    "freed_mb": 901,
-    "built_at": "2026-09-11T19:28:08-0700"
+    "freed_mb": 927,
+    "built_at": "2026-09-12T15:15:58-0700"
   },
   {
     "repo": "radiotune",

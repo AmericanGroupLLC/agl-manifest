@@ -156,16 +156,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 37.8,
+    "seconds": 92.2,
     "aab": "CarDeal/mobile/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 53749439,
-    "sha256": "e9c654550585d61048d3dbdd183ddd16f749e33e2cc4575d7f4d7cbd3fa3f3c4",
+    "bytes": 55765264,
+    "sha256": "92e5101b85296e99cddcddf3ae17a4fa3d13cfdbec4aee1d4b6ff637aeaa9717",
     "keystore_sha256": "CF11DBD2873808B613DAB43A1804F94DF7875FE772351326590B82FCA90D278C",
     "signer_sha256": "CF11DBD2873808B613DAB43A1804F94DF7875FE772351326590B82FCA90D278C",
     "result": "SIGNED",
     "artifact": ".dist/CarDeal-app-release.aab",
-    "freed_mb": 995,
-    "built_at": "2026-09-11T16:23:00-0700"
+    "freed_mb": 1085,
+    "built_at": "2026-09-12T14:49:06-0700"
   },
   {
     "repo": "ChefCount",
@@ -224,16 +224,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 81.8,
+    "seconds": 103.1,
     "aab": "EventSpark/mobile/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 102464976,
-    "sha256": "d62289a45d3ee2950bf0cc9e260794e7a45c5907e1d081a7c32817c7b734fa57",
+    "bytes": 102469762,
+    "sha256": "16ececb68adcda85a6bcfcd5073a8f3aa01fbd1626290e819ee8fd8af20812e6",
     "keystore_sha256": "186F66EB80AF5D7DB41B7062598068861F19CF2EFDA7719C129D5E4AB35BA630",
     "signer_sha256": "186F66EB80AF5D7DB41B7062598068861F19CF2EFDA7719C129D5E4AB35BA630",
     "result": "SIGNED",
     "artifact": ".dist/EventSpark-app-release.aab",
-    "freed_mb": 1640,
-    "built_at": "2026-09-11T16:24:50-0700"
+    "freed_mb": 1736,
+    "built_at": "2026-09-12T14:50:52-0700"
   },
   {
     "repo": "FashionFactory",
@@ -316,16 +316,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 78.4,
+    "seconds": 49.7,
     "aab": "HomeWise/mobile/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 52608031,
-    "sha256": "8e4a11a63fa4389ed9ebe4fdd51c7b89fedafab4e5c33c9e9c92e8dbd08163f7",
+    "bytes": 55038759,
+    "sha256": "3fcc06bc40649a6d0a46f0490f62f9e7868cd043c396356d75719d256c747000",
     "keystore_sha256": "50C3A6FC08D81122A8FD3722D55D3461935A58E3E251147C63AE1A0250D37600",
     "signer_sha256": "50C3A6FC08D81122A8FD3722D55D3461935A58E3E251147C63AE1A0250D37600",
     "result": "SIGNED",
     "artifact": ".dist/HomeWise-app-release.aab",
-    "freed_mb": 1587,
-    "built_at": "2026-09-11T17:20:05-0700"
+    "freed_mb": 1035,
+    "built_at": "2026-09-12T14:51:44-0700"
   },
   {
     "repo": "Kinnav",
@@ -404,32 +404,32 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 174.3,
+    "seconds": 67.6,
     "aab": "MyHealth/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 61988820,
-    "sha256": "2ce819659580eb172b65f4a98876bd312f26db3d9889b0268fb27e6992dae682",
+    "bytes": 61988965,
+    "sha256": "8b2c3a5b343aab926220923c18a1e5acdc2b20062c2cf01beb3f239b25d31fa7",
     "keystore_sha256": "A693834AA710F05D5DDFC63AFEA4C21A82E029779463F4E0FE9D74FF7B5D2E26",
     "signer_sha256": "A693834AA710F05D5DDFC63AFEA4C21A82E029779463F4E0FE9D74FF7B5D2E26",
     "result": "SIGNED",
     "artifact": ".dist/MyHealth-app-prod-release.aab",
-    "freed_mb": 1106,
-    "built_at": "2026-09-11T22:02:56-0700"
+    "freed_mb": 1182,
+    "built_at": "2026-09-12T14:52:55-0700"
   },
   {
     "repo": "NearServe",
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 92.8,
+    "seconds": 55.5,
     "aab": "NearServe/mobile/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 53665256,
-    "sha256": "52d756a53bc176a75883db2012d826b3989bfe48f59d21f6d2d46a3ef30500b5",
+    "bytes": 56260944,
+    "sha256": "ae4e226010cbd92c13ec34055069284b2adb8b9b0a32cc41338d26342d3318e0",
     "keystore_sha256": "96342EAA305E4DCB36A430057A48E6D382600B82B15AC8568A0C8FBCB973A58E",
     "signer_sha256": "96342EAA305E4DCB36A430057A48E6D382600B82B15AC8568A0C8FBCB973A58E",
     "result": "SIGNED",
     "artifact": ".dist/NearServe-app-release.aab",
-    "freed_mb": 1609,
-    "built_at": "2026-09-11T16:38:02-0700"
+    "freed_mb": 1091,
+    "built_at": "2026-09-12T14:53:53-0700"
   },
   {
     "repo": "NewsBoard",
@@ -472,16 +472,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 36.6,
+    "seconds": 153.0,
     "aab": "Photriya/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 68347835,
-    "sha256": "edf4807750c22b25d976040a200939285863e7813c7fcd99fb12aece8ca575b9",
+    "bytes": 68343787,
+    "sha256": "9b5fd6eb5af545adbf30a9ce7ea0265bd20cd24551bbfc4958df3a66492d37e2",
     "keystore_sha256": "ED2D941BFF746590C43AF767DDCA546729E2F568A8DCFAA3A2A2B69BC16C6AA0",
     "signer_sha256": "ED2D941BFF746590C43AF767DDCA546729E2F568A8DCFAA3A2A2B69BC16C6AA0",
     "result": "SIGNED",
     "artifact": ".dist/Photriya-app-prod-release.aab",
-    "freed_mb": 3526,
-    "built_at": "2026-09-11T17:25:44-0700"
+    "freed_mb": 1447,
+    "built_at": "2026-09-12T14:56:30-0700"
   },
   {
     "repo": "PilotEnRoute",
@@ -492,16 +492,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 231.1,
+    "seconds": 161.5,
     "aab": "PilotEnRoute/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 100482086,
-    "sha256": "b21b25068551756b19e53b6e5a4db752197cb55fb7086312b171ab09c38dc610",
+    "bytes": 100482511,
+    "sha256": "1961ae2918235d5eb6fdeaa283853e7e4b8cc44bc8c6487630e2575034aa3366",
     "keystore_sha256": "767CD1F7FB490B7CD41C3609E011EEB686B10244D1A34CD590263682DA788772",
     "signer_sha256": "767CD1F7FB490B7CD41C3609E011EEB686B10244D1A34CD590263682DA788772",
     "result": "SIGNED",
     "artifact": ".dist/PilotEnRoute-app-prod-release.aab",
-    "freed_mb": 2798,
-    "built_at": "2026-09-11T16:44:52-0700"
+    "freed_mb": 1901,
+    "built_at": "2026-09-12T14:59:15-0700"
   },
   {
     "repo": "PlantPulse",
@@ -524,16 +524,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 103.1,
+    "seconds": 62.0,
     "aab": "RideZap/mobile/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 52612221,
-    "sha256": "5411b58ab75a071bd63cd009738a0412592382bcf835f693132c14be4b306f39",
+    "bytes": 56809320,
+    "sha256": "5b84dfa34b479b1eb4d842aeae5cd4c3dbf1740bcd04d8c01cd5a8e1547857b9",
     "keystore_sha256": "2731B1A2D0201887E96A5071C31E5E2CA6217067A4EB83B8756CB7DBB80F65B2",
     "signer_sha256": "2731B1A2D0201887E96A5071C31E5E2CA6217067A4EB83B8756CB7DBB80F65B2",
     "result": "SIGNED",
     "artifact": ".dist/RideZap-app-release.aab",
-    "freed_mb": 1612,
-    "built_at": "2026-09-11T16:46:38-0700"
+    "freed_mb": 1095,
+    "built_at": "2026-09-12T15:00:19-0700"
   },
   {
     "repo": "RoomCraft",
@@ -652,16 +652,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 68.0,
+    "seconds": 70.9,
     "aab": "daily-pulse/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 75122409,
-    "sha256": "84ad91c19ff051cc87fed6fee19c45ce5d6f8db14675a4798c4c0a5c9be41815",
+    "bytes": 75275099,
+    "sha256": "e4d584196b8dc3208c294bea8470ec54bd5fdb26681c5fc9672336a6cc9eb042",
     "keystore_sha256": "AD4582F780FCB092D1D47C6E9872D962826C27D3ECD54508643693315160FF8D",
     "signer_sha256": "AD4582F780FCB092D1D47C6E9872D962826C27D3ECD54508643693315160FF8D",
     "result": "SIGNED",
     "artifact": ".dist/daily-pulse-app-prod-release.aab",
-    "freed_mb": 2155,
-    "built_at": "2026-09-11T16:57:25-0700"
+    "freed_mb": 1478,
+    "built_at": "2026-09-12T15:01:33-0700"
   },
   {
     "repo": "iMaps",
@@ -708,16 +708,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 95.9,
+    "seconds": 60.9,
     "aab": "portfolio-board/mobile/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 52608527,
-    "sha256": "1d9c4e66c0b31111fd49bbdfc430b5aa0db7498669e3476b73082f34df2290cb",
+    "bytes": 54944083,
+    "sha256": "2f28853e267b2d23533be6fb0ce3c3b929cff31ccc73c02ba17e586063694929",
     "keystore_sha256": "F123FD917E9E9DC5DEDFBCA9F88E86FD5A7293C0E1B6C1CB51C15386F44F3A6C",
     "signer_sha256": "F123FD917E9E9DC5DEDFBCA9F88E86FD5A7293C0E1B6C1CB51C15386F44F3A6C",
     "result": "SIGNED",
     "artifact": ".dist/portfolio-board-app-release.aab",
-    "freed_mb": 1586,
-    "built_at": "2026-09-11T17:54:41-0700"
+    "freed_mb": 1077,
+    "built_at": "2026-09-12T15:02:37-0700"
   },
   {
     "repo": "radiotune",
