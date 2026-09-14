@@ -24,7 +24,7 @@ ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
 FLUTTER = str(ROOT / ".flutter-sdk/bin/flutter")
 DEVICES = {"iphone69": "3A41E921-1471-466E-BCDA-30E428297CCF", "ipadpro13": "3C6104B3-00B8-4468-A26B-06E7AF142E97"}
 ENV = dict(os.environ, PATH=f"/opt/homebrew/bin:{pathlib.Path.home()}/.idb-venv/bin:{ROOT}/.flutter-sdk/bin:" + os.environ["PATH"])
-DISMISS = ["Allow While Using App", "Allow", "OK", "Continue", "Get Started", "Get started", "Skip", "Not now", "Not Now", "Maybe later", "Accept", "Agree", "I agree", "Done", "Next"]
+DISMISS = ["Allow Full Access", "Allow While Using App", "Allow Once", "Allow", "OK", "Continue", "Get Started", "Get started", "Skip", "Not now", "Not Now", "Maybe later", "Accept", "Agree", "I agree", "Done", "Next", "Don\u2019t Allow", "Don't Allow"]
 MAX_SCREENS = 5
 RESULTS = ROOT / ".dist/screenshots-results.json"
 
@@ -56,6 +56,15 @@ def patch_banner(app_dir):
 
 def unpatch(app_dir): sh("git", "checkout", "--", "lib", cwd=app_dir)
 
+def clear_alerts(udid, rounds=4):
+    """Tap through system permission alerts / first-run sheets, most permissive first."""
+    for _ in range(rounds):
+        els = describe(udid)
+        btns = [e for e in els if e.get("type") == "Button" and (e.get("AXLabel") or "").strip() in DISMISS]
+        if not btns: return
+        btns.sort(key=lambda e: DISMISS.index((e.get("AXLabel") or "").strip()))
+        tap(udid, *center(btns[0])); time.sleep(2.5)
+
 def capture(app, out_ios, out_android):
     repo = app["repo"]; app_dir = ROOT / repo / (app["dir"] if app["dir"] != "." else "")
     bundle = app["bundle_id"]
@@ -68,15 +77,11 @@ def capture(app, out_ios, out_android):
         apps = list((app_dir / "build/ios/iphonesimulator").glob("*.app"))
         if not apps: res["error"] = "no .app produced"; return res
         for dev, udid in DEVICES.items():
+            clear_alerts(udid)   # a permission sheet left by the previous app blocks every later shot
             sh("xcrun", "simctl", "install", udid, str(apps[0]), timeout=120)
             sh("xcrun", "simctl", "launch", udid, bundle, timeout=60)
             time.sleep(8)
-            # dismiss one sheet/alert if present
-            for _ in range(2):
-                els = describe(udid)
-                btn = next((e for e in els if e.get("type") in ("Button",) and (e.get("AXLabel") or "").strip() in DISMISS), None)
-                if not btn: break
-                tap(udid, *center(btn)); time.sleep(2.5)
+            clear_alerts(udid)   # first-run sheets and permission prompts
             shots = []
             p = out_ios / f"{dev}-01.png"
             if shot(udid, p): shots.append(p)
