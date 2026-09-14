@@ -219,6 +219,24 @@ GitHub Pages; delete that repository once safecodeg.com serves the pages.
 
 ---
 
+## MA-011 · P2 · App Privacy labels must be entered in App Store Connect by a person
+
+**Verified 2026-09-14.** The App Store "nutrition label" is not exposed by the
+App Store Connect API; fastlane's `upload_app_privacy_details_to_app_store`
+logs in with an Apple ID web session and fails here with *"Missing password
+for user … running in non-interactive shell"*. Everything else in the listing
+(text, URLs, category, age rating, review notes, screenshots) is uploaded by
+`scripts/deliver_metadata.py`.
+
+**Required:** for each app, App Store Connect → App Privacy → answer with the
+data types in `store/privacy/<repo>.json` (derived from what actually leaves
+the device: accounts, ads with/without ATT, health, purchases). Apps whose file
+says `DATA_NOT_COLLECTED` are a single click. Alternatively run
+`fastlane run upload_app_privacy_details_to_app_store json_path:store/privacy/<repo>.json app_identifier:<bundle id>`
+from a Mac with the Apple ID logged in.
+
+---
+
 ## Not a manual action, but needs a human decision
 
 **Do five sibling apps still read as duplicates?** `CarDeal`, `HomeWise`,

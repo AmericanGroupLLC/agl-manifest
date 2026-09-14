@@ -44,11 +44,9 @@ for a in sel:
         rc = subprocess.call(cmd, cwd=M / "scripts/testflight", env=env, stdout=fh, stderr=subprocess.STDOUT)
     text = log.read_text(errors="replace"); out["deliver"] = "ok" if rc == 0 else "failed"
     if rc: out["deliver_error"] = next((l.strip()[:300] for l in reversed(text.splitlines()) if "[!]" in l or "Error" in l), text[-300:])
-    pj = M / "store/privacy" / f"{repo}.json"
-    with open(log, "a") as fh:
-        fh.write("\n===== privacy details =====\n")
-        rc2 = subprocess.call(["bundle", "exec", "fastlane", "ios", "privacy", f"bundle_id:{a['bundle_id']}", f"json:{pj}"],
-                              cwd=M / "scripts/testflight", env=env, stdout=fh, stderr=subprocess.STDOUT)
-    out["privacy"] = "ok" if rc2 == 0 else "failed"; out["screenshots"] = use_shots
+    # The privacy "nutrition label" is not in the App Store Connect API; fastlane's
+    # upload_app_privacy_details_to_app_store needs an Apple ID web session, which
+    # this machine does not have (MA-011). The answers are in store/privacy/<repo>.json.
+    out["privacy"] = "human (MA-011)"; out["screenshots"] = use_shots
     results[repo] = out; json.dump(results, open(RESULTS, "w"), indent=1)
-    print(f"{repo:18} deliver={out['deliver']} privacy={out['privacy']} screenshots={use_shots} {out.get('deliver_error','')[:140]}", flush=True)
+    print(f"{repo:18} deliver={out['deliver']} screenshots={use_shots} {out.get('deliver_error','')[:160]}", flush=True)
