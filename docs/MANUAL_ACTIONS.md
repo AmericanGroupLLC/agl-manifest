@@ -195,6 +195,30 @@ signed `.aab` files are staged in `~/agl/.dist/` and
 
 ---
 
+## MA-010 · P1 · safecodeg.com cannot be deployed to, so its /policy pages are not real
+
+**Verified 2026-09-14.** `www.safecodeg.com/.github/workflows/deploy.yml` has
+failed on every run since 2026-09-06: HostGator closes the SSH connection from
+the GitHub runner on port 22 *and* on 2222 (`Connection closed by <host> port
+2222`, rsync exit 255). Nothing in the repository reaches the live host. As a
+result every `https://safecodeg.com/policy/<slug>/...` URL — including the ones
+older listings already carry — returns the React homepage (HTTP 200, SPA
+fallback), which App Review reads as "no privacy policy".
+
+Working now instead: the same pages are published by GitHub Pages from
+`AmericanGroupLLC/AmericanGroupLLC.github.io` at
+`https://americangroupllc.github.io/policy/<slug>/` (verified 200 with the real
+content), and `store/defaults.json` points there.
+
+**Required, one of:** in HostGator cPanel enable SSH access for the deploy user
+and whitelist GitHub's runner IPs (or switch the workflow to FTP/SFTP with
+credentials HostGator accepts), then re-run the workflow and flip the two URL
+templates in `store/defaults.json` back to safecodeg.com; **or** add a
+`policy.safecodeg.com` CNAME to `americangroupllc.github.io` and set it as the
+Pages custom domain, which needs a DNS change only.
+
+---
+
 ## Not a manual action, but needs a human decision
 
 **Do five sibling apps still read as duplicates?** `CarDeal`, `HomeWise`,

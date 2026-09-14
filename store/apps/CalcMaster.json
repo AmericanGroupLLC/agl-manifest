@@ -11,8 +11,8 @@
       "keywords": "calculator,converter,unit,currency,tax,tip,loan,bmi,gps,scientific,fraction,percent,emi,money",
       "promotional_text": "Now with custom region pricing in 7 countries — tap your flag to instantly see local tax brackets, currency, and tip etiquette. Updated for 2026.",
       "release_notes": "Hello, world! This is the first release of CalcMaster.\n\nHighlights of this build:\n• 10 unit converters, 5 calculator modes, 7 finance tools, 8 utilities, and a notes pad\n• New Calendar tool: month view with ISO week, day-of-year, and quarter\n• Region-aware tax + currency for US, UK, EU, CA, AU, IN, JP\n• Live European Central Bank exchange rates with offline fallback\n• Beautiful dark theme with hand-authored line-art icons\n• Optional CalcMaster Pro for ad-free + advanced features\n\nWe'd love to hear from you. Tap Settings → Send feedback to reach the team.",
-      "support_url": "https://safecodeg.com/policy/calcmaster/support.html",
-      "privacy_url": "https://safecodeg.com/policy/calcmaster/",
+      "support_url": "https://americangroupllc.github.io/policy/calcmaster/support.html",
+      "privacy_url": "https://americangroupllc.github.io/policy/calcmaster/",
       "marketing_url": "https://safecodeg.com"
     }
   },

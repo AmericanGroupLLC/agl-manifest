@@ -11,8 +11,8 @@
       "keywords": "grocery,price comparison,shopping list,coupons,walmart,kroger,target,aldi,doordash,savings",
       "promotional_text": "Put in a shopping list and see which store fills it cheapest, or split it across two. Now with dining: the same meal across DoorDash, UberEats, Grubhub and pickup.",
       "release_notes": "GroceryMatch 2.1.\n\n• Best Basket compares your whole list across six grocery chains\n• Split Trip tells you when a second stop is actually worth it\n• Coupon stacking finds coupons that combine\n• Receipt and barcode scanning\n• Meal planner, pantry tracking and price history\n• Dining: compare a meal across DoorDash, UberEats, Grubhub and pickup, with menu-markup breakdown\n• Works as a guest; sign-in only syncs lists across devices\n\nFeedback is welcome at contact@safecodeg.com.",
-      "support_url": "https://safecodeg.com/policy/grocerymatch/support.html",
-      "privacy_url": "https://safecodeg.com/policy/grocerymatch/",
+      "support_url": "https://americangroupllc.github.io/policy/grocerymatch/support.html",
+      "privacy_url": "https://americangroupllc.github.io/policy/grocerymatch/",
       "marketing_url": "https://safecodeg.com"
     }
   },

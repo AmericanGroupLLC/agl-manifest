@@ -3,11 +3,12 @@
     "Values every AGL listing shares. Anything here can be overridden per app",
     "in store/apps/<repo>.json. The URL templates take {slug}, which defaults",
     "to the lowercased repository name.",
-    "review_information.notes is deliberately absent: it describes one app to a reviewer, so it belongs in store/apps/<repo>.json, never here."
+    "review_information.notes is deliberately absent: it describes one app to a reviewer, so it belongs in store/apps/<repo>.json, never here.",
+    "Policy pages are served by GitHub Pages (AmericanGroupLLC/AmericanGroupLLC.github.io). safecodeg.com cannot be deployed to from CI — see docs/MANUAL_ACTIONS.md MA-010 — and its /policy/* paths return the SPA homepage, which a reviewer would read as 'no privacy policy'."
   ],
   "copyright": "2026 American Group LLC",
-  "support_url_template": "https://safecodeg.com/policy/{slug}/support.html",
-  "privacy_url_template": "https://safecodeg.com/policy/{slug}/",
+  "support_url_template": "https://americangroupllc.github.io/policy/{slug}/support.html",
+  "privacy_url_template": "https://americangroupllc.github.io/policy/{slug}/",
   "review_information": {
     "first_name": "App",
     "last_name": "Reviewer",

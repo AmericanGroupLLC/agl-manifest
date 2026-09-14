@@ -10,8 +10,8 @@
       "keywords": "uscis,immigration,case status,receipt,green card,visa bulletin,citizenship,civics,nvc,i-485",
       "promotional_text": "Track every receipt number in one place, with processing times, the monthly visa bulletin, NVC status and a civics test trainer. Works offline once your cases are saved.",
       "release_notes": "First release of Case Tracker for USCIS.\n\n• Track any number of USCIS receipt numbers, with full status history\n• Posted processing times by form and service centre\n• The monthly Department of State visa bulletin\n• NVC stage tracking after approval\n• Status-change alerts\n• Naturalisation civics test trainer with progress tracking\n• Plain-language resources, each linked to its official government source\n• Works offline once your cases are saved; sign-in is optional\n\nNot affiliated with USCIS or any government agency. Feedback: contact@safecodeg.com",
-      "support_url": "https://safecodeg.com/policy/uscis-case-tracker/support.html",
-      "privacy_url": "https://safecodeg.com/policy/uscis-case-tracker/",
+      "support_url": "https://americangroupllc.github.io/policy/uscis-case-tracker/support.html",
+      "privacy_url": "https://americangroupllc.github.io/policy/uscis-case-tracker/",
       "marketing_url": "https://safecodeg.com"
     }
   },
