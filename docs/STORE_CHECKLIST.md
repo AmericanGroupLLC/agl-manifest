@@ -32,12 +32,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iMaps | 21 | 2 | 3 |
 | iMeasure | 20 | 3 | 3 |
 | Kinnav | 21 | 2 | 3 |
-| MileMaster | 15 | 6 | 3 |
+| MileMaster | 13 | 8 | 3 |
 | MyCard | 19 | 2 | 3 |
 | MyFinance | 16 | 5 | 3 |
 | MyHealth | 19 | 4 | 3 |
 | NearServe | 18 | 3 | 3 |
-| NewsBoard | 14 | 7 | 3 |
+| NewsBoard | 16 | 5 | 3 |
 | NexusTransferPay | 14 | 7 | 3 |
 | Photriya | 21 | 2 | 3 |
 | PilotEnRoute | 21 | 2 | 3 |
@@ -97,7 +97,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 77c906922e56 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 1 captured ['1320x2868'] |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured [] |
 | App Store name | PASS | AGCleaner |
 | Play title | PASS | AGCleaner |
 | Full description | PASS | 1722 chars |
@@ -760,12 +760,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
 | Bundle id / applicationId | PASS | com.americangroupllc.milemaster |
-| Release signing configured | PASS | upload keystore matched |
+| Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 896a79f219e2 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -922,9 +922,9 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
 | App Store name | PASS | NewsBoard |
 | Play title | PASS | NewsBoard |
-| Full description | FAIL | missing |
-| Play short description (<=80) | PASS | 19 chars |
-| App Store keywords (<=100) | FAIL | missing |
+| Full description | PASS | 2138 chars |
+| Play short description (<=80) | PASS | 63 chars |
+| App Store keywords (<=100) | PASS | 73 chars |
 | Primary category | PASS | NEWS |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
