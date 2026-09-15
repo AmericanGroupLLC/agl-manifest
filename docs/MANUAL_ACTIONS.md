@@ -147,31 +147,24 @@ lists which apps still need a description, keywords and screenshots.
 
 ---
 
-## MA-008 · P1 · Thirteen apps have no App Store Connect record, and the API cannot create one
+## MA-008 · P1 · Create the App Store Connect records for the new identifiers
 
-**Verified 2026-09-13.** `Spaceship::ConnectAPI::App.create` returns *"The
-resource 'apps' does not allow 'CREATE'. Allowed operations are:
-GET_COLLECTION, GET_INSTANCE, UPDATE"*, and fastlane `produce` falls back to an
-Apple ID login, which needs a password this machine does not have. So a build
-can be uploaded to every existing record (`scripts/testflight/`), but nothing
-can create the missing ones.
+**Decision 2026-09-15:** every app is now `com.americangroup.<name>` on both
+platforms (`scripts/rename_identifiers.py`, apps.json regenerated). Bundle ids
+are permanent once a record has a build, so the 33 records under
+`com.americangroupllc.*` and their TestFlight builds are abandoned; each app
+needs a **new** App Store Connect record. The API cannot create records
+(`apps` refuses CREATE) and fastlane `produce` needs an Apple ID password.
 
-Bundle ids were registered in the Developer Portal on 2026-09-13 for:
-AeroSwift, GadgetNest, GroceryMatch, HerJourney, iMeasure, NewsBoard,
-PlantPulse, portfolio-board, Verba (MyHealth's already existed).
+**Required:** in App Store Connect → Apps, use "Drag up to 10 apps here" with the
+signed IPAs in `~/agl/.dist/ipa-for-asc/` (regenerated for the new ids by
+`scripts/testflight/build_only.py`), or create each record by hand with the
+bundle id from apps.json. `scripts/testflight/watch_records.sh` then ships the
+TestFlight build for each app within five minutes of its record appearing.
 
-**Required:** in App Store Connect → My Apps → **+**, create a record for each
-of the ten above using its registered bundle id (`docs/APP_IDENTIFIERS.md`), then
-`python3 scripts/testflight/run_batch.py --apps <names>`.
-
-Three more need a decision first, because an existing record holds a *different*
-bundle id for the same product: AGrammarly (`com.americangroupllc.agrammarly`
-vs the app's `com.americangroup.agrammarly`), daily-pulse
-(`com.americangroup.daily-pulse` vs `com.americangroup.dailypulse`),
-NexusTransferPay (`com.americangroupllc.nexustransferpay` vs
-`com.americangroupllc.nexuspay`). Either change the record's bundle id in App
-Information (possible only while it has no build) or create a new record under a
-new name.
+The old records can be removed from App Store Connect once nothing refers to
+them; the previous build inventory is in
+`~/agl/.dist/ios-batch/results-americangroupllc-2026-09-15.json`.
 
 ---
 
