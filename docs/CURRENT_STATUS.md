@@ -6,14 +6,19 @@ is right and this file is stale.
 
 **As of 2026-09-12.**
 
-## TestFlight delivery started (2026-09-13)
+## TestFlight delivery (as of 2026-09-15 09:45)
 
 | | |
 | --- | ---: |
-| Builds on App Store Connect, processing state VALID | **2** — CalcMaster 4.0.2 (build 2026091319), AGCleaner 1.0.0 (build 2026091320) |
-| Apps with a record, queued in `scripts/testflight/run_batch.py --wave records` | 27 more |
-| Apps with no App Store Connect record (human, MA-008) | 13 |
+| Apps with an App Store Connect record | 30 |
+| …with a build on TestFlight, processing state VALID | **29** |
+| …rejected by Apple during processing (reason only in the owner's email) | 1 — radiotune (builds 2026091506, 2026091508) |
+| Apps with no App Store Connect record (human, MA-008) | 13 — `scripts/testflight/watch_records.sh` ships each one within 5 minutes of its record appearing |
+| App Store Connect listings uploaded (text, URLs, category, rating, review notes, screenshots), not submitted | 24 of 24 eligible |
 | Google Play uploads | 0 — blocked, MA-009 |
+
+CodeDeal compiles and is on TestFlight (build 2026091509); the "does not
+compile" note in KNOWN_ISSUES.md is stale.
 
 ## Where the portfolio is
 
