@@ -236,8 +236,8 @@
    "url": "https://github.com/AmericanGroupLLC/BodyQuest.git",
    "branch": "master",
    "dir": ".",
-   "application_id": "com.americangroup.bodyquest",
-   "bundle_id": "com.americangroup.bodyquest",
+   "application_id": "com.americangroupllc.bodyquest",
+   "bundle_id": "com.americangroupllc.bodyquest",
    "version": "1.1.0+2",
    "deliverable": {
     "android": true,
@@ -596,8 +596,8 @@
    "url": "https://github.com/AmericanGroupLLC/FashionFactory.git",
    "branch": "main",
    "dir": ".",
-   "application_id": "com.americangroupllc.styleradar",
-   "bundle_id": "com.americangroupllc.styleradar",
+   "application_id": "com.americangroupllc.fashionfactory",
+   "bundle_id": "com.americangroupllc.fashionfactory",
    "version": "2.2.0+4",
    "deliverable": {
     "android": true,
@@ -1361,8 +1361,8 @@
    "url": "https://github.com/AmericanGroupLLC/radiotune.git",
    "branch": "master",
    "dir": ".",
-   "application_id": "com.americangroup.radiotune",
-   "bundle_id": "com.americangroup.radiotune",
+   "application_id": "com.americangroupllc.radiotune",
+   "bundle_id": "com.americangroupllc.radiotune",
    "version": "2.0.1+2",
    "deliverable": {
     "android": true,
@@ -1683,8 +1683,8 @@
    "url": "https://github.com/AmericanGroupLLC/yourtube.git",
    "branch": "master",
    "dir": ".",
-   "application_id": "com.americangroup.yourtube",
-   "bundle_id": "com.americangroup.yourtube",
+   "application_id": "com.americangroupllc.yourtube",
+   "bundle_id": "com.americangroupllc.yourtube",
    "version": "1.0.2+4",
    "deliverable": {
     "android": true,

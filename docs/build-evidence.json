@@ -68,16 +68,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 1827.4,
+    "seconds": 194.6,
     "aab": "AeroSwift/mobile/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 52371311,
-    "sha256": "7d7cb97792826aa48ecfc02a081c02eff05b5e0b8f84ce36c64323aaa356b881",
+    "bytes": 52371538,
+    "sha256": "4d97ea190c6416e30759677b2889288382ca5731d03f385284dc6e91fac3b3cf",
     "keystore_sha256": "6C50F95AD50C5EFFA20B4FC4C349C0364E94C9DF850B9DD43E834BD4E21ABD35",
     "signer_sha256": "6C50F95AD50C5EFFA20B4FC4C349C0364E94C9DF850B9DD43E834BD4E21ABD35",
     "result": "SIGNED",
     "artifact": ".dist/AeroSwift-app-release.aab",
-    "freed_mb": 1504,
-    "built_at": "2026-09-14T00:49:52-0700"
+    "freed_mb": 1551,
+    "built_at": "2026-09-15T12:04:06-0700"
   },
   {
     "repo": "ApexMarketWatch",
@@ -104,16 +104,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 15149.5,
+    "seconds": 122.5,
     "aab": "BodyQuest/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 60006300,
-    "sha256": "40a5fec3542f37d8f3f5117d7814f62a809b80986472b047fffa169d6411b000",
+    "bytes": 60006584,
+    "sha256": "23a73f99b8e37d51379f8e7adbac1b952633c7b0eba8f0dff4eee81a9555600c",
     "keystore_sha256": "C6A3C1C570E1C39F12DE110AA06EFE10DC31D37C8C485FA4ABECC79B3FEFA942",
     "signer_sha256": "C6A3C1C570E1C39F12DE110AA06EFE10DC31D37C8C485FA4ABECC79B3FEFA942",
     "result": "SIGNED",
     "artifact": ".dist/BodyQuest-app-prod-release.aab",
-    "freed_mb": 1321,
-    "built_at": "2026-09-14T08:44:29-0700"
+    "freed_mb": 1806,
+    "built_at": "2026-09-15T12:22:54-0700"
   },
   {
     "repo": "BuddyPlay",
@@ -492,16 +492,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 467.6,
+    "seconds": 228.1,
     "aab": "PilotEnRoute/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 100525240,
-    "sha256": "8f4bba5b9cd2e0a7750c75f7c8608e43cbf72e7343910e942ecb44073531a4a5",
+    "bytes": 100525344,
+    "sha256": "f81522b0fc05da94d1c27e46d6f77195d12391b2185e0fd990ed3b0dd24461c9",
     "keystore_sha256": "767CD1F7FB490B7CD41C3609E011EEB686B10244D1A34CD590263682DA788772",
     "signer_sha256": "767CD1F7FB490B7CD41C3609E011EEB686B10244D1A34CD590263682DA788772",
     "result": "SIGNED",
     "artifact": ".dist/PilotEnRoute-app-prod-release.aab",
-    "freed_mb": 1934,
-    "built_at": "2026-09-14T10:50:34-0700"
+    "freed_mb": 2890,
+    "built_at": "2026-09-15T12:27:06-0700"
   },
   {
     "repo": "PlantPulse",
