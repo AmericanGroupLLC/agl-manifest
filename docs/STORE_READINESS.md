@@ -43,38 +43,36 @@ string format the delivery step expects, and inventing an age rating for a
 portfolio that includes a dating app, a finance app and a video app is not a
 store-ops call.
 
-## Privacy and support URLs — 26 apps point at a page that does not exist
+## Privacy and support URLs — all 43 resolve (verified 2026-09-14)
 
-`defaults.json` templates both URLs from the slug:
+**This section previously claimed "26 apps point at a page that does not exist."
+That was wrong.** It was written without network access, by comparing record
+slugs against a partial view of the policy tree, and it said so at the time. The
+URLs have now actually been fetched.
+
+`store/defaults.json` templates both URLs from the slug against
+`www.safecodeg.com` (not the old `americangroupllc.github.io`, which also still
+resolves). Every one of the 43 effective privacy URLs and all 43 support URLs
+were requested with `curl -L`:
 
 ```
-https://americangroupllc.github.io/policy/{slug}/            (privacy)
-https://americangroupllc.github.io/policy/{slug}/support.html (support)
+both privacy and support returned HTTP 200: 43/43
 ```
 
-so `generate` always writes *a* URL. That is not the same as the URL resolving,
-and both stores reject a privacy URL that 404s.
+`www.safecodeg.com` issues a 301 to the apex `safecodeg.com` and the host is
+case-insensitive, so the three records once flagged as case mismatches
+(`iMaps`, `iMeasure`, `TripNest`) resolve correctly as written. No `slug`
+overrides are needed.
 
-The only policy tree on this machine is
-`/Users/spatchava/agl/www.safecodeg.com/client/public/policy/`, which holds 22
-app directories. Comparing each record's effective slug against it:
+The policy tree at `www.safecodeg.com/client/public/policy/` now holds 47
+directories covering all 43 apps, each with `index.html`, `privacy.html`,
+`terms.html` and `support.html`.
 
-- **14 exact matches.**
-- **3 case mismatches.** `iMaps`, `iMeasure` and `TripNest` resolve to slugs
-  `imaps` / `imeasure` / `tripnest`, but the directories are `iMaps`, `iMeasure`
-  and `TripNest`. GitHub Pages paths are case-sensitive, so all three 404. Fix by
-  adding an explicit `slug` to those three records.
-- **26 apps have no matching directory at all**, including two near-misses that
-  are really naming bugs: PlantPulse's page is spelled `plantpluse`, and
-  `daily-pulse` / `Uscis-Case` have pages under `dailypulse` /
-  `uscis-case-tracker`.
-- **3 existing directories have no `support.html`**: `cardeal`, `plantpluse`,
-  `staydeal`.
-
-Caveat, stated plainly: the template names `americangroupllc.github.io` while the
-tree inspected is the `www.safecodeg.com` repository. This machine has no network
-egress, so **I could not fetch a single one of these URLs.** Treat the comparison
-as a strong signal that needs one `curl` pass to confirm, not as proof.
+Account-deletion pages exist for the 16 apps that have real remote accounts.
+`MyCard` and `NexusTransferPay` do **not** need one: their only auth provider is
+`Biometric` with `login_screen: false`, which is a device-local lock, not an
+account. `scripts/policy_pages.py` gates the page on a Supabase/Google/Apple/
+Firebase provider and is correct to skip them.
 
 ## Per-app state
 
