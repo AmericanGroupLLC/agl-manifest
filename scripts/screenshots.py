@@ -76,6 +76,7 @@ def capture(app, out_ios, out_android):
             res["error"] = "build failed: " + (b.stderr or b.stdout).strip()[-400:]; return res
         apps = list((app_dir / "build/ios/iphonesimulator").glob("*.app"))
         if not apps: res["error"] = "no .app produced"; return res
+        for old in out_ios.glob("*.png"): old.unlink()
         for dev, udid in DEVICES.items():
             clear_alerts(udid)   # a permission sheet left by the previous app blocks every later shot
             sh("xcrun", "simctl", "install", udid, str(apps[0]), timeout=120)
@@ -159,7 +160,8 @@ def main():
             print(f"{a['repo']}: done, skipping"); continue
         app_dir = ROOT / a["repo"] / (a["dir"] if a["dir"] != "." else "")
         out_ios = app_dir / "fastlane/screenshots/en-US"; out_ios.mkdir(parents=True, exist_ok=True)
-        for old in out_ios.glob("*.png"): old.unlink()
+        # Old screenshots are removed only once a new build exists (see capture): a
+        # failed build must not leave an app with no screenshots at all.
         out_android = app_dir / "fastlane/metadata/android/en-US/images"
         t0 = time.time(); print(f"{a['repo']}: building…", flush=True)
         try: r = capture(a, out_ios, out_android)
