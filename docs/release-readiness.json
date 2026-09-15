@@ -19,7 +19,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.agcleaner",
+    "application_id": "com.americangroupllc.agcleaner",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -39,7 +39,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.agcleaner",
+    "ios_bundle_id": "com.americangroupllc.agcleaner",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -81,8 +81,8 @@
     "l10n_callsites": 3,
     "screens": 0,
     "lib_files": 15,
-    "lib_loc": 1817,
-    "test_files": 7,
+    "lib_loc": 1860,
+    "test_files": 6,
     "a11y_signals": 8,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -113,7 +113,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.agrecorder",
+    "application_id": "com.americangroupllc.agrecorder",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -139,7 +139,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.agrecorder",
+    "ios_bundle_id": "com.americangroupllc.agrecorder",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -182,7 +182,7 @@
     "screens": 0,
     "lib_files": 17,
     "lib_loc": 1172,
-    "test_files": 6,
+    "test_files": 7,
     "a11y_signals": 5,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -213,7 +213,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.agstudio",
+    "application_id": "com.americangroupllc.agstudio",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -235,7 +235,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.agstudio",
+    "ios_bundle_id": "com.americangroupllc.agstudio",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -305,7 +305,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.agrammarly",
+    "application_id": "com.americangroupllc.agrammarly",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -325,7 +325,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.agrammarly",
+    "ios_bundle_id": "com.americangroupllc.agrammarly",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -354,7 +354,7 @@
     "l10n_callsites": 0,
     "screens": 5,
     "lib_files": 16,
-    "lib_loc": 2620,
+    "lib_loc": 2642,
     "test_files": 8,
     "a11y_signals": 2,
     "secrets_in_dart": 0,
@@ -386,7 +386,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.aeroswift",
+    "application_id": "com.americangroupllc.aeroswift",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -408,7 +408,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.aeroswift",
+    "ios_bundle_id": "com.americangroupllc.aeroswift",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -469,7 +469,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.apexmarketwatch",
+    "application_id": "com.americangroupllc.apexmarketwatch",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -489,7 +489,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.apexmarketwatch",
+    "ios_bundle_id": "com.americangroupllc.apexmarketwatch",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -550,7 +550,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.bodyquest",
+    "application_id": "com.americangroupllc.bodyquest",
     "min_sdk": "flutter",
     "target_sdk": "35",
     "compile_sdk": "35",
@@ -577,7 +577,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.bodyquest",
+    "ios_bundle_id": "com.americangroupllc.bodyquest",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -640,7 +640,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.buddyplay",
+    "application_id": "com.americangroupllc.buddyplay",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -666,7 +666,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.buddyplay",
+    "ios_bundle_id": "com.americangroupllc.buddyplay",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -722,7 +722,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.calcmaster",
+    "application_id": "com.americangroupllc.calcmaster",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -751,7 +751,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.calcmaster",
+    "ios_bundle_id": "com.americangroupllc.calcmaster",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -830,7 +830,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.cardeal",
+    "application_id": "com.americangroupllc.cardeal",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -853,7 +853,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.cardeal",
+    "ios_bundle_id": "com.americangroupllc.cardeal",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -914,7 +914,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.chefcount",
+    "application_id": "com.americangroupllc.chefcount",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -934,7 +934,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.chefcount",
+    "ios_bundle_id": "com.americangroupllc.chefcount",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -963,8 +963,8 @@
     "l10n_callsites": 0,
     "screens": 0,
     "lib_files": 4,
-    "lib_loc": 1929,
-    "test_files": 8,
+    "lib_loc": 1939,
+    "test_files": 7,
     "a11y_signals": 25,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -995,7 +995,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.codedeal",
+    "application_id": "com.americangroupllc.codedeal",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1021,7 +1021,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.codedeal",
+    "ios_bundle_id": "com.americangroupllc.codedeal",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1066,8 +1066,8 @@
     "l10n_callsites": 0,
     "screens": 0,
     "lib_files": 38,
-    "lib_loc": 4920,
-    "test_files": 12,
+    "lib_loc": 4928,
+    "test_files": 11,
     "a11y_signals": 46,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -1098,7 +1098,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.driftdate",
+    "application_id": "com.americangroupllc.driftdate",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1127,7 +1127,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.driftdate",
+    "ios_bundle_id": "com.americangroupllc.driftdate",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1192,7 +1192,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.eventspark",
+    "application_id": "com.americangroupllc.eventspark",
     "min_sdk": "maxOf",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1230,7 +1230,7 @@
     "ios_deployment_targets": [
       "15.1"
     ],
-    "ios_bundle_id": "com.americangroup.eventspark",
+    "ios_bundle_id": "com.americangroupllc.eventspark",
     "ios_podfile_platform": "15.1",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1291,7 +1291,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": false,
     "gradle_crashlytics": false,
-    "application_id": "com.americangroup.fashionfactory",
+    "application_id": "com.americangroupllc.fashionfactory",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1313,7 +1313,7 @@
     "ios_deployment_targets": [
       "13.0"
     ],
-    "ios_bundle_id": "com.americangroup.fashionfactory",
+    "ios_bundle_id": "com.americangroupllc.fashionfactory",
     "ios_podfile_platform": "",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1374,7 +1374,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.gadgetnest",
+    "application_id": "com.americangroupllc.gadgetnest",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1396,7 +1396,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.gadgetnest",
+    "ios_bundle_id": "com.americangroupllc.gadgetnest",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1457,7 +1457,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.grocerymatch",
+    "application_id": "com.americangroupllc.grocerymatch",
     "min_sdk": "flutter",
     "target_sdk": "35",
     "compile_sdk": "36",
@@ -1482,7 +1482,7 @@
     "ios_deployment_targets": [
       "16.0"
     ],
-    "ios_bundle_id": "com.americangroup.grocerymatch",
+    "ios_bundle_id": "com.americangroupllc.grocerymatch",
     "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1546,7 +1546,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.herjourney",
+    "application_id": "com.americangroupllc.herjourney",
     "min_sdk": "26",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1589,7 +1589,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.herjourney",
+    "ios_bundle_id": "com.americangroupllc.herjourney",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1654,7 +1654,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.homewise",
+    "application_id": "com.americangroupllc.homewise",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1682,7 +1682,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.homewise",
+    "ios_bundle_id": "com.americangroupllc.homewise",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1743,7 +1743,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.kinnav",
+    "application_id": "com.americangroupllc.kinnav",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1772,7 +1772,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.kinnav",
+    "ios_bundle_id": "com.americangroupllc.kinnav",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1845,7 +1845,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.milemaster",
+    "application_id": "com.americangroupllc.milemaster",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1867,7 +1867,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.milemaster",
+    "ios_bundle_id": "com.americangroupllc.milemaster",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1909,8 +1909,8 @@
     "l10n_callsites": 3,
     "screens": 0,
     "lib_files": 14,
-    "lib_loc": 1467,
-    "test_files": 4,
+    "lib_loc": 1489,
+    "test_files": 5,
     "a11y_signals": 2,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -1941,7 +1941,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.mycard",
+    "application_id": "com.americangroupllc.mycard",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1967,7 +1967,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.mycard",
+    "ios_bundle_id": "com.americangroupllc.mycard",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2025,7 +2025,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.myfinance",
+    "application_id": "com.americangroupllc.myfinance",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2045,7 +2045,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.myfinance",
+    "ios_bundle_id": "com.americangroupllc.myfinance",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2106,7 +2106,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.myhealth",
+    "application_id": "com.americangroupllc.myhealth",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2130,7 +2130,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.myhealth",
+    "ios_bundle_id": "com.americangroupllc.myhealth",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2195,7 +2195,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.nearserve",
+    "application_id": "com.americangroupllc.nearserve",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2218,7 +2218,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.nearserve",
+    "ios_bundle_id": "com.americangroupllc.nearserve",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2279,7 +2279,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.newsboard",
+    "application_id": "com.americangroupllc.newsboard",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2299,7 +2299,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.newsboard",
+    "ios_bundle_id": "com.americangroupllc.newsboard",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2360,7 +2360,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.nexustransferpay",
+    "application_id": "com.americangroupllc.nexustransferpay",
     "min_sdk": "flutter",
     "target_sdk": "36",
     "compile_sdk": "36",
@@ -2394,7 +2394,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.nexustransferpay",
+    "ios_bundle_id": "com.americangroupllc.nexustransferpay",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2483,7 +2483,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.photriya",
+    "application_id": "com.americangroupllc.photriya",
     "min_sdk": "flutter",
     "target_sdk": "35",
     "compile_sdk": "35",
@@ -2509,7 +2509,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.photriya",
+    "ios_bundle_id": "com.americangroupllc.photriya",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2578,7 +2578,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.pilotenroute",
+    "application_id": "com.americangroupllc.pilotenroute",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2611,7 +2611,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.pilotenroute",
+    "ios_bundle_id": "com.americangroupllc.pilotenroute",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -2674,7 +2674,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.plantpulse",
+    "application_id": "com.americangroupllc.plantpulse",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2694,7 +2694,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.plantpulse",
+    "ios_bundle_id": "com.americangroupllc.plantpulse",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2755,7 +2755,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.ridezap",
+    "application_id": "com.americangroupllc.ridezap",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2778,7 +2778,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.ridezap",
+    "ios_bundle_id": "com.americangroupllc.ridezap",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2839,7 +2839,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.roomcraft",
+    "application_id": "com.americangroupllc.roomcraft",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2859,7 +2859,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.roomcraft",
+    "ios_bundle_id": "com.americangroupllc.roomcraft",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2889,7 +2889,7 @@
     "screens": 0,
     "lib_files": 5,
     "lib_loc": 1059,
-    "test_files": 6,
+    "test_files": 7,
     "a11y_signals": 2,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -2920,7 +2920,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.tripnest",
+    "application_id": "com.americangroupllc.tripnest",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2943,7 +2943,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.tripnest",
+    "ios_bundle_id": "com.americangroupllc.tripnest",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3004,7 +3004,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.usciscase",
+    "application_id": "com.americangroupllc.usciscase",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3026,7 +3026,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.usciscase",
+    "ios_bundle_id": "com.americangroupllc.usciscase",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3089,7 +3089,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.verba",
+    "application_id": "com.americangroupllc.verba",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3126,7 +3126,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.verba",
+    "ios_bundle_id": "com.americangroupllc.verba",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3187,7 +3187,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.virtuband",
+    "application_id": "com.americangroupllc.virtuband",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3211,7 +3211,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.virtuband",
+    "ios_bundle_id": "com.americangroupllc.virtuband",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3272,7 +3272,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.wifitrail",
+    "application_id": "com.americangroupllc.wifitrail",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3292,7 +3292,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.wifitrail",
+    "ios_bundle_id": "com.americangroupllc.wifitrail",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -3334,8 +3334,8 @@
     "l10n_callsites": 5,
     "screens": 0,
     "lib_files": 17,
-    "lib_loc": 3415,
-    "test_files": 9,
+    "lib_loc": 3440,
+    "test_files": 8,
     "a11y_signals": 17,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -3366,7 +3366,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.dailypulse",
+    "application_id": "com.americangroupllc.dailypulse",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3394,7 +3394,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.dailypulse",
+    "ios_bundle_id": "com.americangroupllc.dailypulse",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -3472,7 +3472,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.imaps",
+    "application_id": "com.americangroupllc.imaps",
     "min_sdk": "so",
     "target_sdk": "36",
     "compile_sdk": "36",
@@ -3504,7 +3504,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.imaps",
+    "ios_bundle_id": "com.americangroupllc.imaps",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3583,7 +3583,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.imeasure",
+    "application_id": "com.americangroupllc.imeasure",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3615,7 +3615,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.imeasure",
+    "ios_bundle_id": "com.americangroupllc.imeasure",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3678,7 +3678,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.portfolioboard",
+    "application_id": "com.americangroupllc.portfolioboard",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3706,7 +3706,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.portfolioboard",
+    "ios_bundle_id": "com.americangroupllc.portfolioboard",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -3767,7 +3767,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.radiotune",
+    "application_id": "com.americangroupllc.radiotune",
     "min_sdk": "Version",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3805,7 +3805,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.radiotune",
+    "ios_bundle_id": "com.americangroupllc.radiotune",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3870,7 +3870,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroup.yourtube",
+    "application_id": "com.americangroupllc.yourtube",
     "min_sdk": "flutter",
     "target_sdk": "35",
     "compile_sdk": "35",
@@ -3893,7 +3893,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroup.yourtube",
+    "ios_bundle_id": "com.americangroupllc.yourtube",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
