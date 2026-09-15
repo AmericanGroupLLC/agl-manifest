@@ -237,6 +237,25 @@ from a Mac with the Apple ID logged in.
 
 ---
 
+## MA-012 · P1 · Xcode 27.0 licence must be accepted before anything builds again
+
+**Verified 2026-09-14 18:55.** `/Applications/Xcode.app` is now 27.0 (27A266a);
+the licence on record is for 26.4.1. Every `xcodebuild`, `flutter build ipa`
+and simulator build fails with *"You have not agreed to the Xcode license
+agreements"*. This stopped the EventSpark and radiotune TestFlight retries and
+the screenshot rerun.
+
+**Required (needs an administrator password, so a person):**
+
+```bash
+sudo xcodebuild -license accept
+```
+
+Then resume: `python3 scripts/testflight/run_batch.py --wave records` (EventSpark,
+radiotune) and `python3 scripts/screenshots.py --all --skip-done`.
+
+---
+
 ## Not a manual action, but needs a human decision
 
 **Do five sibling apps still read as duplicates?** `CarDeal`, `HomeWise`,
