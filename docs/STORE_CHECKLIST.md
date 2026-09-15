@@ -9,17 +9,17 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | App | pass | fail | human |
 | --- | ---: | ---: | ---: |
-| AeroSwift | 18 | 3 | 3 |
+| AeroSwift | 19 | 2 | 3 |
 | AGCleaner | 16 | 5 | 3 |
 | AGrammarly | 19 | 3 | 3 |
-| AGRecorder | 18 | 3 | 3 |
-| AGStudio | 19 | 2 | 3 |
+| AGRecorder | 16 | 5 | 3 |
+| AGStudio | 20 | 1 | 3 |
 | ApexMarketWatch | 19 | 2 | 3 |
 | BodyQuest | 21 | 2 | 3 |
 | BuddyPlay | 19 | 2 | 3 |
 | CalcMaster | 21 | 2 | 3 |
 | CarDeal | 18 | 3 | 3 |
-| ChefCount | 16 | 5 | 3 |
+| ChefCount | 14 | 7 | 3 |
 | CodeDeal | 19 | 2 | 3 |
 | daily-pulse | 20 | 3 | 3 |
 | DriftDate | 21 | 2 | 3 |
@@ -32,28 +32,28 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iMaps | 21 | 2 | 3 |
 | iMeasure | 20 | 3 | 3 |
 | Kinnav | 21 | 2 | 3 |
-| MileMaster | 16 | 5 | 3 |
+| MileMaster | 15 | 6 | 3 |
 | MyCard | 19 | 2 | 3 |
 | MyFinance | 16 | 5 | 3 |
 | MyHealth | 19 | 4 | 3 |
 | NearServe | 18 | 3 | 3 |
-| NewsBoard | 16 | 5 | 3 |
-| NexusTransferPay | 16 | 5 | 3 |
+| NewsBoard | 14 | 7 | 3 |
+| NexusTransferPay | 14 | 7 | 3 |
 | Photriya | 21 | 2 | 3 |
 | PilotEnRoute | 21 | 2 | 3 |
 | PlantPulse | 18 | 3 | 3 |
 | portfolio-board | 18 | 4 | 3 |
-| radiotune | 21 | 2 | 3 |
+| radiotune | 19 | 4 | 3 |
 | RideZap | 18 | 3 | 3 |
 | RoomCraft | 18 | 3 | 3 |
 | TripNest | 20 | 2 | 3 |
 | Uscis-Case | 21 | 2 | 3 |
 | Verba | 19 | 3 | 3 |
 | VirtuBand | 21 | 2 | 3 |
-| WiFiTrail | 16 | 5 | 3 |
-| yourtube | 19 | 3 | 3 |
+| WiFiTrail | 15 | 6 | 3 |
+| yourtube | 17 | 5 | 3 |
 
-**128 failing checks across 43 apps.**
+**140 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -63,11 +63,11 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroup.aeroswift |
+| Bundle id / applicationId | PASS | com.americangroupllc.aeroswift |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | d3478881e04c |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | AeroSwift |
 | Play title | PASS | AeroSwift |
 | Full description | PASS | 991 chars |
@@ -89,20 +89,20 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
 | Bundle id / applicationId | PASS | com.americangroupllc.agcleaner |
-| Release signing configured | PASS | upload keystore matched |
+| Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 77c906922e56 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 1 captured ['1320x2868'] |
 | App Store name | PASS | AGCleaner |
 | Play title | PASS | AGCleaner |
-| Full description | FAIL | missing |
-| Play short description (<=80) | PASS | 76 chars |
-| App Store keywords (<=100) | FAIL | missing |
+| Full description | PASS | 1722 chars |
+| Play short description (<=80) | PASS | 72 chars |
+| App Store keywords (<=100) | PASS | 88 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
@@ -123,7 +123,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroup.agrammarly |
+| Bundle id / applicationId | PASS | com.americangroupllc.agrammarly |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 93f7d4982dff |
 | Play feature graphic 1024x500 | PASS |  |
@@ -150,15 +150,15 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
 | Bundle id / applicationId | PASS | com.americangroupllc.agrecorder |
-| Release signing configured | PASS | upload keystore matched |
+| Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 4157b8b26555 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
 | App Store name | PASS | AGRecorder |
 | Play title | PASS | AGRecorder |
 | Full description | PASS | 607 chars |
@@ -188,7 +188,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 19351391843f |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | AGStudio |
 | Play title | PASS | AGStudio |
 | Full description | PASS | 481 chars |
@@ -218,7 +218,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 6806204856fd |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
 | App Store name | PASS | ApexMarketWatch |
 | Play title | PASS | ApexMarketWatch |
 | Full description | PASS | 941 chars |
@@ -244,7 +244,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroup.bodyquest |
+| Bundle id / applicationId | PASS | com.americangroupllc.bodyquest |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 0728a46087a2 |
 | Play feature graphic 1024x500 | PASS |  |
@@ -362,12 +362,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
 | Bundle id / applicationId | PASS | com.americangroupllc.chefcount |
-| Release signing configured | PASS | upload keystore matched |
+| Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | e4c3ca647b98 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -426,7 +426,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroup.dailypulse |
+| Bundle id / applicationId | PASS | com.americangroupllc.dailypulse |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 88f6d6c36bb8 |
 | Play feature graphic 1024x500 | PASS |  |
@@ -518,7 +518,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroupllc.styleradar |
+| Bundle id / applicationId | PASS | com.americangroupllc.fashionfactory |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 262f191388b0 |
 | Play feature graphic 1024x500 | PASS |  |
@@ -779,7 +779,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
-| iOS purpose strings for linked APIs | PASS |  |
+| iOS purpose strings for linked APIs | FAIL | NSMicrophoneUsageDescription |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
@@ -911,12 +911,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroup.newsboard |
-| Release signing configured | PASS | upload keystore matched |
+| Bundle id / applicationId | PASS | com.americangroupllc.newsboard |
+| Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 16aa785f8dfe |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -941,12 +941,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroupllc.nexuspay |
-| Release signing configured | PASS | upload keystore matched |
+| Bundle id / applicationId | PASS | com.americangroupllc.nexustransferpay |
+| Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 18a039defc96 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -1094,12 +1094,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroup.radiotune |
-| Release signing configured | PASS | upload keystore matched |
+| Bundle id / applicationId | PASS | com.americangroupllc.radiotune |
+| Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 3530bee5a1f8 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -1328,7 +1328,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
-| iOS purpose strings for linked APIs | PASS |  |
+| iOS purpose strings for linked APIs | FAIL | NSLocationWhenInUseUsageDescription, NSBluetoothAlwaysUsageDescription |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
@@ -1339,12 +1339,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
-| Bundle id / applicationId | PASS | com.americangroup.yourtube |
-| Release signing configured | PASS | upload keystore matched |
+| Bundle id / applicationId | PASS | com.americangroupllc.yourtube |
+| Release signing configured | FAIL | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 70a3e23fdf0f |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
