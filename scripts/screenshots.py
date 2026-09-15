@@ -153,6 +153,7 @@ def main():
         lock = pathlib.Path("/Users/spatchava/agl/.dist/ios-batch/current_app")
         while lock.exists() and lock.read_text().strip() == a["repo"]:
             print(f"{a['repo']}: TestFlight is building it — waiting", flush=True); time.sleep(60)
+        mine = pathlib.Path("/Users/spatchava/agl/.dist/screenshots_current"); mine.write_text(a["repo"])  # run_batch waits on this
 
         if "--skip-done" in sys.argv and results.get(a["repo"], {}).get("screens", {}).get("iphone69", 0) >= 1:
             print(f"{a['repo']}: done, skipping"); continue
@@ -163,6 +164,7 @@ def main():
         t0 = time.time(); print(f"{a['repo']}: building…", flush=True)
         try: r = capture(a, out_ios, out_android)
         except Exception as e: r = {"repo": a["repo"], "screens": {}, "error": f"{type(e).__name__}: {e}"[:300]}
+        mine.write_text("")
         r["seconds"] = round(time.time() - t0); results[a["repo"]] = r
         json.dump(results, open(RESULTS, "w"), indent=1)
         print(f"{a['repo']}: {r['screens']} banner_patched={r.get('banner_patched')} {r['error']} ({r['seconds']}s)", flush=True)

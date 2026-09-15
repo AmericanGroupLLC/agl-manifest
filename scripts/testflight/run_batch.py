@@ -47,6 +47,9 @@ LOGS.mkdir(parents=True, exist_ok=True)
 
 for i, a in enumerate(apps, 1):
     purge_derived_data()
+    SHOTS = pathlib.Path("/Users/spatchava/agl/.dist/screenshots_current")
+    while SHOTS.exists() and SHOTS.read_text().strip() == a["repo"]:
+        print(f"    screenshots.py is building {a['repo']} — waiting", flush=True); time.sleep(60)
     LOCK = pathlib.Path("/Users/spatchava/agl/.dist/ios-batch/current_app"); LOCK.write_text(a["repo"])  # screenshots.py waits while this names its app
 
     repo = a["repo"]
