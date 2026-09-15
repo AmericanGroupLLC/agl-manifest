@@ -139,7 +139,7 @@ platform :ios do
             # failures); Apple's Java Transporter does, first time. Once altool has
             # started a build number, Transporter refuses it, so Transporter goes first.
             UI.important("large IPA — uploading with iTMSTransporter")
-            sh("JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true xcrun iTMSTransporter -m upload -assetFile #{ipa.shellescape} -apiKey #{ENV.fetch('ASC_KEY_ID').shellescape} -apiIssuer #{ENV.fetch('ASC_ISSUER_ID').shellescape} -v informational")
+            sh("JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true xcrun iTMSTransporter -m upload -assetFile #{ipa.shellescape} -apiKey #{ENV.fetch('ASC_KEY_ID').shellescape} -apiIssuer #{ENV.fetch("ASC_ISSUER_ID").shellescape} -throughput 2000 -v informational")
           else
             upload_to_testflight(api_key: key, app_identifier: bundle_id, ipa: ipa, skip_waiting_for_build_processing: true)
           end
