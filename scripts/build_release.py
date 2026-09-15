@@ -140,7 +140,18 @@ def pick_flavour(names: list[str]) -> str | None:
     return names[-1]
 
 
-def write_key_properties(app_dir: pathlib.Path, entry: dict) -> pathlib.Path:
+# FashionFactory's published policy promises no signing material on disk inside
+# the repository, and test/security/release_config_test.dart enforces it. Its
+# Gradle reads the path from the FASHION_FACTORY_KEY_PROPERTIES environment
+# variable instead, so writing the file here would sign the bundle *and* break
+# the test the policy exists to protect.
+ENV_KEY_PROPERTIES = {
+    "FashionFactory": "FASHION_FACTORY_KEY_PROPERTIES",
+}
+
+
+def write_key_properties(app_dir: pathlib.Path, entry: dict,
+                         repo: str | None = None) -> pathlib.Path | None:
     """Point the Gradle signingConfig at the real upload keystore.
 
     Written rather than committed: android/key.properties is gitignored in every
@@ -149,6 +160,17 @@ def write_key_properties(app_dir: pathlib.Path, entry: dict) -> pathlib.Path:
     ks = SECRETS / "keystores" / pathlib.Path(entry["keystore"]).name
     if not ks.exists():
         raise FileNotFoundError(ks)
+    env_var = ENV_KEY_PROPERTIES.get(repo or "")
+    if env_var:
+        vault = SECRETS / "keystores" / f"{repo}-key.properties"
+        if not vault.exists():
+            raise FileNotFoundError(vault)
+        os.environ[env_var] = str(vault)
+        # Remove any copy an earlier run left in the repo.
+        stale = app_dir / "android/key.properties"
+        if stale.exists():
+            stale.unlink()
+        return None
     p = app_dir / "android/key.properties"
     p.write_text(
         f"storeFile={ks}\n"
@@ -218,7 +240,7 @@ def build_one(app: dict, entry: dict | None, timeout: int,
         return rec
 
     try:
-        write_key_properties(d, entry)
+        write_key_properties(d, entry, app["repo"])
     except FileNotFoundError as e:
         rec["result"] = "NO_KEYSTORE"
         rec["detail"] = f"keystore file missing: {e}"

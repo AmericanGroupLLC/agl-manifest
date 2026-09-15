@@ -53,16 +53,16 @@
     "app_dir": "mobile",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 111.6,
+    "seconds": 103.2,
     "aab": "AeroSwift/mobile/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 52369642,
-    "sha256": "db33a517ea5a7d752e4a17253db4a46c20b5c2d194a83f883e353d554af838b5",
+    "bytes": 52369667,
+    "sha256": "b06491667570b81ac96b983d60ec8548602a389a1b8eb50558b4d3be9a45cfe6",
     "keystore_sha256": "6C50F95AD50C5EFFA20B4FC4C349C0364E94C9DF850B9DD43E834BD4E21ABD35",
     "signer_sha256": "6C50F95AD50C5EFFA20B4FC4C349C0364E94C9DF850B9DD43E834BD4E21ABD35",
     "result": "SIGNED",
     "artifact": ".dist/AeroSwift-app-release.aab",
-    "freed_mb": 1208,
-    "built_at": "2026-09-15T15:26:03-0700"
+    "freed_mb": 946,
+    "built_at": "2026-09-15T15:35:12-0700"
   },
   {
     "repo": "ApexMarketWatch",
@@ -89,16 +89,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 122.5,
+    "seconds": 180.1,
     "aab": "BodyQuest/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 60006584,
-    "sha256": "23a73f99b8e37d51379f8e7adbac1b952633c7b0eba8f0dff4eee81a9555600c",
+    "bytes": 60010631,
+    "sha256": "5affd488a1879c6c11c6d7f45da7cd667d01edaff2a93820acf752f32f920ce6",
     "keystore_sha256": "C6A3C1C570E1C39F12DE110AA06EFE10DC31D37C8C485FA4ABECC79B3FEFA942",
     "signer_sha256": "C6A3C1C570E1C39F12DE110AA06EFE10DC31D37C8C485FA4ABECC79B3FEFA942",
     "result": "SIGNED",
     "artifact": ".dist/BodyQuest-app-prod-release.aab",
-    "freed_mb": 1806,
-    "built_at": "2026-09-15T12:22:54-0700"
+    "freed_mb": 1320,
+    "built_at": "2026-09-15T15:38:17-0700"
   },
   {
     "repo": "BuddyPlay",
