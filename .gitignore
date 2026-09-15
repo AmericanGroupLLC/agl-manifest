@@ -21,3 +21,7 @@ SFG-AGL-MobileApp_Devlopment-Tools.xlsx*
 AmericanGroupLLC_Developer_Docs.pdf
 AmericanGroupLLC — *.md
 *.xlsx
+
+# fastlane run artefacts
+scripts/testflight/fastlane/report.xml
+scripts/testflight/fastlane/README.md
