@@ -119,6 +119,11 @@ platform :ios do
       UI.important("copied to #{ipa} (no spaces)")
     end
 
+    if o[:upload].to_s == "false"
+      UI.success("BUILT #{bundle_id} build #{build_number}: #{ipa} (upload skipped)")
+      next
+    end
+
     # Uploads over this network stall or report failure after Apple has in fact
     # accepted the build. So: bounded attempts, each with a hard timeout, and a
     # check against App Store Connect before every attempt.
