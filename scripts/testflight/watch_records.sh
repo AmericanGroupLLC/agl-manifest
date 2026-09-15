@@ -10,7 +10,7 @@ while [ $(date +%s) -lt $end ]; do
   todo=$(python3 - "$have" <<'PY'
 import json,sys
 have=set(sys.argv[1].split()); res=json.load(open('/Users/spatchava/agl/.dist/ios-batch/results.json'))
-skip={"CodeDeal"}
+skip={"CodeDeal","radiotune"}  # radiotune: Apple rejects the build in processing (reason only in the owner's email)
 print(",".join(r for r in sorted(have) if res.get(r,{}).get("status")!="uploaded" and r not in skip))
 PY
 )
