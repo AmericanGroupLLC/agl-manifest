@@ -244,16 +244,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 50.4,
+    "seconds": 149.9,
     "aab": "FashionFactory/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 51445837,
-    "sha256": "d70905f1e81d38067f20fca69f091a61d5e67c988aa75cf67584c3e4011974c1",
+    "bytes": 51442792,
+    "sha256": "7dec50d1f2fe68f73abce913eb91bcef0cbbbf0a9b7265e25e6bd1192cd9be08",
     "keystore_sha256": "E265C0642A99DA5546E33E28249C2A707F8241A9A7CCE1188F96993A0B74AA2A",
     "signer_sha256": "E265C0642A99DA5546E33E28249C2A707F8241A9A7CCE1188F96993A0B74AA2A",
     "result": "SIGNED",
     "artifact": ".dist/FashionFactory-app-prod-release.aab",
-    "freed_mb": 926,
-    "built_at": "2026-09-14T10:40:48-0700"
+    "freed_mb": 979,
+    "built_at": "2026-09-15T15:09:38-0700"
   },
   {
     "repo": "GadgetNest",

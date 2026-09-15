@@ -19,7 +19,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.agcleaner",
+    "application_id": "com.americangroup.agcleaner",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -39,7 +39,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.agcleaner",
+    "ios_bundle_id": "com.americangroup.agcleaner",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -81,9 +81,9 @@
     "l10n_callsites": 3,
     "screens": 0,
     "lib_files": 15,
-    "lib_loc": 1727,
-    "test_files": 4,
-    "a11y_signals": 0,
+    "lib_loc": 1817,
+    "test_files": 7,
+    "a11y_signals": 8,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -91,7 +91,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "AGRecorder",
@@ -113,7 +113,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.agrecorder",
+    "application_id": "com.americangroup.agrecorder",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -131,6 +131,7 @@
     "ios_scene_manifest": true,
     "ios_bundle_display_name": "Agrecorder",
     "ios_usage_descriptions": [
+      "NSLocationWhenInUseUsageDescription",
       "NSMicrophoneUsageDescription"
     ],
     "ios_ats_arbitrary_loads": false,
@@ -138,7 +139,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.agrecorder",
+    "ios_bundle_id": "com.americangroup.agrecorder",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -180,9 +181,9 @@
     "l10n_callsites": 3,
     "screens": 0,
     "lib_files": 17,
-    "lib_loc": 1096,
-    "test_files": 4,
-    "a11y_signals": 1,
+    "lib_loc": 1172,
+    "test_files": 6,
+    "a11y_signals": 5,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -190,7 +191,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "AGStudio",
@@ -203,16 +204,16 @@
     "dep_google_mobile_ads": false,
     "dep_flutter_localizations": true,
     "dep_agl_i18n": false,
-    "dep_agl_observability": false,
+    "dep_agl_observability": true,
     "dep_agl_ads": false,
     "crash_module": false,
-    "crash_wired_in_main": false,
+    "crash_wired_in_main": true,
     "crash_guarded_zone": false,
     "firebase_android_config": false,
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.agstudio",
+    "application_id": "com.americangroup.agstudio",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -230,15 +231,15 @@
       "NSPhotoLibraryAddUsageDescription"
     ],
     "ios_ats_arbitrary_loads": false,
-    "ios_privacy_manifest": false,
+    "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "13.0"
+      "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.agstudio",
-    "ios_podfile_platform": "",
+    "ios_bundle_id": "com.americangroup.agstudio",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
-    "ios_pod_crashlytics": false,
+    "ios_pod_crashlytics": true,
     "fastlane_appfile": true,
     "fastlane_fastfile": true,
     "gemfile": false,
@@ -271,9 +272,9 @@
     ],
     "l10n_callsites": 135,
     "screens": 5,
-    "lib_files": 50,
-    "lib_loc": 8785,
-    "test_files": 10,
+    "lib_files": 52,
+    "lib_loc": 9130,
+    "test_files": 13,
     "a11y_signals": 2,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -282,7 +283,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "AGrammarly",
@@ -352,9 +353,9 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 5,
-    "lib_files": 15,
-    "lib_loc": 2365,
-    "test_files": 6,
+    "lib_files": 16,
+    "lib_loc": 2620,
+    "test_files": 8,
     "a11y_signals": 2,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -363,7 +364,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "AeroSwift",
@@ -376,10 +377,10 @@
     "dep_google_mobile_ads": false,
     "dep_flutter_localizations": false,
     "dep_agl_i18n": false,
-    "dep_agl_observability": false,
+    "dep_agl_observability": true,
     "dep_agl_ads": false,
     "crash_module": false,
-    "crash_wired_in_main": false,
+    "crash_wired_in_main": true,
     "crash_guarded_zone": false,
     "firebase_android_config": false,
     "firebase_ios_config": false,
@@ -403,33 +404,42 @@
     "ios_bundle_display_name": "AeroSwift",
     "ios_usage_descriptions": [],
     "ios_ats_arbitrary_loads": false,
-    "ios_privacy_manifest": false,
+    "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "13.0"
+      "15.0"
     ],
     "ios_bundle_id": "com.americangroup.aeroswift",
-    "ios_podfile_platform": "",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
-    "ios_pod_crashlytics": false,
-    "fastlane_appfile": false,
-    "fastlane_fastfile": false,
-    "gemfile": false,
+    "ios_pod_crashlytics": true,
+    "fastlane_appfile": true,
+    "fastlane_fastfile": true,
+    "gemfile": true,
     "ci_workflow": false,
-    "release_workflow": false,
+    "release_workflow": true,
     "duplicate_fastfile": false,
-    "fastlane_lanes": [],
-    "fastlane_uploads_dsym": false,
-    "fastlane_uploads_mapping": false,
-    "store_metadata_dir": false,
+    "fastlane_lanes": [
+      "beta",
+      "build",
+      "metadata",
+      "production",
+      "release",
+      "signing",
+      "test",
+      "upload_dsyms"
+    ],
+    "fastlane_uploads_dsym": true,
+    "fastlane_uploads_mapping": true,
+    "store_metadata_dir": true,
     "l10n_yaml": false,
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 5,
-    "lib_files": 33,
-    "lib_loc": 6039,
-    "test_files": 9,
-    "a11y_signals": 9,
+    "lib_files": 34,
+    "lib_loc": 6537,
+    "test_files": 12,
+    "a11y_signals": 41,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -437,7 +447,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "ApexMarketWatch",
@@ -445,21 +455,21 @@
     "app_dir": "mobile",
     "version": "1.0.0+1",
     "sdk_constraint": "^3.12.2",
-    "dep_firebase_core": false,
-    "dep_firebase_crashlytics": false,
+    "dep_firebase_core": true,
+    "dep_firebase_crashlytics": true,
     "dep_google_mobile_ads": false,
     "dep_flutter_localizations": false,
     "dep_agl_i18n": false,
     "dep_agl_observability": false,
     "dep_agl_ads": false,
     "crash_module": false,
-    "crash_wired_in_main": false,
+    "crash_wired_in_main": true,
     "crash_guarded_zone": false,
     "firebase_android_config": false,
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.apexmarketwatch",
+    "application_id": "com.americangroup.apexmarketwatch",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -475,32 +485,41 @@
     "ios_bundle_display_name": "ApexMarketWatch",
     "ios_usage_descriptions": [],
     "ios_ats_arbitrary_loads": false,
-    "ios_privacy_manifest": false,
+    "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "13.0"
+      "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.apexmarketwatch",
-    "ios_podfile_platform": "",
+    "ios_bundle_id": "com.americangroup.apexmarketwatch",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
-    "ios_pod_crashlytics": false,
-    "fastlane_appfile": false,
-    "fastlane_fastfile": false,
-    "gemfile": false,
+    "ios_pod_crashlytics": true,
+    "fastlane_appfile": true,
+    "fastlane_fastfile": true,
+    "gemfile": true,
     "ci_workflow": true,
-    "release_workflow": false,
+    "release_workflow": true,
     "duplicate_fastfile": false,
-    "fastlane_lanes": [],
-    "fastlane_uploads_dsym": false,
-    "fastlane_uploads_mapping": false,
+    "fastlane_lanes": [
+      "beta",
+      "build",
+      "metadata",
+      "production",
+      "release",
+      "signing",
+      "test",
+      "upload_dsyms"
+    ],
+    "fastlane_uploads_dsym": true,
+    "fastlane_uploads_mapping": true,
     "store_metadata_dir": true,
     "l10n_yaml": false,
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 6,
-    "lib_files": 36,
-    "lib_loc": 7846,
-    "test_files": 9,
+    "lib_files": 37,
+    "lib_loc": 8079,
+    "test_files": 12,
     "a11y_signals": 8,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -509,7 +528,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "BodyQuest",
@@ -585,9 +604,9 @@
     "l10n_callsites": 0,
     "screens": 11,
     "lib_files": 21,
-    "lib_loc": 8050,
-    "test_files": 11,
-    "a11y_signals": 1,
+    "lib_loc": 8534,
+    "test_files": 13,
+    "a11y_signals": 42,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -599,7 +618,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "BuddyPlay",
@@ -612,16 +631,16 @@
     "dep_google_mobile_ads": false,
     "dep_flutter_localizations": false,
     "dep_agl_i18n": false,
-    "dep_agl_observability": false,
+    "dep_agl_observability": true,
     "dep_agl_ads": false,
     "crash_module": false,
-    "crash_wired_in_main": false,
+    "crash_wired_in_main": true,
     "crash_guarded_zone": false,
     "firebase_android_config": false,
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.buddyplay",
+    "application_id": "com.americangroup.buddyplay",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -643,15 +662,15 @@
       "NSLocalNetworkUsageDescription"
     ],
     "ios_ats_arbitrary_loads": false,
-    "ios_privacy_manifest": false,
+    "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "13.0"
+      "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.buddyplay",
-    "ios_podfile_platform": "",
+    "ios_bundle_id": "com.americangroup.buddyplay",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
-    "ios_pod_crashlytics": false,
+    "ios_pod_crashlytics": true,
     "fastlane_appfile": false,
     "fastlane_fastfile": true,
     "gemfile": false,
@@ -671,9 +690,9 @@
     "l10n_callsites": 0,
     "screens": 28,
     "lib_files": 80,
-    "lib_loc": 15621,
-    "test_files": 10,
-    "a11y_signals": 4,
+    "lib_loc": 15878,
+    "test_files": 12,
+    "a11y_signals": 22,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -681,7 +700,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "CalcMaster",
@@ -703,7 +722,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.calcmaster",
+    "application_id": "com.americangroup.calcmaster",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -732,7 +751,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.calcmaster",
+    "ios_bundle_id": "com.americangroup.calcmaster",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -775,9 +794,9 @@
     "l10n_callsites": 58,
     "screens": 13,
     "lib_files": 80,
-    "lib_loc": 17748,
-    "test_files": 21,
-    "a11y_signals": 13,
+    "lib_loc": 18216,
+    "test_files": 24,
+    "a11y_signals": 25,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -789,7 +808,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "CarDeal",
@@ -811,7 +830,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.cardeal",
+    "application_id": "com.americangroup.cardeal",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -834,7 +853,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.cardeal",
+    "ios_bundle_id": "com.americangroup.cardeal",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -863,9 +882,9 @@
     "l10n_callsites": 1,
     "screens": 7,
     "lib_files": 32,
-    "lib_loc": 7073,
-    "test_files": 17,
-    "a11y_signals": 35,
+    "lib_loc": 7512,
+    "test_files": 18,
+    "a11y_signals": 36,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -873,7 +892,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "ChefCount",
@@ -895,7 +914,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.chefcount",
+    "application_id": "com.americangroup.chefcount",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -915,7 +934,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.chefcount",
+    "ios_bundle_id": "com.americangroup.chefcount",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -944,9 +963,9 @@
     "l10n_callsites": 0,
     "screens": 0,
     "lib_files": 4,
-    "lib_loc": 1635,
-    "test_files": 4,
-    "a11y_signals": 0,
+    "lib_loc": 1929,
+    "test_files": 8,
+    "a11y_signals": 25,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -954,7 +973,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "CodeDeal",
@@ -976,7 +995,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.codedeal",
+    "application_id": "com.americangroup.codedeal",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1002,7 +1021,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.codedeal",
+    "ios_bundle_id": "com.americangroup.codedeal",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1046,10 +1065,10 @@
     ],
     "l10n_callsites": 0,
     "screens": 0,
-    "lib_files": 37,
-    "lib_loc": 4390,
-    "test_files": 8,
-    "a11y_signals": 6,
+    "lib_files": 38,
+    "lib_loc": 4920,
+    "test_files": 12,
+    "a11y_signals": 46,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -1057,7 +1076,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "DriftDate",
@@ -1079,7 +1098,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.driftdate",
+    "application_id": "com.americangroup.driftdate",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1108,7 +1127,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.driftdate",
+    "ios_bundle_id": "com.americangroup.driftdate",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1137,8 +1156,8 @@
     "l10n_callsites": 0,
     "screens": 18,
     "lib_files": 68,
-    "lib_loc": 16512,
-    "test_files": 18,
+    "lib_loc": 16714,
+    "test_files": 20,
     "a11y_signals": 24,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -1151,13 +1170,13 @@
     ],
     "has_login_screen": true,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "EventSpark",
     "flutter": true,
     "app_dir": "mobile",
-    "version": "1.0.0+1",
+    "version": "1.0.0+2",
     "sdk_constraint": ">=3.0.5 <4.0.0",
     "dep_firebase_core": false,
     "dep_firebase_crashlytics": false,
@@ -1173,7 +1192,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.eventspark",
+    "application_id": "com.americangroup.eventspark",
     "min_sdk": "maxOf",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1197,16 +1216,21 @@
     "ios_scene_manifest": true,
     "ios_bundle_display_name": "EventSpark",
     "ios_usage_descriptions": [
+      "NSCalendarsFullAccessUsageDescription",
+      "NSCalendarsUsageDescription",
       "NSCameraUsageDescription",
+      "NSFaceIDUsageDescription",
       "NSLocalNetworkUsageDescription",
-      "NSMicrophoneUsageDescription"
+      "NSLocationWhenInUseUsageDescription",
+      "NSMicrophoneUsageDescription",
+      "NSPhotoLibraryUsageDescription"
     ],
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
       "15.1"
     ],
-    "ios_bundle_id": "com.americangroupllc.eventspark",
+    "ios_bundle_id": "com.americangroup.eventspark",
     "ios_podfile_platform": "15.1",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1234,9 +1258,9 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 21,
-    "lib_files": 57,
-    "lib_loc": 19499,
-    "test_files": 12,
+    "lib_files": 58,
+    "lib_loc": 19725,
+    "test_files": 14,
     "a11y_signals": 46,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -1245,7 +1269,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "FashionFactory",
@@ -1267,7 +1291,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": false,
     "gradle_crashlytics": false,
-    "application_id": "com.americangroupllc.styleradar",
+    "application_id": "com.americangroup.fashionfactory",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1289,7 +1313,7 @@
     "ios_deployment_targets": [
       "13.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.styleradar",
+    "ios_bundle_id": "com.americangroup.fashionfactory",
     "ios_podfile_platform": "",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1318,8 +1342,8 @@
     "l10n_callsites": 0,
     "screens": 9,
     "lib_files": 44,
-    "lib_loc": 11558,
-    "test_files": 42,
+    "lib_loc": 11663,
+    "test_files": 43,
     "a11y_signals": 35,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -1328,7 +1352,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "GadgetNest",
@@ -1350,7 +1374,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.gadgetnest",
+    "application_id": "com.americangroup.gadgetnest",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1372,7 +1396,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.gadgetnest",
+    "ios_bundle_id": "com.americangroup.gadgetnest",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1400,10 +1424,10 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 9,
-    "lib_files": 26,
-    "lib_loc": 5122,
-    "test_files": 9,
-    "a11y_signals": 13,
+    "lib_files": 27,
+    "lib_loc": 5480,
+    "test_files": 11,
+    "a11y_signals": 40,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -1411,7 +1435,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "GroceryMatch",
@@ -1433,7 +1457,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.grocerymatch",
+    "application_id": "com.americangroup.grocerymatch",
     "min_sdk": "flutter",
     "target_sdk": "35",
     "compile_sdk": "36",
@@ -1450,13 +1474,15 @@
     "ios_admob_id": "",
     "ios_scene_manifest": false,
     "ios_bundle_display_name": "GroceryMatch",
-    "ios_usage_descriptions": [],
+    "ios_usage_descriptions": [
+      "NSCameraUsageDescription"
+    ],
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
       "16.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.grocerymatch",
+    "ios_bundle_id": "com.americangroup.grocerymatch",
     "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1483,8 +1509,8 @@
     "l10n_callsites": 0,
     "screens": 48,
     "lib_files": 108,
-    "lib_loc": 33589,
-    "test_files": 46,
+    "lib_loc": 33693,
+    "test_files": 48,
     "a11y_signals": 46,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -1498,7 +1524,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "HerJourney",
@@ -1520,7 +1546,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.her_journey",
+    "application_id": "com.americangroup.herjourney",
     "min_sdk": "26",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1555,6 +1581,7 @@
       "NSCameraUsageDescription",
       "NSHealthShareUsageDescription",
       "NSHealthUpdateUsageDescription",
+      "NSMotionUsageDescription",
       "NSPhotoLibraryUsageDescription"
     ],
     "ios_ats_arbitrary_loads": false,
@@ -1562,7 +1589,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.herJourney",
+    "ios_bundle_id": "com.americangroup.herjourney",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1591,9 +1618,9 @@
     "l10n_callsites": 0,
     "screens": 9,
     "lib_files": 36,
-    "lib_loc": 10241,
-    "test_files": 7,
-    "a11y_signals": 10,
+    "lib_loc": 10538,
+    "test_files": 9,
+    "a11y_signals": 28,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -1605,7 +1632,7 @@
     ],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "HomeWise",
@@ -1627,7 +1654,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.homewise",
+    "application_id": "com.americangroup.homewise",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1655,7 +1682,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.homewise",
+    "ios_bundle_id": "com.americangroup.homewise",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1684,8 +1711,8 @@
     "l10n_callsites": 0,
     "screens": 5,
     "lib_files": 30,
-    "lib_loc": 5155,
-    "test_files": 8,
+    "lib_loc": 5695,
+    "test_files": 10,
     "a11y_signals": 9,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -1694,7 +1721,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "Kinnav",
@@ -1716,7 +1743,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.kinnav",
+    "application_id": "com.americangroup.kinnav",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1745,7 +1772,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.kinnav",
+    "ios_bundle_id": "com.americangroup.kinnav",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1779,12 +1806,12 @@
       "hi",
       "zh"
     ],
-    "l10n_callsites": 159,
+    "l10n_callsites": 161,
     "screens": 21,
     "lib_files": 60,
-    "lib_loc": 11890,
-    "test_files": 23,
-    "a11y_signals": 11,
+    "lib_loc": 12906,
+    "test_files": 25,
+    "a11y_signals": 12,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -1796,7 +1823,7 @@
     ],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "MileMaster",
@@ -1818,7 +1845,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.milemaster",
+    "application_id": "com.americangroup.milemaster",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1832,13 +1859,15 @@
     "ios_admob_id": "",
     "ios_scene_manifest": true,
     "ios_bundle_display_name": "MileMaster",
-    "ios_usage_descriptions": [],
+    "ios_usage_descriptions": [
+      "NSLocationWhenInUseUsageDescription"
+    ],
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.milemaster",
+    "ios_bundle_id": "com.americangroup.milemaster",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -1880,9 +1909,9 @@
     "l10n_callsites": 3,
     "screens": 0,
     "lib_files": 14,
-    "lib_loc": 1359,
-    "test_files": 3,
-    "a11y_signals": 1,
+    "lib_loc": 1467,
+    "test_files": 4,
+    "a11y_signals": 2,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -1890,7 +1919,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "MyCard",
@@ -1903,16 +1932,16 @@
     "dep_google_mobile_ads": false,
     "dep_flutter_localizations": false,
     "dep_agl_i18n": false,
-    "dep_agl_observability": false,
+    "dep_agl_observability": true,
     "dep_agl_ads": false,
     "crash_module": false,
-    "crash_wired_in_main": false,
+    "crash_wired_in_main": true,
     "crash_guarded_zone": false,
     "firebase_android_config": false,
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.mycard",
+    "application_id": "com.americangroup.mycard",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1930,18 +1959,19 @@
     "ios_scene_manifest": true,
     "ios_bundle_display_name": "MyCard",
     "ios_usage_descriptions": [
-      "NSFaceIDUsageDescription"
+      "NSFaceIDUsageDescription",
+      "NSLocationWhenInUseUsageDescription"
     ],
     "ios_ats_arbitrary_loads": false,
-    "ios_privacy_manifest": false,
+    "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "13.0"
+      "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.mycard",
-    "ios_podfile_platform": "",
+    "ios_bundle_id": "com.americangroup.mycard",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
-    "ios_pod_crashlytics": false,
+    "ios_pod_crashlytics": true,
     "fastlane_appfile": false,
     "fastlane_fastfile": true,
     "gemfile": false,
@@ -1960,9 +1990,9 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 5,
-    "lib_files": 26,
-    "lib_loc": 4622,
-    "test_files": 8,
+    "lib_files": 27,
+    "lib_loc": 4844,
+    "test_files": 11,
     "a11y_signals": 9,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -1973,7 +2003,7 @@
     ],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "MyFinance",
@@ -1995,7 +2025,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.myfinance",
+    "application_id": "com.americangroup.myfinance",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2015,7 +2045,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.myfinance",
+    "ios_bundle_id": "com.americangroup.myfinance",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2044,9 +2074,9 @@
     "l10n_callsites": 0,
     "screens": 0,
     "lib_files": 7,
-    "lib_loc": 3332,
-    "test_files": 4,
-    "a11y_signals": 0,
+    "lib_loc": 3564,
+    "test_files": 6,
+    "a11y_signals": 17,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -2054,7 +2084,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "MyHealth",
@@ -2076,7 +2106,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.myhealth",
+    "application_id": "com.americangroup.myhealth",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2092,6 +2122,7 @@
     "ios_bundle_display_name": "Myhealth",
     "ios_usage_descriptions": [
       "NSCameraUsageDescription",
+      "NSMotionUsageDescription",
       "NSPhotoLibraryUsageDescription"
     ],
     "ios_ats_arbitrary_loads": false,
@@ -2099,7 +2130,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.myhealth",
+    "ios_bundle_id": "com.americangroup.myhealth",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2127,10 +2158,10 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 108,
-    "lib_files": 214,
-    "lib_loc": 45100,
-    "test_files": 21,
-    "a11y_signals": 52,
+    "lib_files": 215,
+    "lib_loc": 45811,
+    "test_files": 23,
+    "a11y_signals": 76,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -2142,7 +2173,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "NearServe",
@@ -2164,7 +2195,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.nearserve",
+    "application_id": "com.americangroup.nearserve",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2187,7 +2218,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.nearserve",
+    "ios_bundle_id": "com.americangroup.nearserve",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2216,8 +2247,8 @@
     "l10n_callsites": 0,
     "screens": 9,
     "lib_files": 32,
-    "lib_loc": 6257,
-    "test_files": 19,
+    "lib_loc": 6436,
+    "test_files": 22,
     "a11y_signals": 32,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -2226,7 +2257,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "NewsBoard",
@@ -2296,10 +2327,10 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 11,
-    "lib_files": 25,
-    "lib_loc": 5067,
-    "test_files": 7,
-    "a11y_signals": 19,
+    "lib_files": 26,
+    "lib_loc": 5571,
+    "test_files": 9,
+    "a11y_signals": 20,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -2307,7 +2338,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "NexusTransferPay",
@@ -2329,7 +2360,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.nexuspay",
+    "application_id": "com.americangroup.nexustransferpay",
     "min_sdk": "flutter",
     "target_sdk": "36",
     "compile_sdk": "36",
@@ -2363,7 +2394,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.nexuspay",
+    "ios_bundle_id": "com.americangroup.nexustransferpay",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2418,9 +2449,9 @@
     "l10n_callsites": 16,
     "screens": 13,
     "lib_files": 51,
-    "lib_loc": 15755,
-    "test_files": 8,
-    "a11y_signals": 4,
+    "lib_loc": 16272,
+    "test_files": 10,
+    "a11y_signals": 47,
     "secrets_in_dart": 0,
     "print_calls": 3,
     "platform_android": true,
@@ -2430,7 +2461,7 @@
     ],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "Photriya",
@@ -2452,7 +2483,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.photriya",
+    "application_id": "com.americangroup.photriya",
     "min_sdk": "flutter",
     "target_sdk": "35",
     "compile_sdk": "35",
@@ -2469,6 +2500,7 @@
     "ios_usage_descriptions": [
       "NSCameraUsageDescription",
       "NSLocationWhenInUseUsageDescription",
+      "NSMotionUsageDescription",
       "NSPhotoLibraryAddUsageDescription",
       "NSPhotoLibraryUsageDescription"
     ],
@@ -2477,7 +2509,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.photriya",
+    "ios_bundle_id": "com.americangroup.photriya",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2509,9 +2541,9 @@
     "l10n_callsites": 0,
     "screens": 58,
     "lib_files": 82,
-    "lib_loc": 36307,
-    "test_files": 24,
-    "a11y_signals": 65,
+    "lib_loc": 36915,
+    "test_files": 26,
+    "a11y_signals": 118,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -2524,7 +2556,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "PilotEnRoute",
@@ -2546,7 +2578,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.pilotenroute",
+    "application_id": "com.americangroup.pilotenroute",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2570,6 +2602,7 @@
     "ios_bundle_display_name": "PilotEnRoute",
     "ios_usage_descriptions": [
       "NSCameraUsageDescription",
+      "NSMicrophoneUsageDescription",
       "NSPhotoLibraryAddUsageDescription",
       "NSPhotoLibraryUsageDescription"
     ],
@@ -2578,7 +2611,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.pilotenroute",
+    "ios_bundle_id": "com.americangroup.pilotenroute",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -2604,10 +2637,10 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 41,
-    "lib_files": 76,
-    "lib_loc": 39652,
-    "test_files": 23,
-    "a11y_signals": 56,
+    "lib_files": 77,
+    "lib_loc": 40212,
+    "test_files": 27,
+    "a11y_signals": 101,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -2619,7 +2652,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "PlantPulse",
@@ -2632,16 +2665,16 @@
     "dep_google_mobile_ads": false,
     "dep_flutter_localizations": false,
     "dep_agl_i18n": false,
-    "dep_agl_observability": false,
+    "dep_agl_observability": true,
     "dep_agl_ads": false,
     "crash_module": false,
-    "crash_wired_in_main": false,
+    "crash_wired_in_main": true,
     "crash_guarded_zone": false,
     "firebase_android_config": false,
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.plantpulse",
+    "application_id": "com.americangroup.plantpulse",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2657,32 +2690,41 @@
     "ios_bundle_display_name": "PlantPulse",
     "ios_usage_descriptions": [],
     "ios_ats_arbitrary_loads": false,
-    "ios_privacy_manifest": false,
+    "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "13.0"
+      "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.plantpulse",
-    "ios_podfile_platform": "",
+    "ios_bundle_id": "com.americangroup.plantpulse",
+    "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
-    "ios_pod_crashlytics": false,
-    "fastlane_appfile": false,
-    "fastlane_fastfile": false,
-    "gemfile": false,
+    "ios_pod_crashlytics": true,
+    "fastlane_appfile": true,
+    "fastlane_fastfile": true,
+    "gemfile": true,
     "ci_workflow": false,
-    "release_workflow": false,
+    "release_workflow": true,
     "duplicate_fastfile": false,
-    "fastlane_lanes": [],
-    "fastlane_uploads_dsym": false,
-    "fastlane_uploads_mapping": false,
+    "fastlane_lanes": [
+      "beta",
+      "build",
+      "metadata",
+      "production",
+      "release",
+      "signing",
+      "test",
+      "upload_dsyms"
+    ],
+    "fastlane_uploads_dsym": true,
+    "fastlane_uploads_mapping": true,
     "store_metadata_dir": true,
     "l10n_yaml": false,
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 0,
     "lib_files": 37,
-    "lib_loc": 7952,
-    "test_files": 11,
+    "lib_loc": 8098,
+    "test_files": 13,
     "a11y_signals": 40,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -2691,7 +2733,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "RideZap",
@@ -2713,7 +2755,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.ridezap",
+    "application_id": "com.americangroup.ridezap",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2736,7 +2778,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.ridezap",
+    "ios_bundle_id": "com.americangroup.ridezap",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2764,9 +2806,9 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 6,
-    "lib_files": 37,
-    "lib_loc": 6044,
-    "test_files": 15,
+    "lib_files": 38,
+    "lib_loc": 6300,
+    "test_files": 17,
     "a11y_signals": 9,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -2775,7 +2817,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "RoomCraft",
@@ -2797,7 +2839,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.roomcraft",
+    "application_id": "com.americangroup.roomcraft",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2817,7 +2859,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.roomcraft",
+    "ios_bundle_id": "com.americangroup.roomcraft",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -2846,9 +2888,9 @@
     "l10n_callsites": 0,
     "screens": 0,
     "lib_files": 5,
-    "lib_loc": 930,
-    "test_files": 4,
-    "a11y_signals": 0,
+    "lib_loc": 1059,
+    "test_files": 6,
+    "a11y_signals": 2,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -2856,7 +2898,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "TripNest",
@@ -2878,7 +2920,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.tripnest",
+    "application_id": "com.americangroup.tripnest",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2901,7 +2943,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.tripnest",
+    "ios_bundle_id": "com.americangroup.tripnest",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -2930,8 +2972,8 @@
     "l10n_callsites": 0,
     "screens": 12,
     "lib_files": 37,
-    "lib_loc": 11386,
-    "test_files": 14,
+    "lib_loc": 11607,
+    "test_files": 16,
     "a11y_signals": 40,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -2940,7 +2982,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "Uscis-Case",
@@ -2962,7 +3004,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.usciscase",
+    "application_id": "com.americangroup.usciscase",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -2984,7 +3026,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.usciscase",
+    "ios_bundle_id": "com.americangroup.usciscase",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3011,9 +3053,9 @@
     "l10n_callsites": 0,
     "screens": 18,
     "lib_files": 46,
-    "lib_loc": 12123,
-    "test_files": 10,
-    "a11y_signals": 5,
+    "lib_loc": 12435,
+    "test_files": 12,
+    "a11y_signals": 35,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -3025,7 +3067,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "Verba",
@@ -3047,7 +3089,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.verba",
+    "application_id": "com.americangroup.verba",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3084,7 +3126,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.verba",
+    "ios_bundle_id": "com.americangroup.verba",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3112,9 +3154,9 @@
     "arb_locales": [],
     "l10n_callsites": 1,
     "screens": 17,
-    "lib_files": 62,
-    "lib_loc": 17652,
-    "test_files": 29,
+    "lib_files": 64,
+    "lib_loc": 18531,
+    "test_files": 33,
     "a11y_signals": 24,
     "secrets_in_dart": 1,
     "print_calls": 0,
@@ -3123,7 +3165,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": true,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "VirtuBand",
@@ -3145,7 +3187,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.virtuband",
+    "application_id": "com.americangroup.virtuband",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3169,7 +3211,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.virtuband",
+    "ios_bundle_id": "com.americangroup.virtuband",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3195,10 +3237,10 @@
     "arb_locales": [],
     "l10n_callsites": 0,
     "screens": 14,
-    "lib_files": 37,
-    "lib_loc": 7850,
-    "test_files": 7,
-    "a11y_signals": 4,
+    "lib_files": 38,
+    "lib_loc": 8216,
+    "test_files": 9,
+    "a11y_signals": 16,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -3208,7 +3250,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "WiFiTrail",
@@ -3230,7 +3272,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.wifitrail",
+    "application_id": "com.americangroup.wifitrail",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3250,7 +3292,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.wifitrail",
+    "ios_bundle_id": "com.americangroup.wifitrail",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -3289,12 +3331,12 @@
       "ru",
       "zh"
     ],
-    "l10n_callsites": 4,
+    "l10n_callsites": 5,
     "screens": 0,
     "lib_files": 17,
-    "lib_loc": 3079,
-    "test_files": 5,
-    "a11y_signals": 1,
+    "lib_loc": 3415,
+    "test_files": 9,
+    "a11y_signals": 17,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -3302,7 +3344,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "daily-pulse",
@@ -3391,12 +3433,12 @@
       "ru",
       "zh"
     ],
-    "l10n_callsites": 79,
+    "l10n_callsites": 82,
     "screens": 19,
-    "lib_files": 59,
-    "lib_loc": 19750,
-    "test_files": 14,
-    "a11y_signals": 8,
+    "lib_files": 61,
+    "lib_loc": 20257,
+    "test_files": 16,
+    "a11y_signals": 38,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -3408,7 +3450,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "iMaps",
@@ -3430,7 +3472,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.imaps",
+    "application_id": "com.americangroup.imaps",
     "min_sdk": "so",
     "target_sdk": "36",
     "compile_sdk": "36",
@@ -3454,14 +3496,15 @@
     "ios_usage_descriptions": [
       "NSLocationAlwaysAndWhenInUseUsageDescription",
       "NSLocationAlwaysUsageDescription",
-      "NSLocationWhenInUseUsageDescription"
+      "NSLocationWhenInUseUsageDescription",
+      "NSMicrophoneUsageDescription"
     ],
     "ios_ats_arbitrary_loads": true,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.imaps",
+    "ios_bundle_id": "com.americangroup.imaps",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3501,12 +3544,12 @@
       "tr",
       "zh"
     ],
-    "l10n_callsites": 26,
+    "l10n_callsites": 34,
     "screens": 23,
     "lib_files": 83,
-    "lib_loc": 32907,
-    "test_files": 27,
-    "a11y_signals": 30,
+    "lib_loc": 33556,
+    "test_files": 29,
+    "a11y_signals": 31,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -3518,7 +3561,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "iMeasure",
@@ -3540,7 +3583,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.imeasure",
+    "application_id": "com.americangroup.imeasure",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3572,7 +3615,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.imeasure",
+    "ios_bundle_id": "com.americangroup.imeasure",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
@@ -3599,8 +3642,8 @@
     "l10n_callsites": 0,
     "screens": 17,
     "lib_files": 37,
-    "lib_loc": 15398,
-    "test_files": 12,
+    "lib_loc": 15524,
+    "test_files": 13,
     "a11y_signals": 15,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -3613,7 +3656,7 @@
     ],
     "has_login_screen": true,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "portfolio-board",
@@ -3635,7 +3678,7 @@
     "firebase_ios_config": false,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.portfolioboard",
+    "application_id": "com.americangroup.portfolioboard",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -3663,7 +3706,7 @@
     "ios_deployment_targets": [
       "15.0"
     ],
-    "ios_bundle_id": "com.americangroupllc.portfolioboard",
+    "ios_bundle_id": "com.americangroup.portfolioboard",
     "ios_podfile_platform": "15.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
@@ -3692,9 +3735,9 @@
     "l10n_callsites": 0,
     "screens": 6,
     "lib_files": 22,
-    "lib_loc": 5270,
-    "test_files": 8,
-    "a11y_signals": 1,
+    "lib_loc": 5573,
+    "test_files": 10,
+    "a11y_signals": 27,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -3702,13 +3745,13 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "main"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "radiotune",
     "flutter": true,
     "app_dir": ".",
-    "version": "2.0.1+2",
+    "version": "2.0.1+3",
     "sdk_constraint": ">=3.0.0 <4.0.0",
     "dep_firebase_core": false,
     "dep_firebase_crashlytics": false,
@@ -3750,8 +3793,12 @@
     "ios_usage_descriptions": [
       "NSBluetoothAlwaysUsageDescription",
       "NSBluetoothPeripheralUsageDescription",
+      "NSFaceIDUsageDescription",
+      "NSLocationAlwaysAndWhenInUseUsageDescription",
       "NSLocationAlwaysUsageDescription",
-      "NSLocationWhenInUseUsageDescription"
+      "NSLocationWhenInUseUsageDescription",
+      "NSMicrophoneUsageDescription",
+      "NSMotionUsageDescription"
     ],
     "ios_ats_arbitrary_loads": true,
     "ios_privacy_manifest": true,
@@ -3787,8 +3834,8 @@
     "l10n_callsites": 0,
     "screens": 15,
     "lib_files": 49,
-    "lib_loc": 10323,
-    "test_files": 12,
+    "lib_loc": 10417,
+    "test_files": 13,
     "a11y_signals": 28,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -3801,7 +3848,7 @@
     ],
     "has_login_screen": true,
     "account_optional": false,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   },
   {
     "repo": "yourtube",
@@ -3875,9 +3922,9 @@
     "l10n_callsites": 0,
     "screens": 10,
     "lib_files": 31,
-    "lib_loc": 11712,
-    "test_files": 14,
-    "a11y_signals": 13,
+    "lib_loc": 12062,
+    "test_files": 17,
+    "a11y_signals": 29,
     "secrets_in_dart": 0,
     "print_calls": 0,
     "platform_android": true,
@@ -3889,6 +3936,6 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "master"
+    "git_branch": "production-readiness-2026-09-12"
   }
 ]
