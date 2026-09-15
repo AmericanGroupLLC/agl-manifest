@@ -134,7 +134,15 @@ platform :ios do
       UI.header("Upload attempt #{attempts}/3")
       begin
         Timeout.timeout(25 * 60) do
-          upload_to_testflight(api_key: key, app_identifier: bundle_id, ipa: ipa, skip_waiting_for_build_processing: true)
+          if File.size(ipa) > 40 * 1_048_576
+            # altool never completes a >40 MB upload on this network (EventSpark: 9
+            # failures); Apple's Java Transporter does, first time. Once altool has
+            # started a build number, Transporter refuses it, so Transporter goes first.
+            UI.important("large IPA — uploading with iTMSTransporter")
+            sh("JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true xcrun iTMSTransporter -m upload -assetFile #{ipa.shellescape} -apiKey #{ENV.fetch('ASC_KEY_ID').shellescape} -apiIssuer #{ENV.fetch('ASC_ISSUER_ID').shellescape} -v informational")
+          else
+            upload_to_testflight(api_key: key, app_identifier: bundle_id, ipa: ipa, skip_waiting_for_build_processing: true)
+          end
         end
       rescue Timeout::Error
         UI.error("attempt #{attempts} timed out after 25 minutes; killing altool")
