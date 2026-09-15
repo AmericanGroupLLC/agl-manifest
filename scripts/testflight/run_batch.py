@@ -54,6 +54,7 @@ for i, a in enumerate(apps, 1):
 
     repo = a["repo"]
     if results.get(repo, {}).get("status") == "uploaded":
+        LOCK.write_text("")  # never leave a skipped app's name in the lock
         print(f"[{i}/{len(apps)}] {repo}: already uploaded, skipping"); continue
     app_dir = ROOT / repo / (a["dir"] if a["dir"] != "." else "")
     log = LOGS / f"{repo}.log"
