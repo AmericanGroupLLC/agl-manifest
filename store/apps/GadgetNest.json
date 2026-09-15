@@ -37,5 +37,8 @@
     ]
   },
   "primary_category": "SHOPPING",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "review_information": {
+    "notes": "No account, no sign-in, no permission prompts and no network required. The entire catalogue — 9 products across 9 retailers — is compiled into the app, so every screen works in airplane mode.\n\nThe prices, retailer offers and the price-history chart are modelled, not collected from retailers. A build that is allowed to display them carries a permanent \"Sample prices — not live retailer data\" strip above the tabs. If instead every price area shows a \"Live prices are unavailable\" card, the build was compiled without the sample-data flag and is refusing to show invented prices; browsing, specs, compare and saving all still work, and it is not a loading failure.\n\nWorth exercising: open a product for its full specs and price chart, add two products to Compare, and use Build list to price a whole basket at a single retailer.\n\nOne thing that looks like a bug and is not: on some offers the text under the buy button reads \"We earn nothing if you buy here. This retailer is not in any of our affiliate programmes.\" Micro Center and Apple are genuinely in no affiliate programme of ours, so those links carry no tracking parameter and say so. Buy buttons open the retailer in the external browser rather than a webview.\n\nSaved products and the theme setting are stored on the device only."
+  }
 }

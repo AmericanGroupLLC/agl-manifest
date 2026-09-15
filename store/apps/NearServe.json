@@ -35,5 +35,8 @@
     ]
   },
   "primary_category": "LIFESTYLE",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "review_information": {
+    "notes": "No account and no sign-in. The five tabs (Browse, Search, Bookings, Saved, Settings) all work from first launch.\n\nThis build has no directory endpoint configured, so it runs entirely on the bundled sample directory and needs no network. The businesses are invented and set in a fictional town called Sampleton: every card and profile carries a SAMPLE badge, each list shows a banner saying the listings are not real businesses, and Settings names the active source. That is the offline mode behaving as designed, not a failed fetch.\n\nTo exercise booking: open a provider from Browse or Search, start a booking, pick a day within the next 14 days and a free slot, choose the service and the job size, read the estimate (a range, not a quote) and confirm. The booking appears in the Bookings tab with a notice stating that no provider has been contacted and nobody is expecting you. Reschedule and Cancel are available there. \"Leave a review\" appears only after a booking's end time has passed, because the app marks past appointments complete when it loads, so a slot booked for tomorrow will show Reschedule and Cancel instead of a review button.\n\nA provider profile has a phone row that hands off to the dialler; the sample numbers are fictional, so a call will not connect. Bookings, saved providers, theme and language are stored on the device only, and Settings > \"Delete everything on this device\" clears them. No ads, no in-app purchase, no third-party tracking."
+  }
 }

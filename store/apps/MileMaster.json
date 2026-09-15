@@ -13,5 +13,8 @@
     "to_unblock": "Implement trip recording and persistence before writing a mileage-tracker listing. Shipping this as an IRS-deduction tool on top of four invented trips is the worst risk in the portfolio."
   },
   "primary_category": "BUSINESS",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "review_information": {
+    "notes": "No account, no sign-in and no third-party login. MileMaster opens straight onto the dashboard and all three tabs (Dashboard, Trips, Stats) are available immediately.\n\nLocation: at launch the app asks for location once and uses a single fix to fill the address line under the header. It reverse-geocodes through api.milemaster.americangroupllc.com and prints the raw coordinates instead if that request fails. On a simulator with no location set the header simply keeps its \"Locating via GPS Gateway...\" placeholder, which is the expected result rather than a hang. Denying the permission leaves everything else working. There is no background location use and no route recording, so nothing keeps running once the app is closed.\n\nPlease know what is bundled in this build: the four trips shown on Dashboard and Trips, the mile totals, the weekly bar chart and the deduction figure (miles at the 0.67 per-mile rate) are sample values compiled into the app, not drives recorded on the review device. \"Start Drive\" turns on the LIVE chip in the header; \"Stop Drive\" adds a fixed 5.2 miles to the totals, posts a summary to the same API and shows a confirmation dialog.\n\nThe two-letter button at the top right opens the language picker. No advertising SDK and no in-app purchase."
+  }
 }

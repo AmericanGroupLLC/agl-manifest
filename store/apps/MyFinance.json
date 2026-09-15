@@ -13,5 +13,8 @@
     "to_unblock": "Add real entry and persistence (at minimum manual entry with storage) before any finance listing. A personal-finance app showing another person's invented spending is not shippable."
   },
   "primary_category": "FINANCE",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "review_information": {
+    "notes": "No account, no sign-in, no permission prompts and no network calls. MyFinance can be reviewed in airplane mode.\n\nEverything visible on first launch is demo data bundled in the binary: the 18,432.75 headline balance, ten transactions such as \"Salary Deposit\" and \"Whole Foods Market\", six subscriptions and the monthly budget list are constants. There is no bank connection, sync or import in this version, so nothing on screen is waiting on a server or failing to load.\n\nThe interactive part is the add button, which opens \"Add Transaction\": type a description and an amount, using a negative number for spending, and it is inserted at the top of the Transactions list while the income and expense totals recalculate (the headline balance is a fixed demo figure and does not move). Transactions added this way are held in memory for the session only and are gone after a relaunch, because this build has no storage layer.\n\nThe four tabs are Home, Transactions, Budgets and Subscriptions, and all four work with no setup. No ads, no in-app purchase, and no account deletion flow because there is no account."
+  }
 }

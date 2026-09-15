@@ -34,5 +34,8 @@
     ]
   },
   "primary_category": "SHOPPING",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "review_information": {
+    "notes": "Browsing needs no account. Home, Deals, Search, the deal detail pages and the store and category pages are all open, and there is nothing to skip past on launch.\n\nAll content is served live from the CodeDeal API at https://api.codedeal.com/api/trpc. Nothing is bundled, so with no connectivity — or if that host is unreachable — the screens show a \"Could not reach the CodeDeal API\" panel with a Retry button instead of deals. Settings shows the server base URL it is calling plus a health check, which is the quickest way to confirm the backend is up.\n\nSign-in is optional and only affects Profile, Referrals and Notifications. It is OAuth opened in the system browser, not an in-app credential form, so there is no test account to supply; signed out, Profile shows a \"Sign in to access saved deals, referrals, and premium\" card and Notifications is empty. Every browsing feature still works.\n\nThe microphone button on the Search tab is voice search and will prompt for microphone and speech-recognition access. The simulator cannot supply audio — type the query instead; the rest of that screen is unaffected.\n\nThe Premium screen asks the server for a checkout URL and opens it in the external browser; there are no StoreKit in-app purchases in the binary. Against a mock backend it instead shows a \"Premium activated (mock)\" toast."
+  }
 }

@@ -13,5 +13,8 @@
     "to_unblock": "Either implement real recognition, or rebuild the Scan tab as honest manual entry and write the listing around the recipe and kitchen-inventory features, which are real (lib/domain/catalogue.dart, RecipesTab, KitchenTab)."
   },
   "primary_category": "FOOD_AND_DRINK",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "review_information": {
+    "notes": "No account, no sign-in, and no network connection is needed. All four tabs (Scan, Recipes, Kitchen, Profile) work offline from first launch.\n\nPlease note before testing the Scan tab: the \"Camera\" and \"Gallery\" buttons do not open the camera or the photo library, and the app requests no camera or photos permission — it has no camera or image-picker dependency at all. Tapping either button runs a 1.2-second animation and then returns four to eight ingredients chosen deterministically from a bundled list of 15. No photo is taken, read, uploaded or analysed. It is a bundled demonstration of the recipe features, not image recognition, and it behaves identically in the simulator and on a device.\n\nEverything downstream of that is real, local logic: Recipes ranks 12 bundled recipes by how much of the current ingredient list each one uses, opens to full steps and timings, Kitchen keeps an editable inventory with expiry days (you can add items by hand there without scanning), and Profile totals the same data.\n\nThe grocery and kitchen-tool prices are affiliate links that open a retailer page in the external browser. Nothing else in the app fetches anything; all of its content is compiled in."
+  }
 }
