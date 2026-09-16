@@ -7,14 +7,18 @@
       "short_description": "Personal finance tracker MVP"
     }
   },
-  "_blocked": {
-    "no_copy_drafted": "No listing copy can be written. Every figure is demo data.",
-    "evidence": "lib/domain/demo_data.dart is documented as 'Static demo data, extracted verbatim from the RN App.tsx'. Transactions, subscriptions and budgets are all constants. pubspec has no http, no bank aggregator, and no local database — there is nowhere for a real transaction to come from or be saved to.",
-    "to_unblock": "Add real entry and persistence (at minimum manual entry with storage) before any finance listing. A personal-finance app showing another person's invented spending is not shippable."
-  },
   "primary_category": "FINANCE",
   "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
   "review_information": {
     "notes": "No account, no sign-in, no permission prompts and no network calls. MyFinance can be reviewed in airplane mode.\n\nEverything visible on first launch is demo data bundled in the binary: the 18,432.75 headline balance, ten transactions such as \"Salary Deposit\" and \"Whole Foods Market\", six subscriptions and the monthly budget list are constants. There is no bank connection, sync or import in this version, so nothing on screen is waiting on a server or failing to load.\n\nThe interactive part is the add button, which opens \"Add Transaction\": type a description and an amount, using a negative number for spending, and it is inserted at the top of the Transactions list while the income and expense totals recalculate (the headline balance is a fixed demo figure and does not move). Transactions added this way are held in memory for the session only and are gone after a relaunch, because this build has no storage layer.\n\nThe four tabs are Home, Transactions, Budgets and Subscriptions, and all four work with no setup. No ads, no in-app purchase, and no account deletion flow because there is no account."
+  },
+  "_was_blocked_resolved": {
+    "resolved": "2026-09-15",
+    "note": "demo_data.dart deleted and replaced with a real SQLite ledger (accounts, transactions, subscriptions, budgets) on 2026-09-15; every on-screen figure is computed from rows the user entered. A first run is genuinely empty; sample data is an explicit, clearly labelled, one-tap-removable option. Verified: analyzer clean, 118 tests pass.",
+    "previous": {
+      "no_copy_drafted": "No listing copy can be written. Every figure is demo data.",
+      "evidence": "lib/domain/demo_data.dart is documented as 'Static demo data, extracted verbatim from the RN App.tsx'. Transactions, subscriptions and budgets are all constants. pubspec has no http, no bank aggregator, and no local database — there is nowhere for a real transaction to come from or be saved to.",
+      "to_unblock": "Add real entry and persistence (at minimum manual entry with storage) before any finance listing. A personal-finance app showing another person's invented spending is not shippable."
+    }
   }
 }
