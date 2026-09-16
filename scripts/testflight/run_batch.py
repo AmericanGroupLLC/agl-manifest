@@ -42,7 +42,7 @@ elif args.wave == "records":
 
 results = json.load(open(RESULTS)) if RESULTS.exists() else {}
 env = os.environ.copy()
-build_number = datetime.datetime.now().strftime("%Y%m%d%H")
+build_number = datetime.datetime.now().strftime("%Y%m%d%H%M")
 LOGS.mkdir(parents=True, exist_ok=True)
 
 for i, a in enumerate(apps, 1):

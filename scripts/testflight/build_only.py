@@ -4,7 +4,7 @@
 import json, os, pathlib, shutil, subprocess, sys, time, datetime
 ROOT = pathlib.Path("/Users/spatchava/agl"); OUT = ROOT / ".dist/ipa-for-asc"; OUT.mkdir(parents=True, exist_ok=True)
 apps = {a["repo"]: a for a in json.load(open(ROOT / "agl-manifest/apps.json"))["apps"]}
-bn = datetime.datetime.now().strftime("%Y%m%d%H")
+bn = datetime.datetime.now().strftime("%Y%m%d%H%M")
 lock = ROOT / ".dist/ios-batch/current_app"
 for repo in sys.argv[1:]:
     a = apps[repo]; d = ROOT / repo / (a["dir"] if a["dir"] != "." else "")
