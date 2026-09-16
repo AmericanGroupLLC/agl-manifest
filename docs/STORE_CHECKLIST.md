@@ -10,50 +10,50 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App | pass | fail | human |
 | --- | ---: | ---: | ---: |
 | AeroSwift | 19 | 2 | 3 |
-| AGCleaner | 16 | 5 | 3 |
+| AGCleaner | 19 | 2 | 3 |
 | AGrammarly | 19 | 3 | 3 |
-| AGRecorder | 16 | 5 | 3 |
+| AGRecorder | 19 | 2 | 3 |
 | AGStudio | 20 | 1 | 3 |
 | ApexMarketWatch | 19 | 2 | 3 |
 | BodyQuest | 21 | 2 | 3 |
 | BuddyPlay | 19 | 2 | 3 |
 | CalcMaster | 21 | 2 | 3 |
-| CarDeal | 18 | 3 | 3 |
-| ChefCount | 14 | 7 | 3 |
+| CarDeal | 19 | 2 | 3 |
+| ChefCount | 17 | 4 | 3 |
 | CodeDeal | 19 | 2 | 3 |
 | daily-pulse | 20 | 3 | 3 |
 | DriftDate | 21 | 2 | 3 |
 | EventSpark | 19 | 2 | 3 |
 | FashionFactory | 20 | 2 | 3 |
-| GadgetNest | 17 | 4 | 3 |
+| GadgetNest | 18 | 3 | 3 |
 | GroceryMatch | 20 | 3 | 3 |
 | HerJourney | 20 | 3 | 3 |
-| HomeWise | 18 | 3 | 3 |
+| HomeWise | 19 | 2 | 3 |
 | iMaps | 21 | 2 | 3 |
 | iMeasure | 20 | 3 | 3 |
 | Kinnav | 21 | 2 | 3 |
-| MileMaster | 13 | 8 | 3 |
+| MileMaster | 17 | 4 | 3 |
 | MyCard | 19 | 2 | 3 |
-| MyFinance | 16 | 5 | 3 |
-| MyHealth | 19 | 4 | 3 |
-| NearServe | 18 | 3 | 3 |
-| NewsBoard | 16 | 5 | 3 |
-| NexusTransferPay | 14 | 7 | 3 |
+| MyFinance | 17 | 4 | 3 |
+| MyHealth | 20 | 3 | 3 |
+| NearServe | 19 | 2 | 3 |
+| NewsBoard | 18 | 3 | 3 |
+| NexusTransferPay | 16 | 5 | 3 |
 | Photriya | 21 | 2 | 3 |
 | PilotEnRoute | 21 | 2 | 3 |
 | PlantPulse | 18 | 3 | 3 |
-| portfolio-board | 18 | 4 | 3 |
-| radiotune | 19 | 4 | 3 |
-| RideZap | 18 | 3 | 3 |
-| RoomCraft | 18 | 3 | 3 |
+| portfolio-board | 19 | 3 | 3 |
+| radiotune | 21 | 2 | 3 |
+| RideZap | 19 | 2 | 3 |
+| RoomCraft | 19 | 2 | 3 |
 | TripNest | 20 | 2 | 3 |
 | Uscis-Case | 21 | 2 | 3 |
 | Verba | 19 | 3 | 3 |
 | VirtuBand | 21 | 2 | 3 |
-| WiFiTrail | 15 | 6 | 3 |
-| yourtube | 17 | 5 | 3 |
+| WiFiTrail | 17 | 4 | 3 |
+| yourtube | 20 | 2 | 3 |
 
-**140 failing checks across 43 apps.**
+**107 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -89,12 +89,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.agcleaner |
-| Release signing configured | FAIL | upload keystore matched |
+| Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 77c906922e56 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured [] |
@@ -150,12 +150,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.agrecorder |
-| Release signing configured | FAIL | upload keystore matched |
+| Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 4157b8b26555 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
@@ -335,7 +335,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.cardeal |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 1bf430275466 |
@@ -362,12 +362,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.chefcount |
-| Release signing configured | FAIL | upload keystore matched |
+| Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | e4c3ca647b98 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -548,7 +548,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.gadgetnest |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | d67e0a6786ef |
@@ -640,7 +640,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.homewise |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | a333a100f02b |
@@ -760,12 +760,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.milemaster |
-| Release signing configured | FAIL | upload keystore matched |
+| Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 896a79f219e2 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -779,7 +779,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
-| iOS purpose strings for linked APIs | FAIL | NSMicrophoneUsageDescription |
+| iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
@@ -823,7 +823,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.myfinance |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 7839d8cd6dbc |
@@ -853,7 +853,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.myhealth |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | cf26a8b793e5 |
@@ -884,7 +884,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.nearserve |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 4854a5daa313 |
@@ -911,12 +911,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.newsboard |
-| Release signing configured | FAIL | upload keystore matched |
+| Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 16aa785f8dfe |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -941,12 +941,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.nexustransferpay |
-| Release signing configured | FAIL | upload keystore matched |
+| Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 18a039defc96 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -1066,7 +1066,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.portfolioboard |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 3f4308930bf8 |
@@ -1094,12 +1094,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.radiotune |
-| Release signing configured | FAIL | upload keystore matched |
+| Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 3530bee5a1f8 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
@@ -1128,7 +1128,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.ridezap |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 54e63146bb98 |
@@ -1158,7 +1158,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.roomcraft |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | e30f2b400e71 |
@@ -1312,7 +1312,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.wifitrail |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | d996011eb73a |
@@ -1321,14 +1321,14 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store name | PASS | WiFiTrail |
 | Play title | PASS | WiFiTrail |
 | Full description | FAIL | missing |
-| Play short description (<=80) | PASS | 62 chars |
+| Play short description (<=80) | PASS | 69 chars |
 | App Store keywords (<=100) | FAIL | missing |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
-| iOS purpose strings for linked APIs | FAIL | NSLocationWhenInUseUsageDescription, NSBluetoothAlwaysUsageDescription |
+| iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
@@ -1339,12 +1339,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | Check | State | Detail |
 | --- | :-: | --- |
-| Android .aab signed with this app's upload key | FAIL | BUILD_FAILED |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
-| Binaries newer than the app icon | FAIL | icon changed after the .ipa was built - rebuild |
+| Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.yourtube |
-| Release signing configured | FAIL | upload keystore matched |
+| Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 70a3e23fdf0f |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | FAIL | not captured |

@@ -82,7 +82,23 @@ def linked_frameworks_needing_strings(d: pathlib.Path) -> list[str]:
     upload and then silently never lists the build. Two apps here lost a day to
     exactly that.
     """
-    pubspec = (d / "pubspec.yaml").read_text() if (d / "pubspec.yaml").exists() else ""
+    # Only the dependency blocks. Matching the whole file made the app's own
+    # `description:` trip this: MileMaster's says "record" and WiFiTrail's says
+    # "nearby", which flagged a microphone and a Bluetooth purpose string
+    # neither app needs. Declaring a purpose string for an API the app does not
+    # use is its own small dishonesty, so the check has to read dependencies.
+    pubspec = ""
+    if (d / "pubspec.yaml").exists():
+        keep, out = False, []
+        for line in (d / "pubspec.yaml").read_text().splitlines():
+            if re.match(r"^(dependencies|dev_dependencies|dependency_overrides):", line):
+                keep = True
+                continue
+            if re.match(r"^[A-Za-z_]", line):
+                keep = False
+            if keep:
+                out.append(line.split("#", 1)[0])
+        pubspec = "\n".join(out)
     need = {
         "NSCameraUsageDescription": ("camera", "image_picker", "mobile_scanner", "qr_code"),
         "NSPhotoLibraryUsageDescription": ("image_picker", "photo_manager", "file_picker"),
