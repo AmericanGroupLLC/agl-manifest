@@ -10,50 +10,50 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App | pass | fail | human |
 | --- | ---: | ---: | ---: |
 | AeroSwift | 19 | 2 | 3 |
-| AGCleaner | 19 | 2 | 3 |
-| AGrammarly | 19 | 3 | 3 |
-| AGRecorder | 19 | 2 | 3 |
+| AGCleaner | 20 | 1 | 3 |
+| AGrammarly | 20 | 2 | 3 |
+| AGRecorder | 20 | 1 | 3 |
 | AGStudio | 20 | 1 | 3 |
-| ApexMarketWatch | 19 | 2 | 3 |
+| ApexMarketWatch | 20 | 1 | 3 |
 | BodyQuest | 21 | 2 | 3 |
-| BuddyPlay | 19 | 2 | 3 |
+| BuddyPlay | 20 | 1 | 3 |
 | CalcMaster | 21 | 2 | 3 |
-| CarDeal | 19 | 2 | 3 |
-| ChefCount | 17 | 4 | 3 |
-| CodeDeal | 19 | 2 | 3 |
-| daily-pulse | 20 | 3 | 3 |
+| CarDeal | 20 | 1 | 3 |
+| ChefCount | 18 | 3 | 3 |
+| CodeDeal | 20 | 1 | 3 |
+| daily-pulse | 21 | 2 | 3 |
 | DriftDate | 21 | 2 | 3 |
-| EventSpark | 19 | 2 | 3 |
-| FashionFactory | 20 | 2 | 3 |
-| GadgetNest | 18 | 3 | 3 |
-| GroceryMatch | 20 | 3 | 3 |
-| HerJourney | 20 | 3 | 3 |
-| HomeWise | 19 | 2 | 3 |
-| iMaps | 21 | 2 | 3 |
-| iMeasure | 20 | 3 | 3 |
-| Kinnav | 21 | 2 | 3 |
-| MileMaster | 17 | 4 | 3 |
-| MyCard | 19 | 2 | 3 |
-| MyFinance | 17 | 4 | 3 |
-| MyHealth | 20 | 3 | 3 |
-| NearServe | 19 | 2 | 3 |
-| NewsBoard | 18 | 3 | 3 |
-| NexusTransferPay | 16 | 5 | 3 |
+| EventSpark | 20 | 1 | 3 |
+| FashionFactory | 21 | 1 | 3 |
+| GadgetNest | 19 | 2 | 3 |
+| GroceryMatch | 21 | 2 | 3 |
+| HerJourney | 21 | 2 | 3 |
+| HomeWise | 20 | 1 | 3 |
+| iMaps | 22 | 1 | 3 |
+| iMeasure | 21 | 2 | 3 |
+| Kinnav | 22 | 1 | 3 |
+| MileMaster | 18 | 3 | 3 |
+| MyCard | 20 | 1 | 3 |
+| MyFinance | 18 | 3 | 3 |
+| MyHealth | 21 | 2 | 3 |
+| NearServe | 20 | 1 | 3 |
+| NewsBoard | 19 | 2 | 3 |
+| NexusTransferPay | 17 | 4 | 3 |
 | Photriya | 21 | 2 | 3 |
 | PilotEnRoute | 21 | 2 | 3 |
-| PlantPulse | 18 | 3 | 3 |
-| portfolio-board | 19 | 3 | 3 |
-| radiotune | 21 | 2 | 3 |
-| RideZap | 19 | 2 | 3 |
-| RoomCraft | 19 | 2 | 3 |
-| TripNest | 20 | 2 | 3 |
-| Uscis-Case | 21 | 2 | 3 |
+| PlantPulse | 19 | 2 | 3 |
+| portfolio-board | 20 | 2 | 3 |
+| radiotune | 22 | 1 | 3 |
+| RideZap | 20 | 1 | 3 |
+| RoomCraft | 20 | 1 | 3 |
+| TripNest | 21 | 1 | 3 |
+| Uscis-Case | 22 | 1 | 3 |
 | Verba | 19 | 3 | 3 |
-| VirtuBand | 21 | 2 | 3 |
-| WiFiTrail | 17 | 4 | 3 |
-| yourtube | 20 | 2 | 3 |
+| VirtuBand | 22 | 1 | 3 |
+| WiFiTrail | 18 | 3 | 3 |
+| yourtube | 21 | 1 | 3 |
 
-**107 failing checks across 43 apps.**
+**72 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -97,7 +97,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 77c906922e56 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured [] |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | AGCleaner |
 | Play title | PASS | AGCleaner |
 | Full description | PASS | 1722 chars |
@@ -127,7 +127,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 93f7d4982dff |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | AGrammarly: Reply Helper |
 | Play title | PASS | AGrammarly — Reply Helper |
 | Full description | PASS | 1601 chars |
@@ -158,7 +158,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 4157b8b26555 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | AGRecorder |
 | Play title | PASS | AGRecorder |
 | Full description | PASS | 607 chars |
@@ -218,7 +218,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 6806204856fd |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 4 captured ['1320x2868'] |
 | App Store name | PASS | ApexMarketWatch |
 | Play title | PASS | ApexMarketWatch |
 | Full description | PASS | 941 chars |
@@ -248,7 +248,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 0728a46087a2 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 1 captured ['1320x2868'] |
 | App Store name | PASS | BodyQuest: Health Game |
 | Play title | PASS | BodyQuest — Health Game |
 | Full description | PASS | 1458 chars |
@@ -279,7 +279,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 0ea52e87574c |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iBuddyPlay |
 | Play title | PASS | BuddyPlay |
 | Full description | PASS | 993 chars |
@@ -340,7 +340,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 1bf430275466 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | iCarDeal |
 | Play title | PASS | CarDeal |
 | Full description | PASS | 781 chars |
@@ -370,7 +370,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | e4c3ca647b98 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | ChefCount |
 | Play title | PASS | ChefCount |
 | Full description | FAIL | missing |
@@ -400,7 +400,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 3c35bd963d2c |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | CodeDeal |
 | Play title | PASS | CodeDeal |
 | Full description | PASS | 477 chars |
@@ -430,7 +430,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 88f6d6c36bb8 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | Daily Pulse: Morning Brief |
 | Play title | PASS | Daily Pulse — Morning Brief |
 | Full description | PASS | 1448 chars |
@@ -492,7 +492,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | c0b27aa5caa4 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | iEventSpark |
 | Play title | PASS | EventSpark |
 | Full description | PASS | 559 chars |
@@ -522,7 +522,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 262f191388b0 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | Fashion Factory: Deals |
 | Play title | PASS | Fashion Factory — Deals |
 | Full description | PASS | 1238 chars |
@@ -553,7 +553,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | d67e0a6786ef |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | GadgetNest |
 | Play title | PASS | GadgetNest |
 | Full description | PASS | 700 chars |
@@ -583,7 +583,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 766ee6855483 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | GroceryMatch: Save on Food |
 | Play title | PASS | GroceryMatch — Save on Food |
 | Full description | PASS | 1382 chars |
@@ -614,7 +614,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 7e19bfa045ae |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | HerJourney: Cycle & Health |
 | Play title | PASS | HerJourney — Cycle & Health |
 | Full description | PASS | 1831 chars |
@@ -645,7 +645,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | a333a100f02b |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | iHomeWise |
 | Play title | PASS | HomeWise |
 | Full description | PASS | 1101 chars |
@@ -675,7 +675,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 880fa0330d26 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iMaps: Navigate & Report |
 | Play title | PASS | iMaps — Navigate & Report |
 | Full description | PASS | 2065 chars |
@@ -706,7 +706,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | e224c360fb12 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iMeasure: Measure & Level |
 | Play title | PASS | iMeasure — Measure & Level |
 | Full description | PASS | 1562 chars |
@@ -737,7 +737,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 6b981f7c9f98 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | Kinnav |
 | Play title | PASS | Kinnav |
 | Full description | PASS | 1913 chars |
@@ -768,7 +768,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 896a79f219e2 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | MileMaster |
 | Play title | PASS | MileMaster |
 | Full description | FAIL | missing |
@@ -798,7 +798,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | a8396bf904f3 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iMyCard |
 | Play title | PASS | MyCard |
 | Full description | PASS | 1068 chars |
@@ -828,7 +828,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 7839d8cd6dbc |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | MyFinance |
 | Play title | PASS | MyFinance |
 | Full description | FAIL | missing |
@@ -858,7 +858,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | cf26a8b793e5 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | MyHealth: Fitness Tracker |
 | Play title | PASS | MyHealth — Fitness Tracker |
 | Full description | PASS | 1763 chars |
@@ -889,7 +889,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 4854a5daa313 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | NearServe |
 | Play title | PASS | NearServe |
 | Full description | PASS | 609 chars |
@@ -919,7 +919,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 16aa785f8dfe |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | NewsBoard |
 | Play title | PASS | NewsBoard |
 | Full description | PASS | 2138 chars |
@@ -949,7 +949,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 18a039defc96 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | NexusTransferPay |
 | Play title | PASS | NexusTransferPay |
 | Full description | FAIL | missing |
@@ -1041,7 +1041,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 8d8f24553b3a |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | PlantPulse |
 | Play title | PASS | PlantPulse |
 | Full description | PASS | 1005 chars |
@@ -1071,7 +1071,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 3f4308930bf8 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 4 captured ['1320x2868'] |
 | App Store name | PASS | portfolio-board |
 | Play title | PASS | portfolio-board |
 | Full description | PASS | 2195 chars |
@@ -1102,7 +1102,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 3530bee5a1f8 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | Ratio Tune: Live Radio |
 | Play title | PASS | Ratio Tune — Live Radio |
 | Full description | PASS | 1191 chars |
@@ -1133,7 +1133,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 54e63146bb98 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | RideZap |
 | Play title | PASS | RideZap |
 | Full description | PASS | 686 chars |
@@ -1163,7 +1163,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | e30f2b400e71 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iRoomCraft |
 | Play title | PASS | RoomCraft |
 | Full description | PASS | 899 chars |
@@ -1193,7 +1193,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | d7df7967371f |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | TripNest: Travel Booking |
 | Play title | PASS | TripNest — Travel Booking |
 | Full description | PASS | 1407 chars |
@@ -1224,7 +1224,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | fdb8c722c1d6 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | USCIS Case Lookup |
 | Play title | PASS | Case Tracker for USCIS |
 | Full description | PASS | 1971 chars |
@@ -1255,7 +1255,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 8787cb68431f |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 1 captured ['1320x2868'] |
 | App Store name | PASS | Verba: Voice Translator |
 | Play title | PASS | Verba — Voice Translator |
 | Full description | PASS | 1472 chars |
@@ -1286,7 +1286,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | c0b36e516dd8 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | VirtuBand: Music Studio |
 | Play title | PASS | VirtuBand — Music Studio |
 | Full description | PASS | 1242 chars |
@@ -1317,7 +1317,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | d996011eb73a |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | WiFiTrail |
 | Play title | PASS | WiFiTrail |
 | Full description | FAIL | missing |
@@ -1347,7 +1347,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 70a3e23fdf0f |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | YourTube: Watch & Discover |
 | Play title | PASS | yourtube |
 | Full description | PASS | 733 chars |
