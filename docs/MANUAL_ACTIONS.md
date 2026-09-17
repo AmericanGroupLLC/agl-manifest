@@ -118,25 +118,23 @@ the repo's deploy key as secrets.
 
 ---
 
-## MA-006 · P2 · Firebase config files are missing for most apps
+## MA-006 · RESOLVED 2026-09-17 · Firebase config files
 
-Crashlytics cannot report from an app without `google-services.json` (Android)
-and `GoogleService-Info.plist` (iOS). These are per-app downloads from the
-Firebase console for project `americangroupllc-5bdfc`.
+All 43 apps now carry a real `google-services.json` and `GoogleService-Info.plist`,
+committed and on mainline. Done without a console: `scripts/firebase_register.py`
+registers each app through the Firebase Management API and pulls its config.
 
-**Required:** register each app in the console and commit the two files. Note
-that a *placeholder* config is worse than none — it makes the app look
-instrumented while reporting nothing — which is why none has been invented.
+Two API behaviours the console hides, both handled in that script:
 
----
+* `androidApps/{id}/config` returns the **project-wide** google-services.json
+  listing every app registered so far. Shipping it unfiltered would put 42 other
+  apps' keys in each binary, so the JSON is cut down to the app's own client.
+* App creation is rate-limited ("Quota exceeded", and bursts are refused with
+  "Too many Apps"), so creation is paced and retries, and a project Google calls
+  full is believed over any local count.
 
-**Update 2026-09-14.** App Store Connect rejects an upload whose Info.plist
-carries the placeholder URL scheme `com.googleusercontent.apps.REVERSED_CLIENT_ID`
-(DriftDate build 2026091400: *"URL schemes need to begin with an alphabetic
-character"*). The placeholder was removed from 13 apps so TestFlight uploads
-can proceed; Google Sign-In on iOS will not return to the app until the real
-`REVERSED_CLIENT_ID` from each `GoogleService-Info.plist` is added back as a
-`CFBundleURLTypes` entry. Add it in the same commit as the plist itself.
+Apps are spread over three projects because one project holds 30 apps and each
+app needs two slots — see `docs/RELEASE_PIPELINE.md` §2.
 
 ---
 

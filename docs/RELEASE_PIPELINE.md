@@ -66,7 +66,8 @@ alike.
 | App Store Connect API Key ID | `UV8NYF9767` (key file `AuthKey_UV8NYF9767.p8`) |
 | In-App Purchase Key ID | `PX7TXTDSHP` (key file `SubscriptionKey_PX7TXTDSHP.p8`) |
 | Google Play Console | AMERICAN GROUP LLC, developer `5590631437738173959` |
-| Firebase / GCP project | `americangroupllc-5bdfc` (project number `9057515422`) |
+| Firebase / GCP projects | `americangroupllc-5bdfc` (9057515422), `americangroupllc-agl2` (170143925591), `americangroupllc-agl3` (209455037382) |
+| Why three | A Firebase project holds **30 apps**, and one of our apps needs two slots (android + ios), so a project fits 15 apps. 43 apps need three projects. Crash reports therefore land in three consoles; `scripts/firebase_register.py` records which project each app belongs to. |
 | FCM Sender ID | `9057515422` |
 | AdMob publisher | `pub-8528784688453695` |
 | Account owner | rainbow472.sri@gmail.com |
