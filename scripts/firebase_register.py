@@ -25,7 +25,10 @@ gets a file that is missing a sibling registered a moment later.
 import base64, json, pathlib, subprocess, sys, time
 
 ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
-PROJECT = "americangroupllc-5bdfc"
+# A Firebase project holds 30 apps, and each app here needs two slots (android +
+# ios), so 15 repos fill a project. 43 repos need three.
+PROJECTS = ["americangroupllc-5bdfc", "americangroupllc-agl2", "americangroupllc-agl3"]
+PROJECT = PROJECTS[0]   # quota project for every call; only it needs to be billable
 ACCOUNT = "rainbow472.sri@gmail.com"
 GCLOUD = str(pathlib.Path.home() / "google-cloud-sdk/bin/gcloud")
 BASE = "https://firebase.googleapis.com/v1beta1"
@@ -46,36 +49,37 @@ def api(method, url, body=None):
     try: return json.loads(out)
     except Exception: return {"error": {"message": out[:300]}}
 
-def listing(kind, key):
+def listing(kind, key, proj):
     got, tok = {}, None
     while True:
-        u = f"{BASE}/projects/{PROJECT}/{kind}?pageSize=100" + (f"&pageToken={tok}" if tok else "")
+        u = f"{BASE}/projects/{proj}/{kind}?pageSize=100" + (f"&pageToken={tok}" if tok else "")
         d = api("GET", u)
-        if "error" in d: raise SystemExit(f"list {kind}: {d['error'].get('message')}")
-        for a in d.get("apps", []): got[a[key]] = a["appId"]
+        if "error" in d: raise SystemExit(f"list {kind} in {proj}: {d['error'].get('message')}")
+        for a in d.get("apps", []): got[a[key]] = (proj, a["appId"])
         tok = d.get("nextPageToken")
         if not tok: return got
 
-def create(kind, body):
+def create(kind, body, proj):
     # Firebase caps "Provision requests per minute"; a 43-app run trips it
     # immediately, so back off and retry rather than losing the app.
     for attempt in range(8):
-        r = api("POST", f"{BASE}/projects/{PROJECT}/{kind}", body)
+        r = api("POST", f"{BASE}/projects/{proj}/{kind}", body)
         msg = r.get("error", {}).get("message", "")
         if "Quota exceeded" not in msg and "RESOURCE_EXHAUSTED" not in msg: break
         time.sleep(min(20 * (attempt + 1), 90))
     if "error" in r: raise RuntimeError(r["error"].get("message", "create failed")[:200])
-    if r.get("appId"): return r["appId"]                     # returned directly
+    if r.get("appId"): return (proj, r["appId"])             # returned directly
     if not r.get("name"): raise RuntimeError(f"unexpected create response: {json.dumps(r)[:200]}")
     for _ in range(60):                                      # long-running operation
         if r.get("done"):
             if "error" in r: raise RuntimeError(str(r["error"])[:200])
-            return r["response"]["appId"]
+            return (proj, r["response"]["appId"])
         time.sleep(3); r = api("GET", f"{BASE}/{r['name']}")
     raise RuntimeError("operation did not finish")
 
-def config(kind, app_id):
-    d = api("GET", f"{BASE}/projects/{PROJECT}/{kind}/{app_id}/config")
+def config(kind, where):
+    proj, app_id = where
+    d = api("GET", f"{BASE}/projects/{proj}/{kind}/{app_id}/config")
     if "error" in d: raise RuntimeError(d["error"].get("message", "")[:200])
     return d["configFilename"], base64.b64decode(d["configFileContents"])
 
@@ -89,18 +93,34 @@ def only_this_package(blob, pkg):
     return json.dumps(d, indent=2).encode() + b"\n"
 
 # ---- phase 1: register everything, so no config is written half-populated ----
-android = listing("androidApps", "packageName")
-ios = listing("iosApps", "bundleId")
+android, ios = {}, {}
+capacity = {}
+for proj in PROJECTS:
+    a = listing("androidApps", "packageName", proj); i = listing("iosApps", "bundleId", proj)
+    android.update(a); ios.update(i)
+    capacity[proj] = 30 - len(a) - len(i)
+    print(f"  {proj}: {len(a)} android + {len(i)} ios, {capacity[proj]} slots free")
+
+def room_for_pair():
+    """A repo needs one android and one ios slot in the same project."""
+    for proj in PROJECTS:
+        if capacity[proj] >= 2: return proj
+    raise SystemExit("every Firebase project is full — add another project")
 print(f"registered before: {len(android)} android, {len(ios)} ios")
 for a in sel:
-    for kind, key, val, store in (("androidApps", "packageName", a["application_id"], android),
-                                  ("iosApps", "bundleId", a["bundle_id"], ios)):
-        if val in store or DRY:
-            if DRY: print(f"{a['repo']:18} would register {kind[:-4]}={val}")
-            continue
+    need = [(k, key, v, s) for k, key, v, s in
+            (("androidApps", "packageName", a["application_id"], android),
+             ("iosApps", "bundleId", a["bundle_id"], ios)) if v not in s]
+    if not need: continue
+    if DRY:
+        print(f"{a['repo']:18} would register {[v for _, _, v, _ in need]}"); continue
+    # both halves of a repo must live in one project, or its two configs disagree
+    proj = android.get(a["application_id"], (None,))[0] or ios.get(a["bundle_id"], (None,))[0] or room_for_pair()
+    for kind, key, val, store in need:
         try:
-            store[val] = create(kind, {key: val, "displayName": a["repo"]})
-            print(f"{a['repo']:18} {kind[:-4]:7} CREATED {val}", flush=True)
+            store[val] = create(kind, {key: val, "displayName": a["repo"]}, proj)
+            capacity[proj] -= 1
+            print(f"{a['repo']:18} {kind[:-4]:7} CREATED {val} in {proj}", flush=True)
             time.sleep(7)   # stay under the provisioning rate limit
         except Exception as e:
             print(f"{a['repo']:18} {kind[:-4]:7} FAILED  {val}  {e}")
@@ -117,7 +137,7 @@ for a in sel:
         blob = only_this_package(blob, pkg)
         p = d / "android/app" / fn; p.parent.mkdir(parents=True, exist_ok=True); p.write_bytes(blob)
         got = json.loads(blob)
-        assert got["project_info"]["project_id"] == PROJECT
+        assert got["project_info"]["project_id"] in PROJECTS
         assert len(got["client"]) == 1
         line.append(f"{fn}({len(blob)}B, 1 client)")
 
@@ -135,7 +155,7 @@ for a in sel:
             if r("git", "diff", "--cached", "--quiet").returncode:
                 r("git", "commit", "-q", "-m",
                   "Add the Firebase configs so crash reporting actually reports\n\n"
-                  f"Registered {pkg} and {bid} in project {PROJECT} and pulled the real\n"
+                  f"Registered {pkg} and {bid} in {android[pkg][0]} and pulled the real\n"
                   "configs from the Firebase Management API. google-services.json is\n"
                   "filtered to this app's own client, as a console download would be.\n"
                   "The Gradle plugins apply themselves once the file exists, so no code\n"

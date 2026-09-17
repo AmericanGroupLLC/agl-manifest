@@ -9,18 +9,18 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | App | pass | fail | human |
 | --- | ---: | ---: | ---: |
-| AeroSwift | 19 | 2 | 3 |
-| AGCleaner | 20 | 1 | 3 |
-| AGrammarly | 20 | 2 | 3 |
-| AGRecorder | 20 | 1 | 3 |
-| AGStudio | 20 | 1 | 3 |
-| ApexMarketWatch | 20 | 1 | 3 |
-| BodyQuest | 21 | 2 | 3 |
-| BuddyPlay | 20 | 1 | 3 |
-| CalcMaster | 21 | 2 | 3 |
-| CarDeal | 20 | 1 | 3 |
-| ChefCount | 18 | 3 | 3 |
-| CodeDeal | 20 | 1 | 3 |
+| AeroSwift | 20 | 1 | 3 |
+| AGCleaner | 21 | 0 | 3 |
+| AGrammarly | 21 | 1 | 3 |
+| AGRecorder | 21 | 0 | 3 |
+| AGStudio | 21 | 0 | 3 |
+| ApexMarketWatch | 21 | 0 | 3 |
+| BodyQuest | 22 | 1 | 3 |
+| BuddyPlay | 21 | 0 | 3 |
+| CalcMaster | 22 | 1 | 3 |
+| CarDeal | 21 | 0 | 3 |
+| ChefCount | 19 | 2 | 3 |
+| CodeDeal | 21 | 0 | 3 |
 | daily-pulse | 21 | 2 | 3 |
 | DriftDate | 21 | 2 | 3 |
 | EventSpark | 20 | 1 | 3 |
@@ -31,7 +31,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | HomeWise | 20 | 1 | 3 |
 | iMaps | 22 | 1 | 3 |
 | iMeasure | 21 | 2 | 3 |
-| Kinnav | 22 | 1 | 3 |
+| Kinnav | 23 | 0 | 3 |
 | MileMaster | 18 | 3 | 3 |
 | MyCard | 20 | 1 | 3 |
 | MyFinance | 18 | 3 | 3 |
@@ -43,7 +43,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | PilotEnRoute | 21 | 2 | 3 |
 | PlantPulse | 19 | 2 | 3 |
 | portfolio-board | 20 | 2 | 3 |
-| radiotune | 22 | 1 | 3 |
+| radiotune | 23 | 0 | 3 |
 | RideZap | 20 | 1 | 3 |
 | RoomCraft | 20 | 1 | 3 |
 | TripNest | 21 | 1 | 3 |
@@ -53,7 +53,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | WiFiTrail | 18 | 3 | 3 |
 | yourtube | 21 | 1 | 3 |
 
-**72 failing checks across 43 apps.**
+**58 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -83,7 +83,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## AGCleaner
 
@@ -113,7 +113,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## AGrammarly
 
@@ -144,7 +144,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## AGRecorder
 
@@ -174,7 +174,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## AGStudio
 
@@ -204,7 +204,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## ApexMarketWatch
 
@@ -234,7 +234,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## BodyQuest
 
@@ -265,7 +265,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## BuddyPlay
 
@@ -295,7 +295,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## CalcMaster
 
@@ -309,7 +309,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | d9d26cfca178 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
 | App Store name | PASS | CalcMaster: World Calc |
 | Play title | PASS | CalcMaster — World Calculator |
 | Full description | PASS | 3163 chars |
@@ -326,7 +326,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## CarDeal
 
@@ -356,7 +356,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## ChefCount
 
@@ -386,7 +386,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## CodeDeal
 
@@ -416,7 +416,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## daily-pulse
 
@@ -461,7 +461,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | ed9a84f651a6 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
 | App Store name | PASS | DriftDate: Layered Dating |
 | Play title | PASS | DriftDate — Layered Dating |
 | Full description | PASS | 1526 chars |
@@ -754,7 +754,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## MileMaster
 
@@ -814,7 +814,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | FAIL | android=y ios=n |
 
 ## MyFinance
 
@@ -979,7 +979,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 98174dc8767c |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
 | App Store name | PASS | Photriya |
 | Play title | PASS | Photriya |
 | Full description | PASS | 1951 chars |
@@ -1010,7 +1010,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 3fcff1d8a365 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | not captured |
+| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
 | App Store name | PASS | PilotEnRoute: Pilot Training |
 | Play title | PASS | PilotEnRoute — Pilot Training |
 | Full description | PASS | 1618 chars |
@@ -1119,7 +1119,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
-| Firebase config (crash reporting works) | FAIL | android=n ios=n |
+| Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## RideZap
 

@@ -137,11 +137,16 @@ def main() -> int:
     if up.exists():
         uploaded = {l.split("|")[0] for l in up.read_text().splitlines()
                     if "|UPLOADED" in l}
+    # A 200 is not evidence. www.safecodeg.com serves its SPA for every
+    # unmatched path, so a policy URL for an app that does not exist returned
+    # byte-identical content to a real one - 131 URLs "passed" while none of
+    # the pages was actually published. The evidence file must therefore record
+    # a content check, not a status code; until it does, this row cannot pass.
     urls_ok = set()
-    uc = SWEEP / "store_url_check.psv"
+    uc = SWEEP / "store_url_verified.psv"
     if uc.exists():
         urls_ok = {l.split("|")[0] for l in uc.read_text().splitlines()
-                   if "privacy=200|support=200" in l}
+                   if "|CONTENT_OK" in l}
 
     rows = []
     for a in apps:
