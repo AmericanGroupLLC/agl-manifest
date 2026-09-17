@@ -4,7 +4,11 @@
   "copy": {
     "en": {
       "name": "ChefCount",
-      "short_description": "Recipe scaling by headcount + kitchen affiliate listings"
+      "short_description": "Track what is in your kitchen and see which recipes you can cook now",
+      "subtitle": "Kitchen stock and recipes",
+      "keywords": "kitchen,pantry,inventory,recipe,ingredients,expiry,use by,leftovers,cooking,food",
+      "promotional_text": "Add what you have, and the recipe list reorders to put what you can actually cook tonight at the top. Works offline, no account.",
+      "description": "ChefCount keeps a list of what is actually in your kitchen and shows you which of its recipes you can cook with it.\n\nYOUR KITCHEN\nAdd ingredients from a searchable list of 35 staples, or type in a name of your own. Each item carries a quantity, a unit and an optional use-by date that is pre-filled with a typical shelf life for that ingredient. The Kitchen tab groups everything into seven categories, badges each item as expired, due today or with the days remaining, and gathers anything due within three days under a Use soon banner.\n\nRECIPES\nTwelve recipes are built into the app. Each one is ranked by how much of it you already hold, so the list reorders itself as your kitchen changes. A recipe card shows how many of its ingredients you have and names the ones you are missing. Open it for the numbered method, servings, calories and the prep and cook times. You can filter the list by breakfast, lunch, dinner or snack.\n\nFRIDGE PHOTO\nYou can attach one photo of your fridge as a visual reminder. It is written to your device and nothing reads it. ChefCount has no image recognition and does not analyse the picture, detect ingredients from it, or send it anywhere.\n\nWHAT TO EXPECT\nChefCount works entirely offline and needs no account or sign-in. Your inventory is saved on the device and is still there when you come back. The recipes and the staple ingredient list are built into the app, so it does not download new ones. There are no ads and nothing to buy. The interface is in English."
     }
   },
   "primary_category": "FOOD_AND_DRINK",
