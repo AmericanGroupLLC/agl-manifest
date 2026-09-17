@@ -166,23 +166,50 @@ them; the previous build inventory is in
 
 ---
 
-## MA-009 · P1 · Google Play: no credential this machine can use, and the console cannot be driven
+## MA-009 · Play: 21 of 43 uploaded — 14 need an app entry, 8 need an upload-key reset
 
-**Verified 2026-09-13.** MA-003 still stands (no service-account JSON). In
-addition: `~/google-cloud-sdk/bin/gcloud` has no logged-in account, and Play
-Console pages never finish loading for the Claude in Chrome extension, which is
-also blocked from `console.cloud.google.com` by its site permissions. All 43
-signed `.aab` files are staged in `~/agl/.dist/` and
-`scripts/upload_play.py` is written (untested) for the moment a key exists.
+**Resolved 2026-09-17:** the credential problem is gone.
+`american-group-publisher@american-group-llc.iam.gserviceaccount.com` already
+held Admin/all-apps in Play Console, so no new grant was needed.
+`scripts/play_upload.py` uses it by **impersonation** — gcloud mints a
+short-lived token, no long-lived key file is created. (The IAM Credentials API
+had to be enabled on project `american-group-llc` first.) Each app gets an
+edit → bundle upload → internal track as a **draft** release → commit.
 
-**Required, one of:**
+**Uploaded to internal testing (21):** AGCleaner, AGRecorder, AGStudio, AGrammarly, ApexMarketWatch, BuddyPlay, ChefCount, CodeDeal, EventSpark, HomeWise, MileMaster, MyCard, MyFinance, MyHealth, NearServe, NewsBoard, NexusTransferPay, PilotEnRoute, RideZap, RoomCraft, WiFiTrail
 
-1. Create a service account in project `americangroupllc-5bdfc`, grant it
-   *Release manager* in Play Console → Users and permissions, download the JSON
-   key, then `PLAY_JSON_KEY_FILE=<path> python3 scripts/upload_play.py`.
-2. Upload each app's first bundle by hand in Play Console (Internal testing →
-   Create new release); Google requires a manual first upload for a Draft app
-   in any case.
+### Still blocked, and both need a person
+
+**a) No Play app entry (14)** — `Package not found`. There is no
+creation API; each must be created in Play Console → Create app, using the
+package name from `apps.json`. Re-run `python3 scripts/play_upload.py --all`
+afterwards; it skips anything already uploaded.
+
+AeroSwift, BodyQuest, DriftDate, FashionFactory, GadgetNest, GroceryMatch, HerJourney, Photriya, PlantPulse, Verba, daily-pulse, portfolio-board, radiotune, yourtube
+
+**b) Upload key does not match Play's registered one (8)** — these
+apps already exist on Play with Play App Signing, and the upload certificate
+they were published with is **not on this machine**. Every one of the 43
+keystores in `~/agl/.secrets/keystores/` was fingerprinted against the
+certificate Google names in each rejection: **zero matches**. The original
+upload keys are lost.
+
+| App | Play expects (SHA1) |
+| --- | --- |
+| CalcMaster | `60:D8:BB:7F:30:04:2F:C0:4A:5D:1D:71:3B:3D:99:F9:32:73:46` |
+| CarDeal | `ED:9C:A5:63:CF:8C:C0:18:2A:63:09:CD:8A:B8:20:57:19:F9:6F` |
+| Kinnav | `96:8B:C8:DB:89:F4:90:9A:A9:93:7D:C0:4C:8E:03:CD:F6:05:89` |
+| TripNest | `D6:8C:D1:56:01:26:6D:0A:EA:F7:BD:6E:56:9F:6C:57:48:43:E4` |
+| Uscis-Case | `FB:60:4C:AB:6E:10:DC:96:1A:E0:6E:04:CE:D0:BE:58:49:69:95` |
+| VirtuBand | `ED:9C:A5:63:CF:8C:C0:18:2A:63:09:CD:8A:B8:20:57:19:F9:6F` |
+| iMaps | `12:8E:4F:EB:E8:74:D7:41:4F:64:B6:E8:41:E8:F6:09:15:67:FA` |
+| iMeasure | `EA:C1:09:67:DE:E3:9F:85:91:F9:0A:DA:1D:5A:EF:70:98:99:F9` |
+
+Fix: Play Console → the app → Test and release → Setup → App integrity → App
+signing → **Request upload key reset**, uploading the new certificate exported
+from that app's keystore. Google processes it in about two days; after that the
+new key in `~/agl/.secrets/keystores/` is the registered one and the upload
+works.
 
 ---
 
