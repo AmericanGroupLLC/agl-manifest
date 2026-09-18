@@ -15,14 +15,14 @@ console login, a questionnaire, or a credential that does not exist yet.
 | AGRecorder | 21 | 0 | 3 |
 | AGStudio | 21 | 0 | 3 |
 | ApexMarketWatch | 21 | 0 | 3 |
-| BodyQuest | 22 | 1 | 3 |
+| BodyQuest | 23 | 0 | 3 |
 | BuddyPlay | 21 | 0 | 3 |
-| CalcMaster | 22 | 1 | 3 |
+| CalcMaster | 23 | 0 | 3 |
 | CarDeal | 21 | 0 | 3 |
-| ChefCount | 19 | 2 | 3 |
+| ChefCount | 22 | 0 | 3 |
 | CodeDeal | 21 | 0 | 3 |
 | daily-pulse | 22 | 1 | 3 |
-| DriftDate | 22 | 1 | 3 |
+| DriftDate | 23 | 0 | 3 |
 | EventSpark | 21 | 0 | 3 |
 | FashionFactory | 22 | 0 | 3 |
 | GadgetNest | 20 | 1 | 3 |
@@ -32,15 +32,15 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iMaps | 23 | 0 | 3 |
 | iMeasure | 22 | 1 | 3 |
 | Kinnav | 23 | 0 | 3 |
-| MileMaster | 19 | 2 | 3 |
+| MileMaster | 22 | 0 | 3 |
 | MyCard | 21 | 0 | 3 |
-| MyFinance | 19 | 2 | 3 |
+| MyFinance | 22 | 0 | 3 |
 | MyHealth | 22 | 1 | 3 |
 | NearServe | 21 | 0 | 3 |
 | NewsBoard | 20 | 1 | 3 |
 | NexusTransferPay | 18 | 3 | 3 |
-| Photriya | 22 | 1 | 3 |
-| PilotEnRoute | 22 | 1 | 3 |
+| Photriya | 23 | 0 | 3 |
+| PilotEnRoute | 23 | 0 | 3 |
 | PlantPulse | 20 | 1 | 3 |
 | portfolio-board | 21 | 1 | 3 |
 | radiotune | 23 | 0 | 3 |
@@ -48,12 +48,12 @@ console login, a questionnaire, or a credential that does not exist yet.
 | RoomCraft | 21 | 0 | 3 |
 | TripNest | 22 | 0 | 3 |
 | Uscis-Case | 23 | 0 | 3 |
-| Verba | 20 | 2 | 3 |
+| Verba | 21 | 1 | 3 |
 | VirtuBand | 23 | 0 | 3 |
-| WiFiTrail | 19 | 2 | 3 |
+| WiFiTrail | 22 | 0 | 3 |
 | yourtube | 22 | 0 | 3 |
 
-**29 failing checks across 43 apps.**
+**15 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -248,7 +248,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 0728a46087a2 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 1 captured ['1320x2868'] |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | BodyQuest: Health Game |
 | Play title | PASS | BodyQuest — Health Game |
 | Full description | PASS | 1458 chars |
@@ -309,7 +309,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | d9d26cfca178 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | CalcMaster: World Calc |
 | Play title | PASS | CalcMaster — World Calculator |
 | Full description | PASS | 3163 chars |
@@ -373,9 +373,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | ChefCount |
 | Play title | PASS | ChefCount |
-| Full description | FAIL | missing |
-| Play short description (<=80) | PASS | 56 chars |
-| App Store keywords (<=100) | FAIL | missing |
+| Full description | PASS | 1500 chars |
+| Play short description (<=80) | PASS | 68 chars |
+| App Store keywords (<=100) | PASS | 80 chars |
+| Promotional text (<=170) | PASS | 128 chars |
 | Primary category | PASS | FOOD_AND_DRINK |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
@@ -461,7 +462,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | ed9a84f651a6 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | DriftDate: Layered Dating |
 | Play title | PASS | DriftDate — Layered Dating |
 | Full description | PASS | 1526 chars |
@@ -771,9 +772,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | MileMaster |
 | Play title | PASS | MileMaster |
-| Full description | FAIL | missing |
-| Play short description (<=80) | PASS | 72 chars |
-| App Store keywords (<=100) | FAIL | missing |
+| Full description | PASS | 1896 chars |
+| Play short description (<=80) | PASS | 70 chars |
+| App Store keywords (<=100) | PASS | 77 chars |
+| Promotional text (<=170) | PASS | 149 chars |
 | Primary category | PASS | BUSINESS |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
@@ -831,9 +833,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | MyFinance |
 | Play title | PASS | MyFinance |
-| Full description | FAIL | missing |
-| Play short description (<=80) | PASS | 28 chars |
-| App Store keywords (<=100) | FAIL | missing |
+| Full description | PASS | 1659 chars |
+| Play short description (<=80) | PASS | 78 chars |
+| App Store keywords (<=100) | PASS | 77 chars |
+| Promotional text (<=170) | PASS | 132 chars |
 | Primary category | PASS | FINANCE |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
@@ -979,7 +982,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 98174dc8767c |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | Photriya |
 | Play title | PASS | Photriya |
 | Full description | PASS | 1951 chars |
@@ -1010,7 +1013,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 3fcff1d8a365 |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 0 captured  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | PilotEnRoute: Pilot Training |
 | Play title | PASS | PilotEnRoute — Pilot Training |
 | Full description | PASS | 1618 chars |
@@ -1255,7 +1258,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 8787cb68431f |
 | Play feature graphic 1024x500 | PASS |  |
-| Screenshots (Apple >=1, Play >=2) | FAIL | 1 captured ['1320x2868'] |
+| Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | Verba: Voice Translator |
 | Play title | PASS | Verba — Voice Translator |
 | Full description | PASS | 1472 chars |
@@ -1320,9 +1323,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | WiFiTrail |
 | Play title | PASS | WiFiTrail |
-| Full description | FAIL | missing |
+| Full description | PASS | 2211 chars |
 | Play short description (<=80) | PASS | 69 chars |
-| App Store keywords (<=100) | FAIL | missing |
+| App Store keywords (<=100) | PASS | 77 chars |
+| Promotional text (<=170) | PASS | 135 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
