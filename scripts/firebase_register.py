@@ -37,12 +37,19 @@ apps = json.load(open(M / "apps.json"))["apps"]
 names = [a for a in sys.argv[1:] if not a.startswith("--")]
 sel = apps if "--all" in sys.argv else [a for a in apps if a["repo"] in names]
 
-TOK = subprocess.run([GCLOUD, "auth", "print-access-token", f"--account={ACCOUNT}"],
-                     capture_output=True, text=True).stdout.strip()
+_tok = {"v": "", "at": 0.0}
+def token():
+    # A 43-app run outlasts an access token, and the failure looks like
+    # "Request had invalid authentication credentials" halfway through.
+    if time.time() - _tok["at"] > 1500:
+        _tok["v"] = subprocess.run([GCLOUD, "auth", "print-access-token", f"--account={ACCOUNT}"],
+                                   capture_output=True, text=True).stdout.strip()
+        _tok["at"] = time.time()
+    return _tok["v"]
 
 def api(method, url, body=None):
     cmd = ["curl", "-s", "-X", method, url,
-           "-H", f"Authorization: Bearer {TOK}", "-H", f"x-goog-user-project: {PROJECT}",
+           "-H", f"Authorization: Bearer {token()}", "-H", f"x-goog-user-project: {PROJECT}",
            "-H", "Content-Type: application/json"]
     cmd += ["-d", json.dumps(body)] if body is not None else ["-H", "Content-Length: 0"]
     out = subprocess.run(cmd, capture_output=True, text=True).stdout
@@ -108,6 +115,8 @@ def room_for_pair():
     raise SystemExit("every Firebase project is full — add another project")
 print(f"registered before: {len(android)} android, {len(ios)} ios")
 for a in sel:
+    # Google reports a full project as "Too many Apps"; believe it over any
+    # count we tracked, and move the app to the next project.
     need = [(k, key, v, s) for k, key, v, s in
             (("androidApps", "packageName", a["application_id"], android),
              ("iosApps", "bundleId", a["bundle_id"], ios)) if v not in s]
@@ -117,13 +126,22 @@ for a in sel:
     # both halves of a repo must live in one project, or its two configs disagree
     proj = android.get(a["application_id"], (None,))[0] or ios.get(a["bundle_id"], (None,))[0] or room_for_pair()
     for kind, key, val, store in need:
-        try:
-            store[val] = create(kind, {key: val, "displayName": a["repo"]}, proj)
-            capacity[proj] -= 1
-            print(f"{a['repo']:18} {kind[:-4]:7} CREATED {val} in {proj}", flush=True)
-            time.sleep(7)   # stay under the provisioning rate limit
-        except Exception as e:
-            print(f"{a['repo']:18} {kind[:-4]:7} FAILED  {val}  {e}")
+        for _ in range(len(PROJECTS)):
+            try:
+                store[val] = create(kind, {key: val, "displayName": a["repo"]}, proj)
+                capacity[proj] -= 1
+                print(f"{a['repo']:18} {kind[:-4]:7} CREATED {val} in {proj}", flush=True)
+                time.sleep(7)   # stay under the provisioning rate limit
+                break
+            except Exception as e:
+                if "Too many Apps" in str(e):
+                    capacity[proj] = 0
+                    print(f"{a['repo']:18} {proj} is full — trying the next project", flush=True)
+                    try: proj = room_for_pair()
+                    except SystemExit as s: print(s); raise
+                    continue
+                print(f"{a['repo']:18} {kind[:-4]:7} FAILED  {val}  {e}")
+                break
 if DRY: raise SystemExit(0)
 print(f"registered after: {len(android)} android, {len(ios)} ios\n")
 

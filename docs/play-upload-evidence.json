@@ -1,0 +1,191 @@
+[
+ {
+  "repo": "AGCleaner",
+  "package": "com.americangroupllc.agcleaner",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "AGCleaner-app-release.aab"
+ },
+ {
+  "repo": "AGrammarly",
+  "package": "com.americangroupllc.agrammarly",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "AGrammarly-app-release.aab"
+ },
+ {
+  "repo": "AGRecorder",
+  "package": "com.americangroupllc.agrecorder",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "AGRecorder-app-release.aab"
+ },
+ {
+  "repo": "AGStudio",
+  "package": "com.americangroupllc.agstudio",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "AGStudio-app-release.aab"
+ },
+ {
+  "repo": "ApexMarketWatch",
+  "package": "com.americangroupllc.apexmarketwatch",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "ApexMarketWatch-app-release.aab"
+ },
+ {
+  "repo": "BuddyPlay",
+  "package": "com.americangroupllc.buddyplay",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "BuddyPlay-app-release.aab"
+ },
+ {
+  "repo": "ChefCount",
+  "package": "com.americangroupllc.chefcount",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "ChefCount-app-release.aab"
+ },
+ {
+  "repo": "CodeDeal",
+  "package": "com.americangroupllc.codedeal",
+  "result": "UPLOADED",
+  "version_code": 15,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "CodeDeal-app-release.aab"
+ },
+ {
+  "repo": "EventSpark",
+  "package": "com.americangroupllc.eventspark",
+  "result": "UPLOADED",
+  "version_code": 3,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "EventSpark-app-release.aab"
+ },
+ {
+  "repo": "HomeWise",
+  "package": "com.americangroupllc.homewise",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "HomeWise-app-release.aab"
+ },
+ {
+  "repo": "MileMaster",
+  "package": "com.americangroupllc.milemaster",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "MileMaster-app-release.aab"
+ },
+ {
+  "repo": "MyCard",
+  "package": "com.americangroupllc.mycard",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "MyCard-app-release.aab"
+ },
+ {
+  "repo": "MyFinance",
+  "package": "com.americangroupllc.myfinance",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "MyFinance-app-release.aab"
+ },
+ {
+  "repo": "MyHealth",
+  "package": "com.americangroupllc.myhealth",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "MyHealth-app-prod-release.aab"
+ },
+ {
+  "repo": "NearServe",
+  "package": "com.americangroupllc.nearserve",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "NearServe-app-release.aab"
+ },
+ {
+  "repo": "NewsBoard",
+  "package": "com.americangroupllc.newsboard",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "NewsBoard-app-release.aab"
+ },
+ {
+  "repo": "NexusTransferPay",
+  "package": "com.americangroupllc.nexustransferpay",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "NexusTransferPay-app-release.aab"
+ },
+ {
+  "repo": "PilotEnRoute",
+  "package": "com.americangroupllc.pilotenroute",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "PilotEnRoute-app-prod-release.aab"
+ },
+ {
+  "repo": "RideZap",
+  "package": "com.americangroupllc.ridezap",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "RideZap-app-release.aab"
+ },
+ {
+  "repo": "RoomCraft",
+  "package": "com.americangroupllc.roomcraft",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "RoomCraft-app-release.aab"
+ },
+ {
+  "repo": "WiFiTrail",
+  "package": "com.americangroupllc.wifitrail",
+  "result": "UPLOADED",
+  "version_code": 2,
+  "track": "internal",
+  "status": "draft",
+  "bundle": "WiFiTrail-app-release.aab"
+ }
+]
