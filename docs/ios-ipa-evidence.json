@@ -319,17 +319,6 @@
   "seconds": 130.9
  },
  {
-  "repo": "NexusTransferPay",
-  "bundle_id": "com.americangroupllc.nexustransferpay",
-  "profile": "com.americangroupllc.nexustransferpay AppStore",
-  "dir": "/Users/spatchava/agl/NexusTransferPay/flutter-mobile-app",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/NexusTransferPay.ipa",
-  "bytes": 25379120,
-  "seconds": 142.8
- },
- {
   "repo": "Photriya",
   "bundle_id": "com.americangroupllc.photriya",
   "profile": "com.americangroupllc.photriya AppStore",
@@ -471,5 +460,16 @@
   "ipa": ".dist/yourtube.ipa",
   "bytes": 50356569,
   "seconds": 171.0
+ },
+ {
+  "repo": "NexusTransferPay",
+  "bundle_id": "com.americangroupllc.nexustransferpay",
+  "profile": "com.americangroupllc.nexustransferpay AppStore",
+  "dir": "/Users/spatchava/agl/NexusTransferPay/flutter-mobile-app",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/NexusTransferPay.ipa",
+  "bytes": 25379248,
+  "seconds": 177.8
  }
 ]

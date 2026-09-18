@@ -452,16 +452,16 @@
     "app_dir": "flutter-mobile-app",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 105.8,
+    "seconds": 97.0,
     "aab": "NexusTransferPay/flutter-mobile-app/build/app/outputs/flutter-apk/app-release.apk",
-    "bytes": 61312258,
-    "sha256": "6ec963ba15d78c4647427e963dbfc958ffcbf56be3217cd3eee50e8185366ba9",
+    "bytes": 61313482,
+    "sha256": "d4e4a4bb7a69ef8c6fcf4fab200da2a8f0451a274734fea0ca4965b23fb2eee8",
     "keystore_sha256": "5B6A4604F1861642FEECD760AA49D1A83AA95AD784667A8216AB4B31D1624897",
     "signer_sha256": "5B6A4604F1861642FEECD760AA49D1A83AA95AD784667A8216AB4B31D1624897",
     "result": "SIGNED",
     "artifact": ".dist/NexusTransferPay-app-release.apk",
-    "freed_mb": 1440,
-    "built_at": "2026-09-15T18:20:00-0700"
+    "freed_mb": 1113,
+    "built_at": "2026-09-18T11:25:47-0700"
   },
   {
     "repo": "Photriya",
