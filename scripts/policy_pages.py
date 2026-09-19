@@ -87,7 +87,7 @@ def page(title, app_name, slug, body, nav_extra=""):
     <article>
 {body}
     </article>
-    <footer><p>© {datetime.date.today().year} American Group LLC · <a href="https://safecodeg.com">safecodeg.com</a> · <a href="mailto:contact@safecodeg.com">contact@safecodeg.com</a></p></footer>
+    <footer><p>© {datetime.date.today().year} American Group LLC · <a href="https://www.safecodeg.com">safecodeg.com</a> · <a href="mailto:contact@safecodeg.com">contact@safecodeg.com</a></p></footer>
   </div>
 </body>
 </html>
@@ -148,7 +148,7 @@ def privacy(a, f, name, slug):
     s.append("<h3>Children</h3><p>The app is not directed to children under 13 and we do not knowingly collect personal information from them.</p>")
     s.append("<h3>Your rights</h3><p>You may ask us to access, correct or delete personal data we hold about you by emailing <a href=\"mailto:contact@safecodeg.com\">contact@safecodeg.com</a>. We answer within 30 days.</p>")
     s.append("<h3>Changes</h3><p>We will post any change to this policy on this page with a new date.</p>")
-    s.append("<h3>Contact</h3><p>American Group LLC · <a href=\"https://safecodeg.com\">safecodeg.com</a> · <a href=\"mailto:contact@safecodeg.com\">contact@safecodeg.com</a></p>")
+    s.append("<h3>Contact</h3><p>American Group LLC · <a href=\"https://www.safecodeg.com\">safecodeg.com</a> · <a href=\"mailto:contact@safecodeg.com\">contact@safecodeg.com</a></p>")
     return "\n".join(s)
 
 def terms(a, f, name):
@@ -239,7 +239,7 @@ items = "\n".join(f'      <li><a href="{s}/">{html.escape(n)}</a> — <a href="{
 <body>
   {MARK}
   <div class="wrap">
-    <header class="top"><a class="logo" href="https://safecodeg.com">American Group LLC</a><nav><a href="https://safecodeg.com/privacy">Company privacy</a><a href="https://safecodeg.com/support">Contact</a></nav></header>
+    <header class="top"><a class="logo" href="https://www.safecodeg.com">American Group LLC</a><nav><a href="https://www.safecodeg.com/privacy">Company privacy</a><a href="https://www.safecodeg.com/support">Contact</a></nav></header>
     <article>
     <h2>Privacy policy, terms and support for every app</h2>
     <p>One page per app. Questions: <a href="mailto:contact@safecodeg.com">contact@safecodeg.com</a>.</p>
