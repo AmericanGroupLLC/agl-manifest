@@ -286,3 +286,43 @@ table is in `docs/KNOWN_ISSUES.md`.
 What remains is a judgement no script can make: whether five apps from one
 publisher, built on a shared house style, still invite an App Store guideline
 4.3 (spam) rejection. That is a human call before submission, not a build gap.
+
+## MA-013 — TestFlight internal groups cannot be filled through the API (RESOLVED by working around it)
+
+`POST /v1/betaTesters` against an internal beta group is refused with
+"Tester(s) cannot be assigned": internal testers are Users and Access members and
+Apple only lets the web console add them. The account's existing internal groups
+(`Internal testers`, `Kinnav`, `Tether-health`, `Test`) therefore all had zero
+testers, so 29 uploaded builds reached nobody.
+
+Worked around with `scripts/testflight/distribute.rb`, which creates one external
+group named **AGL Testers** per app and fills it with the 10 beta testers Apple
+already holds. Verified 2026-09-21: 29/29 apps have 10 testers, the newest build
+attached, and a Beta App Review submission in `WAITING_FOR_REVIEW`.
+
+Nothing is required of a human unless you prefer internal distribution, which
+would mean adding the six Users and Access members to each app's internal group
+by hand in App Store Connect.
+
+## MA-014 — Google Play internal testing has no tester list (HUMAN ONLY)
+
+All 21 Play apps now have a **live** (no longer draft) internal-testing release,
+but `GET /edits/{id}/testers/internal` returns `{}` for every one of them, so no
+one can install yet. The Play Developer API can only attach *Google Groups* to a
+track; the per-app email lists the team uses are creatable in Play Console alone.
+
+In Play Console: **Test and release → Testers → Email lists**, create one list
+with the ten addresses below, then on each app open **Internal testing →
+Testers** and select it.
+
+  srikanth.patchava@outlook.com, rainbow472.sri@gmail.com, sirishapatchava@gmail.com,
+  aadiboddapati@gmail.com, ramana.gokul@icloud.com, nehuwakhare04@gmail.com,
+  siddarthaandalu@gmail.com, rashmi.advani@gmail.com, vspatel24@gmail.com,
+  pranathim95@gmail.com
+
+Alternative that would remove the manual step for good: create a Google Group
+containing those addresses and attach it once per app through the API.
+
+The Claude in Chrome extension cannot do this. Re-tested 2026-09-21 on
+`https://play.google.com/console/developers`: both `get_page_text` and
+`read_page` time out, as they did on every earlier attempt.
