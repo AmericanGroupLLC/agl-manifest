@@ -29,7 +29,7 @@ wired.
 
 | # | App | Package / bundle id | Status | Android | iOS | Ads | Sign-in | Store record | Build | Binaries |
 | --: | --- | --- | --- | :-: | :-: | :-: | --- | --- | --- | --- |
-| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroupllc.aeroswift` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `AeroSwift-app-release.aab`, `AeroSwift-app-release.apk` |
+| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroupllc.aeroswift` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `AeroSwift-app-release.aab`, `AeroSwift-app-release.apk`, `app-release.aab`, `app-release.apk` |
 | 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `com.americangroupllc.agcleaner` | Binary published | yes | yes | — | none | AGCleaner | v1.0.0-android | `AGCleaner-app-release.aab`, `AGCleaner-app-release.apk` |
 | 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `com.americangroupllc.agrammarly` | Binary published | yes | yes | — | none | AGrammarly | v1.0.0-android | `AGrammarly-app-release.aab`, `AGrammarly-app-release.apk` |
 | 4 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | `com.americangroupllc.agrecorder` | Binary published | yes | yes | — | none | AGRecorder | v1.0.0-android | `AGRecorder-app-release.aab`, `AGRecorder-app-release.apk` |
@@ -135,7 +135,7 @@ and is rejected at upload. One app in this table was caught exactly that way.
 | 38 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | 60 MB | 59 MB | prod | `565DBEE81C473EBC` |
 | 39 | [Verba](https://github.com/AmericanGroupLLC/Verba) | 68 MB | 68 MB | prod | `5607DDEE124203A9` |
 | 40 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | 60 MB | 59 MB | prod | `99635E5EB1FFB48D` |
-| 41 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | 48 MB | 48 MB | — | `E0D8203064D9D384` |
+| 41 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | 49 MB | 48 MB | — | `E0D8203064D9D384` |
 | 42 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | 87 MB | 89 MB | prod | `2EA595F41FA61468` |
 
 Both are published to a GitHub Release in each app's own repository, so an
