@@ -29,6 +29,7 @@ RECORDS = {r["bundleId"] for r in json.load(open(ROOT / "agl-manifest/docs/appst
 SKIP = {"CalcMaster", "CodeDeal"}  # CalcMaster ran on its own lane; CodeDeal does not compile
 
 ap = argparse.ArgumentParser()
+ap.add_argument("--no-distribute", action="store_true", help="upload only; do not add the build to the tester group")
 ap.add_argument("--wave", choices=["records", "all"], default="records")
 ap.add_argument("--apps", default="")
 args = ap.parse_args()
@@ -94,6 +95,14 @@ for i, a in enumerate(apps, 1):
     json.dump(results, open(RESULTS, "w"), indent=1)
     LOCK.write_text("")
     print(f"    {status} in {results[repo]['seconds']}s {err}", flush=True)
+
+    # Uploading is not delivering: a build reaches people only through a beta
+    # group. Do that straight away so every app lands in testers' TestFlight
+    # without a second manual pass.
+    if status == "uploaded" and not args.no_distribute:
+        d = subprocess.run(["bundle", "exec", "ruby", "distribute.rb", "--app", repo],
+                           cwd=HERE, env=env, capture_output=True, text=True, timeout=1800)
+        print("    " + (d.stdout.strip().splitlines() or ["distribute produced no output"])[-1], flush=True)
 
 ok = [r for r, v in results.items() if v["status"] == "uploaded"]
 bad = [r for r, v in results.items() if v["status"] != "uploaded"]
