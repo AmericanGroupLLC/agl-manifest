@@ -47,7 +47,7 @@ wired.
 | 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `com.americangroupllc.fashionfactory` | Binary published | yes | yes | — | none | **none** | v2.2.0-android | `FashionFactory-app-prod-release.aab`, `FashionFactory-app-prod-release.apk` |
 | 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `com.americangroupllc.gadgetnest` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `GadgetNest-app-release.aab`, `GadgetNest-app-release.apk` |
 | 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `com.americangroupllc.grocerymatch` | Binary published | yes | yes | — | Supabase + Firebase + Google + Apple (optional) | **none** | v2.1.0-android | `GroceryMatch-app-prod-release.aab`, `GroceryMatch-app-prod-release.apk` |
-| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | A `com.americangroupllc.herjourney`<br>i `com.americangroupllc.herJourney` | Binary published | yes | yes | — | Supabase + Google + Apple (no screen) | **none** | v1.2.0-android | `HerJourney-app-prod-release.aab`, `HerJourney-app-prod-release.apk` |
+| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | `com.americangroupllc.herjourney` | Binary published | yes | yes | — | Supabase + Google + Apple (no screen) | **none** | v1.2.0-android | `HerJourney-app-prod-release.aab`, `HerJourney-app-prod-release.apk` |
 | 20 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | `com.americangroupllc.homewise` | Binary published | yes | yes | — | none | iHomeWise | v1.0.0-android | `HomeWise-app-release.aab` |
 | 21 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `com.americangroupllc.imaps` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | iMaps Route | v1.0.2-android | `iMaps-app-prod-release.aab`, `iMaps-app-prod-release.apk` |
 | 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `com.americangroupllc.imeasure` | Binary published | yes | yes | yes | Supabase + Google + Apple | **none** | v5.0.1-android | `iMeasure-app-prod-release.aab`, `iMeasure-app-prod-release.apk` |
@@ -204,7 +204,7 @@ it is a rejected build.
 | 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `com.americangroupllc.fashionfactory` |
 | 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `com.americangroupllc.gadgetnest` |
 | 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | `com.americangroupllc.grocerymatch` |
-| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | `com.americangroupllc.herJourney` |
+| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | `com.americangroupllc.herjourney` |
 | 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `com.americangroupllc.imeasure` |
 | 26 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `com.americangroupllc.myhealth` |
 | 32 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `com.americangroupllc.plantpulse` |
