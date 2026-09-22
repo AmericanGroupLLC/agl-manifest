@@ -694,3 +694,35 @@ set these repository secrets:
 
 Without `PLAY_TESTER_GOOGLE_GROUP` the Play step audits and reports instead of
 changing anything, so the workflow is safe to enable before the group exists.
+
+## MA-019 — An App Store Connect agreement needs accepting (HUMAN ONLY, urgent)
+
+TestFlight beta submission started failing on 2026-09-22 with:
+
+> Beta contract is missing for the app. - Beta Contract is missing.
+
+Measured on DriftDate, MyCard and MyFinance, each of which has a processed build
+and 11 testers. In the same window eight beta reviews flipped to REJECTED
+(AGrammarly, CalcMaster, EventSpark, NexusTransferPay, Photriya, PilotEnRoute,
+Uscis-Case, iMaps) — and AGrammarly, EventSpark and NexusTransferPay were
+rejected on freshly built binaries, so the cause is not the code.
+
+Earlier the same day 17 apps passed beta review normally, so this is a change in
+account state rather than a per-app problem. The usual cause is an updated Apple
+Developer Program License Agreement waiting for the Account Holder
+(srikanth.patchava@outlook.com) in **App Store Connect → Business → Agreements**.
+Until it is accepted, no build reaches a tester and no version can be submitted.
+
+There is no API for this: agreements are not exposed to an API key, and the
+rejection reasons live in Resolution Center, which also is not
+(`v1/reviewRejections` returns "does not exist"; the submission itself reports
+only `betaReviewState: REJECTED`).
+
+After accepting, re-run:
+
+```
+bundle exec ruby scripts/testflight/distribute.rb --all
+```
+
+which resubmits everything that is not already approved. Builds already approved
+(18 apps) keep working throughout.
