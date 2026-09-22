@@ -1,28 +1,29 @@
 {
-  "repo": "MileMaster",
-  "slug": "milemaster",
-  "copy": {
-    "en": {
-      "name": "MileMaster",
-      "short_description": "Record drives by GPS and export an IRS-rated mileage log as PDF or CSV",
-      "subtitle": "GPS mileage log for taxes",
-      "keywords": "mileage,mileage log,gps,trips,odometer,deduction,irs,taxes,rideshare,delivery",
-      "promotional_text": "Records the distance you actually drove, rates it with the IRS figure for that tax year, and exports a PDF and CSV log. No account, nothing uploaded.",
-      "description": "MileMaster records the miles you drive and turns them into a mileage log you can file.\n\nRECORDING A DRIVE\nStart a drive and MileMaster follows your GPS position, adding up the distance between fixes as you go. It throws away readings that are too inaccurate, too small to be real movement, or too fast to be plausible, so the total reflects the road rather than GPS noise. When you stop, you pick what the drive was for and it is saved. Recording runs while the app is open: MileMaster does not track you in the background and does not detect drives by itself.\n\nADDING A TRIP BY HAND\nAny drive can be entered or corrected manually. Type the miles directly, or give a start and end odometer reading and let the app take the difference. Each trip carries a date, a from and to label, a purpose and notes. Trips can be edited or swiped away later.\n\nDEDUCTIONS\nBusiness, medical and charity miles are rated with the IRS figures published for the tax year each trip falls in, and the app names the notice each rate came from. Personal miles are logged but not counted. You can override any year's rates and reset them again. This build ships the published rates for 2023, 2024 and 2025; for a later year it applies the most recent rate it has and tells you on screen that it is doing so. MileMaster is a record-keeping tool and not tax advice.\n\nYOUR LOG\nThe dashboard totals your miles and deduction for the month, the year, or all time. Stats breaks the last week into a bar chart and splits your miles by purpose. Export hands a PDF report and a CSV of the same trips to the share sheet.\n\nPRIVACY\nTrips are stored in a database on this device and are never uploaded. There is no account, no sign-in and no server. The start and end address labels come from the operating system's own geocoder, and where that is unavailable the trip simply keeps its coordinates. There are no ads and nothing to buy."
-    }
-  },
-  "primary_category": "BUSINESS",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
-  "review_information": {
-    "notes": "No account, no sign-in and no third-party login. MileMaster opens straight onto the dashboard and all three tabs (Dashboard, Trips, Stats) are available immediately.\n\nLocation: at launch the app asks for location once and uses a single fix to fill the address line under the header. It reverse-geocodes through api.milemaster.americangroupllc.com and prints the raw coordinates instead if that request fails. On a simulator with no location set the header simply keeps its \"Locating via GPS Gateway...\" placeholder, which is the expected result rather than a hang. Denying the permission leaves everything else working. There is no background location use and no route recording, so nothing keeps running once the app is closed.\n\nPlease know what is bundled in this build: the four trips shown on Dashboard and Trips, the mile totals, the weekly bar chart and the deduction figure (miles at the 0.67 per-mile rate) are sample values compiled into the app, not drives recorded on the review device. \"Start Drive\" turns on the LIVE chip in the header; \"Stop Drive\" adds a fixed 5.2 miles to the totals, posts a summary to the same API and shows a confirmation dialog.\n\nThe two-letter button at the top right opens the language picker. No advertising SDK and no in-app purchase."
-  },
-  "_was_blocked_resolved": {
-    "resolved": "2026-09-15",
-    "note": "Real GPS trip recording, local persistence, year-labelled IRS rates and real PDF/CSV export replaced the literal trips on 2026-09-15. Recording is foreground-only.",
-    "previous": {
-      "no_copy_drafted": "No listing copy can be written. Trips are hard-coded.",
-      "evidence": "lib/main.dart:121-125 _recentTrips is a literal list ('Office HQ' -> 'Client Site A', 12.4 mi, 'Today, 9:15 AM'). The dashboard total, the tax-deduction figure (_totalMiles * 0.67) and the weekly chart are all computed from it. Geolocator is called once for a current position (main.dart:144-149) and no trip is ever recorded from it. The `pdf` dependency is declared but nothing in main.dart references it, so there is no export.",
-      "to_unblock": "Implement trip recording and persistence before writing a mileage-tracker listing. Shipping this as an IRS-deduction tool on top of four invented trips is the worst risk in the portfolio."
-    }
+ "repo": "MileMaster",
+ "slug": "milemaster",
+ "copy": {
+  "en": {
+   "name": "iMileMaster",
+   "short_description": "Record drives by GPS and export an IRS-rated mileage log as PDF or CSV",
+   "subtitle": "GPS mileage log for taxes",
+   "keywords": "mileage,mileage log,gps,trips,odometer,deduction,irs,taxes,rideshare,delivery",
+   "promotional_text": "Records the distance you actually drove, rates it with the IRS figure for that tax year, and exports a PDF and CSV log. No account, nothing uploaded.",
+   "description": "MileMaster records the miles you drive and turns them into a mileage log you can file.\n\nRECORDING A DRIVE\nStart a drive and MileMaster follows your GPS position, adding up the distance between fixes as you go. It throws away readings that are too inaccurate, too small to be real movement, or too fast to be plausible, so the total reflects the road rather than GPS noise. When you stop, you pick what the drive was for and it is saved. Recording runs while the app is open: MileMaster does not track you in the background and does not detect drives by itself.\n\nADDING A TRIP BY HAND\nAny drive can be entered or corrected manually. Type the miles directly, or give a start and end odometer reading and let the app take the difference. Each trip carries a date, a from and to label, a purpose and notes. Trips can be edited or swiped away later.\n\nDEDUCTIONS\nBusiness, medical and charity miles are rated with the IRS figures published for the tax year each trip falls in, and the app names the notice each rate came from. Personal miles are logged but not counted. You can override any year's rates and reset them again. This build ships the published rates for 2023, 2024 and 2025; for a later year it applies the most recent rate it has and tells you on screen that it is doing so. MileMaster is a record-keeping tool and not tax advice.\n\nYOUR LOG\nThe dashboard totals your miles and deduction for the month, the year, or all time. Stats breaks the last week into a bar chart and splits your miles by purpose. Export hands a PDF report and a CSV of the same trips to the share sheet.\n\nPRIVACY\nTrips are stored in a database on this device and are never uploaded. There is no account, no sign-in and no server. The start and end address labels come from the operating system's own geocoder, and where that is unavailable the trip simply keeps its coordinates. There are no ads and nothing to buy.",
+   "title": "MileMaster"
   }
+ },
+ "primary_category": "BUSINESS",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "review_information": {
+  "notes": "No account, no sign-in and no third-party login. MileMaster opens straight onto the dashboard and all three tabs (Dashboard, Trips, Stats) are available immediately.\n\nLocation: at launch the app asks for location once and uses a single fix to fill the address line under the header. It reverse-geocodes through api.milemaster.americangroupllc.com and prints the raw coordinates instead if that request fails. On a simulator with no location set the header simply keeps its \"Locating via GPS Gateway...\" placeholder, which is the expected result rather than a hang. Denying the permission leaves everything else working. There is no background location use and no route recording, so nothing keeps running once the app is closed.\n\nPlease know what is bundled in this build: the four trips shown on Dashboard and Trips, the mile totals, the weekly bar chart and the deduction figure (miles at the 0.67 per-mile rate) are sample values compiled into the app, not drives recorded on the review device. \"Start Drive\" turns on the LIVE chip in the header; \"Stop Drive\" adds a fixed 5.2 miles to the totals, posts a summary to the same API and shows a confirmation dialog.\n\nThe two-letter button at the top right opens the language picker. No advertising SDK and no in-app purchase."
+ },
+ "_was_blocked_resolved": {
+  "resolved": "2026-09-15",
+  "note": "Real GPS trip recording, local persistence, year-labelled IRS rates and real PDF/CSV export replaced the literal trips on 2026-09-15. Recording is foreground-only.",
+  "previous": {
+   "no_copy_drafted": "No listing copy can be written. Trips are hard-coded.",
+   "evidence": "lib/main.dart:121-125 _recentTrips is a literal list ('Office HQ' -> 'Client Site A', 12.4 mi, 'Today, 9:15 AM'). The dashboard total, the tax-deduction figure (_totalMiles * 0.67) and the weekly chart are all computed from it. Geolocator is called once for a current position (main.dart:144-149) and no trip is ever recorded from it. The `pdf` dependency is declared but nothing in main.dart references it, so there is no export.",
+   "to_unblock": "Implement trip recording and persistence before writing a mileage-tracker listing. Shipping this as an IRS-deduction tool on top of four invented trips is the worst risk in the portfolio."
+  }
+ }
 }

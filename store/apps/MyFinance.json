@@ -1,28 +1,29 @@
 {
-  "repo": "MyFinance",
-  "slug": "myfinance",
-  "copy": {
-    "en": {
-      "name": "MyFinance",
-      "short_description": "Private offline ledger for spending, budgets and subscriptions. No bank login.",
-      "subtitle": "Offline budget and ledger",
-      "keywords": "budget,expenses,spending,ledger,money,subscriptions,bills,finance,offline,csv",
-      "promotional_text": "A first run is empty, because every figure comes from what you enter. No bank connection, no account, and nothing leaves your phone.",
-      "description": "MyFinance is a private ledger for money you enter yourself, kept in a database on your phone.\n\nA FIRST RUN IS EMPTY\nThere is no demo balance waiting for you. The app opens with nothing in it, and every figure you see afterwards is calculated from rows you added. If you would rather look around first, More options has Load sample data, which adds a clearly marked, made-up ledger that you can remove again in one tap without touching anything you entered yourself.\n\nTRANSACTIONS\nRecord income and spending with a description, an amount, a category, a date and an optional note. Tap any row to edit or delete it. The home screen totals income, expenses and the net for the current month, and your balance is the sum of your opening balance and every transaction on file.\n\nBUDGETS\nSet a monthly limit for a category. Each budget shows what you have spent against it so far this month with a progress bar, and marks the ones you have gone over.\n\nSUBSCRIPTIONS\nRecord recurring charges as weekly, monthly or yearly. MyFinance converts them to a common monthly figure so the total is comparable, and rolls each next charge date forward as it passes. The home screen lists what is due in the next thirty days.\n\nEXPORT\nYour transactions can be written to a CSV file and handed to the share sheet, so the data stays yours.\n\nWHAT IT DOES NOT DO\nMyFinance does not connect to a bank. There is no sync, no import and no account, nothing is uploaded, and the app works with no network connection at all. It also has no passcode or biometric lock, so anyone who can unlock your phone can open your ledger. There are no ads and nothing to buy. The interface is in English."
-    }
-  },
-  "primary_category": "FINANCE",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
-  "review_information": {
-    "notes": "No account, no sign-in, no permission prompts and no network calls. MyFinance can be reviewed in airplane mode.\n\nEverything visible on first launch is demo data bundled in the binary: the 18,432.75 headline balance, ten transactions such as \"Salary Deposit\" and \"Whole Foods Market\", six subscriptions and the monthly budget list are constants. There is no bank connection, sync or import in this version, so nothing on screen is waiting on a server or failing to load.\n\nThe interactive part is the add button, which opens \"Add Transaction\": type a description and an amount, using a negative number for spending, and it is inserted at the top of the Transactions list while the income and expense totals recalculate (the headline balance is a fixed demo figure and does not move). Transactions added this way are held in memory for the session only and are gone after a relaunch, because this build has no storage layer.\n\nThe four tabs are Home, Transactions, Budgets and Subscriptions, and all four work with no setup. No ads, no in-app purchase, and no account deletion flow because there is no account."
-  },
-  "_was_blocked_resolved": {
-    "resolved": "2026-09-15",
-    "note": "demo_data.dart deleted and replaced with a real SQLite ledger (accounts, transactions, subscriptions, budgets) on 2026-09-15; every on-screen figure is computed from rows the user entered. A first run is genuinely empty; sample data is an explicit, clearly labelled, one-tap-removable option. Verified: analyzer clean, 118 tests pass.",
-    "previous": {
-      "no_copy_drafted": "No listing copy can be written. Every figure is demo data.",
-      "evidence": "lib/domain/demo_data.dart is documented as 'Static demo data, extracted verbatim from the RN App.tsx'. Transactions, subscriptions and budgets are all constants. pubspec has no http, no bank aggregator, and no local database — there is nowhere for a real transaction to come from or be saved to.",
-      "to_unblock": "Add real entry and persistence (at minimum manual entry with storage) before any finance listing. A personal-finance app showing another person's invented spending is not shippable."
-    }
+ "repo": "MyFinance",
+ "slug": "myfinance",
+ "copy": {
+  "en": {
+   "name": "iMyFinance",
+   "short_description": "Private offline ledger for spending, budgets and subscriptions. No bank login.",
+   "subtitle": "Offline budget and ledger",
+   "keywords": "budget,expenses,spending,ledger,money,subscriptions,bills,finance,offline,csv",
+   "promotional_text": "A first run is empty, because every figure comes from what you enter. No bank connection, no account, and nothing leaves your phone.",
+   "description": "MyFinance is a private ledger for money you enter yourself, kept in a database on your phone.\n\nA FIRST RUN IS EMPTY\nThere is no demo balance waiting for you. The app opens with nothing in it, and every figure you see afterwards is calculated from rows you added. If you would rather look around first, More options has Load sample data, which adds a clearly marked, made-up ledger that you can remove again in one tap without touching anything you entered yourself.\n\nTRANSACTIONS\nRecord income and spending with a description, an amount, a category, a date and an optional note. Tap any row to edit or delete it. The home screen totals income, expenses and the net for the current month, and your balance is the sum of your opening balance and every transaction on file.\n\nBUDGETS\nSet a monthly limit for a category. Each budget shows what you have spent against it so far this month with a progress bar, and marks the ones you have gone over.\n\nSUBSCRIPTIONS\nRecord recurring charges as weekly, monthly or yearly. MyFinance converts them to a common monthly figure so the total is comparable, and rolls each next charge date forward as it passes. The home screen lists what is due in the next thirty days.\n\nEXPORT\nYour transactions can be written to a CSV file and handed to the share sheet, so the data stays yours.\n\nWHAT IT DOES NOT DO\nMyFinance does not connect to a bank. There is no sync, no import and no account, nothing is uploaded, and the app works with no network connection at all. It also has no passcode or biometric lock, so anyone who can unlock your phone can open your ledger. There are no ads and nothing to buy. The interface is in English.",
+   "title": "MyFinance"
   }
+ },
+ "primary_category": "FINANCE",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "review_information": {
+  "notes": "No account, no sign-in, no permission prompts and no network calls. MyFinance can be reviewed in airplane mode.\n\nEverything visible on first launch is demo data bundled in the binary: the 18,432.75 headline balance, ten transactions such as \"Salary Deposit\" and \"Whole Foods Market\", six subscriptions and the monthly budget list are constants. There is no bank connection, sync or import in this version, so nothing on screen is waiting on a server or failing to load.\n\nThe interactive part is the add button, which opens \"Add Transaction\": type a description and an amount, using a negative number for spending, and it is inserted at the top of the Transactions list while the income and expense totals recalculate (the headline balance is a fixed demo figure and does not move). Transactions added this way are held in memory for the session only and are gone after a relaunch, because this build has no storage layer.\n\nThe four tabs are Home, Transactions, Budgets and Subscriptions, and all four work with no setup. No ads, no in-app purchase, and no account deletion flow because there is no account."
+ },
+ "_was_blocked_resolved": {
+  "resolved": "2026-09-15",
+  "note": "demo_data.dart deleted and replaced with a real SQLite ledger (accounts, transactions, subscriptions, budgets) on 2026-09-15; every on-screen figure is computed from rows the user entered. A first run is genuinely empty; sample data is an explicit, clearly labelled, one-tap-removable option. Verified: analyzer clean, 118 tests pass.",
+  "previous": {
+   "no_copy_drafted": "No listing copy can be written. Every figure is demo data.",
+   "evidence": "lib/domain/demo_data.dart is documented as 'Static demo data, extracted verbatim from the RN App.tsx'. Transactions, subscriptions and budgets are all constants. pubspec has no http, no bank aggregator, and no local database — there is nowhere for a real transaction to come from or be saved to.",
+   "to_unblock": "Add real entry and persistence (at minimum manual entry with storage) before any finance listing. A personal-finance app showing another person's invented spending is not shippable."
+  }
+ }
 }
