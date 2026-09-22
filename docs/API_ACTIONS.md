@@ -1,0 +1,126 @@
+# Every API action lives here
+
+**Rule: `agl-manifest` owns every action that talks to an external API.** If a
+task needs App Store Connect, Google Play, Firebase, AdMob or GitHub, the script
+belongs in `agl-manifest/scripts/` — committed, reviewed, and listed below.
+
+Nothing ad-hoc. Scripts were previously scattered in an untracked
+`~/agl/.sweep/` directory: 27 of them, including the only working iOS IPA
+builder. None was version-controlled, none was discoverable, and several
+silently duplicated a script that already existed here. That is what this rule
+exists to prevent.
+
+## Where things go
+
+| | |
+| --- | --- |
+| Scripts | `agl-manifest/scripts/` — the only home |
+| Run artifacts (logs, evidence JSON, built binaries) | `~/agl/.dist/` |
+| Measured outputs that are committed | `agl-manifest/docs/` |
+| Credentials | `~/agl/.secrets/` — **never** committed, see MA-001 |
+
+A script writes evidence to `~/agl/.dist/`; a script that produces a *measured
+fact about the portfolio* writes it to `docs/` and that file is committed. Never
+hand-edit the second kind — change the script and re-run it, or the file starts
+lying.
+
+## App Store Connect
+
+Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
+`source scripts/testflight/env.sh`.
+
+| Script | What it does |
+| --- | --- |
+| `sync_testflight_testers.rb` | Mirrors Users and Access into every app's **internal** beta group, creating the group when absent with auto-distribute on |
+| `asc_build_state.rb` | Asks Apple which apps really have a usable build; regenerates the evidence the checklist reads |
+| `appstore_records.rb` | Reports the app records that exist |
+| `testflight/run_batch.py` | Builds and uploads to TestFlight |
+| `testflight/build_only.py` | Builds a signed IPA via the fastlane lane, no upload |
+| `testflight/distribute.rb` | Fills the **external** group and submits for Beta App Review |
+| `testflight/list_builds.rb` | What Apple holds for one bundle id |
+| `testflight/check_build.rb`, `records_present.rb` | Polling helpers |
+| `testflight/enable_capabilities.rb` | Turns on app capabilities |
+| `testflight/submit_production.rb` | Submits for App Store review |
+| `build_ipa.py` | **The IPA builder.** Archives *unsigned* and signs on export — a CLI signing setting applies to every target including CocoaPods, which reject provisioning profiles. Unlike the fastlane lane it does not rewrite each app's pbxproj, so it leaves no churn in the app repos |
+| `verify_ipa_signing.py` | Proves every shipped IPA is `Apple Distribution`, `get-task-allow=false`, correct bundle id, signature valid |
+
+**What the API cannot do**, each proven rather than assumed — see MA-008:
+creating an app record (`apps` refuses `CREATE`), and `produce` needs an Apple ID
+password rather than the API key.
+
+## Google Play
+
+Auth: `~/.secrets/play-publisher-agl.json`, or impersonation of
+`american-group-publisher@american-group-llc.iam.gserviceaccount.com`.
+
+| Script | What it does |
+| --- | --- |
+| `play_upload.py` | Uploads a signed bundle to the internal track. `--status completed` hands it to testers; the default is a draft |
+| `play_internal_share.py` | **Internal app sharing.** Uploads a bundle and returns an install link for the existing Play Console users — no tester list and no Google Group |
+| `play_state.py` | Asks Play what is actually there per package. Ground truth; the local evidence file is not |
+| `play_release.py` | Promotes a draft internal release |
+| `play_listing.py` | Pushes listing metadata |
+| `sync_play_testers.py` | Attaches a Google Group to the internal track |
+
+**What the API cannot do.** Google's own discovery document settles it — the
+`Testers` schema has exactly one property:
+
+```json
+"Testers": { "googleGroups": { "items": {"type": "string"}, "type": "array" } }
+```
+
+There is **no way to add a tester by email address**. `testers.update` takes
+Google Groups only. Internal app sharing is the route that avoids groups, but it
+requires the app to exist on Play and to have been published at least once —
+otherwise `404 Package not found` or `400 UploadException: NOT_PUBLISHED`.
+
+`users.list` does work for Play Console *account* users, and needs `pageSize=-1`;
+any other value returns "Pagination is not currently available."
+
+## Firebase · AdMob · GitHub
+
+| Script | What it does |
+| --- | --- |
+| `firebase_register.py` | Registers each app and writes its real config files. Needs the `x-goog-user-project` header with ADC |
+| `status.py` | Repository state via the GitHub API; needs `GH_TOKEN` |
+
+AdMob has no script yet: the API returns 401 without
+`gcloud auth application-default login --scopes=...admob.readonly`. See MA-015.
+
+## Measuring and verifying
+
+| Script | What it answers |
+| --- | --- |
+| `store_checklist.py` | Per-app readiness; the headline number |
+| `artifact_staleness.py` | Which artifacts predate a commit that could change them. Android and iOS inputs are kept separate — conflating them reported eight bundles as stale when only `ios/Podfile.lock` had changed |
+| `verify_store_urls.py` | Whether each store URL is real. **Do not trust HTTP 200** — this host serves its homepage for any unknown path, so the body is compared against a known-nonexistent path |
+| `verify_deletion_urls.py` | Whether every app has a working account-deletion page (Play Data safety) |
+| `audit_release_readiness.py` | 63 measured fields per app |
+| `audit_i18n.py` | Translation coverage |
+
+## Assets
+
+| Script | What it does |
+| --- | --- |
+| `generate_app_icons.py` | App icons from a Material Icons glyph over a per-app gradient. Parses codepoints straight out of the Flutter SDK |
+| `rebuild_android_icons.py` | Rebuilds Android icons from an app's own iOS artwork — adaptive foreground inset into the safe zone, genuinely round round-icons |
+| `fix_launch_images.py` | Replaces the template 1×1 launch image; removes junk icon files |
+| `feature_graphics.py` | The 1024×500 Play feature graphic |
+| `policy_pages.py` | Generates the per-app policy site, including the deletion page every app needs |
+
+## Build infrastructure
+
+| Script | What it does |
+| --- | --- |
+| `build_release.py` | Signed Android bundles. Handles this machine's IPv4/proxy JVM requirements — see CLAUDE.md |
+| `ios_build_janitor.sh` | Reclaims disk during a long iOS sweep. Takes the build log as its argument. Never touches the app currently building, and never deletes `*.noindex` from DerivedData — those are shared Xcode caches, and removing them mid-sweep fails the build |
+
+## Adding a new API action
+
+1. Put the script in `agl-manifest/scripts/`.
+2. Check this table first — if something already does it, extend that script
+   rather than writing a second one. `upload_play.py` was retired for being an
+   unreferenced duplicate of `play_upload.py`.
+3. Support `--dry-run` where the action mutates anything.
+4. Write evidence to `~/agl/.dist/`, not next to the script.
+5. Add a row here.

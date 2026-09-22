@@ -22,6 +22,7 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 
 | Question | File |
 | --- | --- |
+| **How do I do anything that calls an API?** | **`docs/API_ACTIONS.md`** — every script, and what the APIs refuse |
 | What is the state of every app? | `STATUS.md` / `status.csv` (generated) |
 | Which apps have a signed binary, and is it really signed? | `docs/build-evidence.json` (generated) |
 | What must a human do that I cannot? | `docs/MANUAL_ACTIONS.md` |
@@ -79,6 +80,15 @@ None of this belongs in an app repository — it is true of this machine, not of
 the app.
 
 ## Rules that have already cost something
+
+- **Every action that talks to an external API belongs in `agl-manifest/scripts/`.**
+  App Store Connect, Google Play, Firebase, AdMob, GitHub — all of it, committed
+  and listed in `docs/API_ACTIONS.md`. Scripts once accumulated in an untracked
+  `~/agl/.sweep/`: 27 of them, including the only working iOS IPA builder, none
+  version-controlled and several duplicating something that already existed here.
+  Run artifacts go to `~/agl/.dist/`; measured facts go to `docs/` and are
+  committed. Before writing a new one, read `docs/API_ACTIONS.md` — extend the
+  existing script rather than adding a second.
 
 - **Never commit credentials.** `SFG-AGL-MobileApp_Devlopment-Tools.xlsx`,
   `*.p8`, keystores and `keystores.json` are gitignored and must stay that way.
