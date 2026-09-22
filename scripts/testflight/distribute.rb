@@ -33,6 +33,7 @@ SLUGS = { "TripNest" => "TripNest", "AGrammarly" => "agrammarly", "BodyQuest" =>
 def policy_url(repo) = "https://www.safecodeg.com/policy/#{SLUGS.fetch(repo, repo.downcase)}/"
 
 REPORT = ARGV.include?("--report")
+STATE  = ARGV.include?("--state")
 ALL    = ARGV.include?("--all")
 SUBMIT = !ARGV.include?("--no-submit")
 ONLY   = ARGV.each_cons(2).find { |a, _| a == "--app" }&.last
@@ -101,6 +102,8 @@ def ensure_metadata(app, build, repo)
 end
 
 summary = Hash.new { |h, k| h[k] = [] }
+state_out = {}
+STATE_FILE = "/Users/spatchava/agl/.dist/testflight-state.json"
 
 apps.each do |a|
   repo = a["repo"]
@@ -111,6 +114,17 @@ apps.each do |a|
   (say(repo, "no build uploaded"); summary[:no_build] << repo; next) if build.nil?
 
   groups = app.get_beta_groups
+  if STATE
+    g = groups.find { |x| x.name == GROUP }
+    n = g ? Spaceship::ConnectAPI::BetaTester.all(filter: { betaGroups: g.id }).size : 0
+    attached = g ? (Spaceship::ConnectAPI.get_builds(filter: { "betaGroups" => g.id }, includes: "app", limit: 10)
+                      .to_models.map(&:id).include?(build.id) rescue false) : false
+    sub = Spaceship::ConnectAPI.get_beta_app_review_submissions(filter: { build: build.id }).to_models.first rescue nil
+    state_out[repo] = { "testers" => n, "attached" => attached,
+                        "review" => sub&.beta_review_state || "NONE", "build" => build.version }
+    say(repo, "testers=#{n} attached=#{attached} review=#{state_out[repo]['review']}")
+    next
+  end
   if REPORT
     say(repo, "build #{build.version} | groups: #{groups.map { |g| "#{g.name}#{g.is_internal_group ? '(int)' : '(ext)'}" }.join(', ')}")
     next
@@ -165,7 +179,10 @@ apps.each do |a|
   end
 end
 
-unless REPORT
+if STATE
+  File.write(STATE_FILE, JSON.pretty_generate(state_out))
+  puts "\nwrote #{STATE_FILE} (#{state_out.size} apps)"
+elsif !REPORT
   puts "\n--- summary ---"
   summary.each { |k, v| puts "#{k}: #{v.size} #{v.join(', ')}" }
 end
