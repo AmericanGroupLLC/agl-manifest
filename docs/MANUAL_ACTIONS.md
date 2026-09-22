@@ -632,3 +632,38 @@ promotes every later release.
 
 Results: `~/agl/.dist/appstore-submit-results.json` and
 `~/agl/.dist/play-production-results.json`.
+
+## MA-018 — Tester synchronisation is automated; two inputs are still needed
+
+`.github/workflows/sync-testers.yml` keeps every tester list in step with App
+Store Connect's Users and Access. It runs every six hours, on demand, and after
+a delivery. The roster is `GET /v1/users` plus anyone already recorded as a beta
+tester; `scripts/testflight/distribute.rb --sync` writes it into each app's
+TestFlight group and `scripts/sync_play_testers.py` mirrors it onto Play. Both
+are idempotent. Verified 2026-09-22: the roster is 11 addresses and all 29 apps
+carry all 11.
+
+Two platform limits shape this, both measured rather than assumed:
+
+* **TestFlight internal groups cannot be filled through the API.** Apple answers
+  "Tester(s) cannot be assigned" even for the account holder, so the roster goes
+  into an external group named **AGL Testers**. The cost is that Apple reviews
+  each build before testers receive it; there is no auto-distribute for external
+  groups. Internal-group membership, and with it instant distribution, is an App
+  Store Connect action.
+* **Play's internal track accepts Google Groups only.** `GET /edits/{id}/testers/internal`
+  returns `{}` for all 21 apps and the resource takes a `googleGroups` array, not
+  addresses.
+
+To finish the Android half, create one Google Group containing the roster and
+set these repository secrets:
+
+| Secret | What it is |
+| --- | --- |
+| `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_CONTENT` | the App Store Connect key, base64 |
+| `PLAY_SERVICE_ACCOUNT_JSON` | key for `american-group-publisher@american-group-llc.iam.gserviceaccount.com` |
+| `PLAY_TESTER_GOOGLE_GROUP` | the group's address, e.g. `agl-testers@…` |
+| `PLAY_DEVELOPER_ID` | the number in the Play Console URL, for the account-user comparison |
+
+Without `PLAY_TESTER_GOOGLE_GROUP` the Play step audits and reports instead of
+changing anything, so the workflow is safe to enable before the group exists.

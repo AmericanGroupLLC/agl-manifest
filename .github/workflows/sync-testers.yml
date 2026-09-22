@@ -1,0 +1,93 @@
+name: Sync testers
+
+# Keeps every tester list in step with App Store Connect's Users and Access.
+#
+# The roster is GET /v1/users plus anyone already recorded as a beta tester.
+# distribute.rb --sync puts that roster in each app's TestFlight group;
+# sync_play_testers.py mirrors it onto Play's internal track. Both are
+# idempotent, so a run that changes nothing reports nothing.
+#
+# It runs on a schedule (Apple sends no webhook when a user is added), on
+# demand, and after a delivery, so a build lands in front of everyone without
+# anyone touching a console.
+#
+# Two notes on what the platforms allow, both measured rather than assumed:
+#   * TestFlight *internal* groups cannot be filled through the API — Apple
+#     answers "Tester(s) cannot be assigned" — so the roster goes into an
+#     external group and Apple reviews each build before testers receive it.
+#   * Play's internal track takes Google Groups only, so PLAY_TESTER_GOOGLE_GROUP
+#     must name a group holding the roster. Without it the Play step audits and
+#     reports instead of changing anything.
+
+on:
+  schedule:
+    - cron: '0 */6 * * *'
+  workflow_dispatch:
+  workflow_run:
+    workflows: [Deliver]
+    types: [completed]
+
+concurrency:
+  group: sync-testers
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      AGL_ROOT: ${{ github.workspace }}/.agl
+      ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+      ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+      ASC_KEY_PATH: ${{ github.workspace }}/.secrets/AuthKey.p8
+      BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
+      PLAY_TESTER_GOOGLE_GROUP: ${{ secrets.PLAY_TESTER_GOOGLE_GROUP }}
+      PLAY_DEVELOPER_ID: ${{ secrets.PLAY_DEVELOPER_ID }}
+      # The secrets context is not available in a step's `if`, so decide once here.
+      HAS_PLAY: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON != '' && 'yes' || 'no' }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+
+      - name: Write the App Store Connect key
+        run: |
+          mkdir -p "$(dirname "$ASC_KEY_PATH")" "$AGL_ROOT/.dist"
+          printf '%s' "${{ secrets.ASC_KEY_CONTENT }}" | base64 --decode > "$ASC_KEY_PATH"
+          test -s "$ASC_KEY_PATH"
+
+      - name: Sync App Store Connect users into every TestFlight group
+        run: bundle exec ruby scripts/testflight/distribute.rb --sync
+        working-directory: ${{ github.workspace }}
+
+      - name: Authenticate to Google Play
+        if: env.HAS_PLAY == 'yes'
+        uses: google-github-actions/auth@v2
+        with:
+          credentials_json: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+
+      - name: Set up gcloud
+        if: env.HAS_PLAY == 'yes'
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Mirror the roster onto Play's internal track
+        if: env.HAS_PLAY == 'yes'
+        env:
+          # gcloud is already signed in as the service account here, so the
+          # script must not try to impersonate anything.
+          PLAY_IMPERSONATE: 'no'
+          GCLOUD: gcloud
+        run: python3 scripts/sync_play_testers.py
+
+      - name: Publish the roster and the result files
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tester-sync
+          path: |
+            ${{ env.AGL_ROOT }}/.dist/tester-roster.json
+            ${{ env.AGL_ROOT }}/.dist/play-testers-results.json
+          if-no-files-found: ignore

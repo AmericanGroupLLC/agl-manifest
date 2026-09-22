@@ -15,8 +15,9 @@
 #   bundle exec ruby distribute.rb --all --no-submit # stop before Beta App Review
 require "json"
 require "spaceship"
+require "fileutils"
 
-ROOT      = "/Users/spatchava/agl"
+ROOT      = ENV.fetch("AGL_ROOT", File.expand_path("../../..", __dir__))
 GROUP     = "AGL Testers"
 # The review contact already recorded on this account (Kinnav's betaAppReviewDetail).
 # Apple rejects invented phone numbers, and this is the number the team already gave.
@@ -34,6 +35,7 @@ def policy_url(repo) = "https://www.safecodeg.com/policy/#{SLUGS.fetch(repo, rep
 
 REPORT = ARGV.include?("--report")
 STATE  = ARGV.include?("--state")
+SYNC   = ARGV.include?("--sync")   # membership only: no metadata, no review submission
 ALL    = ARGV.include?("--all")
 SUBMIT = !ARGV.include?("--no-submit")
 ONLY   = ARGV.each_cons(2).find { |a, _| a == "--app" }&.last
@@ -43,18 +45,30 @@ Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
 
 apps    = JSON.parse(File.read("#{ROOT}/agl-manifest/apps.json"))["apps"]
 results = JSON.parse(File.read("#{ROOT}/.dist/ios-batch/results.json")) rescue {}
+HAVE_RESULTS = !results.empty?
 apps    = apps.select { |a| a["repo"] == ONLY } if ONLY
-apps    = apps.select { |a| results.dig(a["repo"], "status") == "uploaded" } unless ONLY
+apps    = apps.select { |a| results.dig(a["repo"], "status") == "uploaded" } if !ONLY && HAVE_RESULTS
 
-# Real names come from the BetaTester records Apple already holds; inventing a
-# name would show the wrong person in everyone's TestFlight.
+# Who should receive builds: everyone in App Store Connect's Users and Access
+# (GET /v1/users), plus anyone already recorded as a beta tester. Names come
+# from Apple rather than being invented, so nobody shows up misnamed.
 roster = {}
+begin
+  Spaceship::ConnectAPI::User.all.each do |u|
+    next if u.username.to_s.empty?
+    roster[u.username.downcase] = { email: u.username, firstName: u.first_name.to_s, lastName: u.last_name.to_s }
+  end
+rescue StandardError => e
+  warn "could not read account users: #{e.message.lines.first}"
+end
 Spaceship::ConnectAPI::BetaTester.all.each do |t|
   next if t.email.to_s.empty?
   roster[t.email.downcase] ||= { email: t.email, firstName: t.first_name.to_s, lastName: t.last_name.to_s }
 end
 TEAM = roster.values.freeze
-abort "no beta testers found in this account" if TEAM.empty?
+abort "no testers and no account users found" if TEAM.empty?
+FileUtils.mkdir_p(File.join(ROOT, ".dist"))
+File.write(File.join(ROOT, ".dist/tester-roster.json"), JSON.pretty_generate(TEAM))
 
 def say(repo, msg) = puts(format("%-18s %s", repo, msg))
 
@@ -103,7 +117,7 @@ end
 
 summary = Hash.new { |h, k| h[k] = [] }
 state_out = {}
-STATE_FILE = "/Users/spatchava/agl/.dist/testflight-state.json"
+STATE_FILE = File.join(ROOT, ".dist/testflight-state.json")
 
 apps.each do |a|
   repo = a["repo"]
@@ -114,6 +128,14 @@ apps.each do |a|
   (say(repo, "no build uploaded"); summary[:no_build] << repo; next) if build.nil?
 
   groups = app.get_beta_groups
+  if SYNC
+    g = ensure_group(app)
+    before = Spaceship::ConnectAPI::BetaTester.all(filter: { betaGroups: g.id }).size
+    n = add_testers(g)
+    state_out[repo] = { "testers" => n, "added" => n - before }
+    say(repo, "#{n}/#{TEAM.size} testers in #{GROUP}#{n > before ? " (+#{n - before})" : ''}")
+    next
+  end
   if STATE
     g = groups.find { |x| x.name == GROUP }
     n = g ? Spaceship::ConnectAPI::BetaTester.all(filter: { betaGroups: g.id }).size : 0
@@ -179,9 +201,14 @@ apps.each do |a|
   end
 end
 
-if STATE
-  File.write(STATE_FILE, JSON.pretty_generate(state_out))
-  puts "\nwrote #{STATE_FILE} (#{state_out.size} apps)"
+if STATE || SYNC
+  if STATE
+    File.write(STATE_FILE, JSON.pretty_generate(state_out))
+    puts "\nwrote #{STATE_FILE} (#{state_out.size} apps)"
+  else
+    added = state_out.values.sum { |v| v["added"].to_i }
+    puts "\nsynced #{state_out.size} app(s); #{added} tester assignment(s) added"
+  end
 elsif !REPORT
   puts "\n--- summary ---"
   summary.each { |k, v| puts "#{k}: #{v.size} #{v.join(', ')}" }
