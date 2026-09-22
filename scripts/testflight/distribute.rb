@@ -22,6 +22,7 @@
 #   bundle exec ruby distribute.rb --all --no-submit # stop before Beta App Review
 require "json"
 require "spaceship"
+require "shellwords"
 require "fileutils"
 
 # ROOT is where the scratch artefacts live (.dist); MANIFEST is this repository.
@@ -94,29 +95,13 @@ def ensure_group(app)
   Spaceship::ConnectAPI.create_beta_group(app_id: app.id, group_name: GROUP, is_internal_group: false).to_models.first
 end
 
-def ensure_internal_group(app)
-  g = app.get_beta_groups.find { |x| x.name == INTERNAL }
-  return g if g
-  body = { data: { type: "betaGroups",
-    attributes: { name: INTERNAL, isInternalGroup: true, hasAccessToAllBuilds: true },
-    relationships: { app: { data: { type: "apps", id: app.id } } } } }
-  Spaceship::ConnectAPI.test_flight_request_client.post("v1/betaGroups", body).to_models.first
-end
-
-# Account users go in the internal group; Apple only accepts Users and Access
-# members there, so everyone else stays external.
-def sync_internal(app)
-  g = ensure_internal_group(app)
-  have = Spaceship::ConnectAPI::BetaTester.all(filter: { betaGroups: g.id }).map { |t| t.email.to_s.downcase }
-  added = 0
-  ACCOUNT_USERS.each do |u|
-    next if have.include?(u[:email].downcase)
-    Spaceship::ConnectAPI.post_beta_tester_assignment(beta_group_ids: [g.id], attributes: u)
-    added += 1
-  rescue StandardError => e
-    warn "    internal #{u[:email]}: #{e.message.gsub(/\s+/, ' ')[0, 120]}"
-  end
-  [g, have.size + added, added]
+# The internal group has one owner, scripts/sync_testflight_testers.rb, so the
+# logic is not written twice. Shipping one app still needs it done immediately,
+# hence the shell-out rather than a second implementation.
+def sync_internal(repo)
+  out = `cd #{MANIFEST.shellescape} && bundle exec ruby scripts/sync_testflight_testers.rb --app #{repo.shellescape} 2>&1`
+  n = out[/(\d+)\s+tester/, 1]
+  [n ? n.to_i : nil, $?.success?]
 end
 
 def add_testers(group)
@@ -170,12 +155,13 @@ apps.each do |a|
 
   groups = app.get_beta_groups
   if SYNC
-    ig, inside, added_int = sync_internal(app)
+    # --sync is the scheduled job; the workflow runs the internal sync in its own
+    # step, so do not repeat it here.
     g = ensure_group(app)
     before = Spaceship::ConnectAPI::BetaTester.all(filter: { betaGroups: g.id }).size
     n = add_testers(g)
-    state_out[repo] = { "internal" => inside, "testers" => n, "added" => (n - before) + added_int }
-    say(repo, "#{inside}/#{ACCOUNT_USERS.size} in #{INTERNAL} (no review), #{n}/#{TEAM.size} in #{GROUP}")
+    state_out[repo] = { "testers" => n, "added" => n - before }
+    say(repo, "#{n}/#{TEAM.size} in #{GROUP}#{n > before ? " (+#{n - before})" : ''}")
     next
   end
   if STATE
@@ -209,6 +195,8 @@ apps.each do |a|
       end
     end
 
+    inside, int_ok = sync_internal(repo)
+    warn "    internal group sync reported a problem for #{repo}" unless int_ok
     g = ensure_group(app)
     n = add_testers(g)
     ensure_metadata(app, build, repo)
@@ -217,7 +205,7 @@ apps.each do |a|
     rescue StandardError => e
       warn "    attach: #{e.message.gsub(/\s+/, ' ')[0, 140]}"
     end
-    state = "build #{build.version} -> #{INTERNAL} (#{inside} account users, immediate) + #{GROUP} (#{n}/#{TEAM.size})"
+    state = "build #{build.version} -> #{INTERNAL} (#{inside || '?'} account users, immediate) + #{GROUP} (#{n}/#{TEAM.size})"
     if SUBMIT
       begin
         Spaceship::ConnectAPI.post_beta_app_review_submissions(build_id: build.id)
