@@ -514,21 +514,25 @@ both. In Play Console: the app's **Setup → App integrity → App signing →
 Request upload key reset**, attaching the certificate of the keystore this
 machine holds for that app. Uploads work again within 48 hours.
 
-## MA-016 — Fourteen apps have no Play entry (HUMAN ONLY)
+## MA-016 — Eleven apps have no Play entry (HUMAN ONLY)
 
-AeroSwift, BodyQuest, daily-pulse, DriftDate, FashionFactory, GadgetNest,
-GroceryMatch, HerJourney, Photriya, PlantPulse, portfolio-board, radiotune,
-Verba and yourtube all fail with "Package not found". The Play Developer API
-cannot create an app, so each needs **Create app** in Play Console under the
-package name in `apps.json`.
+Re-measured 2026-09-22 by opening an edit against every Android package. **32 of
+43 now have a Play entry**; the count was 29 earlier the same day because
+daily-pulse, radiotune, yourtube, iMeasure and MyHealth were created in between.
+Bundles for daily-pulse and radiotune were uploaded and are live on internal
+testing as a result.
 
-Checked 2026-09-21 under both the current and the previous naming: only
-`com.americangroup.yourtube` exists, a leftover from before the rename. Do not
-upload to it — the portfolio is standardised on `com.americangroupllc.*`, so that
-stray entry should be abandoned and yourtube created under its new name.
+Still missing, and needing **Create app** in Play Console under the package name
+in `apps.json`: AeroSwift, BodyQuest, DriftDate, FashionFactory, GadgetNest,
+GroceryMatch, HerJourney, Photriya, PlantPulse, Verba, portfolio-board.
 
----
+The Play Developer API cannot create an app, so this stays a console action.
+`python3 scripts/sync_play_testers.py --audit` re-measures it at any time and
+names exactly which packages Play does not know.
 
+Note on the old naming: `com.americangroup.yourtube` still exists from before the
+rename. YourTube now also exists under `com.americangroupllc.yourtube`, so the
+old entry is dead and should be deleted.
 ## MA-017 · P0 · Play Data safety deletion URL — deadline 2026-09-24
 
 Google flagged VirtuBand on 2026-09-21: *"URL provided
