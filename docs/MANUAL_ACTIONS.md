@@ -596,3 +596,39 @@ which returns 200 for every path on this SPA host, so it printed a success tick
 whether or not anything deployed — the same false signal that let store listings
 point at pages that did not exist. It now fetches a real page and fails the job
 if it gets the homepage back.
+
+## MA-017 — Production release is blocked on two console-only gates (HUMAN ONLY, attempted and measured)
+
+Production release was attempted for every app on 2026-09-22. Both stores refused,
+each for one reason, and the same reason every time.
+
+**Apple — App Privacy answers are not published.** 27 of the 29 apps with a record
+failed at the final step with:
+
+> This resource cannot be reviewed … Answers to what data your app collects and
+> how it's used are needed. - You must have published answers to your app's data usages.
+
+Everything before that step now succeeds: `scripts/testflight/submit_production.rb`
+attaches the newest valid build to the App Store version, opens a review
+submission and adds the version to it. The two apps that failed differently are
+CalcMaster, whose version is REJECTED and must be replaced, and one app whose
+screenshot upload was still processing.
+
+This gate cannot be closed by a script. `v1/appDataUsages` and
+`dataUsagePublishState` both return "does not exist" for an API key; they need an
+Apple ID web session. The answers themselves are already written for all 43 apps
+in `store/privacy/<repo>.json`. Enter them under **App Privacy** in App Store
+Connect and press Publish, then run `bundle exec ruby submit_production.rb`.
+
+**Google — every app is still a Draft.** All 21 refused with:
+
+> Only releases with status draft may be created on draft app.
+
+Google requires the first production release of a draft app to be made in Play
+Console, after the App content declarations (content rating, data safety, target
+audience and content, ads, app access) are complete. None of those has an API.
+Once an app is published once, `python3 scripts/play_release.py --all --production`
+promotes every later release.
+
+Results: `~/agl/.dist/appstore-submit-results.json` and
+`~/agl/.dist/play-production-results.json`.
