@@ -121,7 +121,11 @@ def capture(app, out_ios, out_android):
                 app_el = next((e for e in els if e.get("type") == "Application"), None)
                 H = app_el["frame"]["height"] if app_el else 956
                 W = app_el["frame"]["width"] if app_el else 440
-                btns = [e for e in els if e.get("type") in ("Button", "Tab") and e["frame"]["y"] > 0.80 * H and 40 <= e["frame"]["width"] < 0.5 * W and (e.get("AXLabel") or "").strip()]
+                # A tab row is not always at the bottom: AGCleaner draws its three
+                # tabs under the title bar, so accept a row in the top third too.
+                btns = [e for e in els if e.get("type") in ("Button", "Tab")
+                        and (e["frame"]["y"] > 0.80 * H or 0.05 * H < e["frame"]["y"] < 0.33 * H)
+                        and 40 <= e["frame"]["width"] < 0.5 * W and (e.get("AXLabel") or "").strip()]
                 rows = {}
                 for e in btns: rows.setdefault((round(e["frame"]["y"] / 8), round(e["frame"]["height"] / 8)), []).append(e)
                 # a tab bar: >=3 similarly sized labelled buttons on one line; take the lowest such row
@@ -129,7 +133,9 @@ def capture(app, out_ios, out_android):
                 for row in rows.values():
                     ws = sorted(e["frame"]["width"] for e in row)
                     if len(row) >= 3 and ws[-1] <= ws[0] * 1.6: cands.append(row)
-                best = max(cands, key=lambda r: r[0]["frame"]["y"], default=[])
+                # Prefer a bottom bar when both exist; otherwise take the top row.
+                bottom = [r for r in cands if r[0]["frame"]["y"] > 0.80 * H]
+                best = max(bottom or cands, key=lambda r: r[0]["frame"]["y"], default=[])
                 tabs = best
             # de-duplicate by x position, keep order
             seen = set(); ordered = []
@@ -156,6 +162,23 @@ def capture(app, out_ios, out_android):
                     shots.append(p)
                 else:
                     p.unlink(missing_ok=True)
+
+            # Still one shot: the first screen neither scrolls nor has tabs. Open a
+            # clearly non-destructive screen instead. Only these labels are tapped,
+            # so nothing is created, sent or deleted to get a screenshot.
+            if len(shots) < 2:
+                SAFE = ("settings", "about", "info", "help", "menu", "more", "history",
+                        "details", "profile", "account", "search", "preferences")
+                cand = next((e for e in describe(udid)
+                             if e.get("type") in ("Button", "Cell", "Link")
+                             and any(w in (e.get("AXLabel") or "").strip().lower() for w in SAFE)), None)
+                if cand:
+                    tap(udid, *center(cand)); time.sleep(3)
+                    p = out_ios / f"{dev}-02.png"
+                    if shot(udid, p) and not same_image(shots[0], p):
+                        shots.append(p)
+                    else:
+                        p.unlink(missing_ok=True)
             sh("xcrun", "simctl", "terminate", udid, bundle, timeout=30)
             sh("xcrun", "simctl", "uninstall", udid, bundle, timeout=60)
             res["screens"][dev] = len(shots)
