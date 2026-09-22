@@ -9,51 +9,51 @@ console login, a questionnaire, or a credential that does not exist yet.
 
 | App | pass | fail | human |
 | --- | ---: | ---: | ---: |
-| AeroSwift | 20 | 1 | 3 |
-| AGCleaner | 21 | 0 | 3 |
-| AGrammarly | 22 | 0 | 3 |
-| AGRecorder | 21 | 0 | 3 |
-| AGStudio | 21 | 0 | 3 |
-| ApexMarketWatch | 21 | 0 | 3 |
-| BodyQuest | 22 | 1 | 3 |
-| BuddyPlay | 21 | 0 | 3 |
-| CalcMaster | 23 | 0 | 3 |
-| CarDeal | 21 | 0 | 3 |
-| ChefCount | 22 | 0 | 3 |
-| CodeDeal | 21 | 0 | 3 |
-| daily-pulse | 22 | 1 | 3 |
-| DriftDate | 23 | 0 | 3 |
-| EventSpark | 21 | 0 | 3 |
-| FashionFactory | 21 | 1 | 3 |
-| GadgetNest | 20 | 1 | 3 |
-| GroceryMatch | 22 | 1 | 3 |
-| HerJourney | 22 | 1 | 3 |
-| HomeWise | 21 | 0 | 3 |
-| iMaps | 23 | 0 | 3 |
-| iMeasure | 22 | 1 | 3 |
-| Kinnav | 23 | 0 | 3 |
-| MileMaster | 22 | 0 | 3 |
-| MyCard | 21 | 0 | 3 |
-| MyFinance | 22 | 0 | 3 |
-| MyHealth | 22 | 1 | 3 |
-| NearServe | 21 | 0 | 3 |
-| NewsBoard | 21 | 0 | 3 |
-| NexusTransferPay | 21 | 0 | 3 |
-| Photriya | 23 | 0 | 3 |
-| PilotEnRoute | 23 | 0 | 3 |
-| PlantPulse | 20 | 1 | 3 |
-| portfolio-board | 21 | 1 | 3 |
-| radiotune | 22 | 1 | 3 |
-| RideZap | 21 | 0 | 3 |
-| RoomCraft | 21 | 0 | 3 |
-| TripNest | 22 | 0 | 3 |
-| Uscis-Case | 23 | 0 | 3 |
-| Verba | 21 | 1 | 3 |
-| VirtuBand | 23 | 0 | 3 |
-| WiFiTrail | 22 | 0 | 3 |
-| yourtube | 21 | 1 | 3 |
+| AeroSwift | 21 | 2 | 1 |
+| AGCleaner | 22 | 1 | 1 |
+| AGrammarly | 23 | 1 | 1 |
+| AGRecorder | 22 | 1 | 1 |
+| AGStudio | 22 | 1 | 1 |
+| ApexMarketWatch | 22 | 1 | 1 |
+| BodyQuest | 23 | 2 | 1 |
+| BuddyPlay | 22 | 1 | 1 |
+| CalcMaster | 25 | 0 | 1 |
+| CarDeal | 22 | 1 | 1 |
+| ChefCount | 23 | 1 | 1 |
+| CodeDeal | 22 | 1 | 1 |
+| daily-pulse | 23 | 2 | 1 |
+| DriftDate | 24 | 1 | 1 |
+| EventSpark | 22 | 1 | 1 |
+| FashionFactory | 22 | 2 | 1 |
+| GadgetNest | 21 | 2 | 1 |
+| GroceryMatch | 23 | 2 | 1 |
+| HerJourney | 23 | 2 | 1 |
+| HomeWise | 22 | 1 | 1 |
+| iMaps | 25 | 0 | 1 |
+| iMeasure | 24 | 1 | 1 |
+| Kinnav | 24 | 1 | 1 |
+| MileMaster | 23 | 1 | 1 |
+| MyCard | 22 | 1 | 1 |
+| MyFinance | 23 | 1 | 1 |
+| MyHealth | 23 | 2 | 1 |
+| NearServe | 22 | 1 | 1 |
+| NewsBoard | 22 | 1 | 1 |
+| NexusTransferPay | 22 | 1 | 1 |
+| Photriya | 24 | 1 | 1 |
+| PilotEnRoute | 24 | 1 | 1 |
+| PlantPulse | 21 | 2 | 1 |
+| portfolio-board | 22 | 2 | 1 |
+| radiotune | 23 | 2 | 1 |
+| RideZap | 22 | 1 | 1 |
+| RoomCraft | 22 | 1 | 1 |
+| TripNest | 24 | 0 | 1 |
+| Uscis-Case | 25 | 0 | 1 |
+| Verba | 22 | 2 | 1 |
+| VirtuBand | 25 | 0 | 1 |
+| WiFiTrail | 23 | 1 | 1 |
+| yourtube | 22 | 2 | 1 |
 
-**14 failing checks across 43 apps.**
+**51 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -65,7 +65,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.aeroswift |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | d3478881e04c |
+| App icon (1024, opaque, not a placeholder) | PASS | 3e57e7e5d53c |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | AeroSwift |
@@ -79,10 +79,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## AGCleaner
@@ -95,7 +95,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.agcleaner |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 77c906922e56 |
+| App icon (1024, opaque, not a placeholder) | PASS | 365e5ce1f05a |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | AGCleaner |
@@ -109,10 +109,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## AGrammarly
@@ -140,10 +140,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## AGRecorder
@@ -156,7 +156,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.agrecorder |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 4157b8b26555 |
+| App icon (1024, opaque, not a placeholder) | PASS | df06aa0c917f |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | AGRecorder |
@@ -170,10 +170,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## AGStudio
@@ -186,7 +186,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.agstudio |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 19351391843f |
+| App icon (1024, opaque, not a placeholder) | PASS | ed447ff572bf |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | AGStudio |
@@ -200,10 +200,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## ApexMarketWatch
@@ -216,7 +216,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.apexmarketwatch |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 6806204856fd |
+| App icon (1024, opaque, not a placeholder) | PASS | de92aa1b1d32 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 4 captured ['1320x2868'] |
 | App Store name | PASS | ApexMarketWatch |
@@ -230,10 +230,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## BodyQuest
@@ -261,10 +261,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## BuddyPlay
@@ -277,7 +277,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.buddyplay |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 0ea52e87574c |
+| App icon (1024, opaque, not a placeholder) | PASS | 264a7dd6ea47 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iBuddyPlay |
@@ -291,10 +291,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## CalcMaster
@@ -322,10 +322,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## CarDeal
@@ -338,7 +338,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.cardeal |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 1bf430275466 |
+| App icon (1024, opaque, not a placeholder) | PASS | cb90fedca983 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | iCarDeal |
@@ -352,10 +352,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## ChefCount
@@ -368,7 +368,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.chefcount |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | e4c3ca647b98 |
+| App icon (1024, opaque, not a placeholder) | PASS | bd40d0d34bbb |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | ChefCount |
@@ -383,10 +383,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## CodeDeal
@@ -413,10 +413,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## daily-pulse
@@ -444,10 +444,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## DriftDate
@@ -475,10 +475,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## EventSpark
@@ -491,7 +491,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.eventspark |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | c0b27aa5caa4 |
+| App icon (1024, opaque, not a placeholder) | PASS | c80cc094a4e3 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | iEventSpark |
@@ -505,10 +505,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## FashionFactory
@@ -536,10 +536,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## GadgetNest
@@ -552,7 +552,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.gadgetnest |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | d67e0a6786ef |
+| App icon (1024, opaque, not a placeholder) | PASS | 50dcbac6c563 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | GadgetNest |
@@ -566,10 +566,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## GroceryMatch
@@ -597,10 +597,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## HerJourney
@@ -628,10 +628,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## HomeWise
@@ -644,7 +644,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.homewise |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | a333a100f02b |
+| App icon (1024, opaque, not a placeholder) | PASS | 21da48bf39fd |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | iHomeWise |
@@ -658,10 +658,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## iMaps
@@ -689,10 +689,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## iMeasure
@@ -720,10 +720,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## Kinnav
@@ -751,10 +751,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## MileMaster
@@ -767,7 +767,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.milemaster |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 896a79f219e2 |
+| App icon (1024, opaque, not a placeholder) | PASS | 6b495e921f1b |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iMileMaster |
@@ -782,10 +782,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## MyCard
@@ -798,7 +798,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.mycard |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | a8396bf904f3 |
+| App icon (1024, opaque, not a placeholder) | PASS | f095b1456bf3 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iMyCard |
@@ -812,10 +812,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## MyFinance
@@ -828,7 +828,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.myfinance |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 7839d8cd6dbc |
+| App icon (1024, opaque, not a placeholder) | PASS | f9e5b93a1be4 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iMyFinance |
@@ -843,10 +843,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## MyHealth
@@ -874,10 +874,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## NearServe
@@ -890,7 +890,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.nearserve |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 4854a5daa313 |
+| App icon (1024, opaque, not a placeholder) | PASS | 64b8d5465535 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 5 captured ['1320x2868'] |
 | App Store name | PASS | NearServe |
@@ -904,10 +904,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## NewsBoard
@@ -934,10 +934,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## NexusTransferPay
@@ -964,10 +964,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## Photriya
@@ -995,10 +995,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## PilotEnRoute
@@ -1026,10 +1026,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## PlantPulse
@@ -1042,7 +1042,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.plantpulse |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 8d8f24553b3a |
+| App icon (1024, opaque, not a placeholder) | PASS | b833e597c8d1 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | PlantPulse |
@@ -1056,10 +1056,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## portfolio-board
@@ -1072,7 +1072,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.portfolioboard |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 3f4308930bf8 |
+| App icon (1024, opaque, not a placeholder) | PASS | 79491c9f3e90 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 4 captured ['1320x2868'] |
 | App Store name | PASS | Portfolio Board |
@@ -1087,10 +1087,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## radiotune
@@ -1118,10 +1118,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## RideZap
@@ -1134,7 +1134,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.ridezap |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | 54e63146bb98 |
+| App icon (1024, opaque, not a placeholder) | PASS | 5c6bd5b8c6b2 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 2 captured ['1320x2868'] |
 | App Store name | PASS | RideZap |
@@ -1148,10 +1148,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## RoomCraft
@@ -1164,7 +1164,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.roomcraft |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | e30f2b400e71 |
+| App icon (1024, opaque, not a placeholder) | PASS | d3d7bf7737c3 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | iRoomCraft |
@@ -1178,10 +1178,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## TripNest
@@ -1209,10 +1209,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## Uscis-Case
@@ -1240,10 +1240,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## Verba
@@ -1271,10 +1271,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## VirtuBand
@@ -1302,10 +1302,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## WiFiTrail
@@ -1318,7 +1318,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Binaries newer than the app icon | PASS |  |
 | Bundle id / applicationId | PASS | com.americangroupllc.wifitrail |
 | Release signing configured | PASS | upload keystore matched |
-| App icon (1024, opaque, not a placeholder) | PASS | d996011eb73a |
+| App icon (1024, opaque, not a placeholder) | PASS | 0335cd95483d |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | WiFiTrail |
@@ -1333,10 +1333,10 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | PASS | uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
 ## yourtube
@@ -1363,9 +1363,9 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
-| Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
-| Play Console upload | HUMAN | no Play service-account JSON exists |
+| Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 

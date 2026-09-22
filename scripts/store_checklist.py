@@ -147,6 +147,12 @@ def main() -> int:
     if uc.exists():
         urls_ok = {l.split("|")[0] for l in uc.read_text().splitlines()
                    if "|CONTENT_OK" in l}
+    # Real per-app Play state, written by scripts/play_internal_share.py. The
+    # Play row used to be hardcoded HUMAN with the reason "no Play
+    # service-account JSON exists", which stopped being true once
+    # ~/.secrets/play-publisher-agl.json was created.
+    play_state = {r["repo"]: r for r in
+                  load(DIST / "play-internal-share.json", {}).get("artifacts", [])}
 
     rows = []
     for a in apps:
@@ -240,13 +246,26 @@ def main() -> int:
         add("iOS purpose strings for linked APIs",
             OK if not missing_strings else NO,
             ", ".join(missing_strings) if missing_strings else "")
-        add("Export compliance answered", HUMAN, "ITSAppUsesNonExemptEncryption / ASC")
+        # Declaring this in Info.plist is the answer - Apple stops asking at
+        # upload and no export-compliance step appears in ASC. Measuring it
+        # beats calling it HUMAN, which is what this row used to do.
+        enc = plist_get(d, "ITSAppUsesNonExemptEncryption")
+        add("Export compliance answered",
+            OK if enc is False else (NO if enc is None else HUMAN),
+            "ITSAppUsesNonExemptEncryption=false" if enc is False else
+            ("key absent - ASC will ask on every upload" if enc is None else
+             "declared true - needs an encryption declaration in ASC"))
         add("Age rating questionnaire", HUMAN, "Apple + Play IARC, per app")
 
         # --- delivery ----------------------------------------------------------
         add("Build live on App Store Connect", OK if repo in uploaded else NO,
             "uploaded" if repo in uploaded else "no ASC record or not uploaded")
-        add("Play Console upload", HUMAN, "no Play service-account JSON exists")
+        pst = (play_state.get(repo) or {}).get("state")
+        add("Play delivery to account users",
+            OK if pst == "SHARED" else (NO if pst else HUMAN),
+            {"SHARED": "internal app sharing link issued",
+             "NOT_PUBLISHED": "still a Draft app in Console - MA-022",
+             "NO_LISTING": "no Play entry - MA-021"}.get(pst, "not measured yet"))
         gs = (d / "android/app/google-services.json").exists()
         gi = (d / "ios/Runner/GoogleService-Info.plist").exists()
         add("Firebase config (crash reporting works)",
