@@ -11,11 +11,11 @@ console login, a questionnaire, or a credential that does not exist yet.
 | --- | ---: | ---: | ---: |
 | AeroSwift | 20 | 1 | 3 |
 | AGCleaner | 21 | 0 | 3 |
-| AGrammarly | 21 | 1 | 3 |
+| AGrammarly | 22 | 0 | 3 |
 | AGRecorder | 21 | 0 | 3 |
 | AGStudio | 21 | 0 | 3 |
 | ApexMarketWatch | 21 | 0 | 3 |
-| BodyQuest | 23 | 0 | 3 |
+| BodyQuest | 22 | 1 | 3 |
 | BuddyPlay | 21 | 0 | 3 |
 | CalcMaster | 23 | 0 | 3 |
 | CarDeal | 21 | 0 | 3 |
@@ -24,7 +24,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | daily-pulse | 22 | 1 | 3 |
 | DriftDate | 23 | 0 | 3 |
 | EventSpark | 21 | 0 | 3 |
-| FashionFactory | 22 | 0 | 3 |
+| FashionFactory | 21 | 1 | 3 |
 | GadgetNest | 20 | 1 | 3 |
 | GroceryMatch | 22 | 1 | 3 |
 | HerJourney | 22 | 1 | 3 |
@@ -37,13 +37,13 @@ console login, a questionnaire, or a credential that does not exist yet.
 | MyFinance | 22 | 0 | 3 |
 | MyHealth | 22 | 1 | 3 |
 | NearServe | 21 | 0 | 3 |
-| NewsBoard | 20 | 1 | 3 |
-| NexusTransferPay | 20 | 1 | 3 |
+| NewsBoard | 21 | 0 | 3 |
+| NexusTransferPay | 21 | 0 | 3 |
 | Photriya | 23 | 0 | 3 |
 | PilotEnRoute | 23 | 0 | 3 |
 | PlantPulse | 20 | 1 | 3 |
 | portfolio-board | 21 | 1 | 3 |
-| radiotune | 23 | 0 | 3 |
+| radiotune | 22 | 1 | 3 |
 | RideZap | 21 | 0 | 3 |
 | RoomCraft | 21 | 0 | 3 |
 | TripNest | 22 | 0 | 3 |
@@ -51,9 +51,9 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Verba | 21 | 1 | 3 |
 | VirtuBand | 23 | 0 | 3 |
 | WiFiTrail | 22 | 0 | 3 |
-| yourtube | 22 | 0 | 3 |
+| yourtube | 21 | 1 | 3 |
 
-**13 failing checks across 43 apps.**
+**14 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -142,7 +142,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
-| Build live on App Store Connect | FAIL | no ASC record or not uploaded |
+| Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
@@ -263,7 +263,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
-| Build live on App Store Connect | PASS | uploaded |
+| Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
@@ -538,7 +538,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
-| Build live on App Store Connect | PASS | uploaded |
+| Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
@@ -770,7 +770,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App icon (1024, opaque, not a placeholder) | PASS | 896a79f219e2 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
-| App Store name | PASS | MileMaster |
+| App Store name | PASS | iMileMaster |
 | Play title | PASS | MileMaster |
 | Full description | PASS | 1896 chars |
 | Play short description (<=80) | PASS | 70 chars |
@@ -831,7 +831,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App icon (1024, opaque, not a placeholder) | PASS | 7839d8cd6dbc |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
-| App Store name | PASS | MyFinance |
+| App Store name | PASS | iMyFinance |
 | Play title | PASS | MyFinance |
 | Full description | PASS | 1659 chars |
 | Play short description (<=80) | PASS | 78 chars |
@@ -923,7 +923,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App icon (1024, opaque, not a placeholder) | PASS | 16aa785f8dfe |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
-| App Store name | PASS | NewsBoard |
+| App Store name | PASS | iNewsBoard |
 | Play title | PASS | NewsBoard |
 | Full description | PASS | 2138 chars |
 | Play short description (<=80) | PASS | 63 chars |
@@ -936,7 +936,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
-| Build live on App Store Connect | FAIL | no ASC record or not uploaded |
+| Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
@@ -966,7 +966,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
-| Build live on App Store Connect | FAIL | no ASC record or not uploaded |
+| Build live on App Store Connect | PASS | uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
@@ -1075,8 +1075,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App icon (1024, opaque, not a placeholder) | PASS | 3f4308930bf8 |
 | Play feature graphic 1024x500 | PASS |  |
 | Screenshots (Apple >=1, Play >=2) | PASS | 4 captured ['1320x2868'] |
-| App Store name | PASS | portfolio-board |
-| Play title | PASS | portfolio-board |
+| App Store name | PASS | Portfolio Board |
+| Play title | PASS | Portfolio Board |
 | Full description | PASS | 2195 chars |
 | Play short description (<=80) | PASS | 75 chars |
 | App Store keywords (<=100) | PASS | 92 chars |
@@ -1120,7 +1120,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
-| Build live on App Store Connect | PASS | uploaded |
+| Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
@@ -1365,7 +1365,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | HUMAN | ITSAppUsesNonExemptEncryption / ASC |
 | Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
-| Build live on App Store Connect | PASS | uploaded |
+| Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play Console upload | HUMAN | no Play service-account JSON exists |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
 
