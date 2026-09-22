@@ -10,47 +10,47 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App | pass | fail | human |
 | --- | ---: | ---: | ---: |
 | AeroSwift | 21 | 2 | 1 |
-| AGCleaner | 22 | 1 | 1 |
-| AGrammarly | 23 | 1 | 1 |
-| AGRecorder | 22 | 1 | 1 |
-| AGStudio | 22 | 1 | 1 |
-| ApexMarketWatch | 22 | 1 | 1 |
+| AGCleaner | 23 | 1 | 1 |
+| AGrammarly | 24 | 1 | 1 |
+| AGRecorder | 23 | 1 | 1 |
+| AGStudio | 23 | 1 | 1 |
+| ApexMarketWatch | 23 | 1 | 1 |
 | BodyQuest | 23 | 2 | 1 |
-| BuddyPlay | 22 | 1 | 1 |
-| CalcMaster | 25 | 0 | 1 |
-| CarDeal | 22 | 1 | 1 |
-| ChefCount | 23 | 1 | 1 |
-| CodeDeal | 22 | 1 | 1 |
+| BuddyPlay | 23 | 1 | 1 |
+| CalcMaster | 26 | 0 | 1 |
+| CarDeal | 23 | 1 | 1 |
+| ChefCount | 24 | 1 | 1 |
+| CodeDeal | 23 | 1 | 1 |
 | daily-pulse | 23 | 2 | 1 |
-| DriftDate | 24 | 1 | 1 |
-| EventSpark | 22 | 1 | 1 |
+| DriftDate | 25 | 1 | 1 |
+| EventSpark | 23 | 1 | 1 |
 | FashionFactory | 22 | 2 | 1 |
 | GadgetNest | 21 | 2 | 1 |
 | GroceryMatch | 23 | 2 | 1 |
 | HerJourney | 23 | 2 | 1 |
-| HomeWise | 22 | 1 | 1 |
-| iMaps | 25 | 0 | 1 |
+| HomeWise | 23 | 1 | 1 |
+| iMaps | 26 | 0 | 1 |
 | iMeasure | 24 | 1 | 1 |
-| Kinnav | 24 | 1 | 1 |
-| MileMaster | 23 | 1 | 1 |
-| MyCard | 22 | 1 | 1 |
-| MyFinance | 23 | 1 | 1 |
+| Kinnav | 25 | 1 | 1 |
+| MileMaster | 24 | 1 | 1 |
+| MyCard | 23 | 1 | 1 |
+| MyFinance | 24 | 1 | 1 |
 | MyHealth | 23 | 2 | 1 |
-| NearServe | 22 | 1 | 1 |
-| NewsBoard | 22 | 1 | 1 |
-| NexusTransferPay | 22 | 1 | 1 |
-| Photriya | 24 | 1 | 1 |
-| PilotEnRoute | 24 | 1 | 1 |
+| NearServe | 23 | 1 | 1 |
+| NewsBoard | 23 | 1 | 1 |
+| NexusTransferPay | 23 | 1 | 1 |
+| Photriya | 25 | 1 | 1 |
+| PilotEnRoute | 25 | 1 | 1 |
 | PlantPulse | 21 | 2 | 1 |
 | portfolio-board | 22 | 2 | 1 |
 | radiotune | 23 | 2 | 1 |
-| RideZap | 22 | 1 | 1 |
-| RoomCraft | 22 | 1 | 1 |
-| TripNest | 24 | 0 | 1 |
-| Uscis-Case | 25 | 0 | 1 |
+| RideZap | 23 | 1 | 1 |
+| RoomCraft | 23 | 1 | 1 |
+| TripNest | 25 | 0 | 1 |
+| Uscis-Case | 26 | 0 | 1 |
 | Verba | 22 | 2 | 1 |
-| VirtuBand | 25 | 0 | 1 |
-| WiFiTrail | 23 | 1 | 1 |
+| VirtuBand | 26 | 0 | 1 |
+| WiFiTrail | 24 | 1 | 1 |
 | yourtube | 22 | 2 | 1 |
 
 **51 failing checks across 43 apps.**
@@ -80,7 +80,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -110,7 +111,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -141,7 +143,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -171,7 +174,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -201,7 +205,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -231,7 +236,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -262,7 +268,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -292,7 +299,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -323,7 +331,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -353,7 +362,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -384,7 +394,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -414,7 +425,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -445,7 +457,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -476,7 +489,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -506,7 +520,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -537,7 +552,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -567,7 +583,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -598,7 +615,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -629,7 +647,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -659,7 +678,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -690,7 +710,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -721,7 +742,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -752,7 +774,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -783,7 +806,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -813,7 +837,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -844,7 +869,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -875,7 +901,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -905,7 +932,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -935,7 +963,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -965,7 +994,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -996,7 +1026,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1027,7 +1058,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1057,7 +1089,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1088,7 +1121,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1119,7 +1153,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1149,7 +1184,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1179,7 +1215,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1210,7 +1247,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1241,7 +1279,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1272,7 +1311,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1303,7 +1343,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1334,7 +1375,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | PASS | declaration matches the shipped binary |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |
@@ -1364,7 +1406,8 @@ console login, a questionnaire, or a credential that does not exist yet.
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
 | Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
-| Age rating questionnaire | HUMAN | Apple + Play IARC, per app |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
 | Firebase config (crash reporting works) | PASS | android=y ios=y |

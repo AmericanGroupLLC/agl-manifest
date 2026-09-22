@@ -153,6 +153,10 @@ def main() -> int:
     # ~/.secrets/play-publisher-agl.json was created.
     play_state = {r["repo"]: r for r in
                   load(DIST / "play-internal-share.json", {}).get("artifacts", [])}
+    # Apple's age-rating questionnaire is not a human gate: ageRatingDeclarations
+    # is in the public ASC API and the team key can write it. Written by
+    # scripts/testflight/sync_age_rating.rb. Play's IARC really has no API.
+    age_rating = load(DIST / "age-rating-sync.json", {})
 
     rows = []
     for a in apps:
@@ -255,7 +259,16 @@ def main() -> int:
             "ITSAppUsesNonExemptEncryption=false" if enc is False else
             ("key absent - ASC will ask on every upload" if enc is None else
              "declared true - needs an encryption declaration in ASC"))
-        add("Age rating questionnaire", HUMAN, "Apple + Play IARC, per app")
+        ar = (age_rating.get(repo) or {}).get("state")
+        add("Apple age rating answered",
+            NA if ar == "no-asc-record" else
+            (OK if ar in ("already-correct", "updated") else NO),
+            {"already-correct": "declaration matches the shipped binary",
+             "updated": "declaration corrected by sync_age_rating.rb",
+             "no-asc-record": "",
+             "no-declaration": "app has no ageRatingDeclaration",
+             }.get(ar, "not measured yet"))
+        add("Play IARC questionnaire", HUMAN, "no API - Play Console only")
 
         # --- delivery ----------------------------------------------------------
         add("Build live on App Store Connect", OK if repo in uploaded else NO,
