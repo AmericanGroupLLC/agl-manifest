@@ -16,9 +16,15 @@ account can open to install.
 
 Measured limits, so nobody expects more than it gives: the app must already
 exist on Play and have been published at least once. An app with no listing
-returns `404 Package not found`, and a listing that has never shipped a release
+returns `404 Package not found`, and one that Play still treats as a Draft app
 returns `400 UploadException: NOT_PUBLISHED`. Those apps cannot be reached by
 this route, nor by the internal track, until they are published once.
+
+Do not read `NOT_PUBLISHED` as "no bundle uploaded yet" and try to fix it by
+uploading one. Verified 2026-09-22: AGCleaner's internal track already carries a
+`completed` release at version code 2 and sharing still returns
+`NOT_PUBLISHED`. The gate is the app's own Draft/published state in Console —
+the App content declarations plus a reviewed initial rollout — not the track.
 
 Who can install is therefore exactly "the existing users inside the account" —
 listed at the top of every run so the report says who, not just how many.

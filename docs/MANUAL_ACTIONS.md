@@ -420,17 +420,30 @@ but `GET /edits/{id}/testers/internal` returns `{}` for every one of them, so no
 one can install yet. The Play Developer API can only attach *Google Groups* to a
 track; the per-app email lists the team uses are creatable in Play Console alone.
 
-In Play Console: **Test and release → Testers → Email lists**, create one list
-with the ten addresses below, then on each app open **Internal testing →
-Testers** and select it.
+**Superseded in part, 2026-09-22 — no Google Group is to be created.** The
+standing decision on this account is to deliver to the people already inside it
+rather than build a tester roster. That route is **internal app sharing**
+(`scripts/play_internal_share.py`), which needs neither a group nor a tester
+list: it returns a `play.google.com/apps/test/...` link that any user on the
+Play Console account can install. Run that day, it delivered 6 of 43 apps to
+the 5 installable account users. The remaining 37 are blocked by app state, not
+by testers — 11 have no Play entry (MA-021) and 26 are still Draft apps, which
+sharing rejects with `NOT_PUBLISHED`.
+
+So this item is no longer "create an email list". What is left of it is only the
+people who are **not** on the Play Console account and therefore cannot use a
+sharing link at all. For them a Console email list is still the only mechanism:
+**Test and release → Testers → Email lists**, then **Internal testing →
+Testers** per app.
 
   srikanth.patchava@outlook.com, rainbow472.sri@gmail.com, sirishapatchava@gmail.com,
   aadiboddapati@gmail.com, ramana.gokul@icloud.com, nehuwakhare04@gmail.com,
   siddarthaandalu@gmail.com, rashmi.advani@gmail.com, vspatel24@gmail.com,
   pranathim95@gmail.com
 
-Alternative that would remove the manual step for good: create a Google Group
-containing those addresses and attach it once per app through the API.
+Do not resolve this by attaching a Google Group. It was considered and rejected;
+`scripts/sync_play_testers.py` remains only as the audit that names which
+packages Play does not know.
 
 The Claude in Chrome extension cannot do this. Re-tested 2026-09-21 on
 `https://play.google.com/console/developers`: both `get_page_text` and
@@ -653,12 +666,31 @@ Connect and press Publish, then run `bundle exec ruby submit_production.rb`.
 
 Google requires the first production release of a draft app to be made in Play
 Console, after the App content declarations (content rating, data safety, target
-audience and content, ads, app access) are complete. None of those has an API.
-Once an app is published once, `python3 scripts/play_release.py --all --production`
-promotes every later release.
+audience and content, ads, app access) are complete. Once an app is published
+once, `python3 scripts/play_release.py --all --production` promotes every later
+release.
 
-Results: `~/agl/.dist/appstore-submit-results.json` and
-`~/agl/.dist/play-production-results.json`.
+Confirmed against the v3 discovery document on 2026-09-22: of those
+declarations only Data safety is reachable by API, as
+`applications.dataSafety` (a Safety Labels CSV). `edits` exposes just
+`apks, bundles, countryavailability, deobfuscationfiles, details,
+expansionfiles, images, listings, testers, tracks` — there is no content
+rating, target audience, ads or app access resource, and no
+`applications.create` either (`applications` has the single method
+`dataSafety`).
+
+**The Draft state also blocks the no-console delivery route,** which is the part
+that was not obvious. Internal app sharing needs the app published too:
+`scripts/play_internal_share.py` reached 6 of 43 apps, and the other 37 split
+into 11 with no Play entry (`404`, MA-021) and 26 Draft apps (`400
+UploadException: NOT_PUBLISHED`). Uploading another bundle does not help —
+AGCleaner's internal track already holds a `completed` release at version code
+2 and sharing still refuses it. Publishing the app once is the only unlock, and
+it is the same Console work described above.
+
+Results: `~/agl/.dist/appstore-submit-results.json`,
+`~/agl/.dist/play-production-results.json` and
+`~/agl/.dist/play-internal-share.json`.
 
 ## MA-018 — Tester synchronisation is automated; Android still needs one input
 
@@ -680,20 +712,27 @@ reachable through it. Adding someone to Users and Access is now enough — the
 next sync puts them in all 29 internal groups and every build is on their phone
 without anyone touching a console.
 
-**Android is one input short.** Play's internal track accepts Google Groups
-only: `GET /edits/{id}/testers/internal` returns `{}` for every app and the
-resource takes a `googleGroups` array, not addresses. Create one Google Group
-holding the roster and set these repository secrets:
+**Android takes a different route, decided 2026-09-22: no Google Group.**
+Play's internal track accepts Google Groups only — `GET
+/edits/{id}/testers/internal` returns `{}` for every app and the resource takes
+a `googleGroups` array, not addresses — so the track is not the delivery
+mechanism here. Delivery is **internal app sharing**
+(`scripts/play_internal_share.py`), which reaches everyone already on the Play
+Console account with no group, no tester list and no roster to maintain.
+
+That makes `PLAY_TESTER_GOOGLE_GROUP` deliberately unset. The Play step of the
+workflow then audits and reports rather than changing anything, which is the
+intended steady state, not a gap. Required secrets:
 
 | Secret | What it is |
 | --- | --- |
 | `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_CONTENT` | the App Store Connect key, base64 |
 | `PLAY_SERVICE_ACCOUNT_JSON` | key for `american-group-publisher@american-group-llc.iam.gserviceaccount.com` |
-| `PLAY_TESTER_GOOGLE_GROUP` | the group's address |
 | `PLAY_DEVELOPER_ID` | the number in the Play Console URL, for the account-user comparison |
 
-Without `PLAY_TESTER_GOOGLE_GROUP` the Play step audits and reports rather than
-changing anything, so the workflow is safe to leave enabled.
+What Android is actually short of is not an input but app state: sharing only
+works once an app is published, so 26 Draft apps and 11 missing entries are the
+real blockers (MA-021, MA-022).
 ## MA-019 — An App Store Connect agreement needs accepting (HUMAN ONLY, urgent)
 
 TestFlight beta submission started failing on 2026-09-22 with:

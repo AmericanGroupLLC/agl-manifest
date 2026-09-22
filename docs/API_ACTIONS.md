@@ -74,6 +74,26 @@ Google Groups only. Internal app sharing is the route that avoids groups, but it
 requires the app to exist on Play and to have been published at least once —
 otherwise `404 Package not found` or `400 UploadException: NOT_PUBLISHED`.
 
+**`NOT_PUBLISHED` is an app-level state, and uploading another bundle does not
+clear it.** Measured 2026-09-22: AGCleaner's internal track already holds
+`status=completed`, `versionCodes=['1'... '2']`, and internal app sharing still
+rejects it with `400 UploadException: NOT_PUBLISHED`. A completed internal-track
+release is therefore *not* what Play counts as published — the app itself is
+still a Draft in Console until the App content declarations are finished and an
+initial release is rolled out and reviewed. Do not schedule a bulk
+`play_upload.py` run expecting it to unblock sharing; it will not.
+
+What the API can contribute towards leaving Draft is narrow. It has
+`applications.dataSafety` (Safety Labels, as a CSV body) and
+`edits.listings`/`edits.details`/`edits.images`. It has **no** endpoint for the
+content-rating questionnaire, target audience, ads declaration or app access —
+`edits` exposes only `apks, bundles, countryavailability, deobfuscationfiles,
+details, expansionfiles, images, listings, testers, tracks`. Those declarations
+are Console-only, which is why MA-021 stays a human action.
+
+There is also no `applications.create`: the `applications` resource exposes a
+single method, `dataSafety`. An app record cannot be created over the API.
+
 `users.list` does work for Play Console *account* users, and needs `pageSize=-1`;
 any other value returns "Pagination is not currently available."
 

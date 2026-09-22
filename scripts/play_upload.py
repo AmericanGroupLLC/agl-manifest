@@ -14,10 +14,19 @@ Per app: open an edit, upload the .aab, point the internal track at it, commit.
 
 The release status defaults to **draft** — nothing reaches a tester until a
 human promotes it — because that is the right default for a manual run. Pass
-`--status completed` to have Play hand the build to the internal-testing
-group immediately, which is what the CI pipeline uses; combined with the
-Google Group attached by scripts/play_attach_tester_group.py, that is the
-Android half of "every account user gets every build automatically".
+`--status completed` to have Play publish the internal-track release straight
+away, which is what the CI pipeline uses.
+
+Two things this script does **not** do, both measured rather than assumed:
+
+* It does not give anyone access. The internal track only distributes to a
+  Google Group (`testers.update` accepts no other field), and the decision on
+  this account is to use no groups. Delivery to the people already on the Play
+  Console account is `scripts/play_internal_share.py` instead.
+* It does not clear `NOT_PUBLISHED` for internal app sharing. Verified
+  2026-09-22 on AGCleaner: a `completed` internal release at version code 2
+  coexists with sharing still returning `NOT_PUBLISHED`, because that gate is
+  the app's Draft state in Console, not the track's.
 """
 import json, pathlib, subprocess, sys, time
 
