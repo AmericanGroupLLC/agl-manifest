@@ -18,7 +18,7 @@ screen, then tap each bottom-navigation tab found in the accessibility tree
 
 Requires idb (~/.idb-venv) with the Homebrew idb_companion first on PATH.
 """
-import json, os, pathlib, re, shutil, subprocess, sys, time
+import hashlib, json, os, pathlib, re, shutil, subprocess, sys, time
 
 ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
 FLUTTER = str(ROOT / ".flutter-sdk/bin/flutter")
@@ -41,6 +41,18 @@ def tap(udid, x, y): sh("idb", "ui", "tap", str(int(x)), str(int(y)), "--udid", 
 def center(e): f = e["frame"]; return f["x"] + f["width"] / 2, f["y"] + f["height"] / 2
 
 def shot(udid, path): sh("xcrun", "simctl", "io", udid, "screenshot", str(path), timeout=60); return path.exists()
+
+def swipe(udid, x1, y1, x2, y2, duration=0.4):
+    sh("idb", "ui", "swipe", str(int(x1)), str(int(y1)), str(int(x2)), str(int(y2)),
+       "--duration", str(duration), "--udid", udid, timeout=30)
+
+def same_image(a, b):
+    """A scroll that moved nothing must not become a second screenshot."""
+    try:
+        return hashlib.sha256(pathlib.Path(a).read_bytes()).digest() == \
+               hashlib.sha256(pathlib.Path(b).read_bytes()).digest()
+    except OSError:
+        return True
 
 def patch_banner(app_dir):
     """Add debugShowCheckedModeBanner:false to every MaterialApp/CupertinoApp constructor. Returns files changed."""
@@ -115,6 +127,21 @@ def capture(app, out_ios, out_android):
                 tap(udid, *center(e)); time.sleep(3)
                 p = out_ios / f"{dev}-{i:02d}.png"
                 if shot(udid, p): shots.append(p)
+
+            # Play refuses a listing with fewer than two phone screenshots, and an
+            # app with no tab bar yields exactly one. Scroll the first screen and
+            # shoot again: a real second view of the app, not a duplicate.
+            if len(shots) < 2:
+                app_el = next((e for e in els if e.get("type") == "Application"), None)
+                H = app_el["frame"]["height"] if app_el else 956
+                W = app_el["frame"]["width"] if app_el else 440
+                swipe(udid, W / 2, H * 0.75, W / 2, H * 0.25)
+                time.sleep(2)
+                p = out_ios / f"{dev}-02.png"
+                if shot(udid, p) and not same_image(shots[0], p):
+                    shots.append(p)
+                else:
+                    p.unlink(missing_ok=True)
             sh("xcrun", "simctl", "terminate", udid, bundle, timeout=30)
             sh("xcrun", "simctl", "uninstall", udid, bundle, timeout=60)
             res["screens"][dev] = len(shots)
