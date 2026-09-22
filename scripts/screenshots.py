@@ -36,6 +36,19 @@ def describe(udid):
     try: return json.loads(r.stdout)
     except Exception: return []
 
+def boot(udid):
+    """simctl io times out against a shut-down device, so make sure it is up.
+    Booting an already-booted device is a no-op error we can ignore."""
+    state = sh("xcrun", "simctl", "list", "devices", "-j", timeout=60).stdout
+    if f'"udid" : "{udid}"' in state and '"state" : "Booted"' in state:
+        import json as _j
+        for runtime in _j.loads(state)["devices"].values():
+            for d in runtime:
+                if d["udid"] == udid and d["state"] == "Booted":
+                    return
+    sh("xcrun", "simctl", "boot", udid, timeout=180)
+    sh("xcrun", "simctl", "bootstatus", udid, "-b", timeout=300)
+
 def tap(udid, x, y): sh("idb", "ui", "tap", str(int(x)), str(int(y)), "--udid", udid, timeout=30)
 
 def center(e): f = e["frame"]; return f["x"] + f["width"] / 2, f["y"] + f["height"] / 2
@@ -90,6 +103,7 @@ def capture(app, out_ios, out_android):
         if not apps: res["error"] = "no .app produced"; return res
         for old in out_ios.glob("*.png"): old.unlink()
         for dev, udid in DEVICES.items():
+            boot(udid)
             clear_alerts(udid)   # a permission sheet left by the previous app blocks every later shot
             sh("xcrun", "simctl", "install", udid, str(apps[0]), timeout=120)
             sh("xcrun", "simctl", "launch", udid, bundle, timeout=60)
