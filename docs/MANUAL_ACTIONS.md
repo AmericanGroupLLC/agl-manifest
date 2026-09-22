@@ -176,6 +176,21 @@ Allowed operations are: GET_COLLECTION, GET_INSTANCE, UPDATE
 Evidence: `~/agl/.sweep/asc-create-evidence.json`. fastlane `produce` is not a way
 around it either; it needs an Apple ID password, not the API key.
 
+**Proven three ways on 2026-09-22, so nobody re-tries it:**
+
+1. `Spaceship::ConnectAPI::App.create` — the method exists and Apple refuses the
+   call for all 14 apps with the error quoted above.
+2. The Developer Portal bundle ids are **not** the blocker. All 14 already exist
+   (`BundleId.all` lists every one); creating them is not what is missing.
+3. Uploading a build does not auto-create the record. A real `upload_to_testflight`
+   run against AeroSwift returned:
+   `Couldn't find app 'com.americangroupllc.aeroswift' on the account of
+   'rainbow472.sri@gmail.com' on App Store Connect`, then polled indefinitely for a
+   build that can never appear.
+
+Creating these 14 records in the App Store Connect UI is the single remaining
+blocker in the entire store checklist. Everything else passes for all 43 apps.
+
 **Needs a record (14):** AeroSwift, BodyQuest, daily-pulse, FashionFactory,
 GadgetNest, GroceryMatch, HerJourney, iMeasure, MyHealth, PlantPulse,
 portfolio-board, radiotune, Verba, yourtube
