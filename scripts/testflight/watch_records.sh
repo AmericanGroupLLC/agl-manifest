@@ -10,7 +10,11 @@ while [ $(date +%s) -lt $end ]; do
   todo=$(python3 - "$have" <<'PY'
 import json,sys
 have=set(sys.argv[1].split()); res=json.load(open('/Users/spatchava/agl/.dist/ios-batch/results.json'))
-skip={"CodeDeal","radiotune"}  # radiotune: Apple rejects the build in processing (reason only in the owner's email)
+# CodeDeal does not compile. radiotune used to be skipped because Apple rejected
+# its build in processing, but that was against the old com.americangroup.radiotune
+# record; under the new identifier it should be attempted and the failure logged
+# rather than silently passed over.
+skip={"CodeDeal"}
 print(",".join(r for r in sorted(have) if res.get(r,{}).get("status")!="uploaded" and r not in skip))
 PY
 )
