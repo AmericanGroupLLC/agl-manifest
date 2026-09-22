@@ -513,7 +513,7 @@ own .gitignore contradicts itself on the point. Either track the config (Google
 documents it as non-secret and it ships inside the binary anyway, which is what
 the other six repos do) or supply it in CI.
 
-## MA-015 — Eight Play apps need an upload-key reset (HUMAN ONLY, evidence attached)
+## MA-020 — Eight Play apps need an upload-key reset (HUMAN ONLY, evidence attached)
 
 CalcMaster, CarDeal, iMaps, iMeasure, Kinnav, TripNest, Uscis-Case and VirtuBand
 are rejected at upload with "signed with the wrong key". Verified 2026-09-21:
@@ -537,7 +537,7 @@ both. In Play Console: the app's **Setup → App integrity → App signing →
 Request upload key reset**, attaching the certificate of the keystore this
 machine holds for that app. Uploads work again within 48 hours.
 
-## MA-016 — Eleven apps have no Play entry (HUMAN ONLY)
+## MA-021 — Eleven apps have no Play entry (HUMAN ONLY)
 
 Re-measured 2026-09-22 by opening an edit against every Android package. **32 of
 43 now have a Play entry**; the count was 29 earlier the same day because
@@ -624,7 +624,7 @@ whether or not anything deployed — the same false signal that let store listin
 point at pages that did not exist. It now fetches a real page and fails the job
 if it gets the homepage back.
 
-## MA-017 — Production release is blocked on two console-only gates (HUMAN ONLY, attempted and measured)
+## MA-022 — Production release is blocked on two console-only gates (HUMAN ONLY, attempted and measured)
 
 Production release was attempted for every app on 2026-09-22. Both stores refused,
 each for one reason, and the same reason every time.
@@ -660,41 +660,40 @@ promotes every later release.
 Results: `~/agl/.dist/appstore-submit-results.json` and
 `~/agl/.dist/play-production-results.json`.
 
-## MA-018 — Tester synchronisation is automated; two inputs are still needed
+## MA-018 — Tester synchronisation is automated; Android still needs one input
 
 `.github/workflows/sync-testers.yml` keeps every tester list in step with App
 Store Connect's Users and Access. It runs every six hours, on demand, and after
 a delivery. The roster is `GET /v1/users` plus anyone already recorded as a beta
-tester; `scripts/testflight/distribute.rb --sync` writes it into each app's
-TestFlight group and `scripts/sync_play_testers.py` mirrors it onto Play. Both
-are idempotent. Verified 2026-09-22: the roster is 11 addresses and all 29 apps
-carry all 11.
+tester.
 
-Two platform limits shape this, both measured rather than assumed:
+**iOS is finished.** Each app has two groups:
 
-* **TestFlight internal groups cannot be filled through the API.** Apple answers
-  "Tester(s) cannot be assigned" even for the account holder, so the roster goes
-  into an external group named **AGL Testers**. The cost is that Apple reviews
-  each build before testers receive it; there is no auto-distribute for external
-  groups. Internal-group membership, and with it instant distribution, is an App
-  Store Connect action.
-* **Play's internal track accepts Google Groups only.** `GET /edits/{id}/testers/internal`
-  returns `{}` for all 21 apps and the resource takes a `googleGroups` array, not
-  addresses.
+| Group | Who | Delivery |
+| --- | --- | --- |
+| **AGL Internal** (internal, `hasAccessToAllBuilds`) | all 7 account users | every uploaded build, immediately, **no Beta App Review** |
+| **AGL Testers** (external) | the 4 roster members who are not account users | Apple reviews each build first |
 
-To finish the Android half, create one Google Group containing the roster and
-set these repository secrets:
+Verified 2026-09-22 across the portfolio: **29 of 29 apps** report 7 account
+users in the internal group, `hasAccessToAllBuilds` true, and the newest build
+reachable through it. Adding someone to Users and Access is now enough — the
+next sync puts them in all 29 internal groups and every build is on their phone
+without anyone touching a console.
+
+**Android is one input short.** Play's internal track accepts Google Groups
+only: `GET /edits/{id}/testers/internal` returns `{}` for every app and the
+resource takes a `googleGroups` array, not addresses. Create one Google Group
+holding the roster and set these repository secrets:
 
 | Secret | What it is |
 | --- | --- |
 | `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_CONTENT` | the App Store Connect key, base64 |
 | `PLAY_SERVICE_ACCOUNT_JSON` | key for `american-group-publisher@american-group-llc.iam.gserviceaccount.com` |
-| `PLAY_TESTER_GOOGLE_GROUP` | the group's address, e.g. `agl-testers@…` |
+| `PLAY_TESTER_GOOGLE_GROUP` | the group's address |
 | `PLAY_DEVELOPER_ID` | the number in the Play Console URL, for the account-user comparison |
 
-Without `PLAY_TESTER_GOOGLE_GROUP` the Play step audits and reports instead of
-changing anything, so the workflow is safe to enable before the group exists.
-
+Without `PLAY_TESTER_GOOGLE_GROUP` the Play step audits and reports rather than
+changing anything, so the workflow is safe to leave enabled.
 ## MA-019 — An App Store Connect agreement needs accepting (HUMAN ONLY, urgent)
 
 TestFlight beta submission started failing on 2026-09-22 with:

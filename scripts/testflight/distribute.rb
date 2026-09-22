@@ -1,13 +1,20 @@
 #!/usr/bin/env ruby
 # Make every uploaded TestFlight build reachable by the team's testers.
 #
-# Apple's internal beta groups cannot be populated through the App Store Connect
-# API: POST /v1/betaTesters against an internal group is refused with "Tester(s)
-# cannot be assigned" (internal testers are Users & Access members, added in the
-# web console only). External groups accept the same call, so this script keeps
-# one external group per app, fills it with the team, attaches the newest build
-# and submits that build for Beta App Review — external builds only reach
-# testers once review passes.
+# Two groups per app, because they behave differently.
+#
+#   AGL Internal (internal, hasAccessToAllBuilds) — every App Store Connect
+#     account user. Apple makes every uploaded build available to these people
+#     immediately, with no Beta App Review, which is what "the build appears on
+#     their phone" actually requires.
+#
+#   AGL Testers (external) — anyone on the roster who is not an account user.
+#     Apple reviews each build before an external group receives it.
+#
+# Creating the internal group needs a raw request: spaceship's create_beta_group
+# always sends publicLinkLimitEnabled, and App Store Connect refuses that on an
+# internal group ("Public link limit cannot be applied to internal group").
+# Getting that wrong is what made internal groups look impossible to fill.
 #
 #   bundle exec ruby distribute.rb --report          # what each app has today
 #   bundle exec ruby distribute.rb --app CalcMaster  # one app
@@ -22,7 +29,8 @@ require "fileutils"
 # repository and there is no enclosing agl directory, so the two must be separate.
 MANIFEST  = File.expand_path("../..", __dir__)
 ROOT      = ENV.fetch("AGL_ROOT", File.expand_path("..", MANIFEST))
-GROUP     = "AGL Testers"
+GROUP     = "AGL Testers"     # external: reviewed before delivery
+INTERNAL  = "AGL Internal"     # internal: every build, immediately, no review
 # The review contact already recorded on this account (Kinnav's betaAppReviewDetail).
 # Apple rejects invented phone numbers, and this is the number the team already gave.
 CONTACT   = { firstName: "Shivani", lastName: "Patel",
@@ -57,10 +65,13 @@ apps    = apps.select { |a| results.dig(a["repo"], "status") == "uploaded" } if 
 # (GET /v1/users), plus anyone already recorded as a beta tester. Names come
 # from Apple rather than being invented, so nobody shows up misnamed.
 roster = {}
+account = {}
 begin
   Spaceship::ConnectAPI::User.all.each do |u|
     next if u.username.to_s.empty?
-    roster[u.username.downcase] = { email: u.username, firstName: u.first_name.to_s, lastName: u.last_name.to_s }
+    rec = { email: u.username, firstName: u.first_name.to_s, lastName: u.last_name.to_s }
+    roster[u.username.downcase] = rec
+    account[u.username.downcase] = rec
   end
 rescue StandardError => e
   warn "could not read account users: #{e.message.lines.first}"
@@ -70,6 +81,7 @@ Spaceship::ConnectAPI::BetaTester.all.each do |t|
   roster[t.email.downcase] ||= { email: t.email, firstName: t.first_name.to_s, lastName: t.last_name.to_s }
 end
 TEAM = roster.values.freeze
+ACCOUNT_USERS = account.values.freeze
 abort "no testers and no account users found" if TEAM.empty?
 FileUtils.mkdir_p(File.join(ROOT, ".dist"))
 File.write(File.join(ROOT, ".dist/tester-roster.json"), JSON.pretty_generate(TEAM))
@@ -80,6 +92,31 @@ def ensure_group(app)
   g = app.get_beta_groups.find { |x| x.name == GROUP }
   return g if g
   Spaceship::ConnectAPI.create_beta_group(app_id: app.id, group_name: GROUP, is_internal_group: false).to_models.first
+end
+
+def ensure_internal_group(app)
+  g = app.get_beta_groups.find { |x| x.name == INTERNAL }
+  return g if g
+  body = { data: { type: "betaGroups",
+    attributes: { name: INTERNAL, isInternalGroup: true, hasAccessToAllBuilds: true },
+    relationships: { app: { data: { type: "apps", id: app.id } } } } }
+  Spaceship::ConnectAPI.test_flight_request_client.post("v1/betaGroups", body).to_models.first
+end
+
+# Account users go in the internal group; Apple only accepts Users and Access
+# members there, so everyone else stays external.
+def sync_internal(app)
+  g = ensure_internal_group(app)
+  have = Spaceship::ConnectAPI::BetaTester.all(filter: { betaGroups: g.id }).map { |t| t.email.to_s.downcase }
+  added = 0
+  ACCOUNT_USERS.each do |u|
+    next if have.include?(u[:email].downcase)
+    Spaceship::ConnectAPI.post_beta_tester_assignment(beta_group_ids: [g.id], attributes: u)
+    added += 1
+  rescue StandardError => e
+    warn "    internal #{u[:email]}: #{e.message.gsub(/\s+/, ' ')[0, 120]}"
+  end
+  [g, have.size + added, added]
 end
 
 def add_testers(group)
@@ -133,11 +170,12 @@ apps.each do |a|
 
   groups = app.get_beta_groups
   if SYNC
+    ig, inside, added_int = sync_internal(app)
     g = ensure_group(app)
     before = Spaceship::ConnectAPI::BetaTester.all(filter: { betaGroups: g.id }).size
     n = add_testers(g)
-    state_out[repo] = { "testers" => n, "added" => n - before }
-    say(repo, "#{n}/#{TEAM.size} testers in #{GROUP}#{n > before ? " (+#{n - before})" : ''}")
+    state_out[repo] = { "internal" => inside, "testers" => n, "added" => (n - before) + added_int }
+    say(repo, "#{inside}/#{ACCOUNT_USERS.size} in #{INTERNAL} (no review), #{n}/#{TEAM.size} in #{GROUP}")
     next
   end
   if STATE
@@ -179,7 +217,7 @@ apps.each do |a|
     rescue StandardError => e
       warn "    attach: #{e.message.gsub(/\s+/, ' ')[0, 140]}"
     end
-    state = "build #{build.version} -> #{GROUP} (#{n}/#{TEAM.size} testers)"
+    state = "build #{build.version} -> #{INTERNAL} (#{inside} account users, immediate) + #{GROUP} (#{n}/#{TEAM.size})"
     if SUBMIT
       begin
         Spaceship::ConnectAPI.post_beta_app_review_submissions(build_id: build.id)

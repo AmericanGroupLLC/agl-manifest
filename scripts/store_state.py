@@ -64,6 +64,6 @@ out += ["",
         f"- App Store listings delivered: {sum(1 for v in deliv.values() if v.get('deliver') == 'ok')}",
         "",
         "Blockers that need a person are in `docs/MANUAL_ACTIONS.md` (MA-014 Play tester "
-        "list, MA-015 upload-key resets, MA-016 missing Play entries).", ""]
+        "list, MA-020 upload-key resets, MA-021 missing Play entries).", ""]
 (M / "docs/STORE_DELIVERY_STATE.md").write_text("\n".join(out))
 print("wrote docs/STORE_DELIVERY_STATE.md")
