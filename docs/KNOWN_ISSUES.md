@@ -181,3 +181,29 @@ one is not reversible — see `docs/APP_IDENTIFIERS.md` before acting.
 others whose meaning depends on surrounding context. Left alone on purpose
 (ADR-007) — a wrong label is worse than none — but they are still unnamed to a
 screen reader, and someone who knows each screen could label them correctly.
+
+## Photriya cannot move to target SDK 36 (2026-09-22)
+
+Google Play now refuses an upload below target SDK 36. Three apps that pinned 35
+(BodyQuest, GroceryMatch, yourtube) were moved to `flutter.targetSdkVersion` and
+build clean; yourtube reached Play's internal track as a result.
+
+Photriya cannot follow yet, and is deliberately left at 35:
+
+* At `compileSdk 36` with its current Android Gradle plugin (8.11.1),
+  `lintVitalReportProdRelease` dies with "Internal error: Unexpected lint
+  invalid arguments".
+* Raising the plugin to 8.13.1, the version GroceryMatch uses, moves the failure
+  to `:flutter_native_splash:checkReleaseAarMetadata` — the plugin *modules* keep
+  the old compile level and 20 AAR metadata checks fail.
+
+Reverted to `compileSdk 35` / `targetSdk 35` / plugin 8.11.1, which builds:
+a prod-flavour release bundle was produced at 68.4 MB after the revert. Photriya
+has no Play entry yet so nothing is blocked today, but it cannot be uploaded
+until the toolchain moves. The fix is to raise the plugin *and* give the plugin
+modules a compile level, not to change the app alone.
+
+Separately, Photriya carried a stale generated plugin registrant on disk
+(gitignored, not tracked) that referenced a class no longer in sensors_plus and
+broke every Android build with a Java compile error. Deleting it and running
+`flutter pub get` regenerates it correctly.
