@@ -550,6 +550,19 @@ both. In Play Console: the app's **Setup → App integrity → App signing →
 Request upload key reset**, attaching the certificate of the keystore this
 machine holds for that app. Uploads work again within 48 hours.
 
+Still live on 2026-09-22 — the AAB rebuilt that day still carries
+`19:F9:46:43:71:52:66:A8:3C:43:B2:13:9E:4F:D7:10:16:E1:98:5A` for CalcMaster,
+the same certificate Play rejected, because the local keystores were generated
+on 2026-09-11, after Play had registered a different key.
+
+**This does not block getting a build to a tester.** Internal app sharing does
+not check the upload key, and on 2026-09-22 the six apps it delivered —
+CalcMaster, iMaps, iMeasure, TripNest, Uscis-Case, VirtuBand — were *all* on
+this list. So MA-020 gates the store release and the internal track, not test
+distribution; `scripts/play_internal_share.py` routes around it. CarDeal and
+Kinnav are the two that stayed unreachable, and only because they are still
+Draft apps (MA-022).
+
 ## MA-021 — Eleven apps have no Play entry (HUMAN ONLY)
 
 Re-measured 2026-09-22 by opening an edit against every Android package. **32 of
