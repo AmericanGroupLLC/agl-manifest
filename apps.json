@@ -716,7 +716,7 @@
    "branch": "production-readiness-2026-09-12",
    "dir": ".",
    "application_id": "com.americangroupllc.herjourney",
-   "bundle_id": "com.americangroupllc.herJourney",
+   "bundle_id": "com.americangroupllc.herjourney",
    "version": "1.2.0+3",
    "deliverable": {
     "android": true,
