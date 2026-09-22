@@ -502,3 +502,73 @@ Checked 2026-09-21 under both the current and the previous naming: only
 `com.americangroup.yourtube` exists, a leftover from before the rename. Do not
 upload to it — the portfolio is standardised on `com.americangroupllc.*`, so that
 stray entry should be abandoned and yourtube created under its new name.
+
+---
+
+## MA-017 · P0 · Play Data safety deletion URL — deadline 2026-09-24
+
+Google flagged VirtuBand on 2026-09-21: *"URL provided
+https://americangroupllc.github.io/policy/virtuband/delete-account.html does not
+link to a valid page, HTTP server is returning 404"*. Confirmed — that host is
+retired and returns 404. **If this is not fixed by 2026-09-24 the app may face
+further action**, and the same form field is wrong for the whole portfolio, not
+just VirtuBand.
+
+A second, larger problem was found while fixing it: `scripts/policy_pages.py`
+only wrote `delete-account.html` for apps it judged to have accounts, so **27 of
+43 apps had no deletion page at all**. Google validates the URL regardless of
+what the form declares, so the identical strike was queued for all of them. The
+generator now writes one for every app; apps with no sign-in get a page that
+says so and gives the email route rather than describing a button that does not
+exist. All 43 pages are committed to the website's `main` and `deploy` branches.
+
+**Two things a person must do.**
+
+**1. Publish the site.** The 27 new pages are pushed but not live — verified by
+fetching them and getting the marketing homepage back. Either:
+   * cPanel → Git Version Control → **Deploy HEAD Commit** on the `deploy`
+     branch (it already carries all 43 pages, and only `policy/` was touched, so
+     `.cpanel.yml` and `.htaccess` are untouched); or
+   * fix the SSH key below so the Actions deploy works on its own.
+
+**2. Paste the URL into each app's Data safety form.** There is no Play API for
+it. `docs/DATA_SAFETY_DELETION_URLS.md` lists the exact URL per app.
+Play Console → app → Policy → App content → Data safety → Account deletion URL.
+
+### The Actions deploy: diagnosed, and the last step is server-side
+
+`docs/KNOWN_ISSUES.md` and MA-010 recorded this as "HostGator closes the SSH
+connection from the runner". That was a misreading of the symptom. Two real
+client-side bugs were fixed in `.github/workflows/deploy.yml`:
+
+* the key was written with `echo`, losing the trailing newline OpenSSH requires;
+* a 4096-bit RSA key is offered as three separate signature algorithms
+  (rsa-sha2-512, rsa-sha2-256, ssh-rsa), each counting against the server's
+  `MaxAuthTries` — which is what produced *"Too many authentication failures"*
+  and made it look like the host was refusing the runner.
+
+With `printf`, `IdentitiesOnly=yes` and `PubkeyAcceptedAlgorithms=+ssh-rsa`, the
+error changed to:
+
+```
+Permission denied (publickey,password,keyboard-interactive)
+```
+
+That is one clean attempt being rejected, which means **the deploy key is not
+authorised on the host**. The key is valid and parses in CI:
+
+```
+4096 SHA256:TxRQmF8ca2zS0ys/cnZ4Th+fbzCHUJ8ZGFL+iQlXHJI github-actions-deploy@safecodeg.com (RSA)
+```
+
+**Required:** add that public key to `~/.ssh/authorized_keys` for the
+`SSH_USERNAME` account in cPanel → SSH Access → Manage SSH Keys (and mark it
+authorised), or confirm `SSH_USERNAME`/`SSH_HOST` are right. The private half is
+only in the GitHub secret, so the public half has to come from cPanel's key
+manager or be regenerated as a pair.
+
+The workflow's verify step was also replaced. It used to curl the homepage,
+which returns 200 for every path on this SPA host, so it printed a success tick
+whether or not anything deployed — the same false signal that let store listings
+point at pages that did not exist. It now fetches a real page and fails the job
+if it gets the homepage back.
