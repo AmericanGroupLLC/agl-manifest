@@ -250,7 +250,32 @@ works.
 
 ---
 
-## MA-010 · P1 · safecodeg.com/policy/* is not live yet — the store URLs depend on it
+## MA-010 · MOSTLY RESOLVED 2026-09-21 · policy pages are live; the www redirect is not
+
+**Re-measured 2026-09-21.** The premise below is no longer true — the policy
+pages ARE live. `https://www.safecodeg.com/policy/calcmaster/` returns 3,835
+bytes titled *"CalcMaster Privacy Policy | American Group LLC"*, not the React
+homepage. A sweep of every `safecodeg.com` URL referenced by app code and store
+metadata (`.sweep/url_sweep.py` → `.sweep/url-sweep.json`) found **89 of 91 real**,
+the other two being the site root, which legitimately is the homepage.
+
+**How to check this correctly.** The host serves an SPA catch-all: *any* unknown
+path returns HTTP 200 with the marketing homepage. A status code therefore proves
+nothing — this is exactly how "43/43 URLs return 200" was once reported for pages
+that did not exist. Fetch the body and compare its md5 against a deliberately
+nonexistent path (`ddac27de41efeeca0c1ffddc113e6b74`, 369,371 bytes); anything
+matching that hash is a 404 in disguise. The sweep script does this.
+
+That check caught 8 apps still pointing at invented paths — `/privacy-policy`
+(6 apps), `/terms`, `/support`, `/DriftDate`, `/Verba` — all now repointed at real
+`/policy/<slug>/` pages and committed.
+
+**Still outstanding:** the apex → www canonical redirect. `https://safecodeg.com/policy/calcmaster/`
+answers 200 directly instead of redirecting to `www`. The `.htaccess` change is
+pushed to the `deploy` branch but not published; it needs **Deploy HEAD Commit**
+in cPanel → Git Version Control.
+
+Historical context follows.
 
 **Verified 2026-09-14.** Every listing's privacy and support URL is
 `https://www.safecodeg.com/policy/<slug>/...`. The pages exist in
@@ -363,3 +388,80 @@ containing those addresses and attach it once per app through the API.
 The Claude in Chrome extension cannot do this. Re-tested 2026-09-21 on
 `https://play.google.com/console/developers`: both `get_page_text` and
 `read_page` time out, as they did on every earlier attempt.
+
+---
+
+## MA-015 · P1 · AdMob: real ad unit ids are needed, and ads are gated off until they arrive
+
+**Measured 2026-09-21.** Eleven apps carried Google's public test id
+`ca-app-pub-3940256099942544`. An audit classified each by whether a release
+build could actually serve it, and the answer was yes for most of them:
+
+* **No build-mode guard at all** — BodyQuest, PilotEnRoute. Test units went
+  straight to `BannerAd`/`InterstitialAd.load`.
+* **A guard that looked real but was inert** — Verba. `_useTestIds => kDebugMode`
+  selected `VerbaConfig`, whose values were themselves test ids.
+* **iOS release aliased to the test unit** — iMeasure, radiotune, Uscis-Case,
+  TripNest, e.g. `static const _iosBannerRelease = _iosBannerTest;`. Android was
+  correct in all four.
+* **Empty prod id falling back to test** — iMaps, on iOS ×4 plus Android native
+  and rewarded.
+* **Another publisher's units** — yourtube shipped `ca-app-pub-1804742004018995`,
+  which is not American Group LLC. One was a real, loadable unit; the rest were
+  literal `YOUR_IOS_BANNER_ID` placeholders.
+* **Already correct** — CalcMaster (ads hard-off until ids are real), VirtuBand.
+
+**What was done:** every app now gates ads off unless the id is a real
+`ca-app-pub-8528784688453695/...` unit, following the pattern CalcMaster already
+used. No test or third-party id can reach the SDK in release, the ad slot
+collapses to zero height rather than leaving a grey box, and debug builds still
+get test ads. Ads switch back on automatically when a real id is filled in — no
+other code change needed.
+
+**What a person must do.** Real ids cannot be minted from here; the AdMob API
+returned HTTP 401 with no ADC token. Run:
+
+```
+gcloud auth application-default login \
+  --scopes=https://www.googleapis.com/auth/admob.readonly,https://www.googleapis.com/auth/cloud-platform
+```
+
+Units still needed: BodyQuest 6, iMaps 6, PilotEnRoute 6, Verba 4, iMeasure 2,
+radiotune 2, TripNest 2, Uscis-Case 2, yourtube 2.
+
+**Separately, the GAD application id.** Ten of the eleven still declare Google's
+test app id (`~1458002511` iOS, `~3347511713` Android) in `Info.plist` /
+`AndroidManifest.xml`. Only CalcMaster has real ones on both platforms. These
+were deliberately left alone: registering a real AdMob *app* id is console work,
+and it is a separate rejection risk from the ad-unit ids above.
+
+---
+
+## MA-016 · RESOLVED 2026-09-21 · iOS crash reporting had never worked
+
+Crashlytics was wired into the apps months ago and could never have reported
+anything on iOS. Measured: **0 of 42** `ios/Runner.xcodeproj/project.pbxproj`
+files referenced `GoogleService-Info.plist`, so it was not copied into the app
+bundle — unzipping the shipped IPAs confirmed zero copies inside
+`Payload/Runner.app/`. No `AppDelegate.swift` called `FirebaseApp.configure()`,
+and there is no `firebase_options.dart` anywhere, so `Firebase.initializeApp()`
+had nothing to read and threw `[core/no-app]`.
+
+It never crashed an app — every call site is wrapped in try/catch, and the code
+comments document this exact state — it simply reported nothing. Android was
+unaffected; the `google-services` Gradle plugin is applied in all 43.
+
+**Fixed** for the 7 apps that depend on `firebase_crashlytics` (ApexMarketWatch,
+CarDeal, GadgetNest, MyHealth, RoomCraft, Verba, WiFiTrail) by adding the plist
+to the Runner target's Copy Bundle Resources with the `xcodeproj` gem — a 4-line
+addition per project, verified idempotent and byte-clean. Proven rather than
+assumed: WiFiTrail was rebuilt and `Payload/Runner.app/GoogleService-Info.plist`
+now exists with `BUNDLE_ID = com.americangroupllc.wifitrail`, where the pre-fix
+IPA of the same app had none.
+
+**One thing still needs a decision (P2):** MyHealth's `.gitignore:53` excludes
+`**/GoogleService-Info.plist`, so its config is untracked and absent from a fresh
+clone — the committed pbxproj now references a file CI will not have. That repo's
+own .gitignore contradicts itself on the point. Either track the config (Google
+documents it as non-secret and it ships inside the binary anyway, which is what
+the other six repos do) or supply it in CI.
