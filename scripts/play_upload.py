@@ -8,10 +8,16 @@ short-lived token by impersonation, so nothing durable lands on disk.
 
     python3 scripts/play_upload.py CalcMaster
     python3 scripts/play_upload.py --all
+    python3 scripts/play_upload.py --all --status completed   # CI: reach testers
 
-Per app: open an edit, upload the .aab, point the internal track at it as a
-draft release, commit. Releases are drafts on purpose — nothing reaches a tester
-until a human promotes it in the console.
+Per app: open an edit, upload the .aab, point the internal track at it, commit.
+
+The release status defaults to **draft** — nothing reaches a tester until a
+human promotes it — because that is the right default for a manual run. Pass
+`--status completed` to have Play hand the build to the internal-testing
+group immediately, which is what the CI pipeline uses; combined with the
+Google Group attached by scripts/play_attach_tester_group.py, that is the
+Android half of "every account user gets every build automatically".
 """
 import json, pathlib, subprocess, sys, time
 
@@ -47,6 +53,10 @@ def fail(d): return d["error"].get("message", "unknown")[:200] if "error" in d e
 
 apps = json.load(open(M / "apps.json"))["apps"]
 names = [a for a in sys.argv[1:] if not a.startswith("--")]
+STATUS = "completed" if "--status" in sys.argv and \
+    sys.argv[sys.argv.index("--status") + 1] == "completed" else "draft"
+if STATUS == "completed":
+    names = [n for n in names if n != "completed"]
 if names: apps = [a for a in apps if a["repo"] in names]
 results = json.load(open(RESULTS)) if RESULTS.exists() else {}
 
@@ -72,7 +82,7 @@ for a in apps:
         step = "assign track"
         t = call("PUT", f"{API}/{pkg}/edits/{eid}/tracks/internal",
                  {"track": "internal",
-                  "releases": [{"versionCodes": [str(vc)], "status": "draft"}]})
+                  "releases": [{"versionCodes": [str(vc)], "status": STATUS}]})
         if fail(t): raise RuntimeError(fail(t))
 
         step = "commit"

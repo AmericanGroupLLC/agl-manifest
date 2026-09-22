@@ -373,7 +373,30 @@ What remains is a judgement no script can make: whether five apps from one
 publisher, built on a shared house style, still invite an App Store guideline
 4.3 (spam) rejection. That is a human call before submission, not a build gap.
 
-## MA-013 — TestFlight internal groups cannot be filled through the API (RESOLVED by working around it)
+## MA-013 — SUPERSEDED 2026-09-22 · internal TestFlight groups CAN be filled by API
+
+**The finding below is wrong and the workaround is no longer necessary.**
+Re-tested against the live API: `POST /v1/betaTesters` carrying a `betaGroups`
+relationship returns **HTTP 201** against an internal group, and the tester then
+appears in `GET /v1/betaGroups/{id}/betaTesters`. The 409 that produced the
+original conclusion was Apple refusing to move a tester who was *already* on
+that app under another group — not a rule about internal groups. Creating an
+internal group by API works too: `POST /v1/betaGroups` with
+`isInternalGroup: true` returns 201.
+
+This matters because an internal group needs **no Beta App Review**, so builds
+reach the team as soon as they finish processing, rather than waiting on Apple.
+
+`scripts/sync_testflight_testers.rb` now does this. Run 2026-09-22 across the
+account: internal groups created where missing, **185 tester assignments added**,
+and all **29 apps with an App Store Connect record now have an internal group
+with 7 testers and `hasAccessToAllBuilds` enabled** — so future uploads
+distribute with nobody touching a console. The external "AGL Testers" group is
+still synced afterwards for testers who are not account users.
+
+The original entry follows, for the record.
+
+### Original entry (superseded)
 
 `POST /v1/betaTesters` against an internal beta group is refused with
 "Tester(s) cannot be assigned": internal testers are Users and Access members and

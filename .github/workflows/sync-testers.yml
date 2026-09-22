@@ -12,12 +12,21 @@ name: Sync testers
 # anyone touching a console.
 #
 # Two notes on what the platforms allow, both measured rather than assumed:
-#   * TestFlight *internal* groups cannot be filled through the API — Apple
-#     answers "Tester(s) cannot be assigned" — so the roster goes into an
-#     external group and Apple reviews each build before testers receive it.
+#   * TestFlight *internal* groups CAN be filled through the API. This file and
+#     MANUAL_ACTIONS MA-013 previously said they could not, on the strength of a
+#     "Tester(s) cannot be assigned" error. Re-tested against the live API on
+#     2026-09-22: POST /v1/betaTesters with a betaGroups relationship returns
+#     HTTP 201 against an internal group and the tester appears in it. The old
+#     409 was Apple refusing to move a tester who was already on that app under
+#     a different group — not a rule about internal groups.
+#     This matters: an internal group needs no Beta App Review, so a build
+#     reaches the team the moment it finishes processing. The external group is
+#     still synced afterwards for testers who are not account users.
 #   * Play's internal track takes Google Groups only, so PLAY_TESTER_GOOGLE_GROUP
 #     must name a group holding the roster. Without it the Play step audits and
-#     reports instead of changing anything.
+#     reports instead of changing anything. Verified the same day: the testers
+#     resource rejects an `emails` field outright ("Cannot find field") and
+#     validates `googleGroups` against real groups.
 
 on:
   schedule:
@@ -60,7 +69,16 @@ jobs:
           printf '%s' "${{ secrets.ASC_KEY_CONTENT }}" | base64 --decode > "$ASC_KEY_PATH"
           test -s "$ASC_KEY_PATH"
 
-      - name: Sync App Store Connect users into every TestFlight group
+      # Internal first: no Beta App Review, so the team gets the build as soon
+      # as it finishes processing. Creates the group when an app has none, with
+      # hasAccessToAllBuilds set so future uploads distribute on their own.
+      - name: Mirror Users and Access into every internal TestFlight group
+        run: bundle exec ruby scripts/sync_testflight_testers.rb
+        working-directory: ${{ github.workspace }}
+
+      # External group as well, for testers who are not account users. These
+      # builds do go through Beta App Review.
+      - name: Sync the external TestFlight group
         run: bundle exec ruby scripts/testflight/distribute.rb --sync
         working-directory: ${{ github.workspace }}
 
