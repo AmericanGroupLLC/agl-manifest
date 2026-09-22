@@ -465,3 +465,40 @@ clone — the committed pbxproj now references a file CI will not have. That rep
 own .gitignore contradicts itself on the point. Either track the config (Google
 documents it as non-secret and it ships inside the binary anyway, which is what
 the other six repos do) or supply it in CI.
+
+## MA-015 — Eight Play apps need an upload-key reset (HUMAN ONLY, evidence attached)
+
+CalcMaster, CarDeal, iMaps, iMeasure, Kinnav, TripNest, Uscis-Case and VirtuBand
+are rejected at upload with "signed with the wrong key". Verified 2026-09-21:
+all 43 keystores in `~/agl/.secrets/keystores/` were read with `keytool` and
+**none** produces any of the eight expected SHA1 fingerprints, so the original
+upload keys are not on this machine and cannot be recovered here.
+
+| app | Play expects (SHA1, truncated by the API error) |
+| --- | --- |
+| CalcMaster | `60:D8:BB:7F:30:04:2F:C0:4A:5D:1D:71:3B:3D:99:F9:32:73:46` |
+| CarDeal | `ED:9C:A5:63:CF:8C:C0:18:2A:63:09:CD:8A:B8:20:57:19:F9:6F` |
+| iMaps | `12:8E:4F:EB:E8:74:D7:41:4F:64:B6:E8:41:E8:F6:09:15:67:FA` |
+| iMeasure | `EA:C1:09:67:DE:E3:9F:85:91:F9:0A:DA:1D:5A:EF:70:98:99:F9` |
+| Kinnav | `96:8B:C8:DB:89:F4:90:9A:A9:93:7D:C0:4C:8E:03:CD:F6:05:89` |
+| TripNest | `D6:8C:D1:56:01:26:6D:0A:EA:F7:BD:6E:56:9F:6C:57:48:43:E4` |
+| Uscis-Case | `FB:60:4C:AB:6E:10:DC:96:1A:E0:6E:04:CE:D0:BE:58:49:69:95` |
+| VirtuBand | `ED:9C:A5:63:CF:8C:C0:18:2A:63:09:CD:8A:B8:20:57:19:F9:6F` |
+
+CarDeal and VirtuBand expect the *same* key, so one shared original key covers
+both. In Play Console: the app's **Setup → App integrity → App signing →
+Request upload key reset**, attaching the certificate of the keystore this
+machine holds for that app. Uploads work again within 48 hours.
+
+## MA-016 — Fourteen apps have no Play entry (HUMAN ONLY)
+
+AeroSwift, BodyQuest, daily-pulse, DriftDate, FashionFactory, GadgetNest,
+GroceryMatch, HerJourney, Photriya, PlantPulse, portfolio-board, radiotune,
+Verba and yourtube all fail with "Package not found". The Play Developer API
+cannot create an app, so each needs **Create app** in Play Console under the
+package name in `apps.json`.
+
+Checked 2026-09-21 under both the current and the previous naming: only
+`com.americangroup.yourtube` exists, a leftover from before the rename. Do not
+upload to it — the portfolio is standardised on `com.americangroupllc.*`, so that
+stray entry should be abandoned and yourtube created under its new name.
