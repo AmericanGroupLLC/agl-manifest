@@ -147,12 +147,29 @@ lists which apps still need a description, keywords and screenshots.
 
 ## MA-008 · P1 · Create the App Store Connect records for the new identifiers
 
-**Decision 2026-09-15:** every app is now `com.americangroup.<name>` on both
-platforms (`scripts/rename_identifiers.py`, apps.json regenerated). Bundle ids
-are permanent once a record has a build, so the 33 records under
-`com.americangroupllc.*` and their TestFlight builds are abandoned; each app
-needs a **new** App Store Connect record. The API cannot create records
-(`apps` refuses CREATE) and fastlane `produce` needs an Apple ID password.
+**Superseded 2026-09-21.** The scheme is `com.americangroupllc.<lowercase>` on
+both platforms — *not* `com.americangroup.<name>` as this entry previously said.
+All 43 apps now match it with no exceptions; HerJourney was the last holdout and
+was fixed by deleting its old capital-J App ID (`DELETE /v1/bundleIds/PWUK6FB2Y8`
+→ HTTP 204, which Spaceship exposes no method for) and registering the lowercase
+one.
+
+**Measured 2026-09-21:** App Store Connect holds 41 app records; **14 of the 43
+apps have none**. Creating them is genuinely console-only. `Spaceship::ConnectAPI::App`
+*does* expose `.create`, so this is worth stating precisely — the method exists and
+Apple refuses the call. All 14 attempts returned:
+
+```
+The given operation is not allowed - The resource 'apps' does not allow 'CREATE'.
+Allowed operations are: GET_COLLECTION, GET_INSTANCE, UPDATE
+```
+
+Evidence: `~/agl/.sweep/asc-create-evidence.json`. fastlane `produce` is not a way
+around it either; it needs an Apple ID password, not the API key.
+
+**Needs a record (14):** AeroSwift, BodyQuest, daily-pulse, FashionFactory,
+GadgetNest, GroceryMatch, HerJourney, iMeasure, MyHealth, PlantPulse,
+portfolio-board, radiotune, Verba, yourtube
 
 **Required:** in App Store Connect → Apps, use "Drag up to 10 apps here" with the
 signed IPAs in `~/agl/.dist/ipa-for-asc/` (regenerated for the new ids by
@@ -166,7 +183,21 @@ them; the previous build inventory is in
 
 ---
 
-## MA-009 · Play: 21 of 43 uploaded — 14 need an app entry, 8 need an upload-key reset
+## MA-009 · Play: 23 of 43 have a bundle — 14 need an app entry, 6 need an upload-key reset
+
+**Re-measured 2026-09-21 against the API, not against the local evidence file.**
+`.sweep/play-upload-evidence.json` could not be trusted: a single-app run
+overwrote it wholesale, so it recorded one app and had erased the history of the
+rest. `.sweep/play_state.py` now asks Play directly per package and writes
+`.sweep/play-state.json`; `play_upload.py` merges instead of clobbering.
+
+Today's real counts: **HAS_BUNDLE 23, NO_LISTING 14, LISTING_EMPTY 6.**
+CalcMaster and Kinnav are no longer blocked — both now carry a bundle, so the
+key-reset list below is 6, not 8. The 6 remaining `LISTING_EMPTY` apps are
+exactly the 6 whose upload key does not match.
+
+The historical detail below is kept for context; where it disagrees with the
+counts above, the counts above are the measured ones.
 
 **Resolved 2026-09-17:** the credential problem is gone.
 `american-group-publisher@american-group-llc.iam.gserviceaccount.com` already
@@ -187,7 +218,13 @@ afterwards; it skips anything already uploaded.
 
 AeroSwift, BodyQuest, DriftDate, FashionFactory, GadgetNest, GroceryMatch, HerJourney, Photriya, PlantPulse, Verba, daily-pulse, portfolio-board, radiotune, yourtube
 
-**b) Upload key does not match Play's registered one (8)** — these
+**b) Upload key does not match Play's registered one (6 as of 2026-09-21)** —
+CalcMaster and Kinnav have since been resolved and now carry a bundle; the rows
+for them below are historical. Re-verified on 2026-09-21: all 43 local keystores
+were fingerprinted again with `keytool -list -v` and **still zero match** the
+certificate Google names. Note CarDeal and VirtuBand expect the *same* cert,
+which suggests those two listings were created with one shared upload key by
+someone, on a machine that is not this one. These
 apps already exist on Play with Play App Signing, and the upload certificate
 they were published with is **not on this machine**. Every one of the 43
 keystores in `~/agl/.secrets/keystores/` was fingerprinted against the

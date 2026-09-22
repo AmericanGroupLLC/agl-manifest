@@ -38,7 +38,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | MyHealth | 22 | 1 | 3 |
 | NearServe | 21 | 0 | 3 |
 | NewsBoard | 20 | 1 | 3 |
-| NexusTransferPay | 18 | 3 | 3 |
+| NexusTransferPay | 20 | 1 | 3 |
 | Photriya | 23 | 0 | 3 |
 | PilotEnRoute | 23 | 0 | 3 |
 | PlantPulse | 20 | 1 | 3 |
@@ -53,7 +53,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | WiFiTrail | 22 | 0 | 3 |
 | yourtube | 22 | 0 | 3 |
 
-**15 failing checks across 43 apps.**
+**13 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -611,7 +611,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Android .apk (release, sideload/test) | PASS | SIGNED |
 | iOS .ipa exported for the App Store | PASS | EXPORTED |
 | Binaries newer than the app icon | PASS |  |
-| Bundle id / applicationId | PASS | com.americangroupllc.herJourney |
+| Bundle id / applicationId | PASS | com.americangroupllc.herjourney |
 | Release signing configured | PASS | upload keystore matched |
 | App icon (1024, opaque, not a placeholder) | PASS | 7e19bfa045ae |
 | Play feature graphic 1024x500 | PASS |  |
@@ -955,9 +955,9 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Screenshots (Apple >=1, Play >=2) | PASS | 3 captured ['1320x2868'] |
 | App Store name | PASS | NexusTransferPay |
 | Play title | PASS | NexusTransferPay |
-| Full description | FAIL | missing |
+| Full description | PASS | 3256 chars |
 | Play short description (<=80) | PASS | 45 chars |
-| App Store keywords (<=100) | FAIL | missing |
+| App Store keywords (<=100) | PASS | 98 chars |
 | Primary category | PASS | FINANCE |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
