@@ -14,7 +14,7 @@ written when it is absent, or when it carries the GENERATED marker and --force
 is given. The slug map below pins each app to its existing directory so live
 URLs stay stable.
 """
-import json, pathlib, plistlib, re, sys, html, datetime
+import json, pathlib, plistlib, re, sys, html, datetime, urllib.parse
 
 ROOT = pathlib.Path("/Users/spatchava/agl")
 MANIFEST = ROOT / "agl-manifest"
@@ -184,14 +184,29 @@ def support(a, f, name, copy):
 <p><strong>Found a bug?</strong> Email us the device model, OS version and what you tapped; a screenshot helps.</p>
 <p>Please include the app name <strong>{e(name)}</strong> in the subject line.</p>"""
 
-def delete_account(a, f, name):
+def delete_account(a, f, name, has_account=True):
     e = html.escape
+    subj = urllib.parse.quote(name, safe="")
+    if not has_account:
+        # Google checks that the deletion URL in the Data safety form resolves,
+        # and it checks it whether or not we think the app has accounts. A 404
+        # here is what got VirtuBand flagged. An app with no sign-in still needs
+        # a page that loads and tells the truth about how to get data removed.
+        return f"""<h2>Delete your {e(name)} data</h2>
+<p>{e(name)} does not ask you to create an account, so there is no account to delete.</p>
+<h3>Data held on your device</h3>
+<p>Everything the app saves is stored on your device. Deleting the app removes it. You can also
+clear it from inside the app, or through your device settings, without uninstalling.</p>
+<h3>Anything else</h3>
+<p>If you believe we hold data about you and you want it removed, email
+<a href="mailto:contact@safecodeg.com?subject=Delete%20my%20{subj}%20data">contact@safecodeg.com</a>
+and say which app you are writing about. We answer within 30 days.</p>"""
     return f"""<h2>Delete your {e(name)} account</h2>
 <p>You can delete your account and all data linked to it at any time. Deletion is permanent.</p>
 <h3>In the app</h3>
 <ol><li>Open <strong>Settings</strong> (profile or gear icon).</li><li>Choose <strong>Delete account</strong>.</li><li>Confirm. Your account and its data are removed from our systems within 30 days.</li></ol>
 <h3>By email</h3>
-<p>If you no longer have the app installed, email <a href="mailto:contact@safecodeg.com?subject=Delete%20my%20{e(name)}%20account">contact@safecodeg.com</a> from the address you signed up with, or include the Sign in with Apple / Google identifier you used. We confirm deletion within 30 days.</p>
+<p>If you no longer have the app installed, email <a href="mailto:contact@safecodeg.com?subject=Delete%20my%20{subj}%20account">contact@safecodeg.com</a> from the address you signed up with, or include the Sign in with Apple / Google identifier you used. We confirm deletion within 30 days.</p>
 <h3>What is deleted</h3>
 <p>Your profile (email, display name, provider identifier) and everything the app saved to your account. Data kept only on your device is removed when you uninstall the app.</p>"""
 
@@ -212,7 +227,9 @@ for a in sorted(apps, key=lambda x: x["repo"].lower()):
     has_account = bool(set(f["providers"]) & {"Supabase","Google","Apple","Firebase"}) or f["supabase"]
     res = {}
     if not (d / "styles.css").exists(): (d / "styles.css").write_text(styles); res["styles"] = "wrote"
-    nav = '\n        <a href="delete-account.html">Delete account</a>' if has_account else ""
+    # Every app gets the link and the page: Google validates the deletion URL
+    # regardless of what we believe about accounts, and a 404 is a policy strike.
+    nav = '\n        <a href="delete-account.html">Delete account</a>' 
     res["index"] = write(d / "index.html", page("Privacy Policy", name, slug, privacy(a, f, name, slug), nav))
     # privacy.html is an alias of index.html (the live CalcMaster listing already
     # points at privacy.html). When index.html is hand-written, mirror it exactly
@@ -221,13 +238,14 @@ for a in sorted(apps, key=lambda x: x["repo"].lower()):
     res["privacy"] = write(d / "privacy.html", idx if MARK not in idx else page("Privacy Policy", name, slug, privacy(a, f, name, slug), nav))
     res["terms"] = write(d / "terms.html", page("Terms of Service", name, slug, terms(a, f, name), nav))
     res["support"] = write(d / "support.html", page("Support", name, slug, support(a, f, name, copy), nav))
-    if has_account:
-        res["delete"] = write(d / "delete-account.html", page("Delete account", name, slug, delete_account(a, f, name), nav))
+    res["delete"] = write(d / "delete-account.html",
+                          page("Delete account", name, slug,
+                               delete_account(a, f, name, has_account), nav))
     rows.append((name, slug, has_account))
     print(f"{repo:18} /policy/{slug}/  " + " ".join(f"{k}={v}" for k, v in res.items()))
 
 # landing page — always regenerated
-items = "\n".join(f'      <li><a href="{s}/">{html.escape(n)}</a> — <a href="{s}/index.html">privacy</a> · <a href="{s}/terms.html">terms</a> · <a href="{s}/support.html">support</a>' + (f' · <a href="{s}/delete-account.html">delete account</a>' if acc else "") + "</li>" for n, s, acc in rows)
+items = "\n".join(f'      <li><a href="{s}/">{html.escape(n)}</a> — <a href="{s}/index.html">privacy</a> · <a href="{s}/terms.html">terms</a> · <a href="{s}/support.html">support</a>' + f' · <a href="{s}/delete-account.html">delete account</a>'  + "</li>" for n, s, acc in rows)
 (SITE / "index.html").write_text(f"""<!DOCTYPE html>
 <html lang="en">
 <head>
