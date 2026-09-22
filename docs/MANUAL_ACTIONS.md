@@ -231,7 +231,7 @@ listing for review before that: a privacy URL that shows the homepage is a
 rejection.
 
 A GitHub Pages mirror was created during the 2026-09-14 session at
-`https://americangroupllc.github.io/policy/<slug>/` (repository
+`https://www.safecodeg.com/policy/<slug>/` (repository
 `AmericanGroupLLC/AmericanGroupLLC.github.io`). The organisation no longer uses
 GitHub Pages; delete that repository once safecodeg.com serves the pages.
 
