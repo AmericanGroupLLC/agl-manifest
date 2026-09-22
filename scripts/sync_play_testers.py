@@ -77,14 +77,26 @@ if DEV_ID:
 else:
     print("PLAY_DEVELOPER_ID not set — skipping the Play Console user comparison")
 
-live = json.load(open(ROOT / ".dist" / "play-release-results.json")) if (ROOT / ".dist" / "play-release-results.json").exists() else {}
 apps = {a["repo"]: a for a in json.load(open(M / "apps.json"))["apps"]}
-targets = [r for r, v in sorted(live.items()) if v.get("status") == "live-internal"]
+relfile = ROOT / ".dist" / "play-release-results.json"
+if relfile.exists():
+    live = json.load(open(relfile))
+    targets = [r for r, v in sorted(live.items()) if v.get("status") == "live-internal"]
+else:
+    # No local delivery record (a fresh CI checkout): try every Android app and
+    # let Play tell us which ones have no entry.
+    targets = sorted(r for r, a in apps.items() if a.get("deliverable", {}).get("android", True))
+    print(f"no local release record; trying all {len(targets)} Android app(s)")
 out = {}
 for repo in targets:
     pkg = apps[repo]["application_id"]
     e = call("POST", f"{API}/applications/{pkg}/edits")
-    if (m := fail(e)): print(f"{repo:18} open edit: {m}"); out[repo] = {"status": "failed", "error": m}; continue
+    if (m := fail(e)):
+        if "not found" in m.lower():
+            out[repo] = {"status": "no-play-entry"}
+        else:
+            print(f"{repo:18} open edit: {m}"); out[repo] = {"status": "failed", "error": m}
+        continue
     eid = e["id"]
     cur = call("GET", f"{API}/applications/{pkg}/edits/{eid}/testers/internal")
     groups = cur.get("googleGroups") or []
@@ -106,7 +118,11 @@ for repo in targets:
 
 json.dump(out, open(RESULTS, "w"), indent=1)
 done = sum(1 for v in out.values() if v.get("status") in ("synced", "already"))
-print(f"\n{done}/{len(out)} app(s) carry the tester group  -> {RESULTS}")
+reachable = sum(1 for v in out.values() if v.get("status") != "no-play-entry")
+missing = sum(1 for v in out.values() if v.get("status") == "no-play-entry")
+print(f"\n{done}/{reachable} app(s) with a Play entry carry the tester group"
+      + (f"; {missing} app(s) have no Play entry" if missing else "")
+      + f"  -> {RESULTS}")
 if not GROUP:
     print("\nSet PLAY_TESTER_GOOGLE_GROUP to a Google Group holding the roster and re-run "
           "to attach it everywhere; Play's API takes no individual addresses.")
