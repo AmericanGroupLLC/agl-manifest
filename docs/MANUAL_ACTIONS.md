@@ -195,6 +195,40 @@ blocker in the entire store checklist. Everything else passes for all 43 apps.
 GadgetNest, GroceryMatch, HerJourney, iMeasure, MyHealth, PlantPulse,
 portfolio-board, radiotune, Verba, yourtube
 
+Re-confirmed live on 2026-09-22 against AeroSwift — same refusal, word for word.
+The API key is not going to start working.
+
+### The one input that would automate this
+
+"Needs an Apple ID password" is not the same as "needs a person to click 43
+times". What `produce` actually needs is a **web session**, and fastlane mints
+one from a single 2FA code:
+
+```bash
+cd ~/agl/agl-manifest
+bundle exec fastlane spaceship spaceauth -u rainbow472.sri@gmail.com
+# type the 2FA code once; it prints a FASTLANE_SESSION value, good for ~30 days
+export FASTLANE_SESSION='...'
+```
+
+With that exported, the same session unlocks **both** Apple blockers in the
+checklist, which no API key can touch:
+
+| Blocker | Why the session fixes it |
+| --- | --- |
+| 14 missing app records (this entry) | `produce` creates records over the Apple ID session |
+| 27 apps stuck on App Privacy (MA-022) | `appDataUsages` is served by spaceship's *tunes* client, which is cookie-authenticated |
+
+Both are then scriptable in one pass, so the human cost of the entire Apple
+side is one 2FA code rather than 41 console visits.
+
+**Not yet verified.** This has not been executed here — generating the session
+needs a 2FA code that only the account holder receives. What *is* verified is
+that the tooling is installed (`fastlane 2.239.0`, `produce` and
+`spaceship spaceauth` both present) and that
+`spaceship/connect_api/tunes/client.rb` accepts a `cookie:` as well as a
+`token:`. Treat the outcome as expected, not proven, until a run exists.
+
 **Required:** in App Store Connect → Apps, use "Drag up to 10 apps here" with the
 signed IPAs in `~/agl/.dist/ipa-for-asc/` (regenerated for the new ids by
 `scripts/testflight/build_only.py`), or create each record by hand with the
