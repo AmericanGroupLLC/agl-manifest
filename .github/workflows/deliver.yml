@@ -28,6 +28,20 @@ on:
         required: true
         default: all
         type: string
+  # Same job, callable from another workflow. workflow_call cannot use `choice`,
+  # so these are plain strings with the same meanings.
+  workflow_call:
+    inputs:
+      platform:
+        required: true
+        type: string
+      lane:
+        required: true
+        type: string
+      apps:
+        required: false
+        default: all
+        type: string
 
 concurrency:
   # One delivery at a time per platform. Two concurrent uploads of the same

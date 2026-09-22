@@ -166,3 +166,29 @@ python3 scripts/store_metadata.py generate                       # listings
 `sync-manifest.yml` runs weekly and fails if `apps.json` names a repository the
 org no longer has, warning if the org has one the manifest does not — which is
 how a newly ported app announces itself.
+
+## Automatic tester sync and build distribution (2026-09-22)
+
+Three workflows, each with one job:
+
+| Workflow | Runs when | Does |
+| --- | --- | --- |
+| `distribute-on-tag.yml` | a `v*` tag is pushed, or on demand | calls `deliver.yml` for android and ios on the `beta` lane, then `sync-testers.yml` |
+| `deliver.yml` | on demand, or called | builds and ships the selected apps; `release` still sits behind the `production` environment |
+| `sync-testers.yml` | every six hours, on demand, called, or after a Deliver run | puts every App Store Connect account user in every tester list |
+
+Nothing on the tag path reaches App Store review or a Play production release.
+A tagged build goes to TestFlight and Play's internal track, and the tester sync
+puts it in front of everyone on the account.
+
+The roster is `GET /v1/users` merged with the existing beta testers. It is
+written to `.dist/tester-roster.json` and applied by
+`scripts/testflight/distribute.rb --sync` on Apple and
+`scripts/sync_play_testers.py` on Play. Both are idempotent, so a run that
+changes nothing says so.
+
+Two platform limits shape the design, measured on 2026-09-22 rather than assumed:
+TestFlight internal groups refuse API tester assignment even for the account
+holder, so an external group carries the roster and Apple reviews each build
+before testers get it; and Play's internal track accepts Google Groups rather
+than individual addresses. MA-018 lists the secrets that finish the Android half.
