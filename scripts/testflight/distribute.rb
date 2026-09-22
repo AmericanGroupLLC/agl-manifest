@@ -17,7 +17,11 @@ require "json"
 require "spaceship"
 require "fileutils"
 
-ROOT      = ENV.fetch("AGL_ROOT", File.expand_path("../../..", __dir__))
+# ROOT is where the scratch artefacts live (.dist); MANIFEST is this repository.
+# On this Mac the repository sits inside ROOT, but in CI the checkout is the
+# repository and there is no enclosing agl directory, so the two must be separate.
+MANIFEST  = File.expand_path("../..", __dir__)
+ROOT      = ENV.fetch("AGL_ROOT", File.expand_path("..", MANIFEST))
 GROUP     = "AGL Testers"
 # The review contact already recorded on this account (Kinnav's betaAppReviewDetail).
 # Apple rejects invented phone numbers, and this is the number the team already gave.
@@ -43,7 +47,7 @@ ONLY   = ARGV.each_cons(2).find { |a, _| a == "--app" }&.last
 Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
   key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), filepath: ENV.fetch("ASC_KEY_PATH"))
 
-apps    = JSON.parse(File.read("#{ROOT}/agl-manifest/apps.json"))["apps"]
+apps    = JSON.parse(File.read(File.join(MANIFEST, "apps.json")))["apps"]
 results = JSON.parse(File.read("#{ROOT}/.dist/ios-batch/results.json")) rescue {}
 HAVE_RESULTS = !results.empty?
 apps    = apps.select { |a| a["repo"] == ONLY } if ONLY
