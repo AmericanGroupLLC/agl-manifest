@@ -84,7 +84,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## AGCleaner
 
@@ -115,7 +115,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## AGrammarly
 
@@ -147,7 +147,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## AGRecorder
 
@@ -178,7 +178,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## AGStudio
 
@@ -209,7 +209,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## ApexMarketWatch
 
@@ -240,7 +240,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## BodyQuest
 
@@ -272,7 +272,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## BuddyPlay
 
@@ -303,7 +303,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## CalcMaster
 
@@ -335,7 +335,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## CarDeal
 
@@ -366,7 +366,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## ChefCount
 
@@ -398,7 +398,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## CodeDeal
 
@@ -429,7 +429,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## daily-pulse
 
@@ -461,7 +461,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## DriftDate
 
@@ -493,7 +493,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## EventSpark
 
@@ -524,7 +524,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## FashionFactory
 
@@ -556,7 +556,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## GadgetNest
 
@@ -587,7 +587,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## GroceryMatch
 
@@ -619,7 +619,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## HerJourney
 
@@ -651,7 +651,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## HomeWise
 
@@ -682,7 +682,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## iMaps
 
@@ -714,7 +714,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## iMeasure
 
@@ -746,7 +746,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## Kinnav
 
@@ -778,7 +778,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## MileMaster
 
@@ -810,7 +810,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## MyCard
 
@@ -841,7 +841,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## MyFinance
 
@@ -873,7 +873,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## MyHealth
 
@@ -905,7 +905,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## NearServe
 
@@ -936,7 +936,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## NewsBoard
 
@@ -967,7 +967,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## NexusTransferPay
 
@@ -998,7 +998,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## Photriya
 
@@ -1030,7 +1030,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## PilotEnRoute
 
@@ -1062,7 +1062,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## PlantPulse
 
@@ -1093,7 +1093,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## portfolio-board
 
@@ -1125,7 +1125,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## radiotune
 
@@ -1157,7 +1157,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## RideZap
 
@@ -1188,7 +1188,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## RoomCraft
 
@@ -1219,7 +1219,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## TripNest
 
@@ -1251,7 +1251,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## Uscis-Case
 
@@ -1283,7 +1283,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## Verba
 
@@ -1315,7 +1315,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | no Play entry - MA-021 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## VirtuBand
 
@@ -1347,7 +1347,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | PASS | internal app sharing link issued |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## WiFiTrail
 
@@ -1379,7 +1379,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | PASS | uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 
 ## yourtube
 
@@ -1410,5 +1410,5 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play IARC questionnaire | HUMAN | no API - Play Console only |
 | Build live on App Store Connect | FAIL | no ASC record or not uploaded |
 | Play delivery to account users | FAIL | still a Draft app in Console - MA-022 |
-| Firebase config (crash reporting works) | PASS | android=y ios=y |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
 

@@ -279,11 +279,21 @@ def main() -> int:
             {"SHARED": "internal app sharing link issued",
              "NOT_PUBLISHED": "still a Draft app in Console - MA-022",
              "NO_LISTING": "no Play entry - MA-021"}.get(pst, "not measured yet"))
+        # Shipping the file is not the same as shipping it in the app. This
+        # row passed for all 43 apps while Firebase was dead on iOS in 36 of
+        # them, because Xcode only copies what the project references and the
+        # check only asked whether the file was on disk. It now asks both.
         gs = (d / "android/app/google-services.json").exists()
-        gi = (d / "ios/Runner/GoogleService-Info.plist").exists()
+        gi_file = d / "ios/Runner/GoogleService-Info.plist"
+        gi = gi_file.exists()
+        pbx = d / "ios/Runner.xcodeproj/project.pbxproj"
+        bundled = pbx.exists() and "GoogleService-Info.plist" in pbx.read_text(
+            errors="ignore")
         add("Firebase config (crash reporting works)",
-            OK if (gs and gi) else NO,
-            f"android={'y' if gs else 'n'} ios={'y' if gi else 'n'}")
+            OK if (gs and gi and bundled) else NO,
+            f"android={'y' if gs else 'n'} ios={'y' if gi else 'n'} "
+            f"ios-bundled={'y' if bundled else 'n'}"
+            + ("" if bundled else "  <- plist not referenced by Xcode"))
 
         rows.append((repo, checks))
 
