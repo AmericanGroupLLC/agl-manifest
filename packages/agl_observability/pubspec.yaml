@@ -1,10 +1,11 @@
 name: agl_observability
 description: >-
-  Shared crash reporting and diagnostics for the American Group LLC mobile
+  Shared crash reporting, analytics, performance monitoring and remote
+  config for the American Group LLC mobile
   portfolio: a guarded Firebase Crashlytics bootstrap that can never take an app
   down, non-fatal reporting, breadcrumbs, and the custom keys every AGL app
   attaches to a report.
-version: 1.0.0
+version: 1.1.0
 publish_to: none
 
 environment:
@@ -22,6 +23,14 @@ dependencies:
   # majors are exercised by the rollout.
   firebase_core: ">=3.6.0 <5.0.0"
   firebase_crashlytics: ">=4.1.0 <6.0.0"
+  # The rest of the Spark-plan (free) products. Ranges span the same two
+  # firebase_core majors as above for the same reason — the portfolio is split
+  # across core 3 and core 4 and must not be forced to move in one commit.
+  # Each is initialised in its own try/catch, so a resolution that yields an
+  # older minor still works; only long-stable APIs are used.
+  firebase_analytics: ">=11.3.0 <13.0.0"
+  firebase_performance: ">=0.10.0 <0.12.0"
+  firebase_remote_config: ">=5.1.0 <7.0.0"
   # Wide for the same reason, and one more: geolocator_linux pulls
   # package_info_plus 10, so a <10 ceiling made agl_observability
   # unresolvable in every app that uses geolocator.

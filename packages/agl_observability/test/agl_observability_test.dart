@@ -6,6 +6,7 @@ import 'package:flutter_test/flutter_test.dart';
 /// exactly as it did before crash reporting was added.
 void main() {
   setUp(AglCrash.resetForTest);
+  _insightsContract();
 
   test('init returns false rather than throwing when Firebase is absent',
       () async {
@@ -68,6 +69,50 @@ void main() {
       addTearDown(() => AglLog.enabled = true);
       AglLog.write('suppressed', level: AglLogLevel.error);
       expect(lines, hasLength(2));
+    });
+  });
+}
+
+/// The same contract for the free Spark-plan products. An app with no Firebase
+/// config must gain nothing and lose nothing — no throw, no null, no hang.
+void _insightsContract() {
+  group('AglInsights without Firebase', () {
+    setUp(AglInsights.resetForTest);
+
+    test('init reports nothing started rather than throwing', () async {
+      TestWidgetsFlutterBinding.ensureInitialized();
+      expect(await AglInsights.init(appName: 'test'), isEmpty);
+      expect(AglInsights.analyticsActive, isFalse);
+      expect(AglInsights.performanceActive, isFalse);
+      expect(AglInsights.remoteConfigActive, isFalse);
+      expect(AglInsights.navigatorObserver, isNull);
+    });
+
+    test('every call is a no-op while inactive', () async {
+      await expectLater(
+        Future.wait([
+          AglInsights.logEvent('opened', parameters: {'a': 1}),
+          AglInsights.setUserId('opaque-id'),
+        ]),
+        completes,
+      );
+    });
+
+    test('config readers answer the fallback, never throw', () {
+      expect(AglInsights.flag('missing', fallback: true), isTrue);
+      expect(AglInsights.setting('missing', fallback: 'x'), 'x');
+      expect(AglInsights.number('missing', fallback: 7), 7);
+    });
+
+    test('trace still runs the body and propagates its result', () async {
+      expect(await AglInsights.trace('work', () async => 42), 42);
+    });
+
+    test('trace propagates the body error unchanged', () async {
+      await expectLater(
+        AglInsights.trace('work', () async => throw StateError('boom')),
+        throwsA(isA<StateError>()),
+      );
     });
   });
 }
