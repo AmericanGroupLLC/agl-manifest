@@ -1,10 +1,10 @@
 name: agl_observability
 description: >-
-  Shared crash reporting, analytics, performance monitoring and remote
-  config for the American Group LLC mobile
-  portfolio: a guarded Firebase Crashlytics bootstrap that can never take an app
-  down, non-fatal reporting, breadcrumbs, and the custom keys every AGL app
-  attaches to a report.
+  Shared telemetry for the American Group LLC mobile portfolio: a guarded
+  Firebase Crashlytics bootstrap that can never take an app down, non-fatal
+  reporting, breadcrumbs, the custom keys every AGL app attaches to a report,
+  and the free Spark-plan products — Analytics, Performance Monitoring and
+  Remote Config — behind the same guarantee.
 version: 1.1.0
 publish_to: none
 
