@@ -109,7 +109,7 @@ and is rejected at upload. One app in this table was caught exactly that way.
 | 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | 55 MB | 56 MB | — | `B61F34EBE60DFF33` |
 | 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | 75 MB | 78 MB | prod | `AD4582F780FCB092` |
 | 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | 64 MB | 66 MB | prod | `88AC08FC465D39B8` |
-| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | 102 MB | 147 MB | — | `186F66EB80AF5D7D` |
+| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | 103 MB | 147 MB | — | `186F66EB80AF5D7D` |
 | 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | 51 MB | 52 MB | prod | `E265C0642A99DA55` |
 | 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | 53 MB | 53 MB | — | `52B686735A576C4E` |
 | 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | 64 MB | 64 MB | prod | `D5DBFDD0F484838D` |
