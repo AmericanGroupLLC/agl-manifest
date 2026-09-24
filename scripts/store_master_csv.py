@@ -169,9 +169,37 @@ def build_rows() -> list[dict]:
         # guideline 3.1.1: an app that unlocks features must do it through
         # in-app purchase. Several apps here show real prices - CodeDeal
         # $4.99/$39.99, NexusTransferPay $7.99/$9.99 - with nothing wired up.
-        paywall = [p for p in (d / "lib").rglob("*.dart")
-                   if re.search(r"subscription|paywall|premium|upgrade",
-                                p.name, re.I) and "l10n" not in str(p)]
+        # A filename is not evidence. daily-pulse has premium_news_card.dart
+        # and sells nothing - "premium" there is a visual-design adjective, and
+        # matching on the name alone reported a 3.1.1 exposure that does not
+        # exist. Require something the user could actually pay: a displayed
+        # price, or a purchase/subscribe affordance.
+        # A bare "purchase" is too weak: NewsBoard's screen says "no in-app
+        # purchase in this build, nothing is charged" and matched its own
+        # denial. Look for something a user could act on - a price, a buy
+        # control, or a call into the billing API.
+        SELLS = re.compile(
+            r"\$\s?\d+\.\d{2}"            # a displayed price
+            r"|\bSubscribe\b|\bBuy now\b|\bUpgrade to\b"   # buy controls
+            r"|\bRestore Purchases\b"        # Apple's required restore control
+            r"|buyNonConsumable|buyConsumable",  # the billing call itself
+            re.I)
+        paywall = []
+        for f in (d / "lib").rglob("*.dart"):
+            if "l10n" not in str(f) and re.search(
+                    r"subscription|paywall|premium|upgrade", f.name, re.I):
+                try:
+                    src = f.read_text(errors="ignore")
+                except OSError:
+                    continue
+                # Strip comments first. NewsBoard's premium screen says "There
+                # is no paid plan" in the body and explains a *removed*
+                # purchase button in a doc comment; matching the comment
+                # reported a paywall on an app that sells nothing.
+                code = re.sub(r"^\s*//.*$", "", src, flags=re.M)
+                code = re.sub(r"/\*.*?\*/", "", code, flags=re.S)
+                if SELLS.search(code):
+                    paywall.append(f)
         paywall_no_iap = bool(paywall) and not iap
 
         policy = ROOT / "www.safecodeg.com/client/public/policy" / slug
