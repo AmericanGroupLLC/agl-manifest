@@ -2,7 +2,8 @@
   {
     "bundleId": "com.americangroup.bodyquest",
     "name": "BodyQuest",
-    "sku": "bodyquest-001"
+    "sku": "bodyquest-001",
+    "appId": "6808737432"
   },
   {
     "bundleId": "com.americangroup.daily-pulse",
@@ -12,7 +13,8 @@
   {
     "bundleId": "com.americangroup.radiotune",
     "name": "RadioTune World",
-    "sku": "radiotune-001"
+    "sku": "radiotune-001",
+    "appId": "6799065525"
   },
   {
     "bundleId": "com.americangroup.yourtube",
@@ -22,47 +24,56 @@
   {
     "bundleId": "com.americangroupllc.Mykarma",
     "name": "iMykarma",
-    "sku": "imykarma-001"
+    "sku": "imykarma-001",
+    "appId": "6809938173"
   },
   {
     "bundleId": "com.americangroupllc.agcleaner",
     "name": "AGCleaner",
-    "sku": "agcleaner-001"
+    "sku": "agcleaner-001",
+    "appId": "6809933116"
   },
   {
     "bundleId": "com.americangroupllc.agrammarly",
     "name": "AGrammarly",
-    "sku": "aggrammarly-001"
+    "sku": "aggrammarly-001",
+    "appId": "6809935878"
   },
   {
     "bundleId": "com.americangroupllc.agrecorder",
     "name": "AGRecorder",
-    "sku": "AGRecorder-001"
+    "sku": "AGRecorder-001",
+    "appId": "6808749726"
   },
   {
     "bundleId": "com.americangroupllc.agstudio",
     "name": "AGStudio",
-    "sku": "AGStudio-001"
+    "sku": "AGStudio-001",
+    "appId": "6808749158"
   },
   {
     "bundleId": "com.americangroupllc.apexmarketwatch",
     "name": "ApexMarketWatch",
-    "sku": "ApexMarketWatch-001"
+    "sku": "ApexMarketWatch-001",
+    "appId": "6808755213"
   },
   {
     "bundleId": "com.americangroupllc.buddyplay",
     "name": "iBuddyPlay",
-    "sku": "iBuddyPlay-001"
+    "sku": "iBuddyPlay-001",
+    "appId": "6808753834"
   },
   {
     "bundleId": "com.americangroupllc.calcmaster",
     "name": "Calculator: World Class",
-    "sku": "calcmaster-001"
+    "sku": "calcmaster-001",
+    "appId": "6781554668"
   },
   {
     "bundleId": "com.americangroupllc.cardeal",
     "name": "iCarDeal",
-    "sku": "icardeal-001"
+    "sku": "icardeal-001",
+    "appId": "6808735960"
   },
   {
     "bundleId": "com.americangroupllc.careerupgradeai",
@@ -72,27 +83,32 @@
   {
     "bundleId": "com.americangroupllc.chefcount",
     "name": "ChefCount",
-    "sku": "chefcount-001"
+    "sku": "chefcount-001",
+    "appId": "6808751410"
   },
   {
     "bundleId": "com.americangroupllc.codedeal",
     "name": "CodeDeal",
-    "sku": "codedeal-001"
+    "sku": "codedeal-001",
+    "appId": "6808745768"
   },
   {
     "bundleId": "com.americangroupllc.dealzap",
     "name": "iDealZap",
-    "sku": "idealzap-001"
+    "sku": "idealzap-001",
+    "appId": "6808741395"
   },
   {
     "bundleId": "com.americangroupllc.driftdate",
     "name": "iDriftDate",
-    "sku": "iDriftDate-001"
+    "sku": "iDriftDate-001",
+    "appId": "6808753103"
   },
   {
     "bundleId": "com.americangroupllc.eventspark",
     "name": "iEventSpark",
-    "sku": "ieventspark-001"
+    "sku": "ieventspark-001",
+    "appId": "6808744751"
   },
   {
     "bundleId": "com.americangroupllc.foodradar",
@@ -102,72 +118,86 @@
   {
     "bundleId": "com.americangroupllc.homewise",
     "name": "iHomeWise",
-    "sku": "ihomewise-001"
+    "sku": "ihomewise-001",
+    "appId": "6808744604"
   },
   {
     "bundleId": "com.americangroupllc.imaps",
     "name": "iMaps Route",
-    "sku": "imaps-001"
+    "sku": "imaps-001",
+    "appId": "6799074818"
   },
   {
     "bundleId": "com.americangroupllc.kinnav",
     "name": "Kinnav",
-    "sku": "kinnav-001"
+    "sku": "kinnav-001",
+    "appId": "6802507741"
   },
   {
     "bundleId": "com.americangroupllc.milemaster",
     "name": "iMileMaster",
-    "sku": "imilemaster-001"
+    "sku": "imilemaster-001",
+    "appId": "6810385482"
   },
   {
     "bundleId": "com.americangroupllc.mycard",
     "name": "iMyCard",
-    "sku": "imycard-001"
+    "sku": "imycard-001",
+    "appId": "6808746341"
   },
   {
     "bundleId": "com.americangroupllc.myfinance",
     "name": "iMyFinance",
-    "sku": "imyfinance-001"
+    "sku": "imyfinance-001",
+    "appId": "6809930891"
   },
   {
     "bundleId": "com.americangroupllc.nearserve",
     "name": "NearServe",
-    "sku": "NearServe-001"
+    "sku": "NearServe-001",
+    "appId": "6808754204"
   },
   {
     "bundleId": "com.americangroupllc.newsboard",
     "name": "iNewsBoard",
-    "sku": "iNewsBoard-001"
+    "sku": "iNewsBoard-001",
+    "appId": "6808751032"
   },
   {
     "bundleId": "com.americangroupllc.nexustransferpay",
     "name": "NexusTransferPay",
-    "sku": "NexusTransferPay-001"
+    "sku": "NexusTransferPay-001",
+    "appId": "6808755704"
   },
   {
     "bundleId": "com.americangroupllc.offlinebuddy",
     "name": "OfflineBuddy",
-    "sku": "offlinebuddy-001"
+    "sku": "offlinebuddy-001",
+    "appId": "6808748141"
   },
   {
     "bundleId": "com.americangroupllc.photriya",
     "name": "Photriya Camera Colors",
-    "sku": "PH001"
+    "sku": "PH001",
+    "appId": "6781662812"
   },
   {
     "bundleId": "com.americangroupllc.pilotenroute",
     "name": "PilotEnRoute",
-    "sku": "pilotenroute-001"
+    "sku": "pilotenroute-001",
+    "appId": "6808738221"
   },
   {
     "bundleId": "com.americangroupllc.ridezap",
     "name": "RideZap",
-    "sku": "ridezap-001"
+    "sku": "ridezap-001",
+    "appId": "6810379386"
   },
   {
     "bundleId": "com.americangroupllc.roomcraft",
     "name": "iRoomCraft",
-    "sku": "iroomcraft-001"
+    "sku": "iroomcraft-001",
+    "appId": "6808746869"
   },
   {
     "bundleId": "com.americangroupllc.staydeal",
@@ -177,26 +207,31 @@
   {
     "bundleId": "com.americangroupllc.styleradar",
     "name": "StyleRadar",
-    "sku": "styleradar-001"
+    "sku": "styleradar-001",
+    "appId": "6810382902"
   },
   {
     "bundleId": "com.americangroupllc.tripnest",
     "name": "TravelZap",
-    "sku": "travelzap-001"
+    "sku": "travelzap-001",
+    "appId": "6808735167"
   },
   {
     "bundleId": "com.americangroupllc.usciscase",
     "name": "USCIS Case Lookup",
-    "sku": "usciscase-001"
+    "sku": "usciscase-001",
+    "appId": "6799033155"
   },
   {
     "bundleId": "com.americangroupllc.virtuband",
     "name": "VirtuBand",
-    "sku": "virtuband-001"
+    "sku": "virtuband-001",
+    "appId": "6799079701"
   },
   {
     "bundleId": "com.americangroupllc.wifitrail",
     "name": "WifiTrail",
-    "sku": "WifiTrail-001"
+    "sku": "WifiTrail-001",
+    "appId": "6808756262"
   }
 ]

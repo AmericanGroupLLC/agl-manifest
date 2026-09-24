@@ -811,3 +811,41 @@ bundle exec ruby scripts/testflight/distribute.rb --all
 
 which resubmits everything that is not already approved. Builds already approved
 (18 apps) keep working throughout.
+
+## MA-023 — Six apps show a paywall with no in-app purchase behind it (DECISION NEEDED)
+
+Found 2026-09-24 while building `docs/store-master.csv`. Six apps ship a
+subscription or premium screen, several with real prices on it, and carry no
+purchase SDK at all — no `in_app_purchase`, no `purchases_flutter`, no
+`revenue_cat`:
+
+| app | screen | price shown |
+| --- | --- | --- |
+| CodeDeal | `lib/features/paywall/paywall_page.dart` | $4.99 / $39.99 |
+| NexusTransferPay | `lib/.../subscription_screen.dart` | $7.99 / $9.99 |
+| Kinnav | `lib/screens/subscription_screen.dart` | $3.99/mo, $39.99/yr |
+| VirtuBand | `lib/.../premium_screen.dart` | "Purchase" + price |
+| NewsBoard | `lib/features/premium/premium_screen.dart` | price |
+| daily-pulse | `lib/.../premium_news_card.dart` | price |
+
+Kinnav's own source says it outright:
+
+> Subscription plans ($3.99/mo, $39.99/yr). UI + local state only — real IAP
+> (App Store / Play) lands in Phase 6.
+
+That is **App Review guideline 3.1.1** — unlocking features has to go through
+in-app purchase — and arguably 2.1 as well, because the button does not
+complete a purchase. It is a rejection, not a warning, and it is the kind that
+comes back after the binary is otherwise approved.
+
+Three ways out, and it is a product call, not a technical one:
+
+1. **Remove the paywall screen** from the build for the first release. Cheapest,
+   and nothing else in these apps depends on the subscription state.
+2. **Wire real IAP** — add the SDK, create the products in both consoles, and
+   test a sandbox purchase per app. Console work per product on both stores.
+3. **Make it clearly "coming soon"** with no prices and no purchase affordance.
+   Apple tolerates this; prices with a dead button is what it rejects.
+
+`scripts/store_master_csv.py` detects the condition, so whichever way it is
+resolved the CSV stops flagging it once the paywall or the gap is gone.

@@ -129,6 +129,26 @@ apps.each do |a|
       BOOLEAN_FIELDS.each   { |f| diff[f] = false   if decl.send(f).nil? && !want.key?(f) }
     end
 
+    # Refuse to quietly *reduce* a declaration. store/ratings falls back to
+    # default.json, which answers "no" to everything, so an app whose real
+    # answer was set in App Store Connect and never written to a file here
+    # would be downgraded by that default - which is the misdeclaration
+    # direction and the one Apple rejects for. This exact thing happened to
+    # Kinnav: healthOrWellnessTopics was true in ASC, absent from the repo, and
+    # got flipped to false. Widening a declaration still applies silently.
+    unless DRY
+      downgrades = diff.select do |field, value|
+        (decl.send(field) == true && value == false) ||
+          (decl.send(field).to_s.start_with?("FREQUENT", "INFREQUENT") && value == "NONE")
+      end
+      unless downgrades.empty?
+        puts "#{repo.ljust(18)} REFUSING to weaken #{downgrades.keys.join(', ')} " \
+             "- put the real answer in store/ratings/#{repo}.json"
+        results[repo] = { "state" => "refused-downgrade", "fields" => downgrades.keys }
+        next
+      end
+    end
+
     if diff.empty?
       puts "#{repo.ljust(18)} already correct"
       results[repo] = { "state" => "already-correct", "rating" => info.app_store_age_rating }
