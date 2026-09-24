@@ -8,4 +8,9 @@ export APPLE_TEAM_ID=TLH7Z3G27A
 export BUILD_NUMBER="$(date +%Y%m%d%H)"
 export FASTLANE_SKIP_UPDATE_CHECK=1 FASTLANE_HIDE_CHANGELOG=1 FASTLANE_OPT_OUT_USAGE=1
 export BUNDLE_GEMFILE="$HOME/agl/agl-manifest/Gemfile"
-export FASTLANE_USER=rainbow472.sri@gmail.com FASTLANE_SESSION= 
+export FASTLANE_USER=rainbow472.sri@gmail.com
+# Unset, not set-to-empty. spaceship tests whether FASTLANE_SESSION is present,
+# not whether it is non-empty, so `FASTLANE_SESSION=` makes it try to reuse a
+# blank cookie and fail the login instead of prompting. Exporting a real value
+# afterwards still works — this only clears a leftover.
+unset FASTLANE_SESSION 
