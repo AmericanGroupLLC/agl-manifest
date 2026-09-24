@@ -7,13 +7,13 @@ attempted through an API first and refused; the refusal is quoted.
 
 | | Apple | Google |
 | --- | --- | --- |
-| App records / Play entries | 29 of 43 | 32 of 43 |
+| App records / Play entries | 30 of 42 | 31 of 42 |
 | Binary uploaded | 29 | 26 |
 | Reaches every account user automatically | **29 of 29** | 0 — no tester list |
 | Store listing complete | 29 | 26 |
 | Submitted for public release | 0 — blocked below | 0 — blocked below |
 
-Every one of the 51 remaining checklist failures is a Console action. Nothing is
+Every one of the remaining checklist failures is a Console action. Nothing is
 waiting on code, a build, or a script.
 
 ## 1. Accept the App Store Connect agreement — unblocks Apple beta review
@@ -68,9 +68,9 @@ roster, then set `PLAY_TESTER_GOOGLE_GROUP` (plus `PLAY_SERVICE_ACCOUNT_JSON`)
 as repository secrets. The six-hourly **Sync testers** workflow attaches it to
 every app.
 
-## 4. Create the 14 missing App Store records
+## 4. Create the 12 missing App Store records
 
-`POST v1/apps` → "The resource 'apps' does not allow 'CREATE'". The table, with
+`POST v1/apps` → "The resource 'apps' does not allow 'CREATE'". daily-pulse was created on 2026-09-23 and shipped itself. The table, with
 the bundle id, SKU, version and category for each, is in
 `docs/APPS_TO_CREATE.md`. All 14 bundle ids are already registered in the
 Developer Portal, so each appears in the Bundle ID dropdown.
