@@ -207,3 +207,28 @@ Separately, Photriya carried a stale generated plugin registrant on disk
 (gitignored, not tracked) that referenced a class no longer in sensors_plus and
 broke every Android build with a Java compile error. Deleting it and running
 `flutter pub get` regenerates it correctly.
+
+## The Claude in Chrome extension cannot read any page on this Mac (2026-09-24)
+
+Browser automation has been attempted for the store consoles several times and
+always failed. Today it was isolated: **the extension cannot inject into any
+page at all**, so this is not something about App Store Connect or Play Console.
+
+Measured on both local Chrome instances (Browser 1 and Browser 3):
+
+| Page | Result |
+| --- | --- |
+| `appstoreconnect.apple.com/apps` | tab title becomes "App Store Connect" (so the session is signed in and the page renders), then `get_page_text` times out and `screenshot` fails with "Script injection timed out after 5000ms" |
+| `example.com` | `get_page_text` fails with "Page still loading (executeScript waited 45000ms for document_idle)" |
+
+A static page that cannot reach `document_idle` in 45 seconds is not a slow
+page. The content script is never running.
+
+Likely causes, in the order worth checking: the extension's site access is not
+set to "On all sites" (chrome://extensions → Claude → Site access); or the
+extension side panel is holding a permission prompt that nobody has answered —
+the tool's own error text names this case.
+
+Until that is fixed, every Console action stays with a person. Everything the
+two store APIs *can* do is already scripted; see `docs/API_ACTIONS.md` for what
+they refuse and `docs/GO_LIVE.md` for the remaining list.
