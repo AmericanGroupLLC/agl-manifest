@@ -849,3 +849,33 @@ Three ways out, and it is a product call, not a technical one:
 
 `scripts/store_master_csv.py` detects the condition, so whichever way it is
 resolved the CSV stops flagging it once the paywall or the gap is gone.
+
+## MA-023 — Two old-naming Play entries to remove (HUMAN ONLY)
+
+Measured 2026-09-24 by opening an edit against the pre-rename package of every
+app. Two survive from before the move to `com.americangroupllc.*`:
+
+| Package | Listing title | Tracks |
+| --- | --- | --- |
+| `com.americangroup.yourtube` | "YourTube - Video Discovery" | all empty |
+| `com.americangroup.myhealth` | "MyHealth" | internal has a completed release; production holds a draft |
+
+Both apps already exist under their correct identifiers, so these are dead
+entries. `com.americangroup.yourtube` has never had a release and should delete
+cleanly. `com.americangroup.myhealth` has a completed internal release, so Play
+may ask you to unpublish before it will delete.
+
+**No API can do this.** The discovery document lists exactly one method on the
+resource:
+
+```
+androidpublisher.applications.dataSafety
+```
+
+There is no create and no delete. Removal is **Play Console → the app →
+Setup → Advanced settings → App availability**, or Delete app where Play
+offers it.
+
+Nothing else is needed to do it — in particular the developer registration
+order number is a payment receipt, not a credential, and plays no part in
+deleting an app. It is deliberately not recorded here.
