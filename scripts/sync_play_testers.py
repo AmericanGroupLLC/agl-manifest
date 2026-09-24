@@ -66,7 +66,9 @@ print(f"roster: {len(emails)} address(es) from App Store Connect")
 if not emails: sys.exit("no roster; run distribute.rb --sync first")
 
 if DEV_ID:
-    u = call("GET", f"{API}/developers/{DEV_ID}/users")
+    # Play refuses any other page size: "Pagination is not currently available.
+    # The page_size parameter must be set to -1."
+    u = call("GET", f"{API}/developers/{DEV_ID}/users?pageSize=-1")
     if (m := fail(u)):
         print(f"Play Console users: {m}")
     else:
