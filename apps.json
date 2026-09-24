@@ -941,8 +941,7 @@
         "store_description": false
       },
       "flutter": true,
-      "status": "transferred to srpatcha/Kinnav; pushes follow a redirect",
-      "in_org": false
+      "in_org": true
     },
     {
       "repo": "MileMaster",

@@ -91,7 +91,11 @@ def main() -> None:
                    "com.americangroupllc.mycard"),
         "PlantPulse": ("not Flutter yet", "com.americangroupllc.plantpulse"),
     }
-    moved_out = {"Kinnav": "transferred to srpatcha/Kinnav; pushes follow a redirect"}
+    # Repos that live outside AmericanGroupLLC. Kinnav was here until
+    # 2026-09-24, when it was transferred back into the org - verified by
+    # `gh repo list AmericanGroupLLC`, which is authoritative;
+    # `gh api repos/<org>/<name>` is not, because it follows redirects.
+    moved_out: dict[str, str] = {}
 
     apps = []
     for r in sorted((x for x in rows if x.get("flutter")), key=lambda x: x["repo"].lower()):

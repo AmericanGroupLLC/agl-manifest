@@ -20,7 +20,7 @@
     "first_name": "App",
     "last_name": "Reviewer",
     "email_address": "contact@safecodeg.com",
-    "phone_number": "+1 415 555 0142",
+    "phone_number": "+1 669 388 1960",
     "notes": "Thanks for reviewing Fashion Factory.\n\nFashion Factory is a shopping price-comparison app across six product categories. There is NO account, NO login and no user-generated content. Every feature is reachable immediately on first launch.\n\nTest instructions:\n1. Launch the app. The Home screen opens with a search field and a deals feed - no sign-in step exists.\n2. Search for any product, then open a result to see its detail screen.\n3. Tap Compare to see the price at every store that stocks the product, side by side.\n4. Scroll to the price history chart to see how that price has moved.\n5. Tap Save, then open the Saved tab - saved products are what drop alerts are attached to.\n6. Open Browse to explore by category, and Deals for the curated feed.\n\nPrivacy:\n• Data collected: The products you save and your search history, held on your device. No account and no personal details.\n• Network: Requests to retailer and price-data sources to fetch current prices and availability.\n• Location: Not requested and not used.\n• Tracking: None. The app does not read the advertising identifier and shows no App Tracking Transparency prompt.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
   },
   "slug": "fashionfactory",

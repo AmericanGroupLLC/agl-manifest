@@ -20,6 +20,10 @@ import csv
 import json
 import pathlib
 import subprocess
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+import store_master_csv  # noqa: E402  - same directory, needs the path above
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 MANIFEST = json.loads((ROOT / "apps.json").read_text())
@@ -505,8 +509,22 @@ def build(offline: bool) -> None:
 
     (ROOT / "STATUS.md").write_text("\n".join(L))
 
+    # status.csv carries the build state *and* every field the two stores ask
+    # for. They used to be separate files, which meant looking in two places to
+    # answer one question about one app - and the store half being stale
+    # whenever only this script had run. store_master_csv.py still owns those
+    # columns and how each is measured; this just joins them on the repo name.
+    store_rows = {r["_repo"]: r for r in store_master_csv.build_rows()}
+    for row in rows:
+        extra = store_rows.get(row["app"], {})
+        for col in store_master_csv.COLUMNS:
+            if col in row:            # keep this script's own value on a clash
+                continue
+            row[col] = extra.get(col, "")
+
     with (ROOT / "status.csv").open("w", newline="", encoding="utf-8") as fh:
-        writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()))
+        writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()),
+                                quoting=csv.QUOTE_ALL)
         writer.writeheader()
         writer.writerows(rows)
 

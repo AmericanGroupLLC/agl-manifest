@@ -120,12 +120,9 @@ def app_dir(a: dict) -> pathlib.Path:
 ICON_REL = "ios/Runner/Assets.xcassets/AppIcon.appiconset/Icon-App-1024x1024@1x.png"
 
 
-def main() -> int:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--gaps", action="store_true",
-                    help="print only the cells that still need a human")
-    args = ap.parse_args()
-
+def build_rows() -> list[dict]:
+    """Every app's store row. Also used by scripts/status.py, which
+    merges these columns into status.csv so there is one CSV, not two."""
     apps = json.loads((M / "apps.json").read_text())["apps"]
     defaults = load(M / "store/defaults.json", {})
     ready_rows = load(M / "docs/release-readiness.json", [])
@@ -346,12 +343,26 @@ def main() -> int:
             "Status": "Blocked" if blockers else "Ready to submit",
             "Notes": "; ".join(blockers) if blockers else "",
         }
+        row["_repo"] = repo   # join key for status.py; not a CSV column
         rows.append(row)
+    return rows
+
+
+def main() -> int:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--gaps", action="store_true",
+                    help="print only the cells that still need a human")
+    args = ap.parse_args()
+
+    rows = build_rows()
+
 
     if args.gaps:
         gaps = {}
         for row in rows:
             for col, val in row.items():
+                if col == "_repo":
+                    continue
                 if val == NEEDS:
                     gaps.setdefault(col, []).append(row["App Name"])
         print(f"{len(rows)} apps x {len(COLUMNS)} columns = "
@@ -365,7 +376,8 @@ def main() -> int:
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", newline="", encoding="utf-8") as fh:
-        w = csv.DictWriter(fh, fieldnames=COLUMNS, quoting=csv.QUOTE_ALL)
+        w = csv.DictWriter(fh, fieldnames=COLUMNS, quoting=csv.QUOTE_ALL,
+                           extrasaction="ignore")
         w.writeheader()
         for row in rows:
             w.writerow(row)
