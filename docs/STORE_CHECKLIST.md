@@ -42,6 +42,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Photriya | 25 | 1 | 1 |
 | PilotEnRoute | 25 | 1 | 1 |
 | PlantPulse | 21 | 2 | 1 |
+| portfolio-board | 22 | 2 | 1 |
 | radiotune | 23 | 2 | 1 |
 | RideZap | 23 | 1 | 1 |
 | RoomCraft | 23 | 1 | 1 |
@@ -52,7 +53,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | WiFiTrail | 24 | 1 | 1 |
 | yourtube | 22 | 2 | 1 |
 
-**49 failing checks across 42 apps.**
+**51 failing checks across 43 apps.**
 
 ## AeroSwift
 
@@ -1082,6 +1083,38 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Play short description (<=80) | PASS | 77 chars |
 | App Store keywords (<=100) | PASS | 79 chars |
 | Primary category | PASS | UTILITIES |
+| Per-app review notes | PASS |  |
+| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Account-deletion page (if accounts) | n/a |  |
+| iOS privacy manifest | PASS |  |
+| iOS purpose strings for linked APIs | PASS |  |
+| Export compliance answered | PASS | ITSAppUsesNonExemptEncryption=false |
+| Apple age rating answered | n/a |  |
+| Play IARC questionnaire | HUMAN | no API - Play Console only |
+| Build live on App Store Connect | FAIL | no ASC record or not uploaded |
+| Play delivery to account users | FAIL | no Play entry - MA-021 |
+| Firebase config (crash reporting works) | PASS | android=y ios=y ios-bundled=y |
+
+## portfolio-board
+
+| Check | State | Detail |
+| --- | :-: | --- |
+| Android .aab signed with this app's upload key | PASS | SIGNED |
+| Android .apk (release, sideload/test) | PASS | SIGNED |
+| iOS .ipa exported for the App Store | PASS | EXPORTED |
+| Binaries newer than the app icon | PASS |  |
+| Bundle id / applicationId | PASS | com.americangroupllc.portfolioboard |
+| Release signing configured | PASS | upload keystore matched |
+| App icon (1024, opaque, not a placeholder) | PASS | 79491c9f3e90 |
+| Play feature graphic 1024x500 | PASS |  |
+| Screenshots (Apple >=1, Play >=2) | PASS | 4 captured ['1320x2868'] |
+| App Store name | PASS | Portfolio Board |
+| Play title | PASS | Portfolio Board |
+| Full description | PASS | 2195 chars |
+| Play short description (<=80) | PASS | 75 chars |
+| App Store keywords (<=100) | PASS | 92 chars |
+| Promotional text (<=170) | PASS | 154 chars |
+| Primary category | PASS | PRODUCTIVITY |
 | Per-app review notes | PASS |  |
 | Privacy & support URLs resolve (HTTP 200) | PASS |  |
 | Account-deletion page (if accounts) | n/a |  |
