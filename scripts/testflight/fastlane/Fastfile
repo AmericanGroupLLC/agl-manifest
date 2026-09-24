@@ -9,6 +9,17 @@
 # pinned Flutter SDK first.
 require "shellwords"
 
+
+# Uploads over this network die with "Broken pipe" / "Connection reset" partway
+# through a large asset, and retrying at the same rate tends to die the same way
+# — EventSpark and daily-pulse each burned three attempts before succeeding at a
+# lower rate. Back the throughput off on each attempt instead of repeating.
+MAX_UPLOAD_ATTEMPTS = 4
+UPLOAD_THROUGHPUTS = [2000, 1000, 500, 250].freeze
+def throughput_for(attempt)
+  UPLOAD_THROUGHPUTS[[attempt - 1, UPLOAD_THROUGHPUTS.size - 1].min]
+end
+
 default_platform(:ios)
 
 def asc_key
@@ -135,8 +146,8 @@ platform :ios do
         break
       end
       attempts += 1
-      UI.user_error!("upload of #{bundle_id} build #{build_number} failed after #{attempts - 1} attempts") if attempts > 3
-      UI.header("Upload attempt #{attempts}/3")
+      UI.user_error!("upload of #{bundle_id} build #{build_number} failed after #{attempts - 1} attempts") if attempts > MAX_UPLOAD_ATTEMPTS
+      UI.header("Upload attempt #{attempts}/#{MAX_UPLOAD_ATTEMPTS} at #{throughput_for(attempts)} Kbps")
       begin
         Timeout.timeout(25 * 60) do
           if File.size(ipa) > 40 * 1_048_576
@@ -144,7 +155,7 @@ platform :ios do
             # failures); Apple's Java Transporter does, first time. Once altool has
             # started a build number, Transporter refuses it, so Transporter goes first.
             UI.important("large IPA — uploading with iTMSTransporter")
-            sh("JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true xcrun iTMSTransporter -m upload -assetFile #{ipa.shellescape} -apiKey #{ENV.fetch('ASC_KEY_ID').shellescape} -apiIssuer #{ENV.fetch("ASC_ISSUER_ID").shellescape} -throughput 2000 -v informational")
+            sh("JAVA_TOOL_OPTIONS=-Djava.net.preferIPv4Stack=true xcrun iTMSTransporter -m upload -assetFile #{ipa.shellescape} -apiKey #{ENV.fetch('ASC_KEY_ID').shellescape} -apiIssuer #{ENV.fetch("ASC_ISSUER_ID").shellescape} -throughput #{throughput_for(attempts)} -v informational")
           else
             upload_to_testflight(api_key: key, app_identifier: bundle_id, ipa: ipa, skip_waiting_for_build_processing: true)
           end
