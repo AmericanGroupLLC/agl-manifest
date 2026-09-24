@@ -1,128 +1,152 @@
 [
  {
   "repo": "AeroSwift",
-  "app_store_name": "AeroSwift",
-  "bundle_id": "com.americangroupllc.aeroswift",
-  "package_name": "com.americangroupllc.aeroswift",
+  "name": "AeroSwift",
+  "package": "com.americangroupllc.aeroswift",
   "sku": "aeroswift-001",
   "version": "1.0.0",
-  "primary_category": "TRAVEL"
+  "category": "TRAVEL",
+  "apple": true,
+  "play": true
  },
  {
   "repo": "BodyQuest",
-  "app_store_name": "BodyQuest: Health Game",
-  "bundle_id": "com.americangroupllc.bodyquest",
-  "package_name": "com.americangroupllc.bodyquest",
+  "name": "BodyQuest: Health Game",
+  "package": "com.americangroupllc.bodyquest",
   "sku": "bodyquest-001",
   "version": "1.1.0",
-  "primary_category": "HEALTH_AND_FITNESS"
+  "category": "HEALTH_AND_FITNESS",
+  "apple": true,
+  "play": true
  },
  {
-  "repo": "daily-pulse",
-  "app_store_name": "Daily Pulse: Morning Brief",
-  "bundle_id": "com.americangroupllc.dailypulse",
-  "package_name": "com.americangroupllc.dailypulse",
-  "sku": "dailypulse-001",
+  "repo": "DriftDate",
+  "name": "DriftDate: Layered Dating",
+  "package": "com.americangroupllc.driftdate",
+  "sku": "driftdate-001",
   "version": "1.0.0",
-  "primary_category": "LIFESTYLE"
+  "category": "LIFESTYLE",
+  "apple": false,
+  "play": true
  },
  {
   "repo": "FashionFactory",
-  "app_store_name": "Fashion Factory: Deals",
-  "bundle_id": "com.americangroupllc.fashionfactory",
-  "package_name": "com.americangroupllc.fashionfactory",
+  "name": "Fashion Factory: Deals",
+  "package": "com.americangroupllc.fashionfactory",
   "sku": "fashionfactory-001",
   "version": "2.2.0",
-  "primary_category": "LIFESTYLE"
+  "category": "LIFESTYLE",
+  "apple": true,
+  "play": true
  },
  {
   "repo": "GadgetNest",
-  "app_store_name": "GadgetNest",
-  "bundle_id": "com.americangroupllc.gadgetnest",
-  "package_name": "com.americangroupllc.gadgetnest",
+  "name": "GadgetNest",
+  "package": "com.americangroupllc.gadgetnest",
   "sku": "gadgetnest-001",
   "version": "1.0.0",
-  "primary_category": "SHOPPING"
+  "category": "SHOPPING",
+  "apple": true,
+  "play": true
  },
  {
   "repo": "GroceryMatch",
-  "app_store_name": "GroceryMatch: Save on Food",
-  "bundle_id": "com.americangroupllc.grocerymatch",
-  "package_name": "com.americangroupllc.grocerymatch",
+  "name": "GroceryMatch: Save on Food",
+  "package": "com.americangroupllc.grocerymatch",
   "sku": "grocerymatch-001",
   "version": "2.1.0",
-  "primary_category": "SHOPPING"
+  "category": "SHOPPING",
+  "apple": true,
+  "play": true
  },
  {
   "repo": "HerJourney",
-  "app_store_name": "HerJourney: Cycle & Health",
-  "bundle_id": "com.americangroupllc.herjourney",
-  "package_name": "com.americangroupllc.herjourney",
+  "name": "HerJourney: Cycle & Health",
+  "package": "com.americangroupllc.herjourney",
   "sku": "herjourney-001",
   "version": "1.2.0",
-  "primary_category": "HEALTH_AND_FITNESS"
- },
- {
-  "repo": "iMeasure",
-  "app_store_name": "iMeasure: Measure & Level",
-  "bundle_id": "com.americangroupllc.imeasure",
-  "package_name": "com.americangroupllc.imeasure",
-  "sku": "imeasure-001",
-  "version": "5.0.1",
-  "primary_category": "UTILITIES"
+  "category": "HEALTH_AND_FITNESS",
+  "apple": true,
+  "play": true
  },
  {
   "repo": "MyHealth",
-  "app_store_name": "MyHealth: Fitness Tracker",
-  "bundle_id": "com.americangroupllc.myhealth",
-  "package_name": "com.americangroupllc.myhealth",
+  "name": "MyHealth: Fitness Tracker",
+  "package": "com.americangroupllc.myhealth",
   "sku": "myhealth-001",
   "version": "1.0.0",
-  "primary_category": "HEALTH_AND_FITNESS"
+  "category": "HEALTH_AND_FITNESS",
+  "apple": true,
+  "play": false
+ },
+ {
+  "repo": "Photriya",
+  "name": "Photriya",
+  "package": "com.americangroupllc.photriya",
+  "sku": "photriya-001",
+  "version": "1.0.0",
+  "category": "PHOTO_AND_VIDEO",
+  "apple": false,
+  "play": true
  },
  {
   "repo": "PlantPulse",
-  "app_store_name": "PlantPulse",
-  "bundle_id": "com.americangroupllc.plantpulse",
-  "package_name": "com.americangroupllc.plantpulse",
+  "name": "PlantPulse",
+  "package": "com.americangroupllc.plantpulse",
   "sku": "plantpulse-001",
   "version": "1.0.0",
-  "primary_category": "UTILITIES"
- },
- {
-  "repo": "portfolio-board",
-  "app_store_name": "Portfolio Board",
-  "bundle_id": "com.americangroupllc.portfolioboard",
-  "package_name": "com.americangroupllc.portfolioboard",
-  "sku": "portfolioboard-001",
-  "version": "1.0.0",
-  "primary_category": "PRODUCTIVITY"
- },
- {
-  "repo": "radiotune",
-  "app_store_name": "Ratio Tune: Live Radio",
-  "bundle_id": "com.americangroupllc.radiotune",
-  "package_name": "com.americangroupllc.radiotune",
-  "sku": "radiotune-001",
-  "version": "2.0.1",
-  "primary_category": "MUSIC"
+  "category": "UTILITIES",
+  "apple": true,
+  "play": true
  },
  {
   "repo": "Verba",
-  "app_store_name": "Verba: Voice Translator",
-  "bundle_id": "com.americangroupllc.verba",
-  "package_name": "com.americangroupllc.verba",
+  "name": "Verba: Voice Translator",
+  "package": "com.americangroupllc.verba",
   "sku": "verba-001",
   "version": "1.0.0",
-  "primary_category": "EDUCATION"
+  "category": "EDUCATION",
+  "apple": true,
+  "play": true
+ },
+ {
+  "repo": "iMeasure",
+  "name": "iMeasure: Measure & Level",
+  "package": "com.americangroupllc.imeasure",
+  "sku": "imeasure-001",
+  "version": "5.0.1",
+  "category": "UTILITIES",
+  "apple": true,
+  "play": false
+ },
+ {
+  "repo": "portfolio-board",
+  "name": "Portfolio Board",
+  "package": "com.americangroupllc.portfolioboard",
+  "sku": "portfolioboard-001",
+  "version": "1.0.0",
+  "category": "PRODUCTIVITY",
+  "apple": true,
+  "play": true
+ },
+ {
+  "repo": "radiotune",
+  "name": "Ratio Tune: Live Radio",
+  "package": "com.americangroupllc.radiotune",
+  "sku": "radiotune-001",
+  "version": "2.0.1",
+  "category": "MUSIC",
+  "apple": true,
+  "play": false
  },
  {
   "repo": "yourtube",
-  "app_store_name": "YourTube: Watch & Discover",
-  "bundle_id": "com.americangroupllc.yourtube",
-  "package_name": "com.americangroupllc.yourtube",
+  "name": "YourTube: Watch & Discover",
+  "package": "com.americangroupllc.yourtube",
   "sku": "yourtube-001",
   "version": "1.0.2",
-  "primary_category": "ENTERTAINMENT"
+  "category": "ENTERTAINMENT",
+  "apple": true,
+  "play": false
  }
 ]
