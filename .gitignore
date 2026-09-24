@@ -25,3 +25,7 @@ AmericanGroupLLC — *.md
 # fastlane run artefacts
 scripts/testflight/fastlane/report.xml
 scripts/testflight/fastlane/README.md
+
+# status.py now imports store_master_csv as a sibling module.
+__pycache__/
+*.pyc
