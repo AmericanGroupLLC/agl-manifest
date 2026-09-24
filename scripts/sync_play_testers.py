@@ -85,7 +85,8 @@ if relfile.exists():
 else:
     # No local delivery record (a fresh CI checkout): try every Android app and
     # let Play tell us which ones have no entry.
-    targets = sorted(r for r, a in apps.items() if a.get("deliverable", {}).get("android", True))
+    targets = sorted(r for r, a in apps.items()
+                     if a.get("deliverable", {}).get("android", True) and a.get("store_eligible", True))
     print(f"no local release record; trying all {len(targets)} Android app(s)")
 out = {}
 for repo in targets:

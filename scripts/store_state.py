@@ -22,6 +22,8 @@ def load(p, default=None):
     except Exception: return default if default is not None else {}
 
 apps = json.load(open(M / "apps.json"))["apps"]
+# 42 of the 43 repositories are store candidates; portfolio-board is not.
+apps = [a for a in apps if a.get("store_eligible", True)]
 ios   = load("ios-batch/results.json")
 tf    = load("testflight-state.json")
 play  = load("play-results.json")

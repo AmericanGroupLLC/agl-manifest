@@ -23,7 +23,11 @@ Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
   key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), filepath: ENV.fetch("ASC_KEY_PATH"))
 
 apps = JSON.parse(File.read("/Users/spatchava/agl/agl-manifest/apps.json"))["apps"]
-apps = apps.select { |a| ONLY.include?(a["repo"]) } unless ONLY.empty?
+# portfolio-board publishes AGL's own internal roadmap and is marked
+# `_blocked` in its store JSON, so the manifest sets store_eligible false
+# and the portfolio that reaches a store is 42 apps, not 43. Naming it
+# explicitly still works; only the sweep skips it.
+apps = ONLY.empty? ? apps.select { |a| a["store_eligible"] != false } : apps.select { |a| ONLY.include?(a["repo"]) }
 out = {}
 
 apps.each do |a|

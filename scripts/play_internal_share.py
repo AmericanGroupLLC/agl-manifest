@@ -111,6 +111,8 @@ def main() -> int:
             if a.get("flutter")]
     if args.apps:
         apps = [a for a in apps if a["repo"] in args.apps]
+    else:
+        apps = [a for a in apps if a.get("store_eligible", True)]
 
     out = []
     for a in apps:

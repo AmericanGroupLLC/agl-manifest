@@ -16,6 +16,23 @@ import argparse
 import json
 import pathlib
 
+
+def store_eligible(repo):
+    """False when store/apps/<repo>.json still carries a `_blocked` marker.
+
+    `_was_blocked_resolved` is a record of a block that was lifted and does not
+    count. A repo with no store JSON at all is treated as eligible.
+    """
+    p = pathlib.Path(__file__).resolve().parent.parent / "store/apps" / f"{repo}.json"
+    if not p.exists():
+        return True
+    try:
+        return "_blocked" not in json.loads(p.read_text())
+    except Exception:
+        return True
+
+
+
 BACKEND = pathlib.Path(__file__).resolve().parent.parent
 AUDIT = BACKEND / "docs" / "release-readiness.json"
 ORG = "AmericanGroupLLC"
@@ -94,6 +111,13 @@ def main() -> None:
                 "android": bool(r.get("release_signing")) and "beta" in lanes,
                 "ios": "beta" in lanes,
             },
+            # Whether this app should reach a public store at all. Editorial,
+            # not technical: an app whose store JSON still carries `_blocked`
+            # has been judged unpublishable, and every store script skips it.
+            # portfolio-board is AGL's own delivery tracker and publishes
+            # internal roadmap data, which is why the portfolio is 42 apps and
+            # this repository holds 43.
+            "store_eligible": store_eligible(r["repo"]),
             "ads": bool(r.get("dep_google_mobile_ads")),
             "platforms": {
                 "android": bool(r.get("platform_android")),
@@ -153,6 +177,7 @@ def main() -> None:
             "package_reserved": True,
             "version": "",
             "deliverable": {"android": False, "ios": False},
+            "store_eligible": False,
             "ads": False,
             "needs_private_packages": False,
             "platforms": {"android": False, "ios": False},

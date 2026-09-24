@@ -38,8 +38,13 @@ apps = MANIFEST
 if args.apps:
     wanted = {s.strip().lower() for s in args.apps.split(",")}
     apps = [a for a in apps if a["repo"].lower() in wanted]
-elif args.wave == "records":
-    apps = [a for a in apps if a["bundle_id"] in RECORDS and a["repo"] not in SKIP]
+# portfolio-board publishes AGL's own internal roadmap and is marked
+# `_blocked` in its store JSON, so store_eligible is false and the sweep
+# skips it: 42 apps reach a store, not 43. Naming it explicitly still works.
+else:
+    apps = [a for a in apps if a.get("store_eligible", True)]
+    if args.wave == "records":
+        apps = [a for a in apps if a["bundle_id"] in RECORDS and a["repo"] not in SKIP]
 
 results = json.load(open(RESULTS)) if RESULTS.exists() else {}
 env = os.environ.copy()

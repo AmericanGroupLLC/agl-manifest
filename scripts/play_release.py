@@ -51,8 +51,16 @@ def fail(d): return d["error"].get("message", "unknown")[:200] if "error" in d e
 apps = json.load(open(M / "apps.json"))["apps"]
 PRODUCTION = "--production" in sys.argv
 names = [a for a in sys.argv[1:] if not a.startswith("--")]
-if names: apps = [a for a in apps if a["repo"] in names]
-else: apps = [a for a in apps if json.load(open(RESULTS)).get(a["repo"], {}).get("status") == "uploaded"]
+# portfolio-board publishes AGL's own internal roadmap and is marked
+# `_blocked` in its store JSON, so the manifest sets store_eligible false
+# and the portfolio that reaches a store is 42 apps, not 43. Naming it
+# explicitly still works; only the sweep skips it.
+if names:
+    apps = [a for a in apps if a["repo"] in names]
+else:
+    apps = [a for a in apps
+            if a.get("store_eligible", True)
+            and json.load(open(RESULTS)).get(a["repo"], {}).get("status") == "uploaded"]
 
 out = {} if PRODUCTION else (json.load(open(OUT)) if OUT.exists() else {})
 for a in apps:

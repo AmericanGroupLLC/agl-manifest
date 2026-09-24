@@ -123,10 +123,15 @@ def main() -> int:
     ap.add_argument("--out", default=str(MANIFEST_DIR / "docs/STORE_CHECKLIST.md"))
     args = ap.parse_args()
 
+    # portfolio-board publishes AGL's own internal roadmap and carries
+    # `_blocked` in its store JSON, so store_eligible is false. It is not a
+    # store candidate and counting its gaps as failures made the portfolio
+    # look 43 apps wide when 42 are actually going to a store.
     apps = [a for a in load(MANIFEST_DIR / "apps.json", {"apps": []})["apps"]
-            if a.get("flutter")]
+            if a.get("flutter") and a.get("store_eligible", True)]
     if args.app:
-        apps = [a for a in apps if a["repo"] == args.app]
+        apps = [a for a in load(MANIFEST_DIR / "apps.json", {"apps": []})["apps"]
+                if a["repo"] == args.app]
 
     aab = {r["repo"]: r for r in load(MANIFEST_DIR / "docs/build-evidence.json", [])}
     apk = {r["repo"]: r for r in load(MANIFEST_DIR / "docs/build-evidence-apk.json", [])}

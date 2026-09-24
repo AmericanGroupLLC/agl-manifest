@@ -25,6 +25,22 @@
 require "json"
 require "spaceship"
 
+# Apple's content-descriptor frequencies and the yes/no declarations beside them.
+# Used only to answer fields a fresh declaration has left nil.
+FREQUENCY_FIELDS = %w[
+  alcohol_tobacco_or_drug_use_or_references contests gambling_simulated
+  guns_or_other_weapons horror_or_fear_themes mature_or_suggestive_themes
+  medical_or_treatment_information profanity_or_crude_humor
+  sexual_content_graphic_and_nudity sexual_content_or_nudity
+  violence_cartoon_or_fantasy violence_realistic_prolonged_graphic_or_sadistic
+  violence_realistic
+].freeze
+
+BOOLEAN_FIELDS = %w[
+  gambling messaging_and_chat social_media unrestricted_web_access age_assurance
+  user_generated_content loot_box parental_controls health_or_wellness_topics
+].freeze
+
 ROOT = "/Users/spatchava/agl"
 M = "#{ROOT}/agl-manifest"
 DRY = ARGV.include?("--dry-run")
@@ -72,6 +88,18 @@ apps.each do |a|
     (overrides[repo] || {}).each { |k, v| want[k] = v unless k.start_with?("_") }
 
     diff = want.reject { |field, value| decl.send(field) == value }
+
+    # A record created moments ago has an empty declaration, and Apple refuses a
+    # PATCH that leaves a required attribute unanswered ("You must provide a
+    # value for the attribute 'sexualContentOrNudity'"). Answer the unanswered
+    # ones explicitly rather than leaving the app unsubmittable. Only fields
+    # Apple is still holding as nil are filled, so an existing answer is never
+    # overwritten, and anything the app really does ship belongs in
+    # store/age-rating.json with its evidence.
+    unless diff.empty?
+      FREQUENCY_FIELDS.each { |f| diff[f] ||= "NONE" if decl.send(f).nil? && !want.key?(f) }
+      BOOLEAN_FIELDS.each   { |f| diff[f] = false   if decl.send(f).nil? && !want.key?(f) }
+    end
 
     if diff.empty?
       puts "#{repo.ljust(18)} already correct"

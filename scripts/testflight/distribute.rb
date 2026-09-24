@@ -59,6 +59,9 @@ Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
 apps    = JSON.parse(File.read(File.join(MANIFEST, "apps.json")))["apps"]
 results = JSON.parse(File.read("#{ROOT}/.dist/ios-batch/results.json")) rescue {}
 HAVE_RESULTS = !results.empty?
+# portfolio-board is not for a public store (store_eligible false), so the
+# sweep skips it; naming it explicitly still works.
+apps    = apps.select { |a| a["store_eligible"] != false } unless ONLY
 apps    = apps.select { |a| a["repo"] == ONLY } if ONLY
 apps    = apps.select { |a| results.dig(a["repo"], "status") == "uploaded" } if !ONLY && HAVE_RESULTS
 
