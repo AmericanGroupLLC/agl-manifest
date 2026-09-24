@@ -6,14 +6,18 @@
 #   bundle exec ruby scripts/testflight/sync_age_rating.rb
 #   bundle exec ruby scripts/testflight/sync_age_rating.rb DriftDate iMaps
 #
-# Two sources, no invention:
+# The answers come from `store/ratings/<repo>.json`, falling back to
+# `store/ratings/default.json` - the same files fastlane's `deliver` already
+# uses via `app_rating_config_path` in scripts/deliver_metadata.py. One home,
+# so the API push and the metadata upload cannot disagree. (An earlier version
+# of this script kept its own store/age-rating.json; that meant `deliver`
+# would silently overwrite what this had just set.)
 #
-#   * `advertising` is derived, not configured. An app depends on
-#     google_mobile_ads or it does not, and docs/release-readiness.json already
-#     measures that. Declaring "no advertising" while shipping the AdMob SDK is
-#     a misdeclaration, and it was true of five apps when this was written.
-#   * everything else comes from store/age-rating.json, where each entry has to
-#     cite the file that makes it true.
+# `advertising` is also *measured*, from dep_google_mobile_ads in
+# docs/release-readiness.json, and checked against the ratings file. Declaring
+# "no advertising" while shipping the AdMob SDK is a misdeclaration, and it was
+# true of five apps when this was written - so a disagreement is reported
+# rather than quietly resolved.
 #
 # Idempotent: the live declaration is read first and a PATCH is only sent for
 # fields whose value actually differs, so a second run reports no changes.
@@ -49,7 +53,20 @@ ONLY = ARGV.reject { |a| a.start_with?("--") }
 apps = JSON.parse(File.read("#{M}/apps.json"))["apps"]
 apps = apps.select { |a| ONLY.include?(a["repo"]) } unless ONLY.empty?
 
-overrides = JSON.parse(File.read("#{M}/store/age-rating.json")).reject { |k, _| k.start_with?("_") }
+# store/ratings/*.json is written in Apple's camelCase; spaceship's accessors
+# are snake_case. Convert rather than keeping two spellings of the same answer.
+def snake(key)
+  key.gsub(/([a-z\d])([A-Z])/, '\1_\2').downcase
+end
+
+def ratings_for(repo, manifest)
+  path = "#{manifest}/store/ratings/#{repo}.json"
+  path = "#{manifest}/store/ratings/default.json" unless File.exist?(path)
+  JSON.parse(File.read(path)).each_with_object({}) do |(k, v), h|
+    next if k.start_with?("_")
+    h[snake(k)] = v
+  end
+end
 
 readiness = JSON.parse(File.read("#{M}/docs/release-readiness.json"))
 readiness = readiness["apps"] if readiness.is_a?(Hash) && readiness["apps"]
@@ -83,9 +100,20 @@ apps.each do |a|
       next
     end
 
-    # Derived first, then the cited per-app overrides on top.
-    want = { "advertising" => ships_ads.fetch(repo, false) }
-    (overrides[repo] || {}).each { |k, v| want[k] = v unless k.start_with?("_") }
+    want = ratings_for(repo, M)
+
+    # The ratings file is what both this and `deliver` send, so it has to agree
+    # with the binary. Say so loudly instead of patching over it.
+    measured_ads = ships_ads.fetch(repo, false)
+    if want.key?("advertising") && want["advertising"] != measured_ads
+      puts "#{repo.ljust(18)} MISMATCH store/ratings says advertising=" \
+           "#{want['advertising']} but dep_google_mobile_ads=#{measured_ads}"
+      results[repo] = { "state" => "ads-mismatch",
+                        "ratings_file" => want["advertising"],
+                        "measured" => measured_ads }
+      next
+    end
+    want["advertising"] = measured_ads
 
     diff = want.reject { |field, value| decl.send(field) == value }
 
