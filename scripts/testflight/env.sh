@@ -14,3 +14,13 @@ export FASTLANE_USER=rainbow472.sri@gmail.com
 # blank cookie and fail the login instead of prompting. Exporting a real value
 # afterwards still works — this only clears a leftover.
 unset FASTLANE_SESSION 
+
+# An Apple ID web session, when one has been captured. The API key cannot create
+# an app record or publish App Privacy answers; the iris host behind App Store
+# Connect does both and takes a session instead. Capture one with
+# `bundle exec fastlane spaceauth -u "$FASTLANE_USER"` and paste it into the file
+# below; it lasts about a month. Absent, everything that only needs the key
+# still works.
+if [ -s "$HOME/agl/.secrets/fastlane-session" ]; then
+  export FASTLANE_SESSION="$(cat "$HOME/agl/.secrets/fastlane-session")"
+fi

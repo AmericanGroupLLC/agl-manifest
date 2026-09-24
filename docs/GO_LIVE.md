@@ -16,6 +16,38 @@ attempted through an API first and refused; the refusal is quoted.
 Every one of the remaining checklist failures is a Console action. Nothing is
 waiting on code, a build, or a script.
 
+## 0. One sign-in unlocks items 2 and 4 below
+
+The App Store Connect **API key** cannot create an app record or publish App
+Privacy answers. Both live on the `iris` host behind the Console, which takes an
+Apple ID session instead — measured today: `iris/v1/apps/{id}/dataUsages`
+returns 401 "No valid credentials found" for a key, and `POST v1/apps` returns
+"The resource 'apps' does not allow 'CREATE'".
+
+A session lasts about a month. Capture one once:
+
+```bash
+cd ~/agl/agl-manifest && bundle exec fastlane spaceauth -u srikanth.patchava@outlook.com
+```
+
+Paste the printed value into `~/agl/.secrets/fastlane-session` (git-ignored),
+then:
+
+```bash
+source scripts/testflight/env.sh
+bundle exec ruby scripts/testflight/create_records_session.rb --dry-run
+bundle exec ruby scripts/testflight/create_records_session.rb
+```
+
+That creates every missing App Store record and publishes the App Privacy
+answers already written in `store/privacy/`. The record watcher then builds,
+uploads and distributes each new app within five minutes.
+
+A stored session for the account holder already exists at
+`~/.fastlane/spaceship/srikanth.patchava@outlook.com/cookie` but has expired: a
+login attempt today asked for a 6-digit code, which a non-interactive session
+cannot answer. That prompt is the only human step here.
+
 ## 1. Accept the App Store Connect agreement — unblocks Apple beta review
 
 Every beta submission is refused with:
