@@ -8,14 +8,14 @@ Current state is measured, not asserted — regenerate with
 `python3 scripts/status.py` and read `status.csv`, or
 `python3 scripts/store_master_csv.py --gaps` for just the open fields.
 
-**43 apps. 4 have no blocker. The rest are waiting on the steps below.**
+**43 apps. 5 have no blocker. Every one of the 50 that remain needs a console
+login — none of them can be fixed in code.**
 
 What each step is worth, measured:
 
 | zero-blocker apps | after |
 | ---: | --- |
-| 4 / 43 | today |
-| 5 / 43 | the six paywalls get real in-app purchase |
+| 5 / 43 | today |
 | 6 / 43 | § 1 — an Apple ID session |
 | 17 / 43 | § 2 — 11 Play apps created |
 | **43 / 43** | § 3 — 26 Play drafts published |
@@ -117,19 +117,27 @@ radiotune, yourtube.
 
 ## 4. In-app purchase products
 
-Six apps sold a subscription with no purchase SDK behind it — App Review
-guideline 3.1.1, a rejection. Real `in_app_purchase` billing is now wired in
-each. The **products themselves must be created in both consoles**, and the ids
-must match exactly or the paywall shows no price and no purchase can start.
+Four apps sold a subscription with no purchase SDK behind it — App Review
+guideline 3.1.1, a rejection. CodeDeal was the worst of them: it opened a
+Stripe checkout in a browser. Real `in_app_purchase` billing is now wired in
+all four. The **products must be created in both consoles**, and the ids have
+to match exactly or the paywall shows no price and no purchase can start.
 
 | app | product ids |
 | --- | --- |
 | Kinnav | `kinnav_premium_monthly`, `kinnav_premium_annual` |
-| CodeDeal | `codedeal_pro_monthly`, `codedeal_pro_yearly` |
+| CodeDeal | `codedeal_pro_monthly`, `codedeal_pro_yearly`, `codedeal_pro_lifetime` |
 | NexusTransferPay | `nexustransferpay_plus_monthly`, `nexustransferpay_plus_yearly` |
-| VirtuBand | `virtuband_pro_monthly`, `virtuband_pro_yearly` |
-| NewsBoard | `newsboard_premium_monthly`, `newsboard_premium_yearly` |
-| daily-pulse | `dailypulse_premium_monthly`, `dailypulse_premium_yearly` |
+| VirtuBand | `virtuband_pro_monthly`, `virtuband_pro_yearly`, `virtuband_pro_lifetime` |
+
+**NewsBoard and daily-pulse need nothing here.** Both were flagged by an early
+version of the detector and neither sells anything — NewsBoard's screen says
+"There is no paid plan" and has a test asserting no price appears. Creating
+products for them would mean selling a subscription that grants nothing, which
+is guideline 3.1.2.
+
+VirtuBand ships with `BILLING_ENABLED` unset, so its paywall stays hidden until
+someone builds with it on. The purchase path behind it is real.
 
 Each id is overridable at build time (`--dart-define=IAP_MONTHLY_ID=...`) so a
 staging SKU needs no code change.
@@ -178,7 +186,48 @@ They are deliberately untracked, so they must not be committed.
 
 ---
 
-## 7. Decisions nobody has made yet
+## 7. HomeWise needs a listings feed
+
+HomeWise is meant to be MLS listings *and* the affordability calculator. The
+listings half now exists — Browse is the first tab, and every result is scored
+against the buyer's own budget by the same engine the calculator tabs use.
+
+It ships inert. No feed is configured, so the tab says "No listing feed in this
+build" and the search box is disabled. Nothing is faked: a made-up mortgage
+rate is a labelled assumption, a made-up property is a claim that a specific
+house exists at a specific price, and shipping those would be guideline 2.3.1.
+
+To turn it on, build with a feed:
+
+```sh
+flutter build ipa \
+  --dart-define=HOMEWISE_LISTINGS_API_URL=https://example.com/v1/listings \
+  --dart-define=HOMEWISE_LISTINGS_API_KEY=...
+```
+
+The endpoint takes the query parameters in `ListingQuery.toQueryParameters` and
+returns a JSON array or `{"listings": [...], "hasMore": bool}`. Vendor-shaped
+JSON is mapped in `Listing.fromJson`, so a different provider is a mapping
+change rather than a rewrite.
+
+**The commercial decision is yours.** Real MLS data needs an IDX/MLS licence
+through a local board, or a paid aggregator — ATTOM, Bridge Interactive, or
+Realtor's feed via RapidAPI. Zillow closed its public API. Most IDX licences
+also require a visible link back to the source listing, which the detail screen
+already has.
+
+Two things to change **when a feed goes live**, and not before:
+
+- **Store copy.** `store/apps/HomeWise.json` describes only the calculator
+  ("What house can I afford?"), which is accurate today. Once listings work it
+  undersells the app.
+- **Category.** It is `FINANCE`, right for a calculator and wrong for a
+  listings app — Redfin and Zillow are both Lifestyle. That also drives the
+  *Provides Financial Features* column in `status.csv`.
+
+---
+
+## 8. Decisions nobody has made yet
 
 `python3 scripts/store_master_csv.py --gaps` lists these as `NEEDS-INPUT`
 across all 43:
