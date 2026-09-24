@@ -235,6 +235,12 @@ def main() -> int:
                 "- App Review 3.1.1")
         if login_required and not ri.get("notes"):
             blockers.append("login required but no review instructions")
+        # +1 XXX 555 01XX is the reserved fictional range. App Review calls the
+        # contact number when a submission stalls; an unreachable one costs a
+        # review cycle.
+        phone = ri.get("phone_number") or review.get("phone_number", "")
+        if re.search(r"\b555[\s-]?01\d\d\b", phone):
+            blockers.append(f"review contact phone {phone} is a fictional 555 number")
 
         row = {
             "App Name": en.get("name") or repo,
