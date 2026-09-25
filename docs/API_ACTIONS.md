@@ -46,7 +46,14 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 
 **What the API cannot do**, each proven rather than assumed — see MA-008:
 creating an app record (`apps` refuses `CREATE`), and `produce` needs an Apple ID
-password rather than the API key.
+session rather than the API key. Re-tested on fastlane **2.240.1** (2026-09-25),
+in case the update changed it: `fastlane run produce` for AeroSwift ends in
+"The request could not be completed because: Unauthorized Access". It reaches
+for the Apple ID path and the stored session has expired.
+
+All 43 Developer Portal **bundle ids** are registered — that part the key does
+do, and `BundleId.create` is idempotent, so a record can be created in the
+Console without registering anything first.
 
 ## Google Play
 
