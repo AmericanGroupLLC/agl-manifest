@@ -300,16 +300,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 171.6,
+    "seconds": 128.4,
     "aab": "HerJourney/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 58220766,
-    "sha256": "930e77a3ef0c11c2af42714df6e42f1f8fd6e43489928f876b7be64ce7becbb9",
+    "bytes": 59593807,
+    "sha256": "79eaf98e133a29d9bda84eca6d4dbb4785606a442e9e877a8c48e8ed9e844832",
     "keystore_sha256": "5F018C068A100C075C5AD16B92D1BB76F4D55CB225AB077C5C51EF4C1886576D",
     "signer_sha256": "5F018C068A100C075C5AD16B92D1BB76F4D55CB225AB077C5C51EF4C1886576D",
     "result": "SIGNED",
     "artifact": ".dist/HerJourney-app-prod-release.aab",
-    "freed_mb": 1071,
-    "built_at": "2026-09-22T02:41:43-0700"
+    "freed_mb": 1101,
+    "built_at": "2026-09-24T17:38:18-0700"
   },
   {
     "repo": "HomeWise",
@@ -452,16 +452,16 @@
     "app_dir": "flutter-mobile-app",
     "flavours": [],
     "flavour_built": null,
-    "seconds": 223.3,
+    "seconds": 166.0,
     "aab": "NexusTransferPay/flutter-mobile-app/build/app/outputs/bundle/release/app-release.aab",
-    "bytes": 58724620,
-    "sha256": "7ccfd97fc9335346c9ce0141c0a1dab970bd39ee5d41e7170f918ef26f948f75",
+    "bytes": 61190137,
+    "sha256": "72fabc5a2e1f4b2d2f20d83090cfa889af9e30491a44fd9cbef3056f43b03fa9",
     "keystore_sha256": "5B6A4604F1861642FEECD760AA49D1A83AA95AD784667A8216AB4B31D1624897",
     "signer_sha256": "5B6A4604F1861642FEECD760AA49D1A83AA95AD784667A8216AB4B31D1624897",
     "result": "SIGNED",
     "artifact": ".dist/NexusTransferPay-app-release.aab",
-    "freed_mb": 1430,
-    "built_at": "2026-09-22T03:01:11-0700"
+    "freed_mb": 1342,
+    "built_at": "2026-09-24T17:41:24-0700"
   },
   {
     "repo": "Photriya",
@@ -652,16 +652,16 @@
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 152.4,
+    "seconds": 129.2,
     "aab": "daily-pulse/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 75300277,
-    "sha256": "e5cb990a112862dd563c0afd2d343f0f2c01a6bd7d1a13089227e51d8bf1bdfd",
+    "bytes": 76977735,
+    "sha256": "1258c15003662a973ab772e847042d0bc1f2430c22b00e3396790561ea40fd05",
     "keystore_sha256": "AD4582F780FCB092D1D47C6E9872D962826C27D3ECD54508643693315160FF8D",
     "signer_sha256": "AD4582F780FCB092D1D47C6E9872D962826C27D3ECD54508643693315160FF8D",
     "result": "SIGNED",
     "artifact": ".dist/daily-pulse-app-prod-release.aab",
-    "freed_mb": 1412,
-    "built_at": "2026-09-22T10:41:01-0700"
+    "freed_mb": 1755,
+    "built_at": "2026-09-24T17:34:25-0700"
   },
   {
     "repo": "iMaps",

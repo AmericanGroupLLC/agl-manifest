@@ -39,7 +39,7 @@ FLUTTER = ROOT / ".flutter-sdk/bin/flutter"
 # reproduced exactly; the others follow the org's majority convention.
 APPS = {
     "AGStudio":        dict(bundle="com.americangroupllc.agstudio",       name="agstudio",        title="AGStudio",        store_record=True),
-    "AeroSwift":       dict(bundle="com.americangroup.aeroswift",         name="aeroswift",       title="AeroSwift",       store_record=False),
+    "AeroSwift":       dict(bundle="com.americangroupllc.aeroswift",         name="aeroswift",       title="AeroSwift",       store_record=False),
     "ApexMarketWatch": dict(bundle="com.americangroupllc.apexmarketwatch", name="apexmarketwatch", title="ApexMarketWatch", store_record=True),
     "BuddyPlay":       dict(bundle="com.americangroupllc.buddyplay",      name="buddyplay",       title="BuddyPlay",       store_record=True),
     "MyCard":          dict(bundle="com.americangroupllc.mycard",         name="mycard",          title="MyCard",          store_record=True),
