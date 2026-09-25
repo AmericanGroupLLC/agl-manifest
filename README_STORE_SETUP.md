@@ -50,6 +50,22 @@ With that in place, these become scriptable:
 FashionFactory, GadgetNest, GroceryMatch, HerJourney, MyHealth, PlantPulse,
 Verba, iMeasure, portfolio-board, radiotune, yourtube.
 
+> **Four of those are not missing — they are mis-bound.** BodyQuest,
+> daily-pulse, radiotune and yourtube already have records, under the retired
+> `com.americangroup.*` scheme rather than `com.americangroupllc.*`:
+>
+> | record | name | app id |
+> | --- | --- | --- |
+> | `com.americangroup.bodyquest` | BodyQuest | 6808737432 |
+> | `com.americangroup.daily-pulse` | daily-pulse | — |
+> | `com.americangroup.radiotune` | RadioTune World | 6799065525 |
+> | `com.americangroup.yourtube` | YourTube: Watch & Discover | — |
+>
+> Apple does not let a record's bundle id change, so creating the correct one
+> does not fix these — the old record has to be deleted or abandoned first, and
+> it is holding the app name. Note `daily-pulse` also carries a hyphen, which
+> is not a legal bundle-id component style the rest of the portfolio uses.
+
 **27 apps need App Privacy published.** The answers are already written, per
 app, in `store/privacy/<repo>.json` — nothing to compose, only to publish.
 

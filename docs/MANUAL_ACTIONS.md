@@ -613,9 +613,23 @@ The Play Developer API cannot create an app, so this stays a console action.
 `python3 scripts/sync_play_testers.py --audit` re-measures it at any time and
 names exactly which packages Play does not know.
 
-Note on the old naming: `com.americangroup.yourtube` still exists from before the
-rename. YourTube now also exists under `com.americangroupllc.yourtube`, so the
-old entry is dead and should be deleted.
+Note on the old naming: **four** records still sit on the retired
+`com.americangroup.*` scheme, not one. Measured 2026-09-24 against the live
+API:
+
+| stale record | name it holds | app id |
+| --- | --- | --- |
+| `com.americangroup.bodyquest` | BodyQuest | 6808737432 |
+| `com.americangroup.daily-pulse` | daily-pulse | — |
+| `com.americangroup.radiotune` | RadioTune World | 6799065525 |
+| `com.americangroup.yourtube` | YourTube: Watch & Discover | — |
+
+None of those four has a record under its current `com.americangroupllc.*`
+bundle id, so they are counted among the 13 "missing" above — but they are
+mis-bound rather than absent, which needs a different action. Apple does not
+allow a record's bundle id to change, so the stale record must be deleted or
+abandoned before the right one can be created, and until then it is holding
+the app's name.
 ## MA-017 · P0 · Play Data safety deletion URL — deadline 2026-09-24
 
 Google flagged VirtuBand on 2026-09-21: *"URL provided
