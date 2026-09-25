@@ -32,6 +32,11 @@ ap = argparse.ArgumentParser()
 ap.add_argument("--no-distribute", action="store_true", help="upload only; do not add the build to the tester group")
 ap.add_argument("--wave", choices=["records", "all"], default="records")
 ap.add_argument("--apps", default="")
+ap.add_argument("--no-resume", action="store_true",
+                help="ignore a previous run's results instead of skipping apps it "
+                     "recorded as uploaded. A results file from 2026-09-15 once made "
+                     "a whole run report 'uploaded: 30, failed: 0' in under two "
+                     "minutes having uploaded nothing. CI always passes this.")
 args = ap.parse_args()
 
 apps = MANIFEST
@@ -46,6 +51,11 @@ else:
     if args.wave == "records":
         apps = [a for a in apps if a["bundle_id"] in RECORDS and a["repo"] not in SKIP]
 
+if args.no_resume and RESULTS.exists():
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    backup = RESULTS.with_name(f"{RESULTS.name}.{stamp}.bak")
+    RESULTS.rename(backup)
+    print(f"--no-resume: previous results moved aside as {backup.name}")
 results = json.load(open(RESULTS)) if RESULTS.exists() else {}
 env = os.environ.copy()
 build_number = datetime.datetime.now().strftime("%Y%m%d%H%M")

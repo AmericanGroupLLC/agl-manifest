@@ -1,0 +1,429 @@
+name: Ship the portfolio
+
+# One workflow for the whole journey: validate → build → release → internal
+# testing → production. It replaces running artifacts / deliver / validate /
+# distribute-on-tag by hand and guessing which order they go in.
+#
+# Every stage is gated on the one before it, so a broken app never reaches a
+# store. `stop_after` lets you take it as far as you want and no further —
+# the default stops at internal testing, because production is a one-way door.
+#
+# Four guards are in here because each one is a failure this pipeline actually
+# hit, not a hypothetical:
+#
+#   1. Version codes are checked against Play *before* anything is built. A
+#      43-app rebuild was once thrown away because Play had already seen the
+#      codes, and the code is baked in at build time so rebuilding cannot fix
+#      it.
+#   2. Nothing resumes from a stale results file unless asked. Two separate
+#      runs reported success having silently skipped every app as "already
+#      uploaded" from a record days old.
+#   3. An upload is confirmed against the store, not against the exit code of
+#      the tool. Eleven TestFlight uploads reported failure after Apple had
+#      accepted them, costing 55 minutes each in retries.
+#   4. A store gate that needs a console login is reported as blocked, not as
+#      a failure. 13 apps have no App Store Connect record and 11 have no Play
+#      entry; failing the run for those hides real regressions.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apps:
+        description: 'all, android-deliverable, ios-deliverable, or a comma-separated list'
+        default: all
+        type: string
+      stop_after:
+        description: 'How far to go'
+        default: internal
+        type: choice
+        options: [validate, build, release, internal, production]
+      bump_versions:
+        description: 'Raise build numbers past Play and commit them if they collide'
+        default: false
+        type: boolean
+  push:
+    tags: ['v*']
+  schedule:
+    # 06:00 UTC. Catches a dependency that moved under us without a push.
+    # Scheduled runs validate and build only — see `resolve` below.
+    - cron: '0 6 * * *'
+
+concurrency:
+  group: ship-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  FLUTTER_VERSION: '3.44.2'
+  APPS: ${{ inputs.apps || 'all' }}
+
+jobs:
+  resolve:
+    name: Decide how far this run goes
+    runs-on: ubuntu-latest
+    outputs:
+      stop_after: ${{ steps.plan.outputs.stop_after }}
+      apps: ${{ steps.plan.outputs.apps }}
+    steps:
+      - id: plan
+        run: |
+          # A schedule must never push to a store on its own. A tag means a
+          # deliberate release, so it goes as far as internal testing.
+          case "${{ github.event_name }}" in
+            schedule) stop=build ;;
+            push)     stop=internal ;;
+            *)        stop="${{ inputs.stop_after || 'internal' }}" ;;
+          esac
+          echo "stop_after=$stop" >> "$GITHUB_OUTPUT"
+          echo "apps=${{ inputs.apps || 'all' }}" >> "$GITHUB_OUTPUT"
+          echo "### Ship plan" >> "$GITHUB_STEP_SUMMARY"
+          echo "- trigger: \`${{ github.event_name }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- apps: \`${{ inputs.apps || 'all' }}\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- stops after: \`$stop\`" >> "$GITHUB_STEP_SUMMARY"
+
+  validate:
+    name: Analyze and test
+    needs: resolve
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-agl
+        with:
+          token: ${{ secrets.AGL_PACKAGES_TOKEN }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+      - name: Check out the apps
+        run: python3 scripts/checkout.py --apps "${{ needs.resolve.outputs.apps }}"
+      - name: Analyze and test every app
+        run: bundle exec fastlane validate apps:"${{ needs.resolve.outputs.apps }}"
+
+  android:
+    name: Build signed Android bundles
+    needs: [resolve, validate]
+    if: needs.resolve.outputs.stop_after != 'validate'
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-agl
+        with:
+          token: ${{ secrets.AGL_PACKAGES_TOKEN }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+      - name: Check out the apps
+        run: python3 scripts/checkout.py --apps "${{ needs.resolve.outputs.apps }}"
+
+      - name: Write the Play service-account key
+        env:
+          PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$PLAY_JSON" ]; then
+            echo "::error::PLAY_SERVICE_ACCOUNT_JSON is not set; the version-code preflight and every Play upload need it."
+            exit 1
+          fi
+          mkdir -p "$RUNNER_TEMP/secrets"
+          printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/secrets/play.json"
+
+      # Guard 1. Ask Play what codes it already holds, before building anything.
+      - name: Version-code preflight
+        run: |
+          mkdir -p "$RUNNER_TEMP/dist"
+          python3 scripts/play_version_codes.py --out "$RUNNER_TEMP/dist/play-version-codes.json"
+          if [ "${{ inputs.bump_versions }}" = "true" ]; then
+            python3 scripts/preflight_version_codes.py --bump \
+              --codes "$RUNNER_TEMP/dist/play-version-codes.json"
+          else
+            python3 scripts/preflight_version_codes.py --check \
+              --codes "$RUNNER_TEMP/dist/play-version-codes.json"
+          fi
+
+      - name: Materialise per-app signing material
+        env:
+          ANDROID_KEYSTORE_CONFIG: ${{ secrets.ANDROID_KEYSTORE_CONFIG }}
+        run: python3 scripts/materialise_signing.py --apps "${{ needs.resolve.outputs.apps }}" --out "$RUNNER_TEMP"
+
+      - name: Resolve the app list
+        id: list
+        run: |
+          # checkout.py understands the keywords; the builders take positional
+          # names, and an empty list means "every app".
+          if [ "$SPEC" = "all" ]; then
+            echo "names=" >> "$GITHUB_OUTPUT"
+            echo "csv=" >> "$GITHUB_OUTPUT"
+          else
+            echo "names=$(echo "$SPEC" | tr ',' ' ')" >> "$GITHUB_OUTPUT"
+            echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          SPEC: ${{ needs.resolve.outputs.apps }}
+      - name: Build every bundle and prove it is signed
+        run: python3 scripts/build_release.py ${{ steps.list.outputs.names }}
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-bundles
+          path: |
+            **/build/app/outputs/bundle/**/*.aab
+            **/build/app/outputs/flutter-apk/*.apk
+            docs/build-evidence.json
+          if-no-files-found: error
+          retention-days: 14
+
+  ios:
+    name: Build signed iOS archives
+    needs: [resolve, validate]
+    if: needs.resolve.outputs.stop_after != 'validate'
+    runs-on: macos-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-agl
+        with:
+          token: ${{ secrets.AGL_PACKAGES_TOKEN }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+      - name: Check out the apps
+        run: python3 scripts/checkout.py --apps "${{ needs.resolve.outputs.apps }}"
+
+      - name: Load the App Store Connect key
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_CONTENT: ${{ secrets.ASC_KEY_CONTENT }}
+        run: |
+          for v in ASC_KEY_ID ASC_ISSUER_ID ASC_KEY_CONTENT; do
+            if [ -z "${!v}" ]; then echo "::error::$v is not set"; exit 1; fi
+          done
+          mkdir -p "$RUNNER_TEMP/secrets"
+          printf '%s' "$ASC_KEY_CONTENT" | base64 --decode > "$RUNNER_TEMP/secrets/asc.p8"
+          test -s "$RUNNER_TEMP/secrets/asc.p8"
+          {
+            echo "ASC_KEY_ID=$ASC_KEY_ID"
+            echo "ASC_ISSUER_ID=$ASC_ISSUER_ID"
+            echo "ASC_KEY_PATH=$RUNNER_TEMP/secrets/asc.p8"
+          } >> "$GITHUB_ENV"
+
+      # Archives unsigned and signs on export: a CLI signing setting applies to
+      # every target including CocoaPods, which reject provisioning profiles.
+      - name: Resolve the app list
+        id: list
+        run: |
+          # checkout.py understands the keywords; the builders take positional
+          # names, and an empty list means "every app".
+          if [ "$SPEC" = "all" ]; then
+            echo "names=" >> "$GITHUB_OUTPUT"
+            echo "csv=" >> "$GITHUB_OUTPUT"
+          else
+            echo "names=$(echo "$SPEC" | tr ',' ' ')" >> "$GITHUB_OUTPUT"
+            echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          SPEC: ${{ needs.resolve.outputs.apps }}
+      - name: Build every IPA
+        run: python3 scripts/build_ipa.py ${{ steps.list.outputs.names }}
+
+      - name: Prove every IPA is distribution-signed
+        run: python3 scripts/verify_ipa_signing.py
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ios-archives
+          path: |
+            **/build/ios/ipa/*.ipa
+            docs/ios-ipa-evidence.json
+          if-no-files-found: error
+          retention-days: 14
+
+  release:
+    name: Publish a labelled release per app
+    needs: [resolve, android, ios]
+    if: contains(fromJSON('["release","internal","production"]'), needs.resolve.outputs.stop_after)
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-agl
+        with:
+          token: ${{ secrets.AGL_PACKAGES_TOKEN }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+      - uses: actions/download-artifact@v4
+        with: { name: android-bundles, path: . }
+      - uses: actions/download-artifact@v4
+        with: { name: ios-archives, path: . }
+
+      # A release per app in its own repository, tagged with that app's own
+      # version, carrying the APK (sideloadable), the AAB (what Play takes) and
+      # the IPA. The notes record the signing certificate so a download can be
+      # checked rather than trusted.
+      - name: Resolve the app list
+        id: list
+        run: |
+          # checkout.py understands the keywords; the builders take positional
+          # names, and an empty list means "every app".
+          if [ "$SPEC" = "all" ]; then
+            echo "names=" >> "$GITHUB_OUTPUT"
+            echo "csv=" >> "$GITHUB_OUTPUT"
+          else
+            echo "names=$(echo "$SPEC" | tr ',' ' ')" >> "$GITHUB_OUTPUT"
+            echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          SPEC: ${{ needs.resolve.outputs.apps }}
+      - name: Attach binaries to each app's GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.AGL_PACKAGES_TOKEN }}
+        run: python3 scripts/publish_releases.py ${{ steps.list.outputs.names }}
+
+  internal:
+    name: Internal testing
+    needs: [resolve, release]
+    if: contains(fromJSON('["internal","production"]'), needs.resolve.outputs.stop_after)
+    runs-on: macos-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-agl
+        with:
+          token: ${{ secrets.AGL_PACKAGES_TOKEN }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+      - uses: actions/download-artifact@v4
+        with: { name: android-bundles, path: . }
+      - uses: actions/download-artifact@v4
+        with: { name: ios-archives, path: . }
+
+      - name: Write credentials
+        env:
+          PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_CONTENT: ${{ secrets.ASC_KEY_CONTENT }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/secrets"
+          printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/secrets/play.json"
+          printf '%s' "$ASC_KEY_CONTENT" | base64 --decode > "$RUNNER_TEMP/secrets/asc.p8"
+          {
+            echo "ASC_KEY_ID=$ASC_KEY_ID"
+            echo "ASC_ISSUER_ID=$ASC_ISSUER_ID"
+            echo "ASC_KEY_PATH=$RUNNER_TEMP/secrets/asc.p8"
+            echo "PLAY_KEY_FILE=$RUNNER_TEMP/secrets/play.json"
+          } >> "$GITHUB_ENV"
+
+      # Guard 2: --no-resume. Both of these skip an app that a previous run
+      # recorded as done, and both have reported a whole run as successful
+      # having skipped every app from a record days old.
+      - name: Resolve the app list
+        id: list
+        run: |
+          # checkout.py understands the keywords; the builders take positional
+          # names, and an empty list means "every app".
+          if [ "$SPEC" = "all" ]; then
+            echo "names=" >> "$GITHUB_OUTPUT"
+            echo "csv=" >> "$GITHUB_OUTPUT"
+          else
+            echo "names=$(echo "$SPEC" | tr ',' ' ')" >> "$GITHUB_OUTPUT"
+            echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          SPEC: ${{ needs.resolve.outputs.apps }}
+      - name: Upload to the Play internal track
+        run: python3 scripts/play_upload.py ${{ steps.list.outputs.names }} --status completed --no-resume
+
+      # Guard 3 lives inside run_batch.py: an upload is confirmed by asking App
+      # Store Connect whether the build arrived, because altool reports failure
+      # for builds Apple has in fact accepted.
+      - name: Upload to TestFlight
+        run: python3 scripts/testflight/run_batch.py --wave records --no-resume --apps "${{ steps.list.outputs.csv }}"
+
+      - name: Put every build in front of the testers
+        run: bundle exec ruby scripts/testflight/distribute.rb --all
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: internal-testing-results
+          path: |
+            .dist/play-results.json
+            .dist/ios-batch/results.json
+          if-no-files-found: warn
+
+  production:
+    name: Promote to production
+    needs: [resolve, internal]
+    if: needs.resolve.outputs.stop_after == 'production'
+    runs-on: macos-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-agl
+        with:
+          token: ${{ secrets.AGL_PACKAGES_TOKEN }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+
+      - name: Write credentials
+        env:
+          PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_CONTENT: ${{ secrets.ASC_KEY_CONTENT }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/secrets"
+          printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/secrets/play.json"
+          printf '%s' "$ASC_KEY_CONTENT" | base64 --decode > "$RUNNER_TEMP/secrets/asc.p8"
+          {
+            echo "ASC_KEY_ID=$ASC_KEY_ID"
+            echo "ASC_ISSUER_ID=$ASC_ISSUER_ID"
+            echo "ASC_KEY_PATH=$RUNNER_TEMP/secrets/asc.p8"
+            echo "PLAY_KEY_FILE=$RUNNER_TEMP/secrets/play.json"
+          } >> "$GITHUB_ENV"
+
+      # Guard 4. Both stores refuse a production release for reasons only a
+      # console login can clear — a Draft Play app, or unpublished App Privacy
+      # answers. Those are reported as blocked and do not fail the run, because
+      # failing on them would hide a real regression behind a known gate.
+      # docs/MANUAL_ACTIONS.md and README_STORE_SETUP.md say what to do.
+      - name: Resolve the app list
+        id: list
+        run: |
+          # checkout.py understands the keywords; the builders take positional
+          # names, and an empty list means "every app".
+          if [ "$SPEC" = "all" ]; then
+            echo "names=" >> "$GITHUB_OUTPUT"
+            echo "csv=" >> "$GITHUB_OUTPUT"
+          else
+            echo "names=$(echo "$SPEC" | tr ',' ' ')" >> "$GITHUB_OUTPUT"
+            echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
+          fi
+        env:
+          SPEC: ${{ needs.resolve.outputs.apps }}
+      - name: Promote on Play where the app is not a Draft
+        continue-on-error: true
+        run: python3 scripts/play_release.py ${{ steps.list.outputs.names }} --production
+
+      - name: Submit for App Store review where App Privacy is published
+        continue-on-error: true
+        run: bundle exec ruby scripts/testflight/submit_production.rb --all
+
+  report:
+    name: What happened
+    needs: [resolve, validate, android, ios, release, internal, production]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { name: internal-testing-results, path: .dist }
+      - name: Summarise
+        run: |
+          {
+            echo "## Ship report"
+            echo
+            echo "| stage | result |"
+            echo "| --- | --- |"
+            echo "| validate | ${{ needs.validate.result }} |"
+            echo "| android | ${{ needs.android.result }} |"
+            echo "| ios | ${{ needs.ios.result }} |"
+            echo "| release | ${{ needs.release.result }} |"
+            echo "| internal | ${{ needs.internal.result }} |"
+            echo "| production | ${{ needs.production.result }} |"
+          } >> "$GITHUB_STEP_SUMMARY"
+          python3 scripts/ship_report.py >> "$GITHUB_STEP_SUMMARY" || true

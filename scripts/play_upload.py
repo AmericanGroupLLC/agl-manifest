@@ -72,6 +72,15 @@ if STATUS == "completed":
 # explicitly still works; only the sweep skips it.
 if names: apps = [a for a in apps if a["repo"] in names]
 else: apps = [a for a in apps if a.get("store_eligible", True)]
+# --no-resume: start from nothing rather than trusting a previous run.
+# A results file from 2026-09-16 once made a whole run report success having
+# skipped 24 of 43 apps as "already uploaded"; the record outlived the builds
+# it described. CI always passes this.
+NO_RESUME = "--no-resume" in sys.argv
+if NO_RESUME and RESULTS.exists():
+    stamp = time.strftime("%Y%m%d-%H%M%S")
+    RESULTS.rename(RESULTS.with_suffix(f".{stamp}.bak"))
+    print(f"--no-resume: previous results moved aside as {RESULTS.name}.{stamp}.bak")
 results = json.load(open(RESULTS)) if RESULTS.exists() else {}
 
 for a in apps:

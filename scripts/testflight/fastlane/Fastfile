@@ -32,13 +32,21 @@ def asc_key
 end
 
 # Is a build with this CFBundleVersion already on App Store Connect?
-def build_present?(bundle_id, build_number)
+# nil means "could not tell", which is not the same as false. Returning false
+# for a failed query made a transient App Store Connect error look like a
+# missing build, and the loop then re-uploaded a build Apple already had.
+def build_state(bundle_id, build_number)
   app = Spaceship::ConnectAPI::App.find(bundle_id)
   return false unless app
-  Spaceship::ConnectAPI::Build.all(app_id: app.id, sort: "-uploadedDate", limit: 20).any? { |b| b.version.to_s == build_number.to_s }
+  Spaceship::ConnectAPI::Build.all(app_id: app.id, sort: "-uploadedDate", limit: 20)
+                              .any? { |b| b.version.to_s == build_number.to_s }
 rescue StandardError => e
-  UI.important("could not query builds: #{e.message.lines.first}")
-  false
+  UI.important("could not query builds (treating as unknown): #{e.message.lines.first}")
+  nil
+end
+
+def build_present?(bundle_id, build_number)
+  build_state(bundle_id, build_number) == true
 end
 
 # CFBundleVersion baked into an IPA.
@@ -166,16 +174,30 @@ platform :ios do
       rescue StandardError => e
         UI.error("attempt #{attempts} failed: #{e.message.lines.first}")
         # A validation rejection is final; retrying only burns an hour.
-        if e.message =~ /Invalid bundle|ITMS-\d+|ENTITY_ERROR|must be higher than the previously uploaded|not in the correct format|Missing required|Invalid Info\.plist|is not permitted|Asset validation failed/
+        # Apple saying this build number is taken, on a retry of that very
+        # build number, is proof the earlier attempt arrived — not a rejection.
+        # Treating it as final is how eleven successful uploads were reported
+        # as failures on 2026-09-25, at about 55 minutes each.
+        if attempts > 1 && e.message =~ /must be higher than the previously uploaded|already been used|redundant binary/i
+          UI.success("UPLOADED #{bundle_id} build #{build_number} (Apple reports the version as already taken, so attempt #{attempts - 1} landed)")
+          break
+        end
+        if e.message =~ /Invalid bundle|ITMS-\d+|ENTITY_ERROR|not in the correct format|Missing required|Invalid Info\.plist|is not permitted|Asset validation failed/
           UI.user_error!("App Store Connect rejected #{bundle_id} build #{build_number}: #{e.message[/(?:Invalid bundle|ITMS-\d+|The following URL schemes|Missing required|Invalid Info\.plist|Asset validation failed)[^\n]{0,400}/] || e.message.lines.first}")
         end
       end
       # Apple usually has the build even when altool reported a lost connection,
       # but it takes a few minutes to show up in the API. Poll before retrying,
       # otherwise the retry is refused as a duplicate CFBundleVersion.
-      12.times do
-        break if build_present?(bundle_id, build_number)
-        UI.message("waiting for App Store Connect to list build #{build_number}…")
+      # Apple usually has the build even when altool reported a lost
+      # connection, but can take a while to list it. 20 minutes, and an
+      # unknown answer keeps waiting rather than counting as absent.
+      20.times do
+        case build_state(bundle_id, build_number)
+        when true then break
+        when nil  then UI.message("App Store Connect did not answer; waiting…")
+        else UI.message("waiting for App Store Connect to list build #{build_number}…")
+        end
         sleep 60
       end
     end

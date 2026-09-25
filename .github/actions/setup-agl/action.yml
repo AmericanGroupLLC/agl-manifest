@@ -1,0 +1,79 @@
+name: Set up the AGL toolchain
+description: >-
+  Git auth for the org's private repositories, Flutter, Ruby and the two caches
+  every job in this repository needs. Extracted because six workflows repeated
+  it and they had already drifted apart.
+
+inputs:
+  token:
+    description: >-
+      AGL_PACKAGES_TOKEN. Needs read access to every AmericanGroupLLC app repo,
+      because the apps are internal and the shared Flutter packages
+      (agl_i18n, agl_observability, agl_ads) are git dependencies.
+    required: true
+  flutter-version:
+    description: Pinned so a runner image bump cannot change the SDK under us.
+    required: true
+  ruby:
+    description: Set false to skip Ruby for a job that never runs fastlane.
+    required: false
+    default: 'true'
+  cocoapods:
+    description: Set true on macOS jobs; the pod cache is worthless on Linux.
+    required: false
+    default: 'false'
+
+runs:
+  using: composite
+  steps:
+    # Without this, git asks for a username on a machine with no tty and the
+    # job dies with "could not read Username for 'https://github.com'".
+    - name: Authenticate git for the org's private repositories
+      shell: bash
+      env:
+        TOKEN: ${{ inputs.token }}
+      run: |
+        if [ -z "$TOKEN" ]; then
+          echo "::error::AGL_PACKAGES_TOKEN is not set. It needs read access to every AmericanGroupLLC app repo and to the shared packages."
+          exit 1
+        fi
+        git config --global \
+          url."https://x-access-token:$TOKEN@github.com/".insteadOf \
+          "https://github.com/"
+
+    - uses: subosito/flutter-action@v2
+      with:
+        flutter-version: ${{ inputs.flutter-version }}
+        channel: stable
+        cache: true
+
+    # Keyed on every pubspec the run can see, not just apps.json. Keying on
+    # apps.json alone meant a dependency change did not invalidate the cache,
+    # and restore-keys then handed the job a stale ~/.pub-cache — which is how
+    # AeroSwift failed with "dependencies for package_info_plus missing" while
+    # resolving perfectly on a clean machine.
+    - name: Cache pub packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.pub-cache
+        key: pub-${{ runner.os }}-${{ inputs.flutter-version }}-${{ hashFiles('apps.json', 'packages/*/pubspec.yaml') }}
+        restore-keys: |
+          pub-${{ runner.os }}-${{ inputs.flutter-version }}-
+
+    - uses: ruby/setup-ruby@v1
+      if: inputs.ruby == 'true'
+      with:
+        ruby-version: '3.3'
+        bundler-cache: true
+
+    # Every app pulls the same Firebase and AdMob pods. Fetching the spec repo
+    # once per batch is a large part of what makes the macOS job affordable.
+    - name: Cache CocoaPods
+      if: inputs.cocoapods == 'true'
+      uses: actions/cache@v4
+      with:
+        path: |
+          ~/.cocoapods
+          ~/Library/Caches/CocoaPods
+        key: pods-${{ runner.os }}-${{ hashFiles('apps.json') }}
+        restore-keys: pods-${{ runner.os }}-
