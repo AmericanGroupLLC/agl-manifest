@@ -630,6 +630,21 @@ mis-bound rather than absent, which needs a different action. Apple does not
 allow a record's bundle id to change, so the stale record must be deleted or
 abandoned before the right one can be created, and until then it is holding
 the app's name.
+
+### Re-measured 2026-09-24 (later the same day): one is mis-bound, not four
+
+The owner deleted the stale `com.americangroup.*` records for BodyQuest,
+daily-pulse and yourtube, and created a correct record for daily-pulse. Asking
+Apple for every old and new bundle id now returns exactly one collision:
+
+| App | Stale record still holding the name |
+| --- | --- |
+| radiotune | `com.americangroup.radiotune` — "Ratio Tune: Live Radio" |
+
+The other twelve simply have no record and can be created directly. Apple holds
+35 records in total, 30 of them bound to a current `com.americangroupllc.*`
+identifier.
+
 ## MA-017 · P0 · Play Data safety deletion URL — deadline 2026-09-24
 
 Google flagged VirtuBand on 2026-09-21: *"URL provided
