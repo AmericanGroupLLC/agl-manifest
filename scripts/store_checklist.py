@@ -147,11 +147,14 @@ def main() -> int:
     # byte-identical content to a real one - 131 URLs "passed" while none of
     # the pages was actually published. The evidence file must therefore record
     # a content check, not a status code; until it does, this row cannot pass.
-    urls_ok = set()
-    uc = SWEEP / "store_url_verified.psv"
-    if uc.exists():
-        urls_ok = {l.split("|")[0] for l in uc.read_text().splitlines()
-                   if "|CONTENT_OK" in l}
+    # Written by scripts/verify_policy_urls.py, which fetches each URL, proves
+    # it is not the SPA catch-all by comparing against a nonsense control path,
+    # and checks the page title names the right app. The older
+    # .sweep/store_url_verified.psv recorded status codes, which is how 131
+    # URLs were once reported as passing while none of the pages existed.
+    policy_urls = load(DIST / "policy-urls.json", {})
+    urls_ok = {repo for repo, pages in policy_urls.items()
+               if pages and all(p.get("state") == "OK" for p in pages.values())}
     # Real per-app Play state, written by scripts/play_internal_share.py. The
     # Play row used to be hardcoded HUMAN with the reason "no Play
     # service-account JSON exists", which stopped being true once
@@ -238,8 +241,12 @@ def main() -> int:
             OK if rec.get("review_information", {}).get("notes") else NO, "")
 
         # --- policy + compliance ---------------------------------------------
-        add("Privacy & support URLs resolve (HTTP 200)",
-            OK if repo in urls_ok else NO, "")
+        pages = policy_urls.get(repo) or {}
+        bad_pages = [k for k, v in pages.items() if v.get("state") != "OK"]
+        add("Privacy & support URLs serve the right page",
+            OK if repo in urls_ok else (NO if pages else HUMAN),
+            f"{len(pages)} checked" if repo in urls_ok else
+            (", ".join(bad_pages) if bad_pages else "not measured yet"))
         auth = a.get("auth", {})
         needs_delete = bool(set(auth.get("providers") or []) &
                             {"Supabase", "Google", "Apple", "Firebase"})

@@ -75,7 +75,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 85 chars |
 | Primary category | PASS | TRAVEL |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -106,7 +106,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 88 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -138,7 +138,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 149 chars |
 | Primary category | PASS | PRODUCTIVITY |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -169,7 +169,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 79 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -200,7 +200,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 86 chars |
 | Primary category | PASS | PHOTO_AND_VIDEO |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -231,7 +231,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 75 chars |
 | Primary category | PASS | FINANCE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -263,7 +263,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 149 chars |
 | Primary category | PASS | HEALTH_AND_FITNESS |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -294,7 +294,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 88 chars |
 | Primary category | PASS | ENTERTAINMENT |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -326,7 +326,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 145 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -357,7 +357,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 87 chars |
 | Primary category | PASS | SHOPPING |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -389,7 +389,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 128 chars |
 | Primary category | PASS | FOOD_AND_DRINK |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -420,7 +420,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 71 chars |
 | Primary category | PASS | SHOPPING |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -452,7 +452,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 151 chars |
 | Primary category | PASS | LIFESTYLE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -484,7 +484,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 147 chars |
 | Primary category | PASS | LIFESTYLE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -515,7 +515,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 71 chars |
 | Primary category | PASS | ENTERTAINMENT |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -547,7 +547,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 153 chars |
 | Primary category | PASS | LIFESTYLE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -578,7 +578,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 81 chars |
 | Primary category | PASS | SHOPPING |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -610,7 +610,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 163 chars |
 | Primary category | PASS | SHOPPING |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -642,7 +642,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 163 chars |
 | Primary category | PASS | HEALTH_AND_FITNESS |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -673,7 +673,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 90 chars |
 | Primary category | PASS | FINANCE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -705,7 +705,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 151 chars |
 | Primary category | PASS | NAVIGATION |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -737,7 +737,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 161 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -769,7 +769,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 150 chars |
 | Primary category | PASS | NAVIGATION |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -801,7 +801,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 149 chars |
 | Primary category | PASS | BUSINESS |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -832,7 +832,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 89 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -864,7 +864,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 132 chars |
 | Primary category | PASS | FINANCE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -896,7 +896,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 143 chars |
 | Primary category | PASS | HEALTH_AND_FITNESS |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -927,7 +927,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 92 chars |
 | Primary category | PASS | LIFESTYLE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -958,7 +958,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 73 chars |
 | Primary category | PASS | NEWS |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -989,7 +989,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 98 chars |
 | Primary category | PASS | FINANCE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1021,7 +1021,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 103 chars |
 | Primary category | PASS | PHOTO_AND_VIDEO |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1053,7 +1053,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 152 chars |
 | Primary category | PASS | TRAVEL |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1084,7 +1084,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 79 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1116,7 +1116,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 154 chars |
 | Primary category | PASS | PRODUCTIVITY |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1148,7 +1148,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 129 chars |
 | Primary category | PASS | MUSIC |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1179,7 +1179,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 74 chars |
 | Primary category | PASS | TRAVEL |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1210,7 +1210,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 82 chars |
 | Primary category | PASS | LIFESTYLE |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1242,7 +1242,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 143 chars |
 | Primary category | PASS | TRAVEL |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1274,7 +1274,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 169 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1306,7 +1306,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 150 chars |
 | Primary category | PASS | EDUCATION |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1338,7 +1338,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 152 chars |
 | Primary category | PASS | MUSIC |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1370,7 +1370,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | Promotional text (<=170) | PASS | 135 chars |
 | Primary category | PASS | UTILITIES |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 3 checked |
 | Account-deletion page (if accounts) | n/a |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
@@ -1401,7 +1401,7 @@ console login, a questionnaire, or a credential that does not exist yet.
 | App Store keywords (<=100) | PASS | 79 chars |
 | Primary category | PASS | ENTERTAINMENT |
 | Per-app review notes | PASS |  |
-| Privacy & support URLs resolve (HTTP 200) | PASS |  |
+| Privacy & support URLs serve the right page | PASS | 4 checked |
 | Account-deletion page (if accounts) | PASS |  |
 | iOS privacy manifest | PASS |  |
 | iOS purpose strings for linked APIs | PASS |  |
