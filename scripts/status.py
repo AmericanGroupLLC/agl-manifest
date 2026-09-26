@@ -30,8 +30,10 @@ MANIFEST = json.loads((ROOT / "apps.json").read_text())
 ORG = MANIFEST["org"]
 APPS = MANIFEST["apps"]
 
-# Apps that cannot build at all, with the reason.
-BROKEN = {"CodeDeal": "Does not compile — 5 analyzer errors"}
+# Apps that cannot build at all, with the reason. Empty: CodeDeal was listed
+# here for five analyzer errors that are gone — it analyzes clean and shipped
+# to Play at v16 on 2026-09-25.
+BROKEN: dict[str, str] = {}
 
 TEST_ADMOB = "3940256099942544"
 

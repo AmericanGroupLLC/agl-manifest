@@ -79,10 +79,9 @@ puts "App Store Connect account users: #{users.size}"
 users.each { |u| puts "   #{u[:email]}  #{u[:roles].join(',')}" }
 puts
 
-# portfolio-board publishes AGL's own internal roadmap and is marked
-# `_blocked` in its store JSON, so the manifest sets store_eligible false
-# and the portfolio that reaches a store is 42 apps, not 43. Naming it
-# explicitly still works; only the sweep skips it.
+# store_eligible is still honoured so the manifest can exclude an app, but
+# nothing sets it false any more: all 43 are in scope. This comment used to
+# say the portfolio was 42.
 apps = JSON.parse(File.read("#{ROOT}/agl-manifest/apps.json"))["apps"]
          .select { |a| a["flutter"] && a["store_eligible"] != false }
 by_bundle = {}

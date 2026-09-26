@@ -156,7 +156,7 @@ store-facing waits for a human. `beta` does not.
   from the console. [STATUS.md](STATUS.md) §4 lists all 36 destinations.
 - **Deliver the six apps that are not Flutter yet** — AeroSwift, AGStudio,
   ApexMarketWatch, BuddyPlay, MyCard, PlantPulse.
-- **Build CodeDeal**, a partial Flutter port that does not compile.
+- ~~**Build CodeDeal**, a partial Flutter port that does not compile.~~ Done — it analyzes clean and shipped to Play at v16 on 2026-09-25.
 
 [`docs/`](docs) holds the full release runbook, the Firebase registration list
 and every other document about the mobile portfolio. They moved here from the

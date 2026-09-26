@@ -26,7 +26,13 @@ LOGS = ROOT / ".dist/ios-logs"
 RESULTS = ROOT / ".dist/ios-batch/results.json"  # outside git, next to the logs
 MANIFEST = json.load(open(ROOT / "agl-manifest/apps.json"))["apps"]
 RECORDS = {r["bundleId"] for r in json.load(open(ROOT / "agl-manifest/docs/appstore-records.json"))}
-SKIP = {"CalcMaster", "CodeDeal"}  # CalcMaster ran on its own lane; CodeDeal does not compile
+# Was {"CalcMaster", "CodeDeal"}: CalcMaster because it once ran on its own
+# lane, CodeDeal because it did not compile. Both expired — CodeDeal analyzes
+# clean and shipped to Play at v16 on 2026-09-25 — and between them they were
+# silently removing two apps from every wave, which is why the last batch ran
+# 27 and not 29. Keep it empty; a reason to skip an app belongs in the
+# manifest where every script can see it, not in one script's constant.
+SKIP: set[str] = set()
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--no-distribute", action="store_true", help="upload only; do not add the build to the tester group")
@@ -43,9 +49,8 @@ apps = MANIFEST
 if args.apps:
     wanted = {s.strip().lower() for s in args.apps.split(",")}
     apps = [a for a in apps if a["repo"].lower() in wanted]
-# portfolio-board publishes AGL's own internal roadmap and is marked
-# `_blocked` in its store JSON, so store_eligible is false and the sweep
-# skips it: 42 apps reach a store, not 43. Naming it explicitly still works.
+# store_eligible is honoured, but nothing sets it false any more — all 43
+# apps are in scope. The filter stays so the manifest can exclude one again.
 else:
     apps = [a for a in apps if a.get("store_eligible", True)]
     if args.wave == "records":

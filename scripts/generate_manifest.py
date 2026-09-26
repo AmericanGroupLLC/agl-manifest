@@ -118,9 +118,10 @@ def main() -> None:
             # Whether this app should reach a public store at all. Editorial,
             # not technical: an app whose store JSON still carries `_blocked`
             # has been judged unpublishable, and every store script skips it.
-            # portfolio-board is AGL's own delivery tracker and publishes
-            # internal roadmap data, which is why the portfolio is 42 apps and
-            # this repository holds 43.
+            # Nothing is blocked today. portfolio-board was, as AGL's own
+            # delivery tracker, but its store JSON now carries
+            # `_was_blocked_resolved` rather than `_blocked`, so the portfolio
+            # is 43 apps and not 42.
             "store_eligible": store_eligible(r["repo"]),
             "ads": bool(r.get("dep_google_mobile_ads")),
             "platforms": {

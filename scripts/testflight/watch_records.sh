@@ -10,7 +10,8 @@ while [ $(date +%s) -lt $end ]; do
   todo=$(python3 - "$have" <<'PY'
 import json,sys
 have=set(sys.argv[1].split()); res=json.load(open('/Users/spatchava/agl/.dist/ios-batch/results.json'))
-# CodeDeal does not compile. radiotune used to be skipped because Apple rejected
+# CodeDeal compiles (it shipped to Play at v16 on 2026-09-25).
+# radiotune used to be skipped because Apple rejected
 # its build in processing, but that was against the old com.americangroup.radiotune
 # record; under the new identifier it should be attempted and the failure logged
 # rather than silently passed over.

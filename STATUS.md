@@ -40,7 +40,7 @@ wired.
 | 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `com.americangroupllc.calcmaster` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | yes | Supabase + Google + Apple (optional) | Calculator: World Class | — | — |
 | 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `com.americangroupllc.cardeal` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | none | iCarDeal | — | — |
 | 11 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | `com.americangroupllc.chefcount` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | none | ChefCount | — | — |
-| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `com.americangroupllc.codedeal` | Does not compile — 5 analyzer errors | yes | yes | — | none | CodeDeal | — | — |
+| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `com.americangroupllc.codedeal` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | none | CodeDeal | — | — |
 | 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `com.americangroupllc.dailypulse` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | Supabase + Google + Apple (optional) | **none** | — | — |
 | 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `com.americangroupllc.driftdate` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | Supabase + Google + Apple | iDriftDate | — | — |
 | 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `com.americangroupllc.eventspark` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | none | iEventSpark | — | — |
@@ -88,49 +88,49 @@ and is rejected at upload. One app in this table was caught exactly that way.
 
 | # | App | AAB (Play) | APK (sideload) | Flavour | Signing certificate (SHA-256) |
 | --: | --- | --- | --- | --- | --- |
-| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | 52 MB | 53 MB | — | `6C50F95AD50C5EFF` |
-| 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | 50 MB | 50 MB | — | `089DF812DD7EB9D0` |
-| 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | 52 MB | 52 MB | — | `843C7D4A1E327D00` |
-| 4 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | 48 MB | 48 MB | — | `8DBBF8B4D11D34DA` |
-| 5 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | 54 MB | 55 MB | — | `7D73F0C37088E29F` |
+| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | 54 MB | 53 MB | — | `6C50F95AD50C5EFF` |
+| 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | 51 MB | 50 MB | — | `089DF812DD7EB9D0` |
+| 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | 54 MB | 52 MB | — | `843C7D4A1E327D00` |
+| 4 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | 50 MB | 48 MB | — | `8DBBF8B4D11D34DA` |
+| 5 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | 55 MB | 55 MB | — | `7D73F0C37088E29F` |
 | 6 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | 53 MB | 53 MB | — | `0CD6B8946B12A62C` |
-| 7 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | 60 MB | 59 MB | prod | `C6A3C1C570E1C39F` |
-| 8 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | 53 MB | 54 MB | — | `0E601B3D12D0B438` |
-| 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | 64 MB | 64 MB | prod | `2073F4958E35CF71` |
-| 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | 56 MB | 57 MB | — | `CF11DBD2873808B6` |
-| 11 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | 53 MB | 53 MB | — | `7936742F5C989564` |
-| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | 55 MB | 56 MB | — | `B61F34EBE60DFF33` |
-| 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | 75 MB | 78 MB | prod | `AD4582F780FCB092` |
-| 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | 64 MB | 66 MB | prod | `88AC08FC465D39B8` |
-| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | 103 MB | 147 MB | — | `186F66EB80AF5D7D` |
+| 7 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | 61 MB | 59 MB | prod | `C6A3C1C570E1C39F` |
+| 8 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | 55 MB | 54 MB | — | `0E601B3D12D0B438` |
+| 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | 66 MB | 64 MB | prod | `2073F4958E35CF71` |
+| 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | 57 MB | 57 MB | — | `CF11DBD2873808B6` |
+| 11 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | 54 MB | 53 MB | — | `7936742F5C989564` |
+| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | 58 MB | 56 MB | — | `B61F34EBE60DFF33` |
+| 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | 77 MB | 78 MB | prod | `AD4582F780FCB092` |
+| 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | 65 MB | 66 MB | prod | `88AC08FC465D39B8` |
+| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | 104 MB | 147 MB | — | `186F66EB80AF5D7D` |
 | 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | 51 MB | 52 MB | prod | `E265C0642A99DA55` |
-| 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | 53 MB | 53 MB | — | `52B686735A576C4E` |
-| 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | 64 MB | 64 MB | prod | `D5DBFDD0F484838D` |
-| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | 58 MB | 59 MB | prod | `5F018C068A100C07` |
-| 20 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | 55 MB | 56 MB | — | `50C3A6FC08D81122` |
-| 21 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | 69 MB | 69 MB | prod | `B74E83A44A11DF7A` |
-| 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | 63 MB | 61 MB | prod | `EC5E6A8668B712CE` |
-| 23 | [Kinnav](https://github.com/AmericanGroupLLC/Kinnav) | 59 MB | 60 MB | prod | `C4F2A4B6F7965A5C` |
-| 24 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | 56 MB | 57 MB | — | `D14CB7E2BEA014E7` |
-| 25 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | 54 MB | 54 MB | — | `18054934B2F1B6AB` |
-| 26 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | 53 MB | 54 MB | — | `E485BD0690C73798` |
-| 27 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | 62 MB | 64 MB | prod | `A693834AA710F05D` |
-| 28 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | 56 MB | 57 MB | — | `96342EAA305E4DCB` |
-| 29 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | 55 MB | 56 MB | — | `25D5C0D942A489F5` |
-| 30 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | 59 MB | 61 MB | — | `5B6A4604F1861642` |
-| 31 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | 68 MB | 68 MB | prod | `ED2D941BFF746590` |
-| 32 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | 101 MB | 106 MB | prod | `767CD1F7FB490B7C` |
-| 33 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | 51 MB | 52 MB | — | `101E79E6A14864C7` |
-| 34 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | 55 MB | 56 MB | — | `F123FD917E9E9DC5` |
-| 35 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | 65 MB | 63 MB | — | `A18905EBAF282BB1` |
-| 36 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | 57 MB | 58 MB | — | `2731B1A2D0201887` |
-| 37 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | 50 MB | 50 MB | — | `D3AAE284B3D6B1D4` |
-| 38 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | 61 MB | 60 MB | — | `72D9176A72E4F875` |
-| 39 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | 60 MB | 59 MB | prod | `565DBEE81C473EBC` |
+| 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | 54 MB | 53 MB | — | `52B686735A576C4E` |
+| 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | 65 MB | 64 MB | prod | `D5DBFDD0F484838D` |
+| 19 | [HerJourney](https://github.com/AmericanGroupLLC/HerJourney) | 60 MB | 59 MB | prod | `5F018C068A100C07` |
+| 20 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | 57 MB | 56 MB | — | `50C3A6FC08D81122` |
+| 21 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | 71 MB | 69 MB | prod | `B74E83A44A11DF7A` |
+| 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | 65 MB | 61 MB | prod | `EC5E6A8668B712CE` |
+| 23 | [Kinnav](https://github.com/AmericanGroupLLC/Kinnav) | 61 MB | 60 MB | prod | `C4F2A4B6F7965A5C` |
+| 24 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | 58 MB | 57 MB | — | `D14CB7E2BEA014E7` |
+| 25 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | 55 MB | 54 MB | — | `18054934B2F1B6AB` |
+| 26 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | 55 MB | 54 MB | — | `E485BD0690C73798` |
+| 27 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | 63 MB | 64 MB | prod | `A693834AA710F05D` |
+| 28 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | 58 MB | 57 MB | — | `96342EAA305E4DCB` |
+| 29 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | 57 MB | 56 MB | — | `25D5C0D942A489F5` |
+| 30 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | 61 MB | 61 MB | — | `5B6A4604F1861642` |
+| 31 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | 70 MB | 68 MB | prod | `ED2D941BFF746590` |
+| 32 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | 102 MB | 106 MB | prod | `767CD1F7FB490B7C` |
+| 33 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | 53 MB | 52 MB | — | `101E79E6A14864C7` |
+| 34 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | 57 MB | 56 MB | — | `F123FD917E9E9DC5` |
+| 35 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | 67 MB | 63 MB | — | `A18905EBAF282BB1` |
+| 36 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | 58 MB | 58 MB | — | `2731B1A2D0201887` |
+| 37 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | 51 MB | 50 MB | — | `D3AAE284B3D6B1D4` |
+| 38 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | 63 MB | 60 MB | — | `72D9176A72E4F875` |
+| 39 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | 62 MB | 59 MB | prod | `565DBEE81C473EBC` |
 | 40 | [Verba](https://github.com/AmericanGroupLLC/Verba) | 68 MB | 68 MB | prod | `5607DDEE124203A9` |
-| 41 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | 60 MB | 59 MB | prod | `99635E5EB1FFB48D` |
-| 42 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | 49 MB | 48 MB | — | `E0D8203064D9D384` |
-| 43 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | 87 MB | 89 MB | prod | `2EA595F41FA61468` |
+| 41 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | 62 MB | 59 MB | prod | `99635E5EB1FFB48D` |
+| 42 | [WiFiTrail](https://github.com/AmericanGroupLLC/WiFiTrail) | 50 MB | 48 MB | — | `E0D8203064D9D384` |
+| 43 | [yourtube](https://github.com/AmericanGroupLLC/yourtube) | 88 MB | 89 MB | prod | `2EA595F41FA61468` |
 
 Both are published to a GitHub Release in each app's own repository, so an
 app can be installed and tried without a build machine, a keystore or a Play

@@ -123,7 +123,9 @@ def main() -> int:
     ap.add_argument("--out", default=str(MANIFEST_DIR / "docs/STORE_CHECKLIST.md"))
     args = ap.parse_args()
 
-    # portfolio-board publishes AGL's own internal roadmap and carries
+    # store_eligible is still honoured so the manifest can exclude an app, but
+# nothing sets it false any more: all 43 are in scope. This comment used to
+# say the portfolio was 42.
     # `_blocked` in its store JSON, so store_eligible is false. It is not a
     # store candidate and counting its gaps as failures made the portfolio
     # look 43 apps wide when 42 are actually going to a store.

@@ -8,8 +8,8 @@ the privacy "nutrition label", and — when present — the screenshots.
     python3 scripts/deliver_metadata.py --eligible            # every app with an ASC record and unblocked copy
     python3 scripts/deliver_metadata.py --eligible --screenshots
 
-Skips apps whose store JSON is `_blocked` (no honest copy exists) and CodeDeal
-(does not compile). Never passes submit_for_review. Results in
+Skips apps whose store JSON is `_blocked` (no honest copy exists). CodeDeal was
+skipped here too, for analyzer errors it no longer has. Never passes submit_for_review. Results in
 ~/agl/.dist/deliver-results.json, logs in ~/agl/.dist/deliver-logs/.
 """
 import datetime, json, os, pathlib, re, subprocess, sys
@@ -25,7 +25,7 @@ def blocked(repo):
     p = M / "store/apps" / f"{repo}.json"
     return p.exists() and "_blocked" in json.load(open(p))
 if names: sel = [a for a in apps if a["repo"] in names]
-else: sel = [a for a in apps if a["bundle_id"] in recs and not blocked(a["repo"]) and a["repo"] != "CodeDeal"]
+else: sel = [a for a in apps if a["bundle_id"] in recs and not blocked(a["repo"])]
 results = json.load(open(RESULTS)) if RESULTS.exists() else {}
 env = dict(os.environ, LC_ALL="en_US.UTF-8")
 for a in sel:
