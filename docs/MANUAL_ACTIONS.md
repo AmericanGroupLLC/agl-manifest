@@ -908,3 +908,38 @@ offers it.
 Nothing else is needed to do it — in particular the developer registration
 order number is a payment receipt, not a credential, and plays no part in
 deleting an app. It is deliberately not recorded here.
+
+
+## MA-024 — Five App Store records still cannot be created (2026-09-26)
+
+A live Apple ID session (`fastlane spaceauth`) unblocked record creation, which
+the API key refuses. Eight were created on 2026-09-26: AeroSwift, GadgetNest,
+GroceryMatch, HerJourney, iMeasure, portfolio-board, Verba and yourtube. Apple
+now holds 38 of 43.
+
+Note for anyone reading the old note: `Spaceship::Tunes::Application.create!`
+is dead — Apple answers "There is no route for the path 'apps/create/v2/'".
+`fastlane run produce` uses the current endpoint and works.
+
+Five remain, for two different reasons.
+
+**Name already taken (2).** `produce` refuses before creating anything:
+
+| App | Apple's answer |
+| --- | --- |
+| FashionFactory | "already being used for another app in **your** account" — `com.americangroupllc.styleradar` is holding "Fashion Factory: Deals" |
+| PlantPulse | "already being used" on a **different** account — someone else owns the name "PlantPulse" |
+
+FashionFactory is self-inflicted and fixable: rename or delete the styleradar
+record, which is a duplicate of this app and already slated for removal.
+PlantPulse needs a different App Store name; the portfolio's own precedent for
+this is an `i` prefix (iMileMaster, iMyFinance, iNewsBoard), so "iPlantPulse"
+would match, but it is a branding call rather than a mechanical one.
+
+**Bundle id held by a record the API key cannot see (3).** BodyQuest, MyHealth
+and radiotune: `produce` reports "App '<bundle id>' already exists" with an id
+(6781642312, 6778216891, 6781629995), but fetching any of those ids with the API
+key returns "There is no resource of type 'apps' with id …". A record that the
+session can see and the key cannot is one Apple is still holding in a removed
+state. Check each in App Store Connect; once Apple finishes releasing the
+identifier, `produce` will create them.
