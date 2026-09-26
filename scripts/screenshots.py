@@ -20,7 +20,9 @@ Requires idb (~/.idb-venv) with the Homebrew idb_companion first on PATH.
 """
 import hashlib, json, os, pathlib, re, shutil, subprocess, sys, time
 
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST as M, DIST  # noqa: E402
 FLUTTER = str(ROOT / ".flutter-sdk/bin/flutter")
 DEVICES = {"iphone69": "3A41E921-1471-466E-BCDA-30E428297CCF", "ipadpro13": "3C6104B3-00B8-4468-A26B-06E7AF142E97"}
 ENV = dict(os.environ, PATH=f"/opt/homebrew/bin:{pathlib.Path.home()}/.idb-venv/bin:{ROOT}/.flutter-sdk/bin:" + os.environ["PATH"])
@@ -215,10 +217,10 @@ def main():
     results = json.load(open(RESULTS)) if RESULTS.exists() else {}
     for a in sorted(apps, key=lambda x: x["repo"].lower()):
         purge_derived_data()
-        lock = pathlib.Path("/Users/spatchava/agl/.dist/ios-batch/current_app")
+        lock = DIST / "ios-batch/current_app"
         while lock.exists() and lock.read_text().strip() == a["repo"]:
             print(f"{a['repo']}: TestFlight is building it — waiting", flush=True); time.sleep(60)
-        mine = pathlib.Path("/Users/spatchava/agl/.dist/screenshots_current"); mine.write_text(a["repo"])  # run_batch waits on this
+        mine = DIST / "screenshots_current"; mine.write_text(a["repo"])  # run_batch waits on this
 
         if "--skip-done" in sys.argv and results.get(a["repo"], {}).get("screens", {}).get("iphone69", 0) >= 1:
             print(f"{a['repo']}: done, skipping"); continue

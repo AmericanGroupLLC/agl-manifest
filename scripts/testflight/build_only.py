@@ -2,8 +2,12 @@
 """Build signed App Store IPAs (no upload) for the named apps and copy them to
 ~/agl/.dist/ipa-for-asc/<Repo>-<build>.ipa — for dragging into App Store Connect."""
 import json, os, pathlib, shutil, subprocess, sys, time, datetime
-ROOT = pathlib.Path("/Users/spatchava/agl"); OUT = ROOT / ".dist/ipa-for-asc"; OUT.mkdir(parents=True, exist_ok=True)
-apps = {a["repo"]: a for a in json.load(open(ROOT / "agl-manifest/apps.json"))["apps"]}
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
+OUT = ROOT / ".dist/ipa-for-asc"
+OUT.mkdir(parents=True, exist_ok=True)
+apps = {a["repo"]: a for a in json.load(open(MANIFEST / "apps.json"))["apps"]}
 bn = datetime.datetime.now().strftime("%Y%m%d%H%M")
 lock = ROOT / ".dist/ios-batch/current_app"
 for repo in sys.argv[1:]:

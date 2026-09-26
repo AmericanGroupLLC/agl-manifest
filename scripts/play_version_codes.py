@@ -25,11 +25,11 @@ import urllib.error
 import urllib.request
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
-from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT, play_key  # noqa: E402
 
 ROOT = _ROOT
 M = _MANIFEST
-KEY = ROOT / ".secrets/play-publisher-agl.json"
+KEY = play_key()  # honours $PLAY_SERVICE_ACCOUNT on a runner
 BASE = "https://androidpublisher.googleapis.com/androidpublisher/v3/applications"
 OUT = ROOT / ".dist/play-version-codes.json"
 

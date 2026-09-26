@@ -32,7 +32,9 @@ import re
 import subprocess
 import sys
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT  # noqa: E402
 FLUTTER = ROOT / ".flutter-sdk/bin/flutter"
 
 # Bundle ids that already have an App Store Connect record are fixed and must be

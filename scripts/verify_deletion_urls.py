@@ -10,7 +10,9 @@ against a deliberately nonexistent path.
 import hashlib, json, pathlib, subprocess
 from concurrent.futures import ThreadPoolExecutor
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
 
 HOME_TITLE = b"American Group LLC \xe2\x80\x94 Enterprise Technology & Mobile Apps"
 
@@ -32,7 +34,7 @@ SLUGS = {"TripNest":"TripNest","AGrammarly":"agrammarly","BodyQuest":"bodyquest"
  "MyHealth":"myhealth","Photriya":"photriya","PilotEnRoute":"pilotenroute","radiotune":"radiotune",
  "Uscis-Case":"uscis-case-tracker","Verba":"verba","VirtuBand":"virtuband"}
 
-apps = [a for a in json.loads((ROOT/"agl-manifest/apps.json").read_text())["apps"] if a.get("flutter")]
+apps = [a for a in json.loads((MANIFEST/"apps.json").read_text())["apps"] if a.get("flutter")]
 
 def slug_for(repo):
     cands = [SLUGS.get(repo), repo, repo.lower(), repo.replace("-",""), repo.lower().replace("-","")]

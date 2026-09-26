@@ -13,7 +13,9 @@ skipped here too, for analyzer errors it no longer has. Never passes submit_for_
 ~/agl/.dist/deliver-results.json, logs in ~/agl/.dist/deliver-logs/.
 """
 import datetime, json, os, pathlib, re, subprocess, sys
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST as M  # noqa: E402
 LOGS = ROOT / ".dist/deliver-logs"; LOGS.mkdir(parents=True, exist_ok=True)
 RESULTS = ROOT / ".dist/deliver-results.json"
 KEYJSON = ROOT / ".dist/ios-batch/asc-key.json"

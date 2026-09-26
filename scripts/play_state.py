@@ -8,7 +8,9 @@ code is in the internal track".
 """
 import json, pathlib, subprocess, urllib.error, urllib.request
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
 KEY = ROOT / ".secrets/play-publisher-agl.json"
 API = "https://androidpublisher.googleapis.com/androidpublisher/v3/applications"
 
@@ -17,7 +19,7 @@ def token():
          f'c=Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: File.open("{KEY}"), '
          'scope: "https://www.googleapis.com/auth/androidpublisher"); '
          'print c.fetch_access_token!["access_token"]')
-    r = subprocess.run(["bundle", "exec", "ruby", "-e", s], cwd=str(ROOT / "agl-manifest"),
+    r = subprocess.run(["bundle", "exec", "ruby", "-e", s], cwd=str(MANIFEST),
                        capture_output=True, text=True, timeout=300)
     if not r.stdout.strip():
         raise RuntimeError(r.stderr[-300:])
@@ -36,7 +38,7 @@ def call(method, url, tok, body=None):
         except Exception: return e.code, {"raw": raw[:200]}
 
 tok = token()
-apps = [a for a in json.loads((ROOT / "agl-manifest/apps.json").read_text())["apps"] if a.get("flutter")]
+apps = [a for a in json.loads((MANIFEST / "apps.json").read_text())["apps"] if a.get("flutter")]
 out = []
 for a in apps:
     pkg = a.get("application_id") or a["bundle_id"]

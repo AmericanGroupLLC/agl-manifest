@@ -5,7 +5,7 @@ import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
 from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 ROOT=_ROOT; DIST=ROOT/".dist"
-apps=[a for a in json.loads((ROOT/"agl-manifest/apps.json").read_text())["apps"] if a.get("flutter")]
+apps=[a for a in json.loads((_MANIFEST/"apps.json").read_text())["apps"] if a.get("flutter")]
 bad=[]; ok=0
 for a in apps:
     repo=a["repo"]; want=a["bundle_id"]

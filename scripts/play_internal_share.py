@@ -44,7 +44,9 @@ import time
 import urllib.error
 import urllib.request
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
 KEY = ROOT / ".secrets/play-publisher-agl.json"
 DEV_ID = "5590631437738173959"
 BASE = "https://androidpublisher.googleapis.com/androidpublisher/v3"
@@ -63,7 +65,7 @@ def token() -> str:
         'print c.fetch_access_token!["access_token"]'
     )
     r = subprocess.run(["bundle", "exec", "ruby", "-e", script],
-                       cwd=str(ROOT / "agl-manifest"),
+                       cwd=str(MANIFEST),
                        capture_output=True, text=True, timeout=300)
     if not r.stdout.strip():
         raise RuntimeError(f"could not mint Play token: {r.stderr[-300:]}")
@@ -107,7 +109,7 @@ def main() -> int:
         print(f"   {u}")
     print()
 
-    apps = [a for a in json.loads((ROOT / "agl-manifest/apps.json").read_text())["apps"]
+    apps = [a for a in json.loads((MANIFEST / "apps.json").read_text())["apps"]
             if a.get("flutter")]
     if args.apps:
         apps = [a for a in apps if a["repo"] in args.apps]

@@ -33,8 +33,10 @@ import sys
 import urllib.error
 import urllib.request
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
-M = ROOT / "agl-manifest"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
+M = MANIFEST
 OUT = ROOT / ".dist/policy-urls.json"
 BASE = "https://www.safecodeg.com/policy"
 CONTROL = f"{BASE}/definitely-not-an-app-control/"

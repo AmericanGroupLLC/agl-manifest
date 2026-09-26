@@ -68,3 +68,18 @@ def app_dir(app: dict) -> pathlib.Path:
     sub = app.get("dir") or "."
     base = ROOT / app["repo"]
     return base if sub == "." else base / sub
+
+
+def play_key() -> pathlib.Path:
+    """The Google Play service-account JSON.
+
+    On this laptop it is a file under `.secrets/`. On a runner it is a secret
+    that some step has just written to a temporary path, so the path is not
+    predictable and must be passed in. A run on 2026-09-26 failed the
+    version-code preflight for exactly this reason: ship.yml wrote the key to
+    `$RUNNER_TEMP/secrets/play.json` while the script went on reading
+    `ROOT/.secrets/play-publisher-agl.json`, and the only symptom was
+    `no Play token:` followed by a truncated ENOENT.
+    """
+    override = os.environ.get("PLAY_SERVICE_ACCOUNT")
+    return pathlib.Path(override) if override else ROOT / ".secrets/play-publisher-agl.json"

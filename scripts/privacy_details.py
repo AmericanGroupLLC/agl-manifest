@@ -15,7 +15,11 @@ Rules (what actually leaves the device, per the code and its dependencies):
 Adjust an app's file by hand if product knows better; the file is what gets uploaded.
 """
 import json, pathlib, plistlib, re
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"; OUT = M / "store/privacy"; OUT.mkdir(exist_ok=True)
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST as M  # noqa: E402
+OUT = M / "store/privacy"
+OUT.mkdir(exist_ok=True)
 apps = json.load(open(M / "apps.json"))["apps"]
 for a in apps:
     d = ROOT / a["repo"] / (a["dir"] if a["dir"] != "." else "")

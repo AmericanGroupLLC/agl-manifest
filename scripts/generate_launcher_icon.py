@@ -27,7 +27,9 @@ import sys
 
 from PIL import Image, ImageDraw, ImageFont
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT  # noqa: E402
 
 # Brand colour and monogram per app. Colours are taken from each app's own
 # theme where it has one, so the icon matches the first screen the app shows.

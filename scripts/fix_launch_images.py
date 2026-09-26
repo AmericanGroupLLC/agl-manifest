@@ -33,7 +33,9 @@ import re
 
 from PIL import Image
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
 TEMPLATE_LAUNCH_MD5 = "978c1bee49d7ad5fc1a4d81099b13e18"
 TEMPLATE_IC_LAUNCHER_MD5 = {
     "6270344430679711b81476e29878caa7", "13e9c72ec37fac220397aa819fa1ef2d",
@@ -77,7 +79,7 @@ def main() -> int:
     args = ap.parse_args()
     dry = args.dry_run
 
-    apps = [a for a in json.loads((ROOT / "agl-manifest/apps.json").read_text())["apps"]
+    apps = [a for a in json.loads((MANIFEST / "apps.json").read_text())["apps"]
             if a.get("flutter")]
 
     launch_fixed, launch_skipped, dummies, stale = 0, 0, 0, 0

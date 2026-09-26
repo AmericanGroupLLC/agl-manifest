@@ -24,7 +24,9 @@ gets a file that is missing a sibling registered a moment later.
 """
 import base64, json, pathlib, subprocess, sys, time
 
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST as M  # noqa: E402
 # A Firebase project holds 30 apps, and each app here needs two slots (android +
 # ios), so 15 repos fill a project. 43 repos need three.
 PROJECTS = ["americangroupllc-5bdfc", "americangroupllc-agl2", "americangroupllc-agl3"]

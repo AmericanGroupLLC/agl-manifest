@@ -98,6 +98,10 @@ jobs:
 
   android:
     name: Build signed Android bundles
+    env:
+      # agl_paths.play_key() reads this; on a runner the key is a
+      # secret written to a temp path, not a file under .secrets/.
+      PLAY_SERVICE_ACCOUNT: ${{ runner.temp }}/secrets/play.json
     needs: [resolve, validate]
     if: needs.resolve.outputs.stop_after != 'validate'
     runs-on: ubuntu-latest
@@ -200,6 +204,44 @@ jobs:
             echo "ASC_KEY_PATH=$RUNNER_TEMP/secrets/asc.p8"
           } >> "$GITHUB_ENV"
 
+      # Guard 5. Signing material must be on the runner before anything is
+      # archived. Until 2026-09-26 neither half of it was, and the job spent
+      # ~10 minutes on checkout and Flutter setup before build_ipa.py died on
+      # a bare FileNotFoundError for a profile_map.json that no script in the
+      # repository had ever written. Fail here instead, saying which half.
+      - name: Install the iOS signing identity
+        env:
+          IOS_DIST_CERT_P12: ${{ secrets.IOS_DIST_CERT_P12 }}
+          IOS_DIST_CERT_PASSWORD: ${{ secrets.IOS_DIST_CERT_PASSWORD }}
+        run: |
+          if [ -z "$IOS_DIST_CERT_P12" ]; then
+            echo "::error::IOS_DIST_CERT_P12 is not set, so no archive can be"\
+                 "signed on this runner. The App Store Connect API cannot hand"\
+                 "out a certificate's private key - it has to be exported from"\
+                 "a keychain as a .p12 and added as a secret. See MA-005 in"\
+                 "docs/MANUAL_ACTIONS.md."
+            exit 1
+          fi
+          KEYCHAIN="$RUNNER_TEMP/agl-signing.keychain-db"
+          PASSWORD="$(uuidgen)"
+          security create-keychain -p "$PASSWORD" "$KEYCHAIN"
+          security set-keychain-settings -lut 21600 "$KEYCHAIN"
+          security unlock-keychain -p "$PASSWORD" "$KEYCHAIN"
+          printf '%s' "$IOS_DIST_CERT_P12" | base64 --decode > "$RUNNER_TEMP/dist.p12"
+          security import "$RUNNER_TEMP/dist.p12" -k "$KEYCHAIN" \
+            -P "$IOS_DIST_CERT_PASSWORD" -T /usr/bin/codesign -T /usr/bin/security
+          security set-key-partition-list -S apple-tool:,apple: -s -k "$PASSWORD" "$KEYCHAIN"
+          security list-keychains -d user -s "$KEYCHAIN" $(security list-keychains -d user | tr -d '"')
+          rm -f "$RUNNER_TEMP/dist.p12"
+          # Prove an identity is actually usable rather than assuming the import worked.
+          security find-identity -v -p codesigning "$KEYCHAIN"
+          test "$(security find-identity -v -p codesigning "$KEYCHAIN" | grep -c 'Apple Distribution\|iPhone Distribution')" -ge 1
+
+      # bundle id -> provisioning profile name, read from App Store Connect
+      # rather than from a file someone made by hand on the build Mac.
+      - name: Map every bundle id to its provisioning profile
+        run: bundle exec ruby scripts/ios_profile_map.rb --install
+
       # Archives unsigned and signs on export: a CLI signing setting applies to
       # every target including CocoaPods, which reject provisioning profiles.
       - name: Resolve the app list
@@ -275,6 +317,10 @@ jobs:
 
   internal:
     name: Internal testing
+    env:
+      # agl_paths.play_key() reads this; on a runner the key is a
+      # secret written to a temp path, not a file under .secrets/.
+      PLAY_SERVICE_ACCOUNT: ${{ runner.temp }}/secrets/play.json
     needs: [resolve, release]
     if: contains(fromJSON('["internal","production"]'), needs.resolve.outputs.stop_after)
     runs-on: macos-latest
@@ -347,6 +393,10 @@ jobs:
 
   production:
     name: Promote to production
+    env:
+      # agl_paths.play_key() reads this; on a runner the key is a
+      # secret written to a temp path, not a file under .secrets/.
+      PLAY_SERVICE_ACCOUNT: ${{ runner.temp }}/secrets/play.json
     needs: [resolve, internal]
     if: needs.resolve.outputs.stop_after == 'production'
     runs-on: macos-latest

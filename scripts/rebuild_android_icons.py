@@ -30,7 +30,9 @@ import pathlib
 
 from PIL import Image, ImageDraw
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
 
 # app -> master image, relative to the app directory. None means "use the iOS
 # 1024 icon", which is the right source in every case except Verba, whose iOS
@@ -102,7 +104,7 @@ def main() -> int:
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
-    apps = json.loads((ROOT / "agl-manifest/apps.json").read_text())["apps"]
+    apps = json.loads((MANIFEST / "apps.json").read_text())["apps"]
     for repo, rel in APPS.items():
         d = app_dir(repo, apps)
         src = (d / rel) if rel else ios_master(d)

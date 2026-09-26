@@ -17,7 +17,9 @@ Regenerate apps.json afterwards (audit_release_readiness.py + generate_manifest.
 """
 import json, os, pathlib, re, subprocess, sys
 
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST as M  # noqa: E402
 SKIP_DIRS = {"build", ".dart_tool", ".git", "Pods", "node_modules", ".gradle", ".idea", "DerivedData"}
 TEXT_EXT = {".gradle", ".kts", ".pbxproj", ".plist", ".xml", ".kt", ".java", ".dart", ".rb", ".md", ".json", ".yaml", ".yml", ".txt", ".entitlements", ".xcconfig", ".sh", ".pro", ".env", ".example", ".swift", ".h", ".m", ".properties", ".xcscheme", ".cfg", ".toml", ""}
 apps = json.load(open(M / "apps.json"))["apps"]

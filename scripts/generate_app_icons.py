@@ -34,7 +34,9 @@ import sys
 
 from PIL import Image, ImageDraw, ImageFont
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
 FONT = ROOT / ".flutter-sdk/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf"
 def _codepoints() -> dict[str, int]:
     """Parse name -> codepoint straight out of the Flutter SDK.
@@ -202,7 +204,7 @@ def main() -> int:
             print(f"{k:<18} {g:<20} {a} -> {b}")
         return 0
 
-    apps = json.loads((ROOT / "agl-manifest/apps.json").read_text())["apps"]
+    apps = json.loads((MANIFEST / "apps.json").read_text())["apps"]
     todo = [args.only] if args.only else sorted(DESIGN)
     for repo in todo:
         glyph, c0, c1 = DESIGN[repo]

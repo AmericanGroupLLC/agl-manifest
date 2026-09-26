@@ -15,7 +15,9 @@ exactly 512x512 and the Android launcher icons top out at 192px.
 """
 import json, pathlib, subprocess, sys, tempfile, time
 
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST as M  # noqa: E402
 OUT = ROOT / ".dist" / "play-listing-results.json"
 SA = "american-group-publisher@american-group-llc.iam.gserviceaccount.com"
 GCLOUD = str(pathlib.Path.home() / "google-cloud-sdk/bin/gcloud")

@@ -33,8 +33,9 @@ import subprocess
 import sys
 import time
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
-MANIFEST = ROOT / "agl-manifest"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
 AUDIT = MANIFEST / "docs/release-readiness.json"
 FLUTTER = ROOT / ".flutter-sdk/bin/flutter"
 EVIDENCE = MANIFEST / "docs/ios-build-evidence.json"

@@ -27,8 +27,8 @@ ROOT = _ROOT
 HERE = pathlib.Path(__file__).resolve().parent
 LOGS = ROOT / ".dist/ios-logs"
 RESULTS = ROOT / ".dist/ios-batch/results.json"  # outside git, next to the logs
-MANIFEST = json.load(open(ROOT / "agl-manifest/apps.json"))["apps"]
-RECORDS = {r["bundleId"] for r in json.load(open(ROOT / "agl-manifest/docs/appstore-records.json"))}
+MANIFEST = json.load(open(_MANIFEST / "apps.json"))["apps"]
+RECORDS = {r["bundleId"] for r in json.load(open(_MANIFEST / "docs/appstore-records.json"))}
 # Was {"CalcMaster", "CodeDeal"}: CalcMaster because it once ran on its own
 # lane, CodeDeal because it did not compile. Both expired — CodeDeal analyzes
 # clean and shipped to Play at v16 on 2026-09-25 — and between them they were

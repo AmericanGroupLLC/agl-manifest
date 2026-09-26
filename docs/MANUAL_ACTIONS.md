@@ -114,16 +114,45 @@ match the existing 30.
 
 ---
 
-## MA-005 · P2 · iOS signing has no certificate to use
+## MA-005 · P1 · iOS signing needs a distribution certificate as a secret
+
+**Half of this is now resolved. Updated 2026-09-26.**
 
 `ASC_KEY_ID`, `ASC_ISSUER_ID` and `ASC_KEY_CONTENT` are set, so App Store
-Connect *API* calls work. Building a signed `.ipa` additionally needs a
-distribution certificate and provisioning profiles, which `match` keeps in a
-private repository that does not exist yet.
+Connect *API* calls work.
 
-**Required:** create the `match` certificates repository, run `fastlane match
-appstore` once from a machine with the Apple ID, and add `MATCH_PASSWORD` and
-the repo's deploy key as secrets.
+**Provisioning profiles: done, no longer manual.** `scripts/ios_profile_map.rb`
+pulls them straight from the API — it maps all 43 bundle ids to an active App
+Store profile and, with `--install`, writes the `.mobileprovision` files where
+Xcode looks. Verified 2026-09-26 against a throwaway `HOME`: 43 files written,
+and one decoded with `security cms -D` to confirm it is a real profile rather
+than an empty placeholder. `match` is therefore not needed for profiles.
+
+**The certificate is still blocked, and only this half is.** The API cannot
+hand out a certificate's *private key*, so no script can obtain it. The iOS job
+now fails immediately with this explanation instead of dying ten minutes later
+inside `build_ipa.py`.
+
+**Required:** from the Mac whose keychain already holds the Apple Distribution
+identity, export it with the private key:
+
+```
+security find-identity -v -p codesigning        # confirm it is there
+# Keychain Access -> My Certificates -> the "Apple Distribution: ..." row
+# -> right-click -> Export -> .p12, set a password
+base64 -i dist.p12 | pbcopy
+```
+
+then add two repository secrets:
+
+| Secret | Value |
+| --- | --- |
+| `IOS_DIST_CERT_P12` | the base64 of the `.p12` |
+| `IOS_DIST_CERT_PASSWORD` | the password set during export |
+
+Nothing else is outstanding for iOS signing: the workflow already creates a
+throwaway keychain, imports the identity, and asserts `security find-identity`
+reports at least one distribution identity before it archives anything.
 
 ---
 
@@ -881,7 +910,7 @@ Three ways out, and it is a product call, not a technical one:
 `scripts/store_master_csv.py` detects the condition, so whichever way it is
 resolved the CSV stops flagging it once the paywall or the gap is gone.
 
-## MA-023 — Two old-naming Play entries to remove (HUMAN ONLY)
+## MA-026 — Two old-naming Play entries to remove (HUMAN ONLY)
 
 Measured 2026-09-24 by opening an edit against the pre-rename package of every
 app. Two survive from before the move to `com.americangroupllc.*`:

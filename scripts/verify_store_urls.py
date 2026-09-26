@@ -9,7 +9,9 @@ as a 404 in disguise.
 import hashlib, json, pathlib, re, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST  # noqa: E402
 URL_RE = re.compile(r"https://(?:www\.)?safecodeg\.com[^\s\"'`)<>\\,\]]*")
 
 HOME_TITLE = b"American Group LLC \xe2\x80\x94 Enterprise Technology & Mobile Apps"
@@ -28,7 +30,7 @@ def fetch(url):
 assert fetch("https://www.safecodeg.com/ThisPathCannotExist999888")[0], "catch-all probe failed"
 print("catch-all identified by homepage <title>\n")
 
-apps = json.loads((ROOT / "agl-manifest/apps.json").read_text())["apps"]
+apps = json.loads((MANIFEST / "apps.json").read_text())["apps"]
 found = {}   # url -> set(repo)
 for a in apps:
     repo = a["repo"]

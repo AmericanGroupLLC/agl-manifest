@@ -6,7 +6,9 @@ app's own 1024 launcher icon plus its store name and subtitle (ImageMagick).
     python3 scripts/feature_graphics.py --force    # regenerate all
 """
 import json, pathlib, subprocess, sys, plistlib
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, MANIFEST as M  # noqa: E402
 FORCE = "--force" in sys.argv
 apps = json.load(open(M / "apps.json"))["apps"]
 FONT = "/System/Library/Fonts/Supplemental/Arial Bold.ttf"; FONT2 = "/System/Library/Fonts/Supplemental/Arial.ttf"

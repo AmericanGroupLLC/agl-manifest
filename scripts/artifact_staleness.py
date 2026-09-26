@@ -9,8 +9,10 @@ stale when the only change was a screenshot commit touching ios/Podfile.lock.
 """
 import json, pathlib, subprocess, sys
 
-ROOT = pathlib.Path("/Users/spatchava/agl"); DIST = ROOT / ".dist"
-apps = [a for a in json.loads((ROOT/"agl-manifest/apps.json").read_text())["apps"] if a.get("flutter")]
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import ROOT, DIST, MANIFEST  # noqa: E402
+apps = [a for a in json.loads((MANIFEST/"apps.json").read_text())["apps"] if a.get("flutter")]
 
 COMMON = ["lib", "pubspec.yaml", "assets"]
 AAB_ONLY = ["android"]
