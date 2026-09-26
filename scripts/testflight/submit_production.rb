@@ -86,4 +86,4 @@ end
 File.write(File.join(AglPaths::DIST, "appstore-submit-results.json"), JSON.pretty_generate(out))
 counts = out.values.group_by { |v| v["status"] }.transform_values(&:size)
 puts "\n#{counts.map { |k, v| "#{k}: #{v}" }.join('  ')}"
-puts "-> /Users/spatchava/agl/.dist/appstore-submit-results.json"
+puts "-> #{File.join(AglPaths::DIST, "appstore-submit-results.json")}"

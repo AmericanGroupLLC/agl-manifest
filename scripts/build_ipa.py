@@ -14,7 +14,8 @@ Three steps per app, and each can fail independently so each is recorded:
   2. xcodebuild archive with manual signing     — the step that needs the profile
   3. xcodebuild -exportArchive                  — produces the .ipa
 
-The .ipa is copied to /Users/spatchava/agl/.dist and the archive tree is deleted;
+The .ipa is copied to the run's .dist directory (see scripts/agl_paths.py)
+and the archive tree is deleted;
 a .xcarchive is ~200 MB-1 GB and 43 of them will not fit.
 """
 
