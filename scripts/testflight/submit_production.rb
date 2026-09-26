@@ -77,7 +77,7 @@ apps.each do |a|
     puts "#{repo}: SUBMITTED FOR APP STORE REVIEW (build #{build.version})"
   rescue StandardError => e
     msg = e.message.gsub(/\s+/, ' ')
-    blocker = msg[/data usages/] ? "app-privacy-answers-not-published" : msg[0, 200]
+    blocker = msg[/data usages/] ? "app-privacy-answers-not-published" : msg[0, 700]
     out[repo] = { "status" => "blocked", "blocker" => blocker, "build" => build.version, "attached" => attached }
     puts "#{repo}: blocked — #{blocker}"
   end
