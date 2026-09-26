@@ -65,6 +65,27 @@ def in_app(app, command)
   end
 end
 
+# `flutter pub get` resolves, writes .dart_tool/package_graph.json and then
+# sometimes fails to parse the file it just wrote:
+#
+#   Failed to parse .../package_graph.json: dependencies for
+#   `package_info_plus` missing.  Try running `flutter pub get`
+#
+# It hits the first app in a batch, on a cold pub cache, and only for a package
+# reached through the git dependency on agl_observability — AeroSwift is
+# alphabetically first and was the only casualty in both CI runs, while
+# AGCleaner immediately after it succeeded with an identical declaration. A
+# clean re-run fixes it, which is what Flutter's own message says to do.
+def pub_get(app)
+  in_app(app, "flutter pub get")
+rescue StandardError => e
+  raise unless e.message.include?("package_graph.json") ||
+               e.message.include?("Try running `flutter pub get`")
+  UI.important("#{app['repo']}: package_graph.json came out incomplete; " \
+               "clearing .dart_tool and resolving once more")
+  in_app(app, "rm -rf .dart_tool && flutter pub get")
+end
+
 # Never let one bad app stop the batch. Every failure is collected and the lane
 # fails at the end with the full list, so one run tells you everything that is
 # broken rather than only the first thing.
@@ -93,7 +114,7 @@ lane :validate do |options|
   spec = options[:apps] || "all"
   checkout!(spec)
   run_batch(manifest_apps(spec)) do |app|
-    in_app(app, "flutter pub get")
+    pub_get(app)
     in_app(app, "flutter analyze")
     in_app(app, "flutter test")
   end
@@ -105,7 +126,7 @@ lane :build_all do |options|
   platform = options[:platform] || "android"
   checkout!(spec)
   run_batch(manifest_apps(spec)) do |app|
-    in_app(app, "flutter pub get")
+    pub_get(app)
     if platform == "ios"
       in_app(app, "flutter build ios --release --no-codesign")
     else
@@ -151,7 +172,7 @@ lane :publish_artifacts do |options|
 
   run_batch(manifest_apps(spec)) do |app|
     path = app_path(app)
-    in_app(app, "flutter pub get")
+    pub_get(app)
 
     assets = []
     if platform == "android"
