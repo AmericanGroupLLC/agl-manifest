@@ -8,10 +8,10 @@ builds today. Do not hand-edit; re-run the script.
 - Apps with a real AdMob **Android** app id: **8** of 43
 - Apps with a real AdMob **iOS** app id: **2** of 43
 
-Every app uses the `com.americangroupllc.<app>` scheme on both platforms.
-Four *App Store Connect records* still sit on the retired
-`com.americangroup.*` scheme — that is a store-side problem, not a code
-one, and it is tracked in `docs/MANUAL_ACTIONS.md` under MA-021.
+Every app uses the `com.americangroupllc.<app>` scheme on both platforms,
+and so does every store record. Four App Store Connect records were on
+the retired `com.americangroup.*` scheme until 2026-09-26; a sweep of
+all 43 legacy ids against the live API now returns none.
 
 Machine-readable: [`app-identifiers.json`](app-identifiers.json), [`admob-ids.json`](admob-ids.json)
 

@@ -46,32 +46,22 @@ already picks it up from there. It lasts about a month.
 
 With that in place, these become scriptable:
 
-**13 apps need an App Store Connect record** — AeroSwift, BodyQuest,
-FashionFactory, GadgetNest, GroceryMatch, HerJourney, MyHealth, PlantPulse,
-Verba, iMeasure, portfolio-board, radiotune, yourtube.
+**5 apps need an App Store Connect record** — BodyQuest, FashionFactory,
+MyHealth, PlantPulse, radiotune. Re-measured against the live API on
+2026-09-26; it was 13.
 
-> **Four of those are not missing — they are mis-bound.** BodyQuest,
-> daily-pulse, radiotune and yourtube already have records, under the retired
-> `com.americangroup.*` scheme rather than `com.americangroupllc.*`:
->
-> | record | name | app id |
-> | --- | --- | --- |
-> | `com.americangroup.bodyquest` | BodyQuest | 6808737432 |
-> | `com.americangroup.daily-pulse` | daily-pulse | — |
-> | `com.americangroup.radiotune` | RadioTune World | 6799065525 |
-> | `com.americangroup.yourtube` | YourTube: Watch & Discover | — |
->
-> Apple does not let a record's bundle id change, so creating the correct one
-> does not fix these — the old record has to be deleted or abandoned first, and
-> it is holding the app name. Note `daily-pulse` also carries a hyphen, which
-> is not a legal bundle-id component style the rest of the portfolio uses.
+> **Resolved 2026-09-26.** Those four records — BodyQuest, daily-pulse,
+> radiotune and yourtube — were on the retired `com.americangroup.*` scheme.
+> The owner has cleared them. Verified against the live API: **zero**
+> `com.americangroup.*` records remain, and 38 of 43 apps now have a record
+> under their real `com.americangroupllc.*` id.
 
 **27 apps need App Privacy published.** The answers are already written, per
 app, in `store/privacy/<repo>.json` — nothing to compose, only to publish.
 
 ---
 
-## 2. Play — create the 11 missing apps
+## 2. Play — create the 9 missing apps
 
 `androidpublisher`'s `applications` resource exposes exactly one method,
 `dataSafety`. There is no create. Each of these needs **Create app** in Play
@@ -79,7 +69,6 @@ Console under the package name below, which is permanent once set:
 
 | app | package name |
 | --- | --- |
-| AeroSwift | `com.americangroupllc.aeroswift` |
 | BodyQuest | `com.americangroupllc.bodyquest` |
 | DriftDate | `com.americangroupllc.driftdate` |
 | FashionFactory | `com.americangroupllc.fashionfactory` |
@@ -87,7 +76,6 @@ Console under the package name below, which is permanent once set:
 | GroceryMatch | `com.americangroupllc.grocerymatch` |
 | HerJourney | `com.americangroupllc.herjourney` |
 | Photriya | `com.americangroupllc.photriya` |
-| PlantPulse | `com.americangroupllc.plantpulse` |
 | Verba | `com.americangroupllc.verba` |
 | portfolio-board | `com.americangroupllc.portfolioboard` |
 

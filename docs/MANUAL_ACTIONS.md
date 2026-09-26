@@ -163,8 +163,7 @@ was fixed by deleting its old capital-J App ID (`DELETE /v1/bundleIds/PWUK6FB2Y8
 → HTTP 204, which Spaceship exposes no method for) and registering the lowercase
 one.
 
-**Measured 2026-09-21:** App Store Connect holds 41 app records; **14 of the 43
-apps have none**. Creating them is genuinely console-only. `Spaceship::ConnectAPI::App`
+**Re-measured 2026-09-26 against the live API: 38 of 43 apps have a record, and 5 do not** — BodyQuest, FashionFactory, MyHealth, PlantPulse, radiotune. It was 14 when this was written. Creating them is genuinely console-only. `Spaceship::ConnectAPI::App`
 *does* expose `.create`, so this is worth stating precisely — the method exists and
 Apple refuses the call. All 14 attempts returned:
 
@@ -613,9 +612,12 @@ The Play Developer API cannot create an app, so this stays a console action.
 `python3 scripts/sync_play_testers.py --audit` re-measures it at any time and
 names exactly which packages Play does not know.
 
-Note on the old naming: **four** records still sit on the retired
-`com.americangroup.*` scheme, not one. Measured 2026-09-24 against the live
-API:
+Note on the old naming: **resolved 2026-09-26.** Four records used to sit on
+the retired `com.americangroup.*` scheme — bodyquest, daily-pulse, radiotune
+and yourtube. The owner has cleared them, and a sweep of all 43 legacy ids
+against the live API now returns **zero** such records. Every App Store
+Connect record is on `com.americangroupllc.*`, matching what the apps build.
+The table below is kept as the record of what was there:
 
 | stale record | name it holds | app id |
 | --- | --- | --- |
