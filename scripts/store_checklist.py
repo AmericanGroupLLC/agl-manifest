@@ -7,7 +7,7 @@ each concrete thing a store demands is present. Items a machine cannot settle
 (age rating questionnaires, Firebase console downloads, an Apple ID login) are
 listed as HUMAN so they are visible rather than silently missing.
 
-    python3 scripts/store_checklist.py            # -> docs/STORE_CHECKLIST.md
+    python3 scripts/store_checklist.py            # -> docs/store-checklist.json
     python3 scripts/store_checklist.py --app Verba
 """
 
@@ -123,7 +123,6 @@ def linked_frameworks_needing_strings(d: pathlib.Path) -> list[str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--app")
-    ap.add_argument("--out", default=str(MANIFEST_DIR / "docs/STORE_CHECKLIST.md"))
     args = ap.parse_args()
 
     # store_eligible is still honoured so the manifest can exclude an app, but
@@ -314,42 +313,23 @@ def main() -> int:
 
         rows.append((repo, checks))
 
-    # ---- render --------------------------------------------------------------
-    total_fail = 0
-    out = ["# Per-app store submission checklist", "",
-           "Every line is a real check against the tree, the store record, or an",
-           "artefact on disk - regenerate with `python3 scripts/store_checklist.py`",
-           "rather than editing. `HUMAN` marks the things no script can settle: a",
-           "console login, a questionnaire, or a credential that does not exist yet.",
-           ""]
-    summary = []
-    for repo, checks in rows:
-        f = sum(1 for _, s, _ in checks if s == NO)
-        h = sum(1 for _, s, _ in checks if s == HUMAN)
-        p = sum(1 for _, s, _ in checks if s == OK)
-        total_fail += f
-        summary.append((repo, p, f, h))
-    out += ["## Summary", "", "| App | pass | fail | human |", "| --- | ---: | ---: | ---: |"]
-    out += [f"| {r} | {p} | {f} | {h} |" for r, p, f, h in summary]
-    out += ["", f"**{total_fail} failing checks across {len(rows)} apps.**", ""]
-
-    for repo, checks in rows:
-        out += [f"## {repo}", "", "| Check | State | Detail |", "| --- | :-: | --- |"]
-        out += [f"| {n} | {s} | {d} |" for n, s, d in checks]
-        out.append("")
-
-    outfile = pathlib.Path(args.out)
-    outfile.parent.mkdir(parents=True, exist_ok=True)
-    outfile.write_text("\n".join(out) + "\n")
-
-    # The same results as data. status.py folds these into status.csv, which is
-    # the single sheet; the markdown above is a rendering of it, not a second
-    # source. Written next to it so nothing has to re-run the checks to read them.
+    # ---- emit ----------------------------------------------------------------
+    # Results as data only. status.py folds the state of each check into the
+    # `check: *` columns of status.csv, which is the single sheet for the
+    # portfolio; this file additionally keeps each check's detail string, which
+    # does not fit a spreadsheet cell. There used to be a STORE_CHECKLIST.md
+    # rendering too, but eleven overlapping status documents is how they drift.
+    total_fail = sum(1 for _, checks in rows for _, s, _ in checks if s == NO)
     import json as _json
     (MANIFEST_DIR / "docs/store-checklist.json").write_text(
         _json.dumps({repo: {name: state for name, state, _ in checks}
                      for repo, checks in rows}, indent=1) + "\n")
-    print(f"{len(rows)} apps -> {outfile}  ({total_fail} failing checks)")
+    (MANIFEST_DIR / "docs/store-checklist-detail.json").write_text(
+        _json.dumps({repo: [{"check": n, "state": s, "detail": d}
+                            for n, s, d in checks]
+                     for repo, checks in rows}, indent=1) + "\n")
+    print(f"{len(rows)} apps -> docs/store-checklist.json "
+          f"({total_fail} failing checks) — the `check: *` columns of status.csv")
     return 0
 
 

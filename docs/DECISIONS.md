@@ -143,7 +143,7 @@ reverted and redone without it.
 **Status** in force.
 
 Once a store record exists, the identifier cannot be changed — a rename means a
-new app, losing reviews and installs. `docs/APP_IDENTIFIERS.md` is the reference
+new app, losing reviews and installs. `status.csv` is the reference
 and must be checked before any repo or product rename.
 
 This is why the `ratiotune` → `radiotune` typo was fixed *before* a store record

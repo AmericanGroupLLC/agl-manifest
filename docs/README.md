@@ -12,14 +12,14 @@ backend repository, so working on delivery needs access to one repo.
 
 | Reference | |
 | --- | --- |
-| [APP_IDENTIFIERS.md](APP_IDENTIFIERS.md) · [app-identifiers.json](app-identifiers.json) | bundle ids and package names |
+| [app-identifiers.json](app-identifiers.json) | bundle ids and package names — also carried per app in [`status.csv`](../status.csv) |
 | [admob-ids.json](admob-ids.json) | the AdMob console record |
 | [CRASHLYTICS.md](CRASHLYTICS.md) | how crash reporting is wired, and why it is guarded |
 | [I18N.md](I18N.md) | the twelve languages, the rollout state, and the traps |
 | [STORE_METADATA.md](STORE_METADATA.md) | how listing copy is held and rendered |
 | `status.csv` · [PUBLIC_API_ACCOUNTS.md](PUBLIC_API_ACCOUNTS.md) | what exists, what you must create |
-| [RELEASE_READINESS.md](RELEASE_READINESS.md) · [release-readiness.json](release-readiness.json) | the measured per-app audit |
-| [PRODUCT_AUDIT.md](PRODUCT_AUDIT.md) · [quality-audit.json](quality-audit.json) | product-quality scorecard and backlog — generated, never hand-edited: re-run `scripts/audit_product_quality.py` |
+| [release-readiness.json](release-readiness.json) | the measured per-app audit — the `measured: *` columns of [`status.csv`](../status.csv) |
+| [quality-audit.json](quality-audit.json) | product-quality scorecard — the `quality: *` columns of [`status.csv`](../status.csv). Generated; re-run `scripts/audit_product_quality.py` |
 
 ## Not here, deliberately
 

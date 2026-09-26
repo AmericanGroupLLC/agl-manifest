@@ -1,6 +1,6 @@
 # Creating the 14 missing App Store Connect records
 
-These 14 apps are the **only** remaining failures in `docs/STORE_CHECKLIST.md`.
+These 14 apps are the **only** remaining failures in the `check: *` columns of `status.csv`.
 Every other check passes for all 43 apps. Each of these has a signed IPA and a
 signed AAB already built; they cannot be delivered because no App Store Connect
 app record exists to receive the build.

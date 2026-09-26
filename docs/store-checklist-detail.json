@@ -1,0 +1,5798 @@
+{
+ "AeroSwift": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.aeroswift"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "3e57e7e5d53c"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "2 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "AeroSwift"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "AeroSwift"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "991 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "65 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "85 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "TRAVEL"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "AGCleaner": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.agcleaner"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "365e5ce1f05a"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "AGCleaner"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "AGCleaner"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1722 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "72 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "88 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "UTILITIES"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "AGrammarly": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.agrammarly"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "93f7d4982dff"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "AGrammarly: Reply Helper"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "AGrammarly \u2014 Reply Helper"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1601 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "79 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "89 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "149 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "PRODUCTIVITY"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "AGRecorder": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.agrecorder"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "df06aa0c917f"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "AGRecorder"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "AGRecorder"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "607 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "67 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "79 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "UTILITIES"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "AGStudio": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.agstudio"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "ed447ff572bf"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "2 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "AGStudio"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "AGStudio"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "481 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "80 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "86 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "PHOTO_AND_VIDEO"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "ApexMarketWatch": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.apexmarketwatch"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "de92aa1b1d32"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "4 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "ApexMarketWatch"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "ApexMarketWatch"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "941 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "67 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "75 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "FINANCE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "BodyQuest": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.bodyquest"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "0728a46087a2"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "BodyQuest: Health Game"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "BodyQuest \u2014 Health Game"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1458 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "80 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "96 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "149 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "HEALTH_AND_FITNESS"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "BuddyPlay": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.buddyplay"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "264a7dd6ea47"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iBuddyPlay"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "BuddyPlay"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "993 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "66 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "88 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "ENTERTAINMENT"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "CalcMaster": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.calcmaster"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "d9d26cfca178"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "CalcMaster: World Calc"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "CalcMaster \u2014 World Calculator"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "3163 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "75 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "93 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "145 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "UTILITIES"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "CarDeal": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.cardeal"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "cb90fedca983"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iCarDeal"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "CarDeal"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "781 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "18 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "87 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "SHOPPING"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "ChefCount": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.chefcount"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "bd40d0d34bbb"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "ChefCount"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "ChefCount"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1500 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "68 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "80 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "128 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "FOOD_AND_DRINK"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "CodeDeal": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.codedeal"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "3c35bd963d2c"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "2 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "CodeDeal"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "CodeDeal"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "477 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "30 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "71 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "SHOPPING"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "daily-pulse": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.dailypulse"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "88f6d6c36bb8"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "Daily Pulse: Morning Brief"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "Daily Pulse \u2014 Morning Brief"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1448 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "75 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "94 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "151 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "LIFESTYLE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "DriftDate": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.driftdate"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "ed9a84f651a6"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "2 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "DriftDate: Layered Dating"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "DriftDate \u2014 Layered Dating"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1526 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "72 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "84 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "147 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "LIFESTYLE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "EventSpark": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.eventspark"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "c80cc094a4e3"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iEventSpark"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "EventSpark"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "559 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "25 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "71 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "ENTERTAINMENT"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "FashionFactory": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.fashionfactory"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "262f191388b0"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "Fashion Factory: Deals"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "Fashion Factory \u2014 Deals"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1238 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "77 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "96 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "153 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "LIFESTYLE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "GadgetNest": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.gadgetnest"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "50dcbac6c563"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "2 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "GadgetNest"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "GadgetNest"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "700 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "70 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "81 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "SHOPPING"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "GroceryMatch": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.grocerymatch"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "766ee6855483"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "GroceryMatch: Save on Food"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "GroceryMatch \u2014 Save on Food"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1382 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "78 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "90 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "163 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "SHOPPING"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "HerJourney": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.herjourney"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "7e19bfa045ae"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "HerJourney: Cycle & Health"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "HerJourney \u2014 Cycle & Health"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1831 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "79 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "95 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "163 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "HEALTH_AND_FITNESS"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "HomeWise": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.homewise"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "21da48bf39fd"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iHomeWise"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "HomeWise"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1101 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "61 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "90 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "FINANCE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "iMaps": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.imaps"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "880fa0330d26"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iMaps: Navigate & Report"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "iMaps \u2014 Navigate & Report"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "2065 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "78 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "93 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "151 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "NAVIGATION"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "iMeasure": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.imeasure"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "e224c360fb12"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iMeasure: Measure & Level"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "iMeasure \u2014 Measure & Level"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1562 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "75 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "97 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "161 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "UTILITIES"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "Kinnav": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.kinnav"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "6b981f7c9f98"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "Kinnav"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "Kinnav"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1913 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "75 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "81 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "150 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "NAVIGATION"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "MileMaster": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.milemaster"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "6b495e921f1b"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iMileMaster"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "MileMaster"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1896 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "70 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "77 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "149 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "BUSINESS"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "MyCard": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.mycard"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "f095b1456bf3"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iMyCard"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "MyCard"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1068 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "69 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "89 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "UTILITIES"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "MyFinance": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.myfinance"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "f9e5b93a1be4"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iMyFinance"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "MyFinance"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1659 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "78 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "77 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "132 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "FINANCE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "MyHealth": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.myhealth"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "cf26a8b793e5"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "MyHealth: Fitness Tracker"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "MyHealth \u2014 Fitness Tracker"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1763 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "77 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "91 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "143 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "HEALTH_AND_FITNESS"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "NearServe": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.nearserve"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "64b8d5465535"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "NearServe"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "NearServe"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "609 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "40 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "92 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "LIFESTYLE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "NewsBoard": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.newsboard"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "16aa785f8dfe"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iNewsBoard"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "NewsBoard"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "2138 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "63 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "73 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "NEWS"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "NexusTransferPay": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.nexustransferpay"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "18a039defc96"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "NexusTransferPay"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "NexusTransferPay"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "3256 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "45 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "98 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "FINANCE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "Photriya": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.photriya"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "98174dc8767c"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "Photriya"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "Photriya"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1951 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "61 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "91 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "103 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "PHOTO_AND_VIDEO"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "PilotEnRoute": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.pilotenroute"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "3fcff1d8a365"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "PilotEnRoute: Pilot Training"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "PilotEnRoute \u2014 Pilot Training"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1618 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "77 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "99 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "152 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "TRAVEL"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "PlantPulse": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.plantpulse"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "b833e597c8d1"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "PlantPulse"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "PlantPulse"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1005 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "77 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "79 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "UTILITIES"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "portfolio-board": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.portfolioboard"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "79491c9f3e90"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "4 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "Portfolio Board"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "Portfolio Board"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "2195 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "75 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "92 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "154 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "PRODUCTIVITY"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "radiotune": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.radiotune"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "3530bee5a1f8"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "Ratio Tune: Live Radio"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "Ratio Tune \u2014 Live Radio"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1191 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "76 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "81 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "129 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "MUSIC"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "RideZap": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.ridezap"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "5c6bd5b8c6b2"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "2 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "RideZap"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "RideZap"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "686 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "79 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "74 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "TRAVEL"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "RoomCraft": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.roomcraft"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "d3d7bf7737c3"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "iRoomCraft"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "RoomCraft"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "899 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "69 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "82 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "LIFESTYLE"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "TripNest": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.tripnest"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "d7df7967371f"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "TripNest: Travel Booking"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "TripNest \u2014 Travel Booking"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1407 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "79 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "98 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "143 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "TRAVEL"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "Uscis-Case": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.usciscase"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "fdb8c722c1d6"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "USCIS Case Lookup"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "Case Tracker for USCIS"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1971 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "80 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "91 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "169 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "UTILITIES"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "Verba": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.verba"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "8787cb68431f"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "5 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "Verba: Voice Translator"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "Verba \u2014 Voice Translator"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1472 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "73 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "92 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "150 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "EDUCATION"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "no Play entry - MA-021"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "VirtuBand": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.virtuband"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "c0b36e516dd8"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "VirtuBand: Music Studio"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "VirtuBand \u2014 Music Studio"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "1242 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "77 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "85 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "152 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "MUSIC"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "WiFiTrail": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.wifitrail"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "0335cd95483d"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "WiFiTrail"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "WiFiTrail"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "2211 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "69 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "77 chars"
+  },
+  {
+   "check": "Promotional text (<=170)",
+   "state": "PASS",
+   "detail": "135 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "UTILITIES"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "3 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "PASS",
+   "detail": "uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ],
+ "yourtube": [
+  {
+   "check": "Android .aab signed with this app's upload key",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "Android .apk (release, sideload/test)",
+   "state": "PASS",
+   "detail": "SIGNED"
+  },
+  {
+   "check": "iOS .ipa exported for the App Store",
+   "state": "PASS",
+   "detail": "EXPORTED"
+  },
+  {
+   "check": "Binaries newer than the app icon",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Bundle id / applicationId",
+   "state": "PASS",
+   "detail": "com.americangroupllc.yourtube"
+  },
+  {
+   "check": "Release signing configured",
+   "state": "PASS",
+   "detail": "upload keystore matched"
+  },
+  {
+   "check": "App icon (1024, opaque, not a placeholder)",
+   "state": "PASS",
+   "detail": "70a3e23fdf0f"
+  },
+  {
+   "check": "Play feature graphic 1024x500",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Screenshots (Apple >=1, Play >=2)",
+   "state": "PASS",
+   "detail": "3 captured ['1320x2868']"
+  },
+  {
+   "check": "App Store name",
+   "state": "PASS",
+   "detail": "YourTube: Watch & Discover"
+  },
+  {
+   "check": "Play title",
+   "state": "PASS",
+   "detail": "yourtube"
+  },
+  {
+   "check": "Full description",
+   "state": "PASS",
+   "detail": "733 chars"
+  },
+  {
+   "check": "Play short description (<=80)",
+   "state": "PASS",
+   "detail": "37 chars"
+  },
+  {
+   "check": "App Store keywords (<=100)",
+   "state": "PASS",
+   "detail": "79 chars"
+  },
+  {
+   "check": "Primary category",
+   "state": "PASS",
+   "detail": "ENTERTAINMENT"
+  },
+  {
+   "check": "Per-app review notes",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Privacy & support URLs serve the right page",
+   "state": "PASS",
+   "detail": "4 checked"
+  },
+  {
+   "check": "Account-deletion page (if accounts)",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS privacy manifest",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "iOS purpose strings for linked APIs",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "Export compliance answered",
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
+  },
+  {
+   "check": "Apple age rating answered",
+   "state": "n/a",
+   "detail": ""
+  },
+  {
+   "check": "Play IARC questionnaire",
+   "state": "HUMAN",
+   "detail": "no API - Play Console only"
+  },
+  {
+   "check": "Build live on App Store Connect",
+   "state": "FAIL",
+   "detail": "no ASC record or not uploaded"
+  },
+  {
+   "check": "Play delivery to account users",
+   "state": "FAIL",
+   "detail": "still a Draft app in Console - MA-022"
+  },
+  {
+   "check": "Firebase config (crash reporting works)",
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
+  }
+ ]
+}

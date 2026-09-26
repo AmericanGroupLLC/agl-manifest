@@ -7,7 +7,8 @@ report. Nothing here is inferred from a spreadsheet or from a previous run.
 
     python3 scripts/audit_release_readiness.py [--root ~/agl]
 
-Outputs docs/release-readiness.json and docs/RELEASE_READINESS.md.
+Outputs docs/release-readiness.json, which scripts/status.py folds into the
+`measured: *` columns of status.csv.
 """
 
 from __future__ import annotations
@@ -372,8 +373,10 @@ def main() -> None:
             lines.append(f"- **{r['repo']}** — " + "; ".join(missing))
     lines.append("")
 
-    (here / "RELEASE_READINESS.md").write_text("\n".join(lines), encoding="utf-8")
-    print(f"{len(rows)} repos, {len(flutter)} Flutter apps → docs/RELEASE_READINESS.md")
+    # The table this rendered is now the `measured: *` columns of status.csv.
+    # release-readiness.json above is the data; the single sheet is the view.
+    print(f"{len(rows)} repos, {len(flutter)} Flutter apps → "
+          f"docs/release-readiness.json (the `measured: *` columns of status.csv)")
 
 
 if __name__ == "__main__":

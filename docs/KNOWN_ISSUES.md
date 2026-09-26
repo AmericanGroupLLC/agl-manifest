@@ -171,7 +171,7 @@ and the real spread is 34 apps at 15.0.)*
 
 13 apps have no App Store Connect record; 11 records exist that match no live
 bundle id. Each orphan is a rename-or-create decision, and creating the wrong
-one is not reversible — see `docs/APP_IDENTIFIERS.md` before acting.
+one is not reversible — see `status.csv` before acting.
 
 ---
 

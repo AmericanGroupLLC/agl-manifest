@@ -23,19 +23,19 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | Question | File |
 | --- | --- |
 | **How do I do anything that calls an API?** | **`docs/API_ACTIONS.md`** — every script, and what the APIs refuse |
-| What is the state of every app? | **`status.csv`** — the single sheet: 43 rows x 132 columns, every identifier, artefact, store state and per-app check. `STATUS.md` is a rendering of it |
+| What is the state of every app? | **`status.csv`** — the single sheet: 43 rows x 225 columns. Every identifier, artefact, store state, store gate, measured fact, quality signal and per-app check. `STATUS.md` is a rendering of it |
 | Which apps have a signed binary, and is it really signed? | `docs/build-evidence.json` (generated) |
 | What must a human do that I cannot? | `docs/MANUAL_ACTIONS.md` |
 | What is broken right now? | `docs/KNOWN_ISSUES.md` |
 | Why is it built this way? | `docs/DECISIONS.md` |
 | How does delivery work? | `docs/DELIVERY_ARCHITECTURE.md`, `docs/RELEASE_PIPELINE.md` |
-| Package names, bundle ids, AdMob ids | `docs/APP_IDENTIFIERS.md`, `docs/admob-ids.json` |
+| Package names, bundle ids, AdMob ids | `status.csv`, `docs/app-identifiers.json`, `docs/admob-ids.json` |
 | Store metadata and requirements | `docs/STORE_METADATA.md`, `status.csv` |
 | Crash reporting | `docs/CRASHLYTICS.md` |
-| Test counts, suite runtimes, coverage gaps | `docs/TEST_HEALTH.md` |
+| Test file counts per app | the `measured: test_files` column of `status.csv` |
 | Translations | `docs/I18N.md`, `docs/i18n-audit.json` (generated) |
 | Per-app measured facts (63 fields × 43 rows) | `docs/release-readiness.json` |
-| Per-app store checks, as data | `docs/store-checklist.json`, and the `check: *` columns of `status.csv` |
+| Per-app store checks, with each check's detail | `docs/store-checklist-detail.json` |
 
 `STATUS.md`, `status.csv`, `apps.json` and `docs/release-readiness.json` are
 **measured, not maintained**. Do not hand-edit them — change the measuring
@@ -102,7 +102,7 @@ the app.
 - **Do not claim a build, test or upload happened without the output.** See
   `docs/DECISIONS.md` ADR-008.
 - Bundle ids and package names are **permanent** once a store record exists.
-  Check `docs/APP_IDENTIFIERS.md` before renaming anything.
+  Check `status.csv` before renaming anything.
 
 ## Working set
 

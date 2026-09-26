@@ -56,7 +56,7 @@ the temp copy is gone — it copies the module, runs `flutter pub add`, wires
 ## Activating it — what only you can do
 
 1. Firebase console → **Project settings → Your apps**. Register each app with
-   the bundle id from [`APP_IDENTIFIERS.md`](APP_IDENTIFIERS.md) if it is not
+   the bundle id from `status.csv` if it is not
    already there.
 2. Download **`google-services.json`** into `android/app/` and
    **`GoogleService-Info.plist`** into `ios/Runner/`.

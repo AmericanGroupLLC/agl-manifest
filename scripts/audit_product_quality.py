@@ -9,7 +9,8 @@ time, so a claim in it can only be as old as the last run.
 
     python3 scripts/audit_product_quality.py [--root ~/agl]
 
-Outputs docs/quality-audit.json and docs/PRODUCT_AUDIT.md.
+Outputs docs/quality-audit.json, which scripts/status.py folds into the
+`quality: *` columns of status.csv.
 """
 
 from __future__ import annotations
@@ -521,13 +522,14 @@ def main() -> None:
         previous = []
 
     out_json.write_text(json.dumps(rows, indent=2) + "\n", encoding="utf-8")
-    (docs / "PRODUCT_AUDIT.md").write_text(render(rows, root, previous), encoding="utf-8")
+    # The scorecard this rendered is now the `quality: *` columns of status.csv.
+    # quality-audit.json above is the data; the single sheet is the view.
 
     live = [r for r in rows if r["exists"]]
     print(
         f"{len(live)}/{len(rows)} apps measured, "
         f"{sum(r['loc'] for r in live):,} lib LOC "
-        "→ docs/PRODUCT_AUDIT.md, docs/quality-audit.json"
+        "→ docs/quality-audit.json (the `quality: *` columns of status.csv)"
     )
 
 

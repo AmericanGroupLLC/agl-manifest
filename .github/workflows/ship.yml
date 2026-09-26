@@ -449,13 +449,22 @@ jobs:
 
       # Was status.yml. Refuses to write rather than write blanks that read
       # like answers.
-      - name: Refresh the generated tables
+      #
+      # status.py runs LAST on purpose: it folds every generator's JSON into
+      # status.csv, so running it first would fold the previous run's numbers
+      # and the sheet would always be one pipeline behind. The generators are
+      # tolerant of failure because each one only contributes a column group;
+      # losing a group is better than losing the sheet.
+      - name: Refresh the generated data
+        run: |
+          python3 scripts/store_gates.py      || true
+          python3 scripts/app_identifiers.py  || true
+          python3 scripts/store_checklist.py  || true
+
+      - name: Rebuild the single sheet
         env:
           GH_TOKEN: ${{ secrets.AGL_PACKAGES_TOKEN }}
-        run: |
-          python3 scripts/status.py
-          python3 scripts/app_identifiers.py
-          python3 scripts/store_checklist.py || true
+        run: python3 scripts/status.py
 
       - name: Commit anything that moved
         run: |
@@ -463,11 +472,13 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
-          git commit -m "Refresh the generated tables
+          git commit -m "Refresh status.csv and the data behind it
 
-          Written by scripts/status.py, app_identifiers.py and
-          store_checklist.py in the ship pipeline. Measured, not maintained -
-          change the script rather than the file."
+          status.csv is the single sheet for the portfolio: 43 rows, every
+          identifier, artefact, store state, store gate, measured fact, quality
+          signal, localization signal and per-app check. Written by
+          scripts/status.py from the JSON the generators above emit. Measured,
+          not maintained - change the script rather than the file."
           git push
 
   testers:

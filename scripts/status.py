@@ -519,12 +519,37 @@ def build(offline: bool) -> None:
     store_rows = {r["_repo"]: r for r in store_master_csv.build_rows()}
 
     # The 26 per-app checks, so status.csv is the one sheet rather than a
-    # summary that sends you to docs/STORE_CHECKLIST.md for the detail.
+    # summary that sends you to docs/store-checklist-detail.json for the detail.
     # Prefixed because "Screenshots" already means something else here.
     checklist = {}
     cl = ROOT / "docs/store-checklist.json"
     if cl.exists():
         checklist = json.loads(cl.read_text())
+
+    # The 63 measured per-app facts and the quality audit, so the sheet is the
+    # whole picture rather than a summary that points at two more documents.
+    # Prefixed, because release-readiness has fields like "version" and
+    # "flutter" that already mean something else in this table.
+    def _by_repo(name):
+        f = ROOT / "docs" / name
+        if not f.exists():
+            return {}
+        d = json.loads(f.read_text())
+        rows = d if isinstance(d, list) else d.get("apps", list(d.values()))
+        # quality-audit keys its rows on "app"; release-readiness on "repo".
+        out = {}
+        for r in rows:
+            if not isinstance(r, dict):
+                continue
+            key = r.get("repo") or r.get("app")
+            if key:
+                out[key] = r
+        return out
+
+    measured = _by_repo("release-readiness.json")
+    quality = _by_repo("quality-audit.json")
+    gates = _by_repo("store-gates.json")
+    i18n = _by_repo("i18n-audit.json")
     for row in rows:
         extra = store_rows.get(row["app"], {})
         for col in store_master_csv.COLUMNS:
@@ -533,6 +558,18 @@ def build(offline: bool) -> None:
             row[col] = extra.get(col, "")
         for check, state in (checklist.get(row["app"]) or {}).items():
             row[f"check: {check}"] = state
+        for k, v in (measured.get(row["app"]) or {}).items():
+            if k not in ("repo", "app"):
+                row[f"measured: {k}"] = v
+        for k, v in (quality.get(row["app"]) or {}).items():
+            if k not in ("repo", "app"):
+                row[f"quality: {k}"] = v
+        for k, v in (gates.get(row["app"]) or {}).items():
+            if k not in ("repo", "app"):
+                row[f"gate: {k}"] = v
+        for k, v in (i18n.get(row["app"]) or {}).items():
+            if k not in ("repo", "app", "app_dir"):
+                row[f"i18n: {k}"] = (",".join(map(str, v)) if isinstance(v, list) else v)
 
     with (ROOT / "status.csv").open("w", newline="", encoding="utf-8") as fh:
         # Union, not rows[0]. Some checks are conditional — "Promotional text"

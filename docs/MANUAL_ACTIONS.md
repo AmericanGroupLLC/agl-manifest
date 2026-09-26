@@ -11,8 +11,8 @@ Ordered by consequence, not by effort.
 
 ## Where to look first
 
-`docs/STORE_GATES.md` (generated) is the authoritative view of what each app has
-met, split into what TestFlight beta and Play internal testing need versus what
+`status.csv` (generated) is the authoritative view of what each app has
+met — the `gate: *` columns split it into what TestFlight beta and Play internal testing need versus what
 App Store review and a Play production release need. Verified 2026-09-22:
 **no app has been submitted for App Store review and none has a release on any
 Play track other than internal.** The gates below are the ones no API exposes.
