@@ -1,0 +1,20 @@
+[
+ {
+  "category": "DEVICE_ID",
+  "purposes": [
+   "THIRD_PARTY_ADVERTISING"
+  ],
+  "data_protections": [
+   "DATA_NOT_LINKED_TO_YOU"
+  ]
+ },
+ {
+  "category": "ADVERTISING_DATA",
+  "purposes": [
+   "THIRD_PARTY_ADVERTISING"
+  ],
+  "data_protections": [
+   "DATA_NOT_LINKED_TO_YOU"
+  ]
+ }
+]

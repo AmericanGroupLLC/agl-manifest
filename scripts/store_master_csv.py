@@ -33,9 +33,10 @@ import pathlib
 import plistlib
 import re
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
-M = ROOT / "agl-manifest"
-DIST = ROOT / ".dist"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as M, ROOT, DIST as _DIST  # noqa: E402
+DIST = _DIST
 # No second CSV. status.csv is the one table, and scripts/status.py
 # merges these columns into it. Writing docs/store-master.csv as well
 # meant 3,440 duplicated cells that could disagree; they never did,

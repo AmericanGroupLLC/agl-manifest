@@ -27,17 +27,11 @@ import pathlib
 import re
 import sys
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-CODES = pathlib.Path("/Users/spatchava/agl/.dist/play-version-codes.json")
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as ROOT, DIST as _DIST, app_dir  # noqa: E402
 
-
-def app_dir(a: dict) -> pathlib.Path:
-    d = a.get("dir") or "."
-    base = ROOT.parent / a["repo"]
-    # In CI the apps live under the manifest's work/ directory instead.
-    work = ROOT / "work" / a["repo"]
-    root = work if work.exists() else base
-    return root if d == "." else root / d
+CODES = _DIST / "play-version-codes.json"
 
 
 def main() -> int:

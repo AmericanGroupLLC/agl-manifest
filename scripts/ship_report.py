@@ -23,8 +23,9 @@ import argparse
 import json
 import pathlib
 
-ROOT = pathlib.Path(__file__).resolve().parent.parent
-DIST = ROOT.parent / ".dist"
+import sys as _sys
+_sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as ROOT, DIST  # noqa: E402
 
 # Store-side gates. Each is a console action, tracked in docs/MANUAL_ACTIONS.md.
 BLOCKED_PATTERNS = {
