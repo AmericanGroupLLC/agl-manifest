@@ -945,3 +945,31 @@ key returns "There is no resource of type 'apps' with id …". A record that the
 session can see and the key cannot is one Apple is still holding in a removed
 state. Check each in App Store Connect; once Apple finishes releasing the
 identifier, `produce` will create them.
+
+## MA-025 — Play Data safety can be automated, but needs Google's CSV template first
+
+`applications.dataSafety` is the one App content declaration with an API. It
+takes the Data Safety answers as the contents of Google's own CSV, and it
+validates the header row before anything else. Probed 2026-09-26 against
+AGCleaner:
+
+```
+POST /androidpublisher/v3/applications/{pkg}/dataSafety   {"safetyLabels": "..."}
+400  Invalid safety labels declaration:
+     Line 1: Invalid header row. Download the sample CSV file to see an example.
+```
+
+The API will not name its own columns, and Data Safety is a legal statement
+about what each app collects. Guessing the schema is not acceptable, so this is
+not something to infer.
+
+**One download unlocks it for all 43.** In Play Console, open any app's
+**Policy → App content → Data safety** and use **Export to CSV**. Drop that file
+in `store/data-safety-template.csv`. The accurate per-app answers already exist
+in `store/privacy/<repo>.json` — derived from each app's real dependencies, not
+asserted — so filling the template per app and POSTing it is then mechanical.
+
+The other App content declarations (content rating questionnaire, target
+audience, ads, app access) have no API at all: `edits` exposes only
+`apks, bundles, countryavailability, deobfuscationfiles, details,
+expansionfiles, images, listings, testers, tracks`.
