@@ -98,10 +98,6 @@ jobs:
 
   android:
     name: Build signed Android bundles
-    env:
-      # agl_paths.play_key() reads this; on a runner the key is a
-      # secret written to a temp path, not a file under .secrets/.
-      PLAY_SERVICE_ACCOUNT: ${{ runner.temp }}/secrets/play.json
     needs: [resolve, validate]
     if: needs.resolve.outputs.stop_after != 'validate'
     runs-on: ubuntu-latest
@@ -125,6 +121,9 @@ jobs:
           fi
           mkdir -p "$RUNNER_TEMP/secrets"
           printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/secrets/play.json"
+          # agl_paths.play_key() reads this; on a runner the key is a
+          # secret at a temp path, not a file under .secrets/.
+          echo "PLAY_SERVICE_ACCOUNT=$RUNNER_TEMP/secrets/play.json" >> "$GITHUB_ENV"
 
       # Guard 1. Ask Play what codes it already holds, before building anything.
       - name: Version-code preflight
@@ -317,10 +316,6 @@ jobs:
 
   internal:
     name: Internal testing
-    env:
-      # agl_paths.play_key() reads this; on a runner the key is a
-      # secret written to a temp path, not a file under .secrets/.
-      PLAY_SERVICE_ACCOUNT: ${{ runner.temp }}/secrets/play.json
     needs: [resolve, release]
     if: contains(fromJSON('["internal","production"]'), needs.resolve.outputs.stop_after)
     runs-on: macos-latest
@@ -345,6 +340,9 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/secrets"
           printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/secrets/play.json"
+          # agl_paths.play_key() reads this; on a runner the key is a
+          # secret at a temp path, not a file under .secrets/.
+          echo "PLAY_SERVICE_ACCOUNT=$RUNNER_TEMP/secrets/play.json" >> "$GITHUB_ENV"
           printf '%s' "$ASC_KEY_CONTENT" | base64 --decode > "$RUNNER_TEMP/secrets/asc.p8"
           {
             echo "ASC_KEY_ID=$ASC_KEY_ID"
@@ -393,10 +391,6 @@ jobs:
 
   production:
     name: Promote to production
-    env:
-      # agl_paths.play_key() reads this; on a runner the key is a
-      # secret written to a temp path, not a file under .secrets/.
-      PLAY_SERVICE_ACCOUNT: ${{ runner.temp }}/secrets/play.json
     needs: [resolve, internal]
     if: needs.resolve.outputs.stop_after == 'production'
     runs-on: macos-latest
@@ -417,6 +411,9 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/secrets"
           printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/secrets/play.json"
+          # agl_paths.play_key() reads this; on a runner the key is a
+          # secret at a temp path, not a file under .secrets/.
+          echo "PLAY_SERVICE_ACCOUNT=$RUNNER_TEMP/secrets/play.json" >> "$GITHUB_ENV"
           printf '%s' "$ASC_KEY_CONTENT" | base64 --decode > "$RUNNER_TEMP/secrets/asc.p8"
           {
             echo "ASC_KEY_ID=$ASC_KEY_ID"
