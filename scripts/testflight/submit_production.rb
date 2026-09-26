@@ -62,9 +62,18 @@ apps.each do |a|
   end
 
   begin
-    sub = (Spaceship::ConnectAPI.get_review_submissions(app_id: app.id).to_models rescue [])
-          .find { |s| s.state == "READY_FOR_REVIEW" }
-    sub ||= Spaceship::ConnectAPI.post_review_submission(app_id: app.id, platform: "IOS").to_models.first
+    # An open submission left over from an earlier run can already hold a stale
+    # version, and adding the current one then fails with "Item is already
+    # present in another reviewSubmission", which surfaces later as the
+    # confusing "must have an approved appStoreVersions". Try a fresh
+    # submission first and fall back to reusing one only if Apple refuses.
+    sub = begin
+      Spaceship::ConnectAPI.post_review_submission(app_id: app.id, platform: "IOS").to_models.first
+    rescue StandardError
+      (Spaceship::ConnectAPI.get_review_submissions(app_id: app.id).to_models rescue [])
+        .find { |s| s.state == "READY_FOR_REVIEW" }
+    end
+    raise "no review submission could be opened" if sub.nil?
     begin
       Spaceship::ConnectAPI.post_review_submission_item(review_submission_id: sub.id, app_store_version_id: ver.id)
     rescue StandardError => e

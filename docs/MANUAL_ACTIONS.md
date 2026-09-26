@@ -1002,3 +1002,29 @@ The other App content declarations (content rating questionnaire, target
 audience, ads, app access) have no API at all: `edits` exposes only
 `apks, bundles, countryavailability, deobfuscationfiles, details,
 expansionfiles, images, listings, testers, tracks`.
+
+## MA-026 — CalcMaster and Kinnav need a version bump before they can be submitted
+
+36 of 43 apps are in App Store review. These two are not, and no retry will fix
+them. Both sit at `PREPARE_FOR_SUBMISSION`, but their App Store version is
+already attached to an earlier submission that has since completed:
+
+```
+Item is already present in another reviewSubmission -
+appStoreVersions with id 887124460 was already added to a …
+```
+
+Apple will not add a version to a second review submission, so the surface
+error is the misleading "App … must have an approved appStoreVersions for
+platform IOS". Opening a fresh submission does not help, which was tested.
+
+The fix is a new App Store version — CalcMaster 4.0.2 → 4.0.3, Kinnav
+1.0.1 → 1.0.2 — with a build whose `CFBundleShortVersionString` matches. That
+is a version decision rather than a mechanical one, which is why it is here and
+not in a script. Once the version exists,
+`bundle exec ruby scripts/testflight/submit_production.rb CalcMaster Kinnav`
+finishes it.
+
+Kinnav also had a screenshot stuck at `AWAITING_UPLOAD`, which blocked it
+separately. That one was fixed: the unfinished asset was deleted and the
+screenshots re-delivered.
