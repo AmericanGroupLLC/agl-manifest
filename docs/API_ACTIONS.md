@@ -111,8 +111,20 @@ any other value returns "Pagination is not currently available."
 | `firebase_register.py` | Registers each app and writes its real config files. Needs the `x-goog-user-project` header with ADC |
 | `status.py` | Repository state via the GitHub API; needs `GH_TOKEN` |
 
-AdMob has no script yet: the API returns 401 without
-`gcloud auth application-default login --scopes=...admob.readonly`. See MA-015.
+`admob_setup.py` creates an AdMob app for every app on both platforms (43 x 2 =
+86) and a banner and interstitial unit for each. **Use v1beta, not v1**: v1
+exposes only list/get/report, while v1beta adds `accounts.apps.create` and
+`accounts.adUnits.create`. Verified against both discovery documents 2026-09-26.
+
+AdMob has no service-account path — it authorises as the account owner — so the
+credential comes from one interactive consent:
+
+```bash
+gcloud auth application-default login \
+  --scopes=https://www.googleapis.com/auth/admob.monetization,https://www.googleapis.com/auth/admob.readonly
+```
+
+The script refuses with that exact command if the scope is missing. See MA-015.
 
 ## Measuring and verifying
 
