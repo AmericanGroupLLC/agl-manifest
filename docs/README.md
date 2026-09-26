@@ -6,7 +6,7 @@ backend repository, so working on delivery needs access to one repo.
 | Start here | |
 | --- | --- |
 | [DELIVERY_ARCHITECTURE.md](DELIVERY_ARCHITECTURE.md) | who owns what, what runs where, where the CI minutes go |
-| [STORE_RELEASE_PLAYBOOK.md](STORE_RELEASE_PLAYBOOK.md) | the full release runbook, prioritised issues, per-platform steps |
+| `status.csv` | the full release runbook, prioritised issues, per-platform steps |
 | [FIREBASE_REGISTRATION.md](FIREBASE_REGISTRATION.md) | one-pass console list: every package name and where each config file goes |
 | [RELEASE_PIPELINE.md](RELEASE_PIPELINE.md) | the delivery path and the store accounts behind it |
 
@@ -17,7 +17,7 @@ backend repository, so working on delivery needs access to one repo.
 | [CRASHLYTICS.md](CRASHLYTICS.md) | how crash reporting is wired, and why it is guarded |
 | [I18N.md](I18N.md) | the twelve languages, the rollout state, and the traps |
 | [STORE_METADATA.md](STORE_METADATA.md) | how listing copy is held and rendered |
-| [CREDENTIALS_STATUS.md](CREDENTIALS_STATUS.md) · [PUBLIC_API_ACCOUNTS.md](PUBLIC_API_ACCOUNTS.md) | what exists, what you must create |
+| `status.csv` · [PUBLIC_API_ACCOUNTS.md](PUBLIC_API_ACCOUNTS.md) | what exists, what you must create |
 | [RELEASE_READINESS.md](RELEASE_READINESS.md) · [release-readiness.json](release-readiness.json) | the measured per-app audit |
 | [PRODUCT_AUDIT.md](PRODUCT_AUDIT.md) · [quality-audit.json](quality-audit.json) | product-quality scorecard and backlog — generated, never hand-edited: re-run `scripts/audit_product_quality.py` |
 

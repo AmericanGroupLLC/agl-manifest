@@ -231,4 +231,4 @@ the tool's own error text names this case.
 
 Until that is fixed, every Console action stays with a person. Everything the
 two store APIs *can* do is already scripted; see `docs/API_ACTIONS.md` for what
-they refuse and `docs/GO_LIVE.md` for the remaining list.
+they refuse and `status.csv` for the remaining list.

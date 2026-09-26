@@ -341,6 +341,14 @@ def main() -> int:
     outfile = pathlib.Path(args.out)
     outfile.parent.mkdir(parents=True, exist_ok=True)
     outfile.write_text("\n".join(out) + "\n")
+
+    # The same results as data. status.py folds these into status.csv, which is
+    # the single sheet; the markdown above is a rendering of it, not a second
+    # source. Written next to it so nothing has to re-run the checks to read them.
+    import json as _json
+    (MANIFEST_DIR / "docs/store-checklist.json").write_text(
+        _json.dumps({repo: {name: state for name, state, _ in checks}
+                     for repo, checks in rows}, indent=1) + "\n")
     print(f"{len(rows)} apps -> {outfile}  ({total_fail} failing checks)")
     return 0
 

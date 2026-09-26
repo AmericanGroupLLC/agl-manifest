@@ -517,16 +517,35 @@ def build(offline: bool) -> None:
     # whenever only this script had run. store_master_csv.py still owns those
     # columns and how each is measured; this just joins them on the repo name.
     store_rows = {r["_repo"]: r for r in store_master_csv.build_rows()}
+
+    # The 26 per-app checks, so status.csv is the one sheet rather than a
+    # summary that sends you to docs/STORE_CHECKLIST.md for the detail.
+    # Prefixed because "Screenshots" already means something else here.
+    checklist = {}
+    cl = ROOT / "docs/store-checklist.json"
+    if cl.exists():
+        checklist = json.loads(cl.read_text())
     for row in rows:
         extra = store_rows.get(row["app"], {})
         for col in store_master_csv.COLUMNS:
             if col in row:            # keep this script's own value on a clash
                 continue
             row[col] = extra.get(col, "")
+        for check, state in (checklist.get(row["app"]) or {}).items():
+            row[f"check: {check}"] = state
 
     with (ROOT / "status.csv").open("w", newline="", encoding="utf-8") as fh:
-        writer = csv.DictWriter(fh, fieldnames=list(rows[0].keys()),
-                                quoting=csv.QUOTE_ALL)
+        # Union, not rows[0]. Some checks are conditional — "Promotional text"
+        # only exists for apps that have one — so the first row's keys are not
+        # the whole header, and DictWriter raises on the first row that has more.
+        fieldnames = list(rows[0].keys())
+        seen = set(fieldnames)
+        for row in rows:
+            for k in row:
+                if k not in seen:
+                    seen.add(k); fieldnames.append(k)
+        writer = csv.DictWriter(fh, fieldnames=fieldnames,
+                                quoting=csv.QUOTE_ALL, restval="")
         writer.writeheader()
         writer.writerows(rows)
 

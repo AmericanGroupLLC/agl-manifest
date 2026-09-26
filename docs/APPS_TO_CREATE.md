@@ -7,7 +7,7 @@ was waiting for.
 
 Neither API can create an app. Apple answers `POST v1/apps` with "The resource
 'apps' does not allow 'CREATE'"; Play's discovery document exposes exactly one
-method on the applications resource, `dataSafety`. See `docs/GO_LIVE.md` item 0
+method on the applications resource, `dataSafety`. See `status.csv` item 0
 for the single Apple sign-in that lets a script create the Apple side.
 
 | App Store name | Package (identical on both stores) | SKU | Version | Category | Apple | Play |

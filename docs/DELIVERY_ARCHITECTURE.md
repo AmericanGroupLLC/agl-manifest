@@ -153,7 +153,7 @@ minutes installing a toolchain it is about to waste.
 
 Store credentials (`ASC_*`, `PLAY_SERVICE_ACCOUNT_JSON`, `ANDROID_KEYSTORE_*`,
 `MATCH_*`, `ADMOB_*`) are listed in
-[`STORE_RELEASE_PLAYBOOK.md`](STORE_RELEASE_PLAYBOOK.md) §7.
+`status.csv` §7.
 
 ## Keeping it honest
 
