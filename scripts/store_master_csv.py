@@ -36,7 +36,11 @@ import re
 ROOT = pathlib.Path("/Users/spatchava/agl")
 M = ROOT / "agl-manifest"
 DIST = ROOT / ".dist"
-OUT = M / "docs/store-master.csv"
+# No second CSV. status.csv is the one table, and scripts/status.py
+# merges these columns into it. Writing docs/store-master.csv as well
+# meant 3,440 duplicated cells that could disagree; they never did,
+# but only because nothing had edited one and not the other yet.
+OUT = None
 
 NEEDS = "NEEDS-INPUT"
 NA = "n/a"
@@ -402,6 +406,12 @@ def main() -> int:
             print(f"  {len(who):3}  {col}\n       {scope[:150]}")
         return 0
 
+    if OUT is None:
+        print(f"{len(rows)} apps x {len(COLUMNS)} columns — merged into status.csv "
+              f"by scripts/status.py; this script writes no file of its own.")
+        need = sum(1 for row in rows for v in row.values() if v == NEEDS)
+        print(f"{need} cells still need a human; run with --gaps to see which")
+        return 0
     OUT.parent.mkdir(parents=True, exist_ok=True)
     with OUT.open("w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=COLUMNS, quoting=csv.QUOTE_ALL,

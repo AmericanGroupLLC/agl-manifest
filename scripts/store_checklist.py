@@ -20,9 +20,12 @@ import pathlib
 import plistlib
 import re
 import subprocess
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
-MANIFEST_DIR = ROOT / "agl-manifest"
+ROOT = _ROOT
+MANIFEST_DIR = _MANIFEST
 DIST = ROOT / ".dist"
 SWEEP = ROOT / ".sweep"
 

@@ -843,7 +843,7 @@ which resubmits everything that is not already approved. Builds already approved
 
 ## MA-023 — Six apps show a paywall with no in-app purchase behind it (DECISION NEEDED)
 
-Found 2026-09-24 while building `docs/store-master.csv`. Six apps ship a
+Found 2026-09-24 while building `status.csv`. Six apps ship a
 subscription or premium screen, several with real prices on it, and carry no
 purchase SDK at all — no `in_app_purchase`, no `purchases_flutter`, no
 `revenue_cat`:

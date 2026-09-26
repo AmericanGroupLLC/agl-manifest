@@ -25,9 +25,12 @@ import pathlib
 import subprocess
 import sys
 import time
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
-MANIFEST = ROOT / "agl-manifest"
+ROOT = _ROOT
+MANIFEST = _MANIFEST
 ORG = "AmericanGroupLLC"
 AAB_EVIDENCE = MANIFEST / "docs/build-evidence.json"
 APK_EVIDENCE = MANIFEST / "docs/build-evidence-apk.json"

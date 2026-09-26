@@ -7,6 +7,9 @@
 Writes ~/agl/.dist/ios-batch/results.json after every app so a crash loses nothing.
 """
 import argparse, datetime, json, os, pathlib, signal, subprocess, sys, time
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent.parent))
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 
 PER_APP_TIMEOUT = 60 * 60
 def purge_derived_data(max_age_min=5):
@@ -20,7 +23,7 @@ def purge_derived_data(max_age_min=5):
             shutil.rmtree(d, ignore_errors=True)
   # archive + up to three upload attempts
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
+ROOT = _ROOT
 HERE = pathlib.Path(__file__).resolve().parent
 LOGS = ROOT / ".dist/ios-logs"
 RESULTS = ROOT / ".dist/ios-batch/results.json"  # outside git, next to the logs

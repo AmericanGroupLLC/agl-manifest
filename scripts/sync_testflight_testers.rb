@@ -24,7 +24,8 @@ require "json"
 require "net/http"
 require "spaceship"
 
-ROOT = "/Users/spatchava/agl"
+require_relative "agl_paths"
+ROOT = AglPaths::ROOT
 DRY = ARGV.include?("--dry-run")
 ONLY = (i = ARGV.index("--app")) ? ARGV[i + 1] : nil
 

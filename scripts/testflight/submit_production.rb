@@ -22,7 +22,8 @@ ONLY = ARGV.reject { |x| x.start_with?("--") }
 Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
   key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), filepath: ENV.fetch("ASC_KEY_PATH"))
 
-apps = JSON.parse(File.read("/Users/spatchava/agl/agl-manifest/apps.json"))["apps"]
+require_relative "../agl_paths"
+apps = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
 # store_eligible is still honoured so the manifest can exclude an app, but
 # nothing sets it false any more: all 43 are in scope. This comment used to
 # say the portfolio was 42.
@@ -82,7 +83,7 @@ apps.each do |a|
   end
 end
 
-File.write("/Users/spatchava/agl/.dist/appstore-submit-results.json", JSON.pretty_generate(out))
+File.write(File.join(AglPaths::DIST, "appstore-submit-results.json"), JSON.pretty_generate(out))
 counts = out.values.group_by { |v| v["status"] }.transform_values(&:size)
 puts "\n#{counts.map { |k, v| "#{k}: #{v}" }.join('  ')}"
 puts "-> /Users/spatchava/agl/.dist/appstore-submit-results.json"

@@ -29,8 +29,11 @@ Two things this script does **not** do, both measured rather than assumed:
   the app's Draft state in Console, not the track's.
 """
 import json, pathlib, subprocess, sys, time
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+ROOT = _ROOT; M = _MANIFEST
 DIST = ROOT / ".dist"; LOGS = DIST / "play-logs"; LOGS.mkdir(parents=True, exist_ok=True)
 RESULTS = DIST / "play-results.json"
 SA = "american-group-publisher@american-group-llc.iam.gserviceaccount.com"

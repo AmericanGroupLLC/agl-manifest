@@ -50,9 +50,12 @@ import shutil
 import subprocess
 import sys
 import time
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
-MANIFEST = ROOT / "agl-manifest"
+ROOT = _ROOT
+MANIFEST = _MANIFEST
 AUDIT = MANIFEST / "docs/release-readiness.json"
 SECRETS = ROOT / ".secrets"
 KEYSTORES = SECRETS / "keystores.json"

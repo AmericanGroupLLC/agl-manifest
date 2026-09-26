@@ -23,9 +23,12 @@ import pathlib
 import subprocess
 import urllib.error
 import urllib.request
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 
-ROOT = pathlib.Path("/Users/spatchava/agl")
-M = ROOT / "agl-manifest"
+ROOT = _ROOT
+M = _MANIFEST
 KEY = ROOT / ".secrets/play-publisher-agl.json"
 BASE = "https://androidpublisher.googleapis.com/androidpublisher/v3/applications"
 OUT = ROOT / ".dist/play-version-codes.json"

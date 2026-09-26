@@ -19,8 +19,11 @@ completed first. None of those have an API. Once an app is published, this
 promotes every later release.
 """
 import json, pathlib, subprocess, sys, time
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 
-ROOT = pathlib.Path("/Users/spatchava/agl"); M = ROOT / "agl-manifest"
+ROOT = _ROOT; M = _MANIFEST
 RESULTS = ROOT / ".dist" / "play-results.json"
 OUT = ROOT / ".dist" / "play-release-results.json"
 PROD_OUT = ROOT / ".dist" / "play-production-results.json"
