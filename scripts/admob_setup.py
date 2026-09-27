@@ -30,6 +30,9 @@ M = pathlib.Path(__file__).resolve().parents[1]
 DIST = ROOT / ".dist"; DIST.mkdir(exist_ok=True)
 API = "https://admob.googleapis.com/v1beta"
 GCLOUD = str(pathlib.Path.home() / "google-cloud-sdk/bin/gcloud")
+QUOTA_PROJECT = (subprocess.run([GCLOUD, "config", "get-value", "project"],
+                                capture_output=True, text=True).stdout.strip()
+                 or "americangroupllc-5bdfc")
 
 # One banner and one interstitial per app per platform: that is what agl_ads
 # consumes. Rewarded is deliberately absent — no app shows a rewarded ad.
@@ -52,8 +55,12 @@ def token():
 
 def call(method, url, body=None):
     data = json.dumps(body).encode() if body is not None else None
-    req = urllib.request.Request(url, data=data, method=method, headers={
-        "Authorization": f"Bearer {token()}", "Content-Type": "application/json"})
+    # ADC needs a quota project named on every AdMob call, or the API answers
+    # "requires a quota project, which is not set by default".
+    headers = {"Authorization": f"Bearer {token()}", "Content-Type": "application/json"}
+    if QUOTA_PROJECT:
+        headers["x-goog-user-project"] = QUOTA_PROJECT
+    req = urllib.request.Request(url, data=data, method=method, headers=headers)
     try:
         with urllib.request.urlopen(req, timeout=120) as r:
             return json.loads(r.read() or "{}")

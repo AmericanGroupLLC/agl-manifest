@@ -1028,3 +1028,38 @@ finishes it.
 Kinnav also had a screenshot stuck at `AWAITING_UPLOAD`, which blocked it
 separately. That one was fixed: the unfinished asset was deleted and the
 screenshots re-delivered.
+
+## MA-027 — AdMob: the API reads but will not create; the console will not automate either
+
+The goal is 86 AdMob apps (43 x 2 platforms) with a banner and interstitial unit
+each. `scripts/admob_setup.py` does all of it and is committed and working up to
+the write call. Both routes were tried on 2026-09-26.
+
+**API.** v1 is read-only; **v1beta** does expose `accounts.apps.create` and
+`accounts.adUnits.create`. An Application Default Credential with the
+`admob.monetization` and `admob.readonly` scopes was obtained and **reads the
+account fine** — `accounts.list` returns `accounts/pub-8528784688453695` and
+`apps.list` returns the 8 apps already there. Creating is refused:
+
+```
+POST /v1beta/accounts/pub-8528784688453695/apps
+403  {"message": "The caller does not have permission", "status": "PERMISSION_DENIED"}
+```
+
+No further detail is given. The AdMob API is enabled on the project and the
+quota project header is sent (without it the call fails differently, naming the
+missing quota project). Read and write therefore differ by permission, not by
+setup, which points at AdMob write access needing to be granted for this
+publisher rather than anything fixable here.
+
+**Console.** `admob.google.com/v2/apps/list` cannot be driven by the Claude in
+Chrome extension: `executeScript` waits the full 45 seconds for `document_idle`
+and gives up, and screenshots fail with "Script injection timed out". The same
+page returned its (nearly empty) text once while still loading, so the extension
+is connected — the console simply never reaches the state the content script
+needs. This matches the App Store Connect and Play Console behaviour in
+`docs/KNOWN_ISSUES.md`.
+
+**What unblocks it.** Either AdMob write access for pub-8528784688453695, after
+which `python3 scripts/admob_setup.py` creates all 86 and writes the ids into
+`docs/admob-ids.json`; or the apps are added by hand in the AdMob console.
