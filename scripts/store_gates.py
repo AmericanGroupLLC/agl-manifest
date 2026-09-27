@@ -80,6 +80,20 @@ for a in sorted(apps, key=lambda x: x["repo"].lower()):
         "align16k": (align or 0) >= 16384 if align is not None else None,
     })
 
+# Refuse to write rather than write blanks that read like answers.
+#
+# Every input above lives in .dist/, which is a run artefact and does not exist
+# on a runner. The housekeeping job regenerated this file there and wrote 43
+# rows of False, and status.py folded them in — so status.csv reported 0/43
+# App Store Connect records when the real figure was 29/43. A sheet that is
+# confidently wrong is worse than one that is missing a column.
+_have = [len(x) for x in (asc, tf, play, rel, lst) if x]
+if not _have:
+    print("::warning::none of the .dist/ inputs exist, so there is nothing "
+          "measured to write. Leaving docs/store-gates.json alone — run the "
+          "delivery scripts first, or run this where .dist/ lives.")
+    raise SystemExit(0)
+
 (M / "docs/store-gates.json").write_text(json.dumps(rows, indent=1) + "\n")
 print(f"wrote docs/store-gates.json ({len(rows)} apps) — "
       f"the table itself is the `gate: *` columns of status.csv")
