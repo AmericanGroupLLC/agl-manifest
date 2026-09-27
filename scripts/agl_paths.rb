@@ -11,6 +11,8 @@ module AglPaths
     return false unless File.directory?(dir)
     names = Dir.children(dir).select { |c| File.directory?(File.join(dir, c)) }
     apps = JSON.parse(File.read(File.join(MANIFEST, "apps.json")))["apps"]
+    # Two, not one — see the note in agl_paths.py. CI sets AGL_ROOT rather
+    # than depending on this.
     apps.count { |a| names.include?(a["repo"]) } >= 2
   rescue StandardError
     false

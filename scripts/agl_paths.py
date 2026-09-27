@@ -47,6 +47,13 @@ def _looks_like_a_checkout(d: pathlib.Path) -> bool:
     except OSError:
         return False
     apps = json.loads((MANIFEST / "apps.json").read_text())["apps"]
+    # Two, not one. One was tried and is wrong here: this machine has a
+    # leftover agl-manifest/work/GadgetNest from an old experiment, and a
+    # one-repo threshold made every local script resolve ROOT to work/.
+    #
+    # The heuristic cannot be right for both that and a single-app CI run, so
+    # CI does not rely on it: ship.yml exports AGL_ROOT after checkout, which
+    # takes precedence over everything below.
     return sum(1 for a in apps if a["repo"] in names) >= 2
 
 
