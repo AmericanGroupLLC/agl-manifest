@@ -30,12 +30,12 @@ import subprocess
 import time
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
-from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT, flutter_bin  # noqa: E402
 
 ROOT = _ROOT
 MANIFEST = _MANIFEST / "apps.json"
 PROFILE_MAP = ROOT / ".dist" / "ios" / "profile_map.json"
-FLUTTER = ROOT / ".flutter-sdk" / "bin" / "flutter"
+FLUTTER = flutter_bin()
 DIST = ROOT / ".dist"
 WORK = ROOT / ".dist" / "ios-work"
 TEAM = "TLH7Z3G27A"

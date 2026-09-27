@@ -34,8 +34,8 @@ import sys
 
 import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from agl_paths import ROOT  # noqa: E402
-FLUTTER = ROOT / ".flutter-sdk/bin/flutter"
+from agl_paths import ROOT, flutter_bin  # noqa: E402
+FLUTTER = flutter_bin()
 
 # Bundle ids that already have an App Store Connect record are fixed and must be
 # reproduced exactly; the others follow the org's majority convention.

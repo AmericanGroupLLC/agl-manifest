@@ -22,10 +22,10 @@ import hashlib, json, os, pathlib, re, shutil, subprocess, sys, time
 
 import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from agl_paths import ROOT, MANIFEST as M, DIST  # noqa: E402
-FLUTTER = str(ROOT / ".flutter-sdk/bin/flutter")
+from agl_paths import ROOT, MANIFEST as M, DIST, flutter_bin, flutter_sdk  # noqa: E402
+FLUTTER = str(flutter_bin())
 DEVICES = {"iphone69": "3A41E921-1471-466E-BCDA-30E428297CCF", "ipadpro13": "3C6104B3-00B8-4468-A26B-06E7AF142E97"}
-ENV = dict(os.environ, PATH=f"/opt/homebrew/bin:{pathlib.Path.home()}/.idb-venv/bin:{ROOT}/.flutter-sdk/bin:" + os.environ["PATH"])
+ENV = dict(os.environ, PATH=f"/opt/homebrew/bin:{pathlib.Path.home()}/.idb-venv/bin:{flutter_sdk()}/bin:" + os.environ["PATH"])
 DISMISS = ["Allow Full Access", "Allow While Using App", "Allow Once", "Allow", "OK", "Continue", "Get Started", "Get started", "Skip", "Not now", "Not Now", "Maybe later", "Accept", "Agree", "I agree", "Done", "Next", "Don\u2019t Allow", "Don't Allow"]
 MAX_SCREENS = 5
 RESULTS = ROOT / ".dist/screenshots-results.json"

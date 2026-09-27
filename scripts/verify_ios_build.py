@@ -35,9 +35,9 @@ import time
 
 import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from agl_paths import ROOT, MANIFEST  # noqa: E402
+from agl_paths import ROOT, MANIFEST, flutter_bin  # noqa: E402
 AUDIT = MANIFEST / "docs/release-readiness.json"
-FLUTTER = ROOT / ".flutter-sdk/bin/flutter"
+FLUTTER = flutter_bin()
 EVIDENCE = MANIFEST / "docs/ios-build-evidence.json"
 
 # Same machine constraints as the Android build: the JVM is not involved here,

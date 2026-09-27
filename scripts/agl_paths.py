@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import json
 import os
+import shutil
 import pathlib
 
 # scripts/agl_paths.py -> scripts -> the manifest
@@ -83,3 +84,33 @@ def play_key() -> pathlib.Path:
     """
     override = os.environ.get("PLAY_SERVICE_ACCOUNT")
     return pathlib.Path(override) if override else ROOT / ".secrets/play-publisher-agl.json"
+
+
+def flutter_sdk() -> pathlib.Path:
+    """The Flutter SDK to build with.
+
+    This machine pins 3.44.2 at <root>/.flutter-sdk and must keep using it —
+    the one on PATH is a different version. A runner has no such directory:
+    the setup action installs the SDK and exports FLUTTER_ROOT. Checking the
+    pinned copy first keeps local behaviour identical, and falling back to
+    FLUTTER_ROOT is what lets the ship pipeline build at all. Without this,
+    build_release.py died on the runner with
+    `FileNotFoundError: .../work/.flutter-sdk/bin/flutter`.
+    """
+    override = os.environ.get("AGL_FLUTTER_SDK")
+    if override:
+        return pathlib.Path(override)
+    pinned = ROOT / ".flutter-sdk"
+    if (pinned / "bin" / "flutter").exists():
+        return pinned
+    root = os.environ.get("FLUTTER_ROOT")
+    if root and (pathlib.Path(root) / "bin" / "flutter").exists():
+        return pathlib.Path(root)
+    found = shutil.which("flutter")
+    if found:
+        return pathlib.Path(found).resolve().parent.parent
+    return pinned
+
+
+def flutter_bin() -> pathlib.Path:
+    return flutter_sdk() / "bin" / "flutter"

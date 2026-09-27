@@ -52,14 +52,14 @@ import sys
 import time
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
-from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT, flutter_bin  # noqa: E402
 
 ROOT = _ROOT
 MANIFEST = _MANIFEST
 AUDIT = MANIFEST / "docs/release-readiness.json"
 SECRETS = ROOT / ".secrets"
 KEYSTORES = SECRETS / "keystores.json"
-FLUTTER = ROOT / ".flutter-sdk/bin/flutter"
+FLUTTER = flutter_bin()
 def _tool(env: str, local: str, on_path: str) -> str:
     """Pick a build tool: an explicit override, this Mac's install, then PATH.
 

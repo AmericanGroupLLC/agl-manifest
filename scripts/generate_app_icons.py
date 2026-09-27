@@ -36,8 +36,8 @@ from PIL import Image, ImageDraw, ImageFont
 
 import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from agl_paths import ROOT, MANIFEST  # noqa: E402
-FONT = ROOT / ".flutter-sdk/bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf"
+from agl_paths import ROOT, MANIFEST, flutter_sdk  # noqa: E402
+FONT = flutter_sdk() / "bin/cache/artifacts/material_fonts/MaterialIcons-Regular.otf"
 def _codepoints() -> dict[str, int]:
     """Parse name -> codepoint straight out of the Flutter SDK.
 
@@ -45,7 +45,7 @@ def _codepoints() -> dict[str, int]:
     the script only worked on the machine where that file happened to exist.
     icons.dart is the source of truth and ships with the SDK.
     """
-    src = (ROOT / ".flutter-sdk/packages/flutter/lib/src/material/icons.dart").read_text()
+    src = (flutter_sdk() / "packages/flutter/lib/src/material/icons.dart").read_text()
     pairs = re.findall(r"static const IconData ([a-z_0-9]+) = IconData\(0x([0-9a-f]+)", src)
     return {k: int(v, 16) for k, v in pairs
             if not k.endswith(("_outlined", "_rounded", "_sharp"))}
