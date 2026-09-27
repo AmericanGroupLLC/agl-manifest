@@ -176,8 +176,21 @@ def main() -> int:
             records.append(rec)
         outfile.write_text(json.dumps(records, indent=1))
 
-    ok = sum(1 for r in records if r.get("result") == "EXPORTED")
-    print(f"\nEXPORTED {ok}/{len(records)}")
+    # Only this run's apps. The evidence file accumulates, so counting all of
+    # it reports past successes next to present failures and the step still
+    # exits 0 — the same false green build_release.py had.
+    by_repo = {r["repo"]: r for r in records}
+    this_run = [by_repo[a["repo"]] for a in wanted if a["repo"] in by_repo]
+    ok = sum(1 for r in this_run if r.get("result") == "EXPORTED")
+    bad = [r for r in this_run if r.get("result") != "EXPORTED"]
+
+    print(f"\nEXPORTED {ok}/{len(this_run)} this run")
+    if bad:
+        print(f"::error::{len(bad)} app(s) did not export: "
+              f"{', '.join(sorted(r['repo'] for r in bad))}")
+        for r in sorted(bad, key=lambda x: x["repo"]):
+            print(f"  {r['repo']}: {r.get('result')}")
+        return 1
     return 0
 
 

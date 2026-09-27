@@ -47,6 +47,7 @@ import os
 import pathlib
 import re
 import shutil
+import socket
 import subprocess
 import sys
 import time
@@ -90,14 +91,42 @@ DIST = ROOT / ".dist"
 
 PROXY = "127.0.0.1:10054"
 
-JAVA_TOOL_OPTIONS = " ".join([
-    "-Djava.net.preferIPv4Stack=true",
-    f"-Dhttp.proxyHost={PROXY.split(':')[0]}",
-    f"-Dhttp.proxyPort={PROXY.split(':')[1]}",
-    f"-Dhttps.proxyHost={PROXY.split(':')[0]}",
-    f"-Dhttps.proxyPort={PROXY.split(':')[1]}",
-    "-Dhttp.nonProxyHosts=localhost|127.0.0.1",
-])
+
+def _proxy_is_listening(hostport: str, timeout: float = 0.4) -> bool:
+    host, _, port = hostport.partition(":")
+    try:
+        with socket.create_connection((host, int(port)), timeout=timeout):
+            return True
+    except OSError:
+        return False
+
+
+def java_tool_options() -> str:
+    """JVM flags for Gradle, decided by the machine rather than assumed.
+
+    Both settings below are true of this build Mac and of nothing else:
+    its direct egress is blocked so the JVM has to be told about a local proxy,
+    and its IPv6 connect() is denied with EPERM so the daemon never starts
+    without preferIPv4Stack. See the module docstring.
+
+    Forcing them everywhere broke CI completely. On a runner nothing listens on
+    127.0.0.1:10054, so every Gradle wrapper download failed inside
+    org.gradle.wrapper.Download and all three apps in run 36299828332 reported
+    BUILD_FAILED after about two seconds. The proxy flags are therefore applied
+    only when something is actually listening there.
+    """
+    override = os.environ.get("AGL_JAVA_TOOL_OPTIONS")
+    if override is not None:
+        return override
+    opts = ["-Djava.net.preferIPv4Stack=true"]
+    if _proxy_is_listening(PROXY):
+        host, _, port = PROXY.partition(":")
+        opts += [
+            f"-Dhttp.proxyHost={host}", f"-Dhttp.proxyPort={port}",
+            f"-Dhttps.proxyHost={host}", f"-Dhttps.proxyPort={port}",
+            "-Dhttp.nonProxyHosts=localhost|127.0.0.1",
+        ]
+    return " ".join(opts)
 
 # A flavour has to be chosen explicitly. `flutter build appbundle` on a flavoured
 # project builds every flavour and then looks for the unflavoured output, so it
@@ -334,7 +363,7 @@ def build_one(app: dict, entry: dict | None, timeout: int,
     if flavour:
         cmd += ["--flavor", flavour]
 
-    env = dict(os.environ, JAVA_TOOL_OPTIONS=JAVA_TOOL_OPTIONS)
+    env = dict(os.environ, JAVA_TOOL_OPTIONS=java_tool_options())
     started = time.time()
     proc = subprocess.run(cmd, cwd=d, capture_output=True, text=True, env=env, timeout=timeout)
     rec["seconds"] = round(time.time() - started, 1)
@@ -459,8 +488,29 @@ def main() -> int:
         print(rec["result"] + extra)
         evidence_path.write_text(json.dumps(sorted(records.values(), key=lambda r: r["repo"]), indent=2) + "\n")
 
-    signed = sum(1 for r in records.values() if r.get("result") == "SIGNED")
-    print(f"\n{signed} signed {args.kind}(s); evidence in {_rel(evidence_path)}")
+    # Count what THIS run produced. `records` carries every app ever built,
+    # because the evidence file accumulates, so summarising it reported
+    # "40 signed aab(s)" in run 36299828332 on the same line as three
+    # BUILD_FAILEDs — and the job still exited 0. A build step that goes green
+    # while every requested app failed is worse than no build step.
+    this_run = [records[a["repo"]] for a in apps if a["repo"] in records]
+    signed = sum(1 for r in this_run if r.get("result") == "SIGNED")
+    failed = [r for r in this_run if r.get("result") not in ("SIGNED", "NO_KEYSTORE")]
+    unsigned = [r for r in this_run if r.get("result") == "NO_KEYSTORE"]
+
+    print(f"\n{signed}/{len(this_run)} signed {args.kind}(s) this run; "
+          f"evidence in {_rel(evidence_path)}")
+    if unsigned:
+        print(f"{len(unsigned)} without a keystore: "
+              f"{', '.join(sorted(r['repo'] for r in unsigned))}")
+    if failed:
+        print(f"::error::{len(failed)} app(s) failed to build: "
+              f"{', '.join(sorted(r['repo'] for r in failed))}")
+        for r in sorted(failed, key=lambda x: x["repo"]):
+            detail = (r.get("detail") or "").strip().splitlines()
+            print(f"  {r['repo']}: {r.get('result')}"
+                  + (f" — {detail[-1][:160]}" if detail else ""))
+        return 1
     return 0
 
 
