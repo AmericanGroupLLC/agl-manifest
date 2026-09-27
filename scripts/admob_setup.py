@@ -162,6 +162,19 @@ for a in apps:
 json.dump(out, open(DIST / "admob-results.json", "w"), indent=1)
 print(f"\napps created: {created_apps}   ad units created: {created_units}")
 print(f"-> {DIST / 'admob-results.json'}")
-if not args.dry_run:
-    (M / "docs/admob-ids.json").write_text(json.dumps(out, indent=1) + "\n")
+# docs/admob-ids.json is the file the build reads. A run that created nothing
+# must never replace it — an earlier version of this script overwrote the real
+# ids with a page of "The caller does not have permission" records. Merge only
+# the entries that actually carry an appId.
+if not args.dry_run and (created_apps or created_units):
+    target = M / "docs/admob-ids.json"
+    merged = json.loads(target.read_text()) if target.exists() else {}
+    for repo, rec in out.items():
+        keep = {k: v for k, v in rec.items()
+                if isinstance(v, dict) and v.get("appId") or k == "units"}
+        if keep:
+            merged.setdefault(repo, {}).update(keep)
+    target.write_text(json.dumps(merged, indent=1) + "\n")
     print("-> docs/admob-ids.json")
+elif not args.dry_run:
+    print("nothing was created, so docs/admob-ids.json is left alone")
