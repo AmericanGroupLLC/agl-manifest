@@ -34,6 +34,29 @@ def secret_name(app: str) -> str:
     return "KEYSTORE_" + re.sub(r"[^A-Z0-9]", "_", app.upper()) + "_BASE64"
 
 
+# Actions only puts a secret in the environment if the workflow names it, and
+# there are 34 per-app keystore secrets — one more for every app added. Listing
+# them individually meant the list silently fell behind: run 36298643799 passed
+# only ANDROID_KEYSTORE_CONFIG, so every app reported "no keystore" and would
+# have produced debug-signed bundles that Play rejects at upload.
+#
+# The workflow now hands over `toJSON(secrets)` as ALL_SECRETS instead, so a new
+# app needs no workflow edit. A directly-set variable still wins, which keeps a
+# local run working with nothing but an exported KEYSTORE_<APP>_BASE64.
+def secret_value(name: str) -> str:
+    direct = os.environ.get(name, "").strip()
+    if direct:
+        return direct
+    blob = os.environ.get("ALL_SECRETS", "").strip()
+    if not blob:
+        return ""
+    try:
+        return str(json.loads(blob).get(name, "")).strip()
+    except json.JSONDecodeError:
+        print("::warning::ALL_SECRETS is set but is not JSON; ignoring it")
+        return ""
+
+
 def select(spec: str) -> list[dict]:
     apps = [a for a in MANIFEST["apps"] if a.get("flutter")]
     if spec in ("", "all"):
@@ -62,7 +85,7 @@ def main() -> int:
     signed = skipped = 0
     for app in select(args.apps):
         repo = app["repo"]
-        material = os.environ.get(secret_name(repo), "").strip()
+        material = secret_value(secret_name(repo))
         entry = config.get(repo)
         if not material or not entry:
             # An app with no keystore still builds; the artifact is just not

@@ -141,6 +141,9 @@ jobs:
       - name: Materialise per-app signing material
         env:
           ANDROID_KEYSTORE_CONFIG: ${{ secrets.ANDROID_KEYSTORE_CONFIG }}
+          # Every KEYSTORE_<APP>_BASE64 at once. Naming them one by one meant a
+          # new app was unsigned until someone remembered to edit this file.
+          ALL_SECRETS: ${{ toJSON(secrets) }}
         run: python3 scripts/materialise_signing.py --apps "${{ needs.resolve.outputs.apps }}" --out "$RUNNER_TEMP"
 
       - name: Resolve the app list

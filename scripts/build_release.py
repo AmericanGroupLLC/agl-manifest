@@ -279,6 +279,22 @@ def bundle_fingerprint(aab: pathlib.Path) -> str | None:
     return m.group(1).replace(":", "").upper() if m else None
 
 
+def _rel(path: pathlib.Path) -> str:
+    """A short path for the evidence file, without assuming a common root.
+
+    Under the CI layout ROOT is <manifest>/work while the evidence lives in
+    <manifest>/docs, so relative_to(ROOT) raises rather than shortening:
+    ValueError: '.../docs/build-evidence.json' is not in the subpath of
+    '.../work'. Only shorten when the path really is under the root.
+    """
+    for base in (ROOT, MANIFEST):
+        try:
+            return str(path.relative_to(base))
+        except ValueError:
+            continue
+    return str(path)
+
+
 def build_one(app: dict, entry: dict | None, timeout: int,
               keep_build: bool = False, kind: str = "aab") -> dict:
     d = app_path(app)
@@ -355,7 +371,7 @@ def build_one(app: dict, entry: dict | None, timeout: int,
         rec["detail"] = ("\n".join(tail[-15:]) + "\n--- stderr ---\n" + "\n".join(err[-15:])).strip()
         rec["exit_code"] = proc.returncode
         return rec
-    rec["aab"] = str(aab.relative_to(ROOT))
+    rec["aab"] = _rel(aab)
     rec["bytes"] = aab.stat().st_size
     rec["sha256"] = hashlib.sha256(aab.read_bytes()).hexdigest()
 
@@ -375,7 +391,7 @@ def build_one(app: dict, entry: dict | None, timeout: int,
     DIST.mkdir(exist_ok=True)
     kept = DIST / f"{app['repo']}-{aab.name}"
     shutil.copy2(aab, kept)
-    rec["artifact"] = str(kept.relative_to(ROOT))
+    rec["artifact"] = _rel(kept)
     if not keep_build:
         build_dir = d / "build"
         # Never delete anything git is tracking. "build" is an output directory
@@ -444,7 +460,7 @@ def main() -> int:
         evidence_path.write_text(json.dumps(sorted(records.values(), key=lambda r: r["repo"]), indent=2) + "\n")
 
     signed = sum(1 for r in records.values() if r.get("result") == "SIGNED")
-    print(f"\n{signed} signed {args.kind}(s); evidence in {evidence_path.relative_to(ROOT)}")
+    print(f"\n{signed} signed {args.kind}(s); evidence in {_rel(evidence_path)}")
     return 0
 
 

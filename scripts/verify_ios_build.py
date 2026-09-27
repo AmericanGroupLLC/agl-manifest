@@ -136,7 +136,7 @@ def main() -> int:
 
     ok = sum(1 for r in records.values() if r.get("result") == "COMPILED")
     print(f"\n{ok} of {len(records)} compile for iOS device (unsigned). "
-          f"Evidence in {EVIDENCE.relative_to(ROOT)}")
+          f"Evidence in {EVIDENCE.relative_to(MANIFEST)}")
     return 0
 
 
