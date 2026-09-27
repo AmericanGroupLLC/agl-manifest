@@ -96,21 +96,27 @@ enforces this and there is no way around it.
 
 ---
 
-## MA-004 · P2 · Seven apps have no upload keystore
+## MA-004 · RESOLVED 2026-09-27 · every app has an upload keystore, and CI can reach it
 
-30 keystores exist in `~/agl/.secrets/keystores/` for 37 Flutter apps. Missing:
+All 43 keystores exist in `~/agl/.secrets/keystores/`, and all 43 are now
+`KEYSTORE_<APP>_BASE64` secrets on `agl-manifest`. `ANDROID_KEYSTORE_CONFIG` was
+regenerated from the local registry so it covers 43 apps rather than 30.
 
-`CalcMaster`, `CodeDeal`, `DriftDate`, `Kinnav`, `NexusTransferPay`,
-`TripNest`, `portfolio-board`
+The gap was not the keystores — those had been generated. It was that 13 of them
+had never been uploaded as secrets, which only became visible when the ship
+pipeline built the whole portfolio for the first time (run 36304281088) and 13
+apps reported `NO_KEYSTORE`:
 
-An agent *can* generate these with `keytool` — but a lost upload key cannot be
-replaced without Google's intervention, and the passwords have to go somewhere a
-human controls. Generating them is only useful once there is an agreed home for
-the passwords.
+AeroSwift, AGStudio, ApexMarketWatch, BuddyPlay, CalcMaster, CodeDeal,
+DriftDate, Kinnav, MyCard, NexusTransferPay, PlantPulse, TripNest,
+portfolio-board
 
-**Required:** confirm where keystore passwords are to be stored, then the
-keystores can be generated and uploaded as `KEYSTORE_<APP>_BASE64` secrets to
-match the existing 30.
+Verified after uploading: 43/43 expected secret names are present.
+
+The passwords live in `~/agl/.secrets/keystores.json`, which is gitignored and
+must stay that way. A lost upload key still cannot be replaced without Google's
+intervention, so that file is the one thing here worth backing up somewhere a
+person controls.
 
 ---
 

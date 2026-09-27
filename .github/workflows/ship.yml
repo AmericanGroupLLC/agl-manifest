@@ -209,6 +209,11 @@ jobs:
           fi
 
       - uses: actions/upload-artifact@v4
+        # Even when the shard failed. Shard 1 of run 36304281088 lost yourtube's
+        # failure detail entirely because this step is normally skipped after a
+        # failing step — so the one artefact that explains the failure is the
+        # one that does not survive it.
+        if: always()
         with:
           name: android-bundles-${{ matrix.shard }}
           path: |

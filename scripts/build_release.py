@@ -308,6 +308,37 @@ def bundle_fingerprint(aab: pathlib.Path) -> str | None:
     return m.group(1).replace(":", "").upper() if m else None
 
 
+def _reclaim_if_tight(threshold_gb: int = 12) -> str | None:
+    """Drop Gradle's reusable caches when the disk is running out.
+
+    build_release.py already deletes each app's build tree, but ~/.gradle grows
+    across apps and nothing was pruning it. In run 36304281088 shard 1 started
+    with about 20 GB free and was down to 7 GB by its eighth app, which then
+    failed. The caches are pure derived data — dropping them costs a slower
+    next build, which is strictly better than losing one.
+    """
+    try:
+        free_gb = shutil.disk_usage(str(ROOT)).free // 2**30
+    except OSError:
+        return None
+    if free_gb >= threshold_gb:
+        return None
+    freed = []
+    for d in (pathlib.Path.home() / ".gradle/caches/build-cache-1",
+              pathlib.Path.home() / ".gradle/caches/transforms-3",
+              pathlib.Path.home() / ".gradle/caches/transforms-4",
+              pathlib.Path.home() / ".gradle/daemon"):
+        if d.exists():
+            shutil.rmtree(d, ignore_errors=True)
+            freed.append(d.name)
+    try:
+        now_gb = shutil.disk_usage(str(ROOT)).free // 2**30
+    except OSError:
+        now_gb = free_gb
+    return (f"reclaimed {', '.join(freed) or 'nothing'} at {free_gb}G free "
+            f"-> {now_gb}G") if freed else None
+
+
 def _machine_state() -> str:
     """Free disk and memory, for the log.
 
@@ -364,8 +395,20 @@ def build_one(app: dict, entry: dict | None, timeout: int,
         # so the app is signable even though the registry says nothing. Treating
         # that as NO_KEYSTORE silently produced debug-signed bundles that Play
         # rejects only at upload, which is the slowest possible way to find out.
-        if (d / "android/key.properties").exists():
+        props = d / "android/key.properties"
+        if props.exists():
             rec["signing_source"] = "key.properties from materialise_signing.py"
+            # A few apps do not read android/key.properties at all: their
+            # build.gradle.kts takes -PkeyPropertiesFile or an env var, and
+            # writing the file next to them achieves nothing. Locally
+            # write_key_properties() sets that variable; on the CI path it is
+            # skipped, so FashionFactory built with no release signingConfig
+            # and Gradle fell through to the debug key — caught as
+            # SIGNATURE_MISMATCH in run 36304281088 rather than at upload.
+            env_var = ENV_KEY_PROPERTIES.get(app["repo"])
+            if env_var:
+                os.environ[env_var] = str(props)
+                rec["signing_source"] += f" via ${env_var}"
         else:
             rec["result"] = "NO_KEYSTORE"
             rec["detail"] = "no upload keystore exists for this app yet"
@@ -532,6 +575,9 @@ def main() -> int:
         if evidence_path.exists() else {}
 
     for i, app in enumerate(apps, 1):
+        note = _reclaim_if_tight()
+        if note:
+            print(f"  {note}", flush=True)
         print(f"[{i}/{len(apps)}] {app['repo']} ... ", end="", flush=True)
         state = _machine_state()
         try:
