@@ -16,7 +16,7 @@ creating AdMob apps, upload keys or store records.
 | Not ported yet | 0 |
 | Serving ads | 11 |
 | App Store record matching a live bundle id | 38 |
-| Upload keystores loaded into this repo's secrets | 30 |
+| Upload keystores loaded into this repo's secrets | 43 |
 | Firebase config present | 43 of 43 |
 | Binary anyone can download | 39 |
 | Signed release bundle, verified against its upload key | 43 of 43 |
@@ -232,20 +232,20 @@ a keystore with Play App Signing off and that app can never be updated again.**
 
 | # | App | google-services.json | GoogleService-Info.plist | Keystore |
 | --: | --- | --- | --- | --- |
-| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 4 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 5 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
-| 6 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 5 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 6 | [ApexMarketWatch](https://github.com/AmericanGroupLLC/ApexMarketWatch) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 7 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 8 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
-| 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | **missing** |
+| 8 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 11 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `mobile/codedeal_app/android/app/google-services.json` | `mobile/codedeal_app/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `mobile/codedeal_app/android/app/google-services.json` | `mobile/codedeal_app/ios/Runner/GoogleService-Info.plist` | loaded |
 | 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | **missing** |
+| 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
@@ -254,22 +254,22 @@ a keystore with Play App Signing off and that app can never be updated again.**
 | 20 | [HomeWise](https://github.com/AmericanGroupLLC/HomeWise) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 21 | [iMaps](https://github.com/AmericanGroupLLC/iMaps) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 22 | [iMeasure](https://github.com/AmericanGroupLLC/iMeasure) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 23 | [Kinnav](https://github.com/AmericanGroupLLC/Kinnav) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | **missing** |
+| 23 | [Kinnav](https://github.com/AmericanGroupLLC/Kinnav) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 24 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 25 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 25 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 26 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 27 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 28 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 29 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
-| 30 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `flutter-mobile-app/android/app/google-services.json` | `flutter-mobile-app/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 30 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `flutter-mobile-app/android/app/google-services.json` | `flutter-mobile-app/ios/Runner/GoogleService-Info.plist` | loaded |
 | 31 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 32 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 33 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
-| 34 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 33 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
+| 34 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 35 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 36 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 37 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
-| 38 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | **missing** |
+| 38 | [TripNest](https://github.com/AmericanGroupLLC/TripNest) | `mobile/android/app/google-services.json` | `mobile/ios/Runner/GoogleService-Info.plist` | loaded |
 | 39 | [Uscis-Case](https://github.com/AmericanGroupLLC/Uscis-Case) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 40 | [Verba](https://github.com/AmericanGroupLLC/Verba) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
 | 41 | [VirtuBand](https://github.com/AmericanGroupLLC/VirtuBand) | `android/app/google-services.json` | `ios/Runner/GoogleService-Info.plist` | loaded |
@@ -301,4 +301,4 @@ Everything here needs an account this repository does not have.
 | 8 | Privacy policy + support URLs | Your hosting | Both listings | templated; the pages must exist |
 
 Already done and verified: the App Store Connect key and its issuer id, both
-confirmed against the live API, and 30 upload keystores loaded here.
+confirmed against the live API, and 43 upload keystores loaded here.
