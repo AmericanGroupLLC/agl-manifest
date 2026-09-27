@@ -477,6 +477,9 @@ def main() -> int:
     ap.add_argument("--timeout", type=int, default=2400)
     ap.add_argument("--kind", choices=("aab", "apk"), default="aab",
                     help="aab for Play upload; apk for sideloading and manual testing")
+    ap.add_argument("--shard", metavar="I/N",
+                    help="build only shard I of N (1-based), so 43 apps can be "
+                         "split across parallel jobs instead of one 5-hour run")
     ap.add_argument("--keep-build", action="store_true",
                     help="do not delete the build tree afterwards (needs ~1-4 GB per app)")
     args = ap.parse_args()
@@ -496,9 +499,35 @@ def main() -> int:
             print(f"unknown apps: {', '.join(sorted(missing))}", file=sys.stderr)
             return 2
 
+    if args.shard:
+        try:
+            i, n = (int(x) for x in args.shard.split("/", 1))
+        except ValueError:
+            print(f"--shard wants I/N, got {args.shard!r}", file=sys.stderr)
+            return 2
+        if not 1 <= i <= n:
+            print(f"--shard {args.shard} is out of range", file=sys.stderr)
+            return 2
+        # Round-robin rather than contiguous slices: the apps are in name order
+        # and the slow ones are not evenly spread, so contiguous blocks would
+        # leave one job running long after the rest had finished.
+        apps = [a for k, a in enumerate(apps) if k % n == i - 1]
+        print(f"shard {i}/{n}: {len(apps)} app(s) — "
+              f"{', '.join(a['repo'] for a in apps)}")
+        if not apps:
+            print("nothing in this shard")
+            return 0
+
     # Kept in separate files so building APKs cannot overwrite the record of the
     # bundles that are going to the store.
     evidence_path = EVIDENCE if args.kind == "aab" else EVIDENCE.with_name("build-evidence-apk.json")
+    if args.shard:
+        # One file per shard. Six parallel jobs all writing build-evidence.json
+        # and then uploading it would merge down to whichever finished last,
+        # so five shards' results would vanish. scripts/merge_build_evidence.py
+        # puts them back together.
+        evidence_path = evidence_path.with_name(
+            f"{evidence_path.stem}-shard{args.shard.split('/')[0]}.json")
     records = {r["repo"]: r for r in json.loads(evidence_path.read_text())} \
         if evidence_path.exists() else {}
 
