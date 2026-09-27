@@ -40,14 +40,24 @@ def secret_name(app: str) -> str:
 # only ANDROID_KEYSTORE_CONFIG, so every app reported "no keystore" and would
 # have produced debug-signed bundles that Play rejects at upload.
 #
-# The workflow now hands over `toJSON(secrets)` as ALL_SECRETS instead, so a new
-# app needs no workflow edit. A directly-set variable still wins, which keeps a
-# local run working with nothing but an exported KEYSTORE_<APP>_BASE64.
+# The workflow hands over `toJSON(secrets)` instead, so a new app needs no
+# workflow edit. It arrives as a FILE, not a variable: with all 43 keystores
+# present the JSON is a few hundred kilobytes, and putting that in the process
+# environment made every shard die before it started with
+# "An error occurred trying to start process '/usr/bin/bash' ... Argument list
+# too long" (run 36311877819). ALL_SECRETS is still read for small cases, and a
+# directly-set variable still wins, so a local run needs nothing but an
+# exported KEYSTORE_<APP>_BASE64.
 def secret_value(name: str) -> str:
     direct = os.environ.get(name, "").strip()
     if direct:
         return direct
-    blob = os.environ.get("ALL_SECRETS", "").strip()
+    blob = ""
+    path = os.environ.get("ALL_SECRETS_FILE", "").strip()
+    if path and pathlib.Path(path).exists():
+        blob = pathlib.Path(path).read_text().strip()
+    else:
+        blob = os.environ.get("ALL_SECRETS", "").strip()
     if not blob:
         return ""
     try:

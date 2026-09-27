@@ -150,10 +150,21 @@ jobs:
       - name: Materialise per-app signing material
         env:
           ANDROID_KEYSTORE_CONFIG: ${{ secrets.ANDROID_KEYSTORE_CONFIG }}
-          # Every KEYSTORE_<APP>_BASE64 at once. Naming them one by one meant a
-          # new app was unsigned until someone remembered to edit this file.
-          ALL_SECRETS: ${{ toJSON(secrets) }}
-        run: python3 scripts/materialise_signing.py --apps "${{ needs.resolve.outputs.apps }}" --out "$RUNNER_TEMP"
+        run: |
+          # Every KEYSTORE_<APP>_BASE64 at once: naming them one by one meant a
+          # new app stayed unsigned until someone remembered to edit this file.
+          # Written to a file, not an env var - with all 43 keystores the JSON
+          # is a few hundred kilobytes, and in the environment it exceeded the
+          # exec limit, so every shard died before running a single step with
+          # "Argument list too long".
+          umask 077
+          cat > "$RUNNER_TEMP/all-secrets.json" <<'AGL_SECRETS_EOF'
+          ${{ toJSON(secrets) }}
+          AGL_SECRETS_EOF
+          ALL_SECRETS_FILE="$RUNNER_TEMP/all-secrets.json" \
+            python3 scripts/materialise_signing.py \
+              --apps "${{ needs.resolve.outputs.apps }}" --out "$RUNNER_TEMP"
+          rm -f "$RUNNER_TEMP/all-secrets.json"
 
       - name: Resolve the app list
         id: list
