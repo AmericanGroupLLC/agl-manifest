@@ -84,12 +84,12 @@ that an `.ipa` builds. It has never been attempted.
 
 ## P2 · `radiotune` has two names
 
-The product is "Ratio Tune" in the README, the pubspec (`ratio_tune`) and the
+The product is "Radio Tune" in the README, the pubspec (`ratio_tune`) and the
 iOS `CFBundleDisplayName`. The repository and the Android `applicationId` say
 `radiotune` (`com.americangroup.radiotune`), after a commit that fixed what was
 recorded as a bundle-id typo.
 
-Android's `app_name` was set to "Ratio Tune" to match the majority rather than
+Android's `app_name` was set to "Radio Tune" to match the majority rather than
 invent a fourth spelling, but one of the two has to give. Choosing is a product
 decision, and it is cheap **only until a store record exists** — an
 `applicationId` cannot be changed afterwards.

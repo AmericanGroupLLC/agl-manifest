@@ -3809,7 +3809,7 @@
     "android_backup_rules": false,
     "ios_admob_id": "ca-app-pub-3940256099942544~1458002511",
     "ios_scene_manifest": false,
-    "ios_bundle_display_name": "Ratio Tune",
+    "ios_bundle_display_name": "Radio Tune",
     "ios_usage_descriptions": [
       "NSBluetoothAlwaysUsageDescription",
       "NSBluetoothPeripheralUsageDescription",

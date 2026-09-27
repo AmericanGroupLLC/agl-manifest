@@ -53,7 +53,7 @@ longer form to fall back on.
 | MyHealth: Fitness Tracker | `com.americangroupllc.myhealth` | `myhealth-001` | 1.0.0 | Health & Fitness |
 | PlantPulse | `com.americangroupllc.plantpulse` | `plantpulse-001` | 1.0.0 | Utilities |
 | Portfolio Board | `com.americangroupllc.portfolioboard` | `portfolioboard-001` | 1.0.0 | Productivity |
-| Ratio Tune: Live Radio | `com.americangroupllc.radiotune` | `radiotune-001` | 2.0.1 | Music |
+| Radio Tune: Live Radio | `com.americangroupllc.radiotune` | `radiotune-001` | 2.0.1 | Music |
 | Verba: Voice Translator | `com.americangroupllc.verba` | `verba-001` | 1.0.0 | Education |
 | YourTube: Watch & Discover | `com.americangroupllc.yourtube` | `yourtube-001` | 1.0.2 | Entertainment |
 
@@ -198,7 +198,7 @@ serves the marketing homepage for any unknown path.
   `portfolio-board/fastlane/metadata/en-US/`, and screenshots in
   `agl-manifest/store/graphics/portfolio-board/screenshots/`.
 
-### Ratio Tune: Live Radio
+### Radio Tune: Live Radio
 
 * **Bundle ID** `com.americangroupllc.radiotune`  ·  **SKU** `radiotune-001`  ·  **Version** 2.0.1
 * **Subtitle** (26/30) — 50,000+ stations worldwide

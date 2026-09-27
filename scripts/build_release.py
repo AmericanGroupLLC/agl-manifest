@@ -60,7 +60,22 @@ AUDIT = MANIFEST / "docs/release-readiness.json"
 SECRETS = ROOT / ".secrets"
 KEYSTORES = SECRETS / "keystores.json"
 FLUTTER = ROOT / ".flutter-sdk/bin/flutter"
-KEYTOOL = "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/keytool"
+def _tool(env: str, local: str, on_path: str) -> str:
+    """Pick a build tool: an explicit override, this Mac's install, then PATH.
+
+    The local install is preferred over PATH deliberately. macOS ships a
+    /usr/bin/keytool stub that resolves ahead of the real Corretto JDK, so
+    taking PATH first would have quietly changed which keytool local builds
+    use — and keytool is what decides whether a bundle is declared signed.
+    """
+    return os.environ.get(env) or (local if pathlib.Path(local).exists() else "") \
+        or shutil.which(on_path) or local
+
+
+KEYTOOL = _tool(
+    "AGL_KEYTOOL",
+    "/Library/Java/JavaVirtualMachines/amazon-corretto-17.jdk/Contents/Home/bin/keytool",
+    "keytool")
 EVIDENCE = MANIFEST / "docs/build-evidence.json"
 
 # Bundles are collected here and the build tree is then deleted. A Flutter
@@ -184,8 +199,37 @@ def write_key_properties(app_dir: pathlib.Path, entry: dict,
     return p
 
 
-def keystore_fingerprint(entry: dict) -> str | None:
-    ks = SECRETS / "keystores" / pathlib.Path(entry["keystore"]).name
+def keystore_fingerprint(entry: dict | None,
+                         app_dir: pathlib.Path | None = None) -> str | None:
+    """The certificate the app is *supposed* to be signed with.
+
+    With no local registry — every CI run — the answer is in the
+    android/key.properties that materialise_signing.py wrote from the secret,
+    which names the keystore, its password and the alias. Reading it there
+    keeps the comparison honest instead of skipping it, and skipping it is what
+    lets a debug-signed bundle reach an upload.
+    """
+    if entry is None:
+        if app_dir is None:
+            return None
+        props = app_dir / "android/key.properties"
+        if not props.exists():
+            return None
+        kv = {}
+        for line in props.read_text().splitlines():
+            if "=" in line:
+                k, _, v = line.partition("=")
+                kv[k.strip()] = v.strip()
+        entry = {"keystore": kv.get("storeFile", ""),
+                 "storePassword": kv.get("storePassword", ""),
+                 "alias": kv.get("keyAlias", "")}
+        ks = pathlib.Path(entry["keystore"])
+        if not ks.is_absolute():
+            ks = app_dir / "android" / ks
+    else:
+        ks = SECRETS / "keystores" / pathlib.Path(entry["keystore"]).name
+    if not ks.exists():
+        return None
     out = subprocess.run(
         [KEYTOOL, "-list", "-v", "-keystore", str(ks),
          "-storepass", entry["storePassword"], "-alias", entry["alias"]],
@@ -195,7 +239,10 @@ def keystore_fingerprint(entry: dict) -> str | None:
     return m.group(1).replace(":", "") if m else None
 
 
-APKSIGNER = "/Users/spatchava/Library/Android/sdk/build-tools/34.0.0/apksigner"
+APKSIGNER = _tool(
+    "AGL_APKSIGNER",
+    "/Users/spatchava/Library/Android/sdk/build-tools/34.0.0/apksigner",
+    "apksigner")
 
 
 def apk_fingerprint(apk: pathlib.Path) -> str | None:
@@ -238,12 +285,24 @@ def build_one(app: dict, entry: dict | None, timeout: int,
     rec: dict = {"repo": app["repo"], "app_dir": app["app_dir"]}
 
     if entry is None:
-        rec["result"] = "NO_KEYSTORE"
-        rec["detail"] = "no upload keystore exists for this app yet"
-        return rec
+        # Two different "no entry" cases. On a runner there is no local
+        # .secrets/keystores.json registry at all: materialise_signing.py has
+        # already decoded the per-app secret and written android/key.properties,
+        # so the app is signable even though the registry says nothing. Treating
+        # that as NO_KEYSTORE silently produced debug-signed bundles that Play
+        # rejects only at upload, which is the slowest possible way to find out.
+        if (d / "android/key.properties").exists():
+            rec["signing_source"] = "key.properties from materialise_signing.py"
+        else:
+            rec["result"] = "NO_KEYSTORE"
+            rec["detail"] = "no upload keystore exists for this app yet"
+            return rec
+    else:
+        rec["signing_source"] = "local .secrets/keystores.json"
 
     try:
-        write_key_properties(d, entry, app["repo"])
+        if entry is not None:
+            write_key_properties(d, entry, app["repo"])
     except FileNotFoundError as e:
         rec["result"] = "NO_KEYSTORE"
         rec["detail"] = f"keystore file missing: {e}"
@@ -300,7 +359,7 @@ def build_one(app: dict, entry: dict | None, timeout: int,
     rec["bytes"] = aab.stat().st_size
     rec["sha256"] = hashlib.sha256(aab.read_bytes()).hexdigest()
 
-    want_fp = keystore_fingerprint(entry)
+    want_fp = keystore_fingerprint(entry, d)
     got_fp = apk_fingerprint(aab) if kind == "apk" else bundle_fingerprint(aab)
     rec["keystore_sha256"] = want_fp
     rec["signer_sha256"] = got_fp
@@ -349,7 +408,12 @@ def main() -> int:
                     help="do not delete the build tree afterwards (needs ~1-4 GB per app)")
     args = ap.parse_args()
 
-    keystores = json.loads(KEYSTORES.read_text())
+    # Absent on a runner by design — the keystores live in repository secrets
+    # there, not in a file. An empty registry is not an error.
+    keystores = json.loads(KEYSTORES.read_text()) if KEYSTORES.exists() else {}
+    if not keystores:
+        print(f"no local keystore registry at {KEYSTORES}; relying on "
+              f"android/key.properties written from secrets")
     apps = app_list()
     if args.apps:
         wanted = set(args.apps)

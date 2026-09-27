@@ -25,7 +25,7 @@ for the single Apple sign-in that lets a script create the Apple side.
 | Verba: Voice Translator | `com.americangroupllc.verba` | verba-001 | 1.0.0 | Education | needed | needed |
 | iMeasure: Measure & Level | `com.americangroupllc.imeasure` | imeasure-001 | 5.0.1 | Utilities | needed | — |
 | Portfolio Board | `com.americangroupllc.portfolioboard` | portfolioboard-001 | 1.0.0 | Productivity | needed | needed |
-| Ratio Tune: Live Radio | `com.americangroupllc.radiotune` | radiotune-001 | 2.0.1 | Music | needed | — |
+| Radio Tune: Live Radio | `com.americangroupllc.radiotune` | radiotune-001 | 2.0.1 | Music | needed | — |
 | YourTube: Watch & Discover | `com.americangroupllc.yourtube` | yourtube-001 | 1.0.2 | Entertainment | needed | — |
 
 Apple: 13 to create, 30 already exist.

@@ -45,9 +45,9 @@ TITLE = re.compile(r"<title>([^<]*)</title>", re.I)
 
 
 def _norm(s: str) -> str:
-    """Lowercase, alphanumerics only - so "Ratio Tune", "ratiotune" and
+    """Lowercase, alphanumerics only - so "Radio Tune", "ratiotune" and
     "Uscis-Case" all compare on equal terms. Entities are decoded first, or
-    "Support &middot; Ratio Tune" contributes a literal "middot".
+    "Support &middot; Radio Tune" contributes a literal "middot".
     """
     return re.sub(r"[^a-z0-9]", "", html.unescape(s).lower())
 
@@ -55,8 +55,8 @@ def _norm(s: str) -> str:
 def _same_app(identities: set[str], title: str) -> bool:
     """Whether a page title belongs to one of this app's names.
 
-    Containment alone is not enough. The store name is "Ratio Tune: Live Radio"
-    and the page is titled "Ratio Tune - Privacy Policy" — neither contains the
+    Containment alone is not enough. The store name is "Radio Tune: Live Radio"
+    and the page is titled "Radio Tune - Privacy Policy" — neither contains the
     other, but they share a leading name. So accept containment either way, or
     a common prefix long enough not to collide across a 43-app portfolio.
     """
@@ -68,8 +68,8 @@ def _same_app(identities: set[str], title: str) -> bool:
             continue
         if ident in page or page.startswith(ident):
             return True
-        # The name often sits at the end: "Support - Ratio Tune". The store
-        # name is longer ("Ratio Tune: Live Radio"), so look for its leading
+        # The name often sits at the end: "Support - Radio Tune". The store
+        # name is longer ("Radio Tune: Live Radio"), so look for its leading
         # name inside the title too.
         if len(ident) >= 9 and ident[:9] in page:
             return True
@@ -116,7 +116,7 @@ def main() -> int:
         slug = m.get("slug", repo.lower())
         # Match the page against every name this app is known by, not just the
         # slug. Uscis-Case ships as "Case Tracker for USCIS" and radiotune as
-        # "Ratio Tune", so a slug-only comparison called four correct pages
+        # "Radio Tune", so a slug-only comparison called four correct pages
         # wrong.
         en = (m.get("copy") or {}).get("en") or {}
         names = {slug, repo, en.get("name") or "", en.get("title") or ""}

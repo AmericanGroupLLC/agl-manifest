@@ -670,7 +670,7 @@ Apple for every old and new bundle id now returns exactly one collision:
 
 | App | Stale record still holding the name |
 | --- | --- |
-| radiotune | `com.americangroup.radiotune` — "Ratio Tune: Live Radio" |
+| radiotune | `com.americangroup.radiotune` — "Radio Tune: Live Radio" |
 
 The other twelve simply have no record and can be created directly. Apple holds
 35 records in total, 30 of them bound to a current `com.americangroupllc.*`
