@@ -1063,3 +1063,32 @@ needs. This matches the App Store Connect and Play Console behaviour in
 **What unblocks it.** Either AdMob write access for pub-8528784688453695, after
 which `python3 scripts/admob_setup.py` creates all 86 and writes the ids into
 `docs/admob-ids.json`; or the apps are added by hand in the AdMob console.
+
+## MA-028 — Every App Store rejection is the same one, and it is not a bug
+
+All 20 rejected apps carry an identical Guideline 2.1 notice, read out of
+Resolution Center on 2026-09-27:
+
+> This app has been submitted by a developer account that has a limited App
+> Review history. We need additional information to better understand the app
+> and complete the review.
+
+Nothing was rejected for a defect. Apple asks a new account for five things and
+says to put them in the Notes field of App Review Information.
+
+**Four are now written, for all 38 apps with a record**, by
+`scripts/testflight/review_notes.rb`, from facts this repository already holds
+rather than prose invented per app: the purpose and audience from the store
+copy, how to reach the main features and whether a login exists from each app's
+auth configuration, the external services from its own pubspec, and regional
+differences from how many locales it ships.
+
+**The fifth cannot be scripted.** Apple wants a screen recording made on a
+physical device, starting at launch and showing the typical user flow, plus
+account creation, deletion and any user-generated content where those exist.
+That is one recording per app, attached as a reply in Resolution Center.
+
+Reading the reasons at all needed the `iris` host and an Apple ID session: an
+API key gets 404 on `v1/resolutionCenterThreads`, and a rejected submission
+otherwise reports only its state with no text. `rejection_reasons.rb` does this
+and writes `~/agl/.dist/rejections.json`.
