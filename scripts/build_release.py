@@ -317,17 +317,34 @@ def _reclaim_if_tight(threshold_gb: int = 12) -> str | None:
     failed. The caches are pure derived data — dropping them costs a slower
     next build, which is strictly better than losing one.
     """
+    # Only on a throwaway machine. These caches are re-downloadable, but on a
+    # development machine re-downloading them is minutes of someone's day, and
+    # a function that deletes ~/.gradle should not be one bad argument away
+    # from doing it there. AGL_ALLOW_CACHE_RECLAIM=1 forces it for testing.
+    if not (os.environ.get("CI") or os.environ.get("AGL_ALLOW_CACHE_RECLAIM")):
+        return None
     try:
         free_gb = shutil.disk_usage(str(ROOT)).free // 2**30
     except OSError:
         return None
     if free_gb >= threshold_gb:
         return None
+    # Globbed, not named: the first version listed transforms-3/transforms-4
+    # explicitly, neither existed on the runner, and it reported "reclaimed
+    # daemon at 6G free -> 6G" — it had freed nothing while looking like it
+    # had. Gradle moves these directories between versions.
+    home = pathlib.Path.home()
+    targets: list[pathlib.Path] = [home / ".gradle/daemon"]
+    caches = home / ".gradle/caches"
+    if caches.is_dir():
+        for child in caches.iterdir():
+            if child.is_dir() and (child.name.startswith(("build-cache", "transforms"))
+                                   or child.name == "modules-2"):
+                targets.append(child)
+            elif child.is_dir():
+                targets += [g for g in child.glob("transforms*") if g.is_dir()]
     freed = []
-    for d in (pathlib.Path.home() / ".gradle/caches/build-cache-1",
-              pathlib.Path.home() / ".gradle/caches/transforms-3",
-              pathlib.Path.home() / ".gradle/caches/transforms-4",
-              pathlib.Path.home() / ".gradle/daemon"):
+    for d in targets:
         if d.exists():
             shutil.rmtree(d, ignore_errors=True)
             freed.append(d.name)
@@ -335,8 +352,8 @@ def _reclaim_if_tight(threshold_gb: int = 12) -> str | None:
         now_gb = shutil.disk_usage(str(ROOT)).free // 2**30
     except OSError:
         now_gb = free_gb
-    return (f"reclaimed {', '.join(freed) or 'nothing'} at {free_gb}G free "
-            f"-> {now_gb}G") if freed else None
+    return (f"reclaimed {len(freed)} cache dir(s) at {free_gb}G free -> {now_gb}G"
+            if freed else f"nothing to reclaim at {free_gb}G free")
 
 
 def _machine_state() -> str:

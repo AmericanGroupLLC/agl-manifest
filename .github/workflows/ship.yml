@@ -188,11 +188,17 @@ jobs:
       - name: Make room for the build
         run: |
           echo "before:"; df -h /; free -m | head -2
-          # NOT $AGENT_TOOLSDIRECTORY: that is /opt/hostedtoolcache, which is
-          # where setup-agl just installed Flutter. Deleting it freed 20 GB and
-          # then failed the build with "No such file or directory: .../flutter".
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk/ndk \
-                      /opt/ghc /usr/local/share/boost /usr/share/swift || true
+          # Two things here are load-bearing by their absence:
+          #   $AGENT_TOOLSDIRECTORY is /opt/hostedtoolcache, where setup-agl
+          #     just installed Flutter. Deleting it freed 20 GB and then failed
+          #     the build with "No such file or directory: .../flutter".
+          #   .../android/sdk/ndk is needed by apps with native code. Deleting
+          #     it did not save anything either: Gradle simply re-downloaded
+          #     "Install NDK (Side by side) 27.0.12077973" mid-build, spending
+          #     the disk again plus several minutes.
+          sudo rm -rf /usr/share/dotnet /opt/ghc /usr/local/share/boost \
+                      /usr/share/swift /usr/local/share/powershell \
+                      /usr/local/share/chromium /usr/local/lib/node_modules || true
           sudo apt-get clean || true
           echo "after:"; df -h /; free -m | head -2
 
@@ -202,10 +208,16 @@ jobs:
           # machine it does not have, and keeps no daemon alive between apps -
           # a leftover daemon holding a few GB is what makes the *second* app
           # fail rather than the first.
+          # The runner has 7.9 GB total. yourtube died with "Could not receive
+          # a message from the daemon" - the daemon was killed, which on a
+          # hosted runner means the kernel reclaimed it. Gradle at 3 GB plus a
+          # Kotlin daemon at its 2 GB default plus the Dart and NDK toolchains
+          # is over budget, so both are capped and the total left with headroom.
           GRADLE_OPTS: >-
-            -Dorg.gradle.jvmargs=-Xmx3g
+            -Dorg.gradle.jvmargs=-Xmx2500m
             -Dorg.gradle.daemon=false
             -Dorg.gradle.workers.max=2
+            -Dkotlin.daemon.jvmargs=-Xmx1200m
         run: |
           # An explicit app list is already small enough to build in one job,
           # so only shard the "all" case — otherwise asking for three apps
