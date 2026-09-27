@@ -308,6 +308,34 @@ def bundle_fingerprint(aab: pathlib.Path) -> str | None:
     return m.group(1).replace(":", "").upper() if m else None
 
 
+def _machine_state() -> str:
+    """Free disk and memory, for the log.
+
+    Run 36300502870 built AGCleaner cleanly and then died during AGRecorder
+    with exit 143 — SIGTERM, no stderr, nothing on stdout. That is what a
+    runner running out of memory or disk looks like from inside the process,
+    and neither could be told apart afterwards because nothing recorded the
+    machine's state. Now it does, per app.
+    """
+    bits = []
+    try:
+        du = shutil.disk_usage(str(ROOT))
+        bits.append(f"disk {du.free // 2**30}G free of {du.total // 2**30}G")
+    except OSError:
+        pass
+    meminfo = pathlib.Path("/proc/meminfo")
+    if meminfo.exists():
+        vals = {}
+        for line in meminfo.read_text().splitlines():
+            k, _, v = line.partition(":")
+            vals[k] = v.strip().split(" ")[0]
+        avail = int(vals.get("MemAvailable", 0)) // 1024
+        total = int(vals.get("MemTotal", 0)) // 1024
+        if total:
+            bits.append(f"mem {avail}M available of {total}M")
+    return ", ".join(bits) or "unknown"
+
+
 def _rel(path: pathlib.Path) -> str:
     """A short path for the evidence file, without assuming a common root.
 
@@ -476,6 +504,7 @@ def main() -> int:
 
     for i, app in enumerate(apps, 1):
         print(f"[{i}/{len(apps)}] {app['repo']} ... ", end="", flush=True)
+        state = _machine_state()
         try:
             rec = build_one(app, keystores.get(app["repo"]), args.timeout,
                             args.keep_build, args.kind)
@@ -484,8 +513,9 @@ def main() -> int:
                    "result": "TIMEOUT", "detail": f"exceeded {args.timeout}s"}
         rec["built_at"] = time.strftime("%Y-%m-%dT%H:%M:%S%z")
         records[app["repo"]] = rec
+        rec["machine_before"] = state
         extra = f" ({rec['seconds']}s)" if rec.get("seconds") else ""
-        print(rec["result"] + extra)
+        print(f"{rec['result']}{extra}  [before: {state}]")
         evidence_path.write_text(json.dumps(sorted(records.values(), key=lambda r: r["repo"]), indent=2) + "\n")
 
     # Count what THIS run produced. `records` carries every app ever built,

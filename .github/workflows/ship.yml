@@ -160,7 +160,29 @@ jobs:
           fi
         env:
           SPEC: ${{ needs.resolve.outputs.apps }}
+      # A hosted runner has ~7 GB of RAM and ~14 GB free after the toolchain,
+      # and a Flutter release tree is 0.5-4 GB. Run 36300502870 built one app
+      # cleanly and then took a bare SIGTERM (exit 143, no stderr) partway
+      # through the second, which is what exhausting either looks like from
+      # inside the process. Reclaim what the image ships and does not need.
+      - name: Make room for the build
+        run: |
+          echo "before:"; df -h /; free -m | head -2
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android/sdk/ndk \
+                      /opt/ghc /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true
+          sudo apt-get clean || true
+          echo "after:"; df -h /; free -m | head -2
+
       - name: Build every bundle and prove it is signed
+        env:
+          # Caps the Gradle daemon rather than letting it size itself against a
+          # machine it does not have, and keeps no daemon alive between apps -
+          # a leftover daemon holding a few GB is what makes the *second* app
+          # fail rather than the first.
+          GRADLE_OPTS: >-
+            -Dorg.gradle.jvmargs=-Xmx3g
+            -Dorg.gradle.daemon=false
+            -Dorg.gradle.workers.max=2
         run: python3 scripts/build_release.py ${{ steps.list.outputs.names }}
 
       - uses: actions/upload-artifact@v4
