@@ -1135,3 +1135,33 @@ safety, set the deletion URL to
 `https://www.safecodeg.com/policy/<slug>/delete-account.html` (slugs are in
 `scripts/policy_pages.py`). Use the `.html` form even after the rewrite deploys;
 it is the one proven to serve real content.
+
+---
+
+## MA-030 · P1 · Deploy the website, or the policy-URL fix is not live
+
+**Both branches of `www.safecodeg.com` are pushed and correct. The site is not
+serving them.** Verified 2026-09-28, after pushing:
+
+```
+https://www.safecodeg.com/policy/imaps/delete-account.html
+  -> 200, 369,371 bytes, 0 redirects      (still the marketing homepage)
+https://www.safecodeg.com/policy/iMaps/delete-account.html
+  -> 200,  11,364 bytes                   (the real page, unchanged)
+```
+
+`main` is at `95b13f6` and `deploy` at `0c20820`, both carrying 41 rewrite
+rules that make every miscased or aliased policy URL 301 to the canonical
+slug. Pushing to `deploy` does not publish: `.cpanel.yml` only chmods files
+after a checkout, and the checkout is triggered from the cPanel UI.
+
+**Required:** cPanel → Git Version Control → the `safecodeg` repository →
+**Deploy HEAD Commit**.
+
+Then re-check the first URL above. It should answer 301 to
+`/policy/iMaps/delete-account.html` and end at 11,364 bytes. If it still
+returns 369,371, the deploy did not run — do not take a 200 as success on this
+host, it serves the homepage for every unmatched path.
+
+This gates MA-029: pasting the new deletion URLs into Play's Data safety form
+is only worth doing once the URLs a reviewer might try actually resolve.
