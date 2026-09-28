@@ -275,7 +275,11 @@ them; the previous build inventory is in
 
 ---
 
-## MA-009 · Play: 23 of 43 have a bundle — 14 need an app entry, 6 need an upload-key reset
+## MA-009 · Play: 30 of 43 have a bundle — 7 need an app entry, 6 need an upload-key reset
+
+**Re-measured 2026-09-28 against Play, not carried forward.** 30 HAS_BUNDLE,
+6 LISTING_EMPTY (all six blocked on the upload key, below), 7 NO_LISTING.
+The earlier figures — 23 with a bundle and 14 needing an entry — are stale.
 
 **Re-measured 2026-09-21 against the API, not against the local evidence file.**
 `.sweep/play-upload-evidence.json` could not be trusted: a single-app run
@@ -631,7 +635,10 @@ distribution; `scripts/play_internal_share.py` routes around it. CarDeal and
 Kinnav are the two that stayed unreachable, and only because they are still
 Draft apps (MA-022).
 
-## MA-021 — Eleven apps have no Play entry (HUMAN ONLY)
+## MA-021 — Seven apps have no Play entry (HUMAN ONLY)
+
+**Re-measured 2026-09-28: seven, not eleven.** DriftDate, FashionFactory,
+GadgetNest, GroceryMatch, HerJourney, Verba, portfolio-board.
 
 Re-measured 2026-09-22 by opening an edit against every Android package. **32 of
 43 now have a Play entry**; the count was 29 earlier the same day because
@@ -693,7 +700,9 @@ just VirtuBand.
 
 A second, larger problem was found while fixing it: `scripts/policy_pages.py`
 only wrote `delete-account.html` for apps it judged to have accounts, so **27 of
-43 apps had no deletion page at all**. Google validates the URL regardless of
+43 apps had no deletion page at all** — since fixed; all 43 are live, verified
+2026-09-28 by byte length against a nonsense control path and recorded in
+[`deletion-urls.json`](deletion-urls.json). Google validates the URL regardless of
 what the form declares, so the identical strike was queued for all of them. The
 generator now writes one for every app; apps with no sign-in get a page that
 says so and gives the email route rather than describing a button that does not
