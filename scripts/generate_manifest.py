@@ -60,6 +60,33 @@ def _has_description(repo: str) -> bool:
     return bool(english.get("description") or english.get("full_description"))
 
 
+def _default_branches() -> dict[str, str]:
+    """Each repo's default branch, from GitHub rather than from a checkout.
+
+    This used to be `git_branch` — whatever branch the local clone happened to
+    be sitting on. That is not what CI should check out, and it broke badly:
+    every app was pinned to `production-readiness-2026-09-12`, that branch was
+    deleted during the branch consolidation, and the next run died with
+    `fatal: Remote branch production-readiness-2026-09-12 not found in
+    upstream origin` before a single app was analysed.
+
+    Now that each repo has one branch, the default branch is the answer, and
+    asking GitHub means a stale local clone cannot put a dead ref back.
+    """
+    import subprocess
+    try:
+        out = subprocess.run(
+            ["gh", "repo", "list", ORG, "--limit", "200", "--json",
+             "name,defaultBranchRef",
+             "--jq", r'.[] | "\(.name)|\(.defaultBranchRef.name)"'],
+            capture_output=True, text=True, timeout=120)
+        return dict(l.split("|", 1) for l in out.stdout.strip().splitlines() if "|" in l)
+    except Exception as e:
+        print(f"::warning::could not read default branches from GitHub ({e}); "
+              f"falling back to each checkout's current branch")
+        return {}
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", required=True)
@@ -97,13 +124,14 @@ def main() -> None:
     # `gh api repos/<org>/<name>` is not, because it follows redirects.
     moved_out: dict[str, str] = {}
 
+    defaults = _default_branches()
     apps = []
     for r in sorted((x for x in rows if x.get("flutter")), key=lambda x: x["repo"].lower()):
         lanes = r.get("fastlane_lanes") or []
         apps.append({
             "repo": r["repo"],
             "url": f"https://github.com/{ORG}/{r['repo']}.git",
-            "branch": r.get("git_branch") or "main",
+            "branch": defaults.get(r["repo"]) or r.get("git_branch") or "main",
             # Eleven apps keep the Flutter project in a subdirectory; every
             # Flutter and Fastlane command has to run from here.
             "dir": r.get("app_dir", "."),
