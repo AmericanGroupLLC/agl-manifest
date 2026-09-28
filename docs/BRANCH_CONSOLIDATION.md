@@ -1,17 +1,46 @@
 # Branch consolidation — one branch per repo
 
-Goal: every mobile repo on a single branch. Status as of 2026-09-09.
+Goal: every repo on a single branch.
 
-**All 42 mobile apps are now on a single branch.** Kinnav is the one
-exception, and deliberately so: its second branch is `deploy`, which cPanel
-builds the live site from (see below). Of the 44 repos, 41 have exactly one
-branch; the three that do not are Kinnav, `www.safecodeg.com` (both `deploy`)
-and this repo (`main` and the `match-certificates` orphan).
+## Status 2026-09-28
 
-Getting there deleted 51 redundant branches and merged 13 carrying unique work.
-The last four were not merges — they were salvages, because in each case the
-branch was old enough that merging it would have *removed* work the default had
-since gained. Those are recorded below.
+**42 of the 43 mobile apps are on a single branch**, and 43 of the 46 org
+repos are. The exception among the apps is Kinnav, which keeps a `deploy`
+branch that cPanel builds its live site from. The three repos with more than
+one branch are listed below; each is deliberate or pending a decision.
+
+The 2026-09-09 pass (recorded further down) had achieved this once. It came
+back because the production-readiness work all landed on a shared branch,
+`production-readiness-2026-09-12`, which ended up on 44 repos.
+
+What was done this time, and the rule for each:
+
+| Step | Count | Rule |
+| --- | --- | --- |
+| Default fast-forwarded to the work branch, then the branch deleted | 13 | `merge-base --is-ancestor` held, so no merge commit was needed |
+| Work branch deleted, default already identical | 30 | `compare` returned `identical` — deleting loses nothing |
+| `main` deleted where the default was `master` and it held nothing | 2 | AeroSwift, BodyQuest — `ahead=0` |
+| dependabot branches deleted | 7 | Regenerable; dependabot reopens them if still relevant |
+| `main` merged into `dev`, then deleted | 1 | AmericanGroupLLC-Backend — `main` held two real documentation commits, so deleting it would have dropped them |
+
+Nothing was deleted without first asking GitHub to compare it against the
+default in that same pass. Every branch removed was either `identical`,
+`behind`, or a dependabot bump.
+
+### The three repos that still have more than one branch
+
+| Repo | Extra branch | Why it is still there |
+| --- | --- | --- |
+| Kinnav | `deploy` | cPanel builds the live marketing site from it. Contains `.cpanel.yml`, `.htaccess` and a built site, with no common ancestor with `master`. Deleting it takes the site down |
+| www.safecodeg.com | `deploy` | Same arrangement for the main website |
+| AmericanGroupLLC-Backend | `match-certificates` | An orphan branch that self-documents as `fastlane match` storage — "do not merge into dev or main". Currently holds only its README. Unused, because provisioning profiles now come from the App Store Connect API (`scripts/ios_profile_map.rb`), but it is deliberate structure and relates to the unresolved iOS signing certificate. **Decision needed** — it is safe to delete if match is not going to be used |
+
+### Default branch names are not consistent
+
+35 repos use `main`, 10 use `master`, and AmericanGroupLLC-Backend uses `dev`.
+This was left alone: renaming a default branch rewrites clone instructions, CI
+refs and any bookmarked URL, and nothing currently depends on the names
+matching. Worth doing deliberately, not as a side effect of this pass.
 
 ---
 
