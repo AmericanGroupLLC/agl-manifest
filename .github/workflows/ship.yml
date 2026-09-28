@@ -81,19 +81,44 @@ jobs:
           echo "- stops after: \`$stop\`" >> "$GITHUB_STEP_SUMMARY"
 
   validate:
-    name: Analyze and test
+    # Sharded for the same reason the build is. Analysing and testing all 43
+    # apps serially took 60 of the pipeline's 146 minutes, and once the build
+    # was spread over six runners and came in around 50, this was the longest
+    # thing left. Six shards puts it near 10.
+    name: Analyze and test (${{ matrix.shard }}/6)
     needs: resolve
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6]
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-agl
         with:
           token: ${{ secrets.AGL_PACKAGES_TOKEN }}
           flutter-version: ${{ env.FLUTTER_VERSION }}
-      - name: Check out the apps
+      - name: Work out this shard's apps
+        id: shard
+        env:
+          SPEC: ${{ needs.resolve.outputs.apps }}
         run: |
-          python3 scripts/checkout.py --apps "${{ needs.resolve.outputs.apps }}"
+          if [ "$SPEC" != "all" ]; then
+            # Explicit list: shard 1 takes all of it, the rest do nothing.
+            [ "${{ matrix.shard }}" = "1" ] && LIST="$SPEC" || LIST=""
+          else
+            LIST="$(python3 scripts/shard_apps.py '${{ matrix.shard }}/6')"
+          fi
+          echo "list=$LIST" >> "$GITHUB_OUTPUT"
+          echo "shard ${{ matrix.shard }}/6: ${LIST:-<empty>}"
+
+      - name: Check out this shard's apps
+        if: steps.shard.outputs.list != ''
+        run: |
+          # Only this shard's apps. Cloning all 43 on every shard would spend
+          # six times the checkout for no benefit.
+          python3 scripts/checkout.py --apps "${{ steps.shard.outputs.list }}"
           # Say where the apps are rather than letting agl_paths guess. Its
           # heuristic is "does work/ contain at least two app repos", which is
           # right locally and wrong for a single-app run: with only yourtube
@@ -101,8 +126,12 @@ jobs:
           # the workspace parent, and the build reported NO_KEYSTORE for an app
           # whose key.properties had just been written (run 36328390497).
           echo "AGL_ROOT=$GITHUB_WORKSPACE/work" >> "$GITHUB_ENV"
-      - name: Analyze and test every app
-        run: bundle exec fastlane validate apps:"${{ needs.resolve.outputs.apps }}"
+      - name: Analyze and test this shard
+        if: steps.shard.outputs.list != ''
+        # An empty list means "every app" to fastlane, which is why the guard
+        # above is an `if:` and not a shell test — a mistake here validates the
+        # whole portfolio on six runners at once.
+        run: bundle exec fastlane validate apps:"${{ steps.shard.outputs.list }}"
 
   android:
     # Sharded because one job cannot do all 43. A signed bundle takes 6-11
