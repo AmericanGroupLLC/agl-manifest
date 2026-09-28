@@ -23,7 +23,7 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | Question | File |
 | --- | --- |
 | **How do I do anything that calls an API?** | **`docs/API_ACTIONS.md`** — every script, and what the APIs refuse |
-| What is the state of every app? | **`status.csv`** — the single sheet: 43 rows x 225 columns. Every identifier, artefact, store state, store gate, measured fact, quality signal and per-app check. `STATUS.md` is a rendering of it |
+| What is the state of every app? | **`status.csv`** — the single sheet: one row per app, and column groups `check:`, `measured:`, `gate:`, `quality:`, `i18n:`, `apple:` alongside the store fields. Counts go stale, so it does not quote one. Every identifier, artefact, store state, store gate, measured fact, quality signal and per-app check. `STATUS.md` is a rendering of it |
 | Which apps have a signed binary, and is it really signed? | `docs/build-evidence.json` (generated) |
 | What must a human do that I cannot? | `docs/MANUAL_ACTIONS.md` |
 | What is broken right now? | `docs/KNOWN_ISSUES.md` |
@@ -34,8 +34,10 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | Crash reporting | `docs/CRASHLYTICS.md` |
 | Test file counts per app | the `measured: test_files` column of `status.csv` |
 | Translations | `docs/I18N.md`, `docs/i18n-audit.json` (generated) |
-| Per-app measured facts (63 fields × 43 rows) | `docs/release-readiness.json` |
+| Per-app measured facts (67 fields × 43 rows) | `docs/release-readiness.json` |
 | Per-app store checks, with each check's detail | `docs/store-checklist-detail.json` |
+| What Apple holds: build and review state, per app | `docs/asc-build-state.json`, and the `apple: *` columns of `status.csv` |
+| Verified account-deletion URLs | `docs/deletion-urls.json` |
 
 `STATUS.md`, `status.csv`, `apps.json` and `docs/release-readiness.json` are
 **measured, not maintained**. Do not hand-edit them — change the measuring
