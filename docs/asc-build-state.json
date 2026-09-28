@@ -5,7 +5,8 @@
     "bundle_id": "com.americangroupllc.aeroswift",
     "version": "202609260214",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:19:08-07:00"
+    "uploaded_at": "2026-09-26T02:19:08-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "AGCleaner",
@@ -13,7 +14,8 @@
     "bundle_id": "com.americangroupllc.agcleaner",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:29:05-07:00"
+    "uploaded_at": "2026-09-25T02:29:05-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "AGrammarly",
@@ -21,7 +23,8 @@
     "bundle_id": "com.americangroupllc.agrammarly",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:36:01-07:00"
+    "uploaded_at": "2026-09-25T02:36:01-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "AGRecorder",
@@ -29,7 +32,8 @@
     "bundle_id": "com.americangroupllc.agrecorder",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:43:03-07:00"
+    "uploaded_at": "2026-09-25T02:43:03-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "AGStudio",
@@ -37,7 +41,8 @@
     "bundle_id": "com.americangroupllc.agstudio",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:49:33-07:00"
+    "uploaded_at": "2026-09-25T02:49:33-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "ApexMarketWatch",
@@ -45,7 +50,8 @@
     "bundle_id": "com.americangroupllc.apexmarketwatch",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:56:17-07:00"
+    "uploaded_at": "2026-09-25T02:56:17-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "BodyQuest",
@@ -53,7 +59,8 @@
     "bundle_id": "com.americangroupllc.bodyquest",
     "version": null,
     "processing_state": null,
-    "uploaded_at": null
+    "uploaded_at": null,
+    "review_state": null
   },
   {
     "repo": "BuddyPlay",
@@ -61,7 +68,8 @@
     "bundle_id": "com.americangroupllc.buddyplay",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T03:02:13-07:00"
+    "uploaded_at": "2026-09-25T03:02:13-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "CalcMaster",
@@ -69,7 +77,8 @@
     "bundle_id": "com.americangroupllc.calcmaster",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T03:10:40-07:00"
+    "uploaded_at": "2026-09-25T03:10:40-07:00",
+    "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
     "repo": "CarDeal",
@@ -77,7 +86,8 @@
     "bundle_id": "com.americangroupllc.cardeal",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T03:18:47-07:00"
+    "uploaded_at": "2026-09-25T03:18:47-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "ChefCount",
@@ -85,7 +95,8 @@
     "bundle_id": "com.americangroupllc.chefcount",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T03:26:04-07:00"
+    "uploaded_at": "2026-09-25T03:26:04-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "CodeDeal",
@@ -93,7 +104,8 @@
     "bundle_id": "com.americangroupllc.codedeal",
     "version": "2026091509",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-15T09:43:47-07:00"
+    "uploaded_at": "2026-09-15T09:43:47-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "daily-pulse",
@@ -101,7 +113,8 @@
     "bundle_id": "com.americangroupllc.dailypulse",
     "version": "1",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-23T18:09:12-07:00"
+    "uploaded_at": "2026-09-23T18:09:12-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "DriftDate",
@@ -109,7 +122,8 @@
     "bundle_id": "com.americangroupllc.driftdate",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T04:25:32-07:00"
+    "uploaded_at": "2026-09-25T04:25:32-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "EventSpark",
@@ -117,7 +131,8 @@
     "bundle_id": "com.americangroupllc.eventspark",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T04:46:41-07:00"
+    "uploaded_at": "2026-09-25T04:46:41-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "FashionFactory",
@@ -125,7 +140,8 @@
     "bundle_id": "com.americangroupllc.fashionfactory",
     "version": null,
     "processing_state": null,
-    "uploaded_at": null
+    "uploaded_at": null,
+    "review_state": null
   },
   {
     "repo": "GadgetNest",
@@ -133,7 +149,8 @@
     "bundle_id": "com.americangroupllc.gadgetnest",
     "version": "202609260214",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:25:41-07:00"
+    "uploaded_at": "2026-09-26T02:25:41-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "GroceryMatch",
@@ -141,7 +158,8 @@
     "bundle_id": "com.americangroupllc.grocerymatch",
     "version": "202609260214",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:33:48-07:00"
+    "uploaded_at": "2026-09-26T02:33:48-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "HerJourney",
@@ -149,7 +167,8 @@
     "bundle_id": "com.americangroupllc.herjourney",
     "version": "202609261118",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T11:23:35-07:00"
+    "uploaded_at": "2026-09-26T11:23:35-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "HomeWise",
@@ -157,7 +176,8 @@
     "bundle_id": "com.americangroupllc.homewise",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T04:53:42-07:00"
+    "uploaded_at": "2026-09-25T04:53:42-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "iMaps",
@@ -165,7 +185,8 @@
     "bundle_id": "com.americangroupllc.imaps",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:01:34-07:00"
+    "uploaded_at": "2026-09-25T05:01:34-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "iMeasure",
@@ -173,7 +194,8 @@
     "bundle_id": "com.americangroupllc.imeasure",
     "version": "202609260214",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:43:58-07:00"
+    "uploaded_at": "2026-09-26T02:43:58-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "Kinnav",
@@ -181,7 +203,8 @@
     "bundle_id": "com.americangroupllc.kinnav",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:09:19-07:00"
+    "uploaded_at": "2026-09-25T05:09:19-07:00",
+    "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
     "repo": "MileMaster",
@@ -189,7 +212,8 @@
     "bundle_id": "com.americangroupllc.milemaster",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:17:00-07:00"
+    "uploaded_at": "2026-09-25T05:17:00-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "MyCard",
@@ -197,7 +221,8 @@
     "bundle_id": "com.americangroupllc.mycard",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:24:48-07:00"
+    "uploaded_at": "2026-09-25T05:24:48-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "MyFinance",
@@ -205,7 +230,8 @@
     "bundle_id": "com.americangroupllc.myfinance",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:31:28-07:00"
+    "uploaded_at": "2026-09-25T05:31:28-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "MyHealth",
@@ -213,7 +239,8 @@
     "bundle_id": "com.americangroupllc.myhealth",
     "version": null,
     "processing_state": null,
-    "uploaded_at": null
+    "uploaded_at": null,
+    "review_state": null
   },
   {
     "repo": "NearServe",
@@ -221,7 +248,8 @@
     "bundle_id": "com.americangroupllc.nearserve",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:38:33-07:00"
+    "uploaded_at": "2026-09-25T05:38:33-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "NewsBoard",
@@ -229,7 +257,8 @@
     "bundle_id": "com.americangroupllc.newsboard",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:46:29-07:00"
+    "uploaded_at": "2026-09-25T05:46:29-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "NexusTransferPay",
@@ -237,7 +266,8 @@
     "bundle_id": "com.americangroupllc.nexustransferpay",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:54:29-07:00"
+    "uploaded_at": "2026-09-25T05:54:29-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "Photriya",
@@ -245,7 +275,8 @@
     "bundle_id": "com.americangroupllc.photriya",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:03:39-07:00"
+    "uploaded_at": "2026-09-25T06:03:39-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "PilotEnRoute",
@@ -253,7 +284,8 @@
     "bundle_id": "com.americangroupllc.pilotenroute",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:26:22-07:00"
+    "uploaded_at": "2026-09-25T06:26:22-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "PlantPulse",
@@ -261,7 +293,8 @@
     "bundle_id": "com.americangroupllc.plantpulse",
     "version": null,
     "processing_state": null,
-    "uploaded_at": null
+    "uploaded_at": null,
+    "review_state": null
   },
   {
     "repo": "portfolio-board",
@@ -269,7 +302,8 @@
     "bundle_id": "com.americangroupllc.portfolioboard",
     "version": "202609260214",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:51:38-07:00"
+    "uploaded_at": "2026-09-26T02:51:38-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "radiotune",
@@ -277,7 +311,8 @@
     "bundle_id": "com.americangroupllc.radiotune",
     "version": null,
     "processing_state": null,
-    "uploaded_at": null
+    "uploaded_at": null,
+    "review_state": null
   },
   {
     "repo": "RideZap",
@@ -285,7 +320,8 @@
     "bundle_id": "com.americangroupllc.ridezap",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:34:50-07:00"
+    "uploaded_at": "2026-09-25T06:34:50-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "RoomCraft",
@@ -293,7 +329,8 @@
     "bundle_id": "com.americangroupllc.roomcraft",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:41:37-07:00"
+    "uploaded_at": "2026-09-25T06:41:37-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "TripNest",
@@ -301,7 +338,8 @@
     "bundle_id": "com.americangroupllc.tripnest",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:48:38-07:00"
+    "uploaded_at": "2026-09-25T06:48:38-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "Uscis-Case",
@@ -309,7 +347,8 @@
     "bundle_id": "com.americangroupllc.usciscase",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:55:38-07:00"
+    "uploaded_at": "2026-09-25T06:55:38-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "Verba",
@@ -317,7 +356,8 @@
     "bundle_id": "com.americangroupllc.verba",
     "version": "202609260214",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:58:42-07:00"
+    "uploaded_at": "2026-09-26T02:58:42-07:00",
+    "review_state": "REJECTED"
   },
   {
     "repo": "VirtuBand",
@@ -325,7 +365,8 @@
     "bundle_id": "com.americangroupllc.virtuband",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T07:05:16-07:00"
+    "uploaded_at": "2026-09-25T07:05:16-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "WiFiTrail",
@@ -333,7 +374,8 @@
     "bundle_id": "com.americangroupllc.wifitrail",
     "version": "202609250224",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T07:12:34-07:00"
+    "uploaded_at": "2026-09-25T07:12:34-07:00",
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "yourtube",
@@ -341,6 +383,7 @@
     "bundle_id": "com.americangroupllc.yourtube",
     "version": "202609260214",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T03:47:50-07:00"
+    "uploaded_at": "2026-09-26T03:47:50-07:00",
+    "review_state": "REJECTED"
   }
 ]

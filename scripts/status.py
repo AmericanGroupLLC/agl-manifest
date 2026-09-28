@@ -551,6 +551,7 @@ def build(offline: bool) -> None:
     quality = _by_repo("quality-audit.json")
     gates = _by_repo("store-gates.json")
     i18n = _by_repo("i18n-audit.json")
+    apple = _by_repo("asc-build-state.json")
     for row in rows:
         extra = store_rows.get(row["app"], {})
         for col in store_master_csv.COLUMNS:
@@ -571,6 +572,9 @@ def build(offline: bool) -> None:
         for k, v in (i18n.get(row["app"]) or {}).items():
             if k not in ("repo", "app", "app_dir"):
                 row[f"i18n: {k}"] = (",".join(map(str, v)) if isinstance(v, list) else v)
+        for k, v in (apple.get(row["app"]) or {}).items():
+            if k not in ("repo", "app"):
+                row[f"apple: {k}"] = v
 
     # Before opening for write: opening truncates, so the previous answers have
     # to be read first or there is nothing left to read.
