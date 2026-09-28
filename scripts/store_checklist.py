@@ -222,11 +222,23 @@ def main() -> int:
         fg = MANIFEST_DIR / f"store/graphics/{repo}/feature-graphic.png"
         add("Play feature graphic 1024x500", OK if fg.exists() else NO,
             "" if fg.exists() else "missing")
-        sh = shots_ev.get(repo, {})
-        n = sh.get("count", 0)
+        # Counted from the repo, not from ~/agl/.sweep/screenshot-evidence.json.
+        # Nothing in this repository writes that file — it is left over from the
+        # retired sweep — and it does not exist on a runner, so every CI
+        # regeneration flipped this row from 43 PASS to 43 FAIL and committed
+        # the result. Both platforms keep their shots in fastlane/, which CI
+        # checks out, so the real answer is available everywhere.
+        ios_shots = sorted((d / "fastlane/screenshots").rglob("*.png")) \
+            if (d / "fastlane/screenshots").is_dir() else []
+        play_dir = d / "fastlane/metadata/android/en-US/images/phoneScreenshots"
+        play_shots = sorted(play_dir.glob("*.png")) + sorted(play_dir.glob("*.jpg")) \
+            if play_dir.is_dir() else []
+        # Apple needs at least one, Play at least two. Reporting a single number
+        # hid the case where an app had plenty of one and none of the other.
+        shots_ok = len(ios_shots) >= 1 and len(play_shots) >= 2
         add("Screenshots (Apple >=1, Play >=2)",
-            OK if n >= 2 else (NO if sh else NO),
-            f"{n} captured {sh.get('sizes', '')}" if sh else "not captured")
+            OK if shots_ok else NO,
+            f"apple {len(ios_shots)}, play {len(play_shots)}")
 
         # --- listing ----------------------------------------------------------
         add("App Store name", OK if en.get("name") else NO, en.get("name", "missing"))
