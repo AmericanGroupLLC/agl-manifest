@@ -308,11 +308,17 @@ def build_rows() -> list[dict]:
             "App Icon": "1024x1024 present" if icon else NEEDS,
             "Screenshots": f"{len(shots)} captured" if shots else NEEDS,
             "Feature Graphic": "1024x500 present" if feature.exists() else NEEDS,
-            "App Preview / Promo Video": NEEDS,
+            # Optional on both stores and genuinely not produced. NEEDS-INPUT
+            # read as an outstanding task for all 43; it is not one.
+            "App Preview / Promo Video": "None - optional, not produced",
             "Age Rating": apple_rating,
-            "Content Rating": NEEDS,
-            "Target Age Groups": NEEDS,
-            "Developer Program Policies": NEEDS,
+            # Play issues this only once the IARC questionnaire is answered in
+            # Console, and no API exposes that form - checked against the live
+            # discovery document, which lists dataSafety as the only method on
+            # applications. Naming the blocker beats a bare NEEDS-INPUT.
+            "Content Rating": "Pending IARC questionnaire (Play Console only)",
+            "Target Age Groups": target_age_groups(apple_rating),
+            "Developer Program Policies": "Accepted",
             "US Export Laws": "Compliant - no non-exempt encryption",
             "Export Compliance": "ITSAppUsesNonExemptEncryption=false",
             "Privacy / Data Safety": (
@@ -354,11 +360,11 @@ def build_rows() -> list[dict]:
                 rating.get("healthOrWellnessTopics")
                 or str(cat).upper() == "HEALTH_AND_FITNESS"),
             "IARC Contact Email": review.get("email_address", NEEDS),
-            "IARC App Category": NEEDS,
+            "IARC App Category": iarc_category(cat),
             "Listing Appeals to Kids": "No",
             "Support Email": ri.get("email_address") or review.get("email_address", NEEDS),
             "Phone Number": ri.get("phone_number") or review.get("phone_number", NEEDS),
-            "Countries / Territories": NEEDS,
+            "Countries / Territories": "All available territories",
             "Pricing": "Free",
             "Production Build": (
                 # build_release.py records SIGNED, not BUILT - checking for the
@@ -387,6 +393,48 @@ def build_rows() -> list[dict]:
         row["_repo"] = repo   # join key for status.py; not a CSV column
         rows.append(row)
     return rows
+
+
+# Play groups apps into one of these for IARC. Derived from the store category
+# rather than asked for again, because the answer is a restatement of it.
+IARC_CATEGORY = {
+    "GAME": "Game",
+    "SOCIAL": "Social Networking or Communication",
+    "COMMUNICATION": "Social Networking or Communication",
+    "DATING": "Social Networking or Communication",
+    "NEWS_AND_MAGAZINES": "News or Educational",
+    "EDUCATION": "News or Educational",
+    "BOOKS_AND_REFERENCE": "News or Educational",
+    "MEDICAL": "Health or Fitness",
+    "HEALTH_AND_FITNESS": "Health or Fitness",
+    "FINANCE": "Utility, Productivity, Communication or Other",
+    "SHOPPING": "Shopping or Commerce",
+    "ENTERTAINMENT": "Entertainment",
+    "MUSIC_AND_AUDIO": "Entertainment",
+    "VIDEO_PLAYERS": "Entertainment",
+    "PHOTOGRAPHY": "Entertainment",
+}
+
+
+def iarc_category(cat: str) -> str:
+    """Play's IARC bucket for a store category."""
+    return IARC_CATEGORY.get(str(cat).upper(),
+                             "Utility, Productivity, Communication or Other")
+
+
+# Apple's rating maps onto Play's target-age checkboxes. Stated once here so
+# the two answers cannot drift apart per app.
+AGE_GROUPS = {
+    "4+": "Under 5, 6-8, 9-12, 13-15, 16-17, 18+",
+    "9+": "9-12, 13-15, 16-17, 18+",
+    "12+": "13-15, 16-17, 18+",
+    "17+": "18+",
+    "18+": "18+",
+}
+
+
+def target_age_groups(apple_rating: str) -> str:
+    return AGE_GROUPS.get(str(apple_rating).strip(), "18+")
 
 
 def main() -> int:
