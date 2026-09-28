@@ -32,7 +32,7 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | Script | What it does |
 | --- | --- |
 | `sync_testflight_testers.rb` | Mirrors Users and Access into every app's **internal** beta group, creating the group when absent with auto-distribute on |
-| `asc_build_state.rb` | Asks Apple which apps really have a usable build; regenerates the evidence the checklist reads |
+| `asc_build_state.rb` | Asks Apple which apps really have a usable build. Writes `docs/asc-build-state.json`, which is committed and readable in CI; it used to write only `~/agl/.sweep/asc_upload.psv`, outside the repo, which went stale and made the checklist report 14 apps with no build when Apple had 38 |
 | `appstore_records.rb` | Reports the app records that exist |
 | `testflight/run_batch.py` | Builds and uploads to TestFlight |
 | `testflight/build_only.py` | Builds a signed IPA via the fastlane lane, no upload |

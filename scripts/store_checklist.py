@@ -141,11 +141,18 @@ def main() -> int:
     apk = {r["repo"]: r for r in load(MANIFEST_DIR / "docs/build-evidence-apk.json", [])}
     ipa = {r["repo"]: r for r in load(MANIFEST_DIR / "docs/ios-ipa-evidence.json", [])}
     shots_ev = {r["repo"]: r for r in load(SWEEP / "screenshot-evidence.json", [])}
-    uploaded = set()
-    up = SWEEP / "asc_upload.psv"
-    if up.exists():
-        uploaded = {l.split("|")[0] for l in up.read_text().splitlines()
-                    if "|UPLOADED" in l}
+    # docs/asc-build-state.json is committed and readable on a runner. The
+    # old source, .sweep/asc_upload.psv, is outside the repository and went
+    # stale silently — it was five days old and made this row report 14 apps
+    # with no App Store build when Apple had 38 uploaded. The .psv is still
+    # accepted as a fallback so an older checkout keeps working.
+    asc_state = load(MANIFEST_DIR / "docs/asc-build-state.json", [])
+    uploaded = {r["repo"] for r in asc_state if r.get("state") == "UPLOADED"}
+    if not uploaded:
+        up = SWEEP / "asc_upload.psv"
+        if up.exists():
+            uploaded = {l.split("|")[0] for l in up.read_text().splitlines()
+                        if "|UPLOADED" in l}
     # A 200 is not evidence. www.safecodeg.com serves its SPA for every
     # unmatched path, so a policy URL for an app that does not exist returned
     # byte-identical content to a real one - 131 URLs "passed" while none of

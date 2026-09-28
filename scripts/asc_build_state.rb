@@ -45,8 +45,26 @@ apps.each do |a|
   end
 end
 
-out = File.join(root, ".sweep/asc_upload.psv")
-File.write(out, lines.join("\n") + "\n")
+# Two homes, and the JSON one is the real one.
+#
+# This only ever wrote .sweep/asc_upload.psv, which lives outside the
+# repository, is never committed, and so cannot be read on a runner or by
+# anyone else. It went stale without saying so: store_checklist.py was reading
+# a copy from 2026-09-25 and reporting 14 apps with no App Store build when
+# Apple actually had 38 uploaded. Measured facts belong in docs/ and committed,
+# which is the rule CLAUDE.md already states for everything else.
+rows = lines.map do |l|
+  repo, state, bundle, version, processing, uploaded = l.split("|")
+  { "repo" => repo, "state" => state, "bundle_id" => bundle,
+    "version" => version, "processing_state" => processing,
+    "uploaded_at" => uploaded }
+end
+docs = File.expand_path(File.join(__dir__, "..", "docs", "asc-build-state.json"))
+File.write(docs, JSON.pretty_generate(rows) + "\n")
+
+legacy = File.join(root, ".sweep/asc_upload.psv")
+File.write(legacy, lines.join("\n") + "\n") if File.directory?(File.dirname(legacy))
+
 counts = lines.group_by { |l| l.split("|")[1] }.transform_values(&:size)
 puts counts.map { |k, v| "#{k}=#{v}" }.join("  ")
-puts "-> #{out}"
+puts "-> #{docs}"

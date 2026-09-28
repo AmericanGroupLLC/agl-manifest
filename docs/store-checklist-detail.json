@@ -117,8 +117,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",
@@ -1786,8 +1786,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",
@@ -2344,8 +2344,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",
@@ -2486,8 +2486,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",
@@ -2628,8 +2628,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",
@@ -3049,8 +3049,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",
@@ -4728,8 +4728,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",
@@ -5570,8 +5570,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",
@@ -5991,8 +5991,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play internal-track release",

@@ -622,7 +622,20 @@ jobs:
       # tolerant of failure because each one only contributes a column group;
       # losing a group is better than losing the sheet.
       - name: Refresh the generated data
+        env:
+          ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
+          ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
+          ASC_KEY_CONTENT: ${{ secrets.ASC_KEY_CONTENT }}
         run: |
+          # Ask Apple what it actually holds. Without this the App Store row
+          # is whatever was last measured on someone's laptop: it sat five days
+          # stale and claimed 14 apps had no build when Apple had 38.
+          if [ -n "$ASC_KEY_CONTENT" ]; then
+            mkdir -p "$RUNNER_TEMP/secrets"
+            printf '%s' "$ASC_KEY_CONTENT" | base64 --decode > "$RUNNER_TEMP/secrets/asc.p8"
+            ASC_KEY_PATH="$RUNNER_TEMP/secrets/asc.p8" \
+              bundle exec ruby scripts/asc_build_state.rb || true
+          fi
           python3 scripts/store_gates.py      || true
           python3 scripts/app_identifiers.py  || true
           python3 scripts/store_checklist.py  || true
