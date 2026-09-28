@@ -121,8 +121,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -253,9 +258,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -390,9 +400,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -522,9 +537,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -654,9 +674,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -786,9 +811,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -923,8 +953,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -1055,9 +1090,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -1192,7 +1232,12 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
+   "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
    "state": "PASS",
    "detail": "internal app sharing link issued"
   },
@@ -1324,9 +1369,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -1461,9 +1511,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -1593,9 +1648,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -1730,9 +1790,14 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -1867,8 +1932,13 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -1999,9 +2069,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -2136,8 +2211,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -2268,8 +2348,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -2405,8 +2490,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -2542,8 +2632,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -2674,9 +2769,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -2811,7 +2911,12 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
+   "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
    "state": "PASS",
    "detail": "internal app sharing link issued"
   },
@@ -2948,7 +3053,12 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
+   "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
    "state": "PASS",
    "detail": "internal app sharing link issued"
   },
@@ -3085,9 +3195,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -3222,9 +3337,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -3354,9 +3474,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -3491,9 +3616,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -3628,9 +3758,14 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -3760,9 +3895,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -3892,9 +4032,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -4024,9 +4169,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -4161,8 +4311,13 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -4298,9 +4453,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -4430,8 +4590,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -4567,8 +4732,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -4704,9 +4874,14 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -4836,9 +5011,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -4968,9 +5148,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -5105,7 +5290,12 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
+   "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
    "state": "PASS",
    "detail": "internal app sharing link issued"
   },
@@ -5242,7 +5432,12 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
+   "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
    "state": "PASS",
    "detail": "internal app sharing link issued"
   },
@@ -5379,8 +5574,13 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
    "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
    "detail": "no Play entry - MA-021"
   },
   {
@@ -5516,7 +5716,12 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
+   "check": "Play internal-track release",
+   "state": "FAIL",
+   "detail": "no internal-track release yet"
+  },
+  {
+   "check": "Play reaches Console account users",
    "state": "PASS",
    "detail": "internal app sharing link issued"
   },
@@ -5653,9 +5858,14 @@
    "detail": "uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
@@ -5785,9 +5995,14 @@
    "detail": "no ASC record or not uploaded"
   },
   {
-   "check": "Play delivery to account users",
-   "state": "FAIL",
-   "detail": "still a Draft app in Console - MA-022"
+   "check": "Play internal-track release",
+   "state": "PASS",
+   "detail": "live on the internal testing track"
+  },
+  {
+   "check": "Play reaches Console account users",
+   "state": "HUMAN",
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",

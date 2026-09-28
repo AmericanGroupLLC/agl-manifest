@@ -169,6 +169,7 @@ def main() -> int:
     # is in the public ASC API and the team key can write it. Written by
     # scripts/testflight/sync_age_rating.rb. Play's IARC really has no API.
     age_rating = load(DIST / "age-rating-sync.json", {})
+    play_release = load(DIST / "play-release-results.json", {})
 
     rows = []
     for a in apps:
@@ -289,12 +290,30 @@ def main() -> int:
         # --- delivery ----------------------------------------------------------
         add("Build live on App Store Connect", OK if repo in uploaded else NO,
             "uploaded" if repo in uploaded else "no ASC record or not uploaded")
+        # Two different Play mechanisms, and collapsing them into one row was
+        # actively misleading: it reported 37 failures while Play itself had 27
+        # apps carrying a live internal-track release. Both numbers were true
+        # about different things, and the pessimistic one hid real progress.
+        #
+        #   the TRACK    a release on internal testing. Automatable, and done.
+        #                Reaches testers only via a Google Group, and the
+        #                decision on this account is to use none.
+        #   SHARING      internal app sharing, which is how people already on
+        #                the Play Console account get a build. Gated on the
+        #                app's Draft state in Console, which no API clears.
+        prel = (play_release.get(repo) or {}).get("status")
+        add("Play internal-track release",
+            OK if prel == "live-internal" else NO,
+            "live on the internal testing track" if prel == "live-internal"
+            else "no internal-track release yet")
+
         pst = (play_state.get(repo) or {}).get("state")
-        add("Play delivery to account users",
-            OK if pst == "SHARED" else (NO if pst else HUMAN),
+        add("Play reaches Console account users",
+            OK if pst == "SHARED" else HUMAN,
             {"SHARED": "internal app sharing link issued",
-             "NOT_PUBLISHED": "still a Draft app in Console - MA-022",
-             "NO_LISTING": "no Play entry - MA-021"}.get(pst, "not measured yet"))
+             "NOT_PUBLISHED": "app is still a Draft in Console - MA-022",
+             "NO_LISTING": "no Play entry - MA-021"}.get(
+                 pst, "not measured yet"))
         # Shipping the file is not the same as shipping it in the app. This
         # row passed for all 43 apps while Firebase was dead on iOS in 36 of
         # them, because Xcode only copies what the project references and the
