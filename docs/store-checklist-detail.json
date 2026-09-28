@@ -869,8 +869,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 2, play 1"
+   "state": "PASS",
+   "detail": "apple 3, play 2"
   },
   {
    "check": "App Store name",
@@ -1848,8 +1848,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 2, play 1"
+   "state": "PASS",
+   "detail": "apple 3, play 2"
   },
   {
    "check": "App Store name",
@@ -2406,8 +2406,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 2, play 1"
+   "state": "PASS",
+   "detail": "apple 4, play 2"
   },
   {
    "check": "App Store name",
@@ -2548,8 +2548,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 6, play 1"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -2827,8 +2827,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 2, play 1"
+   "state": "PASS",
+   "detail": "apple 4, play 2"
   },
   {
    "check": "App Store name",
@@ -5206,8 +5206,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 2, play 1"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -5348,8 +5348,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 2, play 1"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -5916,8 +5916,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 2, play 1"
+   "state": "PASS",
+   "detail": "apple 4, play 2"
   },
   {
    "check": "App Store name",
