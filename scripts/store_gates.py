@@ -35,6 +35,7 @@ tf    = load("testflight-state.json")
 play  = load("play-results.json")
 rel   = load("play-release-results.json")
 lst   = load("play-listing-results.json")
+codes = load("play-version-codes.json")
 
 def so_alignment(aab):
     """Play requires 64-bit native libraries built for 16 KB pages."""
@@ -72,7 +73,14 @@ for a in sorted(apps, key=lambda x: x["repo"].lower()):
                          g.get("privacy_policy_url"), (g.get("description") or 0) > 100,
                          g.get("primary_category"), g.get("age_rating")]),
         "ios_shots": shots_ios,
-        "play_entry": play.get(r, {}).get("status") == "uploaded",
+        # "Play has a bundle for this package", asked of Play rather than
+        # inferred from our own upload log. The log records the LAST attempt,
+        # so a later attempt that failed on the upload key overwrote an earlier
+        # success — CalcMaster and Kinnav both read as "no Play entry" while
+        # serving a live internal release. play-version-codes.json is Play's
+        # own bundle list per package, which cannot be wrong that way.
+        "play_entry": (codes.get(r, {}).get("state") == "OK"
+                       if codes else play.get(r, {}).get("status") == "uploaded"),
         "play_live": rel.get(r, {}).get("status") == "live-internal",
         "play_shots": l.get("phoneScreenshots", 0),
         "play_icon": bool(l.get("icon")),
