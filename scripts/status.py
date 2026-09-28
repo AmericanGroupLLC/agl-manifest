@@ -17,6 +17,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import collections
 import json
 import pathlib
 import subprocess
@@ -571,7 +572,12 @@ def build(offline: bool) -> None:
             if k not in ("repo", "app", "app_dir"):
                 row[f"i18n: {k}"] = (",".join(map(str, v)) if isinstance(v, list) else v)
 
-    with (ROOT / "status.csv").open("w", newline="", encoding="utf-8") as fh:
+    # Before opening for write: opening truncates, so the previous answers have
+    # to be read first or there is nothing left to read.
+    sheet = ROOT / "status.csv"
+    rows = _keep_known_answers(rows, sheet)
+
+    with sheet.open("w", newline="", encoding="utf-8") as fh:
         # Union, not rows[0]. Some checks are conditional — "Promotional text"
         # only exists for apps that have one — so the first row's keys are not
         # the whole header, and DictWriter raises on the first row that has more.
@@ -588,6 +594,56 @@ def build(offline: bool) -> None:
 
     print(f"STATUS.md + status.csv — {len(in_org)} apps, {len(with_ads)} with ads, "
           f"{downloadable} with a binary, {len(matched)} with a store record")
+
+
+# Values that mean "nobody has answered this", as opposed to a real answer.
+# "None" and "n/a" are real answers - "we share no data", "this app has no
+# accounts" - so they are deliberately not in here.
+_UNKNOWN = {"", "NEEDS-INPUT", "TBD", "not measured yet", "—", "None-", "null"}
+
+
+def _keep_known_answers(rows: list[dict], csv_path) -> list[dict]:
+    """Never replace a committed answer with "I could not measure it".
+
+    Several inputs live outside this repository - the website checkout, the
+    .dist run artefacts, the old .sweep directory - and none of them exist on
+    a runner. So the housekeeping job regenerated the sheet with those sources
+    missing and committed placeholders over real data. It happened to the
+    store gates (0/43 App Store records when there were 29), the account
+    deletion URLs (43 replaced with n/a and NEEDS-INPUT), the terms URLs, and
+    the screenshots row.
+
+    Each of those was fixed at its source, and they should be. This is the
+    backstop for the next one: a regeneration may add and may correct, but it
+    may not downgrade a real value to an unknown one. Anything it does drop is
+    named on stderr rather than disappearing quietly.
+    """
+    try:
+        with open(csv_path, newline="", encoding="utf-8") as fh:
+            old = {r["app"]: r for r in csv.DictReader(fh)}
+    except (OSError, KeyError, csv.Error):
+        return rows
+    if not old:
+        return rows
+
+    kept = collections.Counter()
+    for row in rows:
+        prev = old.get(row.get("app"))
+        if not prev:
+            continue
+        for key, value in list(row.items()):
+            if str(value).strip() in _UNKNOWN:
+                before = str(prev.get(key, "")).strip()
+                if before and before not in _UNKNOWN:
+                    row[key] = prev[key]
+                    kept[key] += 1
+    if kept:
+        total = sum(kept.values())
+        print(f"kept {total} previously-answered cell(s) that this run could "
+              f"not measure, across {len(kept)} column(s):", file=sys.stderr)
+        for key, n in kept.most_common(8):
+            print(f"  {n:2d}/43  {key}", file=sys.stderr)
+    return rows
 
 
 def main() -> int:

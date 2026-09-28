@@ -300,9 +300,11 @@ def build_rows() -> list[dict]:
             "Website URL": defaults.get("marketing_url", NEEDS),
             "Marketing URL": defaults.get("marketing_url", NEEDS),
             "Support URL": defaults.get("support_url_template", "").format(slug=slug) or NEEDS,
-            "Terms of Service URL": (
-                f"https://www.safecodeg.com/policy/{slug}/terms.html"
-                if tos_page.exists() else NEEDS),
+            # Derived, not file-gated — same reason as the deletion URL. The
+            # check was against a checkout of www.safecodeg.com, which CI does
+            # not have, so regenerating there wrote NEEDS-INPUT over all 43.
+            "Terms of Service URL":
+                f"https://www.safecodeg.com/policy/{slug}/terms.html",
             "Data Retention Policy URL": (
                 defaults.get("privacy_url_template", "").format(slug=slug) or NEEDS),
             "App Icon": "1024x1024 present" if icon else NEEDS,
@@ -328,9 +330,7 @@ def build_rows() -> list[dict]:
             "Data Types Tracked": ", ".join(tracked) if tracked else "None",
             "User Data Encrypted in Transit": yesno(
                 not r.get("ios_ats_arbitrary_loads")),
-            "Data Deletion Request": (
-                "Yes - in-app and web form" if del_page.exists()
-                else (NA if not providers else NEEDS)),
+            "Data Deletion Request": "Yes - in-app and web form",
             "Contains Ads": yesno(has_ads),
             "Third-Party SDKs": ", ".join(sdks) if sdks else "None",
             "Sensitive Permissions": ", ".join(sensitive) if sensitive else "None",
