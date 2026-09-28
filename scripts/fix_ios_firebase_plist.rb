@@ -22,7 +22,8 @@
 require "json"
 require "xcodeproj"
 
-ROOT = "/Users/spatchava/agl"
+require_relative "agl_paths"
+ROOT = AglPaths::ROOT
 M = "#{ROOT}/agl-manifest"
 DRY = ARGV.include?("--dry-run")
 ONLY = ARGV.reject { |a| a.start_with?("--") }

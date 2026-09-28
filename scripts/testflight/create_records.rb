@@ -8,7 +8,8 @@
 require "json"
 require "spaceship"
 
-ROOT = "/Users/spatchava/agl"
+require_relative "../agl_paths"
+ROOT = AglPaths::ROOT
 apps = JSON.parse(File.read("#{ROOT}/agl-manifest/apps.json"))["apps"]
 
 NAMES = {

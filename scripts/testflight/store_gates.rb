@@ -5,12 +5,14 @@
 #
 #   bundle exec ruby store_gates.rb        # -> ~/agl/.dist/asc-gates.json
 require "json"
+require "fileutils"
 require "spaceship"
+require_relative "../agl_paths"
 
 Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
   key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), filepath: ENV.fetch("ASC_KEY_PATH"))
 
-apps = JSON.parse(File.read("/Users/spatchava/agl/agl-manifest/apps.json"))["apps"]
+apps = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
 out = {}
 
 apps.each do |a|
@@ -57,5 +59,7 @@ apps.each do |a|
   puts "#{repo}: measured"
 end
 
-File.write("/Users/spatchava/agl/.dist/asc-gates.json", JSON.pretty_generate(out))
-puts "\nwrote /Users/spatchava/agl/.dist/asc-gates.json (#{out.size} apps)"
+out_path = File.join(AglPaths::DIST, "asc-gates.json")
+FileUtils.mkdir_p(File.dirname(out_path))
+File.write(out_path, JSON.pretty_generate(out))
+puts "\nwrote #{out_path} (#{out.size} apps)"

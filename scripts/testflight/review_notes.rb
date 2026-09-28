@@ -27,7 +27,8 @@ require "spaceship"
 
 DRY  = ARGV.include?("--dry-run")
 ONLY = ARGV.reject { |a| a.start_with?("--") }
-ROOT = "/Users/spatchava/agl"
+require_relative "../agl_paths"
+ROOT = AglPaths::ROOT
 M    = File.expand_path("../..", __dir__)
 
 Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(

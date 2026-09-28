@@ -45,7 +45,8 @@ BOOLEAN_FIELDS = %w[
   user_generated_content loot_box parental_controls health_or_wellness_topics
 ].freeze
 
-ROOT = "/Users/spatchava/agl"
+require_relative "../agl_paths"
+ROOT = AglPaths::ROOT
 M = "#{ROOT}/agl-manifest"
 DRY = ARGV.include?("--dry-run")
 ONLY = ARGV.reject { |a| a.start_with?("--") }

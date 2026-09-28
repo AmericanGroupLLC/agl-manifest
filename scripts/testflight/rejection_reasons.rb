@@ -13,6 +13,7 @@
 # Writes ~/agl/.dist/rejections.json and prints a digest.
 require "json"
 require "spaceship"
+require_relative "../agl_paths"
 
 USER = ENV.fetch("FASTLANE_USER", "srikanth.patchava@outlook.com")
 ONLY = ARGV.reject { |a| a.start_with?("--") }
@@ -55,5 +56,5 @@ apps.each do |a|
   puts format("%-18s %s", a["repo"], first.empty? ? "(no message text)" : first[0, 150])
 end
 
-File.write("/Users/spatchava/agl/.dist/rejections.json", JSON.pretty_generate(out))
+File.write(File.join(AglPaths::DIST, "rejections.json"), JSON.pretty_generate(out))
 puts "\n#{out.size} rejected app(s) -> ~/agl/.dist/rejections.json"
