@@ -192,16 +192,32 @@ def capture(app, out_ios, out_android):
             sh("xcrun", "simctl", "uninstall", udid, bundle, timeout=60)
             res["screens"][dev] = len(shots)
             # Android copies
+            # Same rule as the iOS side: build the new set somewhere else and
+            # only replace the real directory once there is something to
+            # replace it with. Protecting only fastlane/screenshots was not
+            # enough — a forced-failure test still emptied iMaps'
+            # phoneScreenshots, because this loop deleted first and then had
+            # nothing to write.
+            if not shots:
+                continue
             tgt = out_android / ("phoneScreenshots" if dev == "iphone69" else "tenInchScreenshots")
-            tgt.mkdir(parents=True, exist_ok=True)
-            for old in tgt.glob("*.png"): old.unlink()
+            tgt_staging = pathlib.Path(tempfile.mkdtemp(prefix=f"aglandroid-{repo}-"))
             for i, s in enumerate(shots, start=1):
-                dst = tgt / f"{i:02d}.png"
+                dst = tgt_staging / f"{i:02d}.png"
                 if dev == "iphone69":   # 1320x2868 -> pad to 1440x2880 (exactly 2:1, Play's limit)
                     col = sh("magick", s, "-gravity", "North", "-crop", "1x1+0+0", "+repage", "-format", "%[pixel:p{0,0}]", "info:").stdout.strip() or "black"
                     sh("magick", str(s), "-background", col, "-gravity", "center", "-extent", "1440x2880", str(dst))
                 else:
                     shutil.copy(s, dst)
+
+            made = sorted(tgt_staging.glob("*.png"))
+            if made:
+                tgt.mkdir(parents=True, exist_ok=True)
+                for gone in tgt.glob("*.png"):
+                    gone.unlink()
+                for f in made:
+                    shutil.copy(f, tgt / f.name)
+            shutil.rmtree(tgt_staging, ignore_errors=True)
 
         # Promote staging over the real directory, now that something was
         # actually captured. Up to here the app's existing screenshots are
