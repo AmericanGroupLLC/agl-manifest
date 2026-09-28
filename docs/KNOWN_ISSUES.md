@@ -232,3 +232,24 @@ the tool's own error text names this case.
 Until that is fixed, every Console action stays with a person. Everything the
 two store APIs *can* do is already scripted; see `docs/API_ACTIONS.md` for what
 they refuse and `status.csv` for the remaining list.
+
+## Push notifications were configured wrong in all three apps that touch them (2026-09-27)
+
+Audited every app for `firebase_messaging`, the `aps-environment` entitlement,
+the `remote-notification` background mode and the App ID capability. Three apps
+involve push and none of the three lined up.
+
+| App | What was wrong | State |
+| --- | --- | --- |
+| GroceryMatch | Calls `requestPermission`, `getToken` and `onMessage`, but the iOS target declared no `aps-environment` and no `remote-notification` background mode. Registering for remote notifications could never succeed. | **fixed** — entitlement and background mode added, `PUSH_NOTIFICATIONS` enabled on the App ID |
+| Verba | Same missing entitlement, with `onBackgroundMessage` and `onMessage` live in `lib/core/services/notification_service.dart`. | **fixed** — entitlement added, capability enabled |
+| NexusTransferPay | The reverse: it carries `aps-environment` in both entitlement files, but every `FirebaseMessaging` call in `lib/core/push_service.dart` is commented out. It declares a capability it never uses. | **left alone** |
+
+NexusTransferPay was not changed on purpose. Removing the entitlement would
+invalidate the provisioning profile already issued for it, and an unused push
+capability is not a review problem. Remove it when that app next needs a
+profile regenerated, or when push is actually implemented.
+
+The two fixes are configuration, so they take effect on the next iOS build of
+those apps. Neither app's push worked before this on iOS, regardless of what
+Firebase was sending.
