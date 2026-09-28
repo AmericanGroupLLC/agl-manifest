@@ -18,7 +18,7 @@ screen, then tap each bottom-navigation tab found in the accessibility tree
 
 Requires idb (~/.idb-venv) with the Homebrew idb_companion first on PATH.
 """
-import hashlib, json, os, pathlib, re, shutil, subprocess, sys, time
+import hashlib, json, os, pathlib, re, shutil, subprocess, sys, tempfile, time
 
 import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
@@ -103,7 +103,14 @@ def capture(app, out_ios, out_android):
             res["error"] = "build failed: " + (b.stderr or b.stdout).strip()[-400:]; return res
         apps = list((app_dir / "build/ios/iphonesimulator").glob("*.app"))
         if not apps: res["error"] = "no .app produced"; return res
-        for old in out_ios.glob("*.png"): old.unlink()
+        # Capture into a scratch directory and only replace the real one once
+        # a capture has actually succeeded. This used to delete the existing
+        # screenshots here, before the first launch — so when BodyQuest and
+        # daily-pulse timed out on a cold simulator, both lost the screenshots
+        # they already had and had to be restored from git. A failed capture
+        # must leave the app no worse than it found it.
+        staging = pathlib.Path(tempfile.mkdtemp(prefix=f"aglshots-{repo}-"))
+        real_out_ios, out_ios = out_ios, staging
         for dev, udid in DEVICES.items():
             boot(udid)
             clear_alerts(udid)   # a permission sheet left by the previous app blocks every later shot
@@ -195,8 +202,23 @@ def capture(app, out_ios, out_android):
                     sh("magick", str(s), "-background", col, "-gravity", "center", "-extent", "1440x2880", str(dst))
                 else:
                     shutil.copy(s, dst)
+
+        # Promote staging over the real directory, now that something was
+        # actually captured. Up to here the app's existing screenshots are
+        # untouched, which is the whole point of the scratch directory.
+        if any(res["screens"].values()):
+            real_out_ios.mkdir(parents=True, exist_ok=True)
+            for old in real_out_ios.glob("*.png"):
+                old.unlink()
+            for f in sorted(staging.glob("*.png")):
+                shutil.copy(f, real_out_ios / f.name)
+        else:
+            # setdefault is no use here: res["error"] already exists as "".
+            res["error"] = (res["error"] or
+                            "nothing captured; existing screenshots left alone")
     finally:
         if patched: unpatch(app_dir)
+        shutil.rmtree(staging, ignore_errors=True)
     return res
 
 
