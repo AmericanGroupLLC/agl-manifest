@@ -255,9 +255,14 @@ jobs:
         if: always()
         with:
           name: android-bundles-${{ matrix.shard }}
+          # work/.dist, not .dist: AGL_ROOT is $GITHUB_WORKSPACE/work, and
+          # build_release.py copies each bundle to ROOT/.dist before deleting
+          # the build tree. The old pattern looked under **/build/app/outputs,
+          # which is exactly what has just been deleted — so run 36330813340
+          # built 43 signed bundles, 2.5 GiB of them, and uploaded none.
           path: |
-            **/build/app/outputs/bundle/**/*.aab
-            **/build/app/outputs/flutter-apk/*.apk
+            work/.dist/*.aab
+            work/.dist/*.apk
             docs/build-evidence*.json
           if-no-files-found: warn
           retention-days: 14
