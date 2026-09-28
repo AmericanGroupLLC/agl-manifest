@@ -20,6 +20,22 @@ so an absent page still answers 200 with the marketing homepage; compare the
 response body against a path you know does not exist.
 
 The per-app URL list is the `Account/Data Deletion URL` column of
-[`status.csv`](../status.csv) — all 43 are populated and every one was checked
-against a nonsense control path by `scripts/verify_policy_urls.py`, because the
-site is a single-page app that answers any path with a 200.
+[`status.csv`](../status.csv), and the verified URLs are also committed as
+[`deletion-urls.json`](deletion-urls.json).
+
+**Read the slug, do not guess it.** The site is case-sensitive and several
+slugs are not the lowercased repo name:
+
+| Repo | Slug |
+| --- | --- |
+| iMaps | `iMaps` |
+| iMeasure | `iMeasure` |
+| TripNest | `TripNest` |
+| daily-pulse | `dailypulse` |
+| Uscis-Case | `uscis-case-tracker` |
+
+`https://www.safecodeg.com/policy/imaps/delete-account.html` — lowercase —
+returns HTTP 200 and 369,371 bytes, which is the marketing single-page app, not
+a deletion page. The correct URL returns 11,364 bytes. Every check here
+therefore compares byte length against a nonsense control path; a 200 on this
+site proves nothing. All 43 verified that way on 2026-09-28.

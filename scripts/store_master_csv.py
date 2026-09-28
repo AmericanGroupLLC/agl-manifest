@@ -286,9 +286,17 @@ def build_rows() -> list[dict]:
             "Short Description": en.get("short_description") or NEEDS,
             "Full Description": en.get("description") or NEEDS,
             "Privacy Policy URL": defaults.get("privacy_url_template", "").format(slug=slug) or NEEDS,
-            "Account/Data Deletion URL": (
-                f"https://www.safecodeg.com/policy/{slug}/delete-account.html"
-                if del_page.exists() else (NA if not providers else NEEDS)),
+            # Derived from the slug, not from a local file. This used to be
+            # emitted only `if del_page.exists()`, a check against a checkout of
+            # www.safecodeg.com — which CI does not have. So the housekeeping
+            # job regenerated this sheet on a runner and replaced all 43 real
+            # URLs with "n/a" and "NEEDS-INPUT", and Google's Data safety
+            # rejection for iMaps then looked like a missing URL rather than a
+            # stale one in the Console form. All 43 pages are live; verified
+            # against a nonsense control path, because the site answers every
+            # path with a 200.
+            "Account/Data Deletion URL":
+                f"https://www.safecodeg.com/policy/{slug}/delete-account.html",
             "Website URL": defaults.get("marketing_url", NEEDS),
             "Marketing URL": defaults.get("marketing_url", NEEDS),
             "Support URL": defaults.get("support_url_template", "").format(slug=slug) or NEEDS,
