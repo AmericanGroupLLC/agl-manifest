@@ -1098,3 +1098,40 @@ Reading the reasons at all needed the `iris` host and an Apple ID session: an
 API key gets 404 on `v1/resolutionCenterThreads`, and a rejected submission
 otherwise reports only its state with no text. `rejection_reasons.rb` does this
 and writes `~/agl/.dist/rejections.json`.
+
+## MA-029 — The Data safety deletion URL is still the old domain, and the new one needs .html
+
+Google's rejection quotes
+`https://americangroupllc.github.io/policy/iMaps/delete-account` returning 404.
+Confirmed 2026-09-27: that URL does 404, and it is the retired GitHub Pages
+mirror.
+
+**Apple is clean.** All 38 App Store records carry a `www.safecodeg.com` privacy
+URL; none still points at github.io.
+
+**Play is not.** The account-deletion URL lives in the Data safety form, which is
+Console-entered and has no API, so nothing here could have changed it. It still
+holds the github.io address.
+
+**There was a second, quieter problem.** Even on the right domain, only the
+`.html` form worked:
+
+| URL | Result |
+| --- | --- |
+| `…/policy/iMaps/delete-account.html` | 11,363 bytes, "Delete Your Account — iMaps" |
+| `…/policy/iMaps/delete-account` | 154,027 bytes — byte-identical to a path that does not exist |
+
+The extensionless form matched neither a file nor a directory, so Apache's SPA
+catch-all answered with the site shell and HTTP 200. A crawler reasonably reads
+that as the page not being there. `www.safecodeg.com` now has a rewrite that
+serves the matching `.html` before the catch-all can claim the request, so both
+forms work once that deploys.
+
+`scripts/verify_deletion_urls.py` reported all 43 pages REAL throughout, because
+it only ever tested the `.html` form. Worth knowing before trusting it again.
+
+**To close this**: in Play Console, for each app, Policy → App content → Data
+safety, set the deletion URL to
+`https://www.safecodeg.com/policy/<slug>/delete-account.html` (slugs are in
+`scripts/policy_pages.py`). Use the `.html` form even after the rewrite deploys;
+it is the one proven to serve real content.
