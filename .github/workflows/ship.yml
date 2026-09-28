@@ -260,6 +260,12 @@ jobs:
           # the build tree. The old pattern looked under **/build/app/outputs,
           # which is exactly what has just been deleted — so run 36330813340
           # built 43 signed bundles, 2.5 GiB of them, and uploaded none.
+          # .dist is a hidden directory and actions/upload-artifact skips
+          # hidden files by default — silently, with no "no files found"
+          # warning, because the JSON glob did match. That is why run
+          # 36361677490 produced a 12 KB artifact containing only evidence
+          # while two signed bundles sat on disk next to it.
+          include-hidden-files: true
           path: |
             work/.dist/*.aab
             work/.dist/*.apk
