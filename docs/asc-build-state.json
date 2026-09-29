@@ -15,7 +15,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T02:29:05-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "AGrammarly",
@@ -33,7 +33,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T02:43:03-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "AGStudio",
@@ -42,7 +42,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T02:49:33-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "ApexMarketWatch",
@@ -51,16 +51,16 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T02:56:17-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "BodyQuest",
-    "state": "NO_RECORD",
+    "state": "NO_BUILD",
     "bundle_id": "com.americangroupllc.bodyquest",
     "version": null,
     "processing_state": null,
     "uploaded_at": null,
-    "review_state": null
+    "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
     "repo": "BuddyPlay",
@@ -69,7 +69,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T03:02:13-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "CalcMaster",
@@ -87,7 +87,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T03:18:47-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "ChefCount",
@@ -141,7 +141,7 @@
     "version": "202609281936",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-28T19:39:22-07:00",
-    "review_state": "PREPARE_FOR_SUBMISSION"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "GadgetNest",
@@ -177,7 +177,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T04:53:42-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "iMaps",
@@ -213,7 +213,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T05:17:00-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "MyCard",
@@ -235,12 +235,12 @@
   },
   {
     "repo": "MyHealth",
-    "state": "NO_RECORD",
+    "state": "NO_BUILD",
     "bundle_id": "com.americangroupllc.myhealth",
     "version": null,
     "processing_state": null,
     "uploaded_at": null,
-    "review_state": null
+    "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
     "repo": "NearServe",
@@ -249,7 +249,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T05:38:33-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "NewsBoard",
@@ -258,7 +258,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T05:46:29-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "NexusTransferPay",
@@ -289,12 +289,12 @@
   },
   {
     "repo": "PlantPulse",
-    "state": "NO_RECORD",
+    "state": "NO_BUILD",
     "bundle_id": "com.americangroupllc.plantpulse",
     "version": null,
     "processing_state": null,
     "uploaded_at": null,
-    "review_state": null
+    "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
     "repo": "portfolio-board",
@@ -307,12 +307,12 @@
   },
   {
     "repo": "radiotune",
-    "state": "NO_RECORD",
+    "state": "NO_BUILD",
     "bundle_id": "com.americangroupllc.radiotune",
     "version": null,
     "processing_state": null,
     "uploaded_at": null,
-    "review_state": null
+    "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
     "repo": "RideZap",
@@ -321,7 +321,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T06:34:50-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "RoomCraft",
@@ -330,7 +330,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T06:41:37-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "TripNest",
@@ -339,7 +339,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T06:48:38-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "Uscis-Case",
@@ -366,7 +366,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T07:05:16-07:00",
-    "review_state": "WAITING_FOR_REVIEW"
+    "review_state": "IN_REVIEW"
   },
   {
     "repo": "WiFiTrail",

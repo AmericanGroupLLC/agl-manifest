@@ -66,17 +66,6 @@
   "seconds": 108.7
  },
  {
-  "repo": "BodyQuest",
-  "bundle_id": "com.americangroupllc.bodyquest",
-  "profile": "com.americangroupllc.bodyquest AppStore",
-  "dir": "/Users/spatchava/agl/BodyQuest",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/BodyQuest.ipa",
-  "bytes": 26334889,
-  "seconds": 153.1
- },
- {
   "repo": "BuddyPlay",
   "bundle_id": "com.americangroupllc.buddyplay",
   "profile": "com.americangroupllc.buddyplay AppStore",
@@ -286,17 +275,6 @@
   "seconds": 107.9
  },
  {
-  "repo": "MyHealth",
-  "bundle_id": "com.americangroupllc.myhealth",
-  "profile": "com.americangroupllc.myhealth AppStore",
-  "dir": "/Users/spatchava/agl/MyHealth",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/MyHealth.ipa",
-  "bytes": 25600461,
-  "seconds": 205.5
- },
- {
   "repo": "NearServe",
   "bundle_id": "com.americangroupllc.nearserve",
   "profile": "com.americangroupllc.nearserve AppStore",
@@ -341,17 +319,6 @@
   "seconds": 193.9
  },
  {
-  "repo": "PlantPulse",
-  "bundle_id": "com.americangroupllc.plantpulse",
-  "profile": "com.americangroupllc.plantpulse AppStore",
-  "dir": "/Users/spatchava/agl/PlantPulse/mobile",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/PlantPulse.ipa",
-  "bytes": 21890313,
-  "seconds": 105.1
- },
- {
   "repo": "portfolio-board",
   "bundle_id": "com.americangroupllc.portfolioboard",
   "profile": "com.americangroupllc.portfolioboard AppStore",
@@ -361,17 +328,6 @@
   "ipa": ".dist/portfolio-board.ipa",
   "bytes": 23332442,
   "seconds": 117.2
- },
- {
-  "repo": "radiotune",
-  "bundle_id": "com.americangroupllc.radiotune",
-  "profile": "com.americangroupllc.radiotune AppStore",
-  "dir": "/Users/spatchava/agl/radiotune",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/radiotune.ipa",
-  "bytes": 26951347,
-  "seconds": 146.6
  },
  {
   "repo": "RideZap",
