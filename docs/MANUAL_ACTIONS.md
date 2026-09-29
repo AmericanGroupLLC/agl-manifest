@@ -1297,3 +1297,31 @@ stops as soon as none are blocked. It is running.
 | FashionFactory | **created** — `com.americangroupllc.styleradar` was holding the name "Fashion Factory: Deals"; that record is an unreleased duplicate, so it was renamed to "StyleRadar (retired duplicate)" and the real record created |
 | BodyQuest, MyHealth, radiotune | still "already exists" against a record id the API key cannot fetch — Apple has not finished releasing the identifier |
 | PlantPulse | the name is owned on another account; it needs a different App Store name |
+
+
+## MA-031 — BodyQuest, MyHealth and radiotune need new bundle ids
+
+`produce` keeps answering "already exists" for these three with a record id the
+API key cannot fetch. Queried through the `iris` host with an Apple ID session on
+2026-09-28, those ids resolve and every one is a **deleted** record still holding
+the identifier:
+
+| App | Record id | Name on the dead record | Bundle id | removed |
+| --- | --- | --- | --- | --- |
+| BodyQuest | 6781642312 | "BodyQuest for AI" | `com.americangroupllc.bodyquest` | true |
+| MyHealth | 6778216891 | "Srikanth Patchava" | `com.americangroupllc.myhealth` | true |
+| radiotune | 6781629995 | "radiotune RADIO TUNE" | `com.americangroupllc.radiotune` | true |
+
+Apple does not release the bundle identifier of a deleted app record. Waiting
+will not clear this, which is why repeated retries have all returned the same
+answer.
+
+**These three need a different bundle id**, and because the portfolio keeps one
+identifier per app across both stores, that is a decision rather than a
+mechanical change — and it is permanent once a record exists. The Play side of
+all three is fine and must not be touched.
+
+A suffixed identifier is the usual way out, for example
+`com.americangroupllc.bodyquestapp`. Say which form you want and the records can
+be created, built, uploaded and submitted in one pass; nothing else about these
+three is blocked.
