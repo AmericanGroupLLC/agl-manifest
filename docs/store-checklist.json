@@ -465,7 +465,7 @@
   "Export compliance answered": "PASS",
   "Apple age rating answered": "n/a",
   "Play IARC questionnaire": "HUMAN",
-  "Build live on App Store Connect": "FAIL",
+  "Build live on App Store Connect": "PASS",
   "Play internal-track release": "PASS",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "PASS"

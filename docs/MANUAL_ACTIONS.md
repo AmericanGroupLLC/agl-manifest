@@ -1124,6 +1124,51 @@ which `python3 scripts/admob_setup.py` creates all 86 and writes the ids into
 
 ## MA-028 — Every App Store rejection is the same one, and it is not a bug
 
+**Updated 2026-09-28 — the resubmission path is now located exactly.**
+
+23 apps sit on a review submission in `UNRESOLVED_ISSUES`, which is the
+rejected one. Asking App Store Connect to resubmit it returns:
+
+```
+Version is not ready to be submitted yet, please try again later
+```
+
+That is not a transient state and waiting does not clear it. Apple's Guideline
+2.1 text says to *reply in App Store Connect* with the requested information;
+until that reply exists the submission is not resubmittable. Replying needs an
+Apple ID web session — the public API 404s on `v1/resolutionCenterThreads`, so
+an API key cannot post it, the same limit that made reading the reasons need
+`spaceauth`.
+
+Things ruled out today, each by testing rather than reasoning:
+
+  * **Missing "What's New".** Real and now fixed for CalcMaster, Kinnav and
+    yourtube — App Store Connect requires it on an update and all three were
+    empty, with the text sitting unused in each repo's
+    `fastlane/metadata/en-US/release_notes.txt`. Setting it did not unblock
+    submission, so it was a genuine gap and not the cause.
+  * **Missing demo credentials.** `demoAccountRequired` is false on every app
+    checked, so Apple is not waiting on a login.
+  * **Stale review submissions.** Only 4 apps carry un-submitted
+    `READY_FOR_REVIEW` submissions; 24 are blocked. Counted before and after
+    several submit runs: 9 across 4 apps both times, so the tooling is not
+    creating them either.
+  * **Incomplete metadata.** yourtube's version has a VALID build attached,
+    733 characters of description, 79 of keywords, a support URL and 671
+    characters of review notes.
+
+**Required, per app:** App Store Connect → Resolution Center → reply to the
+rejection with the six items Apple lists, the first of which is a screen
+recording made on a physical device. The review notes already carry items 2-6
+for all 39 apps with a record, written by `scripts/testflight/review_notes.rb`,
+so the reply can quote them.
+
+Once a reply is posted, `submit_production.rb` finishes the job unattended.
+
+---
+
+## MA-028b — the original note
+
 All 20 rejected apps carry an identical Guideline 2.1 notice, read out of
 Resolution Center on 2026-09-27:
 
