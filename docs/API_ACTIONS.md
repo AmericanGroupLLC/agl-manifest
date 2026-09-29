@@ -40,6 +40,7 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | `testflight/list_builds.rb` | What Apple holds for one bundle id |
 | `testflight/check_build.rb`, `records_present.rb` | Polling helpers |
 | `testflight/enable_capabilities.rb` | Turns on app capabilities |
+| `testflight/set_idfa.rb` | Declares `usesIdfa` per app, from whether its pubspec depends on `google_mobile_ads`. It was `null` on all 39 versions — never answered for any app — which App Store Connect reports only as "This resource cannot be reviewed, please check associated errors" |
 | `testflight/submit_production.rb` | Submits for App Store review |
 | `ios_profile_map.rb` | Maps every bundle id to its active App Store provisioning profile, from the API rather than a hand-made file, and with `--install` writes the `.mobileprovision` files where Xcode looks. `build_ipa.py` has always read this map; until 2026-09-26 nothing produced it, so the pipeline's iOS job could not run on a fresh runner |
 | `policy_aliases.py` | Generates the `.htaccess` rewrite block that makes every policy URL resolve whatever case it is written in. `--apply` splices it into both `client/public/.htaccess` and `.htaccess` in the site repo, before the SPA catch-all. Pushing is not publishing — see MA-030 |
