@@ -208,30 +208,34 @@ Separately, Photriya carried a stale generated plugin registrant on disk
 broke every Android build with a Java compile error. Deleting it and running
 `flutter pub get` regenerates it correctly.
 
-## The Claude in Chrome extension cannot read any page on this Mac (2026-09-24)
+## The Claude in Chrome extension cannot drive any page on this Mac (re-tested 2026-09-28)
 
-Browser automation has been attempted for the store consoles several times and
-always failed. Today it was isolated: **the extension cannot inject into any
-page at all**, so this is not something about App Store Connect or Play Console.
+Browser automation has been attempted for the store consoles six times across
+several days and has never worked. Today it was isolated further, and the
+earlier diagnosis was too narrow: it is not the content script, it is the
+renderer.
 
-Measured on both local Chrome instances (Browser 1 and Browser 3):
+| Browser | Page | Result |
+| --- | --- | --- |
+| Browser 3 (macOS, local) | Play Console | `Runtime.evaluate` times out after 45 s — "The renderer may be frozen or unresponsive" |
+| Browser 3 (macOS, local) | `example.com` | same CDP timeout |
+| Browser 1 (macOS, local) | App Store Connect | `executeScript` waits the full 45 s for `document_idle` and gives up |
 
-| Page | Result |
-| --- | --- |
-| `appstoreconnect.apple.com/apps` | tab title becomes "App Store Connect" (so the session is signed in and the page renders), then `get_page_text` times out and `screenshot` fails with "Script injection timed out after 5000ms" |
-| `example.com` | `get_page_text` fails with "Page still loading (executeScript waited 45000ms for document_idle)" |
+Both **local** browsers fail, and they fail on a static page with no JavaScript
+of its own, so this is neither a console being heavy nor one bad profile. Chrome
+DevTools Protocol itself does not answer on any tab.
 
-A static page that cannot reach `document_idle` in 45 seconds is not a slow
-page. The content script is never running.
+Worth knowing: the extension is connected, and navigation works — tab titles
+update and the address bar follows. Only reading and scripting fail, which is
+why this can look like a page problem.
 
-Likely causes, in the order worth checking: the extension's site access is not
-set to "On all sites" (chrome://extensions → Claude → Site access); or the
-extension side panel is holding a permission prompt that nobody has answered —
-the tool's own error text names this case.
+Likely fixes, in order: quit and reopen Chrome, since a wedged renderer host
+survives tab closes; then check the extension's Site access is "On all sites";
+then look for an unanswered permission prompt in the extension side panel, which
+the tool's own error text names.
 
-Until that is fixed, every Console action stays with a person. Everything the
-two store APIs *can* do is already scripted; see `docs/API_ACTIONS.md` for what
-they refuse and `status.csv` for the remaining list.
+Until that is fixed every Console-only action stays with a person. Everything
+the two store APIs can do is scripted — see `docs/API_ACTIONS.md`.
 
 ## Push notifications were configured wrong in all three apps that touch them (2026-09-27)
 
