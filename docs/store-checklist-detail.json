@@ -1933,8 +1933,8 @@
   },
   {
    "check": "Play internal-track release",
-   "state": "FAIL",
-   "detail": "no internal-track release yet"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
@@ -2212,8 +2212,8 @@
   },
   {
    "check": "Play internal-track release",
-   "state": "FAIL",
-   "detail": "no internal-track release yet"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
@@ -2349,8 +2349,8 @@
   },
   {
    "check": "Play internal-track release",
-   "state": "FAIL",
-   "detail": "no internal-track release yet"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
@@ -2633,8 +2633,8 @@
   },
   {
    "check": "Play internal-track release",
-   "state": "FAIL",
-   "detail": "no internal-track release yet"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
@@ -4733,8 +4733,8 @@
   },
   {
    "check": "Play internal-track release",
-   "state": "FAIL",
-   "detail": "no internal-track release yet"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",

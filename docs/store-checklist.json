@@ -407,7 +407,7 @@
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
   "Build live on App Store Connect": "PASS",
-  "Play internal-track release": "FAIL",
+  "Play internal-track release": "PASS",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"
  },
@@ -466,7 +466,7 @@
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
   "Build live on App Store Connect": "FAIL",
-  "Play internal-track release": "FAIL",
+  "Play internal-track release": "PASS",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"
  },
@@ -495,7 +495,7 @@
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
   "Build live on App Store Connect": "PASS",
-  "Play internal-track release": "FAIL",
+  "Play internal-track release": "PASS",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"
  },
@@ -555,7 +555,7 @@
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
   "Build live on App Store Connect": "PASS",
-  "Play internal-track release": "FAIL",
+  "Play internal-track release": "PASS",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"
  },
@@ -999,7 +999,7 @@
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
   "Build live on App Store Connect": "PASS",
-  "Play internal-track release": "FAIL",
+  "Play internal-track release": "PASS",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"
  },
