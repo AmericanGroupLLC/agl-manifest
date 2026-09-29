@@ -62,16 +62,33 @@ apps.each do |a|
   end
 
   begin
-    # An open submission left over from an earlier run can already hold a stale
-    # version, and adding the current one then fails with "Item is already
-    # present in another reviewSubmission", which surfaces later as the
-    # confusing "must have an approved appStoreVersions". Try a fresh
-    # submission first and fall back to reusing one only if Apple refuses.
+    existing = (Spaceship::ConnectAPI.get_review_submissions(app_id: app.id).to_models rescue [])
+
+    # A rejected app's version stays attached to the submission that carried it,
+    # which sits in UNRESOLVED_ISSUES. A new submission cannot take that version
+    # ("Item is already present in another reviewSubmission"), and the symptom
+    # further down is the misleading "must have an approved appStoreVersions".
+    # The way back in is to resubmit that same submission once the issues are
+    # addressed, which is what the console's Submit for Review does.
+    if (stuck = existing.find { |s| s.state == "UNRESOLVED_ISSUES" })
+      begin
+        Spaceship::ConnectAPI.patch_review_submission(review_submission_id: stuck.id,
+                                                      attributes: { submitted: true })
+        out[repo] = { "status" => "resubmitted", "submission" => stuck.id }
+        puts "#{repo}: RESUBMITTED the rejected submission"
+        next
+      rescue StandardError => e
+        msg = e.message.gsub(/\s+/, " ")
+        out[repo] = { "status" => "blocked", "blocker" => msg[0, 300] }
+        puts "#{repo}: cannot resubmit yet — #{msg[/Version is not ready[^.]*/] || msg[0, 160]}"
+        next
+      end
+    end
+
     sub = begin
       Spaceship::ConnectAPI.post_review_submission(app_id: app.id, platform: "IOS").to_models.first
     rescue StandardError
-      (Spaceship::ConnectAPI.get_review_submissions(app_id: app.id).to_models rescue [])
-        .find { |s| s.state == "READY_FOR_REVIEW" }
+      existing.find { |s| s.state == "READY_FOR_REVIEW" }
     end
     raise "no review submission could be opened" if sub.nil?
     begin
