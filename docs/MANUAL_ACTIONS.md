@@ -925,7 +925,7 @@ Three ways out, and it is a product call, not a technical one:
 `scripts/store_master_csv.py` detects the condition, so whichever way it is
 resolved the CSV stops flagging it once the paywall or the gap is gone.
 
-## MA-026 — Two old-naming Play entries to remove (HUMAN ONLY)
+## MA-031 — Two old-naming Play entries to remove (HUMAN ONLY)
 
 Measured 2026-09-24 by opening an edit against the pre-rename package of every
 app. Two survive from before the move to `com.americangroupllc.*`:
@@ -1018,7 +1018,50 @@ audience, ads, app access) have no API at all: `edits` exposes only
 `apks, bundles, countryavailability, deobfuscationfiles, details,
 expansionfiles, images, listings, testers, tracks`.
 
-## MA-026 — CalcMaster and Kinnav need a version bump before they can be submitted
+## MA-026 — Three apps are held by stale review submissions that no API can clear
+
+**Re-diagnosed 2026-09-28. The earlier reading — that these needed a new App
+Store version — was wrong.**
+
+AeroSwift, CalcMaster and Kinnav each carry **two `READY_FOR_REVIEW` review
+submissions that were never actually submitted** (no `submittedDate`). They
+hold the version, and every attempt to submit returns:
+
+```
+Version is not ready to be submitted yet, please try again later
+```
+
+They are the only three apps in the portfolio with un-submitted
+`READY_FOR_REVIEW` submissions, and they are exactly the three apps not
+progressing — the other 40 have none. That correlation is the evidence.
+
+Neither route out exists for an API key, both tested today:
+
+```
+DELETE /v1/reviewSubmissions/{id}
+  403  The resource 'reviewSubmissions' does not allow 'DELETE'.
+       Allowed operations are: CREATE, GET_COLLECTION, GET_INSTANCE, UPDATE
+
+PATCH  /v1/reviewSubmissions/{id}   {"attributes": {"canceled": true}}
+  409  Resource is not in cancellable state
+```
+
+A submission can be cancelled only once it has been submitted; one that was
+prepared and abandoned can only be removed in App Store Connect.
+
+**Required:** App Store Connect → each app → the review submission that is
+"Ready for Review" but never sent → remove it. Then the pipeline can submit,
+which it will do unattended.
+
+Fixed along the way, because it was genuinely missing and is required on an
+update: both versions had an empty "What's New". The release notes already
+existed in each repo at `fastlane/metadata/en-US/release_notes.txt` and had
+never been pushed to App Store Connect; they are now set. That was not the
+cause of the block, but it would have been the next one.
+
+---
+
+## MA-026b — the original diagnosis, kept for the record
 
 36 of 43 apps are in App Store review. These two are not, and no retry will fix
 them. Both sit at `PREPARE_FOR_SUBMISSION`, but their App Store version is
@@ -1175,7 +1218,7 @@ host, it serves the homepage for every unmatched path.
 This gates MA-029: pasting the new deletion URLs into Play's Data safety form
 is only worth doing once the URLs a reviewer might try actually resolve.
 
-## MA-030 — Resubmitting after a rejection is a wait, not a fix
+## MA-032 — Resubmitting after a rejection is a wait, not a fix
 
 All 20 rejections were one Guideline 2.1 information request (MA-028), and the
 information is now in App Review Notes for every app. Resubmitting them then hit
