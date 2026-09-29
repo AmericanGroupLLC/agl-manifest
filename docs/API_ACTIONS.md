@@ -40,6 +40,8 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | `testflight/list_builds.rb` | What Apple holds for one bundle id |
 | `testflight/check_build.rb`, `records_present.rb` | Polling helpers |
 | `testflight/enable_capabilities.rb` | Turns on app capabilities |
+| `testflight/clear_stale_submissions.rb` | Deletes review submissions prepared and never sent. The public API refuses (`403 does not allow 'DELETE'`, `409 not in cancellable state`); the `iris` host with an Apple ID session returns 204. Leaves `UNRESOLVED_ISSUES` alone — those are real rejections |
+| `testflight/reply_rejections.rb` | Posts the Guideline 2.1 reply into Resolution Center. A reply is a **draft that is then sent**: posting straight to `resolutionCenterMessages` answers "attribute 'messageBody' can not be included in a 'CREATE'", then "missing a required relationship: createFromDraftMessage" |
 | `testflight/set_idfa.rb` | Declares `usesIdfa` per app, from whether its pubspec depends on `google_mobile_ads`. It was `null` on all 39 versions — never answered for any app — which App Store Connect reports only as "This resource cannot be reviewed, please check associated errors" |
 | `testflight/submit_production.rb` | Submits for App Store review |
 | `ios_profile_map.rb` | Maps every bundle id to its active App Store provisioning profile, from the API rather than a hand-made file, and with `--install` writes the `.mobileprovision` files where Xcode looks. `build_ipa.py` has always read this map; until 2026-09-26 nothing produced it, so the pipeline's iOS job could not run on a fresh runner |
