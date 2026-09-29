@@ -1174,3 +1174,38 @@ host, it serves the homepage for every unmatched path.
 
 This gates MA-029: pasting the new deletion URLs into Play's Data safety form
 is only worth doing once the URLs a reviewer might try actually resolve.
+
+## MA-030 — Resubmitting after a rejection is a wait, not a fix
+
+All 20 rejections were one Guideline 2.1 information request (MA-028), and the
+information is now in App Review Notes for every app. Resubmitting them then hit
+a second, unrelated wall.
+
+A rejected version stays attached to the submission that carried it, which sits
+in `UNRESOLVED_ISSUES`. A new submission cannot take that version:
+
+```
+Item is already present in another reviewSubmission -
+appStoreVersions … was already added to another reviewSubmission with id …
+```
+
+and the symptom further down is the misleading "App … must have an approved
+appStoreVersions for platform IOS". The way back in is to resubmit that same
+submission, which is what the Console's Submit for Review does, and
+`submit_production.rb` now does it. Apple's answer on 2026-09-28, for all 23:
+
+```
+Version is not ready to be submitted yet, please try again later
+```
+
+That is a wait imposed after a rejection, not a missing field.
+`scripts/testflight/watch_resubmit.sh` retries every 30 minutes for a day and
+stops as soon as none are blocked. It is running.
+
+### The five records, re-tested the same day
+
+| App | Result |
+| --- | --- |
+| FashionFactory | **created** — `com.americangroupllc.styleradar` was holding the name "Fashion Factory: Deals"; that record is an unreleased duplicate, so it was renamed to "StyleRadar (retired duplicate)" and the real record created |
+| BodyQuest, MyHealth, radiotune | still "already exists" against a record id the API key cannot fetch — Apple has not finished releasing the identifier |
+| PlantPulse | the name is owned on another account; it needs a different App Store name |
