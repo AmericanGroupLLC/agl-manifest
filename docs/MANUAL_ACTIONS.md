@@ -120,7 +120,45 @@ person controls.
 
 ---
 
-## MA-005 · P1 · iOS signing needs a distribution certificate as a secret
+## MA-005 · RESOLVED 2026-09-30 · CI builds and signs iOS
+
+**Closed. CI produced a distribution-signed IPA on run 36688250993, every step
+green including "Prove every IPA is distribution-signed".**
+
+This was treated as permanently human because the one distribution
+certificate's private key sat in a keychain where export needs a GUI prompt.
+It did not need exporting. A certificate issued against a CSR generated
+locally keeps its private key local from the start:
+
+```
+openssl req -newkey rsa:2048 -nodes -keyout dist.key -out dist.csr
+Spaceship::ConnectAPI::Certificate.create(certificate_type: "DISTRIBUTION",
+                                          csr_content: csr)
+-> 2S2F6CDFY2  Apple Distribution: American Group LLC (TLH7Z3G27A)
+```
+
+Key and certificate verified to pair, packaged as a .p12, set as
+IOS_DIST_CERT_P12 / IOS_DIST_CERT_PASSWORD. Then 45 provisioning profiles were
+re-issued to accept it, because a profile pins which certificates may sign
+against it and Apple has no update for that list.
+
+Three further things stood behind it, each only visible once the one in front
+was gone:
+
+1. The Firebase plugins disagreed on firebase-ios-sdk — crashlytics wanted
+   12.18.0, remote_config 12.19.0. Invisible locally, where CocoaPods
+   resolves; CI uses Swift Package Manager, which refuses two versions.
+   Aligned across 38 apps on 12.19.0.
+2. GoogleService-Info.plist was gitignored in 6 apps and tracked in 37. It is
+   not a credential — it ships inside every binary — so the six were made
+   consistent with the other thirty-seven.
+3. build_ipa.py recorded the reason for a failure but only printed the
+   verdict, and a failed job skipped the artifact upload, so the reason never
+   left the runner. Both fixed; that is how 1 and 2 were found at all.
+
+---
+
+## MA-005b · the original note
 
 **Half of this is now resolved. Updated 2026-09-26.**
 
