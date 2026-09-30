@@ -404,12 +404,18 @@ jobs:
         run: python3 scripts/verify_ipa_signing.py
 
       - uses: actions/upload-artifact@v4
+        # Even when the build failed — same reason as the Android side. The
+        # one artefact that explains a failure must not be the one that does
+        # not survive it: PlantPulse reported FLUTTER_BUILD_FAILED and the
+        # Flutter output went nowhere.
+        if: always()
         with:
           name: ios-archives
           path: |
-            **/build/ios/ipa/*.ipa
+            work/.dist/*.ipa
             docs/ios-ipa-evidence.json
-          if-no-files-found: error
+          include-hidden-files: true
+          if-no-files-found: warn
           retention-days: 14
 
   release:

@@ -172,6 +172,12 @@ def main() -> int:
             print(f"[{i}/{len(wanted)}] {repo} ...", end=" ", flush=True)
             rec = build(app, profile)
             print(f"{rec['result']} ({rec.get('seconds', 0)}s)", flush=True)
+            # Print the reason, not just the verdict. The evidence file holds
+            # it, but a failed job skips the artifact upload, so the log was
+            # the only place left and it said nothing.
+            if rec.get("result") != "EXPORTED" and rec.get("detail"):
+                for line in str(rec["detail"]).strip().splitlines()[-12:]:
+                    print(f"    {line}", flush=True)
             records = [r for r in records if r["repo"] != repo]
             records.append(rec)
         outfile.write_text(json.dumps(records, indent=1))
