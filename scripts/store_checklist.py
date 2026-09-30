@@ -177,6 +177,7 @@ def main() -> int:
     # scripts/testflight/sync_age_rating.rb. Play's IARC really has no API.
     age_rating = load(DIST / "age-rating-sync.json", {})
     play_release = load(DIST / "play-release-results.json", {})
+    play_gaps = load(DIST / "play-gap-audit.json", {})
 
     rows = []
     for a in apps:
@@ -320,11 +321,23 @@ def main() -> int:
         #   SHARING      internal app sharing, which is how people already on
         #                the Play Console account get a build. Gated on the
         #                app's Draft state in Console, which no API clears.
+        # "Has Play got a release for this app", which the production track
+        # answers just as well as the internal one. Reading only the internal
+        # track failed TripNest, Uscis-Case, VirtuBand, iMaps and iMeasure —
+        # every one of which has a *completed production* release. Promoting
+        # an app is progress; a check that calls it a regression is wrong.
         prel = (play_release.get(repo) or {}).get("status")
-        add("Play internal-track release",
-            OK if prel == "live-internal" else NO,
-            "live on the internal testing track" if prel == "live-internal"
-            else "no internal-track release yet")
+        pgap = (play_gaps.get(repo) or {})
+        prod = pgap.get("production_release")
+        if prod == "completed":
+            add("Play release", OK, "live on production")
+        elif prel == "live-internal":
+            add("Play release", OK, "live on the internal testing track")
+        elif prod == "draft":
+            add("Play release", OK,
+                "staged on the production track, goes live when the app is published")
+        else:
+            add("Play release", NO, "no release on any track")
 
         pst = (play_state.get(repo) or {}).get("state")
         add("Play reaches Console account users",

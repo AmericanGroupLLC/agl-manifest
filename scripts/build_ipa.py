@@ -144,7 +144,12 @@ def build(app: dict, profile: str) -> dict:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("apps", nargs="*")
-    ap.add_argument("--out", default=str(ROOT / ".dist" / "ios-ipa-evidence.json"))
+    # docs/, not .dist/. store_checklist.py reads the committed copy, and
+    # writing only to .dist meant the two drifted: four apps were rebuilt and
+    # the checklist went on reporting "no IPA" because the committed file was
+    # never updated. .dist keeps a copy so a run outside the repo still works.
+    ap.add_argument("--out",
+                    default=str(_MANIFEST / "docs" / "ios-ipa-evidence.json"))
     args = ap.parse_args()
 
     manifest = json.loads(MANIFEST.read_text())["apps"]
@@ -181,6 +186,14 @@ def main() -> int:
             records = [r for r in records if r["repo"] != repo]
             records.append(rec)
         outfile.write_text(json.dumps(records, indent=1))
+        # Mirror into .dist so anything reading run artefacts still finds it.
+        try:
+            mirror = ROOT / ".dist" / "ios-ipa-evidence.json"
+            mirror.parent.mkdir(parents=True, exist_ok=True)
+            if mirror != outfile:
+                mirror.write_text(json.dumps(records, indent=1))
+        except OSError:
+            pass
 
     # Only this run's apps. The evidence file accumulates, so counting all of
     # it reports past successes next to present failures and the step still

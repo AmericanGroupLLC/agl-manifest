@@ -97,6 +97,10 @@ def capture(app, out_ios, out_android):
     bundle = app["bundle_id"]
     res = {"repo": repo, "screens": {}, "banner_patched": None, "error": ""}
     patched = patch_banner(app_dir); res["banner_patched"] = None if patched is None else len(patched)
+    # Bound before the try: the finally below cleans it up, and a build that
+    # fails returns before the assignment — which raised UnboundLocalError and
+    # hid the real error behind it.
+    staging = None
     try:
         b = sh(FLUTTER, "build", "ios", "--simulator", "--debug", cwd=app_dir, timeout=1800)
         if b.returncode != 0:
@@ -234,7 +238,8 @@ def capture(app, out_ios, out_android):
                             "nothing captured; existing screenshots left alone")
     finally:
         if patched: unpatch(app_dir)
-        shutil.rmtree(staging, ignore_errors=True)
+        if staging is not None:
+            shutil.rmtree(staging, ignore_errors=True)
     return res
 
 

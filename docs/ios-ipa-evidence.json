@@ -7,8 +7,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/AeroSwift.ipa",
-  "bytes": 22237994,
-  "seconds": 111.6
+  "bytes": 22344337,
+  "seconds": 120.8
  },
  {
   "repo": "AGCleaner",
@@ -18,8 +18,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/AGCleaner.ipa",
-  "bytes": 22276317,
-  "seconds": 112.6
+  "bytes": 22109139,
+  "seconds": 117.1
  },
  {
   "repo": "AGrammarly",
@@ -29,8 +29,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/AGrammarly.ipa",
-  "bytes": 22344683,
-  "seconds": 111.5
+  "bytes": 22567778,
+  "seconds": 115.4
  },
  {
   "repo": "AGRecorder",
@@ -40,8 +40,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/AGRecorder.ipa",
-  "bytes": 21675973,
-  "seconds": 112.1
+  "bytes": 21467904,
+  "seconds": 128.3
  },
  {
   "repo": "AGStudio",
@@ -51,8 +51,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/AGStudio.ipa",
-  "bytes": 22561147,
-  "seconds": 119.7
+  "bytes": 22695728,
+  "seconds": 118.0
  },
  {
   "repo": "ApexMarketWatch",
@@ -62,8 +62,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/ApexMarketWatch.ipa",
-  "bytes": 22222218,
-  "seconds": 108.7
+  "bytes": 22309160,
+  "seconds": 102.0
  },
  {
   "repo": "BuddyPlay",
@@ -73,8 +73,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/BuddyPlay.ipa",
-  "bytes": 22254783,
-  "seconds": 112.2
+  "bytes": 22395940,
+  "seconds": 87.7
  },
  {
   "repo": "CalcMaster",
@@ -84,8 +84,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/CalcMaster.ipa",
-  "bytes": 27295653,
-  "seconds": 183.0
+  "bytes": 27295660,
+  "seconds": 145.3
  },
  {
   "repo": "CarDeal",
@@ -95,8 +95,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/CarDeal.ipa",
-  "bytes": 23293478,
-  "seconds": 132.9
+  "bytes": 23117934,
+  "seconds": 155.2
  },
  {
   "repo": "ChefCount",
@@ -106,8 +106,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/ChefCount.ipa",
-  "bytes": 22607884,
-  "seconds": 112.9
+  "bytes": 22436019,
+  "seconds": 124.7
  },
  {
   "repo": "CodeDeal",
@@ -117,8 +117,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/CodeDeal.ipa",
-  "bytes": 23129307,
-  "seconds": 120.9
+  "bytes": 23371875,
+  "seconds": 126.5
  },
  {
   "repo": "daily-pulse",
@@ -128,8 +128,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/daily-pulse.ipa",
-  "bytes": 43870136,
-  "seconds": 148.7
+  "bytes": 44336320,
+  "seconds": 189.4
  },
  {
   "repo": "DriftDate",
@@ -139,8 +139,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/DriftDate.ipa",
-  "bytes": 28097913,
-  "seconds": 188.8
+  "bytes": 28229120,
+  "seconds": 228.2
  },
  {
   "repo": "EventSpark",
@@ -150,8 +150,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/EventSpark.ipa",
-  "bytes": 56784040,
-  "seconds": 159.7
+  "bytes": 56681987,
+  "seconds": 199.7
  },
  {
   "repo": "FashionFactory",
@@ -161,8 +161,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/FashionFactory.ipa",
-  "bytes": 20963152,
-  "seconds": 77.8
+  "bytes": 20963153,
+  "seconds": 84.0
  },
  {
   "repo": "GadgetNest",
@@ -172,8 +172,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/GadgetNest.ipa",
-  "bytes": 23101143,
-  "seconds": 104.8
+  "bytes": 22957790,
+  "seconds": 115.9
  },
  {
   "repo": "GroceryMatch",
@@ -183,19 +183,19 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/GroceryMatch.ipa",
-  "bytes": 30029143,
-  "seconds": 170.1
+  "bytes": 30333514,
+  "seconds": 235.8
  },
  {
   "repo": "HerJourney",
-  "bundle_id": "com.americangroupllc.herJourney",
-  "profile": "com.americangroupllc.herJourney AppStore",
+  "bundle_id": "com.americangroupllc.herjourney",
+  "profile": "com.americangroupllc.herjourney AppStore",
   "dir": "/Users/spatchava/agl/HerJourney",
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/HerJourney.ipa",
-  "bytes": 25164611,
-  "seconds": 2626.5
+  "bytes": 25443425,
+  "seconds": 226.1
  },
  {
   "repo": "HomeWise",
@@ -205,8 +205,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/HomeWise.ipa",
-  "bytes": 22859165,
-  "seconds": 6102.9
+  "bytes": 22723355,
+  "seconds": 141.1
  },
  {
   "repo": "iMaps",
@@ -216,8 +216,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/iMaps.ipa",
-  "bytes": 30827958,
-  "seconds": 1859.0
+  "bytes": 30827530,
+  "seconds": 184.8
  },
  {
   "repo": "iMeasure",
@@ -227,8 +227,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/iMeasure.ipa",
-  "bytes": 27167720,
-  "seconds": 240.8
+  "bytes": 27304920,
+  "seconds": 320.3
  },
  {
   "repo": "Kinnav",
@@ -238,8 +238,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/Kinnav.ipa",
-  "bytes": 33893148,
-  "seconds": 151.3
+  "bytes": 34070179,
+  "seconds": 193.2
  },
  {
   "repo": "MileMaster",
@@ -249,8 +249,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/MileMaster.ipa",
-  "bytes": 23518642,
-  "seconds": 136.4
+  "bytes": 23386317,
+  "seconds": 196.1
  },
  {
   "repo": "MyCard",
@@ -260,8 +260,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/MyCard.ipa",
-  "bytes": 22306534,
-  "seconds": 117.7
+  "bytes": 22358674,
+  "seconds": 149.3
  },
  {
   "repo": "MyFinance",
@@ -271,8 +271,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/MyFinance.ipa",
-  "bytes": 22698240,
-  "seconds": 107.9
+  "bytes": 22540561,
+  "seconds": 125.8
  },
  {
   "repo": "NearServe",
@@ -282,8 +282,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/NearServe.ipa",
-  "bytes": 23415641,
-  "seconds": 138.4
+  "bytes": 23227992,
+  "seconds": 146.4
  },
  {
   "repo": "NewsBoard",
@@ -293,129 +293,8 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/NewsBoard.ipa",
-  "bytes": 23148028,
-  "seconds": 130.9
- },
- {
-  "repo": "Photriya",
-  "bundle_id": "com.americangroupllc.photriya",
-  "profile": "com.americangroupllc.photriya AppStore",
-  "dir": "/Users/spatchava/agl/Photriya",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/Photriya.ipa",
-  "bytes": 30397445,
-  "seconds": 209.2
- },
- {
-  "repo": "PilotEnRoute",
-  "bundle_id": "com.americangroupllc.pilotenroute",
-  "profile": "com.americangroupllc.pilotenroute AppStore",
-  "dir": "/Users/spatchava/agl/PilotEnRoute",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/PilotEnRoute.ipa",
-  "bytes": 55643398,
-  "seconds": 193.9
- },
- {
-  "repo": "portfolio-board",
-  "bundle_id": "com.americangroupllc.portfolioboard",
-  "profile": "com.americangroupllc.portfolioboard AppStore",
-  "dir": "/Users/spatchava/agl/portfolio-board/mobile",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/portfolio-board.ipa",
-  "bytes": 23332442,
-  "seconds": 117.2
- },
- {
-  "repo": "RideZap",
-  "bundle_id": "com.americangroupllc.ridezap",
-  "profile": "com.americangroupllc.ridezap AppStore",
-  "dir": "/Users/spatchava/agl/RideZap/mobile",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/RideZap.ipa",
-  "bytes": 23358214,
-  "seconds": 124.6
- },
- {
-  "repo": "RoomCraft",
-  "bundle_id": "com.americangroupllc.roomcraft",
-  "profile": "com.americangroupllc.roomcraft AppStore",
-  "dir": "/Users/spatchava/agl/RoomCraft",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/RoomCraft.ipa",
-  "bytes": 21803765,
-  "seconds": 100.1
- },
- {
-  "repo": "TripNest",
-  "bundle_id": "com.americangroupllc.tripnest",
-  "profile": "com.americangroupllc.tripnest AppStore",
-  "dir": "/Users/spatchava/agl/TripNest/mobile",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/TripNest.ipa",
-  "bytes": 26182313,
-  "seconds": 132.1
- },
- {
-  "repo": "Uscis-Case",
-  "bundle_id": "com.americangroupllc.usciscase",
-  "profile": "com.americangroupllc.usciscase AppStore",
-  "dir": "/Users/spatchava/agl/Uscis-Case",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/Uscis-Case.ipa",
-  "bytes": 26018907,
-  "seconds": 209.2
- },
- {
-  "repo": "Verba",
-  "bundle_id": "com.americangroupllc.verba",
-  "profile": "com.americangroupllc.verba AppStore",
-  "dir": "/Users/spatchava/agl/Verba",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/Verba.ipa",
-  "bytes": 30970023,
-  "seconds": 160.7
- },
- {
-  "repo": "VirtuBand",
-  "bundle_id": "com.americangroupllc.virtuband",
-  "profile": "com.americangroupllc.virtuband AppStore",
-  "dir": "/Users/spatchava/agl/VirtuBand",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/VirtuBand.ipa",
-  "bytes": 25955406,
-  "seconds": 180.6
- },
- {
-  "repo": "WiFiTrail",
-  "bundle_id": "com.americangroupllc.wifitrail",
-  "profile": "com.americangroupllc.wifitrail AppStore",
-  "dir": "/Users/spatchava/agl/WiFiTrail",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/WiFiTrail.ipa",
-  "bytes": 21595292,
-  "seconds": 132.0
- },
- {
-  "repo": "yourtube",
-  "bundle_id": "com.americangroupllc.yourtube",
-  "profile": "com.americangroupllc.yourtube AppStore",
-  "dir": "/Users/spatchava/agl/yourtube",
-  "export_method": "app-store-connect",
-  "result": "EXPORTED",
-  "ipa": ".dist/yourtube.ipa",
-  "bytes": 50356569,
-  "seconds": 171.0
+  "bytes": 23374494,
+  "seconds": 190.7
  },
  {
   "repo": "NexusTransferPay",
@@ -425,7 +304,172 @@
   "export_method": "app-store-connect",
   "result": "EXPORTED",
   "ipa": ".dist/NexusTransferPay.ipa",
-  "bytes": 25379248,
-  "seconds": 177.8
+  "bytes": 25386445,
+  "seconds": 200.6
+ },
+ {
+  "repo": "Photriya",
+  "bundle_id": "com.americangroupllc.photriya",
+  "profile": "com.americangroupllc.photriya AppStore",
+  "dir": "/Users/spatchava/agl/Photriya",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/Photriya.ipa",
+  "bytes": 30418797,
+  "seconds": 362.6
+ },
+ {
+  "repo": "PilotEnRoute",
+  "bundle_id": "com.americangroupllc.pilotenroute",
+  "profile": "com.americangroupllc.pilotenroute AppStore",
+  "dir": "/Users/spatchava/agl/PilotEnRoute",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/PilotEnRoute.ipa",
+  "bytes": 55778108,
+  "seconds": 306.9
+ },
+ {
+  "repo": "portfolio-board",
+  "bundle_id": "com.americangroupllc.portfolioboard",
+  "profile": "com.americangroupllc.portfolioboard AppStore",
+  "dir": "/Users/spatchava/agl/portfolio-board/mobile",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/portfolio-board.ipa",
+  "bytes": 23178198,
+  "seconds": 105.0
+ },
+ {
+  "repo": "RideZap",
+  "bundle_id": "com.americangroupllc.ridezap",
+  "profile": "com.americangroupllc.ridezap AppStore",
+  "dir": "/Users/spatchava/agl/RideZap/mobile",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/RideZap.ipa",
+  "bytes": 23178452,
+  "seconds": 99.8
+ },
+ {
+  "repo": "RoomCraft",
+  "bundle_id": "com.americangroupllc.roomcraft",
+  "profile": "com.americangroupllc.roomcraft AppStore",
+  "dir": "/Users/spatchava/agl/RoomCraft",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/RoomCraft.ipa",
+  "bytes": 21619264,
+  "seconds": 82.4
+ },
+ {
+  "repo": "TripNest",
+  "bundle_id": "com.americangroupllc.tripnest",
+  "profile": "com.americangroupllc.tripnest AppStore",
+  "dir": "/Users/spatchava/agl/TripNest/mobile",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/TripNest.ipa",
+  "bytes": 26260566,
+  "seconds": 101.4
+ },
+ {
+  "repo": "Uscis-Case",
+  "bundle_id": "com.americangroupllc.usciscase",
+  "profile": "com.americangroupllc.usciscase AppStore",
+  "dir": "/Users/spatchava/agl/Uscis-Case",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/Uscis-Case.ipa",
+  "bytes": 26108104,
+  "seconds": 157.5
+ },
+ {
+  "repo": "Verba",
+  "bundle_id": "com.americangroupllc.verba",
+  "profile": "com.americangroupllc.verba AppStore",
+  "dir": "/Users/spatchava/agl/Verba",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/Verba.ipa",
+  "bytes": 31353917,
+  "seconds": 129.1
+ },
+ {
+  "repo": "VirtuBand",
+  "bundle_id": "com.americangroupllc.virtuband",
+  "profile": "com.americangroupllc.virtuband AppStore",
+  "dir": "/Users/spatchava/agl/VirtuBand",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/VirtuBand.ipa",
+  "bytes": 26156943,
+  "seconds": 145.0
+ },
+ {
+  "repo": "WiFiTrail",
+  "bundle_id": "com.americangroupllc.wifitrail",
+  "profile": "com.americangroupllc.wifitrail AppStore",
+  "dir": "/Users/spatchava/agl/WiFiTrail",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/WiFiTrail.ipa",
+  "bytes": 21485817,
+  "seconds": 85.5
+ },
+ {
+  "repo": "yourtube",
+  "bundle_id": "com.americangroupllc.yourtube",
+  "profile": "com.americangroupllc.yourtube AppStore",
+  "dir": "/Users/spatchava/agl/yourtube",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/yourtube.ipa",
+  "bytes": 50721269,
+  "seconds": 174.9
+ },
+ {
+  "repo": "BodyQuest",
+  "bundle_id": "com.americangroupllc.bodyquest",
+  "profile": "com.americangroupllc.bodyquest AppStore",
+  "dir": "/Users/spatchava/agl/BodyQuest",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/BodyQuest.ipa",
+  "bytes": 28418765,
+  "seconds": 215.2
+ },
+ {
+  "repo": "MyHealth",
+  "bundle_id": "com.americangroupllc.myhealth",
+  "profile": "com.americangroupllc.myhealth AppStore 20260929",
+  "dir": "/Users/spatchava/agl/MyHealth",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/MyHealth.ipa",
+  "bytes": 27785769,
+  "seconds": 792.1
+ },
+ {
+  "repo": "PlantPulse",
+  "bundle_id": "com.americangroupllc.plantpulse",
+  "profile": "com.americangroupllc.plantpulse AppStore",
+  "dir": "/Users/spatchava/agl/PlantPulse/mobile",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/PlantPulse.ipa",
+  "bytes": 24101948,
+  "seconds": 156.7
+ },
+ {
+  "repo": "radiotune",
+  "bundle_id": "com.americangroupllc.radiotune",
+  "profile": "com.americangroupllc.radiotune AppStore",
+  "dir": "/Users/spatchava/agl/radiotune",
+  "export_method": "app-store-connect",
+  "result": "EXPORTED",
+  "ipa": ".dist/radiotune.ipa",
+  "bytes": 29138260,
+  "seconds": 245.0
  }
 ]
