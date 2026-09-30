@@ -177,7 +177,7 @@
  "BodyQuest": {
   "Android .aab signed with this app's upload key": "PASS",
   "Android .apk (release, sideload/test)": "PASS",
-  "iOS .ipa exported for the App Store": "PASS",
+  "iOS .ipa exported for the App Store": "FAIL",
   "Binaries newer than the app icon": "PASS",
   "Bundle id / applicationId": "PASS",
   "Release signing configured": "PASS",
@@ -770,7 +770,7 @@
  "MyHealth": {
   "Android .aab signed with this app's upload key": "PASS",
   "Android .apk (release, sideload/test)": "PASS",
-  "iOS .ipa exported for the App Store": "PASS",
+  "iOS .ipa exported for the App Store": "FAIL",
   "Binaries newer than the app icon": "PASS",
   "Bundle id / applicationId": "PASS",
   "Release signing configured": "PASS",
@@ -947,7 +947,7 @@
  "PlantPulse": {
   "Android .aab signed with this app's upload key": "PASS",
   "Android .apk (release, sideload/test)": "PASS",
-  "iOS .ipa exported for the App Store": "PASS",
+  "iOS .ipa exported for the App Store": "FAIL",
   "Binaries newer than the app icon": "PASS",
   "Bundle id / applicationId": "PASS",
   "Release signing configured": "PASS",
@@ -1006,7 +1006,7 @@
  "radiotune": {
   "Android .aab signed with this app's upload key": "PASS",
   "Android .apk (release, sideload/test)": "PASS",
-  "iOS .ipa exported for the App Store": "PASS",
+  "iOS .ipa exported for the App Store": "FAIL",
   "Binaries newer than the app icon": "PASS",
   "Bundle id / applicationId": "PASS",
   "Release signing configured": "PASS",

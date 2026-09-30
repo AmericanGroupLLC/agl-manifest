@@ -839,8 +839,8 @@
   },
   {
    "check": "iOS .ipa exported for the App Store",
-   "state": "PASS",
-   "detail": "EXPORTED"
+   "state": "FAIL",
+   "detail": "not built"
   },
   {
    "check": "Binaries newer than the app icon",
@@ -3644,8 +3644,8 @@
   },
   {
    "check": "iOS .ipa exported for the App Store",
-   "state": "PASS",
-   "detail": "EXPORTED"
+   "state": "FAIL",
+   "detail": "not built"
   },
   {
    "check": "Binaries newer than the app icon",
@@ -4481,8 +4481,8 @@
   },
   {
    "check": "iOS .ipa exported for the App Store",
-   "state": "PASS",
-   "detail": "EXPORTED"
+   "state": "FAIL",
+   "detail": "not built"
   },
   {
    "check": "Binaries newer than the app icon",
@@ -4760,8 +4760,8 @@
   },
   {
    "check": "iOS .ipa exported for the App Store",
-   "state": "PASS",
-   "detail": "EXPORTED"
+   "state": "FAIL",
+   "detail": "not built"
   },
   {
    "check": "Binaries newer than the app icon",
