@@ -53,6 +53,7 @@ def fail(d): return d["error"].get("message", "unknown")[:200] if "error" in d e
 
 apps = json.load(open(M / "apps.json"))["apps"]
 PRODUCTION = "--production" in sys.argv
+STAGE = "--stage" in sys.argv   # put the build on the production track as a draft
 names = [a for a in sys.argv[1:] if not a.startswith("--")]
 # store_eligible is still honoured so the manifest can exclude an app, but
 # nothing sets it false any more: all 43 are in scope. This comment used to
@@ -77,6 +78,23 @@ for a in apps:
 
     if PRODUCTION:
         vc = rel[0].get("versionCodes", [])
+        # A Draft app refuses a completed production release outright:
+        # "Only releases with status draft may be created on draft app." It does
+        # accept a *draft* release, which puts the bundle on the production track
+        # ready to go, so the only thing left in Console is completing App
+        # content and pressing publish — no build to pick, no rollout to build.
+        if STAGE:
+            u = call("PUT", f"{API}/{pkg}/edits/{eid}/tracks/production",
+                     {"track": "production", "releases": [{"versionCodes": vc, "status": "draft"}]})
+            if (m := fail(u)):
+                print(f"{repo:18} stage: {m}"); out[repo] = {"status": "failed", "error": m}; continue
+            c = call("POST", f"{API}/{pkg}/edits/{eid}:commit")
+            if (m := fail(c)):
+                print(f"{repo:18} stage commit: {m}"); out[repo] = {"status": "failed", "error": m}; continue
+            print(f"{repo:18} production draft staged (versionCode {','.join(vc)})")
+            out[repo] = {"status": "staged-production-draft", "versionCodes": vc}
+            json.dump(out, open(PROD_OUT, "w"), indent=1)
+            continue
         u = call("PUT", f"{API}/{pkg}/edits/{eid}/tracks/production",
                  {"track": "production", "releases": [{"versionCodes": vc, "status": "completed"}]})
         if (m := fail(u)):
