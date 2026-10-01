@@ -61,6 +61,24 @@ from 3 to 1:
 Content ratings is still outstanding for AGCleaner, and all three are still
 outstanding for the other 35.
 
+### App content, read app by app
+
+Every one of the 43 apps' App content page was opened in Play Console on
+2026-10-01 and its *Need attention* counter read. The result is in
+`docs/play-app-content-state.json`, and it corrects the assumption that this is
+the universal blocker — for half the portfolio it is already done:
+
+| Declarations outstanding | Apps |
+| --- | --- |
+| 0 | AGRecorder, AGStudio, ApexMarketWatch, CalcMaster, ChefCount, CodeDeal, GroceryMatch, HomeWise, MileMaster, MyCard, MyFinance, MyHealth, NearServe, PilotEnRoute, RideZap, RoomCraft, TripNest, Uscis-Case, VirtuBand, WiFiTrail, iMaps, iMeasure — **22 apps** |
+| 1 | AGCleaner, AGrammarly, BuddyPlay, CarDeal, EventSpark, NewsBoard, NexusTransferPay, radiotune, yourtube — 9 apps |
+| 2 | daily-pulse |
+| 10 | AeroSwift, BodyQuest, DriftDate, FashionFactory, GadgetNest, HerJourney, Kinnav, PlantPulse, Verba, portfolio-board — 10 apps |
+| 11 | Photriya |
+
+So **16 apps are one declaration or fewer away**, and 11 apps have barely
+started. The 22 at zero are blocked by nothing but the publish itself.
+
 **2. A never-published app is a "Draft app", and the API refuses to publish it.**
 Verified against all 43 packages: a production release with `status:
 "completed"` is rejected with
@@ -70,6 +88,10 @@ Only releases with status draft may be created on draft app
 ```
 
 A release with `status: "draft"` is accepted, which is why all 36 are staged.
+Setting the production track's countries over the API is refused too —
+`countryTargeting` on that release returns *"Country targeting is only supported
+for staged releases"* (verified on HomeWise, 2026-10-01) — so "Select countries
+and regions" is a Console action as well.
 The first production release of a draft app has to be made in the console. Play
 Console's own dashboard for AGCleaner lists the production track as
 **"1 of 5 complete"**:
@@ -80,8 +102,15 @@ Console's own dashboard for AGCleaner lists the production track as
 4. Send the release to Google for review — not done
 5. Publish your app on Google Play — not done
 
-**GroceryMatch has no Play listing at all.** `POST .../com.americangroupllc.grocerymatch/edits`
-returns `404 Package not found`. Creating an app record is console-only.
+**GroceryMatch's package name is cased differently on Play.** The record is
+`com.americangroupllc.GroceryMatch` — capital G and M — and an edit against it
+opens normally. The app builds `com.americangroupllc.grocerymatch`, all
+lowercase, which is why every upload 404s with *"Package not found"*. Apple
+holds the lowercase form with a VALID build, and both are permanent. The Play
+record is also already registered under Android developer verification, so the
+Android `applicationId` should be changed to match the record rather than a
+second Play app being created. Its App content is complete, so this rename is
+the only thing between it and the same publish step as the other 22.
 
 ## App Store — 19 of 43 are with Apple, 24 are not
 
@@ -133,8 +162,8 @@ late 2027. **No iOS or Android delivery is affected.** It needs replacing before
 
 | Question | Answer |
 | --- | --- |
-| Is any app missing a build? | No. 43/43 on Apple, 42/43 on Play (GroceryMatch has no listing) |
+| Is any app missing a build? | No. 43/43 on Apple. On Play, GroceryMatch's uploads miss because its record is cased `com.americangroupllc.GroceryMatch` |
 | Is any app missing a production release? | No. 6 live, 36 staged as production drafts |
-| What stops Play? | App content declarations (3 per app) and the first-publish click — neither has an API |
+| What stops Play? | For 22 apps, only the first-publish click. For the other 21, outstanding App content declarations as well. Neither has an API |
 | What stops Apple? | Apple's own post-rejection cooldown on 23 apps; App Privacy on PlantPulse |
 | Does the certificate email matter? | No — it affects one Mac-only certificate |

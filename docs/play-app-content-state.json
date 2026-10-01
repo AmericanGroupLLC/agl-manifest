@@ -1,0 +1,221 @@
+{
+ "measured": "2026-10-01",
+ "source": "Google Play Console -> App content -> Need attention, read per app",
+ "apps": [
+  {
+   "repo": "Photriya",
+   "play_package_suffix": "photriya",
+   "app_content_need_attention": 11
+  },
+  {
+   "repo": "AeroSwift",
+   "play_package_suffix": "aeroswift",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "BodyQuest",
+   "play_package_suffix": "bodyquest",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "DriftDate",
+   "play_package_suffix": "driftdate",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "FashionFactory",
+   "play_package_suffix": "fashionfactory",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "GadgetNest",
+   "play_package_suffix": "gadgetnest",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "HerJourney",
+   "play_package_suffix": "herjourney",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "Kinnav",
+   "play_package_suffix": "kinnav",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "PlantPulse",
+   "play_package_suffix": "plantpulse",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "Verba",
+   "play_package_suffix": "verba",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "portfolio-board",
+   "play_package_suffix": "portfolioboard",
+   "app_content_need_attention": 10
+  },
+  {
+   "repo": "daily-pulse",
+   "play_package_suffix": "dailypulse",
+   "app_content_need_attention": 2
+  },
+  {
+   "repo": "AGCleaner",
+   "play_package_suffix": "agcleaner",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "AGrammarly",
+   "play_package_suffix": "agrammarly",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "BuddyPlay",
+   "play_package_suffix": "buddyplay",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "CarDeal",
+   "play_package_suffix": "cardeal",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "EventSpark",
+   "play_package_suffix": "eventspark",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "NewsBoard",
+   "play_package_suffix": "newsboard",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "NexusTransferPay",
+   "play_package_suffix": "nexustransferpay",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "radiotune",
+   "play_package_suffix": "radiotune",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "yourtube",
+   "play_package_suffix": "yourtube",
+   "app_content_need_attention": 1
+  },
+  {
+   "repo": "AGRecorder",
+   "play_package_suffix": "agrecorder",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "AGStudio",
+   "play_package_suffix": "agstudio",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "ApexMarketWatch",
+   "play_package_suffix": "apexmarketwatch",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "CalcMaster",
+   "play_package_suffix": "calcmaster",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "ChefCount",
+   "play_package_suffix": "chefcount",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "CodeDeal",
+   "play_package_suffix": "codedeal",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "GroceryMatch",
+   "play_package_suffix": "GroceryMatch",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "HomeWise",
+   "play_package_suffix": "homewise",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "MileMaster",
+   "play_package_suffix": "milemaster",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "MyCard",
+   "play_package_suffix": "mycard",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "MyFinance",
+   "play_package_suffix": "myfinance",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "MyHealth",
+   "play_package_suffix": "myhealth",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "NearServe",
+   "play_package_suffix": "nearserve",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "PilotEnRoute",
+   "play_package_suffix": "pilotenroute",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "RideZap",
+   "play_package_suffix": "ridezap",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "RoomCraft",
+   "play_package_suffix": "roomcraft",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "TripNest",
+   "play_package_suffix": "tripnest",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "Uscis-Case",
+   "play_package_suffix": "usciscase",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "VirtuBand",
+   "play_package_suffix": "virtuband",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "WiFiTrail",
+   "play_package_suffix": "wifitrail",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "iMaps",
+   "play_package_suffix": "imaps",
+   "app_content_need_attention": 0
+  },
+  {
+   "repo": "iMeasure",
+   "play_package_suffix": "imeasure",
+   "app_content_need_attention": 0
+  }
+ ]
+}
