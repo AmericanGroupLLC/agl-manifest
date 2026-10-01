@@ -1,0 +1,26 @@
+{
+  "_comment": [
+    "The single tester roster. scripts/testflight/external_testers.rb and",
+    "scripts/play_testers.py both read this, and docs/TESTERS.md is written",
+    "from it, so there is one list rather than three that drift.",
+    "",
+    "Decided 2026-09-30: only the two accounts below hold store access.",
+    "Everyone else is an external tester and has no App Store Connect or",
+    "Play Console account at all."
+  ],
+  "account_holders": [
+    { "email": "srikanth.patchava@outlook.com", "store": "apple", "role": "ACCOUNT_HOLDER" },
+    { "email": "rainbow472.sri@gmail.com", "store": "google", "role": "ADMIN" }
+  ],
+  "external": [
+    { "email": "sirishapatchava@gmail.com", "first": "Sirisha", "last": "Patchava" },
+    { "email": "aadiboddapati@gmail.com", "first": "Aadi", "last": "Boddapati" },
+    { "email": "pranathim95@gmail.com", "first": "Pranathi", "last": "M" },
+    { "email": "nehuwakhare04@gmail.com", "first": "Nehu", "last": "Wakhare" },
+    { "email": "suresh.alaparti@gmail.com", "first": "Suresh", "last": "Alaparti" },
+    { "email": "rashmi.advani@gmail.com", "first": "Rashmi", "last": "Advani" },
+    { "email": "siddarthaandalu@gmail.com", "first": "Siddartha", "last": "Andalu" },
+    { "email": "vspatel24@gmail.com", "first": "V S", "last": "Patel" },
+    { "email": "mouni123.nekkalapudi@gmail.com", "first": "Mouni", "last": "Nekkalapudi" }
+  ]
+}

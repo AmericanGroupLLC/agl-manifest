@@ -1423,3 +1423,36 @@ immediately", dated Sep 30.
 
 **Lesson worth keeping:** Play Console notifications carry hard deadlines that no
 API exposes. They need a person, or a working browser extension, to read.
+
+## MA-033 · P2 · Play testers must come from a Google Group or be typed by hand
+
+**Who:** the Play Console admin, `rainbow472.sri@gmail.com`.
+
+All nine external testers are on all 43 apps in TestFlight. On Google Play
+they are on **none** of them, across `internal`, `alpha` and `beta`
+(`python3 scripts/sync_play_testers.py --audit`).
+
+This cannot be closed with a script as things stand. Play's `Testers` resource
+accepts exactly one field:
+
+```
+PUT .../edits/{id}/testers/internal  {"testers": ["someone@gmail.com"]}
+400 INVALID_ARGUMENT  Unknown name "testers" at 'testers': Cannot find field.
+
+PUT .../edits/{id}/testers/internal  {"googleGroups": ["..."]}
+200
+```
+
+So there are two routes and no third:
+
+1. **Create one Google Group** containing the nine addresses, add its address
+   to the `google_groups` array in `store/testers.json`, then run
+   `PLAY_TESTER_GOOGLE_GROUP=<group> python3 scripts/sync_play_testers.py`.
+   That applies it to 43 apps × 3
+   tracks in one pass and keeps the roster in one file.
+2. **Type the nine addresses into Play Console** for each app and track —
+   129 lists to maintain by hand, and they drift the moment the roster changes.
+
+Route 1 was previously declined in favour of plain email lists. Plain email
+lists are only reachable through route 2, so this stays open until one of the
+two is chosen. Nothing else about Play delivery is blocked on it.

@@ -74,7 +74,7 @@ Auth: `~/.secrets/play-publisher-agl.json`, or impersonation of
 | `play_state.py` | Asks Play what is actually there per package. Ground truth; the local evidence file is not |
 | `play_release.py` | Promotes a draft internal release |
 | `play_listing.py` | Pushes listing metadata |
-| `sync_play_testers.py` | Attaches a Google Group to the internal track |
+| `sync_play_testers.py` | Reports each app's internal/alpha/beta tester lists and, with PLAY_TESTER_GOOGLE_GROUP, attaches that group to all three. Play takes no individual addresses — see MA-033. Roster is `store/testers.json` |
 
 **What the API cannot do.** Google's own discovery document settles it — the
 `Testers` schema has exactly one property:

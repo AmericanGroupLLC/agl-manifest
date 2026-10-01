@@ -1,18 +1,20 @@
 #!/usr/bin/env python3
-"""Mirror the App Store Connect tester roster onto Google Play.
+"""Mirror the tester roster onto Google Play.
 
-Reads the roster `distribute.rb` writes (`~/agl/.dist/tester-roster.json`, which
-is App Store Connect's Users and Access plus anyone already a beta tester) and
-applies it to Play.
+Reads `store/testers.json`, the same committed roster the App Store side and
+docs/TESTERS.md use, and applies it to the internal, alpha and beta tracks.
 
-Two things Play does differently, both measured on 2026-09-22:
+Two things Play does differently, both re-measured on 2026-10-01:
 
-  * The internal track's tester list takes **Google Groups only**.
-    `GET /edits/{id}/testers/internal` returns `{}` for every app and the
-    resource accepts a `googleGroups` array, not individual addresses. Put the
-    roster in one Google Group and set PLAY_TESTER_GOOGLE_GROUP; this then
-    attaches that group to every app's internal track in one pass. Without it,
-    the email list is a Play Console action and this script only reports.
+  * A track's tester list takes **Google Groups only**. Every track of every
+    app returns `{}` today, and the resource has no field for an address:
+
+        PUT .../testers/internal  {"testers": ["someone@gmail.com"]}
+        400 INVALID_ARGUMENT  Unknown name "testers" at 'testers': Cannot find field.
+
+    Put the roster in one Google Group and set PLAY_TESTER_GOOGLE_GROUP; this
+    then attaches it everywhere in one pass. Without it, the email list is a
+    Play Console action and this script only reports. See MA-033.
 
   * Play Console account users live under `developers/{id}/users`, which needs
     the numeric developer id from the Play Console URL. Set PLAY_DEVELOPER_ID
@@ -35,6 +37,7 @@ API = "https://androidpublisher.googleapis.com/androidpublisher/v3"
 GROUP = os.environ.get("PLAY_TESTER_GOOGLE_GROUP", "").strip()
 DEV_ID = os.environ.get("PLAY_DEVELOPER_ID", "").strip()
 AUDIT = "--audit" in sys.argv
+TRACKS = ["internal", "alpha", "beta"]
 
 _tok = {"v": "", "at": 0.0}
 def token():
@@ -60,10 +63,20 @@ def call(method, url, body=None):
 
 def fail(d): return d["error"].get("message", "unknown")[:180] if "error" in d else None
 
-roster = json.load(open(ROSTER)) if ROSTER.exists() else []
-emails = sorted({r["email"].lower() for r in roster})
-print(f"roster: {len(emails)} address(es) from App Store Connect")
-if not emails: sys.exit("no roster; run distribute.rb --sync first")
+# The roster is store/testers.json, committed, so this script, the App Store
+# side and docs/TESTERS.md all read one list. It used to come from
+# ~/agl/.dist/tester-roster.json, which is a run artifact: on a fresh checkout
+# it does not exist and this exited before doing anything. The old file is
+# still honoured as a fallback.
+TESTERS = M / "store" / "testers.json"
+if TESTERS.exists():
+    emails = sorted({t["email"].lower() for t in json.load(open(TESTERS))["external"]})
+    print(f"roster: {len(emails)} external tester(s) from store/testers.json")
+else:
+    roster = json.load(open(ROSTER)) if ROSTER.exists() else []
+    emails = sorted({r["email"].lower() for r in roster})
+    print(f"roster: {len(emails)} address(es) from App Store Connect")
+if not emails: sys.exit("no roster; populate store/testers.json")
 
 if DEV_ID:
     # Play refuses any other page size: "Pagination is not currently available.
@@ -101,23 +114,37 @@ for repo in targets:
             print(f"{repo:18} open edit: {m}"); out[repo] = {"status": "failed", "error": m}
         continue
     eid = e["id"]
-    cur = call("GET", f"{API}/applications/{pkg}/edits/{eid}/testers/internal")
-    groups = cur.get("googleGroups") or []
+    # All three closed tracks, not just internal: a tester list set on
+    # `internal` alone leaves alpha and beta empty, so promoting a build to
+    # closed testing silently has no audience.
+    have = {}
+    for track in TRACKS:
+        cur = call("GET", f"{API}/applications/{pkg}/edits/{eid}/testers/{track}")
+        have[track] = cur.get("googleGroups") or []
+
     if AUDIT or not GROUP:
-        print(f"{repo:18} internal testers: googleGroups={groups or 'none'}")
-        out[repo] = {"status": "audited", "googleGroups": groups}
+        print(f"{repo:18} " + "  ".join(f"{t}={have[t] or 'none'}" for t in TRACKS))
+        out[repo] = {"status": "audited", "googleGroups": have}
         continue
-    if GROUP in groups:
-        print(f"{repo:18} already has {GROUP}")
-        out[repo] = {"status": "already", "googleGroups": groups}
+
+    todo = [t for t in TRACKS if GROUP not in have[t]]
+    if not todo:
+        print(f"{repo:18} already has {GROUP} on all {len(TRACKS)} track(s)")
+        out[repo] = {"status": "already", "googleGroups": have}
         continue
-    u = call("PUT", f"{API}/applications/{pkg}/edits/{eid}/testers/internal",
-             {"googleGroups": sorted(set(groups + [GROUP]))})
-    if (m := fail(u)): print(f"{repo:18} set testers: {m}"); out[repo] = {"status": "failed", "error": m}; continue
+
+    err = None
+    for track in todo:
+        u = call("PUT", f"{API}/applications/{pkg}/edits/{eid}/testers/{track}",
+                 {"googleGroups": sorted(set(have[track] + [GROUP]))})
+        if (m := fail(u)): err = f"{track}: {m}"; break
+        have[track] = sorted(set(have[track] + [GROUP]))
+    if err:
+        print(f"{repo:18} set testers: {err}"); out[repo] = {"status": "failed", "error": err}; continue
     c = call("POST", f"{API}/applications/{pkg}/edits/{eid}:commit")
     if (m := fail(c)): print(f"{repo:18} commit: {m}"); out[repo] = {"status": "failed", "error": m}; continue
-    print(f"{repo:18} internal testers now include {GROUP}")
-    out[repo] = {"status": "synced", "googleGroups": sorted(set(groups + [GROUP]))}
+    print(f"{repo:18} {GROUP} now on {', '.join(todo)}")
+    out[repo] = {"status": "synced", "googleGroups": have}
 
 json.dump(out, open(RESULTS, "w"), indent=1)
 done = sum(1 for v in out.values() if v.get("status") in ("synced", "already"))

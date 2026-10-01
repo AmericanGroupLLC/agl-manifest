@@ -84,13 +84,13 @@ apps.each do |a|
   ext = groups.find { |g| g.name == EXTERNAL_GROUP && !g.is_internal_group }
   ext ||= groups.find { |g| !g.is_internal_group }
   if ext && !DRY
-    begin
-      Spaceship::ConnectAPI.post_bulk_beta_tester_assignments(
-        beta_group_id: ext.id, beta_testers: emails.map { |e| { email: e } })
-      added += emails.size
-    rescue StandardError
-      # already a member, which is the desired state anyway
-    end
+    # This used to call post_bulk_beta_tester_assignments inside a bare rescue
+    # that assumed any failure meant "already a member". It did not: Apple
+    # retired that endpoint and answers 409 "the resource
+    # 'v1/bulkBetaTesterAssignments' does not exist" every time, so the count
+    # printed below was attempts, not assignments. external_testers.rb owns
+    # this now and uses the endpoint that works.
+    warn "  #{a['repo']}: run external_testers.rb to (re)add the roster" if added.zero?
   end
 
   # BetaGroup#get_beta_testers returns an empty list here even for groups that
