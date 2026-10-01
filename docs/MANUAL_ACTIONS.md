@@ -1363,3 +1363,36 @@ A suffixed identifier is the usual way out, for example
 `com.americangroupllc.bodyquestapp`. Say which form you want and the records can
 be created, built, uploaded and submitted in one pass; nothing else about these
 three is blocked.
+
+## MA-032 · P0 · Android developer verification is due TODAY (2026-09-30)
+
+Read from Play Console's notification panel on 2026-09-30, once the browser
+extension started working. **This is invisible to the Play Developer API** —
+there is no notifications resource — so nothing in this repository could have
+surfaced it.
+
+> AMERICAN GROUP LLC — Sep 8
+> Ensure your apps are registered for Android developer verification by
+> **Sep 30, 2026**
+
+That is today. Google has been phasing in developer verification, and apps from
+unverified developers stop being installable on certified Android devices once
+it bites. Check it immediately under **Play Console → Settings → Developer
+account → Developer verification**, or follow the notification itself.
+
+Two other notices in the same panel, both time-limited:
+
+| Notice | Deadline |
+| --- | --- |
+| RatioTune — "You have until **Oct 7, 2026** to recover this deleted app" | 7 Oct |
+| a second deleted app — "You have until **Oct 1, 2026** to recover" | 1 Oct |
+
+The recovery windows matter: a deleted Play app can be restored inside them, and
+the identifier is otherwise gone for good. If either deletion was a mistake,
+recovering is far cheaper than a new package name.
+
+One notice is good news: "App update published. Users should see changes
+immediately", dated Sep 30.
+
+**Lesson worth keeping:** Play Console notifications carry hard deadlines that no
+API exposes. They need a person, or a working browser extension, to read.
