@@ -895,6 +895,33 @@ works once an app is published, so 26 Draft apps and 11 missing entries are the
 real blockers (MA-021, MA-022).
 ## MA-019 — An App Store Connect agreement needs accepting (HUMAN ONLY, urgent)
 
+**Still outstanding on 2026-09-30, eight days on, and it is the single reason
+nothing reaches a tester or the store.** Re-confirmed today by running the
+distribution directly:
+
+```
+AGCleaner  build 202609250224 -> AGL Internal (6 account users, immediate)
+                              +  AGL Testers (10/10)
+           review submit failed: Beta contract is missing for the app.
+```
+
+This is what a tester sees as *"requested app not available or doesn't
+exist"*. The build is fine — VALID, not expired, 10 testers on the external
+group — but an external group receives nothing until Beta App Review accepts
+it, and Beta App Review cannot be submitted without the contract.
+
+**Internal testing is unaffected and works right now.** The internal group has
+`hasAccessToAllBuilds = true` and the builds report
+`internalBuildState: IN_BETA_TESTING`, so the six App Store Connect account
+users can install today, on the Apple ID that is a user on the account. Anyone
+else cannot, and no amount of re-uploading changes that.
+
+Checked again that no API exposes this: `iris/v1/agreements` returns 404 "The
+specified resource does not exist", and `ra/contracts` returns an empty body
+to an Apple ID session.
+
+## MA-019b — the original note
+
 TestFlight beta submission started failing on 2026-09-22 with:
 
 > Beta contract is missing for the app. - Beta Contract is missing.
