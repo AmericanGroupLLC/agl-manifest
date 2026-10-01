@@ -55,11 +55,11 @@
   },
   {
     "repo": "BodyQuest",
-    "state": "NO_BUILD",
+    "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.bodyquest",
-    "version": null,
-    "processing_state": null,
-    "uploaded_at": null,
+    "version": "202609301756",
+    "processing_state": "VALID",
+    "uploaded_at": "2026-09-30T18:10:14-07:00",
     "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
@@ -235,11 +235,11 @@
   },
   {
     "repo": "MyHealth",
-    "state": "NO_BUILD",
+    "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.myhealth",
-    "version": null,
-    "processing_state": null,
-    "uploaded_at": null,
+    "version": "202609301756",
+    "processing_state": "VALID",
+    "uploaded_at": "2026-09-30T18:20:02-07:00",
     "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
@@ -289,11 +289,11 @@
   },
   {
     "repo": "PlantPulse",
-    "state": "NO_BUILD",
+    "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.plantpulse",
-    "version": null,
-    "processing_state": null,
-    "uploaded_at": null,
+    "version": "202609301756",
+    "processing_state": "VALID",
+    "uploaded_at": "2026-09-30T18:39:45-07:00",
     "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
@@ -307,11 +307,11 @@
   },
   {
     "repo": "radiotune",
-    "state": "NO_BUILD",
+    "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.radiotune",
-    "version": null,
-    "processing_state": null,
-    "uploaded_at": null,
+    "version": "202609301756",
+    "processing_state": "VALID",
+    "uploaded_at": "2026-09-30T18:47:11-07:00",
     "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {

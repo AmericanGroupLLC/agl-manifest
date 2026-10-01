@@ -65,6 +65,10 @@ def req(verb, path, body = nil)
   [res.code.to_i, (JSON.parse(res.body) rescue {})]
 end
 
+def detail_of(out)
+  out.dig("errors", 0, "detail").to_s.gsub(/\s+/, " ")
+end
+
 manifest = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
 manifest = manifest.select { |a| ONLY.include?(a["repo"]) } if ONLY.any?
 defaults = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "store/defaults.json")))
@@ -199,10 +203,12 @@ manifest.each do |a|
   end
 
   # --- the version's own text ------------------------------------------------
+  vl_id = nil
   version = app.get_app_store_versions(filter: { platform: "IOS" }).first rescue nil
   if version
     _, vlocs = req(:get, "v1/appStoreVersions/#{version.id}/appStoreVersionLocalizations")
     vl = (vlocs["data"] || []).find { |l| l.dig("attributes", "locale") == "en-US" }
+    vl_id = vl && vl["id"]
     if vl
       at = vl["attributes"] || {}
       gaps << "description" if at["description"].to_s.empty?
@@ -234,10 +240,86 @@ manifest.each do |a|
     gaps << "no app store version"
   end
 
+  # --- what only an actual submission attempt revealed -----------------------
+  # Everything above came from the "Unable to Add for Review" list. These four
+  # are not on that list and are not refused at save time either: the version
+  # saves clean and then POST reviewSubmissions answers
+  #
+  #   The provided entity is missing a required attribute - You must provide a
+  #   value for the attribute 'copyright' with this request
+  #   The appStoreReviewDetail associated with appStoreVersions ... was not found
+  #   App screenshot missing (APP_IPAD_PRO_3GEN_129)
+  #
+  # so an audit that never tries to submit cannot see them. Age ratings are the
+  # fourth and belong to sync_age_rating.rb, which owns store/ratings/*.json.
+  if version
+    _, vfull = req(:get, "v1/appStoreVersions/#{version.id}")
+    if vfull.dig("data", "attributes", "copyright").to_s.empty?
+      gaps << "copyright"
+      if FIX
+        code, out = req(:patch, "v1/appStoreVersions/#{version.id}",
+                        { data: { type: "appStoreVersions", id: version.id,
+                                  attributes: { copyright: defaults["copyright"] ||
+                                                "#{Time.now.year} American Group LLC" } } })
+        code < 300 ? (fixed += 1; gaps -= ["copyright"]) : warn("  #{repo}: copyright #{code} #{detail_of(out)[0, 90]}")
+      end
+    end
+
+    rd_code, = req(:get, "v1/appStoreVersions/#{version.id}/appStoreReviewDetail")
+    if rd_code >= 300
+      gaps << "appStoreReviewDetail"
+      if FIX
+        code, out = req(:post, "v1/appStoreReviewDetails", {
+                          data: {
+                            type: "appStoreReviewDetails",
+                            attributes: {
+                              contactFirstName: defaults["review_contact_first"] || "App",
+                              contactLastName: defaults["review_contact_last"] || "Support",
+                              contactEmail: defaults["support_email"] || "contact@safecodeg.com",
+                              contactPhone: defaults["support_phone"] || "+1 669 388 1960",
+                              demoAccountRequired: false,
+                            },
+                            relationships: { appStoreVersion: {
+                              data: { type: "appStoreVersions", id: version.id } } },
+                          },
+                        })
+        code < 300 ? (fixed += 1; gaps -= ["appStoreReviewDetail"]) : warn("  #{repo}: reviewDetail #{code} #{detail_of(out)[0, 90]}")
+      end
+    end
+
+    # Screenshots are reported, never invented: the files come from
+    # scripts/screenshots.py and uploading a wrong-sized image is worse than
+    # an honest gap. Apple accepts 6.7" in place of 6.5", so either satisfies
+    # the iPhone requirement.
+    if vl_id
+      _, sets = req(:get, "v1/appStoreVersionLocalizations/#{vl_id}/appScreenshotSets")
+      have = (sets["data"] || []).map { |s| s.dig("attributes", "screenshotDisplayType") }
+      gaps << "screenshots:iphone" if (have & %w[APP_IPHONE_67 APP_IPHONE_65]).empty?
+      gaps << "screenshots:ipad" if !have.include?("APP_IPAD_PRO_3GEN_129")
+    end
+  end
+
   # --- age rating and price: reported, and price never written ---------------
-  _, ar = req(:get, "v1/apps/#{app.id}/appInfos")
-  _, price = req(:get, "v1/apps/#{app.id}/appPriceSchedule")
-  gaps << "priceTier" if (price["data"] || price.dig("errors", 0)) && price["data"].nil?
+  # An appInfo that is IN_REVIEW is read-only, so an unanswered field on one is
+  # not something to act on — the app is already with Apple. Reporting it as a
+  # gap sends you chasing a PATCH that Apple will refuse.
+  if info_id && info.dig("attributes", "state") != "IN_REVIEW"
+    _, ard = req(:get, "v1/appInfos/#{info_id}/ageRatingDeclaration")
+    at = ard.dig("data", "attributes") || {}
+    # kidsAgeBand only applies to the Kids category, and the last two are
+    # optional everywhere; Apple does not require any of the three.
+    optional = %w[kidsAgeBand gracRatingClassificationNumber developerAgeRatingInfoUrl]
+    unanswered = at.reject { |k, v| !v.nil? || optional.include?(k) }
+    gaps << "ageRating(#{unanswered.size} unanswered)" if unanswered.any?
+  end
+  # Pricing was on the "Unable to Add for Review" list and this check used to
+  # pass every app anyway — a bare GET of appPriceSchedule answers 200 with a
+  # schedule object that has no price in it. Three apps reported ready and
+  # then failed submission with "App is missing required pricing. App is not
+  # eligible for submission until pricing has been set." Ask for the prices
+  # themselves and count them.
+  pc, price = req(:get, "v1/apps/#{app.id}/appPriceSchedule?include=manualPrices")
+  gaps << "price" if pc >= 300 || (price["included"] || []).empty?
 
   report[repo] = gaps
   puts format("  %-18s %s", repo, gaps.empty? ? "ready" : gaps.join(", "))

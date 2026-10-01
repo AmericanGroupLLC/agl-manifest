@@ -1,39 +1,40 @@
 {
-  "repo": "PlantPulse",
-  "slug": "plantpulse",
-  "copy": {
-    "en": {
-      "name": "PlantPulse",
-      "subtitle": "Remote for your own hub",
-      "short_description": "TV remote, light control and a gamepad for a smart-home hub you run yourself.",
-      "description": "PlantPulse is a control surface for a smart-home hub you run yourself. Point it at your hub's address and it becomes a remote for whatever that hub drives.\n\nFOUR CONTROLLERS\n• TV — a full remote with a D-pad, transport keys, a number pad, and channel and volume rockers.\n• Lights — per-room brightness, colour temperature, and a colour wheel, with an all-off button.\n• Gamepad — dual analog sticks, a D-pad, and face and shoulder buttons.\n• Hub — your devices in one list, with connection status for each.\n\nYOUR HUB, YOUR RULES\nPlantPulse talks to an HTTP endpoint you give it. There is no PlantPulse cloud, no account, and no third-party service in the path. If you do not enter a hub address the app runs against a built-in simulator so you can try every control before you wire anything up — and it tells you plainly that it is simulating.\n\nBUILT TO FEEL RIGHT\nHaptics on every press, live command feedback, and a transport status indicator so you always know whether a button actually reached the hub.",
-      "keywords": "remote,smart home,tv remote,lights,gamepad,hub,controller,local,home automation"
-    }
-  },
-  "review_information": {
-    "first_name": "App",
-    "last_name": "Reviewer",
-    "email_address": "contact@safecodeg.com",
-    "phone_number": "+1 669 388 1960",
-    "notes": "Thanks for reviewing PlantPulse.\n\nTwo things before you open it. First, the name on screen: the Hub header and the About panel read \"OmniControl\", the project's working name, while the App Store record and the home-screen icon read PlantPulse. Second, and more important: out of the box this app transmits nothing. With no hub address saved, every control is routed to an in-process simulator (lib/core/providers.dart, lib/services/simulated_transport.dart), and a permanent, non-dismissible \"Simulator mode\" banner says so on every screen. Buttons that respond while no TV, bridge or console reacts is the intended behaviour, not a broken network feature.\n\nNo account, no sign-in, no demo credentials and no in-app purchase. The app opens straight onto the Hub tab.\n\nTest instructions:\n1. Launch. The Hub tab shows Quick launch, the simulator banner, and \"My devices (0)\" - the app seeds no fake hardware, so an empty list is correct.\n2. TV tab: a D-pad, transport keys, a number pad, and channel and volume rockers. Each press appears in the command feedback overlay above the tab bar.\n3. Lights tab: four built-in zones (Living Room, Bedroom, Kitchen, Office) plus scenes (Relax, Focus, Party, Sleep, Movie, Wake Up), with power, brightness, colour temperature and a colour wheel. These are local presets, not discovered bulbs.\n4. Pad tab: two analog sticks, a D-pad, face and shoulder buttons. The \"Pair\" button only marks the controller as paired inside the app - there is no Bluetooth code and no BLE dependency in the build, so no pairing sheet appears.\n5. Tap the transport chip in the Hub header for Settings. The \"Hub address\" field is where a user points the app at a hub on their own network; saving a valid http(s) address switches every control to real HTTP requests and replaces the banner with a live reachability probe. There is no hub to point at during review and none is needed - leave it empty, or use \"Clear - use simulator\" to return.\n6. Haptics can be switched off in Settings. On a simulator no haptics are felt at all.\n\nPrivacy:\n• Data collected: nothing. There is no account, no sign-up and no profile. The device list, the lighting zones and the haptics preference are stored on the device with shared_preferences.\n• Network: none unless the user saves a hub address. In that case the app makes HTTP requests only to that address, a machine on the user's own network. Nothing is sent anywhere else.\n• Tracking: none. There is no advertising or analytics SDK; the advertising identifier is not read and no App Tracking Transparency prompt appears. A Firebase Crashlytics bootstrap is present but inactive - no Firebase configuration file is included.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.short_description",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/app/shell.dart (Hub/TV/Lights/Pad tabs), lib/features/{tv,lights,gamepad,devices}, lib/core/providers.dart lines 59-72 (SimulatedTransport when no hub URL, else HttpHubTransport), lib/widgets/{transport_status,command_feedback}.dart, lib/core/haptics.dart. NOTE: the repo name says 'plant' — this app has nothing to do with plants.",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "primary_category": "UTILITIES",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+ "repo": "PlantPulse",
+ "slug": "plantpulse",
+ "copy": {
+  "en": {
+   "name": "iPlantPulse",
+   "subtitle": "Remote for your own hub",
+   "short_description": "TV remote, light control and a gamepad for a smart-home hub you run yourself.",
+   "description": "PlantPulse is a control surface for a smart-home hub you run yourself. Point it at your hub's address and it becomes a remote for whatever that hub drives.\n\nFOUR CONTROLLERS\n\u2022 TV \u2014 a full remote with a D-pad, transport keys, a number pad, and channel and volume rockers.\n\u2022 Lights \u2014 per-room brightness, colour temperature, and a colour wheel, with an all-off button.\n\u2022 Gamepad \u2014 dual analog sticks, a D-pad, and face and shoulder buttons.\n\u2022 Hub \u2014 your devices in one list, with connection status for each.\n\nYOUR HUB, YOUR RULES\nPlantPulse talks to an HTTP endpoint you give it. There is no PlantPulse cloud, no account, and no third-party service in the path. If you do not enter a hub address the app runs against a built-in simulator so you can try every control before you wire anything up \u2014 and it tells you plainly that it is simulating.\n\nBUILT TO FEEL RIGHT\nHaptics on every press, live command feedback, and a transport status indicator so you always know whether a button actually reached the hub.",
+   "keywords": "remote,smart home,tv remote,lights,gamepad,hub,controller,local,home automation",
+   "_name_note": "iPlantPulse, not PlantPulse: another developer holds 'PlantPulse' on the App Store and Apple answers 409 'The app name you entered is already being used'. That 409 failed the whole deliver run, not just the name, so the screenshots never uploaded either."
+  }
+ },
+ "review_information": {
+  "first_name": "App",
+  "last_name": "Reviewer",
+  "email_address": "contact@safecodeg.com",
+  "phone_number": "+1 669 388 1960",
+  "notes": "Thanks for reviewing PlantPulse.\n\nTwo things before you open it. First, the name on screen: the Hub header and the About panel read \"OmniControl\", the project's working name, while the App Store record and the home-screen icon read PlantPulse. Second, and more important: out of the box this app transmits nothing. With no hub address saved, every control is routed to an in-process simulator (lib/core/providers.dart, lib/services/simulated_transport.dart), and a permanent, non-dismissible \"Simulator mode\" banner says so on every screen. Buttons that respond while no TV, bridge or console reacts is the intended behaviour, not a broken network feature.\n\nNo account, no sign-in, no demo credentials and no in-app purchase. The app opens straight onto the Hub tab.\n\nTest instructions:\n1. Launch. The Hub tab shows Quick launch, the simulator banner, and \"My devices (0)\" - the app seeds no fake hardware, so an empty list is correct.\n2. TV tab: a D-pad, transport keys, a number pad, and channel and volume rockers. Each press appears in the command feedback overlay above the tab bar.\n3. Lights tab: four built-in zones (Living Room, Bedroom, Kitchen, Office) plus scenes (Relax, Focus, Party, Sleep, Movie, Wake Up), with power, brightness, colour temperature and a colour wheel. These are local presets, not discovered bulbs.\n4. Pad tab: two analog sticks, a D-pad, face and shoulder buttons. The \"Pair\" button only marks the controller as paired inside the app - there is no Bluetooth code and no BLE dependency in the build, so no pairing sheet appears.\n5. Tap the transport chip in the Hub header for Settings. The \"Hub address\" field is where a user points the app at a hub on their own network; saving a valid http(s) address switches every control to real HTTP requests and replaces the banner with a live reachability probe. There is no hub to point at during review and none is needed - leave it empty, or use \"Clear - use simulator\" to return.\n6. Haptics can be switched off in Settings. On a simulator no haptics are felt at all.\n\nPrivacy:\n\u2022 Data collected: nothing. There is no account, no sign-up and no profile. The device list, the lighting zones and the haptics preference are stored on the device with shared_preferences.\n\u2022 Network: none unless the user saves a hub address. In that case the app makes HTTP requests only to that address, a machine on the user's own network. Nothing is sent anywhere else.\n\u2022 Tracking: none. There is no advertising or analytics SDK; the advertising identifier is not read and no App Tracking Transparency prompt appears. A Firebase Crashlytics bootstrap is present but inactive - no Firebase configuration file is included.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.short_description",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/app/shell.dart (Hub/TV/Lights/Pad tabs), lib/features/{tv,lights,gamepad,devices}, lib/core/providers.dart lines 59-72 (SimulatedTransport when no hub URL, else HttpHubTransport), lib/widgets/{transport_status,command_feedback}.dart, lib/core/haptics.dart. NOTE: the repo name says 'plant' \u2014 this app has nothing to do with plants.",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "primary_category": "UTILITIES",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
 }

@@ -40,9 +40,13 @@ FREQUENCY_FIELDS = %w[
   violence_realistic
 ].freeze
 
+# social_media_age_restricted is newer than this list and was missing from it,
+# which left 16 apps with an unanswered declaration and no visible reason: the
+# save succeeds, and only POST reviewSubmissions complains.
 BOOLEAN_FIELDS = %w[
-  gambling messaging_and_chat social_media unrestricted_web_access age_assurance
-  user_generated_content loot_box parental_controls health_or_wellness_topics
+  gambling messaging_and_chat social_media social_media_age_restricted
+  unrestricted_web_access age_assurance user_generated_content loot_box
+  parental_controls health_or_wellness_topics
 ].freeze
 
 require_relative "../agl_paths"
@@ -61,12 +65,21 @@ def snake(key)
 end
 
 def ratings_for(repo, manifest)
-  path = "#{manifest}/store/ratings/#{repo}.json"
-  path = "#{manifest}/store/ratings/default.json" unless File.exist?(path)
-  JSON.parse(File.read(path)).each_with_object({}) do |(k, v), h|
-    next if k.start_with?("_")
-    h[snake(k)] = v
+  # The per-app file is an *override layer* over default.json, not a
+  # replacement for it. It used to replace it, so when Apple added
+  # socialMedia and socialMediaAgeRestricted, answering them in default.json
+  # fixed 29 apps and silently missed the 14 that have a file of their own —
+  # leaving their declaration incomplete with nothing to show why. Merging
+  # means a new Apple field is answered once.
+  load = lambda do |path|
+    return {} unless File.exist?(path)
+    JSON.parse(File.read(path)).each_with_object({}) do |(k, v), h|
+      next if k.start_with?("_")
+      h[snake(k)] = v
+    end
   end
+  load.call("#{manifest}/store/ratings/default.json")
+      .merge(load.call("#{manifest}/store/ratings/#{repo}.json"))
 end
 
 readiness = JSON.parse(File.read("#{M}/docs/release-readiness.json"))

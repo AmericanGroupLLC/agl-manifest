@@ -1456,3 +1456,40 @@ So there are two routes and no third:
 Route 1 was previously declined in favour of plain email lists. Plain email
 lists are only reachable through route 2, so this stays open until one of the
 two is chosen. Nothing else about Play delivery is blocked on it.
+
+## MA-034 · P1 · What a passing checklist still did not catch
+
+Closed 2026-10-01, recorded because the lesson generalises: an audit that
+never attempts the thing it is auditing will report ready and be wrong.
+
+`asc_readiness.rb` reported 43/43 ready against Apple's own "Unable to Add for
+Review" list. Submitting then failed on four requirements that list does not
+mention and that save cleanly when written:
+
+| Missing | Apps | Where it lives |
+| --- | --- | --- |
+| `copyright` | 1 | `appStoreVersions` |
+| `appStoreReviewDetail` | 1 | its own resource, created against the version |
+| screenshots for `APP_IPHONE_67` / `APP_IPAD_PRO_3GEN_129` | 4 | `appScreenshotSets` |
+| age-rating answers | 16 | `appInfos/{id}/ageRatingDeclaration` |
+
+And one it *did* list, which the check passed anyway: **pricing**. A bare
+`GET appPriceSchedule` answers 200 with a schedule that contains no price, so
+"has a schedule" is not "has a price". Three apps were reported ready and then
+refused with "App is not eligible for submission until pricing has been set".
+The check now asks for `?include=manualPrices` and counts them.
+
+Two root causes worth keeping:
+
+* **`store/ratings/<repo>.json` replaced `default.json` instead of layering
+  over it.** When Apple added `socialMedia` and `socialMediaAgeRestricted`,
+  answering them in `default.json` fixed 29 apps and silently missed the 14
+  with a file of their own. It merges now, so a new Apple field is answered
+  once.
+* **PlantPulse's whole metadata delivery failed on its name.** Another
+  developer holds "PlantPulse", so Apple answers 409 — and `deliver` aborts
+  the run, meaning the screenshots never uploaded either. Both the manifest
+  copy and `fastlane/metadata/en-US/name.txt` now say `iPlantPulse`.
+
+After all of it: 43/43 clean, and BodyQuest, MyHealth and radiotune went from
+blocked to WAITING_FOR_REVIEW.
