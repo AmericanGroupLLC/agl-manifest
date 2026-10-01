@@ -73,6 +73,7 @@ Auth: `~/.secrets/play-publisher-agl.json`, or impersonation of
 | `play_internal_share.py` | **Internal app sharing.** Uploads a bundle and returns an install link for the existing Play Console users — no tester list and no Google Group |
 | `play_state.py` | Asks Play what is actually there per package. Ground truth; the local evidence file is not |
 | `play_release.py` | Promotes a draft internal release |
+| `play_production_blockers.py` | Reports, per app, whether a production release exists and whether it is staged or live, and records the API's refusal for a Draft app. Writes `docs/play-production-blockers.json` |
 | `play_listing.py` | Pushes listing metadata |
 | `sync_play_testers.py` | Reports each app's internal/alpha/beta tester lists and, with PLAY_TESTER_GOOGLE_GROUP, attaches that group to all three. Play takes no individual addresses — see MA-033. Roster is `store/testers.json` |
 

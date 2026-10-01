@@ -1,0 +1,975 @@
+{
+ "apps": [
+  {
+   "repo": "AeroSwift",
+   "package": "com.americangroupllc.aeroswift",
+   "internal": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "AGCleaner",
+   "package": "com.americangroupllc.agcleaner",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "AGrammarly",
+   "package": "com.americangroupllc.agrammarly",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "AGRecorder",
+   "package": "com.americangroupllc.agrecorder",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "AGStudio",
+   "package": "com.americangroupllc.agstudio",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "ApexMarketWatch",
+   "package": "com.americangroupllc.apexmarketwatch",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "BodyQuest",
+   "package": "com.americangroupllc.bodyquest",
+   "internal": [
+    {
+     "versionCodes": [
+      "2"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "2"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "BuddyPlay",
+   "package": "com.americangroupllc.buddyplay",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "CalcMaster",
+   "package": "com.americangroupllc.calcmaster",
+   "internal": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "state": "LIVE_PRODUCTION",
+   "blocker": null
+  },
+  {
+   "repo": "CarDeal",
+   "package": "com.americangroupllc.cardeal",
+   "internal": [],
+   "production": [
+    {
+     "versionCodes": [],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "ChefCount",
+   "package": "com.americangroupllc.chefcount",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "CodeDeal",
+   "package": "com.americangroupllc.codedeal",
+   "internal": [
+    {
+     "versionCodes": [
+      "16"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "16"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "daily-pulse",
+   "package": "com.americangroupllc.dailypulse",
+   "internal": [
+    {
+     "versionCodes": [
+      "2"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "2"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "DriftDate",
+   "package": "com.americangroupllc.driftdate",
+   "internal": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "EventSpark",
+   "package": "com.americangroupllc.eventspark",
+   "internal": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "FashionFactory",
+   "package": "com.americangroupllc.fashionfactory",
+   "internal": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "GadgetNest",
+   "package": "com.americangroupllc.gadgetnest",
+   "internal": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "GroceryMatch",
+   "package": "com.americangroupllc.grocerymatch",
+   "state": "NO_LISTING",
+   "blocker": "Package not found: com.americangroupllc.grocerymatch."
+  },
+  {
+   "repo": "HerJourney",
+   "package": "com.americangroupllc.herjourney",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "HomeWise",
+   "package": "com.americangroupllc.homewise",
+   "internal": [
+    {
+     "versionCodes": [
+      "10"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    },
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "10"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "iMaps",
+   "package": "com.americangroupllc.imaps",
+   "internal": [],
+   "production": [
+    {
+     "versionCodes": [
+      "5"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "state": "LIVE_PRODUCTION",
+   "blocker": null
+  },
+  {
+   "repo": "iMeasure",
+   "package": "com.americangroupllc.imeasure",
+   "internal": [],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "state": "LIVE_PRODUCTION",
+   "blocker": null
+  },
+  {
+   "repo": "Kinnav",
+   "package": "com.americangroupllc.kinnav",
+   "internal": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "MileMaster",
+   "package": "com.americangroupllc.milemaster",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "MyCard",
+   "package": "com.americangroupllc.mycard",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "MyFinance",
+   "package": "com.americangroupllc.myfinance",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "MyHealth",
+   "package": "com.americangroupllc.myhealth",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "NearServe",
+   "package": "com.americangroupllc.nearserve",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "NewsBoard",
+   "package": "com.americangroupllc.newsboard",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "NexusTransferPay",
+   "package": "com.americangroupllc.nexustransferpay",
+   "internal": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "Photriya",
+   "package": "com.americangroupllc.photriya",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "PilotEnRoute",
+   "package": "com.americangroupllc.pilotenroute",
+   "internal": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "PlantPulse",
+   "package": "com.americangroupllc.plantpulse",
+   "internal": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "portfolio-board",
+   "package": "com.americangroupllc.portfolioboard",
+   "internal": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "radiotune",
+   "package": "com.americangroupllc.radiotune",
+   "internal": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "RideZap",
+   "package": "com.americangroupllc.ridezap",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "RoomCraft",
+   "package": "com.americangroupllc.roomcraft",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "TripNest",
+   "package": "com.americangroupllc.tripnest",
+   "internal": [],
+   "production": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "state": "LIVE_PRODUCTION",
+   "blocker": null
+  },
+  {
+   "repo": "Uscis-Case",
+   "package": "com.americangroupllc.usciscase",
+   "internal": [],
+   "production": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "state": "LIVE_PRODUCTION",
+   "blocker": null
+  },
+  {
+   "repo": "Verba",
+   "package": "com.americangroupllc.verba",
+   "internal": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "1"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "VirtuBand",
+   "package": "com.americangroupllc.virtuband",
+   "internal": [],
+   "production": [
+    {
+     "versionCodes": [
+      "2"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "state": "LIVE_PRODUCTION",
+   "blocker": null
+  },
+  {
+   "repo": "WiFiTrail",
+   "package": "com.americangroupllc.wifitrail",
+   "internal": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "3"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  },
+  {
+   "repo": "yourtube",
+   "package": "com.americangroupllc.yourtube",
+   "internal": [
+    {
+     "versionCodes": [
+      "7"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "7"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
+  }
+ ]
+}

@@ -60,7 +60,7 @@
     "version": "202609301756",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-30T18:10:14-07:00",
-    "review_state": "PREPARE_FOR_SUBMISSION"
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "BuddyPlay",
@@ -240,7 +240,7 @@
     "version": "202609301756",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-30T18:20:02-07:00",
-    "review_state": "PREPARE_FOR_SUBMISSION"
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "NearServe",
@@ -312,7 +312,7 @@
     "version": "202609301756",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-30T18:47:11-07:00",
-    "review_state": "PREPARE_FOR_SUBMISSION"
+    "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "RideZap",

@@ -1,0 +1,140 @@
+# Why the apps are not in production — measured 2026-10-01
+
+Every number here came from an API call or a Play Console page read on
+2026-10-01. Nothing in this file is an estimate.
+
+Regenerate the Play half with:
+
+```bash
+python3 scripts/play_production_blockers.py       # -> docs/play-production-blockers.json
+```
+
+and the Apple half with:
+
+```bash
+source scripts/testflight/env.sh
+bundle exec ruby scripts/asc_build_state.rb       # -> docs/asc-build-state.json
+bundle exec ruby scripts/testflight/submit_production.rb
+```
+
+## Google Play — 6 of 43 live
+
+| State | Count | Apps |
+| --- | --- | --- |
+| `LIVE_PRODUCTION` | 6 | CalcMaster, TripNest, Uscis-Case, VirtuBand, iMaps, iMeasure |
+| `PRODUCTION_DRAFT_STAGED` | 36 | everything else |
+| `NO_LISTING` | 1 | GroceryMatch |
+
+The 6 that are live are the ones that were already published before this
+programme started. **Every other app already has its build sitting on the
+production track as a draft release** — `play_release.py --production --stage`
+put it there — so no build selection, no rollout and no upload is outstanding.
+
+### What is actually in the way
+
+Two things, and the API can do neither.
+
+**1. App content declarations are incomplete.** Read directly from Play Console
+for AGCleaner on 2026-10-01: *App content → "Need attention (3)"* —
+
+| Declaration | What Google said |
+| --- | --- |
+| Content ratings | "All developers are required to submit this declaration for their apps" |
+| Advertising ID | "You will not be able to submit releases targeting Android 13 until you complete this section" |
+| Photo and video permissions | "One or more of your app bundles or APKs includes the Photo and video permissions in its manifest" |
+
+Google publishes **no API for any of these**. `androidpublisher v3` exposes
+edits, bundles, listings, images, details, testers, tracks and country
+availability — and nothing else. They are Play Console forms.
+
+Completed in the console on 2026-10-01 for AGCleaner, which took its counter
+from 3 to 1:
+
+* Advertising ID — answered *Yes* (the manifest carries
+  `com.google.android.gms.permission.AD_ID`, merged in by `firebase_analytics`
+  via `agl_observability`) with purpose *Analytics*. AGCleaner has no ads SDK,
+  so *Advertising or marketing* was deliberately **not** ticked.
+* Photo and video permissions — justified `READ_MEDIA_IMAGES`: the app hashes
+  every image in the library to find duplicates and oversized photos, which the
+  system photo picker cannot do.
+
+Content ratings is still outstanding for AGCleaner, and all three are still
+outstanding for the other 35.
+
+**2. A never-published app is a "Draft app", and the API refuses to publish it.**
+Verified against all 43 packages: a production release with `status:
+"completed"` is rejected with
+
+```
+Only releases with status draft may be created on draft app
+```
+
+A release with `status: "draft"` is accepted, which is why all 36 are staged.
+The first production release of a draft app has to be made in the console. Play
+Console's own dashboard for AGCleaner lists the production track as
+**"1 of 5 complete"**:
+
+1. Select countries and regions — not done
+2. Create a new release — done (the staged draft)
+3. Preview and confirm the release — not done
+4. Send the release to Google for review — not done
+5. Publish your app on Google Play — not done
+
+**GroceryMatch has no Play listing at all.** `POST .../com.americangroupllc.grocerymatch/edits`
+returns `404 Package not found`. Creating an app record is console-only.
+
+## App Store — 19 of 43 are with Apple, 24 are not
+
+From `docs/asc-build-state.json`, refreshed 2026-10-01. All 43 apps have a
+`VALID` uploaded build; the difference is review state.
+
+| Review state | Count | Apps |
+| --- | --- | --- |
+| `IN_REVIEW` | 16 | AGCleaner, AGRecorder, AGStudio, ApexMarketWatch, BuddyPlay, CarDeal, ChefCount, FashionFactory, HomeWise, MileMaster, NearServe, NewsBoard, RideZap, RoomCraft, TripNest, VirtuBand |
+| `WAITING_FOR_REVIEW` | 3 | BodyQuest, MyHealth, radiotune |
+| `PREPARE_FOR_SUBMISSION` | 24 | the rest |
+
+`submit_production.rb` was run against all 43 on 2026-10-01. Of the 24 not yet
+with Apple:
+
+* **23 are refused by Apple itself** with *"Version is not ready to be
+  submitted yet, please try again later"*. That is Apple's own cooldown after a
+  rejection — the version cannot be resubmitted until Apple reopens it. There
+  is nothing to fix in the app or the metadata; re-running the script later is
+  the whole remedy.
+* **PlantPulse** is refused with *app-privacy-answers-not-published*. Its
+  `store/privacy/fastlane/PlantPulse.json` says `DATA_NOT_COLLECTED`, which is a
+  single click in App Store Connect → App Privacy, or one
+  `upload_app_privacy_details_to_app_store` run from a session-authenticated
+  Mac. There is no API-key route; see MA-011.
+
+## The Developer ID certificate email is not a blocker
+
+Apple mailed the account about the original *Developer ID Certification
+Authority* expiring 2027-02-01. Certificates on the team, read from the API on
+2026-10-01:
+
+| Type | Name | Expires |
+| --- | --- | --- |
+| `DEVELOPER_ID_APPLICATION` | American Group LLC | 2027-02-01 |
+| `DISTRIBUTION` | American Group LLC | 2027-09-30 |
+| `DISTRIBUTION` | American Group LLC | 2027-06-09 |
+| `MAC_INSTALLER_DISTRIBUTION` | American Group LLC | 2027-06-09 |
+| `DEVELOPMENT` ×2 | SRIKANTH PATCHAVA | 2027-06-09 |
+
+Exactly one certificate is affected, and it is `DEVELOPER_ID_APPLICATION` —
+the certificate for **Mac software distributed outside the Mac App Store**. None
+of the 43 apps is a Mac app; they sign for the App Store with the `DISTRIBUTION`
+certificates, which are issued by a different authority and expire in mid- and
+late 2027. **No iOS or Android delivery is affected.** It needs replacing before
+2027-02-01 only if the organisation ever ships notarised Mac software.
+
+## Summary
+
+| Question | Answer |
+| --- | --- |
+| Is any app missing a build? | No. 43/43 on Apple, 42/43 on Play (GroceryMatch has no listing) |
+| Is any app missing a production release? | No. 6 live, 36 staged as production drafts |
+| What stops Play? | App content declarations (3 per app) and the first-publish click — neither has an API |
+| What stops Apple? | Apple's own post-rejection cooldown on 23 apps; App Privacy on PlantPulse |
+| Does the certificate email matter? | No — it affects one Mac-only certificate |
