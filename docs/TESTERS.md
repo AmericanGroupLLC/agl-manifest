@@ -1,55 +1,51 @@
 # Who can install, and who cannot
 
-Measured from App Store Connect on 2026-09-30.
+Measured from App Store Connect on 2026-10-01, after reducing account access.
 
-## App Store Connect account users
-
-These six are users on the account. Internal TestFlight groups have
-`hasAccessToAllBuilds = true`, so **these people can install any build
-today** — no Beta App Review, no contract needed. Sign in to TestFlight
-with the Apple ID below.
+## App Store Connect account users (2)
 
 | Email | Name | Role |
 | --- | --- | --- |
-| `aadiboddapati@gmail.com` | Aadi Boddapati | ADMIN, CLOUD_MANAGED_DEVELOPER_ID |
-| `nehuwakhare04@gmail.com` | Neha Wakhare | ADMIN |
-| `rainbow472.sri@gmail.com` | Srikanth Patchava | ADMIN |
-| `sirishapatchava@gmail.com` | sirisha Pachava | ADMIN, CLOUD_MANAGED_DEVELOPER_ID |
 | `srikanth.patchava@outlook.com` | Srikanth Patchava | ACCOUNT_HOLDER, ADMIN |
-| `suresh.alaparti@gmail.com` | Suresh A | DEVELOPER, SALES |
+| `rainbow472.sri@gmail.com` | Srikanth Patchava | ADMIN — also the Google Play admin |
 
-## TestFlight testers
+These two can install any build immediately: internal groups carry
+`hasAccessToAllBuilds`, so no Beta App Review and no contract is involved.
 
-Ten unique addresses across all groups. An address in an *internal*
-group installs immediately; one in an *external* group installs only
-after Beta App Review, which is blocked — see MA-019.
+## External testers (8)
 
-| Email | Account user | Groups |
-| --- | --- | --- |
-| `aadiboddapati@gmail.com` | yes | AGL Internal, AGL Testers, Internal testers, QA-Team, Test, Testing |
-| `nehuwakhare04@gmail.com` | yes | AGL Internal, AGL Testers, Internal testers, QA-Team, Test |
-| `pranathim95@gmail.com` | no | AGL Testers, Kinnav |
-| `rainbow472.sri@gmail.com` | yes | AGL Internal, AGL Testers, Internal testers, QA-Team, Test, Testing |
-| `rashmi.advani@gmail.com` | no | AGL Testers |
-| `siddarthaandalu@gmail.com` | no | AGL Testers |
-| `sirishapatchava@gmail.com` | yes | AGL Internal, AGL Testers, Internal testers, QA-Team, Test, Testing |
-| `srikanth.patchava@outlook.com` | yes | AGL Internal, AGL Testers, Internal testers, Me, QA-Team, Test, Testing |
-| `suresh.alaparti@gmail.com` | yes | AGL Internal, AGL Testers, Internal testers, QA-Team, Test |
-| `vspatel24@gmail.com` | no | AGL Testers, Kinnav |
+Everyone else is external only, on `AGL Testers`:
 
-## The four who currently cannot install
+| Email | Groups |
+| --- | --- |
+| `aadiboddapati@gmail.com` | AGL Testers |
+| `nehuwakhare04@gmail.com` | AGL Testers |
+| `pranathim95@gmail.com` | AGL Testers, Kinnav |
+| `rashmi.advani@gmail.com` | AGL Testers |
+| `siddarthaandalu@gmail.com` | AGL Testers |
+| `sirishapatchava@gmail.com` | AGL Testers |
+| `suresh.alaparti@gmail.com` | AGL Testers |
+| `vspatel24@gmail.com` | AGL Testers, Kinnav |
 
-In external groups only, and not users on the account:
+**None of them can install yet**, and that is not about their membership. An
+external group receives a build only after Beta App Review, and submitting it
+fails with "Beta contract is missing for the app" — MA-019. Once that
+agreement is accepted, all eight get every build with no further work.
 
-- `pranathim95@gmail.com` — AGL Testers, Kinnav
-- `rashmi.advani@gmail.com` — AGL Testers
-- `siddarthaandalu@gmail.com` — AGL Testers
-- `vspatel24@gmail.com` — AGL Testers, Kinnav
+## What changed, and one thing worth knowing
 
-They see *"requested app not available or doesn't exist"*. Two ways to
-fix it, either is enough:
+Four people lost App Store Connect account access:
+aadiboddapati, sirishapatchava, nehuwakhare04 and suresh.alaparti.
 
-1. Accept the agreement (MA-019) so external builds pass Beta App Review.
-2. Add them as users in App Store Connect -> Users and Access, which puts
-   them in the internal group and works immediately.
+Removing an account user also deletes their beta-tester record. Two of the
+four disappeared from TestFlight entirely and one was left with no groups at
+all, so all four were re-added to the external group afterwards — 162
+assignments across the 43 apps. Re-add the testers *after* removing the user,
+not before.
 
+Checked before removing anyone: no certificate belongs to any of them. The
+certificate the pipeline signs with, `2S2F6CDFY2`, is issued to
+"American Group LLC", and the only per-person certificates are development
+ones belonging to the account holder. Two of the four held
+CLOUD_MANAGED_DEVELOPER_ID, which can take cloud-managed signing assets with
+it, so this was verified rather than assumed.
