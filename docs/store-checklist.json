@@ -199,7 +199,7 @@
   "Export compliance answered": "FAIL",
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
-  "Build live on App Store Connect": "FAIL",
+  "Build live on App Store Connect": "PASS",
   "Play release": "FAIL",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"
@@ -792,7 +792,7 @@
   "Export compliance answered": "FAIL",
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
-  "Build live on App Store Connect": "FAIL",
+  "Build live on App Store Connect": "PASS",
   "Play release": "FAIL",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"
@@ -968,7 +968,7 @@
   "Export compliance answered": "FAIL",
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
-  "Build live on App Store Connect": "FAIL",
+  "Build live on App Store Connect": "PASS",
   "Play release": "FAIL",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"
@@ -1028,7 +1028,7 @@
   "Export compliance answered": "FAIL",
   "Apple age rating answered": "FAIL",
   "Play IARC questionnaire": "HUMAN",
-  "Build live on App Store Connect": "FAIL",
+  "Build live on App Store Connect": "PASS",
   "Play release": "FAIL",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL"

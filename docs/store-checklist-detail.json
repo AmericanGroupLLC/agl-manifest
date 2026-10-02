@@ -949,8 +949,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play release",
@@ -3754,8 +3754,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play release",
@@ -4517,12 +4517,12 @@
   {
    "check": "App Store name",
    "state": "PASS",
-   "detail": "PlantPulse"
+   "detail": "iPlantPulse"
   },
   {
    "check": "Play title",
    "state": "PASS",
-   "detail": "PlantPulse"
+   "detail": "iPlantPulse"
   },
   {
    "check": "Full description",
@@ -4586,8 +4586,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play release",
@@ -4870,8 +4870,8 @@
   },
   {
    "check": "Build live on App Store Connect",
-   "state": "FAIL",
-   "detail": "no ASC record or not uploaded"
+   "state": "PASS",
+   "detail": "uploaded"
   },
   {
    "check": "Play release",
