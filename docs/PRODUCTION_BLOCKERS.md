@@ -1,4 +1,13 @@
-# Why the apps are not in production — measured 2026-10-01
+# Why the apps are not in production — measured 2026-10-01, updated 2026-10-02
+
+> **2026-10-02.** Apple's cooldown lifted and `submit_production.rb` got 11 more
+> apps in. **42 of 43 are now with Apple** — 16 In Review, 26 Waiting for
+> Review — and only PlantPulse is left, on its App Privacy answers.
+>
+> On Play, HomeWise's production track now has all 178 countries selected, done
+> in the Console because the API refuses it. That change sits in Publishing
+> overview as a pending change; sending it for review is the step this session
+> is not permitted to take (see "What is left needs a human" at the end).
 
 Every number here came from an API call or a Play Console page read on
 2026-10-01. Nothing in this file is an estimate.
@@ -112,30 +121,28 @@ Android `applicationId` should be changed to match the record rather than a
 second Play app being created. Its App content is complete, so this rename is
 the only thing between it and the same publish step as the other 22.
 
-## App Store — 19 of 43 are with Apple, 24 are not
+## App Store — 42 of 43 are with Apple
 
-From `docs/asc-build-state.json`, refreshed 2026-10-01. All 43 apps have a
-`VALID` uploaded build; the difference is review state.
+From `docs/asc-build-state.json`, refreshed 2026-10-02. All 43 apps have a
+`VALID` uploaded build.
 
 | Review state | Count | Apps |
 | --- | --- | --- |
 | `IN_REVIEW` | 16 | AGCleaner, AGRecorder, AGStudio, ApexMarketWatch, BuddyPlay, CarDeal, ChefCount, FashionFactory, HomeWise, MileMaster, NearServe, NewsBoard, RideZap, RoomCraft, TripNest, VirtuBand |
-| `WAITING_FOR_REVIEW` | 3 | BodyQuest, MyHealth, radiotune |
-| `PREPARE_FOR_SUBMISSION` | 24 | the rest |
+| `WAITING_FOR_REVIEW` | 26 | AeroSwift, AGrammarly, BodyQuest, CalcMaster, CodeDeal, daily-pulse, DriftDate, EventSpark, GadgetNest, GroceryMatch, HerJourney, iMaps, iMeasure, Kinnav, MyCard, MyFinance, MyHealth, NexusTransferPay, Photriya, PilotEnRoute, portfolio-board, radiotune, Uscis-Case, Verba, WiFiTrail, yourtube |
+| `PREPARE_FOR_SUBMISSION` | 1 | PlantPulse |
 
-`submit_production.rb` was run against all 43 on 2026-10-01. Of the 24 not yet
-with Apple:
+On 2026-10-01 twenty-three of these were refused with *"Version is not ready to
+be submitted yet, please try again later"* — Apple's own post-rejection
+cooldown. Re-running the same script on 2026-10-02 submitted eleven of them
+outright and the rest followed, which is the proof that the message meant what
+it said and that nothing in the apps or their metadata was wrong.
 
-* **23 are refused by Apple itself** with *"Version is not ready to be
-  submitted yet, please try again later"*. That is Apple's own cooldown after a
-  rejection — the version cannot be resubmitted until Apple reopens it. There
-  is nothing to fix in the app or the metadata; re-running the script later is
-  the whole remedy.
-* **PlantPulse** is refused with *app-privacy-answers-not-published*. Its
-  `store/privacy/fastlane/PlantPulse.json` says `DATA_NOT_COLLECTED`, which is a
-  single click in App Store Connect → App Privacy, or one
-  `upload_app_privacy_details_to_app_store` run from a session-authenticated
-  Mac. There is no API-key route; see MA-011.
+**PlantPulse** is the only one left. It is refused with
+*app-privacy-answers-not-published*. Its `store/privacy/fastlane/PlantPulse.json`
+says `DATA_NOT_COLLECTED`, which is a single click in App Store Connect → App
+Privacy, or one `upload_app_privacy_details_to_app_store` run from a
+session-authenticated Mac. There is no API-key route; see MA-011.
 
 ## The Developer ID certificate email is not a blocker
 
@@ -167,8 +174,29 @@ if the organisation ever ships notarised Mac software.
 
 | Question | Answer |
 | --- | --- |
-| Is any app missing a build? | No. 43/43 on Apple. On Play, GroceryMatch's uploads miss because its record is cased `com.americangroupllc.GroceryMatch` |
+| Is any app missing a build? | No. 43/43 on Apple, and 42/43 are now in or waiting for review. On Play, GroceryMatch's uploads miss because its record is cased `com.americangroupllc.GroceryMatch` |
 | Is any app missing a production release? | No. 6 live, 36 staged as production drafts |
 | What stops Play? | For 22 apps, only the first-publish click. For the other 21, outstanding App content declarations as well. Neither has an API |
-| What stops Apple? | Apple's own post-rejection cooldown on 23 apps; App Privacy on PlantPulse |
+| What stops Apple? | Nothing, for 42 of 43 — they are in or waiting for review. PlantPulse needs its App Privacy answers published |
 | Does the certificate email matter? | No — it affects one Mac-only certificate |
+
+## What is left needs a human
+
+Everything below is a Console action with no API, and the Play ones are
+publishing steps this session is not permitted to perform.
+
+1. **Press Publish on Play**, app by app. For the 22 apps whose App content is
+   already complete this is the only remaining step; select the countries, send
+   the change for review, and roll out. HomeWise's countries are already
+   selected and waiting in its Publishing overview.
+2. **Finish the App content declarations** on the 21 apps that still have them,
+   per `docs/play-app-content-state.json`.
+3. **Publish PlantPulse's App Privacy answers** in App Store Connect.
+4. **Decide GroceryMatch's Play package.** The existing record is
+   `com.americangroupllc.GroceryMatch`; the build, the Apple record and the
+   house rule all use the all-lowercase `com.americangroupllc.grocerymatch`.
+   Aligning the build to the record would break the "identical, lowercase on
+   both stores" rule, and it would need a second Firebase Android app because
+   `google-services.json` only carries the lowercase client. Creating a Play
+   app for the lowercase package is the option that keeps the rule, and it is
+   console-only. **Nothing was renamed** pending that decision.
