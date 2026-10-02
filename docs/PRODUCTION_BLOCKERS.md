@@ -189,8 +189,20 @@ publishing steps this session is not permitted to perform.
    already complete this is the only remaining step; select the countries, send
    the change for review, and roll out. HomeWise's countries are already
    selected and waiting in its Publishing overview.
-2. **Finish the App content declarations** on the 21 apps that still have them,
-   per `docs/play-app-content-state.json`.
+2. **Finish the App content declarations** on the apps that still have them,
+   per `docs/play-app-content-state.json`. Three were cleared on 2026-10-02 —
+   AGrammarly, BuddyPlay and CarDeal all needed only the Advertising ID answer.
+
+   One class of these cannot be answered from a keyboard at all. Play's
+   **Foreground service permissions** form requires *a video link demonstrating
+   how your app uses each permission* before it will save. EventSpark hits this
+   with three of them — `FOREGROUND_SERVICE_MEDIA_PLAYBACK`,
+   `_MEDIA_PROJECTION` and `_MICROPHONE`, all merged in by
+   `jitsi_meet_flutter_sdk` — so somebody has to record and host those clips.
+   Reading all 43 Android manifests, the apps that declare a foreground service
+   of their own are EventSpark, Verba and radiotune; the apps that declare
+   `READ_MEDIA_*` and therefore face the photo-and-video form are AGCleaner
+   (done), NexusTransferPay and Photriya.
 3. **Publish PlantPulse's App Privacy answers** in App Store Connect.
 4. **Decide GroceryMatch's Play package.** The existing record is
    `com.americangroupllc.GroceryMatch`; the build, the Apple record and the

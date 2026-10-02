@@ -77,17 +77,20 @@
   {
    "repo": "BuddyPlay",
    "play_package_suffix": "buddyplay",
-   "app_content_need_attention": 1
+   "app_content_need_attention": 0,
+   "note": "Advertising ID declared Yes / Analytics in Console 2026-10-02; Firebase Analytics, no ads SDK"
   },
   {
    "repo": "CarDeal",
    "play_package_suffix": "cardeal",
-   "app_content_need_attention": 1
+   "app_content_need_attention": 0,
+   "note": "Advertising ID declared Yes / Analytics in Console 2026-10-02; Firebase Analytics, no ads SDK"
   },
   {
    "repo": "EventSpark",
    "play_package_suffix": "eventspark",
-   "app_content_need_attention": 1
+   "app_content_need_attention": 1,
+   "note": "The outstanding item is Foreground service permissions, not advertising ID. The Jitsi SDK merges FOREGROUND_SERVICE_MEDIA_PLAYBACK, _MEDIA_PROJECTION and _MICROPHONE into the manifest, and Play demands a video link demonstrating each one before the declaration can be saved. That video is a human deliverable."
   },
   {
    "repo": "NewsBoard",
