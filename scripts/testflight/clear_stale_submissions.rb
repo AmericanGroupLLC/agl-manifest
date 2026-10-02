@@ -19,9 +19,13 @@
 #
 #   DELETE iris/v1/reviewSubmissions/{id}  204
 #
-# Only un-sent READY_FOR_REVIEW submissions are touched. A submission in
-# UNRESOLVED_ISSUES is a real rejection and returns 409 here too — it is
-# released by replying in Resolution Center, not by deletion.
+# Only un-sent READY_FOR_REVIEW submissions are touched.
+#
+# This used to add that an UNRESOLVED_ISSUES submission "returns 409 here too
+# and is released by replying in Resolution Center, not by deletion". That is
+# no longer true: measured on 2026-10-01, PATCH {"canceled": true} against a
+# real UNRESOLVED_ISSUES submission answers 200 and the app submits again
+# once it settles. resubmit_rejected.rb does that, and it freed 24 apps.
 
 require "json"
 require "spaceship"

@@ -1493,3 +1493,31 @@ Two root causes worth keeping:
 
 After all of it: 43/43 clean, and BodyQuest, MyHealth and radiotune went from
 blocked to WAITING_FOR_REVIEW.
+
+## MA-028 · CLOSED 2026-10-01 — the 23 rejected apps are resubmitted
+
+MA-028 concluded that an app held in `UNRESOLVED_ISSUES` could only be freed
+by replying in Resolution Center, which needs an Apple ID session. That was
+measured, and it is no longer what Apple does.
+
+```
+PATCH v1/reviewSubmissions/{id}  {"canceled": true}
+200   state -> CANCELING   (previously 409 "not in cancellable state")
+```
+
+Verified end to end on AeroSwift before running it anywhere else: cancel 200,
+state CANCELING, then `submit_production.rb` answered "SUBMITTED FOR APP STORE
+REVIEW (build 202609260214)". Applied to all 24 held apps, all 24 cancelled,
+13 submitted immediately and the rest were already waiting.
+
+**App Store state is now 26 WAITING_FOR_REVIEW, 16 IN_REVIEW, 1 blocked.**
+
+What it cost: canceling discards Apple's rejection thread, so the review
+starts over. Acceptable only because the metadata gaps behind the original
+rejections are closed first (`asc_readiness.rb` reports 43/43). If Apple
+rejects these again, reading the reason still needs a session — the local
+cookie expired on 2026-09-30 and `spaceauth` now prompts for a 2FA code.
+
+**Still blocked: PlantPulse**, on `app-privacy-answers-not-published`. The
+App Privacy answers have no API for an API key (MA-022), so this one needs a
+person in App Store Connect.
