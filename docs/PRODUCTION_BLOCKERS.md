@@ -140,23 +140,28 @@ with Apple:
 ## The Developer ID certificate email is not a blocker
 
 Apple mailed the account about the original *Developer ID Certification
-Authority* expiring 2027-02-01. Certificates on the team, read from the API on
-2026-10-01:
+Authority* expiring 2027-02-01. Every certificate on the team was downloaded
+from the API and its real issuer read with `openssl` on 2026-10-01:
 
-| Type | Name | Expires |
+| Type | Issuer | Expires |
 | --- | --- | --- |
-| `DEVELOPER_ID_APPLICATION` | American Group LLC | 2027-02-01 |
-| `DISTRIBUTION` | American Group LLC | 2027-09-30 |
-| `DISTRIBUTION` | American Group LLC | 2027-06-09 |
-| `MAC_INSTALLER_DISTRIBUTION` | American Group LLC | 2027-06-09 |
-| `DEVELOPMENT` ×2 | SRIKANTH PATCHAVA | 2027-06-09 |
+| `DEVELOPER_ID_APPLICATION` | **Developer ID Certification Authority** | 2027-02-01 |
+| `DISTRIBUTION` | Apple Worldwide Developer Relations CA, G3 | 2027-09-30 |
+| `DISTRIBUTION` | Apple Worldwide Developer Relations CA, G3 | 2027-06-09 |
+| `MAC_INSTALLER_DISTRIBUTION` | Apple Worldwide Developer Relations CA, G3 | 2027-06-09 |
+| `DEVELOPMENT` ×2 | Apple Worldwide Developer Relations CA, G3 | 2027-06-09 |
 
-Exactly one certificate is affected, and it is `DEVELOPER_ID_APPLICATION` —
-the certificate for **Mac software distributed outside the Mac App Store**. None
-of the 43 apps is a Mac app; they sign for the App Store with the `DISTRIBUTION`
-certificates, which are issued by a different authority and expire in mid- and
-late 2027. **No iOS or Android delivery is affected.** It needs replacing before
-2027-02-01 only if the organisation ever ships notarised Mac software.
+Exactly one certificate comes from the authority in the email, and it is the
+`Developer ID Application` certificate, which signs **Mac software distributed
+outside the Mac App Store**. The App Store signing certificates are issued by a
+different authority — Apple WWDR G3 — which the email does not mention.
+
+The empirical check agrees: all 43 apps have a `VALID` build accepted by Apple,
+16 of them are In Review right now and 3 are Waiting for Review. Apple rejects
+an upload whose signing certificate is not valid, so none of this could have
+happened if the signing chain were broken. **No iOS or Android delivery is
+affected.** The Developer ID certificate needs replacing before 2027-02-01 only
+if the organisation ever ships notarised Mac software.
 
 ## Summary
 
