@@ -1,5 +1,5 @@
 {
- "measured": "2026-10-01",
+ "measured": "2026-10-01, updated 2026-10-02",
  "source": "Google Play Console -> App content -> Need attention, read per app",
  "apps": [
   {
@@ -65,12 +65,14 @@
   {
    "repo": "AGCleaner",
    "play_package_suffix": "agcleaner",
-   "app_content_need_attention": 1
+   "app_content_need_attention": 1,
+   "note": "Advertising ID and Photo-and-video declared in Console 2026-10-01. The one remaining item is Content ratings: the questionnaire was submitted 2026-09-07 and IARC has not issued a certificate ID yet"
   },
   {
    "repo": "AGrammarly",
    "play_package_suffix": "agrammarly",
-   "app_content_need_attention": 1
+   "app_content_need_attention": 0,
+   "note": "Advertising ID declared Yes / Analytics in Console 2026-10-02; the app has Firebase Analytics and no ads SDK"
   },
   {
    "repo": "BuddyPlay",
