@@ -1558,3 +1558,73 @@ So, in Play Console → Users and permissions:
 
 Do step 1 first. Removing the only full-permission human before promoting the
 replacement would leave no person able to edit app content.
+
+## MA-036 · P0 · No working test account exists, and it blocks review and screenshots
+
+One root cause, three visible symptoms. Found 2026-10-03.
+
+### The root cause
+
+`AmericanGroupLLC — Complete Developer Integration Guide.md` states that three
+persistent test accounts are provisioned in the production database. They are
+not. Tested against the only Supabase project any app uses
+(`smvvjivvlprjhzhoizym`, shared by 16 apps):
+
+```
+POST /auth/v1/token?grant_type=password   qa@safecodeg.com   400 Invalid login credentials
+POST /auth/v1/token?grant_type=password   dev@safecodeg.com  400 Invalid login credentials
+```
+
+`AmericanGroupLLC-Backend/TODO.md` already carries the open item
+"Demo/test account credentials for any app behind a login."
+
+I created `qa@safecodeg.com` (`2e0f9e4d-5c96-4630-9288-1104f1496193`) with the
+documented password. The project requires email confirmation, so it still
+cannot sign in, and confirming it needs the **service-role key**, which is not
+on this machine. That is the single action that unblocks everything below:
+
+```
+PUT /auth/v1/admin/users/2e0f9e4d-5c96-4630-9288-1104f1496193
+    {"email_confirm": true}            # needs SUPABASE_SERVICE_ROLE_KEY
+```
+
+Then re-test the sign-in above and confirm it returns a token.
+
+### Symptom 1 — App Review cannot get into 5 apps
+
+`DriftDate`, `iMeasure`, `Kinnav`, `radiotune`, `yourtube` have a Supabase
+sign-in and **no guest path**. All 43 apps declare `demoAccountRequired:
+false` and supply no credentials, so a reviewer meets a login wall with
+nothing to type. That is a Guideline 2.1 rejection waiting to happen.
+
+The in-app bypasses do not ship. `testAccountEnabled` is
+`!kReleaseMode && …` and `showDevShortcuts` is `kDebugMode && !screenshotMode`,
+so in the build Apple reviews both are false.
+
+### Symptom 2 — the store screenshots are login screens
+
+Verified by eye on Kinnav and yourtube: the first App Store screenshot is the
+sign-in form, and it shows debug-only affordances — "Demo mode (dev) — skip to
+app", and a "Use test account" button that is inert in release. Kinnav's own
+`app_config.dart` says a screenshot containing UI the shipped app lacks is
+grounds for rejection. This predates the 2026-10-02 capture; the previous
+screenshot was the same screen.
+
+### Symptom 3 — the capture cannot do better
+
+`screenshots.py` can only photograph what it can reach, and it cannot sign in.
+Two script bugs found alongside and fixed:
+
+* builds now pass `--dart-define=SCREENSHOT=true`, so dev shortcuts never
+  appear in a capture again;
+* `same_image` compared whole files, so the same screen captured at 11:55 and
+  12:10 counted as two screenshots — which is how Kinnav shipped two copies of
+  its login screen to Play as "two screenshots".
+
+### Order of work
+
+1. Confirm the QA user with the service-role key, and verify sign-in.
+2. Add `QA_EMAIL`/`QA_PASSWORD` to the screenshot build so captures can get in.
+3. Re-run `python3 scripts/screenshots.py` for the five apps.
+4. Set `demoAccountRequired: true` with the credentials on those five apps'
+   `appStoreReviewDetail`.

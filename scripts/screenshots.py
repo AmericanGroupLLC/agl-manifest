@@ -62,12 +62,35 @@ def swipe(udid, x1, y1, x2, y2, duration=0.4):
        "--duration", str(duration), "--udid", udid, timeout=30)
 
 def same_image(a, b):
-    """A scroll that moved nothing must not become a second screenshot."""
+    """A scroll that moved nothing must not become a second screenshot.
+
+    Compares the image *below the status bar*. Hashing whole files let two
+    captures of the identical screen count as different because the clock had
+    ticked from 11:55 to 12:10 — which is exactly how Kinnav shipped two
+    copies of its login screen to Play as "two screenshots".
+    """
     try:
-        return hashlib.sha256(pathlib.Path(a).read_bytes()).digest() == \
-               hashlib.sha256(pathlib.Path(b).read_bytes()).digest()
-    except OSError:
-        return True
+        import subprocess as _sp
+        digests = []
+        for f in (a, b):
+            # Crop the top 6%: status bar out, everything that identifies the
+            # screen still in. sips is always present on macOS.
+            h = int(_sp.run(["sips", "-g", "pixelHeight", str(f)], capture_output=True,
+                            text=True).stdout.split()[-1])
+            w = int(_sp.run(["sips", "-g", "pixelWidth", str(f)], capture_output=True,
+                            text=True).stdout.split()[-1])
+            tmp = tempfile.mktemp(suffix=".png")
+            _sp.run(["sips", "-c", str(int(h * 0.94)), str(w), str(f), "--out", tmp],
+                    capture_output=True)
+            digests.append(hashlib.sha256(pathlib.Path(tmp).read_bytes()).digest())
+            pathlib.Path(tmp).unlink(missing_ok=True)
+        return digests[0] == digests[1]
+    except Exception:
+        try:
+            return hashlib.sha256(pathlib.Path(a).read_bytes()).digest() == \
+                   hashlib.sha256(pathlib.Path(b).read_bytes()).digest()
+        except OSError:
+            return True
 
 def patch_banner(app_dir):
     """Add debugShowCheckedModeBanner:false to every MaterialApp/CupertinoApp constructor. Returns files changed."""
@@ -130,7 +153,14 @@ def capture(app, out_ios, out_android):
     # hid the real error behind it.
     staging = None
     try:
-        b = sh(FLUTTER, "build", "ios", "--simulator", "--debug", cwd=app_dir, timeout=1800)
+        # SCREENSHOT=true hides debug-only affordances. An iOS release build
+        # cannot run on a simulator, so these are debug builds, and without
+        # this define they draw dev shortcuts the shipped app does not have —
+        # Kinnav's "Demo mode (dev) — skip to app" went out onto its live Play
+        # listing this way. Its own app_config.dart calls that grounds for
+        # rejection. Apps that do not read the define are unaffected.
+        b = sh(FLUTTER, "build", "ios", "--simulator", "--debug",
+               "--dart-define=SCREENSHOT=true", cwd=app_dir, timeout=1800)
         if b.returncode != 0:
             res["error"] = "build failed: " + (b.stderr or b.stdout).strip()[-400:]; return res
         apps = list((app_dir / "build/ios/iphonesimulator").glob("*.app"))
