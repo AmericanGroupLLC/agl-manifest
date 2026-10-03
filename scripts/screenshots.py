@@ -92,6 +92,34 @@ def clear_alerts(udid, rounds=4):
         btns.sort(key=lambda e: DISMISS.index((e.get("AXLabel") or "").strip()))
         tap(udid, *center(btns[0])); time.sleep(2.5)
 
+# Getting past a sign-in wall. Measured on Kinnav 2026-10-02: the app opens on
+# an onboarding carousel, then a login screen, and the capture was shooting the
+# login form as the store screenshot. clear_alerts could not help — it matches
+# labels exactly, and these read "Demo mode (dev) — skip to app" and
+# "Use test account".
+#
+# Substring matched, and deliberately a short list of ways *into* an app. None
+# of these creates, sends, buys or deletes anything.
+BYPASS = ["demo mode", "use test account", "continue as guest", "browse as guest",
+          "skip sign in", "skip for now", "continue without", "try the demo",
+          "explore first", "guest mode", "try it free"]
+
+
+def enter_app(udid, rounds=4):
+    """Walk onboarding and a login gate until the app itself is on screen."""
+    for _ in range(rounds):
+        clear_alerts(udid)
+        els = describe(udid)
+        cand = next((e for e in els
+                     if e.get("type") in ("Button", "Cell", "Link", "StaticText")
+                     and any(w in (e.get("AXLabel") or "").strip().lower() for w in BYPASS)), None)
+        if not cand:
+            break
+        tap(udid, *center(cand))
+        time.sleep(6)
+    clear_alerts(udid)   # whatever the app asks for once it is actually running
+
+
 def capture(app, out_ios, out_android):
     repo = app["repo"]; app_dir = ROOT / repo / (app["dir"] if app["dir"] != "." else "")
     bundle = app["bundle_id"]
@@ -123,6 +151,8 @@ def capture(app, out_ios, out_android):
             time.sleep(8)
             clear_alerts(udid)   # first-run sheets and permission prompts
             time.sleep(4); clear_alerts(udid)   # consent forms (UMP) arrive a few seconds after launch
+            enter_app(udid)      # onboarding carousel, then a sign-in wall
+            time.sleep(3)
             shots = []
             p = out_ios / f"{dev}-01.png"
             if shot(udid, p): shots.append(p)
@@ -136,16 +166,20 @@ def capture(app, out_ios, out_android):
                 W = app_el["frame"]["width"] if app_el else 440
                 # A tab row is not always at the bottom: AGCleaner draws its three
                 # tabs under the title bar, so accept a row in the top third too.
+                # width < 0.6*W, not 0.5*W, and >=2 per row below: a Material 3
+                # NavigationBar with two destinations gives each ~half the
+                # screen, so both tests rejected it and Verba yielded a single
+                # screenshot despite having a nav bar in main_shell.dart.
                 btns = [e for e in els if e.get("type") in ("Button", "Tab")
                         and (e["frame"]["y"] > 0.80 * H or 0.05 * H < e["frame"]["y"] < 0.33 * H)
-                        and 40 <= e["frame"]["width"] < 0.5 * W and (e.get("AXLabel") or "").strip()]
+                        and 40 <= e["frame"]["width"] < 0.6 * W and (e.get("AXLabel") or "").strip()]
                 rows = {}
                 for e in btns: rows.setdefault((round(e["frame"]["y"] / 8), round(e["frame"]["height"] / 8)), []).append(e)
                 # a tab bar: >=3 similarly sized labelled buttons on one line; take the lowest such row
                 cands = []
                 for row in rows.values():
                     ws = sorted(e["frame"]["width"] for e in row)
-                    if len(row) >= 3 and ws[-1] <= ws[0] * 1.6: cands.append(row)
+                    if len(row) >= 2 and ws[-1] <= ws[0] * 1.6: cands.append(row)
                 # Prefer a bottom bar when both exist; otherwise take the top row.
                 bottom = [r for r in cands if r[0]["frame"]["y"] > 0.80 * H]
                 best = max(bottom or cands, key=lambda r: r[0]["frame"]["y"], default=[])
@@ -182,8 +216,14 @@ def capture(app, out_ios, out_android):
             if len(shots) < 2:
                 SAFE = ("settings", "about", "info", "help", "menu", "more", "history",
                         "details", "profile", "account", "search", "preferences")
+                # Type is not filtered. Flutter exposes a tappable card as
+                # "Other" or "StaticText" as often as "Button", and Kinnav's
+                # home screen — which is nothing but cards reading Guardians,
+                # Call History, Chat — produced no candidate at all under the
+                # old Button/Cell/Link filter. A minimum size keeps this off
+                # labels and decorations.
                 cand = next((e for e in describe(udid)
-                             if e.get("type") in ("Button", "Cell", "Link")
+                             if e["frame"]["width"] >= 60 and e["frame"]["height"] >= 28
                              and any(w in (e.get("AXLabel") or "").strip().lower() for w in SAFE)), None)
                 if cand:
                     tap(udid, *center(cand)); time.sleep(3)

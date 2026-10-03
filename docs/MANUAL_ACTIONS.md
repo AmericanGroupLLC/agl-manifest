@@ -1521,3 +1521,40 @@ cookie expired on 2026-09-30 and `spaceauth` now prompts for a 2FA code.
 **Still blocked: PlantPulse**, on `app-privacy-answers-not-published`. The
 App Privacy answers have no API for an API key (MA-022), so this one needs a
 person in App Store Connect.
+
+## MA-035 · P1 · Play Console account access, and why it cannot be fixed by API
+
+Read on 2026-10-02 from `developers/5590631437738173959/users`, which works
+once you have the numeric developer id from the Console URL.
+
+| Account | Permissions |
+| --- | --- |
+| `nehuwakhare04@gmail.com` | **all 17** — full admin |
+| `mouni123.nekkalapudi@gmail.com` | `manage_track_apks_global` |
+| `rainbow472.sri@gmail.com` | `manage_permissions_global` **only** |
+| `american-group-publisher@…` (service account) | all 17 |
+| `firebase-adminsdk-fbsvc@…` (service account) | all 17 |
+
+Two things are wrong with this. The standing instruction is that only
+`rainbow472.sri@gmail.com` holds Play access and everyone else is an external
+tester, yet two other people have accounts — one of them full admin. And the
+designated admin cannot actually administer: with only
+`manage_permissions_global` they cannot edit app content, which is exactly
+what clearing the Draft-app blockers requires.
+
+**This cannot be done from here.** The publisher service account can *read*
+the user list but not change it:
+
+```
+PATCH developers/5590631437738173959/users/rainbow472.sri%40gmail.com
+403  You do not have permission to access this object
+```
+
+So, in Play Console → Users and permissions:
+
+1. Give `rainbow472.sri@gmail.com` admin (all account permissions).
+2. Remove `nehuwakhare04@gmail.com` and `mouni123.nekkalapudi@gmail.com`,
+   then add them as testers per MA-033.
+
+Do step 1 first. Removing the only full-permission human before promoting the
+replacement would leave no person able to edit app content.
