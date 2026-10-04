@@ -43,10 +43,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.agcleaner",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -97,7 +97,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "AGRecorder",
@@ -143,10 +143,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.agrecorder",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -197,7 +197,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "AGStudio",
@@ -239,10 +239,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.agstudio",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -289,7 +289,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "AGrammarly",
@@ -329,10 +329,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.agrammarly",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -370,7 +370,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "AeroSwift",
@@ -412,10 +412,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.aeroswift",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -453,7 +453,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   },
   {
     "repo": "ApexMarketWatch",
@@ -493,10 +493,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.apexmarketwatch",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -534,13 +534,13 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "BodyQuest",
     "flutter": true,
     "app_dir": ".",
-    "version": "1.1.0+2",
+    "version": "1.1.0+3",
     "sdk_constraint": ">=3.0.0 <4.0.0",
     "dep_firebase_core": false,
     "dep_firebase_crashlytics": false,
@@ -581,10 +581,10 @@
     "ios_ats_arbitrary_loads": true,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.bodyquest",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -624,7 +624,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   },
   {
     "repo": "BuddyPlay",
@@ -670,10 +670,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.buddyplay",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -706,7 +706,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "CalcMaster",
@@ -755,10 +755,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.calcmaster",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -797,11 +797,11 @@
       "ru",
       "zh"
     ],
-    "l10n_callsites": 58,
+    "l10n_callsites": 60,
     "screens": 13,
-    "lib_files": 80,
-    "lib_loc": 18220,
-    "test_files": 24,
+    "lib_files": 81,
+    "lib_loc": 18730,
+    "test_files": 25,
     "a11y_signals": 25,
     "secrets_in_dart": 0,
     "print_calls": 0,
@@ -814,7 +814,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "CarDeal",
@@ -857,10 +857,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.cardeal",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -898,7 +898,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "ChefCount",
@@ -941,10 +941,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.chefcount",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -982,7 +982,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "CodeDeal",
@@ -1028,10 +1028,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.codedeal",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1085,13 +1085,13 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "DriftDate",
     "flutter": true,
     "app_dir": ".",
-    "version": "1.0.0+1",
+    "version": "1.0.0+2",
     "sdk_constraint": "^3.12.2",
     "dep_firebase_core": false,
     "dep_firebase_crashlytics": false,
@@ -1134,10 +1134,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.driftdate",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1179,7 +1179,7 @@
     ],
     "has_login_screen": true,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "EventSpark",
@@ -1236,10 +1236,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.1"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.eventspark",
-    "ios_podfile_platform": "15.1",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1277,13 +1277,13 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "FashionFactory",
     "flutter": true,
     "app_dir": ".",
-    "version": "2.2.0+4",
+    "version": "2.2.0+5",
     "sdk_constraint": "^3.12.2",
     "dep_firebase_core": false,
     "dep_firebase_crashlytics": false,
@@ -1360,13 +1360,13 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "GadgetNest",
     "flutter": true,
     "app_dir": ".",
-    "version": "1.0.0+1",
+    "version": "1.0.0+2",
     "sdk_constraint": ">=3.0.0 <4.0.0",
     "dep_firebase_core": true,
     "dep_firebase_crashlytics": true,
@@ -1402,10 +1402,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.gadgetnest",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1443,7 +1443,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "GroceryMatch",
@@ -1465,7 +1465,7 @@
     "firebase_ios_config": true,
     "gradle_google_services": true,
     "gradle_crashlytics": true,
-    "application_id": "com.americangroupllc.grocerymatch",
+    "application_id": "com.americangroupllc.GroceryMatch",
     "min_sdk": "flutter",
     "target_sdk": "flutter",
     "compile_sdk": "flutter",
@@ -1532,13 +1532,13 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "HerJourney",
     "flutter": true,
     "app_dir": ".",
-    "version": "1.2.0+3",
+    "version": "1.2.0+4",
     "sdk_constraint": "^3.12.2",
     "dep_firebase_core": false,
     "dep_firebase_crashlytics": false,
@@ -1595,10 +1595,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.herjourney",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1640,7 +1640,7 @@
     ],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   },
   {
     "repo": "HomeWise",
@@ -1688,10 +1688,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.homewise",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1729,7 +1729,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "Kinnav",
@@ -1778,10 +1778,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.kinnav",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1817,7 +1817,7 @@
     "l10n_callsites": 163,
     "screens": 21,
     "lib_files": 61,
-    "lib_loc": 13182,
+    "lib_loc": 13189,
     "test_files": 25,
     "a11y_signals": 12,
     "secrets_in_dart": 0,
@@ -1831,7 +1831,7 @@
     ],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   },
   {
     "repo": "MileMaster",
@@ -1876,10 +1876,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.milemaster",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -1930,7 +1930,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "MyCard",
@@ -1976,10 +1976,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.mycard",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2014,7 +2014,7 @@
     ],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "MyFinance",
@@ -2054,10 +2054,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.myfinance",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2095,7 +2095,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "MyHealth",
@@ -2139,10 +2139,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.myhealth",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2184,7 +2184,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   },
   {
     "repo": "NearServe",
@@ -2227,10 +2227,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.nearserve",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2268,7 +2268,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "NewsBoard",
@@ -2310,10 +2310,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.newsboard",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2351,7 +2351,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "NexusTransferPay",
@@ -2405,10 +2405,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.nexustransferpay",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2474,13 +2474,13 @@
     ],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "Photriya",
     "flutter": true,
     "app_dir": ".",
-    "version": "1.0.0+1",
+    "version": "1.0.0+4",
     "sdk_constraint": ">=3.4.0 <4.0.0",
     "dep_firebase_core": true,
     "dep_firebase_crashlytics": false,
@@ -2498,8 +2498,8 @@
     "gradle_crashlytics": true,
     "application_id": "com.americangroupllc.photriya",
     "min_sdk": "flutter",
-    "target_sdk": "35",
-    "compile_sdk": "35",
+    "target_sdk": "flutter",
+    "compile_sdk": "flutter",
     "release_signing": true,
     "debug_signing_in_release": false,
     "minify": true,
@@ -2520,10 +2520,10 @@
     "ios_ats_arbitrary_loads": true,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.photriya",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2569,7 +2569,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "PilotEnRoute",
@@ -2622,10 +2622,10 @@
     "ios_ats_arbitrary_loads": true,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.pilotenroute",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -2665,13 +2665,13 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   },
   {
     "repo": "PlantPulse",
     "flutter": true,
     "app_dir": "mobile",
-    "version": "1.0.0+1",
+    "version": "1.0.0+2",
     "sdk_constraint": "^3.12.2",
     "dep_firebase_core": false,
     "dep_firebase_crashlytics": false,
@@ -2705,10 +2705,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.plantpulse",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2746,7 +2746,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "RideZap",
@@ -2789,10 +2789,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.ridezap",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2830,7 +2830,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "RoomCraft",
@@ -2870,10 +2870,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.roomcraft",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -2911,7 +2911,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "TripNest",
@@ -2954,10 +2954,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.tripnest",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -2995,7 +2995,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "Uscis-Case",
@@ -3037,10 +3037,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.usciscase",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -3080,13 +3080,13 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "Verba",
     "flutter": true,
     "app_dir": ".",
-    "version": "1.0.0+1",
+    "version": "1.0.0+2",
     "sdk_constraint": ">=3.3.0 <4.0.0",
     "dep_firebase_core": true,
     "dep_firebase_crashlytics": true,
@@ -3137,10 +3137,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.verba",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -3178,7 +3178,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "VirtuBand",
@@ -3222,10 +3222,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.virtuband",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -3263,7 +3263,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "WiFiTrail",
@@ -3310,10 +3310,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.wifitrail",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -3364,7 +3364,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "daily-pulse",
@@ -3415,7 +3415,7 @@
       "15.0"
     ],
     "ios_bundle_id": "com.americangroupllc.dailypulse",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -3470,7 +3470,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   },
   {
     "repo": "iMaps",
@@ -3522,10 +3522,10 @@
     "ios_ats_arbitrary_loads": true,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.imaps",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -3581,7 +3581,7 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "iMeasure",
@@ -3633,10 +3633,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.imeasure",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -3676,13 +3676,13 @@
     ],
     "has_login_screen": true,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "portfolio-board",
     "flutter": true,
     "app_dir": "mobile",
-    "version": "1.0.0+1",
+    "version": "1.0.0+2",
     "sdk_constraint": ">=3.0.0 <4.0.0",
     "dep_firebase_core": false,
     "dep_firebase_crashlytics": false,
@@ -3724,10 +3724,10 @@
     "ios_ats_arbitrary_loads": false,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.portfolioboard",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": false,
     "ios_pod_crashlytics": true,
@@ -3765,7 +3765,7 @@
     "auth_providers": [],
     "has_login_screen": false,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "main"
   },
   {
     "repo": "radiotune",
@@ -3823,10 +3823,10 @@
     "ios_ats_arbitrary_loads": true,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.radiotune",
-    "ios_podfile_platform": "15.0",
+    "ios_podfile_platform": "16.0",
     "ios_pods_installed": true,
     "ios_pod_admob": true,
     "ios_pod_crashlytics": true,
@@ -3868,7 +3868,7 @@
     ],
     "has_login_screen": true,
     "account_optional": false,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   },
   {
     "repo": "yourtube",
@@ -3911,13 +3911,13 @@
     "ios_ats_arbitrary_loads": true,
     "ios_privacy_manifest": true,
     "ios_deployment_targets": [
-      "15.0"
+      "16.0"
     ],
     "ios_bundle_id": "com.americangroupllc.yourtube",
-    "ios_podfile_platform": "15.0",
-    "ios_pods_installed": true,
-    "ios_pod_admob": true,
-    "ios_pod_crashlytics": true,
+    "ios_podfile_platform": "16.0",
+    "ios_pods_installed": false,
+    "ios_pod_admob": false,
+    "ios_pod_crashlytics": false,
     "fastlane_appfile": true,
     "fastlane_fastfile": true,
     "gemfile": true,
@@ -3956,6 +3956,6 @@
     ],
     "has_login_screen": true,
     "account_optional": true,
-    "git_branch": "production-readiness-2026-09-12"
+    "git_branch": "master"
   }
 ]

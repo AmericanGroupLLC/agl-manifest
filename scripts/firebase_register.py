@@ -28,8 +28,12 @@ import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from agl_paths import ROOT, MANIFEST as M  # noqa: E402
 # A Firebase project holds 30 apps, and each app here needs two slots (android +
-# ios), so 15 repos fill a project. 43 repos need three.
-PROJECTS = ["americangroupllc-5bdfc", "americangroupllc-agl2", "americangroupllc-agl3"]
+# ios), so 15 repos fill a project. 43 repos need three — and agl4 was added on
+# 2026-10-04 because all three were exactly full (47 android + 43 ios = 90 of 90)
+# and GroceryMatch needed one more Android client after its package was recased
+# to match the Play record.
+PROJECTS = ["americangroupllc-5bdfc", "americangroupllc-agl2", "americangroupllc-agl3",
+            "americangroupllc-agl4"]
 PROJECT = PROJECTS[0]   # quota project for every call; only it needs to be billable
 ACCOUNT = "rainbow472.sri@gmail.com"
 GCLOUD = str(pathlib.Path.home() / "google-cloud-sdk/bin/gcloud")
