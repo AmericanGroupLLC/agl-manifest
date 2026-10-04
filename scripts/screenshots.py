@@ -143,6 +143,208 @@ def enter_app(udid, rounds=4):
     clear_alerts(udid)   # whatever the app asks for once it is actually running
 
 
+# ---------------------------------------------------------------------------
+# Android. Until now this file produced Android "screenshots" by letterboxing
+# the iOS ones to 1440x2880 — so every Play listing showed an iPhone render of
+# the app, padded. These capture the app actually running on the emulator.
+
+ADB = str(pathlib.Path.home() / "Library/Android/sdk/platform-tools/adb")
+EMULATOR = str(pathlib.Path.home() / "Library/Android/sdk/emulator/emulator")
+LOGS = DIST / "device-logs"
+
+# Gradle on this Mac needs both of these; see build_release.py for why. They
+# are set here rather than inherited because `flutter build apk` spawns two
+# JVMs and only JAVA_TOOL_OPTIONS reaches both.
+def _android_env():
+    import socket
+    opts = ["-Djava.net.preferIPv4Stack=true"]
+    try:
+        with socket.create_connection(("127.0.0.1", 10054), timeout=1):
+            opts += ["-Dhttp.proxyHost=127.0.0.1", "-Dhttp.proxyPort=10054",
+                     "-Dhttps.proxyHost=127.0.0.1", "-Dhttps.proxyPort=10054",
+                     "-Dhttp.nonProxyHosts=localhost|127.0.0.1"]
+    except OSError:
+        pass
+    return dict(ENV, JAVA_TOOL_OPTIONS=" ".join(opts))
+
+
+class _AdbResult:
+    def __init__(self, rc=1, out="", err=""):
+        self.returncode, self.stdout, self.stderr = rc, out, err
+
+
+def adb(*args, serial=None, timeout=120, binary=False):
+    """Never raises. A sluggish emulator timing out on `uninstall` once
+    aborted an entire capture that had already succeeded; a failed adb call
+    is a bad result, not an exception."""
+    cmd = [ADB] + (["-s", serial] if serial else []) + list(args)
+    try:
+        return subprocess.run(cmd, capture_output=True, text=not binary, timeout=timeout)
+    except subprocess.TimeoutExpired:
+        return _AdbResult(out=b"" if binary else "")
+    except OSError as e:
+        return _AdbResult(err=str(e))
+
+
+def android_device(boot_timeout=300):
+    """The running emulator, started from an AVD if none is up."""
+    out = adb("devices").stdout or ""
+    live = [l.split()[0] for l in out.splitlines()[1:] if l.strip().endswith("device")]
+    if live:
+        return live[0]
+    avds = subprocess.run([EMULATOR, "-list-avds"], capture_output=True, text=True).stdout.split()
+    if not avds:
+        return None
+    pick = next((a for a in avds if "Pixel" in a and "Tablet" not in a), avds[0])
+    subprocess.Popen([EMULATOR, "-avd", pick, "-no-snapshot-save", "-no-boot-anim"],
+                     stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    deadline = time.time() + boot_timeout
+    while time.time() < deadline:
+        out = adb("devices").stdout or ""
+        live = [l.split()[0] for l in out.splitlines()[1:] if l.strip().endswith("device")]
+        if live and (adb("shell", "getprop", "sys.boot_completed", serial=live[0]).stdout or "").strip() == "1":
+            return live[0]
+        time.sleep(5)
+    return None
+
+
+def _android_flavour(app_dir):
+    """`flutter build apk --debug` picks the first flavour, which is `dev` —
+    and its applicationIdSuffix makes the package absent from
+    google-services.json, so the build dies in processDevDebugGoogleServices:
+    "No matching client found for package name ...calcmaster.dev"."""
+    for g in ("android/app/build.gradle.kts", "android/app/build.gradle"):
+        f = app_dir / g
+        if not f.exists():
+            continue
+        txt = f.read_text(errors="ignore")
+        if "productFlavors" not in txt:
+            return None
+        for name in ("prod", "production", "release", "live", "store"):
+            if f'create("{name}")' in txt or f"{name} {{" in txt:
+                return name
+    return None
+
+
+def android_capture(app, app_dir, out_android, serial):
+    """Build, install, launch and photograph the app on the emulator."""
+    repo, pkg = app["repo"], app.get("application_id") or app["bundle_id"]
+    res = {"shots": 0, "error": "", "crashlytics": False}
+    flavour = _android_flavour(app_dir)
+    cmd = [FLUTTER, "build", "apk", "--debug", "--dart-define=SCREENSHOT=true"]
+    if flavour:
+        cmd += ["--flavor", flavour]
+    b = subprocess.run(cmd, cwd=app_dir, env=_android_env(),
+                       capture_output=True, text=True, timeout=2400)
+    apks = sorted((app_dir / "build/app/outputs/flutter-apk").glob("*.apk"))
+    if b.returncode != 0 or not apks:
+        res["error"] = "build failed: " + (b.stderr or b.stdout).strip()[-300:]
+        return res
+
+    adb("uninstall", pkg, serial=serial, timeout=90)
+    # -t: a debug APK is flagged test-only and is otherwise refused.
+    ins = adb("install", "-r", "-t", str(apks[-1]), serial=serial, timeout=600)
+    if "Success" not in (ins.stdout or ""):
+        res["error"] = "install failed: " + (ins.stderr or ins.stdout).strip()[-200:]
+        return res
+
+    adb("logcat", "-c", serial=serial, timeout=60)
+    # `monkey` reports success and leaves the launcher focused; an explicit
+    # component actually starts the activity.
+    adb("shell", "am", "start", "-n", f"{pkg}/.MainActivity", serial=serial, timeout=90)
+    time.sleep(10)
+    for _ in range(3):      # runtime permission dialogs
+        ui = adb("shell", "uiautomator", "dump", "/sdcard/ui.xml", serial=serial, timeout=60)
+        xml = adb("shell", "cat", "/sdcard/ui.xml", serial=serial, timeout=60).stdout or ""
+        m = re.search(r'text="(Allow|While using the app|Only this time|OK|Continue|Accept)"[^>]*bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', xml)
+        if not m:
+            break
+        x = (int(m.group(2)) + int(m.group(4))) // 2
+        y = (int(m.group(3)) + int(m.group(5))) // 2
+        adb("shell", "input", "tap", str(x), str(y), serial=serial, timeout=60)
+        time.sleep(3)
+
+    staging = pathlib.Path(tempfile.mkdtemp(prefix=f"aglandshots-{repo}-"))
+    shots = []
+
+    def grab(n):
+        raw = adb("exec-out", "screencap", "-p", serial=serial, timeout=120, binary=True).stdout
+        if not raw or len(raw) < 5000:
+            return None
+        f = staging / f"{n:02d}.png"
+        f.write_bytes(raw)
+        return f
+
+    first = grab(1)
+    if first:
+        shots.append(first)
+        # Bottom navigation: tap along the lowest row of clickable nodes.
+        xml = ""
+        if adb("shell", "uiautomator", "dump", "/sdcard/ui.xml", serial=serial, timeout=60).returncode == 0:
+            xml = adb("shell", "cat", "/sdcard/ui.xml", serial=serial, timeout=60).stdout or ""
+        # Not filtered on clickable="true". Flutter's semantics nodes are not
+        # marked clickable, so that filter found zero nodes on CalcMaster —
+        # whose bottom bar is plainly five labelled nodes at y 2174..2316.
+        # Labelled nodes sharing the lowest y-band are the tab bar.
+        nodes = []
+        for m in re.finditer(r"<node[^>]*>", xml):
+            s = m.group(0)
+            b = re.search(r'bounds="\[(\d+),(\d+)\]\[(\d+),(\d+)\]"', s)
+            # Whichever is non-empty, not whichever matches first. Every node
+            # carries text="" as well as content-desc, so `text or
+            # content-desc` short-circuits on the empty text match and the
+            # real label is never read — which found 0 labelled nodes on a
+            # screen with fourteen of them.
+            txt = re.search(r'text="([^"]*)"', s)
+            desc = re.search(r'content-desc="([^"]*)"', s)
+            label = next((v.group(1).strip() for v in (txt, desc)
+                          if v and v.group(1).strip()), "")
+            if b and label:
+                nodes.append(tuple(int(g) for g in b.groups()))
+        h = max((d for _, _, _, d in nodes), default=2400)
+        bar = [n for n in nodes if n[1] > 0.85 * h]
+        if len(bar) < 2:
+            bar = []
+        for i, n in enumerate(sorted(bar, key=lambda z: z[0])[1:MAX_SCREENS], start=2):
+            adb("shell", "input", "tap", str((n[0] + n[2]) // 2), str((n[1] + n[3]) // 2),
+                serial=serial, timeout=60)
+            time.sleep(3)
+            f = grab(i)
+            if f and not same_image(shots[-1], f):
+                shots.append(f)
+            elif f:
+                f.unlink(missing_ok=True)
+
+    LOGS.mkdir(parents=True, exist_ok=True)
+    log = adb("logcat", "-d", serial=serial, timeout=120).stdout or ""
+    (LOGS / f"{repo}-android.log").write_text(log)
+    res["crashlytics"] = "FirebaseCrashlytics" in log
+    res["fatal"] = bool(re.search(r"FATAL EXCEPTION|AndroidRuntime.*FATAL", log))
+
+    # Never trade a good set for a worse one. The first run of this function
+    # replaced CalcMaster's five Play screenshots with the single one it had
+    # managed to capture — the same way the iOS half once emptied iMaps, which
+    # is why that half builds in a scratch directory. A capture that found
+    # fewer screens than are already published is a capture that went wrong,
+    # not a new set.
+    tgt = out_android / "phoneScreenshots"
+    have = len(list(tgt.glob("*.png"))) if tgt.exists() else 0
+    if shots and len(shots) >= max(have, 1):
+        tgt.mkdir(parents=True, exist_ok=True)
+        for gone in tgt.glob("*.png"):
+            gone.unlink()
+        for i, s in enumerate(sorted(shots), start=1):
+            shutil.copy(s, tgt / f"{i:02d}.png")
+    elif shots:
+        res["kept_existing"] = have
+        res["error"] = (res["error"] + f" captured {len(shots)} but {have} already "
+                        f"published; kept the existing set").strip()
+    shutil.rmtree(staging, ignore_errors=True)
+    adb("uninstall", pkg, serial=serial, timeout=90)
+    res["shots"] = len(shots)
+    return res
+
+
 def capture(app, out_ios, out_android):
     repo = app["repo"]; app_dir = ROOT / repo / (app["dir"] if app["dir"] != "." else "")
     bundle = app["bundle_id"]
@@ -328,6 +530,20 @@ def main():
     names = [a for a in sys.argv[1:] if not a.startswith("--")]
     if names: apps = [a for a in apps if a["repo"] in names]
     results = json.load(open(RESULTS)) if RESULTS.exists() else {}
+
+    # --android captures on the emulator as well. Without it the Android
+    # screenshots stay what they have always been: the iOS capture padded to
+    # 1440x2880, i.e. an iPhone render on a Play listing.
+    want_android = "--android" in sys.argv
+    skip_ios = "--android-only" in sys.argv
+    want_android = want_android or skip_ios
+    serial = android_device() if want_android else None
+    if want_android and not serial:
+        print("no Android emulator and none could be started; "
+              "continuing with iOS only", flush=True)
+    elif serial:
+        print(f"android device: {serial}", flush=True)
+
     for a in sorted(apps, key=lambda x: x["repo"].lower()):
         purge_derived_data()
         lock = DIST / "ios-batch/current_app"
@@ -343,11 +559,24 @@ def main():
         # failed build must not leave an app with no screenshots at all.
         out_android = app_dir / "fastlane/metadata/android/en-US/images"
         t0 = time.time(); print(f"{a['repo']}: building…", flush=True)
-        try: r = capture(a, out_ios, out_android)
-        except Exception as e: r = {"repo": a["repo"], "screens": {}, "error": f"{type(e).__name__}: {e}"[:300]}
+        if skip_ios:
+            r = {"repo": a["repo"], "screens": {}, "error": ""}
+        else:
+            try: r = capture(a, out_ios, out_android)
+            except Exception as e: r = {"repo": a["repo"], "screens": {}, "error": f"{type(e).__name__}: {e}"[:300]}
+        if serial:
+            try:
+                r["android"] = android_capture(a, app_dir, out_android, serial)
+            except Exception as e:
+                r["android"] = {"shots": 0, "error": f"{type(e).__name__}: {e}"[:200]}
         mine.write_text("")
         r["seconds"] = round(time.time() - t0); results[a["repo"]] = r
         json.dump(results, open(RESULTS, "w"), indent=1)
-        print(f"{a['repo']}: {r['screens']} banner_patched={r.get('banner_patched')} {r['error']} ({r['seconds']}s)", flush=True)
+        and_ = r.get("android") or {}
+        print(f"{a['repo']}: ios={r['screens']} "
+              f"android={and_.get('shots', '-')} "
+              f"crashlytics={and_.get('crashlytics', '-')} "
+              f"{r['error']}{(' | android: ' + and_['error']) if and_.get('error') else ''} "
+              f"({r['seconds']}s)", flush=True)
 
 if __name__ == "__main__": main()
