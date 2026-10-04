@@ -1,0 +1,329 @@
+{
+ "manifest_apps": 43,
+ "apple": {
+  "present": 43,
+  "missing": [],
+  "extra_records": [
+   "com.americangroupllc.Mykarma",
+   "com.americangroupllc.dealzap",
+   "com.americangroupllc.offlinebuddy",
+   "com.americangroupllc.styleradar"
+  ]
+ },
+ "play": {
+  "present": 42,
+  "missing": [
+   "GroceryMatch"
+  ],
+  "extra_records": [
+   "com.americangroupllc.GroceryMatch",
+   "com.americangroupllc.Mykarma",
+   "com.americangroupllc.careerupgradeai",
+   "com.americangroupllc.dealzap",
+   "com.americangroup.ratiotune"
+  ]
+ },
+ "apps": [
+  {
+   "repo": "AeroSwift",
+   "bundle_id": "com.americangroupllc.aeroswift",
+   "package": "com.americangroupllc.aeroswift",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "AGCleaner",
+   "bundle_id": "com.americangroupllc.agcleaner",
+   "package": "com.americangroupllc.agcleaner",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "AGrammarly",
+   "bundle_id": "com.americangroupllc.agrammarly",
+   "package": "com.americangroupllc.agrammarly",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "AGRecorder",
+   "bundle_id": "com.americangroupllc.agrecorder",
+   "package": "com.americangroupllc.agrecorder",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "AGStudio",
+   "bundle_id": "com.americangroupllc.agstudio",
+   "package": "com.americangroupllc.agstudio",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "ApexMarketWatch",
+   "bundle_id": "com.americangroupllc.apexmarketwatch",
+   "package": "com.americangroupllc.apexmarketwatch",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "BodyQuest",
+   "bundle_id": "com.americangroupllc.bodyquest",
+   "package": "com.americangroupllc.bodyquest",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "BuddyPlay",
+   "bundle_id": "com.americangroupllc.buddyplay",
+   "package": "com.americangroupllc.buddyplay",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "CalcMaster",
+   "bundle_id": "com.americangroupllc.calcmaster",
+   "package": "com.americangroupllc.calcmaster",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "CarDeal",
+   "bundle_id": "com.americangroupllc.cardeal",
+   "package": "com.americangroupllc.cardeal",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "ChefCount",
+   "bundle_id": "com.americangroupllc.chefcount",
+   "package": "com.americangroupllc.chefcount",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "CodeDeal",
+   "bundle_id": "com.americangroupllc.codedeal",
+   "package": "com.americangroupllc.codedeal",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "daily-pulse",
+   "bundle_id": "com.americangroupllc.dailypulse",
+   "package": "com.americangroupllc.dailypulse",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "DriftDate",
+   "bundle_id": "com.americangroupllc.driftdate",
+   "package": "com.americangroupllc.driftdate",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "EventSpark",
+   "bundle_id": "com.americangroupllc.eventspark",
+   "package": "com.americangroupllc.eventspark",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "FashionFactory",
+   "bundle_id": "com.americangroupllc.fashionfactory",
+   "package": "com.americangroupllc.fashionfactory",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "GadgetNest",
+   "bundle_id": "com.americangroupllc.gadgetnest",
+   "package": "com.americangroupllc.gadgetnest",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "GroceryMatch",
+   "bundle_id": "com.americangroupllc.grocerymatch",
+   "package": "com.americangroupllc.grocerymatch",
+   "apple": true,
+   "play": false
+  },
+  {
+   "repo": "HerJourney",
+   "bundle_id": "com.americangroupllc.herjourney",
+   "package": "com.americangroupllc.herjourney",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "HomeWise",
+   "bundle_id": "com.americangroupllc.homewise",
+   "package": "com.americangroupllc.homewise",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "iMaps",
+   "bundle_id": "com.americangroupllc.imaps",
+   "package": "com.americangroupllc.imaps",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "iMeasure",
+   "bundle_id": "com.americangroupllc.imeasure",
+   "package": "com.americangroupllc.imeasure",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "Kinnav",
+   "bundle_id": "com.americangroupllc.kinnav",
+   "package": "com.americangroupllc.kinnav",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "MileMaster",
+   "bundle_id": "com.americangroupllc.milemaster",
+   "package": "com.americangroupllc.milemaster",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "MyCard",
+   "bundle_id": "com.americangroupllc.mycard",
+   "package": "com.americangroupllc.mycard",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "MyFinance",
+   "bundle_id": "com.americangroupllc.myfinance",
+   "package": "com.americangroupllc.myfinance",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "MyHealth",
+   "bundle_id": "com.americangroupllc.myhealth",
+   "package": "com.americangroupllc.myhealth",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "NearServe",
+   "bundle_id": "com.americangroupllc.nearserve",
+   "package": "com.americangroupllc.nearserve",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "NewsBoard",
+   "bundle_id": "com.americangroupllc.newsboard",
+   "package": "com.americangroupllc.newsboard",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "NexusTransferPay",
+   "bundle_id": "com.americangroupllc.nexustransferpay",
+   "package": "com.americangroupllc.nexustransferpay",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "Photriya",
+   "bundle_id": "com.americangroupllc.photriya",
+   "package": "com.americangroupllc.photriya",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "PilotEnRoute",
+   "bundle_id": "com.americangroupllc.pilotenroute",
+   "package": "com.americangroupllc.pilotenroute",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "PlantPulse",
+   "bundle_id": "com.americangroupllc.plantpulse",
+   "package": "com.americangroupllc.plantpulse",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "portfolio-board",
+   "bundle_id": "com.americangroupllc.portfolioboard",
+   "package": "com.americangroupllc.portfolioboard",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "radiotune",
+   "bundle_id": "com.americangroupllc.radiotune",
+   "package": "com.americangroupllc.radiotune",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "RideZap",
+   "bundle_id": "com.americangroupllc.ridezap",
+   "package": "com.americangroupllc.ridezap",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "RoomCraft",
+   "bundle_id": "com.americangroupllc.roomcraft",
+   "package": "com.americangroupllc.roomcraft",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "TripNest",
+   "bundle_id": "com.americangroupllc.tripnest",
+   "package": "com.americangroupllc.tripnest",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "Uscis-Case",
+   "bundle_id": "com.americangroupllc.usciscase",
+   "package": "com.americangroupllc.usciscase",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "Verba",
+   "bundle_id": "com.americangroupllc.verba",
+   "package": "com.americangroupllc.verba",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "VirtuBand",
+   "bundle_id": "com.americangroupllc.virtuband",
+   "package": "com.americangroupllc.virtuband",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "WiFiTrail",
+   "bundle_id": "com.americangroupllc.wifitrail",
+   "package": "com.americangroupllc.wifitrail",
+   "apple": true,
+   "play": true
+  },
+  {
+   "repo": "yourtube",
+   "bundle_id": "com.americangroupllc.yourtube",
+   "package": "com.americangroupllc.yourtube",
+   "apple": true,
+   "play": true
+  }
+ ]
+}

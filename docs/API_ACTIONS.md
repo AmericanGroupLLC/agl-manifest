@@ -74,6 +74,7 @@ Auth: `~/.secrets/play-publisher-agl.json`, or impersonation of
 | `play_state.py` | Asks Play what is actually there per package. Ground truth; the local evidence file is not |
 | `play_release.py` | Promotes a draft internal release |
 | `play_production_blockers.py` | Reports, per app, whether a production release exists and whether it is staged or live, and records the API's refusal for a Draft app. Writes `docs/play-production-blockers.json` |
+| `store_inventory.py` | Reconciles the 43-app manifest against what each store actually holds, and names the records each account carries that are **not** in the manifest. Writes `docs/store-inventory.json` |
 | `play_listing.py` | Pushes listing metadata |
 | `sync_play_testers.py` | Reports each app's internal/alpha/beta tester lists and, with PLAY_TESTER_GOOGLE_GROUP, attaches that group to all three. Play takes no individual addresses — see MA-033. Roster is `store/testers.json` |
 
