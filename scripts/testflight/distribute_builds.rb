@@ -24,8 +24,10 @@
 # READY_FOR_BETA_SUBMISSION, which is where these apps already are.
 
 require "json"
+require "net/http"
 require "set"
 require "spaceship"
+require "uri"
 require_relative "../agl_paths"
 
 DRY  = ARGV.include?("--dry-run")
@@ -37,6 +39,21 @@ Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
   issuer_id: ENV.fetch("ASC_ISSUER_ID"),
   filepath: ENV.fetch("ASC_KEY_PATH"),
 )
+
+HOST = "https://api.appstoreconnect.apple.com"
+
+def req(verb, path, body = nil)
+  uri = URI("#{HOST}/#{path}")
+  http = Net::HTTP.new(uri.host, 443)
+  http.use_ssl = true
+  http.read_timeout = 120
+  r = { get: Net::HTTP::Get, post: Net::HTTP::Post }[verb].new(uri)
+  r["Authorization"] = "Bearer #{Spaceship::ConnectAPI.token.text}"
+  r["Content-Type"] = "application/json"
+  r.body = body.to_json if body
+  res = http.request(r)
+  [res.code.to_i, (JSON.parse(res.body) rescue {})]
+end
 
 apps = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
 by_bundle = {}
@@ -50,8 +67,18 @@ rescue StandardError => e
   warn "could not list testers: #{e.message[0, 120]}"
   []
 end
-emails = account_testers.map(&:email).compact.uniq
-puts "account testers: #{emails.size} unique"
+# The two store owners, who must be able to install every build from
+# TestFlight.app. Measured 2026-10-04: rainbow472.sri@gmail.com was in none of
+# the 43 internal groups, which is why half the TestFlight links answered
+# "the requested app is not available or doesn't exist".
+OWNERS = {
+  "srikanth.patchava@outlook.com" => %w[Srikanth Patchava],
+  "rainbow472.sri@gmail.com" => %w[Srikanth Patchava],
+}.freeze
+NAMES = OWNERS
+
+emails = OWNERS.keys
+puts "owners to seat in every internal group: #{emails.size}"
 
 distributed = added = skipped = failed = 0
 
@@ -68,60 +95,77 @@ apps.each do |a|
   rescue StandardError
     nil
   end
-  if build.nil?
-    puts format("%-18s no usable build", repo)
-    skipped += 1
-    next
-  end
+  # No `next` here. Seating an owner in a beta group has nothing to do with
+  # whether a build exists, and skipping early left CodeDeal as the only app
+  # of 43 whose groups never got rainbow472.sri@gmail.com — because its one
+  # build is expired.
+  puts format("%-18s no usable build (seating owners anyway)", repo) if build.nil?
 
-  group = (app.get_beta_groups rescue []).find { |g| g.name == GROUP && g.is_internal_group }
-  group ||= (app.get_beta_groups rescue []).find(&:is_internal_group)
+  # Every internal group, not just the first. Several apps carry two ("AGL
+  # Internal" and "Internal testers"); seating an owner in one of them left
+  # the other empty, and which one TestFlight shows is not ours to choose.
+  internals = (app.get_beta_groups rescue []).select(&:is_internal_group)
+  internals = internals.sort_by { |g| g.name == GROUP ? 0 : 1 }
+  group = internals.first
   if group.nil?
     puts format("%-18s no internal beta group", repo)
     skipped += 1
     next
   end
 
-  already = (build.get_beta_groups rescue []).map(&:id).to_set
-  in_group = (group.get_beta_testers rescue []).map(&:email).compact.to_set
-  want = emails.reject { |e| in_group.include?(e) }
+  # BetaGroup#get_beta_testers answers empty even for groups that have
+  # members, so membership is read from the group's own relationship, which
+  # reports it correctly.
+  todo = internals.map do |g|
+    _, tl = req(:get, "v1/betaGroups/#{g.id}/betaTesters?limit=200")
+    have = (tl["data"] || []).map { |x| x.dig("attributes", "email").to_s.downcase }.to_set
+    [g, emails.reject { |e| have.include?(e.downcase) }]
+  end
+  want = todo.flat_map { |_, w| w }
 
   if DRY
-    puts format("%-18s build %s -> %s%s", repo, build.version,
-                already.include?(group.id) ? "already distributed" : "attach",
-                want.empty? ? "" : ", add #{want.size} tester(s)")
+    puts format("%-18s build %s, %s", repo, build.version,
+                want.empty? ? "group already complete" : "would add #{want.size} tester(s)")
     next
   end
 
-  unless already.include?(group.id)
-    begin
-      Spaceship::ConnectAPI.add_beta_groups_to_build(build_id: build.id,
-                                                     beta_group_ids: [group.id])
-      distributed += 1
-    rescue StandardError => e
-      puts format("%-18s attach FAILED %s", repo, e.message.gsub(/\s+/, " ")[0, 110])
+  # Builds are NOT attached to internal groups. Every internal group here has
+  # hasAccessToAllBuilds=true (checked: 43/43), so Apple hands them every
+  # build automatically and the attach is refused outright:
+  #
+  #   POST v1/builds/{id}/relationships/betaGroups  422 Cannot add internal
+  #   group to a build.
+  #
+  # An earlier reading of "newest build not in the internal group" as a gap
+  # was therefore wrong — there is nothing to attach.
+  todo.each do |g, missing|
+  missing.each do |e|
+    first, last = NAMES.fetch(e, ["AGL", "Owner"])
+    code, out = req(:post, "v1/betaTesters", {
+                      data: {
+                        type: "betaTesters",
+                        attributes: { email: e, firstName: first, lastName: last },
+                        relationships: { betaGroups: { data: [{ type: "betaGroups", id: g.id }] } },
+                      },
+                    })
+    # POST v1/betaTesters, not the bulk endpoint spaceship wraps: Apple
+    # retired v1/bulkBetaTesterAssignments and answers 409 "does not exist"
+    # for every call, which this script used to swallow and count as success.
+    if code < 300
+      added += 1
+    else
+      puts format("%-18s %-14s %s %d %s", repo, g.name, e, code,
+                  out.dig("errors", 0, "detail").to_s.gsub(/\s+/, " ")[0, 80])
       failed += 1
-      next
     end
   end
-
-  unless want.empty?
-    begin
-      # In batches: the bulk endpoint rejects very large payloads.
-      want.each_slice(50) do |slice|
-        Spaceship::ConnectAPI.post_bulk_beta_tester_assignments(
-          beta_group_id: group.id,
-          beta_testers: slice.map { |e| { email: e } },
-        )
-      end
-      added += want.size
-    rescue StandardError => e
-      puts format("%-18s testers FAILED %s", repo, e.message.gsub(/\s+/, " ")[0, 110])
-    end
   end
 
-  puts format("%-18s build %s in %s, group has %d tester(s)",
-              repo, build.version, group.name, in_group.size + want.size)
+  # Counted from the live read above, not from "what I was about to add" —
+  # the old line printed "group has 2 tester(s)" for apps where the add had
+  # silently gone to the app's other internal group.
+  puts format("%-18s build %s, %d internal group(s), %d seat(s) added",
+              repo, build ? build.version : "none", internals.size, want.size)
 end
 
 puts "\nattached #{distributed} build(s), added #{added} tester assignment(s), " \
