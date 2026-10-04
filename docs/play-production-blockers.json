@@ -353,15 +353,7 @@
   {
    "repo": "FashionFactory",
    "package": "com.americangroupllc.fashionfactory",
-   "internal": [
-    {
-     "versionCodes": [
-      "4"
-     ],
-     "status": "completed",
-     "countryTargeting": false
-    }
-   ],
+   "internal": [],
    "production": [
     {
      "versionCodes": [
@@ -400,9 +392,27 @@
   },
   {
    "repo": "GroceryMatch",
-   "package": "com.americangroupllc.grocerymatch",
-   "state": "NO_LISTING",
-   "blocker": "Package not found: com.americangroupllc.grocerymatch."
+   "package": "com.americangroupllc.GroceryMatch",
+   "internal": [
+    {
+     "versionCodes": [
+      "2"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
+   "production": [
+    {
+     "versionCodes": [
+      "2"
+     ],
+     "status": "draft",
+     "countryTargeting": false
+    }
+   ],
+   "state": "PRODUCTION_DRAFT_STAGED",
+   "blocker": "console-only: App content declarations + press Publish"
   },
   {
    "repo": "HerJourney",

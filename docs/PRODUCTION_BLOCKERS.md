@@ -174,7 +174,8 @@ if the organisation ever ships notarised Mac software.
 
 | Question | Answer |
 | --- | --- |
-| Is any app missing a build? | No. 43/43 on Apple, and 42/43 are now in or waiting for review. On Play, GroceryMatch's uploads miss because its record is cased `com.americangroupllc.GroceryMatch` |
+| Is any app missing a record? | No. **43/43 on both stores** as of 2026-10-04 — see `docs/store-inventory.json` |
+| Is any app missing a build? | No. 43/43 on Apple, 42 of them in or waiting for review; 43/43 on Play, 6 live and 37 staged for production |
 | Is any app missing a production release? | No. 6 live, 36 staged as production drafts |
 | What stops Play? | For 22 apps, only the first-publish click. For the other 21, outstanding App content declarations as well. Neither has an API |
 | What stops Apple? | Nothing, for 42 of 43 — they are in or waiting for review. PlantPulse needs its App Privacy answers published |
@@ -204,11 +205,12 @@ publishing steps this session is not permitted to perform.
    `READ_MEDIA_*` and therefore face the photo-and-video form are AGCleaner
    (done), NexusTransferPay and Photriya.
 3. **Publish PlantPulse's App Privacy answers** in App Store Connect.
-4. **Decide GroceryMatch's Play package.** The existing record is
-   `com.americangroupllc.GroceryMatch`; the build, the Apple record and the
-   house rule all use the all-lowercase `com.americangroupllc.grocerymatch`.
-   Aligning the build to the record would break the "identical, lowercase on
-   both stores" rule, and it would need a second Firebase Android app because
-   `google-services.json` only carries the lowercase client. Creating a Play
-   app for the lowercase package is the option that keeps the rule, and it is
-   console-only. **Nothing was renamed** pending that decision.
+4. ~~Decide GroceryMatch's Play package.~~ **Done 2026-10-04.** The build was
+   recased onto the record Play already held,
+   `com.americangroupllc.GroceryMatch`, because a package name is permanent
+   once a record exists and that record already carried a finished listing and
+   completed App content. Registering the new Android client needed a fourth
+   Firebase project — all three were exactly full at 47 android + 43 ios
+   against 90 slots — so `americangroupllc-agl4` was created. The bundle is
+   uploaded (versionCode 2), the internal release is live and the production
+   release is staged, which puts **both stores at 43 of 43**.

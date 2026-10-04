@@ -11,12 +11,9 @@
   ]
  },
  "play": {
-  "present": 42,
-  "missing": [
-   "GroceryMatch"
-  ],
+  "present": 43,
+  "missing": [],
   "extra_records": [
-   "com.americangroupllc.GroceryMatch",
    "com.americangroupllc.Mykarma",
    "com.americangroupllc.careerupgradeai",
    "com.americangroupllc.dealzap",
@@ -146,9 +143,9 @@
   {
    "repo": "GroceryMatch",
    "bundle_id": "com.americangroupllc.grocerymatch",
-   "package": "com.americangroupllc.grocerymatch",
+   "package": "com.americangroupllc.GroceryMatch",
    "apple": true,
-   "play": false
+   "play": true
   },
   {
    "repo": "HerJourney",

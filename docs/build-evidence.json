@@ -274,22 +274,24 @@
   {
     "repo": "GroceryMatch",
     "app_dir": ".",
+    "signing_source": "local .secrets/keystores.json",
     "flavours": [
       "dev",
       "staging",
       "prod"
     ],
     "flavour_built": "prod",
-    "seconds": 309.0,
+    "seconds": 171.5,
     "aab": "GroceryMatch/build/app/outputs/bundle/prodRelease/app-prod-release.aab",
-    "bytes": 65476360,
-    "sha256": "00a950f45e8e24f464fb1e44323de44ebbb3f973609c5af11c59a1834a232777",
+    "bytes": 65476372,
+    "sha256": "8f0db8e7e1ca3ee7a791f74b937c303a424133236e392f168648ec7bfec538e1",
     "keystore_sha256": "D5DBFDD0F484838DB666A7E43B8673C80117CA16D816ED3EC5648A922B673574",
     "signer_sha256": "D5DBFDD0F484838DB666A7E43B8673C80117CA16D816ED3EC5648A922B673574",
     "result": "SIGNED",
     "artifact": ".dist/GroceryMatch-app-prod-release.aab",
     "freed_mb": 1176,
-    "built_at": "2026-09-24T22:30:19-0700"
+    "built_at": "2026-10-04T02:10:29-0700",
+    "machine_before": "disk 20G free of 926G"
   },
   {
     "repo": "HerJourney",

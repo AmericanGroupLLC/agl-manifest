@@ -26,9 +26,9 @@ OUT = MANIFEST / "docs" / "store-inventory.json"
 
 # Packages the Play account holds that are not in the manifest. Kept here so the
 # script reports them rather than silently calling the portfolio complete; the
-# API cannot enumerate an account's apps.
+# API cannot enumerate an account's apps. com.americangroupllc.GroceryMatch was
+# on this list until 2026-10-04, when the app was recased onto that record.
 PLAY_KNOWN_EXTRA = [
-    "com.americangroupllc.GroceryMatch",   # GroceryMatch's real record, mis-cased
     "com.americangroupllc.Mykarma",
     "com.americangroupllc.careerupgradeai",
     "com.americangroupllc.dealzap",
@@ -65,7 +65,11 @@ def apple_bundle_ids():
         'key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), '
         'filepath: ENV.fetch("ASC_KEY_PATH")); '
         'print JSON.dump(Spaceship::ConnectAPI::App.all.map(&:bundle_id))')
-    r = subprocess.run(["bundle", "exec", "ruby", "-e", script], cwd=str(MANIFEST),
+    # The `bundle` on PATH is macOS's Ruby 2.6 and cannot load the gems; the
+    # rbenv shim is the one with spaceship. Prefer it when it exists.
+    shim = pathlib.Path.home() / ".rbenv/shims/bundle"
+    bundle = str(shim) if shim.exists() else "bundle"
+    r = subprocess.run([bundle, "exec", "ruby", "-e", script], cwd=str(MANIFEST),
                        capture_output=True, text=True, timeout=600)
     if not r.stdout.strip():
         raise RuntimeError(r.stderr[-400:])
