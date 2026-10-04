@@ -119,9 +119,17 @@ def busy_by_other(d: pathlib.Path) -> list[str]:
             pid = val
         elif tag == "c":
             cmd = val
-        elif tag == "n" and pid != me and (val == prefix or val.startswith(prefix + "/")):
+        elif (tag == "n" and pid != me and cmd in BUILD_TOOLS
+              and (val == prefix or val.startswith(prefix + "/"))):
             found.append(f"{cmd}[{pid}]")
     return found
+
+
+# Only processes that build count. An emulator started from an app directory
+# keeps it as its cwd for days — qemu-system-aarch64, netsimd and the shell that
+# launched it held CalcMaster "busy" for a whole --busy-wait on 2026-10-03.
+BUILD_TOOLS = {"dart", "dartvm", "flutter", "xcodebuild", "java", "pod", "ruby",
+               "gradle", "swift-frontend", "clang", "ld"}
 
 
 def wait_until_free(d: pathlib.Path, wait_min: int) -> list[str]:
@@ -246,6 +254,13 @@ def android(app: dict, d: pathlib.Path, serial: str, args, log: pathlib.Path) ->
     pkg = apk_package(apk, app.get("application_id", ""))
     rec.update(artifact=str(apk), package=pkg)
     rc, out = run([ADB, "-s", serial, "install", "-r", "-t", apk], log, timeout=600)
+    if "INSTALL_FAILED_UPDATE_INCOMPATIBLE" in out:
+        # A copy signed with another key (a release build, or another machine's
+        # debug key) is already there, and Android will not update across keys.
+        # This is a test emulator: drop the old copy and its data, then retry.
+        run([ADB, "-s", serial, "uninstall", pkg], log, timeout=120)
+        rc, out = run([ADB, "-s", serial, "install", "-r", "-t", apk], log, timeout=600)
+        rec["replaced_differently_signed_install"] = True
     if rc != 0 or "Success" not in out:
         return {**rec, "status": "install_failed", "detail": tail(out)}
     if args.no_launch:
@@ -354,6 +369,24 @@ def ios(app: dict, d: pathlib.Path, udid: str, args, log: pathlib.Path) -> dict:
 
 
 # ---------------------------------------------------------------- main
+
+def purge_derived_data(max_age_min=5):
+    """Remove Runner-*/Pods-* trees Xcode left for apps already finished.
+    Same rule as screenshots.py, which learnt it when 43 apps filled the disk."""
+    dd = pathlib.Path.home() / "Library/Developer/Xcode/DerivedData"
+    if not dd.is_dir():
+        return 0
+    now, gone = time.time(), 0
+    for d in dd.glob("*"):
+        try:
+            if (d.name.startswith(("Runner-", "Pods-")) and d.is_dir()
+                    and now - d.stat().st_mtime > max_age_min * 60):
+                shutil.rmtree(d, ignore_errors=True)
+                gone += 1
+        except OSError:
+            pass
+    return gone
+
 
 def main() -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n\n")[0],
@@ -470,6 +503,14 @@ def main() -> int:
             others = busy_by_other(d)
             print(f"    not cleaned: in use by {', '.join(others[:3])}" if others
                   else f"    cleaned {clean_build(d)}", flush=True)
+            # clean_build only removes the Flutter build directory. Xcode keeps
+            # several GB per app in DerivedData, which this did not touch: over
+            # three apps it grew 5 GB -> 12 GB, so a --all run would have
+            # exhausted the disk around app 27 — exactly what happened on
+            # 2026-09-14. Trees untouched for minutes belong to finished apps.
+            freed = purge_derived_data()
+            if freed:
+                print(f"    purged {freed} DerivedData tree(s)", flush=True)
 
     report = OUT / f"{stamp}.json"
     try:
