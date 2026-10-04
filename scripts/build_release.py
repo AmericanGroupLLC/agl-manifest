@@ -542,14 +542,14 @@ def main() -> int:
                          "split across parallel jobs instead of one 5-hour run")
     ap.add_argument("--keep-build", action="store_true",
                     help="do not delete the build tree afterwards (needs ~1-4 GB per app)")
+    ap.add_argument("--list", action="store_true",
+                    help="print the selected repos comma-separated and exit. "
+                         "ship.yml checks out exactly this, so the checkout and "
+                         "the build cannot disagree about a shard's apps — "
+                         "shard_apps.py orders apps.json case-insensitively and "
+                         "this orders the audit plainly, so its shards differ")
     args = ap.parse_args()
 
-    # Absent on a runner by design — the keystores live in repository secrets
-    # there, not in a file. An empty registry is not an error.
-    keystores = json.loads(KEYSTORES.read_text()) if KEYSTORES.exists() else {}
-    if not keystores:
-        print(f"no local keystore registry at {KEYSTORES}; relying on "
-              f"android/key.properties written from secrets")
     apps = app_list()
     if args.apps:
         wanted = set(args.apps)
@@ -572,11 +572,22 @@ def main() -> int:
         # and the slow ones are not evenly spread, so contiguous blocks would
         # leave one job running long after the rest had finished.
         apps = [a for k, a in enumerate(apps) if k % n == i - 1]
+    if args.list:
+        print(",".join(a["repo"] for a in apps))
+        return 0
+    if args.shard:
         print(f"shard {i}/{n}: {len(apps)} app(s) — "
               f"{', '.join(a['repo'] for a in apps)}")
         if not apps:
             print("nothing in this shard")
             return 0
+
+    # Absent on a runner by design — the keystores live in repository secrets
+    # there, not in a file. An empty registry is not an error.
+    keystores = json.loads(KEYSTORES.read_text()) if KEYSTORES.exists() else {}
+    if not keystores:
+        print(f"no local keystore registry at {KEYSTORES}; relying on "
+              f"android/key.properties written from secrets")
 
     # Kept in separate files so building APKs cannot overwrite the record of the
     # bundles that are going to the store.

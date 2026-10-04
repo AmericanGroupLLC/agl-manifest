@@ -3,6 +3,12 @@
 Everything about the 43 mobile apps now lives here rather than in the private
 backend repository, so working on delivery needs access to one repo.
 
+Control-plane data layers:
+
+- `../manifest/` = desired state
+- `../generated/` = measured state (reserved)
+- `../apps.json` = measured compatibility manifest currently used by CI
+
 | Start here | |
 | --- | --- |
 | [DELIVERY_ARCHITECTURE.md](DELIVERY_ARCHITECTURE.md) | who owns what, what runs where, where the CI minutes go |

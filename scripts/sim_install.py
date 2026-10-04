@@ -38,12 +38,14 @@ an AVD (--avd, else the first phone-sized Pixel) only if none is running.
 from __future__ import annotations
 
 import argparse
+import fcntl
 import json
 import os
 import pathlib
 import plistlib
 import re
 import shutil
+import signal
 import subprocess
 import sys
 import time
@@ -54,21 +56,35 @@ from build_release import flavours, java_tool_options, pick_flavour  # noqa: E40
 
 FLUTTER = str(flutter_bin())
 OUT = DIST / "sim-install"
-LOGS = OUT / "logs"
+LOGS = OUT / "logs"            # main() narrows this to logs/<run stamp>/
+LOCKS = OUT / "locks"          # one flock per app, held while it is processed
 
 
 # ---------------------------------------------------------------- utilities
 
 def run(cmd, log: pathlib.Path | None = None, cwd=None, env=None, timeout=1800):
-    """Run a command, append its output to `log`, never raise."""
+    """Run a command, append its output to `log`, never raise.
+
+    On timeout the whole process group is killed, not just the direct child:
+    `xcrun simctl install` timing out left the real `simctl` running against a
+    frozen simulator long after the run had moved on."""
     try:
-        p = subprocess.run([str(c) for c in cmd], cwd=cwd, env=env, timeout=timeout,
-                           capture_output=True, text=True)
-        rc, out = p.returncode, (p.stdout or "") + (p.stderr or "")
-    except subprocess.TimeoutExpired as e:
-        rc, out = 124, f"TIMEOUT after {timeout}s\n{e.stdout or ''}{e.stderr or ''}"
+        p = subprocess.Popen([str(c) for c in cmd], cwd=cwd, env=env, text=True,
+                             stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                             start_new_session=True)
     except OSError as e:
         rc, out = 127, str(e)
+    else:
+        try:
+            so, se = p.communicate(timeout=timeout)
+            rc, out = p.returncode, (so or "") + (se or "")
+        except subprocess.TimeoutExpired:
+            try:
+                os.killpg(p.pid, signal.SIGKILL)
+            except OSError:
+                pass
+            so, se = p.communicate()
+            rc, out = 124, f"TIMEOUT after {timeout}s\n{so or ''}{se or ''}"
     if log:
         with log.open("a") as f:
             f.write(f"$ {' '.join(map(str, cmd))}\n{out}\n[exit {rc}]\n\n")
@@ -135,11 +151,25 @@ BUILD_TOOLS = {"dart", "dartvm", "flutter", "xcodebuild", "java", "pod", "ruby",
                "gradle", "swift-frontend", "clang", "ld"}
 
 
-def wait_until_free(d: pathlib.Path, wait_min: int) -> list[str]:
+def wait_until_free(d: pathlib.Path, wait_min: int, lock) -> list[str]:
+    """Take this app's lock and wait out any other build in its directory.
+
+    Two checks, because each misses what the other sees. The lock is exact
+    between sim_install runs, but other tools do not take it. The process scan
+    sees every tool, but only while one is running: between a run's iOS and
+    Android steps nothing builds, the directory looks free, and on 2026-10-03
+    two sweeps built FashionFactory at once ("Could not delete ...caches-jvm")."""
     deadline = time.time() + wait_min * 60
     while True:
-        others = busy_by_other(d)
-        if not others or time.time() >= deadline:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+            others = busy_by_other(d)
+            if not others:
+                return []
+            fcntl.flock(lock, fcntl.LOCK_UN)
+        except BlockingIOError:
+            others = ["another sim_install run"]
+        if time.time() >= deadline:
             return others
         print(f"    waiting: {', '.join(others[:3])} working in {d.name}", flush=True)
         time.sleep(30)
@@ -190,9 +220,35 @@ ADB = SDK / "platform-tools/adb"
 EMULATOR = SDK / "emulator/emulator"
 
 
-# serial -> packages this run installed there, oldest first; the only ones it
-# may uninstall to make room.
-INSTALLED: dict[str, list[str]] = {}
+# serial -> packages sim_install has installed there, oldest first — the only
+# ones it may uninstall to make room. Kept on disk across runs: a per-run list
+# could never evict the apps an earlier run left behind, so a fresh run on a
+# full emulator failed every install (2026-10-04, daily-pulse et al.).
+LEDGER = OUT / "installed.json"
+
+
+def ledger_load() -> dict[str, list[str]]:
+    try:
+        return json.loads(LEDGER.read_text())
+    except (OSError, ValueError):
+        return {}
+
+
+def ledger_update(serial: str, add: str | None = None, remove: str | None = None) -> list[str]:
+    """Re-read, change, write: other runs may have updated it meanwhile."""
+    data = ledger_load()
+    pkgs = data.setdefault(serial, [])
+    for p in (remove, add):
+        if p and p in pkgs:
+            pkgs.remove(p)
+    if add:
+        pkgs.append(add)
+    try:
+        LEDGER.parent.mkdir(parents=True, exist_ok=True)
+        LEDGER.write_text(json.dumps(data, indent=1))
+    except OSError:
+        pass
+    return pkgs
 
 
 def adb(*args, serial=None, timeout=120):
@@ -286,21 +342,19 @@ def android(app: dict, d: pathlib.Path, serial: str, args, log: pathlib.Path) ->
     # A debug APK is 150-200 MB and the default /data partition is ~6 GB, so a
     # sweep fills the emulator after about fifteen apps (INSUFFICIENT_STORAGE,
     # or "Requested internal only, but not enough space"). Make room by
-    # removing what this run installed, oldest first — never anything that was
-    # on the emulator before the run started.
-    mine = INSTALLED.setdefault(serial, [])
-    while ("INSUFFICIENT_STORAGE" in out or "not enough space" in out) and \
-            any(p != pkg for p in mine):
-        old = next(p for p in mine if p != pkg)
-        mine.remove(old)
+    # removing what sim_install installed, oldest first — never anything it
+    # did not put there.
+    while "INSUFFICIENT_STORAGE" in out or "not enough space" in out:
+        old = next((p for p in ledger_load().get(serial, []) if p != pkg), None)
+        if not old:
+            break
         run([ADB, "-s", serial, "uninstall", old], log, timeout=120)
+        ledger_update(serial, remove=old)
         rec.setdefault("evicted_to_make_room", []).append(old)
         rc, out = run(install, log, timeout=600)
     if rc != 0 or "Success" not in out:
         return {**rec, "status": "install_failed", "detail": tail(out)}
-    if pkg in mine:
-        mine.remove(pkg)
-    mine.append(pkg)
+    ledger_update(serial, add=pkg)
     if args.no_launch:
         return {**rec, "status": "installed"}
     # Not `monkey -p <pkg> 1`: on these emulator images it aborts with
@@ -367,8 +421,28 @@ def ios_flavour(d: pathlib.Path, android_flavour: str | None) -> str | None:
     return android_flavour if (schemes / f"{android_flavour}.xcscheme").exists() else None
 
 
+SIM_DEAD: set[str] = set()
+
+
+def ios_responsive(udid: str) -> bool:
+    """A frozen simulator still shows as Booted, but every simctl call against
+    it hangs — install for its full 300 s timeout, app after app. On
+    2026-10-03 swap ran out and every simulator on the machine froze at once.
+    A cheap probe first; once a device fails it, skip it for the rest of the
+    run instead of paying a timeout per app."""
+    if udid in SIM_DEAD:
+        return False
+    rc, _ = run(["xcrun", "simctl", "spawn", udid, "launchctl", "list"], timeout=30)
+    if rc != 0:
+        SIM_DEAD.add(udid)
+    return rc == 0
+
+
 def ios(app: dict, d: pathlib.Path, udid: str, args, log: pathlib.Path) -> dict:
     rec: dict = {"platform": "ios", "device": udid}
+    if not ios_responsive(udid):
+        return {**rec, "status": "simulator_unresponsive",
+                "detail": f"{udid} does not answer simctl (frozen?) — iOS skipped for this run"}
     flavour = ios_flavour(d, pick_flavour(flavours(d)))
     rec["flavour"] = flavour
     if not args.skip_build:
@@ -487,8 +561,14 @@ def main() -> int:
             return 1
         print(f"Android emulator: {serial}")
 
-    LOGS.mkdir(parents=True, exist_ok=True)
+    # One log directory per run: two runs at once used to overwrite each
+    # other's <repo>-<platform>.log, so a failure was reported against
+    # another run's output.
+    global LOGS
     stamp = time.strftime("%Y%m%d-%H%M%S")
+    LOGS = OUT / "logs" / stamp
+    LOGS.mkdir(parents=True, exist_ok=True)
+    LOCKS.mkdir(parents=True, exist_ok=True)
     results = []
     if args.all and not args.clean_after:
         print("note: --all without --clean-after keeps every app's build output "
@@ -513,8 +593,10 @@ def main() -> int:
                             "detail": f"no pubspec.yaml at {d}"})
             print("    - missing project", flush=True)
             continue
-        others = [] if args.skip_build else wait_until_free(d, args.busy_wait)
+        lock = (LOCKS / f"{app['repo']}.lock").open("w")
+        others = [] if args.skip_build else wait_until_free(d, args.busy_wait, lock)
         if others:
+            lock.close()
             results.append({"repo": app["repo"], "platform": "-", "status": "busy",
                             "detail": f"still in use by {', '.join(others[:3])}"})
             print(f"    - busy: {', '.join(others[:3])}", flush=True)
@@ -549,6 +631,7 @@ def main() -> int:
             freed = purge_derived_data()
             if freed:
                 print(f"    purged {freed} DerivedData tree(s)", flush=True)
+        lock.close()   # releases the flock
 
     report = OUT / f"{stamp}.json"
     try:

@@ -3,72 +3,72 @@
     "repo": "AeroSwift",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.aeroswift",
-    "version": "202609260214",
+    "version": "1",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:19:08-07:00",
+    "uploaded_at": "2026-10-04T00:48:52-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "AGCleaner",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.agcleaner",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:29:05-07:00",
+    "uploaded_at": "2026-10-04T00:52:16-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "AGrammarly",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.agrammarly",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:36:01-07:00",
+    "uploaded_at": "2026-10-03T23:53:02-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "AGRecorder",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.agrecorder",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:43:03-07:00",
+    "uploaded_at": "2026-10-04T00:53:10-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "AGStudio",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.agstudio",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:49:33-07:00",
+    "uploaded_at": "2026-10-03T23:54:33-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "ApexMarketWatch",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.apexmarketwatch",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T02:56:17-07:00",
+    "uploaded_at": "2026-10-04T00:53:37-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "BodyQuest",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.bodyquest",
-    "version": "202609301756",
+    "version": "3",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-30T18:10:14-07:00",
+    "uploaded_at": "2026-10-04T00:54:45-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "BuddyPlay",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.buddyplay",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T03:02:13-07:00",
+    "uploaded_at": "2026-10-03T23:58:53-07:00",
     "review_state": "IN_REVIEW"
   },
   {
@@ -93,18 +93,18 @@
     "repo": "ChefCount",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.chefcount",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T03:26:04-07:00",
+    "uploaded_at": "2026-10-04T00:01:19-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "CodeDeal",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.codedeal",
-    "version": "2026091509",
+    "version": "15",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-15T09:43:47-07:00",
+    "uploaded_at": "2026-10-04T00:02:45-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
@@ -129,54 +129,54 @@
     "repo": "EventSpark",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.eventspark",
-    "version": "202609250224",
+    "version": "3",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T04:46:41-07:00",
+    "uploaded_at": "2026-10-04T01:31:33-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "FashionFactory",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.fashionfactory",
-    "version": "202609281936",
+    "version": "4",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-28T19:39:22-07:00",
+    "uploaded_at": "2026-10-04T00:55:59-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "GadgetNest",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.gadgetnest",
-    "version": "202609260214",
+    "version": "1",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:25:41-07:00",
+    "uploaded_at": "2026-10-04T00:08:49-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "GroceryMatch",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.grocerymatch",
-    "version": "202609260214",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:33:48-07:00",
+    "uploaded_at": "2026-10-04T00:57:15-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "HerJourney",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.herjourney",
-    "version": "202609261118",
+    "version": "3",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T11:23:35-07:00",
+    "uploaded_at": "2026-10-04T00:12:36-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "HomeWise",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.homewise",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T04:53:42-07:00",
+    "uploaded_at": "2026-10-04T00:57:33-07:00",
     "review_state": "IN_REVIEW"
   },
   {
@@ -192,9 +192,9 @@
     "repo": "iMeasure",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.imeasure",
-    "version": "202609260214",
+    "version": "3",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:43:58-07:00",
+    "uploaded_at": "2026-10-04T00:15:22-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
@@ -210,63 +210,63 @@
     "repo": "MileMaster",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.milemaster",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:17:00-07:00",
+    "uploaded_at": "2026-10-04T00:18:40-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "MyCard",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.mycard",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:24:48-07:00",
+    "uploaded_at": "2026-10-04T00:58:29-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "MyFinance",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.myfinance",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:31:28-07:00",
+    "uploaded_at": "2026-10-04T00:21:24-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "MyHealth",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.myhealth",
-    "version": "202609301756",
+    "version": "4",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-30T18:20:02-07:00",
+    "uploaded_at": "2026-10-04T00:22:17-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "NearServe",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.nearserve",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:38:33-07:00",
+    "uploaded_at": "2026-10-04T00:23:47-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "NewsBoard",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.newsboard",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:46:29-07:00",
+    "uploaded_at": "2026-10-04T00:25:03-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "NexusTransferPay",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.nexustransferpay",
-    "version": "202609250224",
+    "version": "3",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T05:54:29-07:00",
+    "uploaded_at": "2026-10-04T01:03:04-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
@@ -282,54 +282,54 @@
     "repo": "PilotEnRoute",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.pilotenroute",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:26:22-07:00",
+    "uploaded_at": "2026-10-04T01:35:58-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "PlantPulse",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.plantpulse",
-    "version": "202609301756",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-30T18:39:45-07:00",
+    "uploaded_at": "2026-10-04T00:31:05-07:00",
     "review_state": "PREPARE_FOR_SUBMISSION"
   },
   {
     "repo": "portfolio-board",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.portfolioboard",
-    "version": "202609260214",
+    "version": "1",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T02:51:38-07:00",
+    "uploaded_at": "2026-10-04T01:36:31-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "radiotune",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.radiotune",
-    "version": "202609301756",
+    "version": "5",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-30T18:47:11-07:00",
+    "uploaded_at": "2026-10-04T01:01:34-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "RideZap",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.ridezap",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:34:50-07:00",
+    "uploaded_at": "2026-10-04T01:02:43-07:00",
     "review_state": "IN_REVIEW"
   },
   {
     "repo": "RoomCraft",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.roomcraft",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T06:41:37-07:00",
+    "uploaded_at": "2026-10-04T00:37:12-07:00",
     "review_state": "IN_REVIEW"
   },
   {
@@ -372,18 +372,18 @@
     "repo": "WiFiTrail",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.wifitrail",
-    "version": "202609250224",
+    "version": "2",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-25T07:12:34-07:00",
+    "uploaded_at": "2026-10-04T00:42:07-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   },
   {
     "repo": "yourtube",
     "state": "UPLOADED",
     "bundle_id": "com.americangroupllc.yourtube",
-    "version": "202609260214",
+    "version": "4",
     "processing_state": "VALID",
-    "uploaded_at": "2026-09-26T03:47:50-07:00",
+    "uploaded_at": "2026-10-04T00:44:50-07:00",
     "review_state": "WAITING_FOR_REVIEW"
   }
 ]

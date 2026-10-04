@@ -1629,45 +1629,54 @@ Two script bugs found alongside and fixed:
 4. Set `demoAccountRequired: true` with the credentials on those five apps'
    `appStoreReviewDetail`.
 
-## MA-037 · P2 · Transporter cannot upload from this Mac (and nothing needs it to)
+## MA-037 · CLOSED 2026-10-04 — Transporter works; it needed the proxy as -D flags
 
-Asked for on 2026-10-04. Measured the same day.
+**This entry previously said Transporter was an incomplete install that could
+not be fixed here. That was wrong.** It works, and all 43 apps have now been
+delivered through it.
 
-**All 43 apps are already delivered.** App Store Connect holds a VALID,
-non-expired build for every one of them:
-
-```
-bundle asc_build_state.rb   ->  state UPLOADED 43/43, processing_state VALID 43/43
-review state                    26 WAITING_FOR_REVIEW, 16 IN_REVIEW, 1 PREPARE_FOR_SUBMISSION
-```
-
-So the upload work is done; it went through CI and the App Store Connect API,
-not Transporter.
-
-**Transporter itself is broken here**, in the same way `altool` is:
+The symptom was real:
 
 ```
-/Applications/Transporter.app/Contents/itms/bin/iTMSTransporter -version
-[...] ERROR: Could not download Defaults.properties (launcher)
+iTMSTransporter -version
+ERROR: Could not download Defaults.properties (launcher)
 ```
 
-It is a bootstrap-only install — 72 MB, and `Contents/itms/lib` holds nothing
-but `osgibootstrapper.jar`. The runtime downloads on first use and that
-download fails. It is **not** a network problem; Apple is reachable from this
-machine:
+The diagnosis was not. The file is perfectly reachable from this machine:
 
 ```
-curl https://contentdelivery.itunes.apple.com/      -> 404
-curl https://api.appstoreconnect.apple.com/v1/apps  -> 401
+curl https://contentdelivery.itunes.apple.com/transporter/Defaults.properties  -> 200
 ```
 
-Both are real HTTP answers. Passing the local proxy through `JVM_OPTIONS`,
-`TRANSPORTER_JAVA_OPTS`, `HTTP_PROXY` and `HTTPS_PROXY` changes nothing.
+It is the same JVM-proxy problem CLAUDE.md already documents for Gradle:
+direct egress is blocked, everything goes through 127.0.0.1:10054, and a JVM
+reads only the `http.proxyHost` / `https.proxyHost` system properties. Setting
+`HTTP_PROXY`, `HTTPS_PROXY`, `TRANSPORTER_JAVA_OPTS` and `JVM_OPTIONS` all
+changed nothing, because the launcher forwards **-D arguments** and nothing
+else. Passed that way it bootstraps and reports `iTMSTransporter, version
+4.1.0`.
 
-**To fix it** (needs a person, because it is a Mac App Store install):
-reinstall Transporter from the Mac App Store, then re-run the probe above and
-expect a version banner instead of the error.
+Two more things it needed:
 
-**It is not on the critical path.** The API route already uploads, and it is
-what CI uses. Reinstall Transporter only if a drag-and-drop upload is wanted
-as a fallback for when CI is unavailable.
+* **`-numStreams 1`.** On the default four parallel streams, 16 of 43 uploads
+  died with `java.net.SocketException: Connection reset` / `Broken pipe` /
+  `SSLException` after exhausting Transporter's own retries. (`-t DAV`, the
+  other obvious lever, is refused: "The DAV transport is obsolete".)
+* **Up to three attempts.** Even single-stream it is flaky through the proxy;
+  EventSpark succeeded on attempt 3 with no change at all.
+
+Use `scripts/testflight/transporter_upload.py`. **Run only one at a time** —
+two concurrent runs overwrite each other's results file, which looked like
+"0 apps processed" twice before it was spotted.
+
+### Outcome
+
+43/43 uploads returned "uploaded successfully", and App Store Connect holds a
+VALID build for all 43. 32 now carry a build delivered today. The other 11 do
+not, and that is not a failure: their IPA in `.dist` is **older** than what CI
+already uploaded — CalcMaster's local IPA is version 4.0.2 build `5`, while
+App Store Connect holds build `202609250224`. Apple kept the newer one.
+
+If a Transporter-delivered build is wanted for those 11, rebuild their IPAs
+first; the ones on disk are stale.
+

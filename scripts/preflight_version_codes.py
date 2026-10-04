@@ -40,6 +40,10 @@ def main() -> int:
     ap.add_argument("--bump", action="store_true")
     ap.add_argument("--codes", default=str(CODES),
                     help="output of scripts/play_version_codes.py")
+    ap.add_argument("--apps", default="all",
+                    help="'all' or comma-separated repos — a sharded build checks "
+                         "out only its own, and every other app would read as "
+                         "'no pubspec'")
     args = ap.parse_args()
     if not (args.check or args.bump):
         ap.error("pass --check or --bump")
@@ -51,6 +55,9 @@ def main() -> int:
         return 1
     codes = json.loads(codes_path.read_text())
     apps = json.loads((ROOT / "apps.json").read_text())["apps"]
+    if args.apps not in ("", "all"):
+        wanted = {s.strip().lower() for s in args.apps.split(",") if s.strip()}
+        apps = [a for a in apps if a["repo"].lower() in wanted]
 
     behind, bumped, skipped = [], [], []
     for a in apps:

@@ -117,7 +117,7 @@ any other value returns "Pagination is not currently available."
 
 | Script | What it does |
 | --- | --- |
-| `firebase_register.py` | Registers each app and writes its real config files. Needs the `x-goog-user-project` header with ADC |
+| `firebase_register.py` | Registers each app and writes its real config files. Needs the `x-goog-user-project` header with ADC. `--debug-variant` registers `<package>.debug` for apps whose debug buildType adds that suffix and writes both clients into google-services.json; `--debug-project=<id>` puts it in another project (writing `src/debug/google-services.json`) when the app's own project is full |
 | `status.py` | Repository state via the GitHub API; needs `GH_TOKEN` |
 
 `admob_setup.py` creates an AdMob app for every app on both platforms (43 x 2 =
