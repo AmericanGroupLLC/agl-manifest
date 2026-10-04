@@ -155,7 +155,7 @@
  {
   "repo": "GroceryMatch",
   "ios_bundle": "com.americangroupllc.grocerymatch",
-  "android_id": "com.americangroupllc.grocerymatch",
+  "android_id": "com.americangroupllc.GroceryMatch",
   "admob_ios": "",
   "admob_android": "",
   "gad_in_plist": "",
