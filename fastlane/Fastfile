@@ -54,10 +54,28 @@ end
 # Runs a command inside an app, with this repository's bundle rather than the
 # app's own. Bundler's environment has to be stripped for Flutter — it breaks
 # CocoaPods detection — and then reapplied for fastlane.
+# The pinned SDK, ahead of whatever `flutter` the login shell resolves. On
+# this Mac that is /Users/spatchava/flutter-sdk, a second copy that cannot
+# write its own cache —
+#
+#   bin/internal/update_engine_version.sh: bin/cache/engine.realm:
+#   Operation not permitted
+#
+# — so every one of the 43 apps failed `flutter pub get` before reaching
+# analyze or test. CLAUDE.md already says to use the repo-local SDK; this is
+# what makes the lanes obey it. AGL_FLUTTER_SDK overrides for CI, where
+# Flutter is installed by the workflow.
+def flutter_bin_dir
+  ENV["AGL_FLUTTER_SDK"] ||
+    File.expand_path("../../.flutter-sdk/bin", __dir__)
+end
+
 def in_app(app, command)
   path = app_path(app)
   UI.user_error!("#{app['repo']}: #{path} does not exist — run checkout first") unless Dir.exist?(path)
-  runner = lambda { sh("cd #{path.shellescape} && #{command}") }
+  bin = flutter_bin_dir
+  prefix = Dir.exist?(bin) ? "PATH=#{bin.shellescape}:$PATH " : ""
+  runner = lambda { sh("cd #{path.shellescape} && #{prefix}#{command}") }
   if defined?(Bundler) && Bundler.respond_to?(:with_unbundled_env)
     Bundler.with_unbundled_env(&runner)
   else
