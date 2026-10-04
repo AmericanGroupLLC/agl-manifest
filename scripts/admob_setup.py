@@ -137,6 +137,42 @@ if args.apps:
     want = {s.strip() for s in args.apps.split(",")}
     apps = [a for a in apps if a["repo"] in want]
 
+# --sync: write back exactly what AdMob holds today, in the shape the build
+# reads. This is how ids created in the AdMob console reach the repository —
+# the v1beta write methods are not granted to this publisher (MA-027), so for
+# now every id is made by hand and has to be collected rather than returned.
+if args.sync:
+    target = M / "docs/admob-ids.json"
+    merged = json.loads(target.read_text()) if target.exists() else {}
+    units_by_app_id = {}
+    for u in existing_units:
+        units_by_app_id.setdefault(u.get("appId"), []).append(u)
+    touched = 0
+    for a in apps:
+        repo = a["repo"]
+        sp = M / "store/apps" / f"{repo}.json"
+        display = repo
+        if sp.exists():
+            display = (json.load(open(sp)).get("copy", {}).get("en", {}) or {}).get("name") or repo
+        rec = merged.setdefault(repo, {})
+        for platform, store_id, prefix in (("ANDROID", a["application_id"], "android"),
+                                           ("IOS", a["bundle_id"], "ios")):
+            app = (by_store.get((store_id, platform))
+                   or by_name.get((_norm(display), platform)))
+            if not app:
+                continue
+            rec[f"{prefix}_app_id"] = app["appId"]
+            for u in units_by_app_id.get(app["appId"], []):
+                fmt = (u.get("adFormat") or "").lower()
+                if fmt in ("banner", "interstitial"):
+                    rec[f"{prefix}_{fmt}"] = u.get("adUnitId")
+            touched += 1
+    target.write_text(json.dumps(merged, indent=1) + "\n")
+    have = sum(1 for r in merged.values() for k in ("android_app_id", "ios_app_id") if r.get(k))
+    print(f"\nsynced {touched} platform record(s); {have} of 86 app ids now recorded")
+    print(f"-> {target}")
+    raise SystemExit(0)
+
 out = {}
 created_apps = created_units = 0
 for a in apps:
@@ -195,42 +231,6 @@ print(f"-> {DIST / 'admob-results.json'}")
 # must never replace it — an earlier version of this script overwrote the real
 # ids with a page of "The caller does not have permission" records. Merge only
 # the entries that actually carry an appId.
-# --sync: write back exactly what AdMob holds today, in the shape the build
-# reads. This is how ids created in the AdMob console reach the repository —
-# the v1beta write methods are not granted to this publisher (MA-027), so for
-# now every id is made by hand and has to be collected rather than returned.
-if args.sync:
-    target = M / "docs/admob-ids.json"
-    merged = json.loads(target.read_text()) if target.exists() else {}
-    units_by_app_id = {}
-    for u in existing_units:
-        units_by_app_id.setdefault(u.get("appId"), []).append(u)
-    touched = 0
-    for a in apps:
-        repo = a["repo"]
-        sp = M / "store/apps" / f"{repo}.json"
-        display = repo
-        if sp.exists():
-            display = (json.load(open(sp)).get("copy", {}).get("en", {}) or {}).get("name") or repo
-        rec = merged.setdefault(repo, {})
-        for platform, store_id, prefix in (("ANDROID", a["application_id"], "android"),
-                                           ("IOS", a["bundle_id"], "ios")):
-            app = (by_store.get((store_id, platform))
-                   or by_name.get((_norm(display), platform)))
-            if not app:
-                continue
-            rec[f"{prefix}_app_id"] = app["appId"]
-            for u in units_by_app_id.get(app["appId"], []):
-                fmt = (u.get("adFormat") or "").lower()
-                if fmt in ("banner", "interstitial"):
-                    rec[f"{prefix}_{fmt}"] = u.get("adUnitId")
-            touched += 1
-    target.write_text(json.dumps(merged, indent=1) + "\n")
-    have = sum(1 for r in merged.values() for k in ("android_app_id", "ios_app_id") if r.get(k))
-    print(f"\nsynced {touched} platform record(s); {have} of 86 app ids now recorded")
-    print(f"-> {target}")
-    raise SystemExit(0)
-
 if not args.dry_run and (created_apps or created_units):
     target = M / "docs/admob-ids.json"
     merged = json.loads(target.read_text()) if target.exists() else {}
