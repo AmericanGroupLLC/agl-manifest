@@ -231,14 +231,31 @@ def android_capture(app, app_dir, out_android, serial):
     repo, pkg = app["repo"], app.get("application_id") or app["bundle_id"]
     res = {"shots": 0, "error": "", "crashlytics": False}
     flavour = _android_flavour(app_dir)
-    cmd = [FLUTTER, "build", "apk", "--debug", "--dart-define=SCREENSHOT=true"]
-    if flavour:
-        cmd += ["--flavor", flavour]
-    b = subprocess.run(cmd, cwd=app_dir, env=_android_env(),
-                       capture_output=True, text=True, timeout=2400)
+    def _build(mode):
+        cmd = [FLUTTER, "build", "apk", mode, "--dart-define=SCREENSHOT=true"]
+        if flavour:
+            cmd += ["--flavor", flavour]
+        return subprocess.run(cmd, cwd=app_dir, env=_android_env(),
+                              capture_output=True, text=True, timeout=2400)
+
+    b = _build("--debug")
+    out = (b.stdout or "") + (b.stderr or "")
+    # Nine apps failed here with
+    #   No matching client found for package name '...dailypulse.debug'
+    # because the debug build type appends applicationIdSuffix ".debug" and
+    # google-services.json only lists the unsuffixed package. Profile has no
+    # suffix, and is closer to what ships anyway: kDebugMode is false, so the
+    # debug banner and the dev shortcuts are gone.
+    if b.returncode != 0 and "No matching client found" in out:
+        b = _build("--profile")
+        out = (b.stdout or "") + (b.stderr or "")
     apks = sorted((app_dir / "build/app/outputs/flutter-apk").glob("*.apk"))
     if b.returncode != 0 or not apks:
-        res["error"] = "build failed: " + (b.stderr or b.stdout).strip()[-300:]
+        # Keep "What went wrong", not the generic Gradle footer that a plain
+        # tail gives you — that footer told us nothing for fourteen apps.
+        why = re.search(r"\* What went wrong:\s*(.+?)(?:\n\s*\* Try:|\Z)", out, re.S)
+        res["error"] = "build failed: " + (why.group(1).strip() if why
+                                           else out.strip()[-300:])[:300]
         return res
 
     adb("uninstall", pkg, serial=serial, timeout=90)
@@ -464,6 +481,20 @@ def capture(app, out_ios, out_android):
                         shots.append(p)
                     else:
                         p.unlink(missing_ok=True)
+            # The iOS half of the device logs. Crashlytics on iOS reports
+            # through the same simulator log stream, so this is where an
+            # "Initializing Firebase Crashlytics" line or a crash shows up.
+            # --last bounds it; without it `log show` walks the whole store.
+            LOGS.mkdir(parents=True, exist_ok=True)
+            lg = sh("xcrun", "simctl", "spawn", udid, "log", "show",
+                    "--style", "compact", "--last", "5m",
+                    "--predicate", f'processImagePath CONTAINS "{repo}" '
+                                   f'OR senderImagePath CONTAINS "Runner"',
+                    timeout=180)
+            if lg.stdout:
+                (LOGS / f"{repo}-ios-{dev}.log").write_text(lg.stdout)
+                res.setdefault("ios_crashlytics", False)
+                res["ios_crashlytics"] |= "Crashlytics" in lg.stdout
             sh("xcrun", "simctl", "terminate", udid, bundle, timeout=30)
             sh("xcrun", "simctl", "uninstall", udid, bundle, timeout=60)
             res["screens"][dev] = len(shots)

@@ -161,6 +161,7 @@ The script refuses with that exact command if the scope is missing. See MA-015.
 | Script | What it does |
 | --- | --- |
 | `build_release.py` | Signed Android bundles. Handles this machine's IPv4/proxy JVM requirements — see CLAUDE.md |
+| `sim_install.py` | Debug-builds apps and installs them on an iPhone simulator and an Android emulator, launches each and checks it is still running. One app, several, or `--all`; `--ios`/`--android` for one platform, `--skip-build` to reinstall what is built. Report in `<DIST>/sim-install/`. Reuses `build_release.py`'s flavour choice and JVM flags |
 | `ios_build_janitor.sh` | Reclaims disk during a long iOS sweep. Takes the build log as its argument. Never touches the app currently building, and never deletes `*.noindex` from DerivedData — those are shared Xcode caches, and removing them mid-sweep fails the build |
 
 ## Adding a new API action
