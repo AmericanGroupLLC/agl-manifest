@@ -88,8 +88,11 @@ def tail(text: str, n: int = 6) -> str:
                     break
                 cause.append(nxt.strip())
             return " | ".join(cause[:n])[-600:]
-    errors = [l.strip() for l in lines
-              if re.search(r"Error \(Xcode\)|^Error:|error:|No space left", l)]
+    # adb reports install failures as a Java stack; the "at ..." frames are
+    # noise, the Failure/Exception line is the reason.
+    errors = [l.strip() for l in lines if not l.lstrip().startswith("at ")
+              and re.search(r"Error \(Xcode\)|^Error:|error:|No space left|"
+                            r"Failure \[|Exception:", l)]
     if errors:
         return " | ".join(list(dict.fromkeys(errors))[:n])[-600:]
     return " | ".join(lines[-n:])[-600:]
@@ -187,6 +190,11 @@ ADB = SDK / "platform-tools/adb"
 EMULATOR = SDK / "emulator/emulator"
 
 
+# serial -> packages this run installed there, oldest first; the only ones it
+# may uninstall to make room.
+INSTALLED: dict[str, list[str]] = {}
+
+
 def adb(*args, serial=None, timeout=120):
     return run([ADB] + (["-s", serial] if serial else []) + list(args), timeout=timeout)
 
@@ -243,26 +251,56 @@ def android(app: dict, d: pathlib.Path, serial: str, args, log: pathlib.Path) ->
     if not args.skip_build:
         env = dict(os.environ, JAVA_TOOL_OPTIONS=java_tool_options(),
                    ANDROID_HOME=str(SDK), ANDROID_SDK_ROOT=str(SDK))
+        mode = "debug"
         cmd = [FLUTTER, "build", "apk", "--debug"] + (["--flavor", flavour] if flavour else [])
         rc, out = run(cmd, log, cwd=d, env=env, timeout=args.timeout)
+        # Naming the flavour is not enough. The *debug build type* also
+        # appends applicationIdSuffix ".debug", and google-services.json
+        # lists only the unsuffixed package, so the build dies in
+        # process<Flavour>DebugGoogleServices with "No matching client found
+        # for package name '...dailypulse.debug'". Profile has no suffix and
+        # is closer to what ships. Same fallback as screenshots.py.
+        if rc != 0 and "No matching client found" in out:
+            mode = "profile"
+            cmd = [FLUTTER, "build", "apk", "--profile"] + (["--flavor", flavour] if flavour else [])
+            rc, out = run(cmd, log, cwd=d, env=env, timeout=args.timeout)
         if rc != 0:
             return {**rec, "status": "build_failed", "detail": tail(out)}
-    name = f"app-{flavour}-debug.apk" if flavour else "app-debug.apk"
+        rec["build_mode"] = mode
+    mode = rec.get("build_mode", "debug")
+    name = f"app-{flavour}-{mode}.apk" if flavour else f"app-{mode}.apk"
     apk = d / "build/app/outputs/flutter-apk" / name
     if not apk.exists():
         return {**rec, "status": "no_artifact", "detail": f"missing {apk.relative_to(d)}"}
     pkg = apk_package(apk, app.get("application_id", ""))
     rec.update(artifact=str(apk), package=pkg)
-    rc, out = run([ADB, "-s", serial, "install", "-r", "-t", apk], log, timeout=600)
+    install = [ADB, "-s", serial, "install", "-r", "-t", apk]
+    rc, out = run(install, log, timeout=600)
     if "INSTALL_FAILED_UPDATE_INCOMPATIBLE" in out:
         # A copy signed with another key (a release build, or another machine's
         # debug key) is already there, and Android will not update across keys.
         # This is a test emulator: drop the old copy and its data, then retry.
         run([ADB, "-s", serial, "uninstall", pkg], log, timeout=120)
-        rc, out = run([ADB, "-s", serial, "install", "-r", "-t", apk], log, timeout=600)
+        rc, out = run(install, log, timeout=600)
         rec["replaced_differently_signed_install"] = True
+    # A debug APK is 150-200 MB and the default /data partition is ~6 GB, so a
+    # sweep fills the emulator after about fifteen apps (INSUFFICIENT_STORAGE,
+    # or "Requested internal only, but not enough space"). Make room by
+    # removing what this run installed, oldest first — never anything that was
+    # on the emulator before the run started.
+    mine = INSTALLED.setdefault(serial, [])
+    while ("INSUFFICIENT_STORAGE" in out or "not enough space" in out) and \
+            any(p != pkg for p in mine):
+        old = next(p for p in mine if p != pkg)
+        mine.remove(old)
+        run([ADB, "-s", serial, "uninstall", old], log, timeout=120)
+        rec.setdefault("evicted_to_make_room", []).append(old)
+        rc, out = run(install, log, timeout=600)
     if rc != 0 or "Success" not in out:
         return {**rec, "status": "install_failed", "detail": tail(out)}
+    if pkg in mine:
+        mine.remove(pkg)
+    mine.append(pkg)
     if args.no_launch:
         return {**rec, "status": "installed"}
     # Not `monkey -p <pkg> 1`: on these emulator images it aborts with

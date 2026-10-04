@@ -1628,3 +1628,46 @@ Two script bugs found alongside and fixed:
 3. Re-run `python3 scripts/screenshots.py` for the five apps.
 4. Set `demoAccountRequired: true` with the credentials on those five apps'
    `appStoreReviewDetail`.
+
+## MA-037 · P2 · Transporter cannot upload from this Mac (and nothing needs it to)
+
+Asked for on 2026-10-04. Measured the same day.
+
+**All 43 apps are already delivered.** App Store Connect holds a VALID,
+non-expired build for every one of them:
+
+```
+bundle asc_build_state.rb   ->  state UPLOADED 43/43, processing_state VALID 43/43
+review state                    26 WAITING_FOR_REVIEW, 16 IN_REVIEW, 1 PREPARE_FOR_SUBMISSION
+```
+
+So the upload work is done; it went through CI and the App Store Connect API,
+not Transporter.
+
+**Transporter itself is broken here**, in the same way `altool` is:
+
+```
+/Applications/Transporter.app/Contents/itms/bin/iTMSTransporter -version
+[...] ERROR: Could not download Defaults.properties (launcher)
+```
+
+It is a bootstrap-only install — 72 MB, and `Contents/itms/lib` holds nothing
+but `osgibootstrapper.jar`. The runtime downloads on first use and that
+download fails. It is **not** a network problem; Apple is reachable from this
+machine:
+
+```
+curl https://contentdelivery.itunes.apple.com/      -> 404
+curl https://api.appstoreconnect.apple.com/v1/apps  -> 401
+```
+
+Both are real HTTP answers. Passing the local proxy through `JVM_OPTIONS`,
+`TRANSPORTER_JAVA_OPTS`, `HTTP_PROXY` and `HTTPS_PROXY` changes nothing.
+
+**To fix it** (needs a person, because it is a Mac App Store install):
+reinstall Transporter from the Mac App Store, then re-run the probe above and
+expect a version banner instead of the error.
+
+**It is not on the critical path.** The API route already uploads, and it is
+what CI uses. Reinstall Transporter only if a drag-and-drop upload is wanted
+as a fallback for when CI is unavailable.

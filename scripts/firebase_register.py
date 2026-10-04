@@ -101,6 +101,76 @@ def only_this_package(blob, pkg):
     d["client"] = mine
     return json.dumps(d, indent=2).encode() + b"\n"
 
+# ---- --debug-variant: a `<package>.debug` client for debug builds ----
+# Several apps give their debug buildType applicationIdSuffix ".debug", and the
+# Google Services plugin fails the build when google-services.json has no
+# client for the package being built ("No matching client found for package
+# name '...debug'"), so a debug build never reaches an emulator. This registers
+# the debug package in the *same* project as the app — one google-services.json
+# describes one project — and writes the file with both clients, so release
+# builds read exactly what they read before. Android only, and never commits.
+#
+#     python3 scripts/firebase_register.py --debug-variant --dry-run TripNest
+#     python3 scripts/firebase_register.py --debug-variant TripNest Photriya
+#
+# When the app's own project is full (30 apps), the debug client can live in
+# another project instead: --debug-project=<id> registers it there and writes
+# android/app/src/debug/google-services.json holding only the debug client.
+# The Google Services plugin reads src/<buildType>/ before android/app/, so
+# debug builds use that file and release builds keep the app's own one.
+#
+#     python3 scripts/firebase_register.py --debug-variant \
+#         --debug-project=americangroupllc-agl4 daily-pulse GadgetNest
+if "--debug-variant" in sys.argv:
+    SUFFIX = ".debug"
+    other = next((x.split("=", 1)[1] for x in sys.argv if x.startswith("--debug-project=")), None)
+    found = {}
+    for proj in PROJECTS + ([other] if other and other not in PROJECTS else []):
+        found.update(listing("androidApps", "packageName", proj))
+    for a in sel:
+        repo, pkg = a["repo"], a["application_id"]
+        dbg = pkg + SUFFIX
+        if pkg not in found:
+            print(f"{repo:18} SKIP    {pkg} is not registered in any project")
+            continue
+        proj = other or found[pkg][0]
+        if dbg not in found:
+            if DRY:
+                print(f"{repo:18} would register {dbg} in {proj}")
+                continue
+            try:
+                found[dbg] = create("androidApps",
+                                    {"packageName": dbg, "displayName": f"{repo} (debug)"}, proj)
+                print(f"{repo:18} CREATED {dbg} in {proj}", flush=True)
+                time.sleep(7)   # stay under the provisioning rate limit
+            except Exception as e:
+                # A full project says "Too many Apps"; a debug client cannot go
+                # anywhere else, since the file it lands in names one project.
+                print(f"{repo:18} FAILED  {dbg} in {proj}: {e}", flush=True)
+                continue
+        elif DRY:
+            print(f"{repo:18} already registered {dbg} in {proj}")
+            continue
+        try:
+            _, blob = config("androidApps", found[dbg])
+            cfg = json.loads(blob)
+            want = {dbg} if other else {pkg, dbg}
+            cfg["client"] = [c for c in cfg.get("client", [])
+                             if c["client_info"]["android_client_info"]["package_name"] in want]
+            have = {c["client_info"]["android_client_info"]["package_name"] for c in cfg["client"]}
+            if have != want:
+                raise RuntimeError(f"project config has {sorted(have)}, wanted {sorted(want)}")
+            d = ROOT / repo / (a["dir"] if a["dir"] != "." else "")
+            out = d / ("android/app/src/debug/google-services.json" if other
+                       else "android/app/google-services.json")
+            out.parent.mkdir(parents=True, exist_ok=True)
+            out.write_bytes(json.dumps(cfg, indent=2).encode() + b"\n")
+            print(f"{repo:18} WROTE   {out.relative_to(ROOT)} (clients: {', '.join(sorted(want))})",
+                  flush=True)
+        except Exception as e:
+            print(f"{repo:18} FAILED  writing config: {e}", flush=True)
+    raise SystemExit(0)
+
 # ---- phase 1: register everything, so no config is written half-populated ----
 android, ios = {}, {}
 capacity = {}
