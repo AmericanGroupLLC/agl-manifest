@@ -18,8 +18,10 @@ Then:
     python3 scripts/admob_setup.py               # create them
     python3 scripts/admob_setup.py --apps CalcMaster,iMaps
 
-Idempotent: an AdMob app whose display name and platform already exist is
-reused, and an ad unit with the same display name is left alone. Results go to
+Idempotent: an AdMob app is matched to an existing one by the package name or
+bundle id AdMob records in linkedAppInfo, falling back to a punctuation- and
+case-insensitive display-name match, and an ad unit with the same display name
+is left alone. Results go to
 ~/agl/.dist/admob-results.json, and the ids are written into
 docs/admob-ids.json, which is what the build reads.
 """
@@ -37,6 +39,13 @@ QUOTA_PROJECT = (subprocess.run([GCLOUD, "config", "get-value", "project"],
 # One banner and one interstitial per app per platform: that is what agl_ads
 # consumes. Rewarded is deliberately absent — no app shows a rewarded ad.
 AD_FORMATS = [("Banner", "BANNER"), ("Interstitial", "INTERSTITIAL")]
+
+
+def _norm(name):
+    """Compare display names the way a person would: case and punctuation
+    drift between AdMob and the store copy, so "CalcMaster: World Calc" and
+    "calcmaster world calc" are the same app."""
+    return "".join(c for c in (name or "").lower() if c.isalnum())
 
 _tok = {"v": "", "at": 0.0}
 def token():
@@ -84,7 +93,12 @@ def paged(url, key):
 ap = argparse.ArgumentParser()
 ap.add_argument("--dry-run", action="store_true")
 ap.add_argument("--apps", default="")
+ap.add_argument("--sync", action="store_true",
+                help="create nothing; just pull the ids AdMob already holds "
+                     "into docs/admob-ids.json")
 args = ap.parse_args()
+if args.sync:
+    args.dry_run = True   # --sync must never create anything
 
 accounts, err = paged(f"{API}/accounts", "account")
 if err: sys.exit(f"could not list AdMob accounts: {err}")
@@ -94,10 +108,23 @@ print(f"AdMob account: {publisher}")
 
 existing_apps, err = paged(f"{API}/{publisher}/apps", "apps")
 if err: sys.exit(f"could not list AdMob apps: {err}")
-by_key = {}
+# Matching on the display name alone was not enough. AdMob's names drifted from
+# the store copy this script derives them from — the account holds "CalcMaster"
+# where store/apps says "CalcMaster: World Calc", and "Case Tracker for USCIS"
+# where it says "USCIS Case Lookup" — so a run would have created a second
+# AdMob app for all seven that already exist. linkedAppInfo.appStoreId carries
+# the package name or bundle id and is the identifier that cannot drift, so it
+# is tried first; the name is only the fallback for an app AdMob has not linked
+# to a store listing yet.
+by_store, by_name = {}, {}
 for a in existing_apps:
-    nm = (a.get("linkedAppInfo") or a.get("manualAppInfo") or {}).get("displayName")
-    by_key[(nm, a.get("platform"))] = a
+    plat = a.get("platform")
+    linked = a.get("linkedAppInfo") or {}
+    if linked.get("appStoreId"):
+        by_store[(linked["appStoreId"], plat)] = a
+    for nm in {(a.get("manualAppInfo") or {}).get("displayName"),
+               linked.get("displayName")} - {None}:
+        by_name.setdefault((_norm(nm), plat), a)
 print(f"AdMob already holds {len(existing_apps)} app(s)")
 
 existing_units, _ = paged(f"{API}/{publisher}/adUnits", "adUnits")
@@ -120,8 +147,7 @@ for a in apps:
         display = (json.load(open(sp)).get("copy", {}).get("en", {}) or {}).get("name") or repo
     rec = out.setdefault(repo, {})
     for platform, store_id in (("ANDROID", a["application_id"]), ("IOS", a["bundle_id"])):
-        key = (display, platform)
-        app = by_key.get(key)
+        app = by_store.get((store_id, platform)) or by_name.get((_norm(display), platform))
         if app is None:
             if args.dry_run:
                 print(f"{repo:18} {platform:8} WOULD CREATE {display!r}")
@@ -136,7 +162,10 @@ for a in apps:
                 print(f"{repo:18} {platform:8} create failed: {m}")
                 rec[platform] = {"status": "failed", "error": m}
                 continue
-            app = d; by_key[key] = app; created_apps += 1
+            app = d
+            by_store[(store_id, platform)] = app
+            by_name[(_norm(display), platform)] = app
+            created_apps += 1
             print(f"{repo:18} {platform:8} created {app.get('appId')}")
         rec[platform] = {"appId": app.get("appId"), "name": app.get("name")}
 
@@ -166,6 +195,42 @@ print(f"-> {DIST / 'admob-results.json'}")
 # must never replace it — an earlier version of this script overwrote the real
 # ids with a page of "The caller does not have permission" records. Merge only
 # the entries that actually carry an appId.
+# --sync: write back exactly what AdMob holds today, in the shape the build
+# reads. This is how ids created in the AdMob console reach the repository —
+# the v1beta write methods are not granted to this publisher (MA-027), so for
+# now every id is made by hand and has to be collected rather than returned.
+if args.sync:
+    target = M / "docs/admob-ids.json"
+    merged = json.loads(target.read_text()) if target.exists() else {}
+    units_by_app_id = {}
+    for u in existing_units:
+        units_by_app_id.setdefault(u.get("appId"), []).append(u)
+    touched = 0
+    for a in apps:
+        repo = a["repo"]
+        sp = M / "store/apps" / f"{repo}.json"
+        display = repo
+        if sp.exists():
+            display = (json.load(open(sp)).get("copy", {}).get("en", {}) or {}).get("name") or repo
+        rec = merged.setdefault(repo, {})
+        for platform, store_id, prefix in (("ANDROID", a["application_id"], "android"),
+                                           ("IOS", a["bundle_id"], "ios")):
+            app = (by_store.get((store_id, platform))
+                   or by_name.get((_norm(display), platform)))
+            if not app:
+                continue
+            rec[f"{prefix}_app_id"] = app["appId"]
+            for u in units_by_app_id.get(app["appId"], []):
+                fmt = (u.get("adFormat") or "").lower()
+                if fmt in ("banner", "interstitial"):
+                    rec[f"{prefix}_{fmt}"] = u.get("adUnitId")
+            touched += 1
+    target.write_text(json.dumps(merged, indent=1) + "\n")
+    have = sum(1 for r in merged.values() for k in ("android_app_id", "ios_app_id") if r.get(k))
+    print(f"\nsynced {touched} platform record(s); {have} of 86 app ids now recorded")
+    print(f"-> {target}")
+    raise SystemExit(0)
+
 if not args.dry_run and (created_apps or created_units):
     target = M / "docs/admob-ids.json"
     merged = json.loads(target.read_text()) if target.exists() else {}

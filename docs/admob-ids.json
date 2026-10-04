@@ -1,44 +1,77 @@
 {
-  "CalcMaster": {
-    "android_app_id": "ca-app-pub-8528784688453695~5377349094",
-    "android_banner": "ca-app-pub-8528784688453695/7665581023",
-    "android_interstitial": "ca-app-pub-8528784688453695/7474009334",
-    "ios_app_id": "ca-app-pub-8528784688453695~9148987425"
-  },
-  "RadioTune": {
-    "android_app_id": "ca-app-pub-8528784688453695~7770953426",
-    "android_banner": "ca-app-pub-8528784688453695/4087643109",
-    "android_interstitial": "ca-app-pub-8528784688453695/2327055058",
-    "ios_app_id": ""
-  },
-  "TripNest": {
-    "android_app_id": "ca-app-pub-8528784688453695~8044208178",
-    "android_banner": "ca-app-pub-8528784688453695/3721819782",
-    "android_interstitial": "ca-app-pub-8528784688453695/5528514029",
-    "ios_app_id": ""
-  },
-  "USCIS Case": {
-    "android_app_id": "ca-app-pub-8528784688453695~2309537905",
-    "android_banner": "ca-app-pub-8528784688453695/5539491423",
-    "android_interstitial": "ca-app-pub-8528784688453695/9095593054",
-    "ios_app_id": ""
-  },
-  "VirtuBand": {
-    "android_app_id": "ca-app-pub-8528784688453695~2836542125",
-    "android_banner": "ca-app-pub-8528784688453695/6914604113",
-    "android_interstitial": "ca-app-pub-8528784688453695/9569471431",
-    "ios_app_id": ""
-  },
-  "iMaps": {
-    "android_app_id": "ca-app-pub-8528784688453695~5082647691",
-    "android_banner": "ca-app-pub-8528784688453695/1143402684",
-    "android_interstitial": "ca-app-pub-8528784688453695/8340879191",
-    "ios_app_id": ""
-  },
-  "iMeasure": {
-    "android_app_id": "ca-app-pub-8528784688453695~9265279754",
-    "android_banner": "ca-app-pub-8528784688453695/1222409251",
-    "android_interstitial": "ca-app-pub-8528784688453695/9950162694",
-    "ios_app_id": ""
-  }
+ "AeroSwift": {
+  "android_app_id": "ca-app-pub-8528784688453695~3416319568",
+  "ios_app_id": "ca-app-pub-8528784688453695~4318337690"
+ },
+ "CalcMaster": {
+  "android_app_id": "ca-app-pub-8528784688453695~5377349094",
+  "android_banner": "ca-app-pub-8528784688453695/7665581023",
+  "android_interstitial": "ca-app-pub-8528784688453695/7474009334",
+  "ios_app_id": "ca-app-pub-8528784688453695~9148987425"
+ },
+ "TripNest": {
+  "android_app_id": "ca-app-pub-8528784688453695~8044208178",
+  "android_banner": "ca-app-pub-8528784688453695/3721819782",
+  "android_interstitial": "ca-app-pub-8528784688453695/5528514029"
+ },
+ "Uscis-Case": {
+  "android_app_id": "ca-app-pub-8528784688453695~2309537905",
+  "android_banner": "ca-app-pub-8528784688453695/5539491423",
+  "android_interstitial": "ca-app-pub-8528784688453695/9095593054"
+ },
+ "VirtuBand": {
+  "android_app_id": "ca-app-pub-8528784688453695~2836542125",
+  "android_banner": "ca-app-pub-8528784688453695/6914604113",
+  "android_interstitial": "ca-app-pub-8528784688453695/9569471431"
+ },
+ "iMaps": {
+  "android_app_id": "ca-app-pub-8528784688453695~5082647691",
+  "android_banner": "ca-app-pub-8528784688453695/1143402684",
+  "android_interstitial": "ca-app-pub-8528784688453695/8340879191"
+ },
+ "iMeasure": {
+  "android_app_id": "ca-app-pub-8528784688453695~9265279754",
+  "android_banner": "ca-app-pub-8528784688453695/1222409251",
+  "android_interstitial": "ca-app-pub-8528784688453695/9950162694"
+ },
+ "radiotune": {
+  "android_app_id": "ca-app-pub-8528784688453695~7770953426",
+  "android_banner": "ca-app-pub-8528784688453695/4087643109",
+  "android_interstitial": "ca-app-pub-8528784688453695/2327055058"
+ },
+ "AGCleaner": {},
+ "AGrammarly": {},
+ "AGRecorder": {},
+ "AGStudio": {},
+ "ApexMarketWatch": {},
+ "BodyQuest": {},
+ "BuddyPlay": {},
+ "CarDeal": {},
+ "ChefCount": {},
+ "CodeDeal": {},
+ "daily-pulse": {},
+ "DriftDate": {},
+ "EventSpark": {},
+ "FashionFactory": {},
+ "GadgetNest": {},
+ "GroceryMatch": {},
+ "HerJourney": {},
+ "HomeWise": {},
+ "Kinnav": {},
+ "MileMaster": {},
+ "MyCard": {},
+ "MyFinance": {},
+ "MyHealth": {},
+ "NearServe": {},
+ "NewsBoard": {},
+ "NexusTransferPay": {},
+ "Photriya": {},
+ "PilotEnRoute": {},
+ "PlantPulse": {},
+ "portfolio-board": {},
+ "RideZap": {},
+ "RoomCraft": {},
+ "Verba": {},
+ "WiFiTrail": {},
+ "yourtube": {}
 }
