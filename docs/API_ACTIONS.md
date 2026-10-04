@@ -173,3 +173,5 @@ The script refuses with that exact command if the scope is missing. See MA-015.
 3. Support `--dry-run` where the action mutates anything.
 4. Write evidence to `~/agl/.dist/`, not next to the script.
 5. Add a row here.
+
+| `firebase_distribute.py` | Uploads each app's APK to Firebase App Distribution and distributes it to the 11-person roster in `store/testers.json`. Talks to the REST API, not the CLI: the CLI's credentials are expired and `--reauth` needs a browser. Needs `x-goog-user-project` and the project **number** — see MA-038 |

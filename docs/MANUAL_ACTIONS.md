@@ -1680,3 +1680,48 @@ App Store Connect holds build `202609250224`. Apple kept the newer one.
 If a Transporter-delivered build is wanted for those 11, rebuild their IPAs
 first; the ones on disk are stale.
 
+
+## MA-038 · Firebase App Distribution — working, with two things to know
+
+Set up 2026-10-04. **All 43 apps have a release and 11 testers** (the 9
+external plus both owners), verified by reading `releases` back for every app.
+
+Use `scripts/firebase_distribute.py`. It calls the REST API rather than the
+Firebase CLI, because the CLI (15.32.1) answers
+
+```
+Authentication Error: Your credentials are no longer valid.
+Please run firebase login --reauth
+```
+
+and `--reauth` opens a browser. The gcloud token this machine already holds
+works instead, given two things neither error message hints at:
+
+* **`x-goog-user-project`**, or every call is refused with "the
+  firebaseappdistribution.googleapis.com API requires a quota project";
+* **the project number, not the id**. `projects/americangroupllc-5bdfc` is a
+  400; `projects/9057515422` is correct.
+
+A 404 from `/testers` or `/releases` means the collection is empty, not that
+the path is wrong.
+
+### Two real problems this surfaced
+
+**Eight APKs in `.dist` were corrupt** — right size, zero zip entries.
+CalcMaster's was 43 MB and `unzip -l` listed nothing. Firebase rejects them
+with the unhelpful "Ensure you are uploading a valid IPA or APK". All eight
+were rebuilt. The script now checks that an artifact is a readable zip with
+entries before uploading.
+
+**`.aab` uploads need Firebase linked to Play**: "Your Firebase project needs
+to be connected to your Google Play developer account." APKs do not. If you
+want bundle uploads to work, link the projects in the Firebase console —
+otherwise keep building APKs for this channel.
+
+### iOS is not wired, deliberately
+
+App Distribution installs an iOS build only on devices listed in an **ad-hoc**
+provisioning profile. Every IPA in `.dist` is an App Store distribution
+build: it uploads cleanly and still will not install for a tester. The
+`--ios` flag exists for when ad-hoc IPAs are built. Until then TestFlight is
+the iOS channel, and all 43 are already there.
