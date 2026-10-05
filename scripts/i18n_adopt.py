@@ -71,6 +71,7 @@ CONST_ERR = re.compile(
     r"Invalid constant value[^\u2022]*"
     r"|The constructor being called isn't a const constructor[^\u2022]*"
     r"|The values in a const list literal must be constants[^\u2022]*"
+    r"|Methods can't be invoked in constant expressions[^\u2022]*"
     r")\s*\u2022\s*(\S+?):(\d+):(\d+)")   # \s* : [^\u2022]* already ate the space
 
 
@@ -107,7 +108,11 @@ def strip_enclosing_const(app_dir: pathlib.Path, analyze_output: str) -> int:
             if cand < 0:
                 break
             after = src[cand + len("const "):cand + len("const ") + 40].lstrip()
-            if after[:1].isupper() or after[:1] in "[(<":
+            # `_Badge` too: a private widget class starts with an
+            # underscore, so an isupper() test alone skipped it and
+            # CodeDeal never converged.
+            if (after[:1].isupper() or after[:1] in "[(<"
+                    or (after[:1] == "_" and after[1:2].isupper())):
                 hit = cand
                 break
             search = cand
