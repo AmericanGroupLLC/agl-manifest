@@ -91,6 +91,19 @@ def main() -> int:
                             rf"AglL10n\.of\(context\)!\.{key}\b"):
                     new, k = re.subn(pat, f"'{esc}'", new)
                     n += k
+            # Drop the import if nothing from agl_i18n is left. Restoring a
+            # literal can remove a file's last AglL10n reference, and the
+            # dangling import is a *warning* — which `flutter analyze
+            # --no-fatal-infos` still fails on, so eight apps went red at
+            # analyze after the first restore pass.
+            if new != src:
+                used = any(sym in new for sym in (
+                    "AglL10n", "AglLocale", "aglLocalizationsDelegates",
+                    "AglLanguageScreen", "AglLocales"))
+                if not used:
+                    new = re.sub(
+                        r"^import 'package:agl_i18n/agl_i18n\.dart';\n", "",
+                        new, flags=re.M)
             if new != src and not args.dry_run:
                 p.write_text(new)
         if not n:
@@ -101,9 +114,10 @@ def main() -> int:
 
         if args.dry_run:
             continue
-        an = subprocess.run([FLUTTER, "analyze", "--no-fatal-infos", "lib"], cwd=d,
+        an = subprocess.run([FLUTTER, "analyze", "--no-fatal-infos"], cwd=d,
                             capture_output=True, text=True, timeout=1800)
-        errs = [l.strip() for l in (an.stdout or "").splitlines() if " error " in l]
+        errs = [l.strip() for l in (an.stdout or "").splitlines()
+                if " error " in l or " warning " in l]
         if errs:
             subprocess.run(["git", "checkout", "--", "lib"], cwd=d,
                            capture_output=True, text=True)
