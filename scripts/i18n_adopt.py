@@ -252,10 +252,21 @@ def main() -> int:
                 break
             an = subprocess.run([FLUTTER, "analyze", "lib"], cwd=d,
                                 capture_output=True, text=True, timeout=1800)
-        if errors_of(an):
+        # Tests as well as analyze. Verifying with analyze alone is exactly
+        # how `AglL10n.of(context)!` reached 27 apps and put 355 failing
+        # tests into GroceryMatch: a runtime null is invisible to the
+        # analyzer. Warnings count too — an orphaned import is one.
+        bad = errors_of(an) + [l.strip() for l in (an.stdout or "").splitlines()
+                               if " warning " in l]
+        if not bad:
+            tr = subprocess.run([FLUTTER, "test"], cwd=d,
+                                capture_output=True, text=True, timeout=2400)
+            if tr.returncode != 0:
+                bad = ["tests failed"]
+        if bad:
             subprocess.run(["git", "checkout", "--", "lib"], cwd=d,
                            capture_output=True, text=True)
-            why = (errors_of(an) or [""])[0][:140]
+            why = bad[0][:140]
             report[repo] = {"converted": 0, "reverted": total, "error": why}
             print(f"  {repo:18} REVERTED {total} — {why}", flush=True)
             continue
