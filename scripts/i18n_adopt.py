@@ -17,6 +17,14 @@ across the portfolio, roughly 660 match a shared key. The rest are app
 copy — "Nearby guardians", "Compound Interest" — and need their own ARB
 entries and a human translator. This script does not invent those.
 
+The emitted form is `(AglL10n.of(context)?.key ?? 'Original English')`, not
+`AglL10n.of(context)!.key`. The bang version compiles and analyzes clean and
+then throws "Null check operator used on a null value" at runtime wherever
+the agl delegates are not installed — which is every widget test that pumps
+a bare MaterialApp. It cost 355 failing tests in GroceryMatch alone before
+it was spotted, because the verification gate was analyze and analyze cannot
+see a runtime null.
+
 Two rules keep it safe:
 
   * a literal is only rewritten inside a `build(BuildContext context)` body,
@@ -110,10 +118,12 @@ def strip_enclosing_const(app_dir: pathlib.Path, analyze_output: str) -> int:
     return fixed
 
 
-def shared_strings() -> dict[str, str]:
+def shared_strings():
+    """(english-lowercased -> key, key -> english)."""
     arb = json.loads((M / "packages/agl_i18n/lib/l10n/agl_en.arb").read_text())
-    return {v.strip().lower(): k for k, v in arb.items()
-            if not k.startswith("@") and isinstance(v, str)}
+    pairs = {k: v for k, v in arb.items()
+             if not k.startswith("@") and isinstance(v, str)}
+    return {v.strip().lower(): k for k, v in pairs.items()}, pairs
 
 
 def build_spans(src: str) -> list[tuple[int, int]]:
@@ -136,7 +146,7 @@ def build_spans(src: str) -> list[tuple[int, int]]:
     return spans
 
 
-def convert(path: pathlib.Path, table: dict[str, str]) -> int:
+def convert(path: pathlib.Path, table: dict[str, str], en_text: dict[str, str]) -> int:
     src = path.read_text(errors="ignore")
     spans = build_spans(src)
     if not spans:
@@ -150,7 +160,8 @@ def convert(path: pathlib.Path, table: dict[str, str]) -> int:
         if not any(a < m.start() < b for a, b in spans):
             continue
         out.append(src[last:m.start()])
-        out.append(f"{m.group('lead')}AglL10n.of(context)!.{key}")  # const dropped
+        eng = en_text[key].replace("\\", "\\\\").replace("'", "\\'")
+        out.append(f"{m.group('lead')}(AglL10n.of(context)?.{key} ?? '{eng}')")
         last = m.end()
         n += 1
     if not n:
@@ -174,7 +185,7 @@ def main() -> int:
     ap.add_argument("apps", nargs="*")
     args = ap.parse_args()
 
-    table = shared_strings()
+    table, en_text = shared_strings()
     manifest = json.loads((M / "apps.json").read_text())["apps"]
     if args.apps:
         manifest = [a for a in manifest if a["repo"] in args.apps]
@@ -213,7 +224,7 @@ def main() -> int:
             print(f"  {repo:18} would convert {n}", flush=True)
             continue
 
-        total = sum(convert(p, table) for p in files)
+        total = sum(convert(p, table, en_text) for p in files)
         if not total:
             report[repo] = {"converted": 0}
             print(f"  {repo:18} nothing to convert", flush=True)

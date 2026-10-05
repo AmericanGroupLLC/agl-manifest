@@ -21,6 +21,13 @@ repositories*, which is not the same place in both worlds:
     ROOT.
 
 `work/` existing is what distinguishes the two, and AGL_ROOT overrides both for
+
+Beware: running `fastlane validate` locally *creates* work/ and fills it with
+43 clones, which flips this heuristic for every later script in the same tree.
+A repair pass then silently retargets the throwaway checkouts and reports
+success while the real repositories are untouched — which is exactly what
+happened on 2026-10-04. Export AGL_ROOT=~/agl for anything that edits source.
+
 anyone with a different layout.
 """
 
