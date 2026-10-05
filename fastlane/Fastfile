@@ -133,7 +133,11 @@ lane :validate do |options|
   checkout!(spec)
   run_batch(manifest_apps(spec)) do |app|
     pub_get(app)
-    in_app(app, "flutter analyze")
+    # --no-fatal-infos: `flutter analyze` exits non-zero for *infos* as well
+    # as errors, so a lint hint failed the app. CarDeal reported "16 issues
+    # found", all of them info and not one an error, and was marked failed.
+    # Errors and warnings still fail the lane.
+    in_app(app, "flutter analyze --no-fatal-infos")
     in_app(app, "flutter test")
   end
 end
