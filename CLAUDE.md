@@ -25,6 +25,7 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | **How do I do anything that calls an API?** | **`docs/API_ACTIONS.md`** — every script, and what the APIs refuse |
 | What is the state of every app? | **`status.csv`** — the single sheet: one row per app, and column groups `check:`, `measured:`, `gate:`, `quality:`, `i18n:`, `apple:` alongside the store fields. Counts go stale, so it does not quote one. Every identifier, artefact, store state, store gate, measured fact, quality signal and per-app check. `STATUS.md` is a rendering of it |
 | Which apps have a signed binary, and is it really signed? | `docs/build-evidence.json` (generated) |
+| **What must pass before an app is submitted?** | **`docs/SUBMISSION_CHECKLIST.md`** — the gate, and why each row exists |
 | What must a human do that I cannot? | `docs/MANUAL_ACTIONS.md` |
 | What is broken right now? | `docs/KNOWN_ISSUES.md` |
 | Why is it built this way? | `docs/DECISIONS.md` |
@@ -81,6 +82,27 @@ that script; if you invoke Gradle by hand you must reproduce them:
 
 None of this belongs in an app repository — it is true of this machine, not of
 the app.
+
+## Installing on the simulators
+
+```bash
+python3 scripts/sim_install.py CalcMaster          # build + install + launch, iOS and Android
+python3 scripts/sim_install.py --all --android     # every app, one platform
+python3 scripts/sim_install.py CalcMaster --skip-build --android-serial emulator-5560
+```
+
+Debug builds on a booted iPhone simulator and a running emulator (one is booted
+if none is up). Another session may be using an emulator — pin yours with
+`--android-serial`. Logs, screenshots and the JSON report go to
+`<DIST>/sim-install/`.
+
+For a sweep use `--all --clean-after`: each app's build output is 1.5-4 GB and
+the disk filled during the first one. The script stops below `--min-free-gb`,
+waits for other processes building in an app's folder (and takes a per-app
+lock against other runs), makes room on a full emulator by uninstalling what
+it installed earlier, and skips iOS for the rest of the run if the simulator
+stops answering. Apps whose debug build adds `.debug` to the package need that
+client in Firebase: `firebase_register.py --debug-variant`.
 
 ## Rules that have already cost something
 
