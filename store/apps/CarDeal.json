@@ -1,44 +1,45 @@
 {
-  "repo": "CarDeal",
-  "slug": "cardeal",
-  "copy": {
-    "en": {
-      "name": "iCarDeal",
-      "short_description": "Car deals near. by",
-      "subtitle": "Is this car a good price?",
-      "description": "CarDeal helps you tell a good used-car price from a confident one.\n\nSEARCH\nFilter inventory by body type, budget, and condition, and save the searches you keep coming back to.\n\nRATED, NOT JUST LISTED\nEvery listing carries a deal rating with the reasoning behind it, so you know whether the number in front of you is fair.\n\nWHAT IT REALLY COSTS\nWork the finance out before you talk to anyone: APR, term, sales tax, and the monthly payment that falls out of them. Set a budget and see what fits inside it.\n\nCOMPARE\nPut candidates side by side on price, mileage, accident history, and specification.\n\nSAVED\nKeep the cars you are still considering. Everything is stored on your device.\n\nCarDeal earns a commission on some outbound links to sellers. That does not change a car's rating.",
-      "keywords": "used cars,car deals,auto,finance,apr,monthly payment,compare,listings,car buying,budget",
-      "title": "CarDeal"
-    }
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/features/{search,detail,compare,budget,saved}, lib/models/{deal_rating,finance,listing,price_snapshot,saved_search}.dart, lib/services/{affiliate,http_listing_data_source}.dart.",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "_blocker": {
-    "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
-    "why": "CARDEAL_API_KEY has no default and the listing source falls back to sample_listing_data_source.dart / sample_catalog.dart. The UI carries a '$_sampleBanner' string, which is the app itself admitting the inventory is not real.",
-    "requires": [
-      "CARDEAL_API_BASE_URL pointing at a live gateway",
-      "CARDEAL_API_KEY"
-    ]
-  },
-  "primary_category": "SHOPPING",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
-  "_name_note": "App Store name set to the existing App Store Connect record: the copy's original name is registered to another developer (deliver 2026-09-14: 'app name you entered is already being used'). Play keeps `title`.",
-  "review_information": {
-    "notes": "No account and no sign-in. All five tabs (Browse, Search, Saved, Budget, Settings) work from first launch, and the app asks for no system permissions — no camera, location or contacts.\n\nThis build has no dealer API key compiled in, so the inventory is a bundled catalogue of 12 illustrative cars rather than a live dealer feed. That is not a network failure, and the app says so itself: a notice strip on every screen that shows a price, a \"Sample\" chip on each card, an explicit paragraph on the car detail page, and the data source named at the top of Settings. Deal ratings, the price-history chart and the compare table are all computed from that bundled data.\n\nBudget is a self-contained calculator — set a monthly budget, deposit, APR, sales tax and term, and it works back to a price ceiling and lists which cars fit. Nothing is uploaded.\n\nThe buttons on a car detail page are affiliate links; they open AutoTrader, CarMax, Tesla or the seller's page in the external browser. Saved cars, saved searches and preferences are stored on the device only, and Settings has a control that deletes them."
+ "repo": "CarDeal",
+ "slug": "cardeal",
+ "copy": {
+  "en": {
+   "name": "iCarDeal",
+   "short_description": "Car deals near. by",
+   "subtitle": "Is this car a good price?",
+   "description": "CarDeal helps you tell a good used-car price from a confident one.\n\nSEARCH\nFilter inventory by body type, budget, and condition, and save the searches you keep coming back to.\n\nRATED, NOT JUST LISTED\nEvery listing carries a deal rating with the reasoning behind it, so you know whether the number in front of you is fair.\n\nWHAT IT REALLY COSTS\nWork the finance out before you talk to anyone: APR, term, sales tax, and the monthly payment that falls out of them. Set a budget and see what fits inside it.\n\nCOMPARE\nPut candidates side by side on price, mileage, accident history, and specification.\n\nSAVED\nKeep the cars you are still considering. Everything is stored on your device.\n\nCarDeal earns a commission on some outbound links to sellers. That does not change a car's rating.",
+   "keywords": "used cars,car deals,auto,finance,apr,monthly payment,compare,listings,car buying,budget",
+   "title": "CarDeal"
   }
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/features/{search,detail,compare,budget,saved}, lib/models/{deal_rating,finance,listing,price_snapshot,saved_search}.dart, lib/services/{affiliate,http_listing_data_source}.dart.",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "_blocker": {
+  "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
+  "why": "CARDEAL_API_KEY has no default and the listing source falls back to sample_listing_data_source.dart / sample_catalog.dart. The UI carries a '$_sampleBanner' string, which is the app itself admitting the inventory is not real.",
+  "requires": [
+   "CARDEAL_API_BASE_URL pointing at a live gateway",
+   "CARDEAL_API_KEY"
+  ]
+ },
+ "primary_category": "SHOPPING",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "_name_note": "App Store name set to the existing App Store Connect record: the copy's original name is registered to another developer (deliver 2026-09-14: 'app name you entered is already being used'). Play keeps `title`.",
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nCarDeal helps you tell a good used-car price from a confident one.\n\nIntended audience:\nIs this car a good price?\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Firebase (Google) \u2014 app initialisation\n- Firebase Crashlytics (Google) \u2014 crash reporting\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (locale 1, locale 10, locale 11, locale 12, locale 2, locale 3, locale 4, locale 5, locale 6, locale 7, locale 8, locale 9). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "differentiation": "1. WHAT IT DOES\nCarDeal helps you tell a good used-car price from a confident one.\nScreens it contains: budget, compare, detail, home, saved, search, settings\n\n2. INTENDED USER\nIs this car a good price?\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: SHOPPING.\nTODO: state how this app's scope differs from the others in the suite.\nMeasured input: no two of the 43 apps share more than 22% of their\ndescription vocabulary, so the copy is already distinct; the overlap Apple\nis reacting to is more likely the shared code scaffold and the number of\napps submitted together.\n"
 }

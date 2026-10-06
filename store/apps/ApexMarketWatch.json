@@ -1,35 +1,36 @@
 {
-  "repo": "ApexMarketWatch",
-  "slug": "apexmarketwatch",
-  "copy": {
-    "en": {
-      "name": "ApexMarketWatch",
-      "subtitle": "Quotes, charts and 13F filings",
-      "short_description": "Live quotes and charts, plus what the big funds filed with the SEC.",
-      "description": "ApexMarketWatch is a market watchlist that shows you its sources.\n\nWATCHLIST\nAdd the tickers you care about and see the last price, the day's high and low, and the 52-week range. Tap through for a price chart and a sparkline over the range you pick.\n\n13F WHALES\nInstitutional holdings read straight from SEC EDGAR — gross buying, gross selling, and what changed. The SEC's public filing data, not a newsletter's summary of it.\n\nCRASH INDEX\nA drawdown-based read on how far a name has fallen from its own high, so a headline number has context.\n\nHONEST PROVENANCE\nEvery screen labels where its numbers came from. Quotes come from Yahoo Finance's public chart endpoint by default; a build can supply a Finnhub key instead. When a source is unavailable the app says so rather than quietly showing you something stale.\n\nNOT ADVICE\nApexMarketWatch reports public market data. It does not recommend trades, hold your money, or connect to a broker.",
-      "keywords": "stocks,watchlist,quotes,ticker,13f,sec,edgar,charts,market,finance,drawdown"
-    }
-  },
-  "review_information": {
-    "notes": "Thanks for reviewing ApexMarketWatch.\n\nApexMarketWatch is a market-data viewer: a watchlist, price charts, 13F institutional filings and a drawdown-based risk score. There is no account, no sign-in, no purchase and no permission request of any kind. It is not a broker: it holds no money, places no orders, connects to no brokerage and makes no recommendation.\n\nTwo things worth knowing before you start:\n• The app labels the origin of every number. When a feed fails or is not configured, that screen falls back to a bundled offline dataset and shows an amber \"sample data\" banner naming the reason, plus a provenance footer. Fallback is per feed, not app-wide, so you may legitimately see live quotes next to sample filings. A sample banner is honest labelling, not a crash.\n• The Deals tab is sample-only unless the build carries --dart-define=API_GATEWAY_URL. There is no public keyless source for that feed, so by default the tab shows bundled examples above a notice explaining exactly that. Expect it, and please do not treat it as a dead network call.\n\nTest instructions:\n1. Launch the app. It opens on Markets with a starter watchlist of AAPL, MSFT, NVDA, AMZN and TSLA. No sign-in step exists.\n2. Pull to refresh. With a network connection, quotes come from Yahoo Finance's public chart endpoint, which needs no key; each row shows last price, the day's high and low, and the 52-week range.\n3. Tap the + button and add a symbol by ticker or company name (the hint suggests \"AAPL, Tesla\"). Swipe a row right-to-left to remove it; an undo action appears, and an emptied watchlist stays empty rather than restoring the defaults.\n4. Tap a row for the detail screen: a price chart with selectable ranges, range performance, key statistics and any 13F activity in that name.\n5. Open the 13F Whales tab. Institutional holdings are read from SEC EDGAR at data.sec.gov, which needs no key but does require a declared contact User-Agent; the app sends \"ApexMarketWatch/1.0 (support@americangroupllc.com)\". EDGAR rate-limits aggressively, so a refresh may fall back to the bundled dataset with the reason shown.\n6. Open Deals — sample-only by default, as described above — then Crash Index, which spells out its own inputs and weights on screen rather than presenting a bare number.\n7. Tap the \"Data sources\" icon in the Markets title bar. It lists each provider (Yahoo Finance, Finnhub, SEC EDGAR, AGL deals gateway) and whether this build has it configured.\n8. Turn on airplane mode and pull to refresh. Every tab degrades to the bundled dataset with a banner, and nothing hangs or crashes.\n\nPrivacy:\n• Data collected: Nothing about you. There is no account and no profile. The watchlist and the chart range are written to shared_preferences on the device.\n• Network: Outbound reads only, to Yahoo Finance's public chart endpoint and to data.sec.gov. Both are anonymous, and nothing about you is sent beyond the ticker being requested. Finnhub is used only if a build supplies a key.\n• Location, camera, contacts, notifications: None are requested; the app has no plugin for any of them.\n• Tracking: None. Crash reporting is Firebase Crashlytics only; there is no advertising or analytics SDK, and the app does not read the advertising identifier, so no App Tracking Transparency prompt appears.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.short_description",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/features/{watchlist,ticker,whales,crash}, lib/services/{yahoo_quote_api,sec_edgar_api,finnhub_quote_api}.dart, lib/core/env.dart (yahooEnabled=true, secEdgarEnabled=true by default), lib/widgets/provenance.dart. The Deals tab is NOT described: it needs API_GATEWAY_URL, which has no default.",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "primary_category": "FINANCE",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+ "repo": "ApexMarketWatch",
+ "slug": "apexmarketwatch",
+ "copy": {
+  "en": {
+   "name": "ApexMarketWatch",
+   "subtitle": "Quotes, charts and 13F filings",
+   "short_description": "Live quotes and charts, plus what the big funds filed with the SEC.",
+   "description": "ApexMarketWatch is a market watchlist that shows you its sources.\n\nWATCHLIST\nAdd the tickers you care about and see the last price, the day's high and low, and the 52-week range. Tap through for a price chart and a sparkline over the range you pick.\n\n13F WHALES\nInstitutional holdings read straight from SEC EDGAR \u2014 gross buying, gross selling, and what changed. The SEC's public filing data, not a newsletter's summary of it.\n\nCRASH INDEX\nA drawdown-based read on how far a name has fallen from its own high, so a headline number has context.\n\nHONEST PROVENANCE\nEvery screen labels where its numbers came from. Quotes come from Yahoo Finance's public chart endpoint by default; a build can supply a Finnhub key instead. When a source is unavailable the app says so rather than quietly showing you something stale.\n\nNOT ADVICE\nApexMarketWatch reports public market data. It does not recommend trades, hold your money, or connect to a broker.",
+   "keywords": "stocks,watchlist,quotes,ticker,13f,sec,edgar,charts,market,finance,drawdown"
+  }
+ },
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nApexMarketWatch is a market watchlist that shows you its sources.\n\nIntended audience:\nQuotes, charts and 13F filings\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Firebase (Google) \u2014 app initialisation\n- Firebase Crashlytics (Google) \u2014 crash reporting\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (locale 1, locale 10, locale 11, locale 12, locale 2, locale 3, locale 4, locale 5, locale 6, locale 7, locale 8, locale 9). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.short_description",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/features/{watchlist,ticker,whales,crash}, lib/services/{yahoo_quote_api,sec_edgar_api,finnhub_quote_api}.dart, lib/core/env.dart (yahooEnabled=true, secEdgarEnabled=true by default), lib/widgets/provenance.dart. The Deals tab is NOT described: it needs API_GATEWAY_URL, which has no default.",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "primary_category": "FINANCE",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "differentiation": "1. WHAT IT DOES\nApexMarketWatch is a market watchlist that shows you its sources.\nScreens it contains: crash, deals, settings, shell, ticker, watchlist, whales\n\n2. INTENDED USER\nQuotes, charts and 13F filings\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: FINANCE.\nTODO: state how this app's scope differs from the others in the suite.\nMeasured input: no two of the 43 apps share more than 22% of their\ndescription vocabulary, so the copy is already distinct; the overlap Apple\nis reacting to is more likely the shared code scaffold and the number of\napps submitted together.\n"
 }

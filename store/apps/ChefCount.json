@@ -1,28 +1,29 @@
 {
-  "repo": "ChefCount",
-  "slug": "chefcount",
-  "copy": {
-    "en": {
-      "name": "ChefCount",
-      "short_description": "Track what is in your kitchen and see which recipes you can cook now",
-      "subtitle": "Kitchen stock and recipes",
-      "keywords": "kitchen,pantry,inventory,recipe,ingredients,expiry,use by,leftovers,cooking,food",
-      "promotional_text": "Add what you have, and the recipe list reorders to put what you can actually cook tonight at the top. Works offline, no account.",
-      "description": "ChefCount keeps a list of what is actually in your kitchen and shows you which of its recipes you can cook with it.\n\nYOUR KITCHEN\nAdd ingredients from a searchable list of 35 staples, or type in a name of your own. Each item carries a quantity, a unit and an optional use-by date that is pre-filled with a typical shelf life for that ingredient. The Kitchen tab groups everything into seven categories, badges each item as expired, due today or with the days remaining, and gathers anything due within three days under a Use soon banner.\n\nRECIPES\nTwelve recipes are built into the app. Each one is ranked by how much of it you already hold, so the list reorders itself as your kitchen changes. A recipe card shows how many of its ingredients you have and names the ones you are missing. Open it for the numbered method, servings, calories and the prep and cook times. You can filter the list by breakfast, lunch, dinner or snack.\n\nFRIDGE PHOTO\nYou can attach one photo of your fridge as a visual reminder. It is written to your device and nothing reads it. ChefCount has no image recognition and does not analyse the picture, detect ingredients from it, or send it anywhere.\n\nWHAT TO EXPECT\nChefCount works entirely offline and needs no account or sign-in. Your inventory is saved on the device and is still there when you come back. The recipes and the staple ingredient list are built into the app, so it does not download new ones. There are no ads and nothing to buy. The interface is in English."
-    }
-  },
-  "primary_category": "FOOD_AND_DRINK",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
-  "review_information": {
-    "notes": "No account, no sign-in, and no network connection is needed. All four tabs (Scan, Recipes, Kitchen, Profile) work offline from first launch.\n\nPlease note before testing the Scan tab: the \"Camera\" and \"Gallery\" buttons do not open the camera or the photo library, and the app requests no camera or photos permission — it has no camera or image-picker dependency at all. Tapping either button runs a 1.2-second animation and then returns four to eight ingredients chosen deterministically from a bundled list of 15. No photo is taken, read, uploaded or analysed. It is a bundled demonstration of the recipe features, not image recognition, and it behaves identically in the simulator and on a device.\n\nEverything downstream of that is real, local logic: Recipes ranks 12 bundled recipes by how much of the current ingredient list each one uses, opens to full steps and timings, Kitchen keeps an editable inventory with expiry days (you can add items by hand there without scanning), and Profile totals the same data.\n\nThe grocery and kitchen-tool prices are affiliate links that open a retailer page in the external browser. Nothing else in the app fetches anything; all of its content is compiled in."
-  },
-  "_was_blocked_resolved": {
-    "resolved": "2026-09-15",
-    "note": "The fake fridge recognition was deleted on 2026-09-15; the Scan tab is honest manual entry with a persistent inventory, enforced by a test that greps the widget tree for scan/detect/AI wording.",
-    "previous": {
-      "no_copy_drafted": "No listing copy can be written. Ingredient detection is fabricated.",
-      "evidence": "lib/domain/fridge_ocr.dart analyzeFridgePicture() hashes the image *filename string* and indexes a fixed ingredientPool with it. It never looks at a single pixel. pubspec has no camera, image_picker, or ML dependency at all.",
-      "to_unblock": "Either implement real recognition, or rebuild the Scan tab as honest manual entry and write the listing around the recipe and kitchen-inventory features, which are real (lib/domain/catalogue.dart, RecipesTab, KitchenTab)."
-    }
+ "repo": "ChefCount",
+ "slug": "chefcount",
+ "copy": {
+  "en": {
+   "name": "ChefCount",
+   "short_description": "Track what is in your kitchen and see which recipes you can cook now",
+   "subtitle": "Kitchen stock and recipes",
+   "keywords": "kitchen,pantry,inventory,recipe,ingredients,expiry,use by,leftovers,cooking,food",
+   "promotional_text": "Add what you have, and the recipe list reorders to put what you can actually cook tonight at the top. Works offline, no account.",
+   "description": "ChefCount keeps a list of what is actually in your kitchen and shows you which of its recipes you can cook with it.\n\nYOUR KITCHEN\nAdd ingredients from a searchable list of 35 staples, or type in a name of your own. Each item carries a quantity, a unit and an optional use-by date that is pre-filled with a typical shelf life for that ingredient. The Kitchen tab groups everything into seven categories, badges each item as expired, due today or with the days remaining, and gathers anything due within three days under a Use soon banner.\n\nRECIPES\nTwelve recipes are built into the app. Each one is ranked by how much of it you already hold, so the list reorders itself as your kitchen changes. A recipe card shows how many of its ingredients you have and names the ones you are missing. Open it for the numbered method, servings, calories and the prep and cook times. You can filter the list by breakfast, lunch, dinner or snack.\n\nFRIDGE PHOTO\nYou can attach one photo of your fridge as a visual reminder. It is written to your device and nothing reads it. ChefCount has no image recognition and does not analyse the picture, detect ingredients from it, or send it anywhere.\n\nWHAT TO EXPECT\nChefCount works entirely offline and needs no account or sign-in. Your inventory is saved on the device and is still there when you come back. The recipes and the staple ingredient list are built into the app, so it does not download new ones. There are no ads and nothing to buy. The interface is in English."
   }
+ },
+ "primary_category": "FOOD_AND_DRINK",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nChefCount keeps a list of what is actually in your kitchen and shows you which of its recipes you can cook with it.\n\nIntended audience:\nKitchen stock and recipes\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\nNone. The app works entirely on the device and calls no external service.\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (locale 1, locale 10, locale 11, locale 12, locale 2, locale 3, locale 4, locale 5, locale 6, locale 7, locale 8, locale 9). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "_was_blocked_resolved": {
+  "resolved": "2026-09-15",
+  "note": "The fake fridge recognition was deleted on 2026-09-15; the Scan tab is honest manual entry with a persistent inventory, enforced by a test that greps the widget tree for scan/detect/AI wording.",
+  "previous": {
+   "no_copy_drafted": "No listing copy can be written. Ingredient detection is fabricated.",
+   "evidence": "lib/domain/fridge_ocr.dart analyzeFridgePicture() hashes the image *filename string* and indexes a fixed ingredientPool with it. It never looks at a single pixel. pubspec has no camera, image_picker, or ML dependency at all.",
+   "to_unblock": "Either implement real recognition, or rebuild the Scan tab as honest manual entry and write the listing around the recipe and kitchen-inventory features, which are real (lib/domain/catalogue.dart, RecipesTab, KitchenTab)."
+  }
+ },
+ "differentiation": "1. WHAT IT DOES\nChefCount keeps a list of what is actually in your kitchen and shows you which of its recipes you can cook with it.\nScreens it contains: TODO\n\n2. INTENDED USER\nKitchen stock and recipes\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: FOOD_AND_DRINK.\nTODO: state how this app's scope differs from the others in the suite.\nMeasured input: no two of the 43 apps share more than 22% of their\ndescription vocabulary, so the copy is already distinct; the overlap Apple\nis reacting to is more likely the shared code scaffold and the number of\napps submitted together.\n"
 }

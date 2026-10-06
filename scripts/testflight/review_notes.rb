@@ -158,6 +158,21 @@ apps.each do |a|
     next
   end
 
+  # Write the same text back into store/apps/<repo>.json so the repository
+  # and App Store Connect say the same thing. They did not: the checklist
+  # read the stored notes, which still answered Apple's old five-item
+  # request, and reported PASS while the live notes were a different text.
+  begin
+    cp_json = File.exist?(cp) ? JSON.parse(File.read(cp)) : {}
+    cp_json["review_information"] ||= {}
+    if cp_json["review_information"]["notes"] != text
+      cp_json["review_information"]["notes"] = text
+      File.write(cp, JSON.pretty_generate(cp_json) + "\n")
+    end
+  rescue StandardError => e
+    warn "  #{a['repo']}: could not update #{cp}: #{e.message[0, 90]}"
+  end
+
   begin
     detail = ver.fetch_app_store_review_detail
     if detail

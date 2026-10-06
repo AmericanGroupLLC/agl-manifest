@@ -120,6 +120,35 @@ def linked_frameworks_needing_strings(d: pathlib.Path) -> list[str]:
     return missing
 
 
+AUTH_CALL = re.compile(r"signInWithPassword|SupabaseAuthService|signInWithOtp"
+                       r"|FirebaseAuth\.instance\.signIn")
+GUEST = re.compile(r"(?i)continue as guest|guest mode|skip sign|browse as guest"
+                   r"|continue without")
+
+
+def login_gate(d: pathlib.Path) -> bool:
+    """True when the app signs in and offers no way past it.
+
+    Five apps ship a sign-in wall whose only bypass is compiled out of
+    release builds, and all 43 declared demoAccountRequired: false. That is
+    the Guideline 2.1 "we were unable to review" rejection, written down.
+    """
+    lib = d / "lib"
+    if not lib.exists():
+        return False
+    auth = guest = False
+    for f in lib.rglob("*.dart"):
+        if "generated" in str(f):
+            continue
+        try:
+            s = f.read_text(errors="ignore")
+        except OSError:
+            continue
+        auth = auth or bool(AUTH_CALL.search(s))
+        guest = guest or bool(GUEST.search(s))
+    return auth and not guest
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--app")
@@ -178,6 +207,19 @@ def main() -> int:
     age_rating = load(DIST / "age-rating-sync.json", {})
     play_release = load(DIST / "play-release-results.json", {})
     play_gaps = load(DIST / "play-gap-audit.json", {})
+
+    # Capture and launch evidence. Both are written by the scripts that do
+    # the work, so a missing entry reads as "not verified" rather than PASS.
+    shots_meta = load(DIST / "screenshots-results.json", {})
+    # Newest report, not a fixed name: sim_install writes <timestamp>.json.
+    _sim_reports = sorted((DIST / "sim-install").glob("20*.json")) \
+        if (DIST / "sim-install").is_dir() else []
+    sim_raw = load(_sim_reports[-1], {}) if _sim_reports else {}
+    sim_meta = {}
+    # The key is "repo", not "app" — reading the wrong one left every app at
+    # HUMAN while a perfectly good report sat on disk.
+    for r in (sim_raw.get("results") or []):
+        sim_meta.setdefault(r.get("repo"), {})[r.get("platform")] = r.get("status")
 
     rows = []
     for a in apps:
@@ -361,6 +403,62 @@ def main() -> int:
             f"android={'y' if gs else 'n'} ios={'y' if gi else 'n'} "
             f"ios-bundled={'y' if bundled else 'n'}"
             + ("" if bundled else "  <- plist not referenced by Xcode"))
+
+        # --- what Apple actually rejected us for ----------------------------
+        # Every check above passed for apps that were then rejected. These
+        # six are the gaps those rejections went through, each measured.
+
+        # 2.1: the notes must answer Apple's current seven-item request, not
+        # the five-item one it used to ask. Numbered headings are the marker.
+        notes = (rec.get("review_information") or {}).get("notes") or ""
+        answered = [n for n in range(2, 8) if f"\n{n}." in notes or notes.startswith(f"{n}.")]
+        add("Review notes answer Apple's 7 items",
+            OK if len(answered) >= 6 else NO,
+            f"{len(answered)}/6 numbered answers present")
+
+        # 2.1: an app behind a sign-in wall must hand the reviewer a way in.
+        gate = login_gate(d)
+        demo = (rec.get("review_information") or {}).get("demo_account_name") or ""
+        add("Demo account when the app gates on sign-in",
+            OK if (not gate or demo) else NO,
+            "no sign-in gate" if not gate
+            else (f"demo user {demo}" if demo else "sign-in wall with NO demo account"))
+
+        # 2.3.3: screenshots must show the app, not its login screen. The
+        # capture records which screen it reached; a run that never got past
+        # the gate is the rejection Apple already sent us.
+        shot = (shots_meta.get(repo) or {})
+        past = shot.get("passed_sign_in")
+        add("Screenshots show the app, not a login screen",
+            OK if past is True else (NO if past is False else HUMAN),
+            "capture walked past the sign-in gate" if past is True
+            else ("capture stopped at the sign-in screen" if past is False
+                  else "not recorded — re-run scripts/screenshots.py"))
+
+        # The app preview video Apple shows on the product page. Optional for
+        # approval, but asked for here so its absence is a decision.
+        vid = sorted(d.glob("fastlane/screenshots/**/*.mp4")) + \
+              sorted(d.glob("store_video/*.mp4")) + sorted(d.glob("videos/*.mp4"))
+        add("App preview video", OK if vid else HUMAN,
+            vid[0].name if vid else "none recorded")
+
+        # Proof the build starts. A binary that crashes on launch is the
+        # fastest possible 2.1.
+        sim = (sim_meta.get(repo) or {})
+        add("Launches on a simulator and stays up",
+            OK if sim.get("ios") == "running" and sim.get("android") == "running"
+            else (NO if sim else HUMAN),
+            f"ios={sim.get('ios', '?')} android={sim.get('android', '?')}")
+
+        # 4.3: the question Apple asks every app in a large portfolio. A
+        # written answer has to exist before submission, not after rejection.
+        diff = (rec.get("differentiation") or "").strip()
+        todos = diff.count("TODO")
+        add("4.3 differentiation statement",
+            OK if (len(diff) >= 200 and todos == 0) else NO,
+            "missing" if not diff
+            else (f"{todos} unanswered question(s)" if todos
+                  else f"{len(diff)} chars, complete"))
 
         rows.append((repo, checks))
 

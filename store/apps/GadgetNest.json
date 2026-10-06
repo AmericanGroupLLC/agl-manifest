@@ -1,44 +1,45 @@
 {
-  "repo": "GadgetNest",
-  "slug": "gadgetnest",
-  "copy": {
-    "en": {
-      "name": "GadgetNest",
-      "subtitle": "Compare tech before you buy",
-      "short_description": "Compare phones, laptops and parts on price and spec, and watch prices.",
-      "description": "GadgetNest is for the part of buying a gadget that happens before you buy it.\n\nBROWSE AND COMPARE\nWork through categories, open a product for its full specs, and put several side by side. GadgetNest marks which one is the better deal and says why.\n\nPRICE HISTORY\nA chart of what a product has cost over time, so \"on sale\" has to prove itself.\n\nBUILD LIST\nCollect the parts of a build in one list and keep the total in front of you.\n\nSAVED\nKeep the products you are still thinking about.\n\nSTRAIGHT ANSWERS\nGadgetNest earns a commission on some outbound links. It does not reorder results because of it, and everything it stores stays on your device — there is no account and one button erases the lot.",
-      "keywords": "tech deals,compare,price history,laptop,phone,gpu,specs,gadgets,shopping,pc build"
-    }
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.short_description",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/features/{browse,product,compare,build_list,deals,saved}, lib/core/engine/{catalog,pricing,affiliate}.dart, lib/features/product/price_history_chart.dart.",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "_blocker": {
-    "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
-    "why": "lib/core/config/app_config.dart: GADGETNEST_INVENTORY defaults to 'sample' and the source comment says the sample inventory is 'deterministic and invented'. GADGETNEST_SUPPLIER_CONFIGURED defaults to false, so a 'live' build has nothing to be live against.",
-    "requires": [
-      "GADGETNEST_INVENTORY=live",
-      "GADGETNEST_SUPPLIER_CONFIGURED=true",
-      "a gateway at GADGETNEST_API_BASE_URL holding retailer credentials"
-    ]
-  },
-  "primary_category": "SHOPPING",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
-  "review_information": {
-    "notes": "No account, no sign-in, no permission prompts and no network required. The entire catalogue — 9 products across 9 retailers — is compiled into the app, so every screen works in airplane mode.\n\nThe prices, retailer offers and the price-history chart are modelled, not collected from retailers. A build that is allowed to display them carries a permanent \"Sample prices — not live retailer data\" strip above the tabs. If instead every price area shows a \"Live prices are unavailable\" card, the build was compiled without the sample-data flag and is refusing to show invented prices; browsing, specs, compare and saving all still work, and it is not a loading failure.\n\nWorth exercising: open a product for its full specs and price chart, add two products to Compare, and use Build list to price a whole basket at a single retailer.\n\nOne thing that looks like a bug and is not: on some offers the text under the buy button reads \"We earn nothing if you buy here. This retailer is not in any of our affiliate programmes.\" Micro Center and Apple are genuinely in no affiliate programme of ours, so those links carry no tracking parameter and say so. Buy buttons open the retailer in the external browser rather than a webview.\n\nSaved products and the theme setting are stored on the device only."
+ "repo": "GadgetNest",
+ "slug": "gadgetnest",
+ "copy": {
+  "en": {
+   "name": "GadgetNest",
+   "subtitle": "Compare tech before you buy",
+   "short_description": "Compare phones, laptops and parts on price and spec, and watch prices.",
+   "description": "GadgetNest is for the part of buying a gadget that happens before you buy it.\n\nBROWSE AND COMPARE\nWork through categories, open a product for its full specs, and put several side by side. GadgetNest marks which one is the better deal and says why.\n\nPRICE HISTORY\nA chart of what a product has cost over time, so \"on sale\" has to prove itself.\n\nBUILD LIST\nCollect the parts of a build in one list and keep the total in front of you.\n\nSAVED\nKeep the products you are still thinking about.\n\nSTRAIGHT ANSWERS\nGadgetNest earns a commission on some outbound links. It does not reorder results because of it, and everything it stores stays on your device \u2014 there is no account and one button erases the lot.",
+   "keywords": "tech deals,compare,price history,laptop,phone,gpu,specs,gadgets,shopping,pc build"
   }
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.short_description",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/features/{browse,product,compare,build_list,deals,saved}, lib/core/engine/{catalog,pricing,affiliate}.dart, lib/features/product/price_history_chart.dart.",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "_blocker": {
+  "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
+  "why": "lib/core/config/app_config.dart: GADGETNEST_INVENTORY defaults to 'sample' and the source comment says the sample inventory is 'deterministic and invented'. GADGETNEST_SUPPLIER_CONFIGURED defaults to false, so a 'live' build has nothing to be live against.",
+  "requires": [
+   "GADGETNEST_INVENTORY=live",
+   "GADGETNEST_SUPPLIER_CONFIGURED=true",
+   "a gateway at GADGETNEST_API_BASE_URL holding retailer credentials"
+  ]
+ },
+ "primary_category": "SHOPPING",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nGadgetNest is for the part of buying a gadget that happens before you buy it.\n\nIntended audience:\nCompare tech before you buy\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Firebase (Google) \u2014 app initialisation\n- Firebase Crashlytics (Google) \u2014 crash reporting\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (locale 1, locale 10, locale 11, locale 12, locale 2, locale 3, locale 4, locale 5, locale 6, locale 7, locale 8, locale 9). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "differentiation": "1. WHAT IT DOES\nGadgetNest is for the part of buying a gadget that happens before you buy it.\nScreens it contains: browse, build list, compare, deals, home, product, saved, settings\n\n2. INTENDED USER\nCompare tech before you buy\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: SHOPPING.\nTODO: state how this app's scope differs from the others in the suite.\nMeasured input: no two of the 43 apps share more than 22% of their\ndescription vocabulary, so the copy is already distinct; the overlap Apple\nis reacting to is more likely the shared code scaffold and the number of\napps submitted together.\n"
 }

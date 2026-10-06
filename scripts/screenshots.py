@@ -400,7 +400,21 @@ def capture(app, out_ios, out_android):
             time.sleep(8)
             clear_alerts(udid)   # first-run sheets and permission prompts
             time.sleep(4); clear_alerts(udid)   # consent forms (UMP) arrive a few seconds after launch
+            # Record whether a sign-in gate was seen and whether we got past
+            # it. Apple rejected apps under 2.3.3 for screenshots that showed
+            # nothing but the login screen, and the only way the checklist
+            # can tell is if the capture says so.
+            before = describe(udid)
+            gated = any(w in ((e.get("AXLabel") or "") + (e.get("AXValue") or "")).lower()
+                        for e in before
+                        for w in ("sign in", "log in", "password", "create account"))
             enter_app(udid)      # onboarding carousel, then a sign-in wall
+            after = describe(udid)
+            still = any(w in ((e.get("AXLabel") or "") + (e.get("AXValue") or "")).lower()
+                        for e in after
+                        for w in ("sign in", "log in", "password", "create account"))
+            res["sign_in_gate"] = gated
+            res["passed_sign_in"] = (not still) if gated else True
             time.sleep(3)
             shots = []
             p = out_ios / f"{dev}-01.png"

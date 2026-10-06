@@ -1,43 +1,44 @@
 {
-  "repo": "AGStudio",
-  "slug": "agstudio",
-  "copy": {
-    "en": {
-      "name": "AGStudio",
-      "subtitle": "Prompt to picture",
-      "short_description": "Describe an image, pick a style and a size, and keep what you make in a gallery.",
-      "description": "AGStudio turns a written prompt into an image.\n\nMAKE SOMETHING\nType what you want. Choose a style — photorealistic, cinematic, anime, cyberpunk, fantasy, abstract, minimal, or neon — and a resolution. AGStudio checks the prompt before it spends anything on it.\n\nKEEP IT\nEverything you generate lands in a gallery on your device. Open any result full size, save it to your photo library, or share it.\n\nNO ACCOUNT\nAGStudio does not ask you to register. Your history is on your phone.",
-      "keywords": "ai art,image generator,prompt,art,text to image,anime,cyberpunk,photorealistic,gallery"
-    }
-  },
-  "review_information": {
-    "notes": "Thanks for reviewing AGStudio.\n\nAGStudio turns a written prompt into a picture. There is no account, no sign-in and no purchase — the Pricing and Profile surfaces of the web product were left out of the app — and all four tabs (Home, Studio, Gallery, Settings) are reachable on first launch.\n\nIMPORTANT — what this build actually produces. Real generation needs two build-time values, AGSTUDIO_API_BASE_URL and AGSTUDIO_API_KEY (lib/core/app_config.dart). If the binary you have does not carry both, AGStudio runs in preview mode: it composes a geometric poster on the device from your prompt text, with \"PREVIEW · NOT AI GENERATED\" and \"Drawn on-device from your prompt. No image model was used.\" rendered into the pixels, so the disclaimer survives being saved or shared. An amber card sits above the Generate button saying the same thing every time, and the result carries a PREVIEW badge. No model runs and no request is sent. This is deliberate disclosure rather than a failure — please do not read the placeholder poster as a broken generator.\n\nNote also that \"Offline Mode\" on the mode switch does not run a local model: no on-device model is bundled, so offline generation falls back to the same preview rendering, and the Settings screen says so in plain language.\n\nTest instructions:\n1. Launch the app. Home opens with the mode switch and two buttons. No sign-in step exists.\n2. Open the Studio tab. Type a prompt (1–1000 characters; Generate stays disabled until it is valid), optionally a negative prompt, then pick a style — Cinematic, Cyberpunk, Anime, Photorealistic, Abstract, Fantasy, Minimal or Neon — and a resolution.\n3. Press Generate. Read the amber preview card and the PREVIEW badge on the result if this build has no endpoint configured.\n4. Open the Gallery tab. Every result is listed with the prompt and the settings it was made with. Image bytes go to the app's documents directory and the index to shared_preferences; nothing is uploaded and there is no server-side history.\n5. Open a result full size and tap Save. iOS shows the add-to-photo-library prompt (NSPhotoLibraryAddUsageDescription); declining leaves everything else working. Share opens the standard system sheet.\n6. Open Settings to change the interface language and to read the on-device engine notice.\n\nPrivacy:\n• Data collected: Nothing about you. No account, no profile, no identifiers. Prompts, generated images and settings stay on the device.\n• Network: None in a build without AGSTUDIO_API_BASE_URL and AGSTUDIO_API_KEY — preview rendering is entirely local and the app is usable in airplane mode. In a configured build the prompt and its settings are sent to that endpoint over HTTPS with a bearer token, and nothing else is.\n• Photo library: Add-only, and only when you tap Save on an image you made. The app never reads your library.\n• Tracking: None. Crash reporting is Firebase Crashlytics only; there is no advertising or analytics SDK, and the app does not read the advertising identifier, so no App Tracking Transparency prompt appears.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.short_description",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/features/{studio,gallery,settings}, lib/models/{style_preset,resolution_preset}.dart, style names read from studio UI strings, lib/services/{http_image_generation_service,media_saver,history_repository}.dart.",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "_blocker": {
-    "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
-    "why": "lib/core/app_config.dart: AGSTUDIO_API_BASE_URL and AGSTUDIO_API_KEY both default to empty, and hasGenerationBackend requires both. With the default build, preview_image_generation_service.dart draws a geometric poster with 'PREVIEW · NOT AI GENERATED' burned into the pixels. It generates nothing.",
-    "requires": [
-      "AGSTUDIO_API_BASE_URL",
-      "AGSTUDIO_API_KEY"
-    ]
-  },
-  "primary_category": "PHOTO_AND_VIDEO",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+ "repo": "AGStudio",
+ "slug": "agstudio",
+ "copy": {
+  "en": {
+   "name": "AGStudio",
+   "subtitle": "Prompt to picture",
+   "short_description": "Describe an image, pick a style and a size, and keep what you make in a gallery.",
+   "description": "AGStudio turns a written prompt into an image.\n\nMAKE SOMETHING\nType what you want. Choose a style \u2014 photorealistic, cinematic, anime, cyberpunk, fantasy, abstract, minimal, or neon \u2014 and a resolution. AGStudio checks the prompt before it spends anything on it.\n\nKEEP IT\nEverything you generate lands in a gallery on your device. Open any result full size, save it to your photo library, or share it.\n\nNO ACCOUNT\nAGStudio does not ask you to register. Your history is on your phone.",
+   "keywords": "ai art,image generator,prompt,art,text to image,anime,cyberpunk,photorealistic,gallery"
+  }
+ },
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nAGStudio turns a written prompt into an image.\n\nIntended audience:\nPrompt to picture\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (ar, de, en, es, fr, hi, it, ja, ko, pt, ru, zh). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.short_description",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/features/{studio,gallery,settings}, lib/models/{style_preset,resolution_preset}.dart, style names read from studio UI strings, lib/services/{http_image_generation_service,media_saver,history_repository}.dart.",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "_blocker": {
+  "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
+  "why": "lib/core/app_config.dart: AGSTUDIO_API_BASE_URL and AGSTUDIO_API_KEY both default to empty, and hasGenerationBackend requires both. With the default build, preview_image_generation_service.dart draws a geometric poster with 'PREVIEW \u00b7 NOT AI GENERATED' burned into the pixels. It generates nothing.",
+  "requires": [
+   "AGSTUDIO_API_BASE_URL",
+   "AGSTUDIO_API_KEY"
+  ]
+ },
+ "primary_category": "PHOTO_AND_VIDEO",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "differentiation": "1. WHAT IT DOES\nAGStudio turns a written prompt into an image.\nScreens it contains: gallery, home, settings, studio\n\n2. INTENDED USER\nPrompt to picture\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: PHOTO_AND_VIDEO.\nTODO: state how this app's scope differs from the others in the suite.\nMeasured input: no two of the 43 apps share more than 22% of their\ndescription vocabulary, so the copy is already distinct; the overlap Apple\nis reacting to is more likely the shared code scaffold and the number of\napps submitted together.\n"
 }

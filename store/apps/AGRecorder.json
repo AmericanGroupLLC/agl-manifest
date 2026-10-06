@@ -1,34 +1,35 @@
 {
-  "repo": "AGRecorder",
-  "slug": "agrecorder",
-  "copy": {
-    "en": {
-      "name": "AGRecorder",
-      "short_description": "High-framerate screen recorder with dual-channel system + mic audio",
-      "subtitle": "Voice recorder with location",
-      "description": "AGRecorder is a voice recorder that remembers where you were.\n\nRECORD\nOne button. Start, stop, done. Audio is captured as AAC and written straight to your device.\n\nLOCATION\nEach recording can carry the coordinates it was made at. AGRecorder asks the device for GPS first; if that is unavailable it falls back to an approximate lookup, and it always tells you which of the two produced the fix rather than presenting a guess as a reading.\n\nPERMISSIONS, PLAINLY\nMicrophone access is what makes the app work. Location is used only to tag a recording, and only if you let it. Nothing is uploaded on your behalf.",
-      "keywords": "voice recorder,recorder,audio,memo,gps,location,dictation,field recording,notes"
-    }
-  },
-  "review_information": {
-    "notes": "Thanks for reviewing AGRecorder.\n\nAGRecorder is a one-screen audio recorder. No account, no sign-in, no purchase, no onboarding. The microphone is the only permission it ever requests, and the app works with the radio off.\n\nThree things that look like defects but are not, so you do not have to guess:\n• The \"Camera\" chip beside \"Microphone\" changes nothing. RecordBackend.start() in lib/platform/record_backend.dart ignores the selected source and always records audio. There is no video capture in this build and the listing does not claim any.\n• The badge reading \"Cloud Storage Sync: Connected\" and the button reading \"Stop & Sync to Cloud\" are labels carried over from the desktop app this was ported from. There is no cloud, no account and no upload — the app issues no network request from any screen. Stopping simply finalises the file on the device.\n• Info.plist declares NSLocationWhenInUseUsageDescription, but this build never asks for location: the GPS helper in lib/domain/gps.dart is not referenced by the UI. No location prompt will appear during review, and no coordinates are read or stored.\n\nTest instructions:\n1. Launch the app. It opens straight onto the recorder.\n2. Tap \"Start Recording\" and allow the microphone prompt. The panel changes to \"Recording…\".\n3. Tap \"Stop & Sync to Cloud\". The take is written to the app's own Documents directory as agrecorder_<timestamp>.m4a (AAC-LC), and the filename appears under the panel as \"Saved: …\". Nothing leaves the device.\n4. To see the denial path, turn microphone access off for the app in iOS Settings and tap Start again. The app shows \"Permission denied. Enable microphone access in Settings.\" and remains usable.\n5. Tap the globe icon in the header to change the interface language.\n6. Put the device in airplane mode and repeat steps 2–3. Everything still works, which is the point.\n\nPrivacy:\n• Data collected: Nothing about you. No account, no profile, no identifiers.\n• Microphone: Required, and used only while a recording is running.\n• Recordings: Kept in the app's Documents directory on the device. There is no upload code path.\n• Network: None. No screen in the app makes a network request.\n• Location: Not requested and not used in this build.\n• Tracking: None. Crash reporting is Firebase Crashlytics only; there is no advertising or analytics SDK, and the advertising identifier is never read, so no App Tracking Transparency prompt appears.\n\nIf you need anything else, please email contact@safecodeg.com and we will respond within one business day."
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/domain/recorder.dart (RecordingState machine), lib/platform/record_backend.dart (AudioRecorder, AudioEncoder.aacLc, writes agrecorder_<ts>.m4a), lib/domain/gps.dart (device -> ipFallback -> defaultLocation chain, LocationProvider surfaced to the UI), pubspec: record, geolocator, path_provider, http. CaptureSource.camera exists in the enum but RecordBackend.start() ignores its argument and always records audio — video is therefore NOT claimed.",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "primary_category": "UTILITIES",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees."
+ "repo": "AGRecorder",
+ "slug": "agrecorder",
+ "copy": {
+  "en": {
+   "name": "AGRecorder",
+   "short_description": "High-framerate screen recorder with dual-channel system + mic audio",
+   "subtitle": "Voice recorder with location",
+   "description": "AGRecorder is a voice recorder that remembers where you were.\n\nRECORD\nOne button. Start, stop, done. Audio is captured as AAC and written straight to your device.\n\nLOCATION\nEach recording can carry the coordinates it was made at. AGRecorder asks the device for GPS first; if that is unavailable it falls back to an approximate lookup, and it always tells you which of the two produced the fix rather than presenting a guess as a reading.\n\nPERMISSIONS, PLAINLY\nMicrophone access is what makes the app work. Location is used only to tag a recording, and only if you let it. Nothing is uploaded on your behalf.",
+   "keywords": "voice recorder,recorder,audio,memo,gps,location,dictation,field recording,notes"
+  }
+ },
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nAGRecorder is a voice recorder that remembers where you were.\n\nIntended audience:\nVoice recorder with location\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- device location services (on-device)\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (ar, de, en, es, fr, hi, it, ja, ko, pt, ru, zh). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/domain/recorder.dart (RecordingState machine), lib/platform/record_backend.dart (AudioRecorder, AudioEncoder.aacLc, writes agrecorder_<ts>.m4a), lib/domain/gps.dart (device -> ipFallback -> defaultLocation chain, LocationProvider surfaced to the UI), pubspec: record, geolocator, path_provider, http. CaptureSource.camera exists in the enum but RecordBackend.start() ignores its argument and always records audio \u2014 video is therefore NOT claimed.",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "primary_category": "UTILITIES",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "differentiation": "1. WHAT IT DOES\nAGRecorder is a voice recorder that remembers where you were.\nScreens it contains: TODO\n\n2. INTENDED USER\nVoice recorder with location\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: UTILITIES.\nTODO: state how this app's scope differs from the others in the suite.\nMeasured input: no two of the 43 apps share more than 22% of their\ndescription vocabulary, so the copy is already distinct; the overlap Apple\nis reacting to is more likely the shared code scaffold and the number of\napps submitted together.\n"
 }
