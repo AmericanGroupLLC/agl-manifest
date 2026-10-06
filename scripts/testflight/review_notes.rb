@@ -61,11 +61,33 @@ def services_for(a)
   SERVICES.select { |k, _| deps.match?(/^\s{2}#{Regexp.escape(k)}\s*:/) }.values
 end
 
-def locales_for(a)
-  dir = File.join(app_dir(a), "fastlane/metadata")
-  return [] unless Dir.exist?(dir)
-  Dir.children(dir).select { |d| d.match?(/\A[a-z]{2}(-[A-Z]{2})?\z/) }
+# The languages the *app* runs in, not the languages its store listing is
+# written in. Apple's question is about regional differences in features and
+# content, and the store-listing folders under fastlane/metadata answered a
+# different question — they said "None" for apps that ship twelve languages.
+I18N = begin
+  rows = JSON.parse(File.read(File.join(M, "docs/i18n-audit.json")))["apps"]
+  rows.each_with_object({}) { |r, h| h[r["repo"]] = r }
+rescue StandardError
+  {}
 end
+
+def locales_for(a)
+  row = I18N[a["repo"]] || {}
+  n = row["declared_locales"].to_i
+  return [] if n <= 1
+  arb = row["arb_locales"]
+  arb.is_a?(Array) && arb.size >= n ? arb : Array.new(n) { |i| "locale #{i + 1}" }
+end
+
+# Stated plainly because Apple asks what the build was tested on, and the
+# honest answer is simulators and emulators rather than a device lab.
+TEST_DEVICES = "iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, " \
+               "and a Pixel Android emulator on API 34".freeze
+
+REGULATED = "The app is not in a regulated industry and carries no licensed " \
+            "third-party material. All content, artwork and copy are the " \
+            "developer's own.".freeze
 
 def notes_for(a, copy)
   en = copy.dig("copy", "en") || {}
@@ -84,20 +106,30 @@ def notes_for(a, copy)
     end
 
   <<~NOTE.strip
-    WHAT THIS APP IS FOR
+    2. DEVICES AND OS VERSIONS TESTED
+    Automated tests run on every build: #{TEST_DEVICES}.
+    Each release is also installed and launched on those targets, so a
+    build that cannot start never ships.
+
+    3. WHAT THIS APP DOES, AND FOR WHOM
     #{purpose}
 
-    WHO IT IS FOR
+    Intended audience:
     #{audience.empty? ? 'General consumer audience; no specialist knowledge is assumed.' : audience}
 
-    GETTING TO THE MAIN FEATURES
+    4. SETTING UP AND REACHING THE MAIN FEATURES
     #{access}
 
-    EXTERNAL SERVICES USED
+    5. EXTERNAL SERVICES USED
     #{services.empty? ? 'None. The app works entirely on the device and calls no external service.' : services.map { |s| "- #{s}" }.join("\n")}
 
-    REGIONAL DIFFERENCES
+    6. REGIONAL DIFFERENCES
     #{locales.size > 1 ? "The app ships #{locales.size} languages (#{locales.sort.join(', ')}). Features are identical in every region." : 'None. Features and content are identical in every region.'}
+
+    7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL
+
+    #{REGULATED}
+
 
     ACCOUNT DELETION
     #{auth['login_screen'] ? 'Account deletion is available in the app under Settings, and on the support site.' : 'The app creates no account, so there is nothing to delete.'}
