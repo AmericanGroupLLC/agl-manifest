@@ -86,9 +86,14 @@ def strip_enclosing_const(app_dir: pathlib.Path, out: str) -> int:
         if line >= len(lines):
             continue
         pos = sum(len(l) + 1 for l in lines[:line]) + int(col_s) - 1
-        hit, search = -1, pos
+        hit, limit = -1, min(len(src), pos + 6)
         while True:
-            cand = src.rfind("const ", 0, search)
+            # +6 so a const that begins *at* the reported column is
+            # still found. `return const MainShell();` reports the
+            # column of `const` itself, and searching strictly before
+            # it skipped the very keyword to remove — NewsBoard then
+            # never converged.
+            cand = src.rfind("const ", 0, limit)
             if cand < 0:
                 break
             after = src[cand + 6:cand + 46].lstrip()
@@ -99,7 +104,7 @@ def strip_enclosing_const(app_dir: pathlib.Path, out: str) -> int:
                     or (after[:1] == "_" and after[1:2].isupper())):
                 hit = cand
                 break
-            search = cand
+            limit = cand
         if hit < 0:
             continue
         f.write_text(src[:hit] + src[hit + 6:])

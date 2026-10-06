@@ -102,9 +102,14 @@ def strip_enclosing_const(app_dir: pathlib.Path, analyze_output: str) -> int:
         # 'final', 'var' or a type name" — which reverted NewsBoard,
         # portfolio-board and yourtube.
         hit = -1
-        search = pos
+        limit = min(len(src), pos + 6)
         while True:
-            cand = src.rfind("const ", 0, search)
+            # +6 so a const that begins *at* the reported column is
+            # still found. `return const MainShell();` reports the
+            # column of `const` itself, and searching strictly before
+            # it skipped the very keyword to remove — NewsBoard then
+            # never converged.
+            cand = src.rfind("const ", 0, limit)
             if cand < 0:
                 break
             after = src[cand + len("const "):cand + len("const ") + 40].lstrip()
@@ -115,7 +120,7 @@ def strip_enclosing_const(app_dir: pathlib.Path, analyze_output: str) -> int:
                     or (after[:1] == "_" and after[1:2].isupper())):
                 hit = cand
                 break
-            search = cand
+            limit = cand
         if hit < 0:
             continue
         f.write_text(src[:hit] + src[hit + len("const "):])
@@ -128,7 +133,11 @@ def shared_strings():
     arb = json.loads((M / "packages/agl_i18n/lib/l10n/agl_en.arb").read_text())
     pairs = {k: v for k, v in arb.items()
              if not k.startswith("@") and isinstance(v, str)}
-    return {v.strip().lower(): k for k, v in pairs.items()}, pairs
+    # Case-EXACT. Matching case-insensitively restyled 43 labels across 13
+    # apps — 'SIGN IN' became 'Sign in', 'share' became 'Share' — and the
+    # restoration pass then had to undo every one. A differently-cased key
+    # is not this string.
+    return {v.strip(): k for k, v in pairs.items()}, pairs
 
 
 def build_spans(src: str) -> list[tuple[int, int]]:
@@ -159,7 +168,7 @@ def convert(path: pathlib.Path, table: dict[str, str], en_text: dict[str, str]) 
 
     out, last, n = [], 0, 0
     for m in PATTERN.finditer(src):
-        key = table.get(m.group("text").strip().lower())
+        key = table.get(m.group("text").strip())
         if not key:
             continue
         if not any(a < m.start() < b for a, b in spans):
@@ -223,7 +232,7 @@ def main() -> int:
                 src = p.read_text(errors="ignore")
                 spans = build_spans(src)
                 n += sum(1 for m in PATTERN.finditer(src)
-                         if table.get(m.group("text").strip().lower())
+                         if table.get(m.group("text").strip())
                          and any(x < m.start() < y for x, y in spans))
             report[repo] = {"would_convert": n}
             print(f"  {repo:18} would convert {n}", flush=True)
