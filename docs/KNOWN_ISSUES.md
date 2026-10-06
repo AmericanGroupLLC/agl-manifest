@@ -257,3 +257,27 @@ profile regenerated, or when push is actually implemented.
 The two fixes are configuration, so they take effect on the next iOS build of
 those apps. Neither app's push worked before this on iOS, regardless of what
 Firebase was sending.
+
+## The Android emulator dies partway through a 43-app run
+
+Symptom, every few apps:
+
+```
+adb: failed to run abb_exec. Error: closed
+adb: device 'emulator-5554' not found
+```
+
+Not host memory (53% free) and not host disk once that was cleared. The AVD's
+own `/data` partition is the default ~6 GB, and these APKs are 40–150 MB
+each; `sim_install.py --all` installs 43 of them and the emulator falls over
+when the partition fills.
+
+Boot it with room and a clean slate before a full run:
+
+```bash
+emulator -avd Pixel_7_API_34 -wipe-data -partition-size 8192 \
+         -no-snapshot-save -no-boot-anim -no-audio
+```
+
+`adb shell df /data` then reports ~8 GB total. Three consecutive installs
+that previously killed it now succeed.
