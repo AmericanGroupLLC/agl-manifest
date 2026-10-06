@@ -117,6 +117,15 @@ def flutter_sdk() -> pathlib.Path:
     pinned = ROOT / ".flutter-sdk"
     if (pinned / "bin" / "flutter").exists():
         return pinned
+    # ROOT flips to agl-manifest/work the moment a checkout exists there, and
+    # work/.flutter-sdk never does — so this fell through to the copy on PATH,
+    # which cannot write its own cache. Every app then failed at `pub get`
+    # or "update_engine_version". The pinned SDK does not move, so look for
+    # it where it actually lives before trusting PATH.
+    for base in (ROOT.parent, pathlib.Path.home() / "agl"):
+        candidate = base / ".flutter-sdk"
+        if (candidate / "bin" / "flutter").exists():
+            return candidate
     root = os.environ.get("FLUTTER_ROOT")
     if root and (pathlib.Path(root) / "bin" / "flutter").exists():
         return pathlib.Path(root)
