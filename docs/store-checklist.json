@@ -31,7 +31,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "AGCleaner": {
@@ -66,7 +66,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "AGrammarly": {
@@ -102,7 +102,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "AGRecorder": {
@@ -137,7 +137,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "AGStudio": {
@@ -172,7 +172,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "ApexMarketWatch": {
@@ -207,7 +207,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "BodyQuest": {
@@ -243,7 +243,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "BuddyPlay": {
@@ -278,7 +278,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "CalcMaster": {
@@ -314,7 +314,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "CarDeal": {
@@ -349,7 +349,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "ChefCount": {
@@ -385,7 +385,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "CodeDeal": {
@@ -420,7 +420,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "daily-pulse": {
@@ -456,7 +456,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "FAIL",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "DriftDate": {
@@ -492,7 +492,7 @@
   "Demo account when the app gates on sign-in": "FAIL",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "EventSpark": {
@@ -527,7 +527,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "FashionFactory": {
@@ -563,7 +563,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "GadgetNest": {
@@ -598,7 +598,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "FAIL",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "GroceryMatch": {
@@ -634,7 +634,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "FAIL",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "HerJourney": {
@@ -670,7 +670,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "HomeWise": {
@@ -705,7 +705,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "iMaps": {
@@ -741,7 +741,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "FAIL",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "iMeasure": {
@@ -777,7 +777,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "Kinnav": {
@@ -813,7 +813,7 @@
   "Demo account when the app gates on sign-in": "FAIL",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "MileMaster": {
@@ -849,7 +849,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "MyCard": {
@@ -884,7 +884,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "MyFinance": {
@@ -920,7 +920,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "MyHealth": {
@@ -956,7 +956,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "NearServe": {
@@ -991,7 +991,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "NewsBoard": {
@@ -1026,7 +1026,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "NexusTransferPay": {
@@ -1061,7 +1061,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "Photriya": {
@@ -1097,7 +1097,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "PilotEnRoute": {
@@ -1133,7 +1133,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "PlantPulse": {
@@ -1168,7 +1168,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "portfolio-board": {
@@ -1204,7 +1204,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "radiotune": {
@@ -1240,7 +1240,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "RideZap": {
@@ -1275,7 +1275,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "RoomCraft": {
@@ -1310,7 +1310,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "TripNest": {
@@ -1346,7 +1346,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "Uscis-Case": {
@@ -1382,7 +1382,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "Verba": {
@@ -1418,7 +1418,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "VirtuBand": {
@@ -1454,7 +1454,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "WiFiTrail": {
@@ -1490,7 +1490,7 @@
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "PASS",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  },
  "yourtube": {
@@ -1525,7 +1525,7 @@
   "Demo account when the app gates on sign-in": "FAIL",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
-  "Launches on a simulator and stays up": "HUMAN",
+  "Launches on a simulator and stays up": "PASS",
   "4.3 differentiation statement": "FAIL"
  }
 }

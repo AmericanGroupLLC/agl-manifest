@@ -157,8 +157,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -324,8 +324,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -496,8 +496,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -663,8 +663,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -830,8 +830,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -997,8 +997,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1120,7 +1120,7 @@
   {
    "check": "Apple age rating answered",
    "state": "PASS",
-   "detail": "declaration corrected by sync_age_rating.rb"
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -1169,8 +1169,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1336,8 +1336,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1508,8 +1508,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1675,8 +1675,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1847,8 +1847,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2014,8 +2014,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2186,8 +2186,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "FAIL",
-   "detail": "ios=? android=running"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2358,8 +2358,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2525,8 +2525,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2697,8 +2697,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2864,8 +2864,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "FAIL",
-   "detail": "ios=? android=running"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3036,8 +3036,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "FAIL",
-   "detail": "ios=? android=running"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3208,8 +3208,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3375,8 +3375,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3547,8 +3547,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "FAIL",
-   "detail": "ios=? android=running"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3670,7 +3670,7 @@
   {
    "check": "Apple age rating answered",
    "state": "PASS",
-   "detail": "declaration corrected by sync_age_rating.rb"
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -3719,8 +3719,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3842,7 +3842,7 @@
   {
    "check": "Apple age rating answered",
    "state": "PASS",
-   "detail": "declaration corrected by sync_age_rating.rb"
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -3891,8 +3891,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4063,8 +4063,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4230,8 +4230,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4402,8 +4402,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4574,8 +4574,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4741,8 +4741,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4908,8 +4908,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5075,8 +5075,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5198,7 +5198,7 @@
   {
    "check": "Apple age rating answered",
    "state": "PASS",
-   "detail": "declaration corrected by sync_age_rating.rb"
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5247,8 +5247,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5419,8 +5419,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5586,8 +5586,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5758,8 +5758,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5881,7 +5881,7 @@
   {
    "check": "Apple age rating answered",
    "state": "PASS",
-   "detail": "declaration corrected by sync_age_rating.rb"
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5930,8 +5930,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6097,8 +6097,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6264,8 +6264,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6436,8 +6436,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6608,8 +6608,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6731,7 +6731,7 @@
   {
    "check": "Apple age rating answered",
    "state": "PASS",
-   "detail": "declaration corrected by sync_age_rating.rb"
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -6780,8 +6780,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6952,8 +6952,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -7124,8 +7124,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -7242,7 +7242,7 @@
   {
    "check": "Apple age rating answered",
    "state": "PASS",
-   "detail": "declaration corrected by sync_age_rating.rb"
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -7291,8 +7291,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",

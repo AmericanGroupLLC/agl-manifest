@@ -211,15 +211,19 @@ def main() -> int:
     # Capture and launch evidence. Both are written by the scripts that do
     # the work, so a missing entry reads as "not verified" rather than PASS.
     shots_meta = load(DIST / "screenshots-results.json", {})
-    # Newest report, not a fixed name: sim_install writes <timestamp>.json.
+    # Every report, oldest first, so a later run overwrites an earlier
+    # result for the same app and platform. One run is not enough: a full
+    # sweep covers 43 apps, and a retry of the ones a frozen simulator
+    # skipped covers 12 — reading only the newest file threw away the 31
+    # that had already passed.
     _sim_reports = sorted((DIST / "sim-install").glob("20*.json")) \
         if (DIST / "sim-install").is_dir() else []
-    sim_raw = load(_sim_reports[-1], {}) if _sim_reports else {}
     sim_meta = {}
-    # The key is "repo", not "app" — reading the wrong one left every app at
-    # HUMAN while a perfectly good report sat on disk.
-    for r in (sim_raw.get("results") or []):
-        sim_meta.setdefault(r.get("repo"), {})[r.get("platform")] = r.get("status")
+    for _f in _sim_reports:
+        for r in (load(_f, {}).get("results") or []):
+            if r.get("repo") and r.get("platform"):
+                sim_meta.setdefault(r["repo"], {})[r["platform"]] = r.get("status")
+    sim_raw = {}
 
     rows = []
     for a in apps:
