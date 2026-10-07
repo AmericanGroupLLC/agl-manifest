@@ -1774,3 +1774,33 @@ the console has no bulk import.
 
 Until then, **do not promote any more ad-serving apps to production**: it
 adds listings that serve Google's sample inventory.
+
+## MA-040 · P0 · One Supabase toggle unblocks guest access, screenshots and review
+
+`yourtube` now offers "Continue as guest" on its login screen, calling
+`AuthService.signInAnonymously` — a method that had existed since the service
+was written and was never reachable. The button is correct and tested, and
+it is **inert until a toggle is flipped**:
+
+```
+POST https://smvvjivvlprjhzhoizym.supabase.co/auth/v1/signup   {}
+-> "Anonymous sign-ins are disabled"
+```
+
+**Supabase dashboard → Authentication → Providers → Anonymous sign-ins →
+enable**, on project `smvvjivvlprjhzhoizym` (shared by all 16 auth apps).
+
+Three things follow from that one switch:
+
+1. App Review can get into the app. Guideline 2.1 "we were unable to review
+   the app" is what the sign-in wall produced.
+2. `screenshots.py` can walk past the login screen, so the store screenshots
+   stop being pictures of a login form — the 2.3.3 rejection.
+3. `DriftDate` and `Kinnav` both have the same unused `signInAnonymously`
+   and could be wired the same way. They are not, deliberately: guest
+   browsing in a dating app and in a women's safety app changes who can see
+   whom, and that is the owner's decision rather than a mechanical one.
+
+Until it is enabled, the button fails with "Sign-in unavailable right now",
+which is honest but useless — so enabling it or reverting the button are the
+only two sensible states.
