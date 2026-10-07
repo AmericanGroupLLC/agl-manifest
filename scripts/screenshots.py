@@ -396,6 +396,28 @@ def drive_capture(app, app_dir, out_ios, out_android, udid):
                        (r.stderr or r.stdout).strip()[-220:]
         return res
 
+    # Drop blank frames. A degraded simulator answers takeScreenshot with a
+    # uniform white image, and the capture counts them as successes: a 43-app
+    # run published ten apps' worth of empty screenshots, every frame
+    # byte-identical, and the count alone looked fine. Standard deviation of
+    # the greyscale is ~0 for a blank frame and >0.04 for a real screen.
+    def blank(f):
+        out = sh("magick", str(f), "-colorspace", "Gray", "-format",
+                 "%[fx:standard_deviation]", "info:").stdout.strip()
+        try:
+            return float(out) < 0.02
+        except ValueError:
+            return False
+
+    real = [s for s in shots if not blank(s)]
+    if not real:
+        res["error"] = (f"all {len(shots)} frames were blank — the simulator "
+                        "was not rendering; reboot it and retry")
+        return res
+    if len(real) < len(shots):
+        res["blank_dropped"] = len(shots) - len(real)
+    shots = real
+
     # Same rule as the idb path: never replace a published set with a
     # smaller one, and stage before touching what is already there.
     have = len(list(out_ios.glob("iphone69-*.png"))) if out_ios.is_dir() else 0
