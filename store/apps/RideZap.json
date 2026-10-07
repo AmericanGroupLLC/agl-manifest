@@ -1,50 +1,50 @@
 {
- "repo": "RideZap",
- "slug": "ridezap",
- "copy": {
-  "en": {
-   "name": "RideZap",
-   "subtitle": "Compare the whole trip",
-   "short_description": "Price a ride, a flight and a hotel across providers and see the cheapest total.",
-   "description": "RideZap prices one trip across every provider that will quote it.\n\nTHREE MODES\nRides, flights, and hotels, each with the search form that mode actually needs \u2014 pickup and drop-off, origin and destination, check-in and check-out.\n\nONE ANSWER\nRideZap puts the quotes next to each other and marks the cheapest total, including the conditions attached to it. Open a quote for the detail, then book on the provider's own site.\n\nKEEP IT\nSave a trip to watch it, and keep a history of what you have searched. Both are on your device, and both have a clear button.\n\nRideZap does not take your booking or your payment \u2014 it hands you to the provider. It earns a commission on some of those links.",
-   "keywords": "compare prices,travel,flights,hotels,rides,cheapest,trip,booking,taxi,fare"
-  }
- },
- "review_information": {
-  "first_name": "App",
-  "last_name": "Reviewer",
-  "email_address": "contact@safecodeg.com",
-  "phone_number": "+1 669 388 1960",
-  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nRideZap prices one trip across every provider that will quote it.\n\nIntended audience:\nCompare the whole trip\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\nNone. The app works entirely on the device and calls no external service.\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (locale 1, locale 10, locale 11, locale 12, locale 2, locale 3, locale 4, locale 5, locale 6, locale 7, locale 8, locale 9). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
- },
- "_drafted": {
-  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-  "fields": [
-   "copy.en.subtitle",
-   "copy.en.short_description",
-   "copy.en.description",
-   "copy.en.keywords"
-  ],
-  "drawn_from": "lib/features/search/{ride,flight,hotel}_search_form.dart, lib/features/{results,detail,saved,history}, lib/models/{comparison_result,price_quote,travel_provider}.dart, lib/services/{affiliate_links,link_launcher,http_price_source}.dart, UI strings 'CHEAPEST TOTAL' / 'Book on ${quote.provider.displayName}'.",
-  "still_missing": [
-   "copy.en.promotional_text",
-   "copy.en.release_notes",
-   "review_information.notes (per app \u2014 never template this)",
-   "primary_category",
-   "age rating questionnaire (no field for it in this schema)"
-  ]
- },
- "_blocker": {
-  "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
-  "why": "RIDEZAP_API_BASE_URL and RIDEZAP_API_KEY have no defaults, so the app runs on sample_price_source.dart. Quoted prices in the default build are invented, which for a price-comparison app is the entire product being fake.",
-  "requires": [
-   "RIDEZAP_API_BASE_URL",
-   "RIDEZAP_API_KEY"
-  ]
- },
- "primary_category": "TRAVEL",
- "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
- "secondary_category": "SHOPPING",
- "_category_note": "App Store Connect refused the primary because the record's existing secondary category was the same ('You may not select the same category'); a distinct secondary is set explicitly.",
- "differentiation": "1. WHAT IT DOES\nRideZap prices one trip across every provider that will quote it.\nScreens it contains: detail, history, results, saved, search, settings\n\n2. INTENDED USER\nCompare the whole trip\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: TRAVEL.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: none\n  - Closest other app by implementation: PilotEnRoute at 28%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 14%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses \u2014 Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n"
+  "repo": "RideZap",
+  "slug": "ridezap",
+  "copy": {
+    "en": {
+      "name": "RideZap",
+      "subtitle": "Compare the whole trip",
+      "short_description": "Price a ride, a flight and a hotel across providers and see the cheapest total.",
+      "description": "RideZap prices one trip across every provider that will quote it.\n\nTHREE MODES\nRides, flights, and hotels, each with the search form that mode actually needs — pickup and drop-off, origin and destination, check-in and check-out.\n\nONE ANSWER\nRideZap puts the quotes next to each other and marks the cheapest total, including the conditions attached to it. Open a quote for the detail, then book on the provider's own site.\n\nKEEP IT\nSave a trip to watch it, and keep a history of what you have searched. Both are on your device, and both have a clear button.\n\nRideZap does not take your booking or your payment — it hands you to the provider. It earns a commission on some of those links.",
+      "keywords": "compare prices,travel,flights,hotels,rides,cheapest,trip,booking,taxi,fare"
+    }
+  },
+  "review_information": {
+    "first_name": "App",
+    "last_name": "Reviewer",
+    "email_address": "contact@safecodeg.com",
+    "phone_number": "+1 669 388 1960",
+    "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nRideZap prices one trip across every provider that will quote it.\n\nIntended audience:\nCompare the whole trip\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\nNone. The app works entirely on the device and calls no external service.\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.short_description",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/features/search/{ride,flight,hotel}_search_form.dart, lib/features/{results,detail,saved,history}, lib/models/{comparison_result,price_quote,travel_provider}.dart, lib/services/{affiliate_links,link_launcher,http_price_source}.dart, UI strings 'CHEAPEST TOTAL' / 'Book on ${quote.provider.displayName}'.",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
+  },
+  "_blocker": {
+    "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
+    "why": "RIDEZAP_API_BASE_URL and RIDEZAP_API_KEY have no defaults, so the app runs on sample_price_source.dart. Quoted prices in the default build are invented, which for a price-comparison app is the entire product being fake.",
+    "requires": [
+      "RIDEZAP_API_BASE_URL",
+      "RIDEZAP_API_KEY"
+    ]
+  },
+  "primary_category": "TRAVEL",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "secondary_category": "SHOPPING",
+  "_category_note": "App Store Connect refused the primary because the record's existing secondary category was the same ('You may not select the same category'); a distinct secondary is set explicitly.",
+  "differentiation": "1. WHAT IT DOES\nRideZap prices one trip across every provider that will quote it.\nScreens it contains: detail, history, results, saved, search, settings\n\n2. INTENDED USER\nCompare the whole trip\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely — a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: TRAVEL.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: none\n  - Closest other app by implementation: PilotEnRoute at 28%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 14%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses — Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n"
 }

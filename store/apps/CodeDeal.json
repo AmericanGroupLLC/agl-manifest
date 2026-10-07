@@ -1,42 +1,42 @@
 {
- "repo": "CodeDeal",
- "slug": "codedeal",
- "copy": {
-  "en": {
-   "name": "CodeDeal",
-   "short_description": "Offer codes and referral codes",
-   "subtitle": "Promo codes that work",
-   "description": "CodeDeal collects discount codes and gets out of the way.\n\nFIND ONE\nBrowse by category or search \u2014 including by voice \u2014 and filter to what you are actually shopping for. Every deal shows the code, the store, and what it takes off.\n\nUSE IT\nOne tap copies the code, another opens the store. Share a deal with whoever needs it.\n\nKEEP UP\nFollow the categories you buy in and get told when something lands.\n\nYOURS\nSign in to sync your profile, or do not \u2014 browsing needs no account.",
-   "keywords": "promo codes,coupons,discount,deals,shopping,savings,voucher,offers,sale"
-  }
- },
- "_drafted": {
-  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-  "fields": [
-   "copy.en.subtitle",
-   "copy.en.description",
-   "copy.en.keywords"
-  ],
-  "drawn_from": "lib/features/{deals,category,search,deal_detail,notifications,profile,referral,store,paywall,settings}, lib/core/network/trpc_client.dart, pubspec speech_to_text (voice search), share_plus, url_launcher. UI string 'Could not reach the CodeDeal API. $error'.",
-  "still_missing": [
-   "copy.en.promotional_text",
-   "copy.en.release_notes",
-   "review_information.notes (per app \u2014 never template this)",
-   "primary_category",
-   "age rating questionnaire (no field for it in this schema)"
-  ]
- },
- "_blocker": {
-  "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
-  "why": "Every screen is fed by https://api.codedeal.com/api/trpc (trpc_client.dart:9). This sandbox has no egress, so I could not confirm that host resolves or returns deals. If it does not, the app is an error screen and this copy is false.",
-  "requires": [
-   "confirm https://api.codedeal.com/api/trpc is live and serving deals"
-  ]
- },
- "primary_category": "SHOPPING",
- "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
- "review_information": {
-  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nCodeDeal collects discount codes and gets out of the way.\n\nIntended audience:\nPromo codes that work\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Apple In-App Purchase \u2014 paid features\n\n6. REGIONAL DIFFERENCES\nThe app ships 19 languages (ar, de, en, es, fa, fr, hi, id, it, ja, ko, pl, pt, ru, sw, th, tr, vi, zh). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
- },
- "differentiation": "1. WHAT IT DOES\nCodeDeal collects discount codes and gets out of the way.\nScreens it contains: shared, category, deal detail, deals, home, notifications, paywall, profile, referral, search, settings, store\n\n2. INTENDED USER\nPromo codes that work\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: SHOPPING.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: category, deal detail, referral, shared, store\n  - Closest other app by implementation: NexusTransferPay at 73%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 26%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses \u2014 Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n"
+  "repo": "CodeDeal",
+  "slug": "codedeal",
+  "copy": {
+    "en": {
+      "name": "CodeDeal",
+      "short_description": "Offer codes and referral codes",
+      "subtitle": "Promo codes that work",
+      "description": "CodeDeal collects discount codes and gets out of the way.\n\nFIND ONE\nBrowse by category or search — including by voice — and filter to what you are actually shopping for. Every deal shows the code, the store, and what it takes off.\n\nUSE IT\nOne tap copies the code, another opens the store. Share a deal with whoever needs it.\n\nKEEP UP\nFollow the categories you buy in and get told when something lands.\n\nYOURS\nSign in to sync your profile, or do not — browsing needs no account.",
+      "keywords": "promo codes,coupons,discount,deals,shopping,savings,voucher,offers,sale"
+    }
+  },
+  "_drafted": {
+    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+    "fields": [
+      "copy.en.subtitle",
+      "copy.en.description",
+      "copy.en.keywords"
+    ],
+    "drawn_from": "lib/features/{deals,category,search,deal_detail,notifications,profile,referral,store,paywall,settings}, lib/core/network/trpc_client.dart, pubspec speech_to_text (voice search), share_plus, url_launcher. UI string 'Could not reach the CodeDeal API. $error'.",
+    "still_missing": [
+      "copy.en.promotional_text",
+      "copy.en.release_notes",
+      "review_information.notes (per app — never template this)",
+      "primary_category",
+      "age rating questionnaire (no field for it in this schema)"
+    ]
+  },
+  "_blocker": {
+    "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
+    "why": "Every screen is fed by https://api.codedeal.com/api/trpc (trpc_client.dart:9). This sandbox has no egress, so I could not confirm that host resolves or returns deals. If it does not, the app is an error screen and this copy is false.",
+    "requires": [
+      "confirm https://api.codedeal.com/api/trpc is live and serving deals"
+    ]
+  },
+  "primary_category": "SHOPPING",
+  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+  "review_information": {
+    "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nCodeDeal collects discount codes and gets out of the way.\n\nIntended audience:\nPromo codes that work\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Apple In-App Purchase — paid features\n\n6. REGIONAL DIFFERENCES\nThe app ships 19 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish, fa, id, pl, sw, th, tr, vi). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+  },
+  "differentiation": "1. WHAT IT DOES\nCodeDeal collects discount codes and gets out of the way.\nScreens it contains: shared, category, deal detail, deals, home, notifications, paywall, profile, referral, search, settings, store\n\n2. INTENDED USER\nPromo codes that work\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely — a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: SHOPPING.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: category, deal detail, referral, shared, store\n  - Closest other app by implementation: NexusTransferPay at 73%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 26%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses — Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n"
 }

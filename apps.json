@@ -226,7 +226,7 @@
         "android_app_id": "",
         "ios_app_id": ""
       },
-      "needs_private_packages": false,
+      "needs_private_packages": true,
       "pending": {
         "firebase_android": false,
         "firebase_ios": false,
@@ -924,7 +924,7 @@
           "Google",
           "Apple"
         ],
-        "login_screen": false,
+        "login_screen": true,
         "account_optional": false
       },
       "admob": {
@@ -1419,9 +1419,7 @@
       "admob": {
         "integrated": true,
         "android_app_id": "ca-app-pub-8528784688453695~7770953426",
-        "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
-        "android_banner": "ca-app-pub-8528784688453695/4087643109",
-        "android_interstitial": "ca-app-pub-8528784688453695/2327055058"
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
       },
       "needs_private_packages": true,
       "pending": {
@@ -1583,9 +1581,7 @@
       "admob": {
         "integrated": true,
         "android_app_id": "ca-app-pub-8528784688453695~2309537905",
-        "ios_app_id": "ca-app-pub-3940256099942544~1458002511",
-        "android_banner": "ca-app-pub-8528784688453695/5539491423",
-        "android_interstitial": "ca-app-pub-8528784688453695/9095593054"
+        "ios_app_id": "ca-app-pub-3940256099942544~1458002511"
       },
       "needs_private_packages": true,
       "pending": {

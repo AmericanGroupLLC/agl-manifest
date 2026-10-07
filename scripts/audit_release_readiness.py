@@ -265,8 +265,23 @@ def audit_repo(repo: pathlib.Path) -> dict:
     out["auth_providers"] = providers
     # A sign-in screen the user can actually reach, as opposed to a dependency
     # that is declared and never wired up.
+    #
+    # This used to match on filenames alone, and that quietly lied to Apple.
+    # Kinnav's gate is `lib/screens/sign_up_screen.dart` — it matches none of
+    # *login*, *sign_in* or *auth*screen*, so the audit recorded
+    # has_login_screen: false, and review_notes.rb duly told App Review "No
+    # account and no login are required" about an app whose RootRouter does
+    #
+    #     if (!appState.signedIn) return const SignUpScreen();
+    #
+    # A reviewer who meets a wall the notes deny is a Guideline 2.1 rejection.
+    # So the signal is now a wired-up auth *call*, which is what the original
+    # comment was reaching for, with the filenames kept as a fallback.
+    dart = "".join(read(p) for p in (app / "lib").rglob("*.dart"))
     out["has_login_screen"] = bool(
-        list((app / "lib").rglob("*login*.dart"))
+        re.search(r"signInWithPassword|SupabaseAuthService|signInWithOtp"
+                  r"|FirebaseAuth\.instance\.signIn", dart)
+        or list((app / "lib").rglob("*login*.dart"))
         or list((app / "lib").rglob("*sign_in*.dart"))
         or list((app / "lib").rglob("*auth*screen*.dart"))
     )
@@ -274,7 +289,7 @@ def audit_repo(repo: pathlib.Path) -> dict:
     # decision, not a gap.
     out["account_optional"] = bool(
         re.search(r"(?i)continue as guest|no account needed|skip sign|guest mode",
-                  "".join(read(p) for p in (app / "lib").rglob("*.dart")))
+                  dart)
     )
 
     out["git_branch"] = subprocess.run(

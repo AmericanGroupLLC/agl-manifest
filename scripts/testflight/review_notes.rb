@@ -72,12 +72,31 @@ rescue StandardError
   {}
 end
 
+LANG = {
+  "ar" => "Arabic", "de" => "German", "en" => "English", "es" => "Spanish",
+  "fr" => "French", "hi" => "Hindi", "it" => "Italian", "ja" => "Japanese",
+  "ko" => "Korean", "pt" => "Portuguese", "ru" => "Russian",
+  "zh" => "Chinese (Simplified)",
+}.freeze
+
+# The twelve the shared agl_i18n package translates. An app's own ARB folder
+# is usually a subset of this — the rest of its strings come from the package
+# — so the package list, not the app's, is what the binary actually ships.
+SHARED_LOCALES = Dir[File.join(M, "packages/agl_i18n/lib/l10n/agl_*.arb")]
+                 .map { |f| File.basename(f, ".arb").sub("agl_", "") }.sort
+
 def locales_for(a)
   row = I18N[a["repo"]] || {}
   n = row["declared_locales"].to_i
   return [] if n <= 1
   arb = row["arb_locales"]
-  arb.is_a?(Array) && arb.size >= n ? arb : Array.new(n) { |i| "locale #{i + 1}" }
+  arb = SHARED_LOCALES unless arb.is_a?(Array) && arb.size >= n
+  # Previously this fell through to "locale 1, locale 2, ..." whenever the
+  # app's own ARB set was smaller than its declared count — which is the
+  # normal case. Apple was being told the app ships "locale 1, locale 10,
+  # locale 11", which reads exactly like the templated output Guideline 4.3
+  # screens for. Codes are mapped to names for the same reason.
+  arb.sort.map { |c| LANG[c] || c }
 end
 
 # Stated plainly because Apple asks what the build was tested on, and the

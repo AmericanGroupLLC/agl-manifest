@@ -135,6 +135,42 @@ gcloud auth application-default login \
 
 The script refuses with that exact command if the scope is missing. See MA-015.
 
+## Supabase
+
+| Script | What it does |
+| --- | --- |
+| `supabase_accounts.py` | Makes the three documented test accounts real on project `smvvjivvlprjhzhoizym` — creates them, confirms their email, resets them to the documented password, and verifies each one signs in. `--check` verifies without writing. `--wire-store` then records the QA address on every app with a sign-in screen, so `asc_readiness.rb` hands it to App Review |
+
+Two things about this one are not obvious.
+
+**The service-role key is never stored.** Confirming an address is an admin
+operation (`PUT /auth/v1/admin/users/{id} {"email_confirm": true}`) and the
+project has `mailer_autoconfirm: False`, so a created user cannot sign in until
+that call is made. The key is fetched per run from the Supabase CLI:
+
+```bash
+supabase projects api-keys --project-ref smvvjivvlprjhzhoizym -o json
+```
+
+The CLI holds its own token in the macOS keychain and can read it; a plain
+`security find-generic-password -s "Supabase CLI" -a supabase -w` from a
+non-interactive shell returns **empty**, which is why the key is taken this way
+rather than by extracting the token. `supabase login` is the only prerequisite.
+
+**Do not reach for `supabase config push`.** The repo's `supabase/config.toml`
+is a local-development file — `site_url = "http://127.0.0.1:3000"` — and
+pushing it would overwrite the production auth configuration with localhost
+redirects.
+
+Passwords live in the integration guide and are read from it at run time, by
+this script and by `asc_readiness.rb`. `store/apps/*.json` names the reviewer
+account but deliberately holds no password; `AGL_DEMO_PASSWORD` overrides.
+
+Still not doable from here: **enabling anonymous sign-ins**. That is Management
+API configuration and needs a personal access token, not the service-role key.
+`POST /auth/v1/signup {}` currently answers `422 anonymous_provider_disabled`,
+which is why yourtube's "Continue as guest" button does not work. See MA-040.
+
 ## Measuring and verifying
 
 | Script | What it answers |

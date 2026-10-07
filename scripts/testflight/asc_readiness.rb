@@ -69,6 +69,47 @@ def detail_of(out)
   out.dig("errors", 0, "detail").to_s.gsub(/\s+/, " ")
 end
 
+# Demo-account passwords, read from the integration guide at push time.
+#
+# store/apps/*.json names the reviewer account but deliberately does not carry
+# its password: the guide already holds it, and copying it into 15 more
+# committed files would be 15 more places to leak it from. Overridable with
+# AGL_DEMO_PASSWORD for a run that must not touch the guide.
+GUIDE = File.join(AglPaths::MANIFEST,
+                  "AmericanGroupLLC — Complete Developer Integration Guide.md")
+DEMO_PW = begin
+  pw = {}
+  if File.exist?(GUIDE)
+    File.read(GUIDE).scan(/\|\s*\*\*\w+\*\*\s*\|\s*`([^`]+@[^`]+)`\s*\|\s*`([^`]+)`/) do |email, secret|
+      pw[email] = secret
+    end
+  end
+  pw
+end
+
+# The review-contact and demo-account attributes Apple should hold for an app.
+def review_attrs(meta, defaults)
+  ri = meta["review_information"] || {}
+  attrs = {
+    contactFirstName: ri["first_name"] || defaults["review_contact_first"] || "App",
+    contactLastName: ri["last_name"] || defaults["review_contact_last"] || "Support",
+    contactEmail: ri["email_address"] || defaults["support_email"] || "contact@safecodeg.com",
+    contactPhone: ri["phone_number"] || defaults["support_phone"] || "+1 669 388 1960",
+    demoAccountRequired: false,
+  }
+  user = ri["demo_account_name"].to_s
+  secret = ENV["AGL_DEMO_PASSWORD"] || DEMO_PW[user]
+  # Never advertise an account without the password to use it — a reviewer who
+  # is handed a username and no secret is a Guideline 2.1 rejection with extra
+  # steps.
+  if ri["demo_account_required"] && !user.empty? && secret
+    attrs[:demoAccountRequired] = true
+    attrs[:demoAccountName] = user
+    attrs[:demoAccountPassword] = secret
+  end
+  attrs
+end
+
 manifest = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
 manifest = manifest.select { |a| ONLY.include?(a["repo"]) } if ONLY.any?
 defaults = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "store/defaults.json")))
@@ -265,25 +306,40 @@ manifest.each do |a|
       end
     end
 
-    rd_code, = req(:get, "v1/appStoreVersions/#{version.id}/appStoreReviewDetail")
+    # The detail is created when absent *and corrected when present*. It used
+    # to be create-only, so the 15 apps that already had a detail kept
+    # demoAccountRequired: false for ever — including the ones that open on a
+    # sign-in wall. Apple cannot review what it cannot sign in to.
+    want = review_attrs(meta, defaults)
+    rd_code, rd = req(:get, "v1/appStoreVersions/#{version.id}/appStoreReviewDetail")
     if rd_code >= 300
       gaps << "appStoreReviewDetail"
       if FIX
         code, out = req(:post, "v1/appStoreReviewDetails", {
                           data: {
                             type: "appStoreReviewDetails",
-                            attributes: {
-                              contactFirstName: defaults["review_contact_first"] || "App",
-                              contactLastName: defaults["review_contact_last"] || "Support",
-                              contactEmail: defaults["support_email"] || "contact@safecodeg.com",
-                              contactPhone: defaults["support_phone"] || "+1 669 388 1960",
-                              demoAccountRequired: false,
-                            },
+                            attributes: want,
                             relationships: { appStoreVersion: {
                               data: { type: "appStoreVersions", id: version.id } } },
                           },
                         })
         code < 300 ? (fixed += 1; gaps -= ["appStoreReviewDetail"]) : warn("  #{repo}: reviewDetail #{code} #{detail_of(out)[0, 90]}")
+      end
+    else
+      have = rd.dig("data", "attributes") || {}
+      rd_id = rd.dig("data", "id")
+      # Apple never returns the stored password, so it cannot be compared;
+      # drift is judged on the account name and the required flag.
+      stale = have["demoAccountRequired"] != want[:demoAccountRequired] ||
+              have["demoAccountName"].to_s != want[:demoAccountName].to_s
+      if stale
+        gaps << "demo account"
+        if FIX && rd_id
+          code, out = req(:patch, "v1/appStoreReviewDetails/#{rd_id}",
+                          { data: { type: "appStoreReviewDetails", id: rd_id,
+                                    attributes: want } })
+          code < 300 ? (fixed += 1; gaps -= ["demo account"]) : warn("  #{repo}: demo account #{code} #{detail_of(out)[0, 90]}")
+        end
       end
     end
 

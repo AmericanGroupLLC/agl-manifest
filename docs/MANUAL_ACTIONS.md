@@ -1559,9 +1559,49 @@ So, in Play Console → Users and permissions:
 Do step 1 first. Removing the only full-permission human before promoting the
 replacement would leave no person able to edit app content.
 
-## MA-036 · P0 · No working test account exists, and it blocks review and screenshots
+## MA-036 · P1 · Test accounts now work; the screenshots still show login screens
 
-One root cause, three visible symptoms. Found 2026-10-03.
+**Updated 2026-10-07. The root cause below is fixed and no longer needs a
+human.** The service-role key turned out to be reachable without being stored,
+via the Supabase CLI's own keychain token:
+
+```bash
+supabase projects api-keys --project-ref smvvjivvlprjhzhoizym -o json
+```
+
+`scripts/supabase_accounts.py` uses that to create, email-confirm and
+password-reset all three documented accounts, then proves each one signs in:
+
+```
+Developer  dev@safecodeg.com      confirmed + password reset -> SIGNS IN
+QA         qa@safecodeg.com       confirmed + password reset -> SIGNS IN
+Admin      admin@safecodeg.com    confirmed + password reset -> SIGNS IN
+3/3 documented account(s) can sign in
+```
+
+Symptom 1 is closed: `asc_readiness.rb` now sets `demoAccountRequired: true`
+with those credentials on the 15 apps that have a sign-in screen (`wrote 15
+change(s)`, and a re-read reports nothing outstanding).
+
+Two further defects were found while closing it, both of which were telling
+App Review something untrue, and both are fixed:
+
+* `has_login_screen` was detected from **filenames** (`*login*`, `*sign_in*`,
+  `*auth*screen*`). Kinnav's gate is `lib/screens/sign_up_screen.dart`, so it
+  matched none of them, and the review notes told Apple *"No account and no
+  login are required"* about an app whose `RootRouter` does
+  `if (!appState.signedIn) return const SignUpScreen();`. It is now detected
+  from a wired-up auth call. One app flipped: Kinnav.
+* the review notes told Apple each app ships *"locale 1, locale 10, locale
+  11"* — `locales_for` fell back to placeholders whenever an app's own ARB
+  folder was smaller than its declared locale count, which is the normal case
+  because most strings come from the shared `agl_i18n` package. All 43 said
+  this. They now name the twelve languages.
+
+**What is left** is symptoms 2 and 3 — the screenshots. Steps 2 and 3 of the
+order of work below are still open.
+
+### The original entry, found 2026-10-03
 
 ### The root cause
 
@@ -1623,11 +1663,13 @@ Two script bugs found alongside and fixed:
 
 ### Order of work
 
-1. Confirm the QA user with the service-role key, and verify sign-in.
+1. ~~Confirm the QA user with the service-role key, and verify sign-in.~~
+   **Done 2026-10-07** — `python3 scripts/supabase_accounts.py`.
 2. Add `QA_EMAIL`/`QA_PASSWORD` to the screenshot build so captures can get in.
-3. Re-run `python3 scripts/screenshots.py` for the five apps.
-4. Set `demoAccountRequired: true` with the credentials on those five apps'
-   `appStoreReviewDetail`.
+3. Re-run `python3 scripts/screenshots.py` for the affected apps.
+4. ~~Set `demoAccountRequired: true` with the credentials on those apps'
+   `appStoreReviewDetail`.~~ **Done 2026-10-07** — `asc_readiness.rb --fix`,
+   15 apps.
 
 ## MA-037 · CLOSED 2026-10-04 — Transporter works; it needed the proxy as -D flags
 
