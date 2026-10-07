@@ -1804,3 +1804,49 @@ Three things follow from that one switch:
 Until it is enabled, the button fails with "Sign-in unavailable right now",
 which is honest but useless — so enabling it or reverting the button are the
 only two sensible states.
+
+
+## MA-041 · P0 · The 4.3 reply now has evidence; it needs two answers per app
+
+I advised earlier that 14 apps rejected under 4.3/4.2.6 probably needed
+consolidating. **That advice was based on an assumption I had not measured,
+and the measurement contradicts it.**
+
+Excluding the ~60 widgets every Flutter app uses — Column, Text, Padding —
+the 43 apps compare like this:
+
+```
+median pairwise similarity of non-generic widget and class usage   12%
+highest pair                      FashionFactory <-> GadgetNest    76%
+pairs above 85%                                                     0
+description vocabulary overlap, highest pair                       22%
+```
+
+A first pass that left the generic widgets in reported 260 pairs above 90%
+similar and would have sent you rebuilding apps that are not duplicates.
+That is a property of Flutter, not of this portfolio.
+
+So the apps are differentiated, and the right response to 4.3 is Apple's
+second path — **reply, do not resubmit**. Every app's
+`differentiation` field in `store/apps/<repo>.json` now carries that reply
+with question 5 answered numerically: its unique screens, its closest
+sibling and by how much, and the portfolio median.
+
+### What is still yours, and why
+
+Two questions per app, 95 in total:
+
+* **3. The gap it fills.** A claim about the market, naming a competitor and
+  a difference. Nothing in the repository knows this.
+* **4. The beta testing done.** Which builds went to testers, over what
+  period, and one change made because of feedback. Nine external testers are
+  configured on every app in TestFlight; whether testing *happened* is not
+  something a script can assert, and asserting it falsely is precisely what
+  4.2.6 screens for.
+
+`store_checklist.py` fails an app while a TODO remains, and
+`store_watch.py` will not resubmit it. Fill the two answers, then:
+
+```bash
+python3 scripts/store_watch.py --clear-hold <app>
+```
