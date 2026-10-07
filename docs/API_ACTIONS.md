@@ -171,6 +171,60 @@ API configuration and needs a personal access token, not the service-role key.
 `POST /auth/v1/signup {}` currently answers `422 anonymous_provider_disabled`,
 which is why yourtube's "Continue as guest" button does not work. See MA-040.
 
+## Firebase Test Lab — real hardware
+
+| Script | What it does |
+| --- | --- |
+| `testlab_run.py` | Runs each app's APK as a Robo crawl on a **physical** phone in Firebase Test Lab, records video, and downloads the mp4. `--list-devices` shows what the live catalog offers; `--all --skip-build` uses APKs already built |
+
+This is the answer to a blocker that `MANUAL_ACTIONS.md` wrongly recorded as
+human-only. Apple asked, for twelve apps, for *"a screen recording of the app
+running on a physical device"*. Test Lab's catalog is real hardware —
+`gcloud firebase test android models list --filter="form=PHYSICAL"` — and
+`--record-video` produces exactly that artefact.
+
+Robo, not instrumentation, for two reasons: a Robo crawl needs **no test code**
+(so it works on all 43 apps today, with no androidTest APK per app), and the
+crawl is a recording of someone using the app, which is what was asked for.
+
+Device ids are validated against the live catalog on every run, because Test
+Lab retires models and a stale id fails the whole run.
+
+iOS Test Lab exists too (`gcloud firebase test ios models list` offers iPhone
+16 Pro, iPad 10th gen and others) but needs an XCTest bundle per app rather
+than a bare binary, so it is not wired up yet.
+
+## Supabase
+
+| Script | What it does |
+| --- | --- |
+| `remove_demo_auth.py` | Deletes the test-account and demo-mode code paths from the apps — see below. Not an API action, but it is the other half of `supabase_accounts.py` |
+
+`remove_demo_auth.py` exists because the apps authenticated **locally**:
+`_isConfiguredTestAccount` compared the typed email and password against
+constants compiled into the binary and returned "signed in" without ever
+asking Supabase. That, the "Use test account" button and the "Demo mode (dev)
+— skip to app" shortcut all existed only because the documented QA accounts
+did not work. They work now, so a tester signs in like any other user.
+
+The removal is structural — a scanner that understands Dart strings, comments
+and nesting — because a textual one is actively dangerous here. Writing it
+turned up four of its own bugs, each caught by a guard that is now permanent:
+
+* a bracket-balance check on every file before it is written, after a removal
+  cut `OutlinedButton(` in half and left its arguments orphaned;
+* dead-symbol matching that ignores string literals, after it deleted the test
+  *"no committed source ships a literal test credential"* — whose whole purpose
+  is to name `qaPassword` — in every app;
+* single-line-only statement removal, after `[^;()]*` matched across newlines
+  and swallowed the multi-line `AppEnv.validate(...)` startup guard;
+* `--verify`, which runs `flutter analyze` **and** `flutter test` per app,
+  because analyze alone once passed a codemod that broke 355 tests.
+
+Phase B, not done: `auth_demo_session` is still read at startup. It is also how
+roughly seven widget tests per app get past the sign-in wall, so removing the
+read means giving the harness another way in.
+
 ## Measuring and verifying
 
 | Script | What it answers |

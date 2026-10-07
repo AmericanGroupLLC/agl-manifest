@@ -63,13 +63,27 @@ jobs:
     outputs:
       stop_after: ${{ steps.plan.outputs.stop_after }}
       apps: ${{ steps.plan.outputs.apps }}
+      validate_matrix: ${{ steps.matrix.outputs.validate_matrix }}
+      android_matrix: ${{ steps.matrix.outputs.android_matrix }}
+      ios_matrix: ${{ steps.matrix.outputs.ios_matrix }}
     steps:
+      - uses: actions/checkout@v4
       - id: plan
         run: |
-          # A schedule must never push to a store on its own. A tag means a
-          # deliberate release, so it goes as far as internal testing.
+          # The daily schedule delivers to both stores' *testing* tracks:
+          # TestFlight internal and the Play internal track. Both are
+          # reversible and neither is visible to the public. This was
+          # `stop=build`, which meant the nightly run never reached a store.
+          #
+          # It stops short of production on purpose. Production submission is
+          # not skipped, it is owned by store_watch.py, which refuses to
+          # resubmit an app under a 4.3 or 2.1 hold. Apple's own words on
+          # those: "if the app is resubmitted without substantial
+          # improvements, it will be rejected again, and may be rejected for
+          # additional issues." A timer pushing to production would work
+          # through the portfolio making things worse.
           case "${{ github.event_name }}" in
-            schedule) stop=build ;;
+            schedule) stop=internal ;;
             push)     stop=internal ;;
             *)        stop="${{ inputs.stop_after || 'internal' }}" ;;
           esac
@@ -79,46 +93,41 @@ jobs:
           echo "- trigger: \`${{ github.event_name }}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "- apps: \`${{ inputs.apps || 'all' }}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "- stops after: \`$stop\`" >> "$GITHUB_STEP_SUMMARY"
+      - id: matrix
+        run: |
+          V="$(python3 scripts/resolve_matrix.py --spec '${{ inputs.apps || 'all' }}' --platform validate --shards 6)"
+          A="$(python3 scripts/resolve_matrix.py --spec '${{ inputs.apps || 'all' }}' --platform android --shards 6 --costs generated/build-costs.json)"
+          I="$(python3 scripts/resolve_matrix.py --spec '${{ inputs.apps || 'all' }}' --platform ios --shards 4 --costs generated/build-costs.json)"
+          {
+            echo "validate_matrix=$V"
+            echo "android_matrix=$A"
+            echo "ios_matrix=$I"
+          } >> "$GITHUB_OUTPUT"
 
   validate:
     # Sharded for the same reason the build is. Analysing and testing all 43
     # apps serially took 60 of the pipeline's 146 minutes, and once the build
     # was spread over six runners and came in around 50, this was the longest
     # thing left. Six shards puts it near 10.
-    name: Analyze and test (${{ matrix.shard }}/6)
+    name: Analyze and test (${{ matrix.shard }})
     needs: resolve
     runs-on: ubuntu-latest
     timeout-minutes: 90
     strategy:
       fail-fast: false
-      matrix:
-        shard: [1, 2, 3, 4, 5, 6]
+      matrix: ${{ fromJson(needs.resolve.outputs.validate_matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-agl
         with:
           token: ${{ secrets.AGL_PACKAGES_TOKEN }}
           flutter-version: ${{ env.FLUTTER_VERSION }}
-      - name: Work out this shard's apps
-        id: shard
-        env:
-          SPEC: ${{ needs.resolve.outputs.apps }}
-        run: |
-          if [ "$SPEC" != "all" ]; then
-            # Explicit list: shard 1 takes all of it, the rest do nothing.
-            [ "${{ matrix.shard }}" = "1" ] && LIST="$SPEC" || LIST=""
-          else
-            LIST="$(python3 scripts/shard_apps.py '${{ matrix.shard }}/6')"
-          fi
-          echo "list=$LIST" >> "$GITHUB_OUTPUT"
-          echo "shard ${{ matrix.shard }}/6: ${LIST:-<empty>}"
-
       - name: Check out this shard's apps
-        if: steps.shard.outputs.list != ''
+        if: matrix.apps != ''
         run: |
           # Only this shard's apps. Cloning all 43 on every shard would spend
           # six times the checkout for no benefit.
-          python3 scripts/checkout.py --apps "${{ steps.shard.outputs.list }}"
+          python3 scripts/checkout.py --apps "${{ matrix.apps }}"
           # Say where the apps are rather than letting agl_paths guess. Its
           # heuristic is "does work/ contain at least two app repos", which is
           # right locally and wrong for a single-app run: with only yourtube
@@ -127,11 +136,11 @@ jobs:
           # whose key.properties had just been written (run 36328390497).
           echo "AGL_ROOT=$GITHUB_WORKSPACE/work" >> "$GITHUB_ENV"
       - name: Analyze and test this shard
-        if: steps.shard.outputs.list != ''
+        if: matrix.apps != ''
         # An empty list means "every app" to fastlane, which is why the guard
         # above is an `if:` and not a shell test — a mistake here validates the
         # whole portfolio on six runners at once.
-        run: bundle exec fastlane validate apps:"${{ steps.shard.outputs.list }}"
+        run: bundle exec fastlane validate apps:"${{ matrix.apps }}"
 
   android:
     # Sharded because one job cannot do all 43. A signed bundle takes 6-11
@@ -139,24 +148,27 @@ jobs:
     # 373s), so the whole portfolio is roughly five hours - well past this
     # job's timeout and past the point where a single failure is worth
     # re-running. Six shards is about 50 minutes each.
-    name: Build signed Android bundles (${{ matrix.shard }}/6)
+    name: Build signed Android bundles (${{ matrix.shard }})
     needs: [resolve, validate]
     if: needs.resolve.outputs.stop_after != 'validate'
     runs-on: ubuntu-latest
     timeout-minutes: 180
     strategy:
       fail-fast: false
-      matrix:
-        shard: [1, 2, 3, 4, 5, 6]
+      matrix: ${{ fromJson(needs.resolve.outputs.android_matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-agl
         with:
           token: ${{ secrets.AGL_PACKAGES_TOKEN }}
           flutter-version: ${{ env.FLUTTER_VERSION }}
-      - name: Check out the apps
+      - name: Check out this shard's apps
+        if: matrix.apps != ''
         run: |
-          python3 scripts/checkout.py --apps "${{ needs.resolve.outputs.apps }}"
+          # Only this shard's apps. Every shard used to clone and sign all 43
+          # and then build a sixth of them, spending checkout time and the
+          # runner's disk - the scarce resource here - on 36 unused repos.
+          python3 scripts/checkout.py --apps "${{ matrix.apps }}"
           # Say where the apps are rather than letting agl_paths guess. Its
           # heuristic is "does work/ contain at least two app repos", which is
           # right locally and wrong for a single-app run: with only yourtube
@@ -165,7 +177,11 @@ jobs:
           # whose key.properties had just been written (run 36328390497).
           echo "AGL_ROOT=$GITHUB_WORKSPACE/work" >> "$GITHUB_ENV"
 
+      # Every step from here is guarded by an `if:` on the shard list, not a
+      # shell test: an empty list means "every app" to checkout.py,
+      # materialise_signing.py and build_release.py alike.
       - name: Write the Play service-account key
+        if: matrix.apps != ''
         env:
           PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -181,18 +197,22 @@ jobs:
 
       # Guard 1. Ask Play what codes it already holds, before building anything.
       - name: Version-code preflight
+        if: matrix.apps != ''
         run: |
           mkdir -p "$RUNNER_TEMP/dist"
           python3 scripts/play_version_codes.py --out "$RUNNER_TEMP/dist/play-version-codes.json"
           if [ "${{ inputs.bump_versions }}" = "true" ]; then
             python3 scripts/preflight_version_codes.py --bump \
+              --apps "${{ matrix.apps }}" \
               --codes "$RUNNER_TEMP/dist/play-version-codes.json"
           else
             python3 scripts/preflight_version_codes.py --check \
+              --apps "${{ matrix.apps }}" \
               --codes "$RUNNER_TEMP/dist/play-version-codes.json"
           fi
 
       - name: Materialise per-app signing material
+        if: matrix.apps != ''
         env:
           ANDROID_KEYSTORE_CONFIG: ${{ secrets.ANDROID_KEYSTORE_CONFIG }}
         run: |
@@ -208,7 +228,7 @@ jobs:
           AGL_SECRETS_EOF
           ALL_SECRETS_FILE="$RUNNER_TEMP/all-secrets.json" \
             python3 scripts/materialise_signing.py \
-              --apps "${{ needs.resolve.outputs.apps }}" --out "$RUNNER_TEMP"
+              --apps "${{ matrix.apps }}" --out "$RUNNER_TEMP"
           rm -f "$RUNNER_TEMP/all-secrets.json"
 
       - name: Resolve the app list
@@ -224,13 +244,14 @@ jobs:
             echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
           fi
         env:
-          SPEC: ${{ needs.resolve.outputs.apps }}
+          SPEC: ${{ matrix.apps }}
       # A hosted runner has ~7 GB of RAM and ~14 GB free after the toolchain,
       # and a Flutter release tree is 0.5-4 GB. Run 36300502870 built one app
       # cleanly and then took a bare SIGTERM (exit 143, no stderr) partway
       # through the second, which is what exhausting either looks like from
       # inside the process. Reclaim what the image ships and does not need.
       - name: Make room for the build
+        if: matrix.apps != ''
         run: |
           echo "before:"; df -h /; free -m | head -2
           # Two things here are load-bearing by their absence:
@@ -248,6 +269,7 @@ jobs:
           echo "after:"; df -h /; free -m | head -2
 
       - name: Build every bundle and prove it is signed
+        if: matrix.apps != ''
         env:
           # Caps the Gradle daemon rather than letting it size itself against a
           # machine it does not have, and keeps no daemon alive between apps -
@@ -267,21 +289,16 @@ jobs:
           # An explicit app list is already small enough to build in one job,
           # so only shard the "all" case — otherwise asking for three apps
           # would spread them over six runners and waste five of them.
-          if [ -n "${{ steps.list.outputs.names }}" ]; then
-            if [ "${{ matrix.shard }}" != "1" ]; then
-              echo "explicit app list; shard 1 builds it"; exit 0
-            fi
-            python3 scripts/build_release.py ${{ steps.list.outputs.names }}
-          else
-            python3 scripts/build_release.py --shard "${{ matrix.shard }}/6"
-          fi
+          python3 scripts/build_release.py ${{ steps.list.outputs.names }}
 
       - uses: actions/upload-artifact@v4
         # Even when the shard failed. Shard 1 of run 36304281088 lost yourtube's
         # failure detail entirely because this step is normally skipped after a
         # failing step — so the one artefact that explains the failure is the
-        # one that does not survive it.
-        if: always()
+        # one that does not survive it. An empty shard built nothing, and
+        # uploading its committed docs/build-evidence.json could overwrite
+        # shard 1's fresh one in release's merge-multiple download.
+        if: always() && matrix.apps != ''
         with:
           name: android-bundles-${{ matrix.shard }}
           # work/.dist, not .dist: AGL_ROOT is $GITHUB_WORKSPACE/work, and
@@ -303,11 +320,14 @@ jobs:
           retention-days: 14
 
   ios:
-    name: Build signed iOS archives
+    name: Build signed iOS archives (${{ matrix.shard }})
     needs: [resolve, validate]
     if: needs.resolve.outputs.stop_after != 'validate'
     runs-on: macos-latest
     timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix: ${{ fromJson(needs.resolve.outputs.ios_matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-agl
@@ -315,8 +335,9 @@ jobs:
           token: ${{ secrets.AGL_PACKAGES_TOKEN }}
           flutter-version: ${{ env.FLUTTER_VERSION }}
       - name: Check out the apps
+        if: matrix.apps != ''
         run: |
-          python3 scripts/checkout.py --apps "${{ needs.resolve.outputs.apps }}"
+          python3 scripts/checkout.py --apps "${{ matrix.apps }}"
           # Say where the apps are rather than letting agl_paths guess. Its
           # heuristic is "does work/ contain at least two app repos", which is
           # right locally and wrong for a single-app run: with only yourtube
@@ -326,6 +347,7 @@ jobs:
           echo "AGL_ROOT=$GITHUB_WORKSPACE/work" >> "$GITHUB_ENV"
 
       - name: Load the App Store Connect key
+        if: matrix.apps != ''
         env:
           ASC_KEY_ID: ${{ secrets.ASC_KEY_ID }}
           ASC_ISSUER_ID: ${{ secrets.ASC_ISSUER_ID }}
@@ -349,6 +371,7 @@ jobs:
       # a bare FileNotFoundError for a profile_map.json that no script in the
       # repository had ever written. Fail here instead, saying which half.
       - name: Install the iOS signing identity
+        if: matrix.apps != ''
         env:
           IOS_DIST_CERT_P12: ${{ secrets.IOS_DIST_CERT_P12 }}
           IOS_DIST_CERT_PASSWORD: ${{ secrets.IOS_DIST_CERT_PASSWORD }}
@@ -379,11 +402,13 @@ jobs:
       # bundle id -> provisioning profile name, read from App Store Connect
       # rather than from a file someone made by hand on the build Mac.
       - name: Map every bundle id to its provisioning profile
+        if: matrix.apps != ''
         run: bundle exec ruby scripts/ios_profile_map.rb --install
 
       # Archives unsigned and signs on export: a CLI signing setting applies to
       # every target including CocoaPods, which reject provisioning profiles.
       - name: Resolve the app list
+        if: matrix.apps != ''
         id: list
         run: |
           # checkout.py understands the keywords; the builders take positional
@@ -396,11 +421,13 @@ jobs:
             echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
           fi
         env:
-          SPEC: ${{ needs.resolve.outputs.apps }}
+          SPEC: ${{ matrix.apps }}
       - name: Build every IPA
+        if: matrix.apps != ''
         run: python3 scripts/build_ipa.py ${{ steps.list.outputs.names }}
 
       - name: Prove every IPA is distribution-signed
+        if: matrix.apps != ''
         run: python3 scripts/verify_ipa_signing.py
 
       - uses: actions/upload-artifact@v4
@@ -408,9 +435,9 @@ jobs:
         # one artefact that explains a failure must not be the one that does
         # not survive it: PlantPulse reported FLUTTER_BUILD_FAILED and the
         # Flutter output went nowhere.
-        if: always()
+        if: always() && matrix.apps != ''
         with:
-          name: ios-archives
+          name: ios-archives-${{ matrix.shard }}
           path: |
             work/.dist/*.ipa
             docs/ios-ipa-evidence.json
@@ -439,7 +466,7 @@ jobs:
       - name: Recombine the sharded build evidence
         run: python3 scripts/merge_build_evidence.py
       - uses: actions/download-artifact@v4
-        with: { name: ios-archives, path: . }
+        with: { pattern: ios-archives-*, merge-multiple: true, path: . }
 
       # A release per app in its own repository, tagged with that app's own
       # version, carrying the APK (sideloadable), the AAB (what Play takes) and
@@ -483,7 +510,7 @@ jobs:
       - name: Recombine the sharded build evidence
         run: python3 scripts/merge_build_evidence.py
       - uses: actions/download-artifact@v4
-        with: { name: ios-archives, path: . }
+        with: { pattern: ios-archives-*, merge-multiple: true, path: . }
 
       - name: Write credentials
         env:
@@ -674,6 +701,10 @@ jobs:
           python3 scripts/store_gates.py      || true
           python3 scripts/app_identifiers.py  || true
           python3 scripts/store_checklist.py  || true
+          # Phase 2 foundation: keep desired-state and measured-state layers
+          # refreshed without changing current CI consumers.
+          python3 scripts/generate_apps_yaml.py --infile apps.json --out manifest/apps.yaml
+          cp apps.json generated/apps.json
 
       - name: Rebuild the single sheet
         env:
