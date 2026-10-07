@@ -1725,3 +1725,52 @@ provisioning profile. Every IPA in `.dist` is an App Store distribution
 build: it uploads cleanly and still will not install for a tester. The
 `--ios` flag exists for when ad-hoc IPAs are built. Until then TestFlight is
 the iOS channel, and all 43 are already there.
+
+## MA-039 · P0 · Nine apps are serving Google's sample ads, four of them live
+
+Measured 2026-10-06 from the shipped manifests and plists, not from a record.
+
+`ca-app-pub-3940256099942544` is the AdMob id Google publishes in its own
+documentation so a developer can test without an account. Nine of the eleven
+ad-serving apps ship it:
+
+| Where | Sample id | Apps |
+| --- | --- | --- |
+| iOS `Info.plist` | `~1458002511` | BodyQuest, iMeasure, PilotEnRoute, radiotune, TripNest, Uscis-Case, Verba, VirtuBand, yourtube |
+| Android manifest | `~3347511713` | BodyQuest, Verba, yourtube |
+
+Two consequences. The apps earn nothing — Google's test inventory does not
+pay. And serving it from a production listing is against the AdMob policy.
+**TripNest, Uscis-Case, VirtuBand and iMeasure are already live on Google
+Play**, so this is happening now.
+
+### Why it is not already fixed
+
+`scripts/fix_admob_ids.py` will swap every sample id for the real one and
+reports exactly which it cannot. Today it replaces none, because the real
+ids do not exist:
+
+```
+docs/admob-ids.json — 43 entries
+  35  no ids at all
+   6  android_app_id + banner + interstitial
+   1  android_app_id + ios_app_id
+   1  all four
+```
+
+Only two apps have an iOS AdMob app id on record. The rest have to be
+created, and MA-027 records that both routes were tried: the v1 API is
+read-only, v1beta's `accounts.apps.create` is refused for this account, and
+the console has no bulk import.
+
+### What to do
+
+1. In the AdMob console, create an app entry per platform for the nine
+   above, and a banner and interstitial unit for each.
+2. Put the ids into `docs/admob-ids.json`.
+3. `python3 scripts/fix_admob_ids.py` — it rewrites the manifests and plists
+   and lists anything still missing.
+4. Rebuild and re-upload the four that are live first.
+
+Until then, **do not promote any more ad-serving apps to production**: it
+adds listings that serve Google's sample inventory.

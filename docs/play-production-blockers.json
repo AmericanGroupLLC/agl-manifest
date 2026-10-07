@@ -353,7 +353,15 @@
   {
    "repo": "FashionFactory",
    "package": "com.americangroupllc.fashionfactory",
-   "internal": [],
+   "internal": [
+    {
+     "versionCodes": [
+      "4"
+     ],
+     "status": "completed",
+     "countryTargeting": false
+    }
+   ],
    "production": [
     {
      "versionCodes": [
