@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.americangroupllc.storewatch</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/spatchava/agl/agl-manifest/scripts/store_watch_run.sh</string>
+  </array>
+
+  <!-- Every six hours, off the hour. Store state does not change faster than
+       this: Apple review takes days, and a tighter loop would only add load
+       and noise. -->
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>3</integer><key>Minute</key><integer>17</integer></dict>
+    <dict><key>Hour</key><integer>9</integer><key>Minute</key><integer>17</integer></dict>
+    <dict><key>Hour</key><integer>15</integer><key>Minute</key><integer>17</integer></dict>
+    <dict><key>Hour</key><integer>21</integer><key>Minute</key><integer>17</integer></dict>
+  </array>
+
+  <!-- Catch up once if the Mac was asleep at the scheduled time. -->
+  <key>RunAtLoad</key>
+  <false/>
+
+  <key>StandardOutPath</key>
+  <string>/Users/spatchava/agl/.dist/store-watch/launchd.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/spatchava/agl/.dist/store-watch/launchd.err</string>
+</dict>
+</plist>

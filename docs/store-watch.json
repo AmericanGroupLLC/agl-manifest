@@ -1,0 +1,205 @@
+{
+ "ran": "2026-10-07T11:45:36",
+ "apple": {
+  "IN_REVIEW": 16,
+  "PREPARE_FOR_SUBMISSION": 1,
+  "REJECTED": 26
+ },
+ "play": {},
+ "holds": {
+  "AeroSwift": "2.1",
+  "AGrammarly": "4.2.6",
+  "BodyQuest": "4.2.6",
+  "CalcMaster": "2.1",
+  "CodeDeal": "4.2.6",
+  "daily-pulse": "4.2.6",
+  "DriftDate": "2.1",
+  "EventSpark": "2.1",
+  "GadgetNest": "2.1",
+  "GroceryMatch": "4.2.6",
+  "HerJourney": "4.2.6",
+  "iMaps": "4.2.6",
+  "iMeasure": "4.2.6",
+  "Kinnav": "4.2.6",
+  "MyCard": "2.1",
+  "MyFinance": "2.1",
+  "MyHealth": "4.2.6",
+  "NexusTransferPay": "2.1",
+  "Photriya": "4.2.6",
+  "PilotEnRoute": "2.1",
+  "portfolio-board": "2.1",
+  "radiotune": "4.2.6",
+  "Uscis-Case": "4.2.6",
+  "Verba": "2.1",
+  "WiFiTrail": "4.2.6",
+  "yourtube": "2.1"
+ },
+ "actions": [
+  "store metadata: ok",
+  "review notes: ok",
+  "age ratings: ok"
+ ],
+ "ready_to_submit": [],
+ "held_back": [
+  "AGrammarly",
+  "AeroSwift",
+  "BodyQuest",
+  "CalcMaster",
+  "CodeDeal",
+  "DriftDate",
+  "EventSpark",
+  "GadgetNest",
+  "GroceryMatch",
+  "HerJourney",
+  "Kinnav",
+  "MyCard",
+  "MyFinance",
+  "MyHealth",
+  "NexusTransferPay",
+  "Photriya",
+  "PilotEnRoute",
+  "Uscis-Case",
+  "Verba",
+  "WiFiTrail",
+  "daily-pulse",
+  "iMaps",
+  "iMeasure",
+  "portfolio-board",
+  "radiotune",
+  "yourtube"
+ ],
+ "gate_failures": {
+  "AGCleaner": [
+   "4.3 differentiation statement"
+  ],
+  "AGRecorder": [
+   "4.3 differentiation statement"
+  ],
+  "AGStudio": [
+   "4.3 differentiation statement"
+  ],
+  "AGrammarly": [
+   "4.3 differentiation statement"
+  ],
+  "AeroSwift": [
+   "4.3 differentiation statement"
+  ],
+  "ApexMarketWatch": [
+   "4.3 differentiation statement"
+  ],
+  "BodyQuest": [
+   "4.3 differentiation statement"
+  ],
+  "BuddyPlay": [
+   "4.3 differentiation statement"
+  ],
+  "CalcMaster": [
+   "4.3 differentiation statement"
+  ],
+  "CarDeal": [
+   "4.3 differentiation statement"
+  ],
+  "ChefCount": [
+   "4.3 differentiation statement"
+  ],
+  "CodeDeal": [
+   "4.3 differentiation statement"
+  ],
+  "DriftDate": [
+   "Demo account when the app gates on sign-in",
+   "4.3 differentiation statement"
+  ],
+  "EventSpark": [
+   "4.3 differentiation statement"
+  ],
+  "FashionFactory": [
+   "Apple age rating answered",
+   "4.3 differentiation statement"
+  ],
+  "GadgetNest": [
+   "4.3 differentiation statement"
+  ],
+  "GroceryMatch": [
+   "4.3 differentiation statement"
+  ],
+  "HerJourney": [
+   "4.3 differentiation statement"
+  ],
+  "HomeWise": [
+   "4.3 differentiation statement"
+  ],
+  "Kinnav": [
+   "Demo account when the app gates on sign-in",
+   "4.3 differentiation statement"
+  ],
+  "MileMaster": [
+   "4.3 differentiation statement"
+  ],
+  "MyCard": [
+   "4.3 differentiation statement"
+  ],
+  "MyFinance": [
+   "4.3 differentiation statement"
+  ],
+  "MyHealth": [
+   "4.3 differentiation statement"
+  ],
+  "NearServe": [
+   "4.3 differentiation statement"
+  ],
+  "NewsBoard": [
+   "4.3 differentiation statement"
+  ],
+  "NexusTransferPay": [
+   "4.3 differentiation statement"
+  ],
+  "Photriya": [
+   "4.3 differentiation statement"
+  ],
+  "PilotEnRoute": [
+   "4.3 differentiation statement"
+  ],
+  "PlantPulse": [
+   "4.3 differentiation statement"
+  ],
+  "RideZap": [
+   "4.3 differentiation statement"
+  ],
+  "RoomCraft": [
+   "4.3 differentiation statement"
+  ],
+  "TripNest": [
+   "4.3 differentiation statement"
+  ],
+  "Uscis-Case": [
+   "4.3 differentiation statement"
+  ],
+  "Verba": [
+   "4.3 differentiation statement"
+  ],
+  "VirtuBand": [
+   "4.3 differentiation statement"
+  ],
+  "WiFiTrail": [
+   "4.3 differentiation statement"
+  ],
+  "daily-pulse": [
+   "4.3 differentiation statement"
+  ],
+  "iMaps": [
+   "4.3 differentiation statement"
+  ],
+  "iMeasure": [
+   "4.3 differentiation statement"
+  ],
+  "portfolio-board": [
+   "4.3 differentiation statement"
+  ],
+  "radiotune": [
+   "4.3 differentiation statement"
+  ],
+  "yourtube": [
+   "4.3 differentiation statement"
+  ]
+ }
+}

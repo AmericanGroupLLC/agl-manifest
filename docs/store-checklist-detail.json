@@ -32,8 +32,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "3e57e7e5d53c"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -42,8 +42,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 5, play 4"
   },
   {
    "check": "App Store name",
@@ -82,8 +82,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -92,7 +92,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -102,13 +102,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -122,18 +122,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -157,8 +157,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -199,8 +199,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "365e5ce1f05a"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -209,8 +209,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 6, play 3"
   },
   {
    "check": "App Store name",
@@ -249,8 +249,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -259,7 +259,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -269,13 +269,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -289,18 +289,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -314,18 +314,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -366,8 +366,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "93f7d4982dff"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -376,8 +376,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 4, play 3"
   },
   {
    "check": "App Store name",
@@ -421,8 +421,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -431,7 +431,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -441,13 +441,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -461,18 +461,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -486,8 +486,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -496,8 +496,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -538,8 +538,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "df06aa0c917f"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -548,8 +548,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 5, play 3"
   },
   {
    "check": "App Store name",
@@ -588,8 +588,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -598,7 +598,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -608,13 +608,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -628,18 +628,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -653,18 +653,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -705,8 +705,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "ed447ff572bf"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -715,8 +715,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 5, play 4"
   },
   {
    "check": "App Store name",
@@ -755,8 +755,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -765,7 +765,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -775,13 +775,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -795,18 +795,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -830,8 +830,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -872,8 +872,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "de92aa1b1d32"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -882,8 +882,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 8, play 4"
   },
   {
    "check": "App Store name",
@@ -922,8 +922,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -932,7 +932,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -942,13 +942,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -962,18 +962,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -987,8 +987,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -997,8 +997,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1039,8 +1039,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "0728a46087a2"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -1049,8 +1049,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 7, play 6"
   },
   {
    "check": "App Store name",
@@ -1094,17 +1094,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -1114,13 +1114,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -1134,18 +1134,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -1159,8 +1159,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -1169,8 +1169,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1211,8 +1211,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "264a7dd6ea47"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -1221,8 +1221,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 6, play 3"
   },
   {
    "check": "App Store name",
@@ -1261,8 +1261,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -1271,7 +1271,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -1281,13 +1281,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -1301,18 +1301,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -1336,8 +1336,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1378,8 +1378,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "d9d26cfca178"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -1388,8 +1388,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -1433,17 +1433,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -1453,13 +1453,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -1473,18 +1473,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on production"
   },
   {
    "check": "Play reaches Console account users",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -1498,18 +1498,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1550,8 +1550,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "cb90fedca983"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -1560,8 +1560,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -1600,8 +1600,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -1610,7 +1610,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -1620,13 +1620,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -1640,18 +1640,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "staged on the production track, goes live when the app is published"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -1675,8 +1675,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1717,8 +1717,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "bd40d0d34bbb"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -1727,8 +1727,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 8, play 5"
   },
   {
    "check": "App Store name",
@@ -1772,8 +1772,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -1782,7 +1782,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -1792,13 +1792,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -1812,18 +1812,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -1842,13 +1842,13 @@
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -1889,8 +1889,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "3c35bd963d2c"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -1899,8 +1899,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 5, play 4"
   },
   {
    "check": "App Store name",
@@ -1939,8 +1939,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -1949,7 +1949,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -1959,13 +1959,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -1979,18 +1979,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -2014,8 +2014,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2056,8 +2056,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "88f6d6c36bb8"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -2066,8 +2066,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 4, play 3"
   },
   {
    "check": "App Store name",
@@ -2111,17 +2111,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -2131,13 +2131,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -2151,18 +2151,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -2176,8 +2176,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -2186,8 +2186,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2228,8 +2228,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "ed9a84f651a6"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -2238,8 +2238,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 3, play 2"
   },
   {
    "check": "App Store name",
@@ -2283,17 +2283,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -2303,13 +2303,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -2323,18 +2323,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -2343,23 +2343,23 @@
   },
   {
    "check": "Demo account when the app gates on sign-in",
-   "state": "PASS",
-   "detail": "no sign-in gate"
+   "state": "FAIL",
+   "detail": "sign-in wall with NO demo account"
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2400,8 +2400,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "c80cc094a4e3"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -2410,8 +2410,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -2450,8 +2450,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -2460,7 +2460,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -2470,13 +2470,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -2490,18 +2490,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -2525,8 +2525,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2567,8 +2567,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "262f191388b0"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -2577,8 +2577,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -2622,8 +2622,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -2632,7 +2632,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -2642,8 +2642,8 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
@@ -2662,18 +2662,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -2697,8 +2697,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2739,8 +2739,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "50dcbac6c563"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -2749,8 +2749,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -2789,8 +2789,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -2799,7 +2799,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -2809,13 +2809,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -2829,18 +2829,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -2864,8 +2864,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -2906,8 +2906,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "766ee6855483"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -2916,8 +2916,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 5, play 3"
   },
   {
    "check": "App Store name",
@@ -2961,17 +2961,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -2981,13 +2981,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -3001,18 +3001,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -3026,8 +3026,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -3036,8 +3036,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3078,8 +3078,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "7e19bfa045ae"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -3088,8 +3088,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -3133,17 +3133,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -3153,13 +3153,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -3173,18 +3173,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -3208,8 +3208,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3250,8 +3250,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "21da48bf39fd"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -3260,8 +3260,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 11, play 6"
   },
   {
    "check": "App Store name",
@@ -3300,8 +3300,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -3310,7 +3310,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -3320,13 +3320,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -3340,18 +3340,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "staged on the production track, goes live when the app is published"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -3365,8 +3365,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -3375,8 +3375,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3417,8 +3417,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "880fa0330d26"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -3427,8 +3427,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 5, play 3"
   },
   {
    "check": "App Store name",
@@ -3472,17 +3472,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -3492,13 +3492,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -3512,18 +3512,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on production"
   },
   {
    "check": "Play reaches Console account users",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -3537,18 +3537,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3589,8 +3589,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "e224c360fb12"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -3599,8 +3599,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -3644,17 +3644,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -3664,13 +3664,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -3684,18 +3684,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on production"
   },
   {
    "check": "Play reaches Console account users",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -3714,13 +3714,13 @@
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3761,8 +3761,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "6b981f7c9f98"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -3771,8 +3771,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 4, play 3"
   },
   {
    "check": "App Store name",
@@ -3816,17 +3816,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -3836,13 +3836,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -3856,18 +3856,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -3876,13 +3876,13 @@
   },
   {
    "check": "Demo account when the app gates on sign-in",
-   "state": "PASS",
-   "detail": "no sign-in gate"
+   "state": "FAIL",
+   "detail": "sign-in wall with NO demo account"
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -3891,8 +3891,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -3933,8 +3933,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "6b495e921f1b"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -3943,8 +3943,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 5, play 3"
   },
   {
    "check": "App Store name",
@@ -3988,8 +3988,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -3998,7 +3998,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -4008,13 +4008,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -4028,18 +4028,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -4053,18 +4053,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4105,8 +4105,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "f095b1456bf3"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -4115,8 +4115,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 5, play 3"
   },
   {
    "check": "App Store name",
@@ -4155,8 +4155,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -4165,7 +4165,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -4175,13 +4175,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -4195,18 +4195,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -4220,8 +4220,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -4230,8 +4230,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4272,8 +4272,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "f9e5b93a1be4"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -4282,8 +4282,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 8, play 4"
   },
   {
    "check": "App Store name",
@@ -4327,8 +4327,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -4337,7 +4337,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -4347,13 +4347,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -4367,18 +4367,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -4397,13 +4397,13 @@
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4444,8 +4444,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "cf26a8b793e5"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -4454,8 +4454,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 4, play 3"
   },
   {
    "check": "App Store name",
@@ -4499,17 +4499,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -4519,13 +4519,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -4539,18 +4539,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -4564,8 +4564,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -4574,8 +4574,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4616,8 +4616,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "64b8d5465535"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -4626,8 +4626,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -4666,8 +4666,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -4676,7 +4676,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -4686,13 +4686,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -4706,18 +4706,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -4731,8 +4731,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -4741,8 +4741,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4783,8 +4783,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "16aa785f8dfe"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -4793,8 +4793,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 6, play 3"
   },
   {
    "check": "App Store name",
@@ -4833,8 +4833,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -4843,7 +4843,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -4853,13 +4853,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -4873,18 +4873,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -4898,8 +4898,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -4908,8 +4908,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -4950,8 +4950,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "18a039defc96"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -4960,8 +4960,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -5000,8 +5000,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -5010,7 +5010,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -5020,13 +5020,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5040,18 +5040,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -5075,8 +5075,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5117,8 +5117,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "98174dc8767c"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -5127,8 +5127,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 9, play 5"
   },
   {
    "check": "App Store name",
@@ -5172,17 +5172,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -5192,13 +5192,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5212,18 +5212,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -5237,8 +5237,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -5247,8 +5247,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5289,8 +5289,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "3fcff1d8a365"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -5299,8 +5299,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 4, play 3"
   },
   {
    "check": "App Store name",
@@ -5344,17 +5344,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -5364,13 +5364,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5384,18 +5384,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -5409,8 +5409,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -5419,8 +5419,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5461,8 +5461,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "b833e597c8d1"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -5471,8 +5471,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 8, play 4"
   },
   {
    "check": "App Store name",
@@ -5511,8 +5511,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -5521,7 +5521,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -5531,13 +5531,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5551,18 +5551,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -5586,8 +5586,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5628,8 +5628,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "79491c9f3e90"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -5638,8 +5638,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 8, play 5"
   },
   {
    "check": "App Store name",
@@ -5683,8 +5683,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -5693,7 +5693,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -5703,13 +5703,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5723,18 +5723,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -5758,8 +5758,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5800,8 +5800,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "3530bee5a1f8"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -5810,8 +5810,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 8, play 4"
   },
   {
    "check": "App Store name",
@@ -5855,17 +5855,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -5875,13 +5875,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5895,18 +5895,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -5930,8 +5930,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -5972,8 +5972,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "5c6bd5b8c6b2"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -5982,8 +5982,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 8, play 5"
   },
   {
    "check": "App Store name",
@@ -6022,8 +6022,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -6032,7 +6032,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -6042,13 +6042,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -6062,18 +6062,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -6097,8 +6097,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6139,8 +6139,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "d3d7bf7737c3"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -6149,8 +6149,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 6, play 3"
   },
   {
    "check": "App Store name",
@@ -6189,8 +6189,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -6199,7 +6199,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -6209,13 +6209,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -6229,18 +6229,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -6254,18 +6254,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "roomcraft_demo.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6306,8 +6306,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "d7df7967371f"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -6316,8 +6316,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -6361,8 +6361,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -6371,7 +6371,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -6381,13 +6381,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -6401,18 +6401,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on production"
   },
   {
    "check": "Play reaches Console account users",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -6436,8 +6436,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6478,8 +6478,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "fdb8c722c1d6"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -6488,8 +6488,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 10, play 5"
   },
   {
    "check": "App Store name",
@@ -6533,17 +6533,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -6553,13 +6553,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -6573,18 +6573,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on production"
   },
   {
    "check": "Play reaches Console account users",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -6603,13 +6603,13 @@
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6650,8 +6650,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "8787cb68431f"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -6660,8 +6660,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 6, play 5"
   },
   {
    "check": "App Store name",
@@ -6705,8 +6705,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -6715,7 +6715,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -6725,13 +6725,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -6745,18 +6745,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "staged on the production track, goes live when the app is published"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "no Play entry - MA-021"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -6770,18 +6770,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6822,8 +6822,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "c0b36e516dd8"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -6832,8 +6832,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 4, play 3"
   },
   {
    "check": "App Store name",
@@ -6877,17 +6877,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -6897,13 +6897,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -6917,18 +6917,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on production"
   },
   {
    "check": "Play reaches Console account users",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "internal app sharing link issued"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -6942,18 +6942,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -6994,8 +6994,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "0335cd95483d"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -7004,8 +7004,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 4, play 3"
   },
   {
    "check": "App Store name",
@@ -7049,8 +7049,8 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "3 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
@@ -7059,7 +7059,7 @@
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -7069,13 +7069,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -7089,18 +7089,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -7114,18 +7114,18 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
-   "state": "HUMAN",
-   "detail": "none recorded"
+   "state": "PASS",
+   "detail": "demo_video.mp4"
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
@@ -7166,8 +7166,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "70a3e23fdf0f"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -7176,8 +7176,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 6, play 5"
   },
   {
    "check": "App Store name",
@@ -7216,17 +7216,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -7236,13 +7236,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -7256,18 +7256,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -7281,8 +7281,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -7291,8 +7291,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",
