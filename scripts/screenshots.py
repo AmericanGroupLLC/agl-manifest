@@ -362,6 +362,71 @@ def android_capture(app, app_dir, out_android, serial):
     return res
 
 
+def drive_capture(app, app_dir, out_ios, out_android, udid):
+    """Capture by driving the app under integration_test, not by poking at it.
+
+    The idb path below photographs whatever is on screen, and for an app with
+    a sign-in wall that is the login form — the Guideline 2.3.3 rejection.
+    Neither live way past it is available: the documented test accounts do
+    not authenticate (MA-036) and anonymous sign-in is disabled on the
+    Supabase project (MA-040).
+
+    Every app already carries integration_test/store_screenshots_test.dart
+    and test_driver/integration_test.dart, written and then never run. That
+    test drives the real app and can set up its own state first, so an app
+    whose AuthService restores an offline session starts signed in with no
+    network at all. yourtube goes from one login screen to five real ones.
+    """
+    res = {"repo": app["repo"], "screens": {}, "banner_patched": None, "error": ""}
+    target = app_dir / "integration_test/store_screenshots_test.dart"
+    driver = app_dir / "test_driver/integration_test.dart"
+    if not target.exists() or not driver.exists():
+        res["error"] = "no integration_test/test_driver pair"
+        return res
+
+    raw = app_dir / "store_screenshots"
+    shutil.rmtree(raw, ignore_errors=True)
+    r = sh(FLUTTER, "drive", "--driver=test_driver/integration_test.dart",
+           f"--target=integration_test/store_screenshots_test.dart",
+           "--dart-define=SCREENSHOT=true", "-d", udid,
+           cwd=app_dir, timeout=2400)
+    shots = sorted(raw.glob("*.png")) if raw.is_dir() else []
+    if not shots:
+        res["error"] = "drive produced no screenshots: " + \
+                       (r.stderr or r.stdout).strip()[-220:]
+        return res
+
+    # Same rule as the idb path: never replace a published set with a
+    # smaller one, and stage before touching what is already there.
+    have = len(list(out_ios.glob("iphone69-*.png"))) if out_ios.is_dir() else 0
+    if len(shots) < max(have, 1):
+        res["error"] = f"captured {len(shots)} but {have} already published"
+        res["screens"]["iphone69"] = have
+        return res
+
+    out_ios.mkdir(parents=True, exist_ok=True)
+    for old in out_ios.glob("iphone69-*.png"):
+        old.unlink()
+    for i, s in enumerate(shots, start=1):
+        shutil.copy(s, out_ios / f"iphone69-{i:02d}.png")
+
+    tgt = out_android / "phoneScreenshots"
+    tgt.mkdir(parents=True, exist_ok=True)
+    for old in tgt.glob("*.png"):
+        old.unlink()
+    for i, s in enumerate(shots, start=1):
+        # Play wants at most 2:1; the simulator frame is taller than that.
+        col = sh("magick", str(s), "-gravity", "North", "-crop", "1x1+0+0",
+                 "+repage", "-format", "%[pixel:p{0,0}]", "info:").stdout.strip() or "black"
+        sh("magick", str(s), "-background", col, "-gravity", "center",
+           "-extent", "1440x2880", str(tgt / f"{i:02d}.png"))
+
+    res["screens"]["iphone69"] = len(shots)
+    res["passed_sign_in"] = True   # the drive starts the app already signed in
+    res["sign_in_gate"] = None
+    return res
+
+
 def capture(app, out_ios, out_android):
     repo = app["repo"]; app_dir = ROOT / repo / (app["dir"] if app["dir"] != "." else "")
     bundle = app["bundle_id"]
@@ -604,7 +669,17 @@ def main():
         # failed build must not leave an app with no screenshots at all.
         out_android = app_dir / "fastlane/metadata/android/en-US/images"
         t0 = time.time(); print(f"{a['repo']}: building…", flush=True)
-        if skip_ios:
+        if "--drive" in sys.argv:
+            # Drive the app under integration_test instead of poking at it
+            # with idb. See drive_capture for why.
+            ios_udid = next(iter(DEVICES.values()))
+            boot(ios_udid)
+            try:
+                r = drive_capture(a, app_dir, out_ios, out_android, ios_udid)
+            except Exception as e:
+                r = {"repo": a["repo"], "screens": {},
+                     "error": f"{type(e).__name__}: {e}"[:300]}
+        elif skip_ios:
             r = {"repo": a["repo"], "screens": {}, "error": ""}
         else:
             try: r = capture(a, out_ios, out_android)
