@@ -288,6 +288,26 @@ def main() -> int:
                 "; ".join(hint(h, v) for h, v in sorted(dead.items()))
                 if dead else f"{ah.get('hosts', 0)} host(s), all resolve")
 
+        # --- no blank screenshot in the store metadata ---------------------
+        # The capture refuses blank frames, but blank PNGs reached seven apps
+        # anyway on 2026-10-08 — committed by a sweep of uncommitted files,
+        # not by the capture. So the gate reads what is actually in the
+        # folder that fastlane's metadata lane uploads.
+        import subprocess as _sp
+        _blank = []
+        for _png in sorted((d / "fastlane/metadata").rglob("*creenshot*/*.png")) \
+                if (d / "fastlane/metadata").is_dir() else []:
+            _out = _sp.run(["magick", str(_png), "-colorspace", "Gray", "-format",
+                            "%[fx:standard_deviation]", "info:"],
+                           capture_output=True, text=True).stdout.strip()
+            try:
+                if float(_out) < 0.02:
+                    _blank.append(str(_png.relative_to(d)))
+            except ValueError:
+                pass
+        add("No blank store screenshots", NO if _blank else OK,
+            ("blank: " + ", ".join(_blank)) if _blank else "")
+
         # --- launches on current iOS ---------------------------------------
         # iOS 27 traps at launch in _UIApplicationEvaluateRuntimeIssueFor-
         # NoSceneLifecycleAdoption for any app without a scene manifest. 21

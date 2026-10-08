@@ -467,6 +467,12 @@ def ios(app: dict, d: pathlib.Path, udid: str, args, log: pathlib.Path) -> dict:
     if args.no_launch:
         return {**rec, "status": "installed"}
     run(["xcrun", "simctl", "terminate", udid, bundle], log, timeout=30)
+    # Pre-grant every privacy permission so no system prompt is left open.
+    # One unanswered "Allow Radio Tune to use your location?" sat over the
+    # home screen and made the next three apps' launches time out: each one
+    # started, but could not come to the foreground. It would also have put a
+    # permission dialog into any screenshot taken afterwards.
+    run(["xcrun", "simctl", "privacy", udid, "grant", "all", bundle], log, timeout=30)
     rc, out = run(["xcrun", "simctl", "launch", udid, bundle], log, timeout=90)
     if rc != 0:
         return {**rec, "status": "launch_failed", "detail": tail(out)}
