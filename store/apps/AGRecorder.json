@@ -1,35 +1,35 @@
 {
-  "repo": "AGRecorder",
-  "slug": "agrecorder",
-  "copy": {
-    "en": {
-      "name": "AGRecorder",
-      "short_description": "High-framerate screen recorder with dual-channel system + mic audio",
-      "subtitle": "Voice recorder with location",
-      "description": "AGRecorder is a voice recorder that remembers where you were.\n\nRECORD\nOne button. Start, stop, done. Audio is captured as AAC and written straight to your device.\n\nLOCATION\nEach recording can carry the coordinates it was made at. AGRecorder asks the device for GPS first; if that is unavailable it falls back to an approximate lookup, and it always tells you which of the two produced the fix rather than presenting a guess as a reading.\n\nPERMISSIONS, PLAINLY\nMicrophone access is what makes the app work. Location is used only to tag a recording, and only if you let it. Nothing is uploaded on your behalf.",
-      "keywords": "voice recorder,recorder,audio,memo,gps,location,dictation,field recording,notes"
-    }
-  },
-  "review_information": {
-    "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nAGRecorder is a voice recorder that remembers where you were.\n\nIntended audience:\nVoice recorder with location\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- device location services (on-device)\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/domain/recorder.dart (RecordingState machine), lib/platform/record_backend.dart (AudioRecorder, AudioEncoder.aacLc, writes agrecorder_<ts>.m4a), lib/domain/gps.dart (device -> ipFallback -> defaultLocation chain, LocationProvider surfaced to the UI), pubspec: record, geolocator, path_provider, http. CaptureSource.camera exists in the enum but RecordBackend.start() ignores its argument and always records audio — video is therefore NOT claimed.",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "primary_category": "UTILITIES",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
-  "differentiation": "1. WHAT IT DOES\nAGRecorder is a voice recorder that remembers where you were.\nScreens it contains: TODO\n\n2. INTENDED USER\nVoice recorder with location\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely — a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: UTILITIES.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: none\n  - Closest other app by implementation: AGCleaner at 53%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 16%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses — Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n"
+ "repo": "AGRecorder",
+ "slug": "agrecorder",
+ "copy": {
+  "en": {
+   "name": "AGRecorder",
+   "short_description": "High-framerate screen recorder with dual-channel system + mic audio",
+   "subtitle": "Voice recorder with location",
+   "description": "AGRecorder is a voice recorder that remembers where you were.\n\nRECORD\nOne button. Start, stop, done. Audio is captured as AAC and written straight to your device.\n\nLOCATION\nEach recording can carry the coordinates it was made at. AGRecorder asks the device for GPS first; if that is unavailable it falls back to an approximate lookup, and it always tells you which of the two produced the fix rather than presenting a guess as a reading.\n\nPERMISSIONS, PLAINLY\nMicrophone access is what makes the app work. Location is used only to tag a recording, and only if you let it. Nothing is uploaded on your behalf.",
+   "keywords": "voice recorder,recorder,audio,memo,gps,location,dictation,field recording,notes"
+  }
+ },
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nAGRecorder is a voice recorder that remembers where you were.\n\nIntended audience:\nVoice recorder with location\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- device location services (on-device)\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/domain/recorder.dart (RecordingState machine), lib/platform/record_backend.dart (AudioRecorder, AudioEncoder.aacLc, writes agrecorder_<ts>.m4a), lib/domain/gps.dart (device -> ipFallback -> defaultLocation chain, LocationProvider surfaced to the UI), pubspec: record, geolocator, path_provider, http. CaptureSource.camera exists in the enum but RecordBackend.start() ignores its argument and always records audio \u2014 video is therefore NOT claimed.",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "primary_category": "UTILITIES",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "differentiation": "1. WHAT IT DOES\nAGRecorder is a voice recorder that remembers where you were.\nScreens it contains: TODO\n\n2. INTENDED USER\nVoice recorder with location\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: UTILITIES.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: none\n  - Closest other app by implementation: AGCleaner at 53%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 16%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses \u2014 Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n\n6. COULD THIS BE AN IN-APP PURCHASE IN ANOTHER APP\nTODO: AGCleaner, CalcMaster, MyCard, PlantPulse, Uscis-Case, WiFiTrail, iMeasure share its category (UTILITIES). Say concretely why this is not a feature of one of them \u2014 this is a judgement, not a fact the repository holds.\n\n7. CODE SHARED WITH OUR OTHER APPS\nYes, infrastructure only: agl_observability (crash reporting); agl_i18n (shared translations). It also uses the same Supabase project as our other apps for sign-in. No screens, features or content are shared; the similarity figure in 5 measures exactly that.\n\n8. CODE SHARED WITH THIRD-PARTY APPS\nNo, beyond standard third-party frameworks: flutter_localizations.\n\n9. MADE FOR A CLIENT OR THIRD PARTY\nTODO: confirm \u2014 was this app's content, concept or branding provided by a\nclient or partner? (Expected answer: no, built and published by American Group\nLLC. Only the account owner can state it.)\n"
 }

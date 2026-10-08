@@ -1,36 +1,36 @@
 {
-  "repo": "AeroSwift",
-  "slug": "aeroswift",
-  "copy": {
-    "en": {
-      "name": "AeroSwift",
-      "subtitle": "Flight and airport board",
-      "short_description": "Track a flight, read an airport board, and save the ones you fly.",
-      "description": "AeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\n\nWHAT IT DOES\n• Search a flight by callsign and open a detail view with altitude, aircraft, route, and scheduled versus actual times.\n• Open any airport's board and read its arrivals and departures over a window you choose.\n• Save the flights you follow so they are one tap away next time.\n• A route diagram and a status chip summarise the leg at a glance.\n\nABOUT THE DATA\nAeroSwift ships with an offline sample data set so the app is fully navigable the moment you install it. Switch to live data from the OpenSky Network in Settings — the endpoints AeroSwift uses need no key and no sign-up. A banner in the app always tells you which source you are looking at, so you are never guessing whether a number is real.\n\nNO ACCOUNT\nThere is no login, no profile, and nothing to subscribe to. Saved flights and your data-source choice stay on the device.",
-      "keywords": "flight,tracker,airport,arrivals,departures,aviation,opensky,callsign,aircraft,flights"
-    }
-  },
-  "review_information": {
-    "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nAeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\n\nIntended audience:\nFlight and airport board\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.short_description",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/features/{search,airports,detail,saved}, lib/services/opensky_data_source.dart, lib/core/env.dart (defaultDataSourceId='sample', runtime switch in settings_screen.dart), lib/widgets/data_source_banner.dart",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "primary_category": "TRAVEL",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
-  "differentiation": "1. WHAT IT DOES\nAeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\nScreens it contains: airports, detail, saved, search, settings\n\n2. INTENDED USER\nFlight and airport board\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely — a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: TRAVEL.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: airports\n  - Closest other app by implementation: CodeDeal at 16%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 8%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses — Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n"
+ "repo": "AeroSwift",
+ "slug": "aeroswift",
+ "copy": {
+  "en": {
+   "name": "AeroSwift",
+   "subtitle": "Flight and airport board",
+   "short_description": "Track a flight, read an airport board, and save the ones you fly.",
+   "description": "AeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\n\nWHAT IT DOES\n\u2022 Search a flight by callsign and open a detail view with altitude, aircraft, route, and scheduled versus actual times.\n\u2022 Open any airport's board and read its arrivals and departures over a window you choose.\n\u2022 Save the flights you follow so they are one tap away next time.\n\u2022 A route diagram and a status chip summarise the leg at a glance.\n\nABOUT THE DATA\nAeroSwift ships with an offline sample data set so the app is fully navigable the moment you install it. Switch to live data from the OpenSky Network in Settings \u2014 the endpoints AeroSwift uses need no key and no sign-up. A banner in the app always tells you which source you are looking at, so you are never guessing whether a number is real.\n\nNO ACCOUNT\nThere is no login, no profile, and nothing to subscribe to. Saved flights and your data-source choice stay on the device.",
+   "keywords": "flight,tracker,airport,arrivals,departures,aviation,opensky,callsign,aircraft,flights"
+  }
+ },
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nAeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\n\nIntended audience:\nFlight and airport board\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.short_description",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/features/{search,airports,detail,saved}, lib/services/opensky_data_source.dart, lib/core/env.dart (defaultDataSourceId='sample', runtime switch in settings_screen.dart), lib/widgets/data_source_banner.dart",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "primary_category": "TRAVEL",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "differentiation": "1. WHAT IT DOES\nAeroSwift is a flight tracker with one job: tell you where an aircraft is and when it is going to land, without an account and without noise.\nScreens it contains: airports, detail, saved, search, settings\n\n2. INTENDED USER\nFlight and airport board\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: TRAVEL.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: airports\n  - Closest other app by implementation: CodeDeal at 16%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 8%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses \u2014 Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n\n6. COULD THIS BE AN IN-APP PURCHASE IN ANOTHER APP\nTODO: PilotEnRoute, RideZap, TripNest share its category (TRAVEL). Say concretely why this is not a feature of one of them \u2014 this is a judgement, not a fact the repository holds.\n\n7. CODE SHARED WITH OUR OTHER APPS\nYes, infrastructure only: agl_i18n (shared translations); agl_observability (crash reporting). It also uses the same Supabase project as our other apps for sign-in. No screens, features or content are shared; the similarity figure in 5 measures exactly that.\n\n8. CODE SHARED WITH THIRD-PARTY APPS\nNo, beyond standard third-party frameworks: flutter_riverpod.\n\n9. MADE FOR A CLIENT OR THIRD PARTY\nTODO: confirm \u2014 was this app's content, concept or branding provided by a\nclient or partner? (Expected answer: no, built and published by American Group\nLLC. Only the account owner can state it.)\n"
 }

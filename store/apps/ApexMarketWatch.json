@@ -1,36 +1,36 @@
 {
-  "repo": "ApexMarketWatch",
-  "slug": "apexmarketwatch",
-  "copy": {
-    "en": {
-      "name": "ApexMarketWatch",
-      "subtitle": "Quotes, charts and 13F filings",
-      "short_description": "Live quotes and charts, plus what the big funds filed with the SEC.",
-      "description": "ApexMarketWatch is a market watchlist that shows you its sources.\n\nWATCHLIST\nAdd the tickers you care about and see the last price, the day's high and low, and the 52-week range. Tap through for a price chart and a sparkline over the range you pick.\n\n13F WHALES\nInstitutional holdings read straight from SEC EDGAR — gross buying, gross selling, and what changed. The SEC's public filing data, not a newsletter's summary of it.\n\nCRASH INDEX\nA drawdown-based read on how far a name has fallen from its own high, so a headline number has context.\n\nHONEST PROVENANCE\nEvery screen labels where its numbers came from. Quotes come from Yahoo Finance's public chart endpoint by default; a build can supply a Finnhub key instead. When a source is unavailable the app says so rather than quietly showing you something stale.\n\nNOT ADVICE\nApexMarketWatch reports public market data. It does not recommend trades, hold your money, or connect to a broker.",
-      "keywords": "stocks,watchlist,quotes,ticker,13f,sec,edgar,charts,market,finance,drawdown"
-    }
-  },
-  "review_information": {
-    "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nApexMarketWatch is a market watchlist that shows you its sources.\n\nIntended audience:\nQuotes, charts and 13F filings\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Firebase (Google) — app initialisation\n- Firebase Crashlytics (Google) — crash reporting\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
-  },
-  "_drafted": {
-    "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE — NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
-    "fields": [
-      "copy.en.subtitle",
-      "copy.en.short_description",
-      "copy.en.description",
-      "copy.en.keywords"
-    ],
-    "drawn_from": "lib/features/{watchlist,ticker,whales,crash}, lib/services/{yahoo_quote_api,sec_edgar_api,finnhub_quote_api}.dart, lib/core/env.dart (yahooEnabled=true, secEdgarEnabled=true by default), lib/widgets/provenance.dart. The Deals tab is NOT described: it needs API_GATEWAY_URL, which has no default.",
-    "still_missing": [
-      "copy.en.promotional_text",
-      "copy.en.release_notes",
-      "review_information.notes (per app — never template this)",
-      "primary_category",
-      "age rating questionnaire (no field for it in this schema)"
-    ]
-  },
-  "primary_category": "FINANCE",
-  "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
-  "differentiation": "1. WHAT IT DOES\nApexMarketWatch is a market watchlist that shows you its sources.\nScreens it contains: crash, deals, settings, shell, ticker, watchlist, whales\n\n2. INTENDED USER\nQuotes, charts and 13F filings\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely — a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: FINANCE.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: crash, ticker, watchlist, whales\n  - Closest other app by implementation: Photriya at 27%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 10%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses — Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n"
+ "repo": "ApexMarketWatch",
+ "slug": "apexmarketwatch",
+ "copy": {
+  "en": {
+   "name": "ApexMarketWatch",
+   "subtitle": "Quotes, charts and 13F filings",
+   "short_description": "Live quotes and charts, plus what the big funds filed with the SEC.",
+   "description": "ApexMarketWatch is a market watchlist that shows you its sources.\n\nWATCHLIST\nAdd the tickers you care about and see the last price, the day's high and low, and the 52-week range. Tap through for a price chart and a sparkline over the range you pick.\n\n13F WHALES\nInstitutional holdings read straight from SEC EDGAR \u2014 gross buying, gross selling, and what changed. The SEC's public filing data, not a newsletter's summary of it.\n\nCRASH INDEX\nA drawdown-based read on how far a name has fallen from its own high, so a headline number has context.\n\nHONEST PROVENANCE\nEvery screen labels where its numbers came from. Quotes come from Yahoo Finance's public chart endpoint by default; a build can supply a Finnhub key instead. When a source is unavailable the app says so rather than quietly showing you something stale.\n\nNOT ADVICE\nApexMarketWatch reports public market data. It does not recommend trades, hold your money, or connect to a broker.",
+   "keywords": "stocks,watchlist,quotes,ticker,13f,sec,edgar,charts,market,finance,drawdown"
+  }
+ },
+ "review_information": {
+  "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nApexMarketWatch is a market watchlist that shows you its sources.\n\nIntended audience:\nQuotes, charts and 13F filings\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Firebase (Google) \u2014 app initialisation\n- Firebase Crashlytics (Google) \u2014 crash reporting\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
+ },
+ "_drafted": {
+  "warning": "DRAFTED BY AUTOMATION FROM THE APP'S DART SOURCE \u2014 NOT YET APPROVED. A human must read every field listed below against the running app before this listing is submitted.",
+  "fields": [
+   "copy.en.subtitle",
+   "copy.en.short_description",
+   "copy.en.description",
+   "copy.en.keywords"
+  ],
+  "drawn_from": "lib/features/{watchlist,ticker,whales,crash}, lib/services/{yahoo_quote_api,sec_edgar_api,finnhub_quote_api}.dart, lib/core/env.dart (yahooEnabled=true, secEdgarEnabled=true by default), lib/widgets/provenance.dart. The Deals tab is NOT described: it needs API_GATEWAY_URL, which has no default.",
+  "still_missing": [
+   "copy.en.promotional_text",
+   "copy.en.release_notes",
+   "review_information.notes (per app \u2014 never template this)",
+   "primary_category",
+   "age rating questionnaire (no field for it in this schema)"
+  ]
+ },
+ "primary_category": "FINANCE",
+ "_drafted_fields_note": "primary_category chosen by automation from the app's feature set on 2026-09-14; change it here and re-run generate if product disagrees.",
+ "differentiation": "1. WHAT IT DOES\nApexMarketWatch is a market watchlist that shows you its sources.\nScreens it contains: crash, deals, settings, shell, ticker, watchlist, whales\n\n2. INTENDED USER\nQuotes, charts and 13F filings\n\n3. GAP IT FILLS\nTODO: what does this app do that existing apps do not, or do less well?\nAnswer concretely \u2014 a named competitor and a named difference. This cannot\nbe drafted from the repository; it is a claim about the market.\n\n4. BETA TESTING DONE\nTODO: which builds went to testers, over what period, and name one change\nmade because of feedback. Nine external testers are configured on this app\nin TestFlight; the testing itself still has to have happened.\n\n5. STANDALONE OR PART OF A SUITE\nPart of a suite: 43 apps are published under this developer account.\nCategory: FINANCE.\n\nThis app's scope differs from the rest measurably, not just by description:\n\n  - Screens unique to it: crash, ticker, watchlist, whales\n  - Closest other app by implementation: Photriya at 27%\n    similarity of non-generic widget and class usage\n  - Across all 43 apps the median pairwise similarity is 10%, and\n    no pair exceeds 85%\n\nBoth numbers exclude the ~60 widgets every Flutter app uses \u2014 Column, Text,\nPadding and so on. Including them makes any two Flutter apps look 97% alike,\nwhich is a property of the framework rather than of these apps.\n\nThe store copy is distinct on the same basis: no two of the 43 share more\nthan 22% of their description vocabulary.\n\n6. COULD THIS BE AN IN-APP PURCHASE IN ANOTHER APP\nTODO: HomeWise, MyFinance, NexusTransferPay share its category (FINANCE). Say concretely why this is not a feature of one of them \u2014 this is a judgement, not a fact the repository holds.\n\n7. CODE SHARED WITH OUR OTHER APPS\nYes, infrastructure only: agl_i18n (shared translations). It also uses the same Supabase project as our other apps for sign-in. No screens, features or content are shared; the similarity figure in 5 measures exactly that.\n\n8. CODE SHARED WITH THIRD-PARTY APPS\nNo, beyond standard third-party frameworks: firebase_core, firebase_crashlytics, flutter_riverpod.\n\n9. MADE FOR A CLIENT OR THIRD PARTY\nTODO: confirm \u2014 was this app's content, concept or branding provided by a\nclient or partner? (Expected answer: no, built and published by American Group\nLLC. Only the account owner can state it.)\n"
 }

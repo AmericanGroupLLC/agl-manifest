@@ -13,6 +13,8 @@ Generation Services). Apple's reply asks, per app:
   4. the beta testing done, and feedback applied
   5. whether it is standalone or part of a suite, and if a suite, how its
      scope differs from the others
+  6-9. (added by Apple in 2026) in-app-purchase consolidation, code shared
+     with our apps, code shared with third parties, client work
 
 Questions 1, 2 and 5 are answerable from what this repository measures, so
 they are filled in. Questions 3 and 4 are claims about the market and about
@@ -80,6 +82,25 @@ def cosine(a, b) -> float:
     return num / (da * db) if da and db else 0.0
 
 
+SHARED_PACKAGES = ("agl_i18n", "agl_observability", "agl_ads")
+
+
+def pubspec_deps(app_dir: pathlib.Path) -> tuple[list[str], list[str]]:
+    """(our shared packages, notable third-party SDKs) from pubspec.yaml."""
+    f = app_dir / "pubspec.yaml"
+    if not f.exists():
+        return [], []
+    text = f.read_text(errors="ignore")
+    block = text.split("dependencies:", 1)[1].split("dev_dependencies:", 1)[0] \
+        if "dependencies:" in text else ""
+    names = re.findall(r"(?m)^  ([a-z_][a-z0-9_]*):", block)
+    ours = [n for n in names if n in SHARED_PACKAGES]
+    notable = [n for n in names if n.split("_")[0] in
+               ("firebase", "supabase", "google", "sign", "in", "purchases",
+                "revenue", "sentry", "flutter") and n not in ("flutter",)]
+    return ours, sorted(set(notable))[:10]
+
+
 def features_of(app_dir: pathlib.Path) -> list[str]:
     """Screen names, as a factual stand-in for 'what the app contains'."""
     out = []
@@ -143,6 +164,27 @@ def main() -> int:
             mine_only -= set(features_of(d2))
         unique_screens = ", ".join(sorted(mine_only)[:8]) or "none"
 
+        ours, sdks = pubspec_deps(d)
+        cat = rec.get("primary_category")
+        same_cat = sorted(x["repo"] for x in full if x["repo"] != repo and cat and
+                          (json.loads((M / "store/apps" / f"{x['repo']}.json").read_text())
+                           .get("primary_category") if (M / "store/apps" / f"{x['repo']}.json").exists()
+                           else None) == cat)
+        q6 = (f"No. No other app on this account is in its category ({cat}), so there is "
+              "no existing app it could be an in-app purchase or feature of."
+              if cat and not same_cat else
+              f"{TODO}: {', '.join(same_cat)} share its category ({cat}). Say concretely "
+              "why this is not a feature of one of them — this is a judgement, not a fact "
+              "the repository holds." if cat else f"{TODO}: category unknown.")
+        # Describe only what this app actually links. An earlier draft said
+        # "ad mediation" for apps that do not use agl_ads — a false statement
+        # in a reply to App Review.
+        roles = {"agl_i18n": "shared translations", "agl_observability": "crash reporting",
+                 "agl_ads": "ad mediation"}
+        q7 = ("Yes, infrastructure only: " + "; ".join(f"{p} ({roles[p]})" for p in ours)
+              + ". It also uses the same Supabase project as our other apps for sign-in. "
+              "No screens, features or content are shared; the similarity figure in 5 "
+              "measures exactly that.") if ours else "No shared in-house packages."
         text = f"""1. WHAT IT DOES
 {purpose or TODO + ': describe the primary problem this app solves.'}
 Screens it contains: {', '.join(feats) if feats else TODO}
@@ -178,6 +220,20 @@ which is a property of the framework rather than of these apps.
 
 The store copy is distinct on the same basis: no two of the 43 share more
 than 22% of their description vocabulary.
+
+6. COULD THIS BE AN IN-APP PURCHASE IN ANOTHER APP
+{q6}
+
+7. CODE SHARED WITH OUR OTHER APPS
+{q7}
+
+8. CODE SHARED WITH THIRD-PARTY APPS
+No, beyond standard third-party frameworks{": " + ", ".join(sdks) if sdks else ""}.
+
+9. MADE FOR A CLIENT OR THIRD PARTY
+{TODO}: confirm — was this app's content, concept or branding provided by a
+client or partner? (Expected answer: no, built and published by American Group
+LLC. Only the account owner can state it.)
 """
         if args.dry_run:
             print(f"  {repo:18} would draft {len(text)} chars, "
