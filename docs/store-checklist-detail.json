@@ -26,6 +26,16 @@
    "detail": "1 host(s), all resolve"
   },
   {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
+  },
+  {
    "check": "Bundle id / applicationId",
    "state": "PASS",
    "detail": "com.americangroupllc.aeroswift"
@@ -168,7 +178,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "AGCleaner": [
@@ -196,6 +206,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -340,7 +360,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "5 unanswered question(s)"
   }
  ],
  "AGrammarly": [
@@ -368,6 +388,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -517,7 +547,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "AGRecorder": [
@@ -545,6 +575,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "1 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -689,7 +729,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "5 unanswered question(s)"
   }
  ],
  "AGStudio": [
@@ -717,6 +757,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -861,7 +911,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "ApexMarketWatch": [
@@ -889,6 +939,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "1 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1033,7 +1093,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "BodyQuest": [
@@ -1061,6 +1121,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "3 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1210,7 +1280,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "BuddyPlay": [
@@ -1238,6 +1308,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1382,7 +1462,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "CalcMaster": [
@@ -1410,6 +1490,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.safecodeg.com (lib/services/api_client.dart:17) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1559,7 +1649,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "CarDeal": [
@@ -1587,6 +1677,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.americangroupllc.com (lib/core/config/app_config.dart:24) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1731,7 +1831,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "ChefCount": [
@@ -1759,6 +1859,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "1 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1908,7 +2018,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "CodeDeal": [
@@ -1936,6 +2046,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "3 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2080,7 +2200,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "daily-pulse": [
@@ -2106,8 +2226,18 @@
   },
   {
    "check": "Every API host the app calls exists",
-   "state": "FAIL",
-   "detail": "feeds.reuters.com (lib/core/constants/app_constants.dart:50) - third-party host is gone: replace it"
+   "state": "PASS",
+   "detail": "45 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2257,7 +2387,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "DriftDate": [
@@ -2285,6 +2415,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "1 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2434,7 +2574,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "EventSpark": [
@@ -2462,6 +2602,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.americangroupllc.com (lib/core/config/app_config.dart:31) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2606,7 +2756,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "FashionFactory": [
@@ -2634,6 +2784,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2727,8 +2887,8 @@
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration corrected by sync_age_rating.rb"
   },
   {
    "check": "Play IARC questionnaire",
@@ -2783,7 +2943,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "5 unanswered question(s)"
   }
  ],
  "GadgetNest": [
@@ -2809,8 +2969,18 @@
   },
   {
    "check": "Every API host the app calls exists",
-   "state": "FAIL",
-   "detail": "api.americangroupllc.com (lib/core/config/app_config.dart:12) - ours, never deployed: move to Supabase"
+   "state": "PASS",
+   "detail": "10 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2955,7 +3125,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "GroceryMatch": [
@@ -2983,6 +3153,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.americangroupllc.com (lib/core/auth/auth_service.dart:29) - ours, never deployed: move to Supabase; api.walmart.io (lib/core/config/api_config.dart:68) - third-party host is gone: replace it; developer.instacart.com (lib/services/integrations/integration_registry.dart:166) - third-party host is gone: replace it; grocerymatch.app (lib/features/family_mode/family_mode_screen.dart:438) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3132,7 +3312,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "HerJourney": [
@@ -3158,8 +3338,18 @@
   },
   {
    "check": "Every API host the app calls exists",
-   "state": "FAIL",
-   "detail": "api.americangroupllc.com (lib/config/app_config.dart:22) - ours, never deployed: move to Supabase"
+   "state": "PASS",
+   "detail": "2 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3309,7 +3499,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "HomeWise": [
@@ -3337,6 +3527,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3481,7 +3681,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "iMaps": [
@@ -3509,6 +3709,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.americangroupllc.com (lib/services/analytics_service.dart:18) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3658,7 +3868,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "iMeasure": [
@@ -3686,6 +3896,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "4 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3835,7 +4055,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "Kinnav": [
@@ -3862,7 +4082,17 @@
   {
    "check": "Every API host the app calls exists",
    "state": "FAIL",
-   "detail": "api.americangroupllc.com (lib/config/app_config.dart:40) - ours, never deployed: move to Supabase"
+   "detail": "api.americangroupllc.com (lib/config/app_config.dart:38) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4012,7 +4242,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "MileMaster": [
@@ -4040,6 +4270,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4189,7 +4429,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "MyCard": [
@@ -4217,6 +4457,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4361,7 +4611,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "MyFinance": [
@@ -4389,6 +4639,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4538,7 +4798,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "5 unanswered question(s)"
   }
  ],
  "MyHealth": [
@@ -4566,6 +4826,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.americangroupllc.com (lib/config/app_config.dart:41) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4715,7 +4985,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "NearServe": [
@@ -4743,6 +5013,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4887,7 +5167,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "NewsBoard": [
@@ -4915,6 +5195,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "6 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5059,7 +5349,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "NexusTransferPay": [
@@ -5087,6 +5377,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.safecodeg.com (lib/core/api_service.dart:25) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5231,7 +5531,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "5 unanswered question(s)"
   }
  ],
  "Photriya": [
@@ -5259,6 +5559,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "photriya.cloud (lib/features/cloud/screens/collaboration_screen.dart:61) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5402,13 +5712,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=install_failed android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "PilotEnRoute": [
@@ -5436,6 +5746,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.americangroupllc.com (lib/config/backend_config.dart:14) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5579,13 +5899,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=simulator_unresponsive android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "PlantPulse": [
@@ -5613,6 +5933,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5757,7 +6087,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "portfolio-board": [
@@ -5785,6 +6115,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5928,13 +6268,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=simulator_unresponsive android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "radiotune": [
@@ -5960,8 +6300,18 @@
   },
   {
    "check": "Every API host the app calls exists",
-   "state": "FAIL",
-   "detail": "at1.api.radio-browser.info (lib/services/radio_api_service.dart:39) - third-party host is gone: replace it; fi1.api.radio-browser.info (lib/services/radio_api_service.dart:40) - third-party host is gone: replace it; nl1.api.radio-browser.info (lib/services/radio_api_service.dart:38) - third-party host is gone: replace it"
+   "state": "PASS",
+   "detail": "9 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6105,13 +6455,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=simulator_unresponsive android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "RideZap": [
@@ -6137,8 +6487,18 @@
   },
   {
    "check": "Every API host the app calls exists",
-   "state": "FAIL",
-   "detail": "api.americangroupllc.com (lib/core/env.dart:46) - ours, never deployed: move to Supabase; api.ridezap.americangroupllc.com (lib/core/env.dart:42) - ours, never deployed: move to Supabase"
+   "state": "PASS",
+   "detail": "5 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6277,13 +6637,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=simulator_unresponsive android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "RoomCraft": [
@@ -6311,6 +6671,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6455,7 +6825,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "5 unanswered question(s)"
   }
  ],
  "TripNest": [
@@ -6483,6 +6853,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.americangroupllc.com (lib/core/config/app_config.dart:26) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "FAIL",
+   "detail": "UILaunchStoryboardName empty: no launch screen"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6632,7 +7012,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "Uscis-Case": [
@@ -6660,6 +7040,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "uscis-case94.manus.app (lib/services/app_config.dart:26) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6803,13 +7193,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=simulator_unresponsive android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "Verba": [
@@ -6837,6 +7227,16 @@
    "check": "Every API host the app calls exists",
    "state": "FAIL",
    "detail": "api.verba.americangroupllc.com (lib/app_env.dart:27) - ours, never deployed: move to Supabase"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6980,13 +7380,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=simulator_unresponsive android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "VirtuBand": [
@@ -7014,6 +7414,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "3 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -7157,13 +7567,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=simulator_unresponsive android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "WiFiTrail": [
@@ -7191,6 +7601,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "0 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -7340,7 +7760,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "5 unanswered question(s)"
   }
  ],
  "yourtube": [
@@ -7368,6 +7788,16 @@
    "check": "Every API host the app calls exists",
    "state": "PASS",
    "detail": "7 host(s), all resolve"
+  },
+  {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": "UILaunchStoryboardName set"
   },
   {
    "check": "Bundle id / applicationId",
@@ -7506,13 +7936,13 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "FAIL",
+   "detail": "ios=simulator_unresponsive android=running"
   },
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "2 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ]
 }

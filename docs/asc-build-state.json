@@ -15,7 +15,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:52:16-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "AGrammarly",
@@ -33,7 +33,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:53:10-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "AGStudio",
@@ -42,7 +42,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-03T23:54:33-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "ApexMarketWatch",
@@ -51,7 +51,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:53:37-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "BodyQuest",
@@ -69,7 +69,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-03T23:58:53-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "CalcMaster",
@@ -87,7 +87,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T03:18:47-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "ChefCount",
@@ -96,7 +96,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:01:19-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "CodeDeal",
@@ -141,7 +141,7 @@
     "version": "4",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:55:59-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "GadgetNest",
@@ -177,7 +177,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:57:33-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "iMaps",
@@ -213,7 +213,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:18:40-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "MyCard",
@@ -249,7 +249,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:23:47-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "NewsBoard",
@@ -258,7 +258,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:25:03-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "NexusTransferPay",
@@ -321,7 +321,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T01:02:43-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "RoomCraft",
@@ -330,7 +330,7 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:37:12-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "TripNest",
@@ -339,7 +339,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T06:48:38-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "Uscis-Case",
@@ -366,7 +366,7 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T07:05:16-07:00",
-    "review_state": "IN_REVIEW"
+    "review_state": "REJECTED"
   },
   {
     "repo": "WiFiTrail",

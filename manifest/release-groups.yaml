@@ -1,0 +1,20 @@
+version: 1
+
+release_groups:
+  all:
+    apps: "*"
+  priority:
+    apps:
+      - CalcMaster
+      - MyHealth
+      - GroceryMatch
+  consumer:
+    apps:
+      - BodyQuest
+      - GroceryMatch
+      - DriftDate
+  utilities:
+    apps:
+      - CalcMaster
+      - AGCleaner
+      - AGRecorder

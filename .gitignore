@@ -29,3 +29,8 @@ scripts/testflight/fastlane/README.md
 # status.py now imports store_master_csv as a sibling module.
 __pycache__/
 *.pyc
+
+# Firebase CLI debug log and Supabase CLI link state: local run artefacts, not
+# source. They are rewritten on every invocation and name this machine.
+firebase-debug.log
+supabase/.temp/

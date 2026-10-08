@@ -1,0 +1,8 @@
+version: 1
+
+testers:
+  groups:
+    internal:
+      source: app_store_connect_users_and_access
+    external:
+      source: testflight_external_group

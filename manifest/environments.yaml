@@ -1,0 +1,15 @@
+version: 1
+
+environments:
+  development:
+    release_channel: dev
+    approvals_required: false
+  staging:
+    release_channel: staging
+    approvals_required: false
+  internal:
+    release_channel: beta-internal
+    approvals_required: false
+  production:
+    release_channel: production
+    approvals_required: true

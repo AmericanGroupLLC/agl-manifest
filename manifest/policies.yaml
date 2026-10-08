@@ -1,0 +1,30 @@
+version: 1
+
+policies:
+  testing:
+    beta:
+      tier_required: 3
+    production:
+      tier_required: 4
+  concurrency:
+    build:
+      android: 6
+      ios: 4
+    distribution:
+      firebase: 8
+    stores:
+      apple: 3
+      google: 5
+    production:
+      max_parallel: 2
+  retries:
+    retryable:
+      - NETWORK_FAILURE
+      - RATE_LIMIT
+      - STORE_TRANSIENT
+    non_retryable:
+      - BUILD_FAILURE
+      - TEST_FAILURE
+      - SIGNING_FAILURE
+      - CONFIG_FAILURE
+      - CREDENTIAL_FAILURE

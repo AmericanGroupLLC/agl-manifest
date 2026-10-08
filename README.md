@@ -51,10 +51,12 @@ macOS iOS build. Identical work every time, and the macOS half bills at **10×**
 This does the same work once for the batch.
 
 ```
-apps.json                  generated from the backend's measured audit
+manifest/apps.yaml         desired-state app registry (Phase 2 foundation)
+apps.json                  generated compatibility manifest for current jobs
 fastlane/Fastfile          the batch lanes
 scripts/checkout.py        shallow-clones the selected apps into work/
 scripts/status.py          regenerates STATUS.md and status.csv
+scripts/resolve_matrix.py  dynamic shard matrix generator for ship.yml
 scripts/appstore_records.rb  asks App Store Connect which records exist
 .github/workflows/
   validate.yml             analyze + test + iOS build, whole portfolio, nightly
@@ -107,6 +109,9 @@ bundle exec fastlane publish_artifacts platform:android apps:all
 
 # Refresh the tables
 python3 scripts/status.py
+
+# Dynamic matrix preview
+python3 scripts/resolve_matrix.py --spec all --platform android --shards 6
 ```
 
 Each app keeps its own `Fastfile` — flavours, export options, the dSYM upload,
@@ -118,11 +123,18 @@ One bad app never stops the batch. Failures are collected and reported together
 at the end, so a single run tells you everything that is broken rather than the
 first thing.
 
-## apps.json is generated, not written
+## Desired vs measured state
+
+`manifest/apps.yaml` is the desired-state registry we are moving toward.
+`apps.json` remains the generated compatibility manifest used by current
+automation while that migration is in progress.
+
+## apps.json and apps.yaml are generated, not written
 
 ```sh
 python3 scripts/audit_release_readiness.py
 python3 scripts/generate_manifest.py --out apps.json
+python3 scripts/generate_apps_yaml.py --infile apps.json --out manifest/apps.yaml
 ```
 
 The audit measures the repositories — where each Flutter project actually lives,
@@ -130,6 +142,16 @@ its application id, whether it has a real signing config, which auth providers
 it declares. A new app, a moved project directory or a renamed bundle id reaches
 delivery by re-running that, not by someone editing a list. `sync-manifest.yml`
 fails if `apps.json` and the org drift apart.
+
+## CLI bootstrap
+
+`agl-mobile/tool/mobile.dart` is the control-plane CLI scaffold.
+
+```sh
+cd agl-mobile
+dart pub get
+dart run tool/mobile.dart doctor
+```
 
 Once generated, this repository stands alone: `apps.json` is committed, and
 every table is built from it plus live GitHub queries. Nothing here reads the

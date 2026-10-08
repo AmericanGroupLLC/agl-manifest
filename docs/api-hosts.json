@@ -32,7 +32,6 @@
   "api.openrouteservice.org": "ok",
   "api.pexels.com": "ok",
   "api.rainviewer.com": "ok",
-  "api.ridezap.americangroupllc.com": "NXDOMAIN",
   "api.safecodeg.com": "NXDOMAIN",
   "api.spoonacular.com": "ok",
   "api.verba.americangroupllc.com": "NXDOMAIN",
@@ -42,7 +41,6 @@
   "api.yelp.com": "ok",
   "app.posthog.com": "ok",
   "apps.apple.com": "ok",
-  "at1.api.radio-browser.info": "NXDOMAIN",
   "autozone.com": "ok",
   "aviationweather.gov": "ok",
   "aviationweek.com": "ok",
@@ -64,6 +62,7 @@
   "d.liveatc.net": "ok",
   "davidmegginson.github.io": "ok",
   "de1.api.radio-browser.info": "ok",
+  "de2.api.radio-browser.info": "ok",
   "decrypt.co": "ok",
   "designee.faa.gov": "ok",
   "dev.to": "ok",
@@ -93,10 +92,7 @@
   "feeds.finance.yahoo.com": "ok",
   "feeds.marketwatch.com": "ok",
   "feeds.npr.org": "ok",
-  "feeds.reuters.com": "NXDOMAIN",
   "feeds.skynews.com": "ok",
-  "fi1.api.radio-browser.info": "NXDOMAIN",
-  "finance.yahoo.com": "ok",
   "findahelpline.com": "ok",
   "firebase.google.com": "ok",
   "firms.modaps.eosdis.nasa.gov": "ok",
@@ -136,7 +132,6 @@
   "mobile311.sfgov.org": "ok",
   "news.google.com": "ok",
   "news.ycombinator.com": "ok",
-  "nl1.api.radio-browser.info": "NXDOMAIN",
   "nominatim.openstreetmap.org": "ok",
   "olacabs.com": "ok",
   "openfoodfacts.github.io": "ok",
@@ -158,10 +153,7 @@
   "router.project-osrm.org": "ok",
   "rss.dw.com": "ok",
   "rss.politico.com": "ok",
-  "rssfeeds.webmd.com": "unverified: no address record",
-  "rsshub.app": "ok",
   "sandbox.itunes.apple.com": "ok",
-  "search.cnbc.com": "ok",
   "server.arcgisonline.com": "ok",
   "shell.com": "ok",
   "skyvector.com": "ok",
@@ -186,7 +178,6 @@
   "udds-faa.opendata.arcgis.com": "ok",
   "ultramusicfestival.com": "ok",
   "uscis-case94.manus.app": "NXDOMAIN",
-  "variety.com": "ok",
   "vfrmap.com": "ok",
   "viator.tp.st": "ok",
   "walmart.io": "ok",
@@ -232,7 +223,6 @@
   "www.flightsimulator.com": "ok",
   "www.flyingmag.com": "ok",
   "www.flysto.net": "ok",
-  "www.forbes.com": "ok",
   "www.france24.com": "ok",
   "www.garmin.com": "ok",
   "www.gdacs.org": "ok",
@@ -240,7 +230,6 @@
   "www.google.com": "ok",
   "www.googleapis.com": "ok",
   "www.grubhub.com": "ok",
-  "www.hollywoodreporter.com": "ok",
   "www.icao.int": "ok",
   "www.ice.gov": "ok",
   "www.identifyher.com": "ok",
@@ -250,7 +239,6 @@
   "www.liveatc.net": "ok",
   "www.lollapalooza.com": "ok",
   "www.lyft.com": "ok",
-  "www.medicalnewstoday.com": "ok",
   "www.microcenter.com": "ok",
   "www.nasa.gov": "ok",
   "www.nature.com": "ok",
@@ -392,22 +380,12 @@
    "comment_only": []
   },
   "daily-pulse": {
-   "hosts": 57,
-   "dead": {
-    "feeds.reuters.com": [
-     "lib/core/constants/app_constants.dart:50"
-    ]
-   },
-   "unverified": {
-    "rssfeeds.webmd.com": {
-     "why": "unverified: no address record",
-     "sites": [
-      "lib/core/constants/app_constants.dart:74"
-     ]
-    }
-   },
+   "hosts": 45,
+   "dead": {},
+   "unverified": {},
    "comment_only": [
     "coingecko.com",
+    "finance.yahoo.com",
     "open-meteo.com"
    ]
   },
@@ -439,12 +417,8 @@
    ]
   },
   "GadgetNest": {
-   "hosts": 11,
-   "dead": {
-    "api.americangroupllc.com": [
-     "lib/core/config/app_config.dart:12"
-    ]
-   },
+   "hosts": 10,
+   "dead": {},
    "unverified": {},
    "comment_only": []
   },
@@ -472,12 +446,8 @@
    ]
   },
   "HerJourney": {
-   "hosts": 3,
-   "dead": {
-    "api.americangroupllc.com": [
-     "lib/config/app_config.dart:22"
-    ]
-   },
+   "hosts": 2,
+   "dead": {},
    "unverified": {},
    "comment_only": []
   },
@@ -521,7 +491,7 @@
    "hosts": 3,
    "dead": {
     "api.americangroupllc.com": [
-     "lib/config/app_config.dart:40"
+     "lib/config/app_config.dart:38"
     ]
    },
    "unverified": {},
@@ -638,33 +608,16 @@
    "comment_only": []
   },
   "radiotune": {
-   "hosts": 11,
-   "dead": {
-    "nl1.api.radio-browser.info": [
-     "lib/services/radio_api_service.dart:38"
-    ],
-    "at1.api.radio-browser.info": [
-     "lib/services/radio_api_service.dart:39"
-    ],
-    "fi1.api.radio-browser.info": [
-     "lib/services/radio_api_service.dart:40"
-    ]
-   },
+   "hosts": 9,
+   "dead": {},
    "unverified": {},
    "comment_only": [
     "developers.google.com"
    ]
   },
   "RideZap": {
-   "hosts": 7,
-   "dead": {
-    "api.ridezap.americangroupllc.com": [
-     "lib/core/env.dart:42"
-    ],
-    "api.americangroupllc.com": [
-     "lib/core/env.dart:46"
-    ]
-   },
+   "hosts": 5,
+   "dead": {},
    "unverified": {},
    "comment_only": []
   },

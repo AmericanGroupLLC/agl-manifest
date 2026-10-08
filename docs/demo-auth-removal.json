@@ -1,0 +1,236 @@
+{
+ "BodyQuest": {
+  "widgets": 2,
+  "members": 23,
+  "files": [
+   "lib/app_env.dart",
+   "lib/main.dart",
+   "lib/screens/login_screen.dart",
+   "lib/services/auth_service.dart",
+   "lib/services/supabase_config.dart",
+   "test/app_env_test.dart",
+   "test/auth_session_test.dart",
+   "test/support/fake_http.dart"
+  ],
+  "skipped": [],
+  "dangling": []
+ },
+ "CalcMaster": {
+  "widgets": 1,
+  "members": 11,
+  "files": [
+   "lib/screens/auth/login_screen.dart",
+   "lib/services/supabase_config.dart",
+   "lib/state/auth_provider.dart"
+  ],
+  "skipped": [],
+  "dangling": [
+   "lib/screens/auth/login_screen.dart: final ok = await context.read<AuthProvider>().loginWithTestAccount();"
+  ]
+ },
+ "daily-pulse": {
+  "widgets": 1,
+  "members": 21,
+  "files": [
+   "lib/app_env.dart",
+   "lib/core/services/auth_service.dart",
+   "lib/core/services/supabase_config.dart",
+   "lib/main.dart",
+   "lib/presentation/providers/app_providers.dart",
+   "lib/presentation/screens/auth/login_screen.dart",
+   "test/app_env_test.dart"
+  ],
+  "skipped": [],
+  "dangling": [
+   "lib/presentation/screens/auth/login_screen.dart: ? await auth.signInWithTestAccount()"
+  ]
+ },
+ "DriftDate": {
+  "widgets": 0,
+  "members": 16,
+  "files": [
+   "lib/services/app_state.dart",
+   "lib/services/auth_service.dart",
+   "lib/services/supabase_config.dart",
+   "test/auth_service_test.dart"
+  ],
+  "skipped": [],
+  "dangling": [
+   "lib/screens/login_screen.dart: bool get _showTestAccount => kDebugMode && SupabaseConfig.hasTestAccounts;",
+   "lib/screens/login_screen.dart: ? await app.useTestAccount()"
+  ]
+ },
+ "GroceryMatch": {
+  "widgets": 0,
+  "members": 13,
+  "files": [
+   "lib/core/auth/auth_service.dart",
+   "lib/core/auth/supabase_config.dart",
+   "test/release_hardening_test.dart"
+  ],
+  "skipped": [],
+  "dangling": [
+   "lib/core/auth/auth_service.dart: e == SupabaseConfig.qaEmail.toLowerCase() &&",
+   "lib/core/auth/auth_service.dart: password == SupabaseConfig.qaPassword;",
+   "lib/core/auth/auth_service.dart: e == SupabaseConfig.devEmail.toLowerCase() &&",
+   "lib/core/auth/auth_service.dart: password == SupabaseConfig.devPassword;",
+   "lib/core/auth/auth_service.dart: SupabaseConfig.hasDevAccount &&",
+   "lib/core/auth/auth_service.dart: SupabaseConfig.hasTestAccount &&",
+   "lib/features/auth/login_screen.dart: if (SupabaseConfig.hasTestAccount) ...[",
+   "lib/features/auth/login_screen.dart: final result = await auth.loginTest();"
+  ]
+ },
+ "iMaps": {
+  "widgets": 0,
+  "members": 13,
+  "files": [
+   "lib/services/auth_service.dart",
+   "lib/services/supabase_config.dart",
+   "test/app_env_test.dart"
+  ],
+  "skipped": [],
+  "dangling": [
+   "lib/main.dart: credentialsPresent: SupabaseConfig.hasTestCredentials,",
+   "lib/screens/login_screen.dart: .instance.signInWithTestAccount,"
+  ]
+ },
+ "iMeasure": {
+  "widgets": 1,
+  "members": 15,
+  "files": [
+   "lib/app_env.dart",
+   "lib/main.dart",
+   "lib/screens/login_screen.dart",
+   "lib/services/auth_service.dart",
+   "lib/services/supabase_config.dart",
+   "test/app_env_test.dart",
+   "test/widget_test.dart"
+  ],
+  "skipped": [],
+  "dangling": []
+ },
+ "Kinnav": {
+  "widgets": 3,
+  "members": 14,
+  "files": [
+   "lib/app_env.dart",
+   "lib/config/app_config.dart",
+   "lib/main.dart",
+   "lib/screens/onboarding_screen.dart",
+   "lib/screens/sign_up_screen.dart",
+   "lib/services/auth_service.dart",
+   "test/unit/app_env_test.dart",
+   "test/unit/config_and_store_test.dart"
+  ],
+  "skipped": [
+   "test/ui/loading_empty_error_test.dart: would also remove restore \u2014 not test-account code, file left untouched"
+  ],
+  "dangling": []
+ },
+ "MyHealth": {
+  "widgets": 0,
+  "members": 23,
+  "files": [
+   "lib/app_env.dart",
+   "lib/main.dart",
+   "lib/screens/auth/login_screen.dart",
+   "lib/services/auth_service.dart",
+   "lib/services/supabase_config.dart",
+   "test/app_env_test.dart",
+   "test/auth_service_test.dart"
+  ],
+  "skipped": [
+   "lib/services/medicine_engine.dart: edit left brackets unbalanced, file left untouched"
+  ],
+  "dangling": [
+   "lib/services/auth_service.dart: _isConfiguredTestAccount(email.trim().toLowerCase(), password);"
+  ]
+ },
+ "Photriya": {
+  "widgets": 0,
+  "members": 19,
+  "files": [
+   "lib/app_env.dart",
+   "lib/core/providers/auth_provider.dart",
+   "lib/core/services/auth_service.dart",
+   "lib/core/services/supabase_config.dart",
+   "lib/main.dart",
+   "test/app_env_test.dart"
+  ],
+  "skipped": [],
+  "dangling": [
+   "lib/features/auth/screens/login_screen.dart: final ok = await ref.read(authProvider.notifier).signInAsTestUser();"
+  ]
+ },
+ "PilotEnRoute": {
+  "widgets": 0,
+  "members": 21,
+  "files": [
+   "lib/app_env.dart",
+   "lib/main.dart",
+   "lib/screens/login_screen.dart",
+   "lib/services/auth_service.dart",
+   "lib/services/supabase_config.dart",
+   "test/app_env_test.dart",
+   "test/services/auth_service_test.dart"
+  ],
+  "skipped": [
+   "auth_service.dart: init references a credential but is too large to delete blindly"
+  ],
+  "dangling": [
+   "lib/services/auth_service.dart: (SupabaseConfig.qaEmail.isNotEmpty",
+   "lib/services/auth_service.dart: ? SupabaseConfig.qaEmail"
+  ]
+ },
+ "radiotune": {
+  "widgets": 0,
+  "members": 8,
+  "files": [
+   "lib/services/auth_service.dart",
+   "lib/services/supabase_config.dart"
+  ],
+  "skipped": [],
+  "dangling": [
+   "lib/screens/login_screen.dart: _busy ? null : () => _run(AuthService.instance.signInWithTestAccount),",
+   "lib/screens/login_screen.dart: final showTestAccount = kDebugMode && SupabaseConfig.hasTestAccount;"
+  ]
+ },
+ "Uscis-Case": {
+  "widgets": 1,
+  "members": 15,
+  "files": [
+   "lib/screens/login_screen.dart",
+   "lib/services/auth_service.dart",
+   "lib/services/supabase_config.dart",
+   "lib/state/auth_provider.dart"
+  ],
+  "skipped": [],
+  "dangling": []
+ },
+ "WiFiTrail": {
+  "widgets": 0,
+  "members": 1,
+  "files": [],
+  "skipped": [
+   "test/wifitrail_test.dart: would also remove onConnectivityChanged \u2014 not test-account code, file left untouched"
+  ],
+  "dangling": []
+ },
+ "_verify": {
+  "failed": [
+   "BodyQuest",
+   "CalcMaster",
+   "daily-pulse",
+   "DriftDate",
+   "GroceryMatch",
+   "iMaps",
+   "Kinnav",
+   "MyHealth",
+   "Photriya",
+   "PilotEnRoute",
+   "radiotune",
+   "Uscis-Case"
+  ],
+  "reverted": true
+ }
+}
