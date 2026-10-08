@@ -33,7 +33,21 @@ was enumerated on 2026-10-08:
 | 3 | `patchava.srikanth72@gmail.com` | **a different publisher** — one app, "Tether Health", and "Payment setup incomplete" |
 
 `rainbow472.sri@gmail.com`, which owns `pub-8528784688453695`, is **not** signed
-into the browser. It *is* the active gcloud account, which is why the API can
+into that browser — `accounts.google.com/SignOutOptions` lists exactly those four
+and no more.
+
+The reason it looks signed in from the desk is that **the browser the extension
+drives is not the Chrome on this Mac**. `list_connected_browsers` reports one
+device, and it is remote:
+
+```
+name: "Browser 1"   osPlatform: "Windows"   isLocal: false
+```
+
+So the Chrome holding `rainbow472.sri@gmail.com` and the Chrome Claude can
+reach are two different browsers on two different machines. Either connect the
+Claude in Chrome extension in the Chrome where that account is signed in, or
+sign it into the Windows browser that is already connected. It *is* the active gcloud account, which is why the API can
 read the publisher while the console cannot be reached.
 
 Creating the apps under `authuser=3` would be worse than not creating them: they
