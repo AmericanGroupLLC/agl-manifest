@@ -254,6 +254,13 @@ def remove_guarded_widgets(src: str) -> tuple[str, int, list[str]]:
             i = m.start()
             if not mask[i]:
                 continue
+            # An `if` this pass already declined is marked, and must stay
+            # declined. The marker is a comment, so without this check the same
+            # `if` matched again, was marked again, and the loop never ended:
+            # `if (form == null || !form.validate())` spun PilotEnRoute at
+            # 100% CPU for 26 minutes.
+            if src[max(0, i - 12):i] == "/*AGL-SKIP*/":
+                continue
             # Only a collection-if, i.e. one sitting directly inside a list
             # literal. An `if` inside a method body is control flow and is
             # none of this function's business.
@@ -331,6 +338,22 @@ def remove_guarded_widgets(src: str) -> tuple[str, int, list[str]]:
         removed += 1
 
 
+def opener_positions(src: str) -> list[int]:
+    """For each index, the position of the innermost unclosed bracket (-1)."""
+    out = [-1] * (len(src) + 1)
+    stack: list[int] = []
+    for i, c, _d, live in scan(src):
+        if i < len(src):
+            out[i] = stack[-1] if stack else -1
+        if not live:
+            continue
+        if c in OPEN:
+            stack.append(i)
+        elif c in CLOSE and stack:
+            stack.pop()
+    return out
+
+
 def remove_named(src: str, name: str) -> tuple[str, int]:
     """Remove `required bool name,` declarations and `name: <expr>,` arguments.
 
@@ -340,10 +363,25 @@ def remove_named(src: str, name: str) -> tuple[str, int]:
     removed = 0
     while True:
         mask, encl = code_mask(src), enclosing(src)
+        opn = opener_positions(src)
         hit = None
         for m in re.finditer(rf"\b{re.escape(name)}\b", src):
             i = m.start()
             if not mask[i] or encl[i] not in "({":
+                continue
+            # A `{` must open a *named-parameter list* — `({` or `, {` — not a
+            # class or method body. Without this, `static bool get
+            # testAccountEnabled =>` inside a class looked like a parameter
+            # with a default, and the default-value scan ran to the end of the
+            # class: it deleted BodyQuest's Google OAuth client ids.
+            if encl[i] == "{":
+                o = opn[i]
+                k = o - 1
+                while k >= 0 and src[k] in " \t\n":
+                    k -= 1
+                if k < 0 or src[k] not in "(,":
+                    continue
+            if src[m.end():].lstrip(" \t").startswith("=>"):
                 continue
             if src[max(0, i - 1):i] == ".":
                 continue
@@ -472,6 +510,13 @@ def fold_dead_conditionals(src: str) -> tuple[str, int, list[str]]:
         for m in re.finditer(r"\bif\s*\(", src):
             i = m.start()
             if not mask[i] or encl[i] != "{":
+                continue
+            # An `if` this pass already declined is marked, and must stay
+            # declined. The marker is a comment, so without this check the same
+            # `if` matched again, was marked again, and the loop never ended:
+            # `if (form == null || !form.validate())` spun PilotEnRoute at
+            # 100% CPU for 26 minutes.
+            if src[max(0, i - 12):i] == "/*AGL-SKIP*/":
                 continue
             o = src.index("(", i)
             e = match_bracket(src, o)
@@ -735,7 +780,7 @@ def members_of(src: str):
             yield m.group("name"), i, stop
 
 
-def discover_dead(files: list[pathlib.Path]) -> tuple[set[str], list[str]]:
+def discover_dead(srcs: dict) -> tuple[set[str], list[str]]:
     """Members that reference a credential constant, and so exist only for it.
 
     Bounded on purpose. An earlier version took a fixpoint over *any*
@@ -750,10 +795,13 @@ def discover_dead(files: list[pathlib.Path]) -> tuple[set[str], list[str]]:
     Call sites of what this removes are left to the widget and folding passes,
     and anything still broken is reverted rather than guessed at.
     """
+    # `srcs` maps path -> the *folded* source. It must be read from here and
+    # never re-read from disk: an earlier version iterated the keys and called
+    # f.read_text(), silently discovering against the unfolded originals —
+    # which flagged `AppEnv.validate` in five apps and deleted it.
     dead: set[str] = set()
     notes: list[str] = []
-    for f in files:
-        src = f.read_text(errors="ignore")
+    for f, src in srcs.items():
         mask = code_mask(src)
         for name, a, b in members_of(src):
             if name in KEEP or name.startswith("_k"):
@@ -1052,6 +1100,20 @@ def main() -> int:
                 src, c = remove_named(src, name)
                 members += c
             if src != orig:
+                # The invariant that makes over-deletion impossible: the only
+                # class members allowed to disappear are the ones this run set
+                # out to remove. A wrong deletion of *unreferenced* code passes
+                # analyze and tests, so --revert-on-fail cannot catch it; this
+                # can. It is how BodyQuest's Google OAuth client ids would have
+                # been caught, had it existed then.
+                before = {n for n, _a, _b in members_of(orig)}
+                after = {n for n, _a, _b in members_of(src)}
+                lost = sorted(before - after - set(names) - {"useTestAccount"})
+                if lost:
+                    skipped.append(
+                        f"{f.relative_to(d)}: would also remove {', '.join(lost[:6])}"
+                        " — not test-account code, file left untouched")
+                    continue
                 if not balanced(src):
                     skipped.append(
                         f"{f.relative_to(d)}: edit left brackets unbalanced, "
