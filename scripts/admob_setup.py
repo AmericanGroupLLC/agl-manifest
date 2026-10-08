@@ -47,6 +47,42 @@ def _norm(name):
     "calcmaster world calc" are the same app."""
     return "".join(c for c in (name or "").lower() if c.isalnum())
 
+def _resolve(a, platform, display):
+    """Find the AdMob app for one repo on one platform.
+
+    Three keys, in order of how much they can be trusted:
+
+    1. the package name or bundle id AdMob records in `linkedAppInfo`;
+    2. the display name, ignoring case and punctuation;
+    3. the display name of the *same repo's app on the other platform*.
+
+    The third exists because AdMob only links a record to a store listing once
+    that listing is public, so the second platform is usually created with no
+    link at all — and the name it is created with is AdMob's, not the store
+    copy's. Six iOS records sat unmatched for exactly this reason: AdMob calls
+    the app "Case Tracker for USCIS" where store/apps says "USCIS Case Lookup".
+    Whichever platform did match tells us the name AdMob uses, and that name
+    finds the other one.
+    """
+    other = "IOS" if platform == "ANDROID" else "ANDROID"
+    hit = (by_store.get((_store_id(a, platform), platform))
+           or by_name.get((_norm(display), platform)))
+    if hit:
+        return hit
+    twin = (by_store.get((_store_id(a, other), other))
+            or by_name.get((_norm(display), other)))
+    if twin:
+        for nm in {(twin.get("manualAppInfo") or {}).get("displayName"),
+                   (twin.get("linkedAppInfo") or {}).get("displayName")} - {None}:
+            if (found := by_name.get((_norm(nm), platform))):
+                return found
+    return None
+
+
+def _store_id(a, platform):
+    return a["application_id"] if platform == "ANDROID" else a["bundle_id"]
+
+
 _tok = {"v": "", "at": 0.0}
 def token():
     if time.time() - _tok["at"] > 1500:
@@ -157,8 +193,7 @@ if args.sync:
         rec = merged.setdefault(repo, {})
         for platform, store_id, prefix in (("ANDROID", a["application_id"], "android"),
                                            ("IOS", a["bundle_id"], "ios")):
-            app = (by_store.get((store_id, platform))
-                   or by_name.get((_norm(display), platform)))
+            app = _resolve(a, platform, display)
             if not app:
                 continue
             rec[f"{prefix}_app_id"] = app["appId"]
@@ -183,7 +218,7 @@ for a in apps:
         display = (json.load(open(sp)).get("copy", {}).get("en", {}) or {}).get("name") or repo
     rec = out.setdefault(repo, {})
     for platform, store_id in (("ANDROID", a["application_id"]), ("IOS", a["bundle_id"])):
-        app = by_store.get((store_id, platform)) or by_name.get((_norm(display), platform))
+        app = _resolve(a, platform, display)
         if app is None:
             if args.dry_run:
                 print(f"{repo:18} {platform:8} WOULD CREATE {display!r}")

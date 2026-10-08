@@ -12,12 +12,14 @@
  "TripNest": {
   "android_app_id": "ca-app-pub-8528784688453695~8044208178",
   "android_banner": "ca-app-pub-8528784688453695/3721819782",
-  "android_interstitial": "ca-app-pub-8528784688453695/5528514029"
+  "android_interstitial": "ca-app-pub-8528784688453695/5528514029",
+  "ios_app_id": "ca-app-pub-8528784688453695~7973677521"
  },
  "Uscis-Case": {
   "android_app_id": "ca-app-pub-8528784688453695~2309537905",
   "android_banner": "ca-app-pub-8528784688453695/5539491423",
-  "android_interstitial": "ca-app-pub-8528784688453695/9095593054"
+  "android_interstitial": "ca-app-pub-8528784688453695/9095593054",
+  "ios_app_id": "ca-app-pub-8528784688453695~5246164144"
  },
  "VirtuBand": {
   "android_app_id": "ca-app-pub-8528784688453695~2836542125",
@@ -27,12 +29,14 @@
  "iMaps": {
   "android_app_id": "ca-app-pub-8528784688453695~5082647691",
   "android_banner": "ca-app-pub-8528784688453695/1143402684",
-  "android_interstitial": "ca-app-pub-8528784688453695/8340879191"
+  "android_interstitial": "ca-app-pub-8528784688453695/8340879191",
+  "ios_app_id": "ca-app-pub-8528784688453695~3933082470"
  },
  "iMeasure": {
   "android_app_id": "ca-app-pub-8528784688453695~9265279754",
   "android_banner": "ca-app-pub-8528784688453695/1222409251",
-  "android_interstitial": "ca-app-pub-8528784688453695/9950162694"
+  "android_interstitial": "ca-app-pub-8528784688453695/9950162694",
+  "ios_app_id": "ca-app-pub-8528784688453695~7680755795"
  },
  "radiotune": {
   "android_app_id": "ca-app-pub-8528784688453695~7770953426",

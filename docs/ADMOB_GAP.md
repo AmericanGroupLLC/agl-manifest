@@ -1,8 +1,8 @@
-# AdMob: 10 of 86 ids exist
+# AdMob: 14 of 86 ids exist
 
-Measured 2026-10-04 against `accounts/pub-8528784688453695`,
+Measured 2026-10-07 against `accounts/pub-8528784688453695`,
 read live with the AdMob v1beta API. One AdMob app is needed per platform for
-43 apps — **86 ids, of which 10 exist and 76 are missing**.
+43 apps — **86 ids, of which 14 exist and 72 are missing**.
 
 ## Why they cannot be created from here
 
@@ -78,8 +78,8 @@ would have created a second AdMob app for every one that already exists.
 | GroceryMatch | **missing** | **missing** |
 | HerJourney | **missing** | **missing** |
 | HomeWise | **missing** | **missing** |
-| iMaps | ca-app-pub-8528784688453695~5082647691 | **missing** |
-| iMeasure | ca-app-pub-8528784688453695~9265279754 | **missing** |
+| iMaps | ca-app-pub-8528784688453695~5082647691 | ca-app-pub-8528784688453695~3933082470 |
+| iMeasure | ca-app-pub-8528784688453695~9265279754 | ca-app-pub-8528784688453695~7680755795 |
 | Kinnav | **missing** | **missing** |
 | MileMaster | **missing** | **missing** |
 | MyCard | **missing** | **missing** |
@@ -95,8 +95,8 @@ would have created a second AdMob app for every one that already exists.
 | radiotune | ca-app-pub-8528784688453695~7770953426 | **missing** |
 | RideZap | **missing** | **missing** |
 | RoomCraft | **missing** | **missing** |
-| TripNest | ca-app-pub-8528784688453695~8044208178 | **missing** |
-| Uscis-Case | ca-app-pub-8528784688453695~2309537905 | **missing** |
+| TripNest | ca-app-pub-8528784688453695~8044208178 | ca-app-pub-8528784688453695~7973677521 |
+| Uscis-Case | ca-app-pub-8528784688453695~2309537905 | ca-app-pub-8528784688453695~5246164144 |
 | Verba | **missing** | **missing** |
 | VirtuBand | ca-app-pub-8528784688453695~2836542125 | **missing** |
 | WiFiTrail | **missing** | **missing** |
