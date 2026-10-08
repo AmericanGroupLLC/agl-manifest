@@ -21,11 +21,27 @@ Reads from the same token in the same second succeed, so this is AdMob
 withholding the v1beta write methods from this publisher, not a scope or a
 quota problem. See MA-027.
 
-**The browser is signed in to the wrong Google account.** The AdMob console
-is the other route, and the browser attached to this session is signed in as
-`srikanth@embeddedos.org`, which has no AdMob account — admob.google.com
-redirects it to `/signup`. The publisher belongs to `rainbow472.sri@gmail.com`.
-Signing in is the account owner's action, not one this session can take.
+**The browser is signed in to the wrong Google account.** The AdMob console is
+the other route. Every account signed into the browser attached to this session
+was enumerated on 2026-10-08:
+
+| `authuser` | Account | AdMob |
+| --- | --- | --- |
+| 0 | `srikanth@embeddedos.org` | no account — admob.google.com offers `/signup` |
+| 1 | `careers@embeddedos.org` | asks to re-verify the password |
+| 2 | `hr@embeddedos.org` | asks to re-verify the password |
+| 3 | `patchava.srikanth72@gmail.com` | **a different publisher** — one app, "Tether Health", and "Payment setup incomplete" |
+
+`rainbow472.sri@gmail.com`, which owns `pub-8528784688453695`, is **not** signed
+into the browser. It *is* the active gcloud account, which is why the API can
+read the publisher while the console cannot be reached.
+
+Creating the apps under `authuser=3` would be worse than not creating them: they
+would carry a different publisher's ids, earn into a different account, and sit
+unreviewed behind that account's incomplete payment profile.
+
+**The fix is one action:** sign `rainbow472.sri@gmail.com` into the Chrome
+window attached to this session. Signing in is the account owner's to do.
 
 ## Collecting ids made by hand
 
