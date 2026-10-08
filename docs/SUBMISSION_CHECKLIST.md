@@ -94,6 +94,28 @@ and needs a live replacement.
 
 Measured by `scripts/verify_api_hosts.py`; the detail names file and line.
 
+### Adopts the UIScene lifecycle, and has a launch screen
+
+Added 2026-10-08, from a launch on an iOS 27.1 simulator that died within
+seconds:
+
+```
+EXC_BREAKPOINT  UIKitCore  _UIApplicationEvaluateRuntimeIssueForNoSceneLifecycleAdoption
+```
+
+Apple said at WWDC25 that the release after iOS 26 would require the UIScene
+lifecycle. iOS 27 does. **21 of the 43 apps had no
+`UIApplicationSceneManifest`**, so each crashed on launch for every user on
+iOS 27 — App Review included. Fifteen of them had also stripped both
+storyboards out of the Runner target (a workaround for a time this machine
+could not run `ibtool`) and built their window by hand, which left them with
+no launch screen.
+
+`scripts/ios_scene_lifecycle.py` brings them to the shape AeroSwift ships:
+storyboards back in Resources, a scene manifest naming `FlutterSceneDelegate`,
+and an AppDelegate on `FlutterImplicitEngineDelegate`. The proof is a launch on
+an iOS 27 simulator (`scripts/sim_install.py <app> --ios`), not a green build.
+
 ## Before the next submission
 
 1. `python3 scripts/store_checklist.py` — no FAIL rows.

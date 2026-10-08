@@ -288,6 +288,28 @@ def main() -> int:
                 "; ".join(hint(h, v) for h, v in sorted(dead.items()))
                 if dead else f"{ah.get('hosts', 0)} host(s), all resolve")
 
+        # --- launches on current iOS ---------------------------------------
+        # iOS 27 traps at launch in _UIApplicationEvaluateRuntimeIssueFor-
+        # NoSceneLifecycleAdoption for any app without a scene manifest. 21
+        # apps shipped without one. scripts/ios_scene_lifecycle.py fixes it.
+        import plistlib as _pl
+        _ip = d / "ios/Runner/Info.plist"
+        if _ip.exists():
+            try:
+                _info = _pl.loads(_ip.read_bytes())
+                _scene = bool(_info.get("UIApplicationSceneManifest"))
+                _launch = bool(_info.get("UILaunchStoryboardName"))
+            except Exception as _e:  # malformed plist is itself a failure
+                _scene, _launch = False, False
+            add("Adopts the UIScene lifecycle (launches on iOS 27)",
+                OK if _scene else NO,
+                "UIApplicationSceneManifest present" if _scene else
+                "no UIApplicationSceneManifest: crashes on launch on iOS 27 — "
+                "run scripts/ios_scene_lifecycle.py")
+            add("Has a launch screen", OK if _launch else NO,
+                "UILaunchStoryboardName set" if _launch else
+                "UILaunchStoryboardName empty: no launch screen")
+
         # --- identity and signing -------------------------------------------
         add("Bundle id / applicationId", OK, a["bundle_id"])
         add("Release signing configured", OK if a_ev.get("keystore_sha256") else NO,
