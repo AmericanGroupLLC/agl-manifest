@@ -1196,8 +1196,15 @@ def main() -> int:
                 # nothing, failed silently, and left the app broken while the
                 # run reported it reverted.
                 app_d = ROOT / repo / (a.get("dir") or ".")
+                # Only the code this tool edits. `checkout -- .` would also
+                # discard unrelated uncommitted work in the app — screenshots,
+                # Xcode project changes — which is not this tool's to throw
+                # away. Paths that do not exist are filtered out, because one
+                # unmatched pathspec makes git refuse the whole checkout.
+                code = [p for p in ("lib", "test", "integration_test")
+                        if (app_d / p).exists()]
                 rv = subprocess.run(
-                    ["git", "-C", str(app_d), "checkout", "--", "."],
+                    ["git", "-C", str(app_d), "checkout", "--", *code],
                     capture_output=True, text=True)
                 if rv.returncode != 0:
                     print(f"   {repo:16} REVERT FAILED: {rv.stderr.strip()[:120]}",
