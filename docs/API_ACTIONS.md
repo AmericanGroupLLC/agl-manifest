@@ -231,6 +231,7 @@ read means giving the harness another way in.
 | --- | --- |
 | `store_checklist.py` | Per-app readiness; the headline number |
 | `artifact_staleness.py` | Which artifacts predate a commit that could change them. Android and iOS inputs are kept separate — conflating them reported eight bundles as stale when only `ios/Podfile.lock` had changed |
+| `verify_api_hosts.py` | Whether every host each app calls **exists**, via Google DNS-over-HTTPS (plain DNS is blocked here, so `dig` times out on every name). NXDOMAIN fails the gate; anything short of an address is recorded as `unverified`, never as dead. Writes `docs/api-hosts.json`; runs in CI and in every `store_watch` pass |
 | `verify_store_urls.py` | Whether each store URL is real. **Do not trust HTTP 200** — this host serves its homepage for any unknown path, so the body is compared against a known-nonexistent path |
 | `verify_deletion_urls.py` | Whether every app has a working account-deletion page (Play Data safety) |
 | `audit_release_readiness.py` | 63 measured fields per app |

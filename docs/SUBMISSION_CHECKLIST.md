@@ -74,6 +74,26 @@ Measured input for that conversation: no two of the 43 apps share more than
 trigger is more likely the shared code scaffold and the number of apps
 submitted together.
 
+### Every API host the app calls exists
+
+Added 2026-10-07. **18 apps** called hosts with no DNS record at all, and
+seven of those hosts were our own: `api.americangroupllc.com` (11 apps),
+`api.safecodeg.com`, `api.verba.americangroupllc.com`, `photriya.cloud`,
+`grocerymatch.app`, `uscis-case94.manus.app`, `api.ridezap.americangroupllc.com`.
+GroceryMatch's *sign-in* posted to one of them.
+
+The org has no API server. Every app talks to Supabase directly, so a
+first-party API hostname in an app is a placeholder that shipped. Analyze,
+tests and the simulator all pass it, because none of them leave the laptop —
+the only thing that catches it is asking DNS.
+
+The gate distinguishes ours from theirs because the fix differs. Ours never
+existed: move the call to Supabase. Theirs existed and went away —
+`feeds.reuters.com`, the retired `at1`/`fi1`/`nl1` radio-browser mirrors —
+and needs a live replacement.
+
+Measured by `scripts/verify_api_hosts.py`; the detail names file and line.
+
 ## Before the next submission
 
 1. `python3 scripts/store_checklist.py` — no FAIL rows.

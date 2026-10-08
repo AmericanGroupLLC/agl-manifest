@@ -21,6 +21,11 @@
    "detail": ""
   },
   {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "1 host(s), all resolve"
+  },
+  {
    "check": "Bundle id / applicationId",
    "state": "PASS",
    "detail": "com.americangroupllc.aeroswift"
@@ -163,7 +168,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "AGCleaner": [
@@ -186,6 +191,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -330,7 +340,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "AGrammarly": [
@@ -353,6 +363,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -502,7 +517,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "AGRecorder": [
@@ -525,6 +540,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "1 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -669,7 +689,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "AGStudio": [
@@ -692,6 +712,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -836,7 +861,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "ApexMarketWatch": [
@@ -859,6 +884,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "1 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1003,7 +1033,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "BodyQuest": [
@@ -1026,6 +1056,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "3 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1175,7 +1210,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "BuddyPlay": [
@@ -1198,6 +1233,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1342,7 +1382,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "CalcMaster": [
@@ -1365,6 +1405,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.safecodeg.com (lib/services/api_client.dart:17) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1514,7 +1559,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "CarDeal": [
@@ -1537,6 +1582,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/core/config/app_config.dart:24) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1681,7 +1731,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "ChefCount": [
@@ -1704,6 +1754,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "1 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -1853,7 +1908,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "CodeDeal": [
@@ -1876,6 +1931,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "3 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2020,7 +2080,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "daily-pulse": [
@@ -2043,6 +2103,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "feeds.reuters.com (lib/core/constants/app_constants.dart:50) - third-party host is gone: replace it"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2192,7 +2257,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "DriftDate": [
@@ -2215,6 +2280,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "1 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2343,8 +2413,8 @@
   },
   {
    "check": "Demo account when the app gates on sign-in",
-   "state": "FAIL",
-   "detail": "sign-in wall with NO demo account"
+   "state": "PASS",
+   "detail": "demo user qa@safecodeg.com"
   },
   {
    "check": "Screenshots show the app, not a login screen",
@@ -2364,7 +2434,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "EventSpark": [
@@ -2387,6 +2457,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/core/config/app_config.dart:31) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2531,7 +2606,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "FashionFactory": [
@@ -2554,6 +2629,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2703,7 +2783,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "GadgetNest": [
@@ -2726,6 +2806,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/core/config/app_config.dart:12) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -2870,7 +2955,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "GroceryMatch": [
@@ -2893,6 +2978,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/core/auth/auth_service.dart:29) - ours, never deployed: move to Supabase; api.walmart.io (lib/core/config/api_config.dart:68) - third-party host is gone: replace it; developer.instacart.com (lib/services/integrations/integration_registry.dart:166) - third-party host is gone: replace it; grocerymatch.app (lib/features/family_mode/family_mode_screen.dart:438) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3042,7 +3132,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "HerJourney": [
@@ -3065,6 +3155,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/config/app_config.dart:22) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3214,7 +3309,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "HomeWise": [
@@ -3237,6 +3332,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3381,7 +3481,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "iMaps": [
@@ -3404,6 +3504,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/services/analytics_service.dart:18) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3553,7 +3658,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "iMeasure": [
@@ -3576,6 +3681,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "4 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3725,7 +3835,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "Kinnav": [
@@ -3748,6 +3858,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/config/app_config.dart:40) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -3876,8 +3991,8 @@
   },
   {
    "check": "Demo account when the app gates on sign-in",
-   "state": "FAIL",
-   "detail": "sign-in wall with NO demo account"
+   "state": "PASS",
+   "detail": "demo user qa@safecodeg.com"
   },
   {
    "check": "Screenshots show the app, not a login screen",
@@ -3897,7 +4012,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "MileMaster": [
@@ -3920,6 +4035,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4069,7 +4189,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "MyCard": [
@@ -4092,6 +4212,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4236,7 +4361,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "MyFinance": [
@@ -4259,6 +4384,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4408,7 +4538,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "MyHealth": [
@@ -4431,6 +4561,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/config/app_config.dart:41) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4580,7 +4715,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "NearServe": [
@@ -4603,6 +4738,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4747,7 +4887,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "NewsBoard": [
@@ -4770,6 +4910,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "6 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -4914,7 +5059,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "NexusTransferPay": [
@@ -4937,6 +5082,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.safecodeg.com (lib/core/api_service.dart:25) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5081,7 +5231,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "Photriya": [
@@ -5104,6 +5254,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "photriya.cloud (lib/features/cloud/screens/collaboration_screen.dart:61) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5253,7 +5408,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "PilotEnRoute": [
@@ -5276,6 +5431,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/config/backend_config.dart:14) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5425,7 +5585,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "PlantPulse": [
@@ -5448,6 +5608,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5592,7 +5757,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "portfolio-board": [
@@ -5615,6 +5780,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5764,7 +5934,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "radiotune": [
@@ -5787,6 +5957,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "at1.api.radio-browser.info (lib/services/radio_api_service.dart:39) - third-party host is gone: replace it; fi1.api.radio-browser.info (lib/services/radio_api_service.dart:40) - third-party host is gone: replace it; nl1.api.radio-browser.info (lib/services/radio_api_service.dart:38) - third-party host is gone: replace it"
   },
   {
    "check": "Bundle id / applicationId",
@@ -5936,7 +6111,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "RideZap": [
@@ -5959,6 +6134,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/core/env.dart:46) - ours, never deployed: move to Supabase; api.ridezap.americangroupllc.com (lib/core/env.dart:42) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6103,7 +6283,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "RoomCraft": [
@@ -6126,6 +6306,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6270,7 +6455,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "TripNest": [
@@ -6293,6 +6478,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.americangroupllc.com (lib/core/config/app_config.dart:26) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6442,7 +6632,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "Uscis-Case": [
@@ -6465,6 +6655,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "uscis-case94.manus.app (lib/services/app_config.dart:26) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6614,7 +6809,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "Verba": [
@@ -6637,6 +6832,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "FAIL",
+   "detail": "api.verba.americangroupllc.com (lib/app_env.dart:27) - ours, never deployed: move to Supabase"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6786,7 +6986,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "VirtuBand": [
@@ -6809,6 +7009,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "3 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -6958,7 +7163,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ],
  "WiFiTrail": [
@@ -6981,6 +7186,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -7130,7 +7340,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "yourtube": [
@@ -7153,6 +7363,11 @@
    "check": "Binaries newer than the app icon",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Every API host the app calls exists",
+   "state": "PASS",
+   "detail": "7 host(s), all resolve"
   },
   {
    "check": "Bundle id / applicationId",
@@ -7297,7 +7512,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "3 unanswered question(s)"
+   "detail": "2 unanswered question(s)"
   }
  ]
 }

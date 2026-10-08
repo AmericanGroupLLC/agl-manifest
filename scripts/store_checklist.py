@@ -34,6 +34,11 @@ FLUTTER_DEFAULT_ICON = "7770183009e9"
 
 OK, NO, HUMAN, NA = "PASS", "FAIL", "HUMAN", "n/a"
 
+# First-party API hostnames that are not under one of our two domains. Every
+# one of them is NXDOMAIN: placeholders for backends that were never built.
+FIRST_PARTY = {"api.myhealth.app", "api.virtuband.app", "virtuband.app",
+               "photriya.cloud", "grocerymatch.app", "uscis-case94.manus.app"}
+
 
 def load(path: pathlib.Path, default):
     try:
@@ -225,6 +230,11 @@ def main() -> int:
                 sim_meta.setdefault(r["repo"], {})[r["platform"]] = r.get("status")
     sim_raw = {}
 
+    # Every host the app calls must exist. See verify_api_hosts.py: 18 apps
+    # shipped calls to backends that were never deployed — GroceryMatch's
+    # sign-in among them — and nothing that runs on the laptop can notice.
+    api_hosts = load(MANIFEST_DIR / "docs/api-hosts.json", {}).get("apps", {})
+
     rows = []
     for a in apps:
         repo = a["repo"]
@@ -256,6 +266,27 @@ def main() -> int:
             if icon_p.stat().st_mtime > (DIST / f"{repo}.ipa").stat().st_mtime:
                 stale = "icon changed after the .ipa was built - rebuild"
         add("Binaries newer than the app icon", NO if stale else OK, stale)
+
+        # --- the network: real endpoints only -------------------------------
+        ah = api_hosts.get(repo)
+        if ah is None:
+            add("Every API host the app calls exists", NO,
+                "not measured - run scripts/verify_api_hosts.py")
+        else:
+            dead = ah.get("dead") or {}
+            # Ours vs theirs needs different advice. Ours never existed — the
+            # org has no API server, so the call belongs on Supabase. Theirs
+            # existed and went away (feeds.reuters.com, retired radio-browser
+            # mirrors), so it needs a live replacement, not Supabase.
+            def hint(h, v):
+                ours = h.endswith(("americangroupllc.com", "safecodeg.com")) or \
+                    h in FIRST_PARTY
+                return (f"{h} ({v[0]}) - ours, never deployed: move to Supabase"
+                        if ours else f"{h} ({v[0]}) - third-party host is gone: replace it")
+            add("Every API host the app calls exists",
+                NO if dead else OK,
+                "; ".join(hint(h, v) for h, v in sorted(dead.items()))
+                if dead else f"{ah.get('hosts', 0)} host(s), all resolve")
 
         # --- identity and signing -------------------------------------------
         add("Bundle id / applicationId", OK, a["bundle_id"])

@@ -700,6 +700,9 @@ jobs:
           fi
           python3 scripts/store_gates.py      || true
           python3 scripts/app_identifiers.py  || true
+          # Every host each app calls must exist (DNS-over-HTTPS). 18 apps
+          # once shipped calls to backends that were never deployed.
+          python3 scripts/verify_api_hosts.py || true
           python3 scripts/store_checklist.py  || true
           # Phase 2 foundation: keep desired-state and measured-state layers
           # refreshed without changing current CI consumers.

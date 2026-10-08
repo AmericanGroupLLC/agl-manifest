@@ -128,6 +128,9 @@ def main() -> int:
         report["actions"].append(f"new holds: {', '.join(sorted(new))}")
 
     # --- 3. the gate ------------------------------------------------------
+    # Re-measure the network first, so a host that went away since the last
+    # pass fails the gate *before* anything is submitted.
+    run(["python3", "scripts/verify_api_hosts.py"], timeout=1800)
     run(["python3", "scripts/store_checklist.py"], timeout=3600)
     gate = json.loads((M / "docs/store-checklist.json").read_text())
     gate = gate.get("apps", gate) if isinstance(gate, dict) and "apps" in gate else gate
