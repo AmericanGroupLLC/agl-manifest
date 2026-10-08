@@ -549,7 +549,23 @@ def strip_unreachable(src: str) -> tuple[str, int]:
             if not mask[m.start()] or encl[m.start()] != "{":
                 continue
             rest = src[end:]
-            after = rest.lstrip(" \t\n")
+            # Skip whitespace *and comments* when deciding whether anything
+            # unreachable actually follows. Using lstrip() alone treated a
+            # trailing `// Already loaded today's insight` as dead code and
+            # deleted the comment — and the indentation of the `}` with it.
+            k = 0
+            while k < len(rest):
+                if rest[k] in " \t\n":
+                    k += 1
+                elif rest[k:k + 2] == "//":
+                    nl = rest.find("\n", k)
+                    k = len(rest) if nl < 0 else nl + 1
+                elif rest[k:k + 2] == "/*":
+                    cl = rest.find("*/", k + 2)
+                    k = len(rest) if cl < 0 else cl + 2
+                else:
+                    break
+            after = rest[k:]
             if not after or after.startswith(("}", "case ", "default:")):
                 continue
             # Everything up to the end of this block is unreachable.
@@ -565,6 +581,9 @@ def strip_unreachable(src: str) -> tuple[str, int]:
         if cut is None:
             return src, n
         a, b = cut
+        line_start = src.rfind("\n", 0, b) + 1
+        if not src[line_start:b].strip():
+            b = line_start
         src = src[:a] + "\n" + src[b:]
         n += 1
 
@@ -638,6 +657,123 @@ def remove_dead_tests(src: str) -> tuple[str, int]:
             b += 1
         src = src[:a] + src[b:]
         n += 1
+
+
+# The credential constants themselves. Nothing legitimate can reference one
+# after they are deleted, so a member that does is test-account code by
+# definition. That is a sound rule, unlike "delete whatever the analyzer
+# pointed at", which picked a local variable.
+CRED = re.compile(
+    r"\b(?:qaEmail|qaPassword|devEmail|devPassword|adminEmail|adminPassword"
+    r"|testAccountEnabled|devAccountEnabled)\b")
+
+# Never delete these, whatever they reference: removing `build` takes the
+# whole screen with it. A credential rendered inside one is a widget-level
+# problem and is reported instead.
+KEEP = {"build", "initState", "dispose", "didChangeDependencies", "main",
+        "toString", "hashCode", "createState", "didUpdateWidget"}
+
+# Exactly two spaces of indent, and no more. The type pattern allows spaces
+# (`Future<void> `, `static final `), so without `(?! )` the match slid past
+# four- and six-space indentation and treated *local variables* as class
+# members: on GroceryMatch it "discovered" `e`, `password` and `login` as
+# dead and would have deleted 1430 declarations across 96 files.
+MEMBER = re.compile(
+    r"(?m)^  (?! )(?:@override\s+)?(?:static\s+)?(?:final\s+|const\s+)?"
+    r"[\w<>?\[\], ]+?\b(?:get\s+)?(?P<name>_?\w+)\s*(?=\(|=>|=|;)")
+
+
+def members_of(src: str):
+    """(name, start, end) for each class-level member declaration.
+
+    "Class-level" is checked, not assumed. A *top-level function* indents its
+    body by two spaces as well, so `final qaMatch = ...` inside one looks
+    exactly like a field — which is how `qaMatch` and `devMatch` were offered
+    up for deletion as though they were members.
+    """
+    mask = code_mask(src)
+    # Index -> position of the innermost unclosed `{`, so a declaration can be
+    # tested for actually being inside a `class` body.
+    encl_pos = [-1] * (len(src) + 1)
+    stack: list[int] = []
+    for i, c, _d, live in scan(src):
+        if i < len(src):
+            encl_pos[i] = stack[-1] if stack else -1
+        if not live:
+            continue
+        if c in OPEN:
+            stack.append(i)
+        elif c in CLOSE and stack:
+            stack.pop()
+    for m in MEMBER.finditer(src):
+        i = m.start()
+        if not mask[i]:
+            continue
+        owner = encl_pos[i]
+        if owner < 0:
+            continue
+        head = src[src.rfind("\n", 0, owner) + 1:owner]
+        if not re.search(r"\b(class|mixin|extension|enum)\b", head):
+            continue
+        j = m.end()
+        stop = -1
+        while j < len(src):
+            if src[j] == "{":
+                stop = match_bracket(src, j)
+                break
+            if src[j] == ";":
+                stop = j + 1
+                break
+            if src[j] == "(":
+                nxt = match_bracket(src, j)
+                if nxt < 0:
+                    break
+                j = nxt
+                continue
+            j += 1
+        if stop > 0:
+            yield m.group("name"), i, stop
+
+
+def discover_dead(files: list[pathlib.Path]) -> tuple[set[str], list[str]]:
+    """Members that reference a credential constant, and so exist only for it.
+
+    Bounded on purpose. An earlier version took a fixpoint over *any*
+    already-dead name, so once `loginWithTestAccount` was dead every caller
+    became dead, then every caller of those — it swallowed unrelated code and
+    the cost exploded past ten minutes for a single app.
+
+    One level, credential constants only, is both sound and enough: the
+    constants are gone, so nothing legitimate can reference them, and the
+    three shapes actually found in these repos are all direct references —
+    `_isConfigTestAccount`, `loginWithTestAccount`, `hasTestAccount`.
+    Call sites of what this removes are left to the widget and folding passes,
+    and anything still broken is reverted rather than guessed at.
+    """
+    dead: set[str] = set()
+    notes: list[str] = []
+    for f in files:
+        src = f.read_text(errors="ignore")
+        mask = code_mask(src)
+        for name, a, b in members_of(src):
+            if name in KEEP or name.startswith("_k"):
+                continue
+            if not any(mask[a + m.start()] for m in CRED.finditer(src[a:b])):
+                continue
+            if src[a:b].count("\n") > 40:
+                notes.append(f"{f.name}: {name} references a credential but is "
+                             "too large to delete blindly")
+                continue
+            dead.add(name)
+    return dead, notes
+
+
+def set_dead(names) -> None:
+    """Point the folding and statement passes at this app's dead symbols."""
+    global DEAD_NAME
+    DEAD_NAME = re.compile(
+        r"\b(?:" + "|".join(sorted((re.escape(n) for n in names), key=len,
+                                   reverse=True)) + r")\b")
 
 
 def dangling(d: pathlib.Path, names: list[str]) -> list[str]:
@@ -860,13 +996,50 @@ def main() -> int:
         files: list[str] = []
         roots = [lib] + [d / t for t in ("test", "integration_test")
                          if (d / t).is_dir()]
-        for f in sorted(x for r in roots for x in r.rglob("*.dart")):
-            if "/generated/" in str(f):
-                continue
-            src = orig = f.read_text(errors="ignore")
-            src, w, sk = remove_guarded_widgets(src)
+        dartfiles = [x for r in roots for x in sorted(r.rglob("*.dart"))
+                     if "/generated/" not in str(x)]
+        # The wrapper names differ per app, so discover them rather than
+        # listing them: `hasTestAccount`, `_isConfigTestAccount`,
+        # `loginWithTestAccount`, `testPassword` are all the same idea under
+        # four names, and each strands the next when removed.
+        originals = {f: f.read_text(errors="ignore") for f in dartfiles}
+
+        # Phase 1 — fold first. A member is only "test-account code" if it
+        # still touches a credential *after* the dead branches are gone.
+        # Discovering before folding flagged `AppEnv.validate` (whose only
+        # reference is inside `if (isProd && kReleaseMode && testAccountEnabled)`)
+        # and BodyQuest's `_submit` (an if/else whose else arm is the normal
+        # login). Deleting either would have removed working code.
+        set_dead(DEAD_MEMBERS + ["useTestAccount"])
+        folded = {}
+        for f, orig in originals.items():
+            src, w, sk = remove_guarded_widgets(orig)
             src = src.replace("/*AGL-SKIP*/", "")
-            for name in DEAD_MEMBERS:
+            src, fc, fsk = fold_dead_conditionals(src)
+            src = src.replace("/*AGL-SKIP*/", "")
+            src, uc = strip_unreachable(src)
+            # Also drop `required bool testAccountEnabled,` here. Left until
+            # phase 3, the *parameter name* still matched CRED and made
+            # `AppEnv.validate` look like test-account code.
+            for nm in DEAD_MEMBERS + ["useTestAccount"]:
+                src, c = remove_named(src, nm)
+                members += c
+            folded[f] = src
+            widgets += w
+            members += fc + uc
+            skipped += [f"{f.relative_to(d)}: {x}" for x in sk + fsk]
+
+        # Phase 2 — now ask which members are left serving only the accounts.
+        discovered, big = discover_dead(folded)
+        names = list(dict.fromkeys(DEAD_MEMBERS + sorted(discovered)))
+        set_dead(names + ["useTestAccount"])
+        skipped += big
+
+        # Phase 3 — remove them, and whatever that strands.
+        for f in dartfiles:
+            orig = originals[f]
+            src = folded[f]
+            for name in names:
                 src, c = remove_member(src, name)
                 members += c
             src, fc, fsk = fold_dead_conditionals(src)
@@ -875,12 +1048,9 @@ def main() -> int:
             src, dc = remove_dead_statements(src)
             src, tc = remove_dead_tests(src)
             members += fc + uc + dc + tc
-            sk += fsk
-            for name in DEAD_MEMBERS + ["useTestAccount"]:
+            for name in names + ["useTestAccount"]:
                 src, c = remove_named(src, name)
                 members += c
-            widgets += w
-            skipped += [f"{f.relative_to(d)}: {s}" for s in sk]
             if src != orig:
                 if not balanced(src):
                     skipped.append(
@@ -891,7 +1061,7 @@ def main() -> int:
                 if not args.dry_run:
                     f.write_text(src)
         if widgets or members:
-            left = [] if args.dry_run else dangling(d, DEAD_MEMBERS)
+            left = [] if args.dry_run else dangling(d, names)
             report[repo] = {"widgets": widgets, "members": members,
                             "files": files, "skipped": skipped,
                             "dangling": left}
