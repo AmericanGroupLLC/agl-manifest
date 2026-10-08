@@ -593,6 +593,21 @@ def strip_unreachable(src: str) -> tuple[str, int]:
             end = m.end()
             if not mask[m.start()] or encl[m.start()] != "{":
                 continue
+            # `throw x;` on its own line can be the tail of an expression body:
+            #   Future<void> save(...) async =>
+            #       throw failure;
+            # That is a whole member, not a statement, and cutting "everything
+            # after it" deleted the rest of the class — `track` and `dispose`
+            # from test doubles in AeroSwift, CarDeal, HomeWise and RideZap,
+            # and app code in EventSpark's payments.dart.
+            prev = src[:m.start()].rstrip()
+            if prev.endswith("=>"):
+                continue
+            # And never inside a class body, whatever the line looks like.
+            o = opener_positions(src)[m.start()]
+            head = src[src.rfind("\n", 0, o) + 1:o] if o >= 0 else ""
+            if re.search(r"\b(class|mixin|extension|enum)\b", head):
+                continue
             rest = src[end:]
             # Skip whitespace *and comments* when deciding whether anything
             # unreachable actually follows. Using lstrip() alone treated a
@@ -1145,7 +1160,7 @@ def main() -> int:
             if not (d / "pubspec.yaml").exists():
                 continue
             git = subprocess.run(
-                ["git", "-C", str(ROOT / a["repo"]), "status", "--porcelain",
+                ["git", "-C", str(d), "status", "--porcelain",
                  "--", "lib", "test", "integration_test"],
                 capture_output=True, text=True)
             if git.stdout.strip() and (a["repo"], d) not in touched:
@@ -1176,10 +1191,18 @@ def main() -> int:
         if bad and args.revert_on_fail:
             for repo in bad:
                 a = next(x for x in manifest if x["repo"] == repo)
-                subprocess.run(
-                    ["git", "-C", str(ROOT / repo), "checkout", "--",
-                     "lib", "test", "integration_test"],
+                # Paths relative to the *app* directory, not the repo root:
+                # for an app under mobile/, `checkout -- lib test` matched
+                # nothing, failed silently, and left the app broken while the
+                # run reported it reverted.
+                app_d = ROOT / repo / (a.get("dir") or ".")
+                rv = subprocess.run(
+                    ["git", "-C", str(app_d), "checkout", "--", "."],
                     capture_output=True, text=True)
+                if rv.returncode != 0:
+                    print(f"   {repo:16} REVERT FAILED: {rv.stderr.strip()[:120]}",
+                          flush=True)
+                    continue
                 print(f"   {repo:16} REVERTED — left for manual conversion",
                       flush=True)
         report["_verify"] = {"failed": bad, "reverted": bool(args.revert_on_fail)}
