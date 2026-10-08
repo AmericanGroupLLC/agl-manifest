@@ -1,6 +1,6 @@
 # AdMob: 14 of 86 ids exist
 
-Measured 2026-10-07 against `accounts/pub-8528784688453695`,
+Measured 2026-10-08 against `accounts/pub-8528784688453695`,
 read live with the AdMob v1beta API. One AdMob app is needed per platform for
 43 apps — **86 ids, of which 14 exist and 72 are missing**.
 
@@ -53,6 +53,98 @@ would have created a second AdMob app for every one that already exists.
   a dead listing.
 * **TripNest** and the iOS **CalcMaster** app are `ACTION_REQUIRED`, and
   RatioTune is `IN_REVIEW`; only five of the records are `APPROVED`.
+
+## What to create, and how to make it link itself
+
+All 43 apps now have a record in **both** stores, so every one of these can
+be added with *"Yes, it is listed on a store"* and searched by the
+identifier below. Doing it that way is worth the extra click: AdMob fills in
+the name itself and writes `linkedAppInfo.appStoreId`, which is the key
+`--sync` matches on — so the id comes back into the repository with no
+transcription and no name-drift to repair later.
+
+After a batch, run:
+
+```bash
+cd ~/agl/agl-manifest && python3 scripts/admob_setup.py --sync
+```
+
+### Still to create (72)
+
+| App | Platform | Search AdMob for |
+| --- | --- | --- |
+| AGCleaner | Android | `com.americangroupllc.agcleaner` |
+| AGCleaner | iOS | `com.americangroupllc.agcleaner` |
+| AGrammarly | Android | `com.americangroupllc.agrammarly` |
+| AGrammarly | iOS | `com.americangroupllc.agrammarly` |
+| AGRecorder | Android | `com.americangroupllc.agrecorder` |
+| AGRecorder | iOS | `com.americangroupllc.agrecorder` |
+| AGStudio | Android | `com.americangroupllc.agstudio` |
+| AGStudio | iOS | `com.americangroupllc.agstudio` |
+| ApexMarketWatch | Android | `com.americangroupllc.apexmarketwatch` |
+| ApexMarketWatch | iOS | `com.americangroupllc.apexmarketwatch` |
+| BodyQuest | Android | `com.americangroupllc.bodyquest` |
+| BodyQuest | iOS | `com.americangroupllc.bodyquest` |
+| BuddyPlay | Android | `com.americangroupllc.buddyplay` |
+| BuddyPlay | iOS | `com.americangroupllc.buddyplay` |
+| CarDeal | Android | `com.americangroupllc.cardeal` |
+| CarDeal | iOS | `com.americangroupllc.cardeal` |
+| ChefCount | Android | `com.americangroupllc.chefcount` |
+| ChefCount | iOS | `com.americangroupllc.chefcount` |
+| CodeDeal | Android | `com.americangroupllc.codedeal` |
+| CodeDeal | iOS | `com.americangroupllc.codedeal` |
+| daily-pulse | Android | `com.americangroupllc.dailypulse` |
+| daily-pulse | iOS | `com.americangroupllc.dailypulse` |
+| DriftDate | Android | `com.americangroupllc.driftdate` |
+| DriftDate | iOS | `com.americangroupllc.driftdate` |
+| EventSpark | Android | `com.americangroupllc.eventspark` |
+| EventSpark | iOS | `com.americangroupllc.eventspark` |
+| FashionFactory | Android | `com.americangroupllc.fashionfactory` |
+| FashionFactory | iOS | `com.americangroupllc.fashionfactory` |
+| GadgetNest | Android | `com.americangroupllc.gadgetnest` |
+| GadgetNest | iOS | `com.americangroupllc.gadgetnest` |
+| GroceryMatch | Android | `com.americangroupllc.GroceryMatch` |
+| GroceryMatch | iOS | `com.americangroupllc.grocerymatch` |
+| HerJourney | Android | `com.americangroupllc.herjourney` |
+| HerJourney | iOS | `com.americangroupllc.herjourney` |
+| HomeWise | Android | `com.americangroupllc.homewise` |
+| HomeWise | iOS | `com.americangroupllc.homewise` |
+| Kinnav | Android | `com.americangroupllc.kinnav` |
+| Kinnav | iOS | `com.americangroupllc.kinnav` |
+| MileMaster | Android | `com.americangroupllc.milemaster` |
+| MileMaster | iOS | `com.americangroupllc.milemaster` |
+| MyCard | Android | `com.americangroupllc.mycard` |
+| MyCard | iOS | `com.americangroupllc.mycard` |
+| MyFinance | Android | `com.americangroupllc.myfinance` |
+| MyFinance | iOS | `com.americangroupllc.myfinance` |
+| MyHealth | Android | `com.americangroupllc.myhealth` |
+| MyHealth | iOS | `com.americangroupllc.myhealth` |
+| NearServe | Android | `com.americangroupllc.nearserve` |
+| NearServe | iOS | `com.americangroupllc.nearserve` |
+| NewsBoard | Android | `com.americangroupllc.newsboard` |
+| NewsBoard | iOS | `com.americangroupllc.newsboard` |
+| NexusTransferPay | Android | `com.americangroupllc.nexustransferpay` |
+| NexusTransferPay | iOS | `com.americangroupllc.nexustransferpay` |
+| Photriya | Android | `com.americangroupllc.photriya` |
+| Photriya | iOS | `com.americangroupllc.photriya` |
+| PilotEnRoute | Android | `com.americangroupllc.pilotenroute` |
+| PilotEnRoute | iOS | `com.americangroupllc.pilotenroute` |
+| PlantPulse | Android | `com.americangroupllc.plantpulse` |
+| PlantPulse | iOS | `com.americangroupllc.plantpulse` |
+| portfolio-board | Android | `com.americangroupllc.portfolioboard` |
+| portfolio-board | iOS | `com.americangroupllc.portfolioboard` |
+| radiotune | iOS | `com.americangroupllc.radiotune` |
+| RideZap | Android | `com.americangroupllc.ridezap` |
+| RideZap | iOS | `com.americangroupllc.ridezap` |
+| RoomCraft | Android | `com.americangroupllc.roomcraft` |
+| RoomCraft | iOS | `com.americangroupllc.roomcraft` |
+| Verba | Android | `com.americangroupllc.verba` |
+| Verba | iOS | `com.americangroupllc.verba` |
+| VirtuBand | iOS | `com.americangroupllc.virtuband` |
+| WiFiTrail | Android | `com.americangroupllc.wifitrail` |
+| WiFiTrail | iOS | `com.americangroupllc.wifitrail` |
+| yourtube | Android | `com.americangroupllc.yourtube` |
+| yourtube | iOS | `com.americangroupllc.yourtube` |
 
 ## Per app
 
