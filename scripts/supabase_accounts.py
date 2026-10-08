@@ -121,10 +121,16 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--check", action="store_true",
                     help="verify sign-in only; make no changes")
+    ap.add_argument("--audit-config", action="store_true",
+                    help="report the production auth URLs and providers, and "
+                         "fail if any redirect points at a local address")
     ap.add_argument("--wire-store", action="store_true",
                     help="record the QA account on every app that signs in, "
                          "so asc_readiness.rb hands it to App Review")
     args = ap.parse_args()
+
+    if args.audit_config:
+        return audit_config()
 
     want = accounts()
     if not want:
@@ -196,6 +202,47 @@ def main() -> int:
         print("  MA-036 symptom 1 is cleared: App Review has working "
               "credentials for the sign-in apps.")
     return 0 if ok == len(want) else 1
+
+
+LOCAL = ("localhost", "127.0.0.1", "0.0.0.0", "10.0.2.2", "192.168.")
+
+
+def audit_config() -> int:
+    """Prove where production auth emails send people, without sending any.
+
+    The project's `site_url` is not readable with the service-role key, and
+    the Management API that does read it needs a personal access token this
+    machine does not expose. But the Auth admin API's generate_link *returns*
+    a sign-in link instead of emailing it, and that link carries the default
+    redirect — which is the site_url. No email is sent and the token in the
+    link is never printed.
+
+    Found 2026-10-08: site_url was http://localhost:3000, so every
+    confirmation, magic-link and password-reset email the 16 apps on this
+    project send redirected real users to their own machine.
+    """
+    import urllib.parse as up
+    anon, svc = keys()
+    code, body = api(f"{BASE}/auth/v1/admin/generate_link", svc, svc, "POST",
+                     {"type": "magiclink", "email": accounts()[0][1]})
+    link = body.get("action_link") or (body.get("properties") or {}).get("action_link")
+    if code != 200 or not link:
+        print(f"  generate_link failed: {code} {body.get('msg') or ''}")
+        return 1
+    redirect = (up.parse_qs(up.urlparse(link).query).get("redirect_to") or [""])[0]
+    _c, settings = api(f"{BASE}/auth/v1/settings", anon, anon)
+    providers = sorted(k for k, v in (settings.get("external") or {}).items() if v)
+    anon_ok, _ = api(f"{BASE}/auth/v1/signup", anon, anon, "POST", {})
+    local = any(m in redirect for m in LOCAL)
+    print(f"  site_url (default email redirect): {redirect or '<empty>'}"
+          f"{'   <-- LOCAL ADDRESS: every auth email lands on localhost' if local else ''}")
+    print(f"  providers enabled: {', '.join(providers)}")
+    print(f"  email confirmation required: {not settings.get('mailer_autoconfirm')}")
+    print(f"  anonymous sign-ins: {'enabled' if anon_ok == 200 else 'disabled'}")
+    if local:
+        print("  FIX (dashboard, no API path from here): Authentication -> URL "
+              "Configuration -> Site URL. See MA-042.")
+    return 1 if local else 0
 
 
 def wire_store(qa_email: str) -> int:

@@ -1892,3 +1892,52 @@ Two questions per app, 95 in total:
 ```bash
 python3 scripts/store_watch.py --clear-hold <app>
 ```
+
+## MA-042 · P0 · Production auth emails redirect real users to localhost
+
+Found 2026-10-08. The Supabase project shared by 16 apps
+(`smvvjivvlprjhzhoizym`) has **Site URL = `http://localhost:3000`**:
+
+```
+$ python3 scripts/supabase_accounts.py --audit-config
+  site_url (default email redirect): http://localhost:3000   <-- LOCAL ADDRESS
+  providers enabled: email, facebook, google, phone, twitter
+  email confirmation required: True
+  anonymous sign-ins: disabled
+```
+
+Every email Supabase sends lands the user on their own machine afterwards:
+
+- **sign-up confirmation** — the address *is* confirmed (that happens on
+  supabase.co) but the user then sees "can't connect", and reasonably
+  assumes it failed;
+- **password reset** — broken outright: the new password is set on the page
+  the link redirects to, and that page is localhost;
+- **magic links** — same.
+
+The value matches the local-development `supabase/config.toml` in
+AmericanGroupLLC-Backend, which is presumably how it got there.
+
+### Why this is not fixed from here
+
+Reading or writing the auth config is Management API work and needs a
+personal access token; the CLI's token is in the keychain and not readable.
+`supabase config push` *could* write it, but it pushes the whole `[auth]`
+section from a local file — and a minimal local file would switch **off** the
+Google, Facebook, Twitter and phone providers production has on. That risk
+is not worth taking for a field the dashboard edits in one minute.
+
+### The fix — Supabase dashboard
+
+Project `smvvjivvlprjhzhoizym` → **Authentication → URL Configuration**:
+
+1. **Site URL**: `https://www.safecodeg.com`
+   (a real, live page — verified HTTP 200 — rather than nothing).
+2. **Redirect URLs**, add: `https://www.safecodeg.com/**`
+   Add each app's deep-link scheme here too if an app passes `emailRedirectTo`.
+3. While on Authentication → **Providers**: enable **Anonymous sign-ins**
+   (MA-040) so guest flows such as yourtube's "Continue as guest" work.
+
+Then re-run `python3 scripts/supabase_accounts.py --audit-config`; it exits 0
+once no redirect is local. It also runs on every `store_watch` pass, so a
+regression is reported rather than discovered by a user.

@@ -131,6 +131,15 @@ def main() -> int:
     # Re-measure the network first, so a host that went away since the last
     # pass fails the gate *before* anything is submitted.
     run(["python3", "scripts/verify_api_hosts.py"], timeout=1800)
+
+    # Where production auth emails send people. A local site_url breaks
+    # sign-up confirmation and password reset for every Supabase app at once.
+    ac = run(["python3", "scripts/supabase_accounts.py", "--audit-config"],
+             timeout=600)
+    report["auth_config"] = (ac.stdout or "").strip().splitlines()
+    if ac.returncode != 0:
+        report["actions"].append(
+            "auth config: production redirect is a LOCAL address (MA-042)")
     run(["python3", "scripts/store_checklist.py"], timeout=3600)
     gate = json.loads((M / "docs/store-checklist.json").read_text())
     gate = gate.get("apps", gate) if isinstance(gate, dict) and "apps" in gate else gate
