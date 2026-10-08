@@ -121,28 +121,46 @@ Android `applicationId` should be changed to match the record rather than a
 second Play app being created. Its App content is complete, so this rename is
 the only thing between it and the same publish step as the other 22.
 
-## App Store — 42 of 43 are with Apple
+## App Store — 16 in review, 26 rejected
 
-From `docs/asc-build-state.json`, refreshed 2026-10-02. All 43 apps have a
-`VALID` uploaded build.
+Refreshed 2026-10-07. All 43 apps still have a `VALID`
+uploaded build; what changed is that Apple answered.
 
 | Review state | Count | Apps |
 | --- | --- | --- |
 | `IN_REVIEW` | 16 | AGCleaner, AGRecorder, AGStudio, ApexMarketWatch, BuddyPlay, CarDeal, ChefCount, FashionFactory, HomeWise, MileMaster, NearServe, NewsBoard, RideZap, RoomCraft, TripNest, VirtuBand |
-| `WAITING_FOR_REVIEW` | 26 | AeroSwift, AGrammarly, BodyQuest, CalcMaster, CodeDeal, daily-pulse, DriftDate, EventSpark, GadgetNest, GroceryMatch, HerJourney, iMaps, iMeasure, Kinnav, MyCard, MyFinance, MyHealth, NexusTransferPay, Photriya, PilotEnRoute, portfolio-board, radiotune, Uscis-Case, Verba, WiFiTrail, yourtube |
+| `REJECTED` | 26 | AGrammarly, AeroSwift, BodyQuest, CalcMaster, CodeDeal, DriftDate, EventSpark, GadgetNest, GroceryMatch, HerJourney, Kinnav, MyCard, MyFinance, MyHealth, NexusTransferPay, Photriya, PilotEnRoute, Uscis-Case, Verba, WiFiTrail, daily-pulse, iMaps, iMeasure, portfolio-board, radiotune, yourtube |
 | `PREPARE_FOR_SUBMISSION` | 1 | PlantPulse |
 
-On 2026-10-01 twenty-three of these were refused with *"Version is not ready to
-be submitted yet, please try again later"* — Apple's own post-rejection
-cooldown. Re-running the same script on 2026-10-02 submitted eleven of them
-outright and the rest followed, which is the proof that the message meant what
-it said and that nothing in the apps or their metadata was wrong.
+Every one of the 26 that were Waiting for Review on 2026-10-02 came back
+rejected together. **Why is not readable from here.** The rejection text lives
+in Resolution Center, and an API key cannot reach it — verified again today
+against the live host:
 
-**PlantPulse** is the only one left. It is refused with
-*app-privacy-answers-not-published*. Its `store/privacy/fastlane/PlantPulse.json`
-says `DATA_NOT_COLLECTED`, which is a single click in App Store Connect → App
-Privacy, or one `upload_app_privacy_details_to_app_store` run from a
-session-authenticated Mac. There is no API-key route; see MA-011.
+```
+GET v1/resolutionCenterThreads?filter[appStoreVersion]=...   404 PATH_ERROR
+GET v1/appStoreVersions/<id>                                 200  (appStoreState: REJECTED, no reason)
+GET v1/appStoreVersions/<id>/appStoreReviewDetail            200  (contact details, no reason)
+```
+
+Each rejected app's review submission sits in `UNRESOLVED_ISSUES`, which is the
+state `submit_production.rb` already knows how to resubmit once the issue is
+addressed — but nothing should be resubmitted before the reason is read.
+
+**One command unblocks it.** `scripts/testflight/rejection_reasons.rb` reads
+every thread through the `iris` host, which takes an Apple ID web session rather
+than an API key:
+
+```bash
+cd ~/agl/agl-manifest
+bundle exec fastlane spaceauth -u srikanth.patchava@outlook.com
+pbpaste > ~/agl/.secrets/fastlane-session
+```
+
+`scripts/testflight/env.sh` picks that file up automatically and the session
+lasts about a month. Both Apple IDs on the account can mint one —
+`srikanth.patchava@outlook.com` is the Account Holder and
+`rainbow472.sri@gmail.com` is an Admin.
 
 ## The Developer ID certificate email is not a blocker
 

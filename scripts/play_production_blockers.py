@@ -17,7 +17,7 @@ as evidence for the half it cannot.
     python3 scripts/play_production_blockers.py          # every app
     python3 scripts/play_production_blockers.py AGCleaner
 """
-import json, pathlib, subprocess, sys, urllib.error, urllib.request
+import json, pathlib, subprocess, sys, time, urllib.error, urllib.request
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from agl_paths import ROOT, MANIFEST  # noqa: E402
@@ -45,19 +45,30 @@ def token():
     return r.stdout.strip()
 
 
-def call(method, url, tok, body=None):
+def call(method, url, tok, body=None, attempts=4):
+    """One Android Publisher call, retrying the ones that mean "later".
+
+    A full 43-app sweep opens 43 edits in a row and Google starts answering 503
+    "The service is currently unavailable" partway through. Reported raw, that
+    reads as an app having lost its production release, which is how AeroSwift
+    and AGCleaner briefly appeared to. Back off and ask again instead.
+    """
     data = json.dumps(body).encode() if body is not None else None
-    req = urllib.request.Request(url, data=data, method=method, headers={
-        "Authorization": f"Bearer {tok}", "Content-Type": "application/json"})
-    try:
-        with urllib.request.urlopen(req, timeout=300) as r:
-            return r.status, json.loads(r.read() or "{}")
-    except urllib.error.HTTPError as e:
-        raw = e.read().decode()
+    for attempt in range(attempts):
+        req = urllib.request.Request(url, data=data, method=method, headers={
+            "Authorization": f"Bearer {tok}", "Content-Type": "application/json"})
         try:
-            return e.code, json.loads(raw)
-        except Exception:
-            return e.code, {"raw": raw[:300]}
+            with urllib.request.urlopen(req, timeout=300) as r:
+                return r.status, json.loads(r.read() or "{}")
+        except urllib.error.HTTPError as e:
+            raw = e.read().decode()
+            if e.code in (429, 500, 503) and attempt < attempts - 1:
+                time.sleep(3 * (attempt + 1))
+                continue
+            try:
+                return e.code, json.loads(raw)
+            except Exception:
+                return e.code, {"raw": raw[:300]}
 
 
 def main():
@@ -107,7 +118,17 @@ def main():
         print(f"{rec['repo']:18} {rec['state']:24} {rec['blocker'] or 'none'}")
 
     OUT.parent.mkdir(exist_ok=True)
-    OUT.write_text(json.dumps({"apps": rows}, indent=1) + "\n")
+    # A filtered run measures a few apps and must not replace the sheet for all
+    # 43. `python3 scripts/play_production_blockers.py AGrammarly` once cut the
+    # file down to a single row, which then read as "the portfolio is one app".
+    # Merge on repo instead, keeping the rows this run did not look at.
+    if names and OUT.exists():
+        kept = {r["repo"]: r for r in json.loads(OUT.read_text()).get("apps", [])}
+        kept.update({r["repo"]: r for r in rows})
+        rows_out = sorted(kept.values(), key=lambda r: r["repo"].lower())
+    else:
+        rows_out = rows
+    OUT.write_text(json.dumps({"apps": rows_out}, indent=1) + "\n")
     tally = {}
     for r in rows:
         tally[r["state"]] = tally.get(r["state"], 0) + 1
