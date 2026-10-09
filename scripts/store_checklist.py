@@ -301,12 +301,19 @@ def main() -> int:
                             "%[fx:standard_deviation]", "info:"],
                            capture_output=True, text=True).stdout.strip()
             try:
-                if float(_out) < 0.02:
-                    _blank.append(str(_png.relative_to(d)))
+                _sd = float(_out)
             except ValueError:
-                pass
-        add("No blank store screenshots", NO if _blank else OK,
-            ("blank: " + ", ".join(_blank)) if _blank else "")
+                continue
+            # Two different things, named as what they are. Below 0.005 is a
+            # solid frame. Up to 0.02 is a real screen with almost nothing on
+            # it — an empty state ("Nothing saved yet"), which still fails
+            # 2.3.3's "show the app in use" but is not blank.
+            if _sd < 0.005:
+                _blank.append(f"{_png.relative_to(d)} (blank)")
+            elif _sd < 0.02:
+                _blank.append(f"{_png.relative_to(d)} (near-empty screen)")
+        add("No blank or near-empty store screenshots", NO if _blank else OK,
+            ", ".join(_blank))
 
         # --- launches on current iOS ---------------------------------------
         # iOS 27 traps at launch in _UIApplicationEvaluateRuntimeIssueFor-
@@ -318,7 +325,11 @@ def main() -> int:
             try:
                 _info = _pl.loads(_ip.read_bytes())
                 _scene = bool(_info.get("UIApplicationSceneManifest"))
-                _launch = bool(_info.get("UILaunchStoryboardName"))
+                # Either form is a launch screen: the storyboard, or the
+                # plist-based UILaunchScreen dictionary (iOS 14+). TripNest
+                # uses the latter and was wrongly failed for it.
+                _launch = bool(_info.get("UILaunchStoryboardName")) or \
+                    "UILaunchScreen" in _info
             except Exception as _e:  # malformed plist is itself a failure
                 _scene, _launch = False, False
             add("Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -327,8 +338,8 @@ def main() -> int:
                 "no UIApplicationSceneManifest: crashes on launch on iOS 27 — "
                 "run scripts/ios_scene_lifecycle.py")
             add("Has a launch screen", OK if _launch else NO,
-                "UILaunchStoryboardName set" if _launch else
-                "UILaunchStoryboardName empty: no launch screen")
+                "" if _launch else
+                "neither UILaunchStoryboardName nor UILaunchScreen: no launch screen")
 
         # --- identity and signing -------------------------------------------
         add("Bundle id / applicationId", OK, a["bundle_id"])
