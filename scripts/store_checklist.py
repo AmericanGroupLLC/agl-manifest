@@ -112,6 +112,9 @@ def linked_frameworks_needing_strings(d: pathlib.Path) -> list[str]:
         "NSPhotoLibraryUsageDescription": ("image_picker", "photo_manager", "file_picker"),
         "NSMicrophoneUsageDescription": ("record", "speech_to_text", "audio", "just_audio"),
         "NSLocationWhenInUseUsageDescription": ("geolocator", "location", "google_maps"),
+        # geolocator's iOS code references requestAlwaysAuthorization, so Apple
+        # requires this too even when the app never asks for "always".
+        "NSLocationAlwaysAndWhenInUseUsageDescription": ("geolocator", "location"),
         "NSFaceIDUsageDescription": ("local_auth",),
         "NSMotionUsageDescription": ("pedometer", "sensors_plus", "health"),
         "NSCalendarsUsageDescription": ("device_calendar", "add_2_calendar"),
@@ -314,6 +317,26 @@ def main() -> int:
                 _blank.append(f"{_png.relative_to(d)} (near-empty screen)")
         add("No blank or near-empty store screenshots", NO if _blank else OK,
             ", ".join(_blank))
+
+        # --- purpose strings, judged the way Apple judges them --------------
+        # The source-level check below guessed from pubspec names and passed
+        # CalcMaster, which Apple then flagged (ITMS-90683): geolocator's iOS
+        # code references requestAlwaysAuthorization, so Apple requires
+        # NSLocationAlwaysAndWhenInUseUsageDescription. This scans the staged
+        # IPA's binaries for the APIs Apple looks for.
+        _ipa = DIST / f"{repo}.ipa"
+        if _ipa.exists():
+            try:
+                _sys.path.insert(0, str(MANIFEST_DIR / "scripts/testflight"))
+                from privacy_scan import scan as _pscan
+                _, _miss = _pscan(_ipa)
+                add("Binary has every purpose string Apple requires (ITMS-90683)",
+                    NO if _miss else OK,
+                    ", ".join(f"{k} (binary references {api})" for k, api in _miss)
+                    or f"scanned {_ipa.name}")
+            except Exception as _e:
+                add("Binary has every purpose string Apple requires (ITMS-90683)", NO,
+                    f"cannot scan {_ipa.name}: {type(_e).__name__}")
 
         # --- launches on current iOS ---------------------------------------
         # iOS 27 traps at launch in _UIApplicationEvaluateRuntimeIssueFor-
