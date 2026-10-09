@@ -1989,3 +1989,33 @@ What only the account holder can do:
    `resubmit_rejected.rb` did on 2026-10-02).
 4. When the replies are sent and answered, clear the holds with
    `python3 scripts/store_watch.py --clear-hold <app>`.
+
+## MA-044 · P0 · Apply `delete_user()` — account deletion in 18 apps waits on it
+
+Found 2026-10-09. Apple 5.1.1(v): "Account deletion is required in apps that
+support account creation." Eighteen apps create accounts on Supabase project
+`smvvjivvlprjhzhoizym`; none could delete one. The in-app buttons that existed
+signed out locally (Kinnav), invoked an Edge Function that was never deployed
+(DriftDate `wipe-me` → 404), or called a host with no DNS record
+(GroceryMatch).
+
+Every one of those apps now calls `rpc('delete_user')` and, until the
+function exists, shows the error and keeps the user signed in. The function:
+
+    AmericanGroupLLC-Backend/supabase/migrations/20261009_delete_user.sql   (commit a8f20b7)
+
+It deletes only the caller (`auth.uid()`), is not callable by `anon`, and
+raises — rather than half-deleting — if a table references `auth.users`
+without `ON DELETE CASCADE`.
+
+Why a person: applying SQL to the production database was refused to the
+agent (auto-mode classifier, "Production Reads"), correctly. Apply it in the
+Supabase dashboard SQL editor, or `supabase db query --linked -f <file>`.
+
+Verify: `python3 scripts/apple_requirements.py BodyQuest` — the 5.1.1(v) row
+turns PASS once `rpc/delete_user` stops answering PGRST202.
+
+Note: accounts are shared across every app on this project, so deleting from
+one app deletes for all; the apps' confirmation dialogs say so. Never test
+deletion with dev@ or qa@safecodeg.com. Apps offering Sign in with Apple
+should also revoke the Apple token on deletion (Apple's guidance); not done.
