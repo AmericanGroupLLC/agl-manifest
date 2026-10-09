@@ -1941,3 +1941,51 @@ Project `smvvjivvlprjhzhoizym` → **Authentication → URL Configuration**:
 Then re-run `python3 scripts/supabase_accounts.py --audit-config`; it exits 0
 once no redirect is local. It also runs on every `store_watch` pass, so a
 regression is reported rather than discovered by a user.
+
+## MA-043 · P0 · Sixteen apps rejected under 5.6 — the account is being judged, not the apps
+
+Found 2026-10-08, from the Resolution Center text (Apple ID session,
+`rejection_reasons.rb --session-only`). Sixteen apps received the same message,
+each on its **first** review, all between 14:19 and 14:20 UTC:
+
+> Guideline 5.6 - Developer Code of Conduct. We've identified a pattern of
+> unusual behavior with the app that is commonly associated with fraudulent
+> activity. Specifically, the app contains features that appear to have been
+> intentionally hidden during the review process.
+
+AGCleaner, AGRecorder, AGStudio, ApexMarketWatch, BuddyPlay, CarDeal,
+ChefCount, FashionFactory, HomeWise, MileMaster, NearServe, NewsBoard, RideZap,
+RoomCraft, TripNest, VirtuBand. The other 26 rejected apps were rejected
+together on 2026-10-05 21:25 UTC under 4.3 / 4.2.6.
+
+What was checked, and found nothing that separates the 16 from the 26: the
+source at the commit each reviewed build was cut from, for demo/test login,
+tap-count or long-press triggers, reviewer detection, date gates, remote
+config, and compile-time feature switches. Seven of the sixteen contain none
+of these at all; the four "review gate" hits in NearServe are customer reviews
+of bookings. Identical text across sixteen apps in one minute is a judgment
+about the account's submission pattern. That is an inference — Apple does not
+say what it saw — but the history it would have seen includes 42 apps from one
+account in a few weeks, near-identical review notes on all of them, and on
+2026-10-02 `resubmit_rejected.rb` cancelling 24 rejected submissions (which
+discards Apple's rejection thread) and submitting them again without a reply.
+
+What the automation now does: `store_watch.py` holds every app with a 5.6
+finding and, while any 5.6 hold exists, submits nothing at all
+(ACCOUNT_FREEZE). `submit_production.rb` and `resubmit_rejected.rb` exit 4 for
+the same reason (`scripts/testflight/account_freeze.rb`). TestFlight uploads
+continue; they are not submissions.
+
+What only the account holder can do:
+
+1. Reply to each 5.6 message in Resolution Center, plainly: the app has no
+   hidden, remotely switched or reviewer-dependent features; every feature is
+   reachable from launch as described in the review notes; offer a call
+   (App Review's "Request a call" is available for 5.6).
+2. Decide how many apps this account should carry. Apple's 4.3 questions 5
+   and 6 ask exactly this; consolidating overlapping apps answers both
+   findings at once.
+3. Do not cancel these submissions to resubmit (that is what
+   `resubmit_rejected.rb` did on 2026-10-02).
+4. When the replies are sent and answered, clear the holds with
+   `python3 scripts/store_watch.py --clear-hold <app>`.

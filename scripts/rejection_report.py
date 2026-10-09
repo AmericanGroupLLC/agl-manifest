@@ -50,21 +50,39 @@ def load(path, default):
 
 
 def classify(messages: list[str]) -> tuple[str, list[str]]:
-    text = html.unescape(re.sub(r"<[^>]+>", " ", messages[-1] if messages else ""))
-    # "Guidelines 4.3 - Spam and 4.2.6" is plural; a pattern that wanted
-    # "Guideline " missed all fourteen spam rejections the first time.
-    head = text[:300]
-    gl = sorted(set(re.findall(r"\b(\d\.\d+(?:\.\d+)?)\b", head)))
-    if re.search(r"Guidelines?\s+4\.3", head):
-        return "SPAM_4_3", gl
-    if "Information Needed" in head:
-        return "INFO_NEEDED", gl
-    if gl:
-        return "OTHER", gl
-    return "UNREAD" if not messages else "OTHER", gl
+    """The most serious finding anywhere in the thread, not in one message.
+
+    A thread holds Apple's messages and our replies, and its order is not
+    guaranteed; classifying on messages[-1] alone reported sixteen
+    Guideline 5.6 findings as "OTHER", which the summary never printed.
+    """
+    kinds, gls = set(), set()
+    for m in messages:
+        head = html.unescape(re.sub(r"<[^>]+>", " ", m))[:300]
+        gls |= set(re.findall(r"\b(\d\.\d+(?:\.\d+)?)\b", head))
+        if re.search(r"Guidelines?\s+5\.6\b", head):
+            kinds.add("CONDUCT_5_6")
+        # "Guidelines 4.3 - Spam and 4.2.6" is plural; a pattern that wanted
+        # "Guideline " missed all fourteen spam rejections the first time.
+        if re.search(r"Guidelines?\s+4\.3", head):
+            kinds.add("SPAM_4_3")
+        if "Information Needed" in head:
+            kinds.add("INFO_NEEDED")
+    for k in ("CONDUCT_5_6", "SPAM_4_3", "INFO_NEEDED"):
+        if k in kinds:
+            return k, sorted(gls)
+    if not messages:
+        return "NONE", []
+    return "OTHER", sorted(gls)
 
 
 ASKS = {
+    "CONDUCT_5_6": "Apple: 'features that appear to have been intentionally hidden "
+                   "during the review process'. Not a reply-and-wait finding: repeated "
+                   "5.6 findings put the developer account at risk. Remove every "
+                   "runtime switch that changes what a reviewer sees (remote config "
+                   "feature flags, date or region gates, reviewer detection, hidden "
+                   "gestures), then reply describing exactly what changed.",
     "INFO_NEEDED": "Reply in Resolution Center with: (1) a screen recording on a "
                    "physical device running the latest iOS, from launch through "
                    "sign-up, login, account deletion and paid features; (2)-(6) "
@@ -140,6 +158,9 @@ def main() -> int:
             human.append(f"answer the market-gap and beta-testing questions ({todo} TODO in the draft)"
                          if diff else "differentiation answers not drafted")
             auto.append("extend the drafted reply from 5 to Apple's 9 questions")
+        if kind == "CONDUCT_5_6":
+            human.append("decide and approve the 5.6 reply after the hidden-feature audit "
+                         "(docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)")
         if kind == "UNREAD":
             human.append("rejection text not readable from here (Apple ID web session) — open "
                          "Resolution Center")
@@ -170,12 +191,16 @@ def main() -> int:
         f"- Apple: **{count(lambda r: r['apple'] == 'REJECTED')} rejected**, "
         f"{count(lambda r: r['apple'] == 'PREPARE_FOR_SUBMISSION')} preparing, "
         f"{count(lambda r: r['apple'] == 'READY_FOR_SALE')} live.",
+        f"  - **{count(lambda r: r['kind'] == 'CONDUCT_5_6')} Developer Code of Conduct (5.6)** — "
+        "'features intentionally hidden during review'. The most serious finding: "
+        "repeated, it endangers the developer account. Fix before any resubmission.",
         f"  - **{count(lambda r: r['kind'] == 'INFO_NEEDED')} Information Needed (2.1)** — "
         "not a defect finding. Apple wants a physical-device recording on the latest "
         "iOS plus six answers.",
         f"  - **{count(lambda r: r['kind'] == 'SPAM_4_3')} Spam (4.3 / 4.2.6)** — reply to nine "
         "questions; do not resubmit.",
         f"  - **{count(lambda r: r['kind'] == 'UNREAD')} rejected with text not readable here**.",
+        f"  - **{count(lambda r: r['kind'] == 'OTHER')} other** (see the per-app table).",
         f"- Play: **{count(lambda r: r['play'] == 'LIVE_PRODUCTION')} live**; the rest wait on "
         "App content declarations, which have no API.",
         f"- iOS 27 launch crash (no UIScene lifecycle): "

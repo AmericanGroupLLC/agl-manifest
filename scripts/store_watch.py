@@ -15,6 +15,7 @@ Built to run on a schedule. Each pass:
   6. writes docs/store-watch.json and prints a short report.
 
 **It will not resubmit an app under a 4.3 or 2.1 hold, and that is the point.**
+While any app holds a 5.6 finding it submits nothing at all (ACCOUNT_FREEZE).
 Apple's own words on the 4.3 rejections:
 
     If the app is resubmitted without substantial improvements, it will be
@@ -50,6 +51,11 @@ HOLDS = M / "docs/store-holds.json"
 # A rejection citing any of these is a product problem, not a pipeline one.
 # Resubmitting without a real change makes it worse.
 HOLD_GUIDELINES = {
+    # Sixteen apps received this on 2026-10-08 within the same minute, each on
+    # its first review, three days after 26 apps were rejected under 4.3.
+    # Identical text across 16 apps at once is a judgment about the account's
+    # submission pattern, not about one binary. See ACCOUNT_FREEZE below.
+    "5.6": "Developer Code of Conduct — 'features intentionally hidden during review'",
     "4.3": "Spam — duplicate or templated app",
     "4.2.6": "App generation service",
     "2.1": "Information needed — screen recording on a physical device",
@@ -63,6 +69,13 @@ def run(cmd, timeout=3600, cwd=M):
                           timeout=timeout)
 
 
+# Guidelines that are about the account, not the app. While any app holds
+# one, no app is submitted automatically: more submissions are more of the
+# pattern Apple objected to, and the next step after 5.6 can be termination
+# of the developer account.
+ACCOUNT_FREEZE = {"5.6"}
+
+
 def classify(message: str) -> str | None:
     """The guideline a rejection cites, from its heading."""
     text = re.sub(r"<[^>]+>", "\n", message or "")
@@ -70,8 +83,21 @@ def classify(message: str) -> str | None:
         if not line.lower().startswith("guideline"):
             continue
         for key in sorted(HOLD_GUIDELINES, key=len, reverse=True):
-            if key in line:
+            if re.search(rf"(?<![\d.]){re.escape(key)}(?![\d])", line):
                 return key
+    return None
+
+
+def classify_thread(messages: list[str]) -> str | None:
+    """The most serious guideline anywhere in the thread.
+
+    Reading one message missed findings: the thread mixes Apple's messages
+    with our replies, and its order was never guaranteed.
+    """
+    found = {g for g in (classify(m) for m in messages) if g}
+    for key in HOLD_GUIDELINES:  # dict order is severity order
+        if key in found:
+            return key
     return None
 
 
@@ -117,7 +143,7 @@ def main() -> int:
     if rej_f.exists():
         for app, rec in json.loads(rej_f.read_text()).items():
             msgs = rec.get("messages") or []
-            g = classify(msgs[-1] if msgs else "")
+            g = classify_thread(msgs)
             if g:
                 holds[app] = {"guideline": g, "why": HOLD_GUIDELINES[g],
                               "seen": now}
@@ -182,6 +208,13 @@ def main() -> int:
     ready = [r for r, s in states.items()
              if s in ("PREPARE_FOR_SUBMISSION", "DEVELOPER_REJECTED")
              and r not in holds and r not in failing]
+    frozen = sorted(a for a, h in holds.items() if h["guideline"] in ACCOUNT_FREEZE)
+    report["account_freeze"] = frozen
+    if frozen and ready:
+        report["actions"].append(
+            f"ACCOUNT FREEZE: {len(frozen)} app(s) hold a 5.6 finding, so none of "
+            f"{len(ready)} ready app(s) were submitted: {', '.join(sorted(ready))}")
+        ready = []
     held_back = sorted(set(states) & set(holds))
     report["ready_to_submit"] = sorted(ready)
     report["held_back"] = held_back
@@ -202,6 +235,8 @@ def main() -> int:
     print(f"  on hold (not resubmitted): {len(holds)}")
     for a, h in sorted(holds.items()):
         print(f"   {a:18} {h['guideline']:6} {h['why']}")
+    if frozen:
+        print(f"  ACCOUNT FREEZE (5.6 on {len(frozen)} apps): no automatic submissions")
     print(f"  failing the gate: {len(failing)}")
     print(f"  submitted/ready : {len(ready)}")
     for a in report["actions"]:

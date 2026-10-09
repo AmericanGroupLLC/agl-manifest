@@ -2,11 +2,13 @@
  {
   "repo": "AeroSwift",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -14,19 +16,21 @@
    "4.3 differentiation statement"
   ],
   "automatable": [
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
   ]
  },
  {
   "repo": "AGCleaner",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -35,7 +39,7 @@
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play Console App content: 1 declaration(s) need attention"
   ]
  },
@@ -44,6 +48,8 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
+   "2.3.3",
    "4.2.6",
    "4.3"
   ],
@@ -65,45 +71,53 @@
  {
   "repo": "AGRecorder",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "AGStudio",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "ApexMarketWatch",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -112,7 +126,7 @@
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
@@ -121,6 +135,7 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
    "4.2.6",
    "4.3"
   ],
@@ -143,9 +158,11 @@
  {
   "repo": "BuddyPlay",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -154,18 +171,20 @@
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "CalcMaster",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "LIVE_PRODUCTION",
   "scene_lifecycle": true,
   "dead_hosts": [
@@ -178,18 +197,20 @@
   "automatable": [
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
    "calls hosts that do not exist: api.safecodeg.com",
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)"
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)"
   ]
  },
  {
   "repo": "CarDeal",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [
@@ -204,16 +225,18 @@
    "calls hosts that do not exist: api.americangroupllc.com"
   ],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "ChefCount",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -222,7 +245,7 @@
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
@@ -231,6 +254,7 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
    "4.2.6",
    "4.3"
   ],
@@ -258,6 +282,7 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
    "4.2.6",
    "4.3"
   ],
@@ -266,6 +291,7 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "automatable": [
@@ -280,34 +306,39 @@
  {
   "repo": "DriftDate",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "iOS purpose strings for linked APIs",
    "4.3 differentiation statement"
   ],
   "automatable": [
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
   ]
  },
  {
   "repo": "EventSpark",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [
@@ -319,19 +350,21 @@
   ],
   "automatable": [
    "calls hosts that do not exist: api.americangroupllc.com",
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 1 declaration(s) need attention"
   ]
  },
  {
   "repo": "FashionFactory",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -340,18 +373,20 @@
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play Console App content: 10 declaration(s) need attention"
   ]
  },
  {
   "repo": "GadgetNest",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -360,10 +395,10 @@
    "4.3 differentiation statement"
   ],
   "automatable": [
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
   ]
  },
@@ -372,6 +407,8 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
+   "2.3.3",
    "4.2.6",
    "4.3"
   ],
@@ -386,6 +423,7 @@
   ],
   "gate_failures": [
    "Every API host the app calls exists",
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "automatable": [
@@ -403,8 +441,11 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
+   "2.3.3",
    "4.2.6",
-   "4.3"
+   "4.3",
+   "6.7"
   ],
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
@@ -424,9 +465,11 @@
  {
   "repo": "HomeWise",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -437,7 +480,7 @@
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
   ],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
@@ -446,6 +489,7 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
    "4.2.6",
    "4.3"
   ],
@@ -473,6 +517,7 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
    "4.2.6",
    "4.3"
   ],
@@ -481,6 +526,7 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "automatable": [
@@ -496,8 +542,11 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
+   "2.3.3",
    "4.2.6",
-   "4.3"
+   "4.3",
+   "6.7"
   ],
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
@@ -522,29 +571,35 @@
  {
   "repo": "MileMaster",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "MyCard",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "2.3.3",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -552,21 +607,23 @@
    "4.3 differentiation statement"
   ],
   "automatable": [
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "MyFinance",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -574,10 +631,10 @@
    "4.3 differentiation statement"
   ],
   "automatable": [
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (5 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
@@ -586,6 +643,7 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
    "4.2.6",
    "4.3"
   ],
@@ -612,9 +670,11 @@
  {
   "repo": "NearServe",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -625,16 +685,18 @@
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
   ],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "NewsBoard",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -643,18 +705,20 @@
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play Console App content: 1 declaration(s) need attention"
   ]
  },
  {
   "repo": "NexusTransferPay",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [
@@ -666,10 +730,10 @@
   ],
   "automatable": [
    "calls hosts that do not exist: api.safecodeg.com",
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (5 TODO in the draft)",
    "Play Console App content: 1 declaration(s) need attention"
   ]
  },
@@ -678,6 +742,79 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
+   "4.2.6",
+   "4.3"
+  ],
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
+  "play": "PRODUCTION_DRAFT_STAGED",
+  "scene_lifecycle": true,
+  "dead_hosts": [],
+  "gate_failures": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
+   "4.3 differentiation statement"
+  ],
+  "automatable": [
+   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
+   "extend the drafted reply from 5 to Apple's 9 questions"
+  ],
+  "needs_a_person": [
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
+   "Play Console App content: 11 declaration(s) need attention"
+  ]
+ },
+ {
+  "repo": "PilotEnRoute",
+  "apple": "REJECTED",
+  "kind": "SPAM_4_3",
+  "guidelines": [
+   "2.1",
+   "4.2.6",
+   "4.3"
+  ],
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
+  "play": "PRODUCTION_DRAFT_STAGED",
+  "scene_lifecycle": true,
+  "dead_hosts": [
+   "api.americangroupllc.com"
+  ],
+  "gate_failures": [
+   "Every API host the app calls exists",
+   "4.3 differentiation statement"
+  ],
+  "automatable": [
+   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
+   "calls hosts that do not exist: api.americangroupllc.com",
+   "extend the drafted reply from 5 to Apple's 9 questions"
+  ],
+  "needs_a_person": [
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
+   "Play: console-only: App content declarations + press Publish"
+  ]
+ },
+ {
+  "repo": "PlantPulse",
+  "apple": "PREPARE_FOR_SUBMISSION",
+  "kind": "NONE",
+  "guidelines": [],
+  "asked": "",
+  "play": "PRODUCTION_DRAFT_STAGED",
+  "scene_lifecycle": true,
+  "dead_hosts": [],
+  "gate_failures": [
+   "4.3 differentiation statement"
+  ],
+  "automatable": [],
+  "needs_a_person": [
+   "Play Console App content: 10 declaration(s) need attention"
+  ]
+ },
+ {
+  "repo": "portfolio-board",
+  "apple": "REJECTED",
+  "kind": "SPAM_4_3",
+  "guidelines": [
+   "2.1",
    "4.2.6",
    "4.3"
   ],
@@ -694,74 +831,6 @@
   ],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
-   "Play Console App content: 11 declaration(s) need attention"
-  ]
- },
- {
-  "repo": "PilotEnRoute",
-  "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
-  "guidelines": [
-   "2.1"
-  ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
-  "play": "PRODUCTION_DRAFT_STAGED",
-  "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroupllc.com"
-  ],
-  "gate_failures": [
-   "Every API host the app calls exists",
-   "4.3 differentiation statement"
-  ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.americangroupllc.com",
-   "post the six answers as a Resolution Center reply (in review notes already)"
-  ],
-  "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
-   "Play: console-only: App content declarations + press Publish"
-  ]
- },
- {
-  "repo": "PlantPulse",
-  "apple": "PREPARE_FOR_SUBMISSION",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
-  "play": "PRODUCTION_DRAFT_STAGED",
-  "scene_lifecycle": true,
-  "dead_hosts": [],
-  "gate_failures": [
-   "4.3 differentiation statement"
-  ],
-  "automatable": [],
-  "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
-   "Play Console App content: 10 declaration(s) need attention"
-  ]
- },
- {
-  "repo": "portfolio-board",
-  "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
-  "guidelines": [
-   "2.1"
-  ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
-  "play": "PRODUCTION_DRAFT_STAGED",
-  "scene_lifecycle": true,
-  "dead_hosts": [],
-  "gate_failures": [
-   "4.3 differentiation statement"
-  ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "post the six answers as a Resolution Center reply (in review notes already)"
-  ],
-  "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
    "Play Console App content: 10 declaration(s) need attention"
   ]
  },
@@ -793,9 +862,11 @@
  {
   "repo": "RideZap",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -806,16 +877,18 @@
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
   ],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "RoomCraft",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -824,16 +897,18 @@
   ],
   "automatable": [],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center",
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
  {
   "repo": "TripNest",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "LIVE_PRODUCTION",
   "scene_lifecycle": true,
   "dead_hosts": [
@@ -847,7 +922,7 @@
    "calls hosts that do not exist: api.americangroupllc.com"
   ],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center"
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)"
   ]
  },
  {
@@ -855,6 +930,8 @@
   "apple": "REJECTED",
   "kind": "SPAM_4_3",
   "guidelines": [
+   "2.1",
+   "2.3.3",
    "4.2.6",
    "4.3"
   ],
@@ -880,11 +957,13 @@
  {
   "repo": "Verba",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [
@@ -897,30 +976,33 @@
   "automatable": [
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
    "calls hosts that do not exist: api.verba.americangroupllc.com",
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (3 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
   ]
  },
  {
   "repo": "VirtuBand",
   "apple": "REJECTED",
-  "kind": "UNREAD",
-  "guidelines": [],
-  "asked": "",
+  "kind": "CONDUCT_5_6",
+  "guidelines": [
+   "5.6"
+  ],
+  "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "LIVE_PRODUCTION",
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "automatable": [
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
   ],
   "needs_a_person": [
-   "rejection text not readable from here (Apple ID web session) \u2014 open Resolution Center"
+   "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)"
   ]
  },
  {
@@ -949,11 +1031,13 @@
  {
   "repo": "yourtube",
   "apple": "REJECTED",
-  "kind": "INFO_NEEDED",
+  "kind": "SPAM_4_3",
   "guidelines": [
-   "2.1"
+   "2.1",
+   "4.2.6",
+   "4.3"
   ],
-  "asked": "Reply in Resolution Center with: (1) a screen recording on a physical device running the latest iOS, from launch through sign-up, login, account deletion and paid features; (2)-(6) purpose, setup/credentials, external services, regional differences, regulation.",
+  "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [],
@@ -962,10 +1046,10 @@
   ],
   "automatable": [
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "post the six answers as a Resolution Center reply (in review notes already)"
+   "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
-   "screen recording on a physical iPhone on iOS 27 (Firebase Test Lab tops out at iOS 26.3)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 1 declaration(s) need attention"
   ]
  }

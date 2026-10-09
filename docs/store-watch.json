@@ -1,43 +1,57 @@
 {
- "ran": "2026-10-08T15:17:08",
+ "ran": "2026-10-08T22:59:50",
  "apple": {
   "PREPARE_FOR_SUBMISSION": 1,
   "REJECTED": 42
  },
  "play": {},
  "holds": {
-  "AeroSwift": "2.1",
+  "AeroSwift": "4.2.6",
   "AGrammarly": "4.2.6",
   "BodyQuest": "4.2.6",
-  "CalcMaster": "2.1",
+  "CalcMaster": "4.2.6",
   "CodeDeal": "4.2.6",
   "daily-pulse": "4.2.6",
-  "DriftDate": "2.1",
-  "EventSpark": "2.1",
-  "GadgetNest": "2.1",
+  "DriftDate": "4.2.6",
+  "EventSpark": "4.2.6",
+  "GadgetNest": "4.2.6",
   "GroceryMatch": "4.2.6",
   "HerJourney": "4.2.6",
   "iMaps": "4.2.6",
   "iMeasure": "4.2.6",
   "Kinnav": "4.2.6",
-  "MyCard": "2.1",
-  "MyFinance": "2.1",
+  "MyCard": "4.2.6",
+  "MyFinance": "4.2.6",
   "MyHealth": "4.2.6",
-  "NexusTransferPay": "2.1",
+  "NexusTransferPay": "4.2.6",
   "Photriya": "4.2.6",
-  "PilotEnRoute": "2.1",
-  "portfolio-board": "2.1",
+  "PilotEnRoute": "4.2.6",
+  "portfolio-board": "4.2.6",
   "radiotune": "4.2.6",
   "Uscis-Case": "4.2.6",
-  "Verba": "2.1",
+  "Verba": "4.2.6",
   "WiFiTrail": "4.2.6",
-  "yourtube": "2.1"
+  "yourtube": "4.2.6",
+  "AGCleaner": "5.6",
+  "AGRecorder": "5.6",
+  "AGStudio": "5.6",
+  "ApexMarketWatch": "5.6",
+  "BuddyPlay": "5.6",
+  "CarDeal": "5.6",
+  "ChefCount": "5.6",
+  "FashionFactory": "5.6",
+  "HomeWise": "5.6",
+  "MileMaster": "5.6",
+  "NearServe": "5.6",
+  "NewsBoard": "5.6",
+  "RideZap": "5.6",
+  "RoomCraft": "5.6",
+  "TripNest": "5.6",
+  "VirtuBand": "5.6"
  },
  "actions": [
-  "auth config: production redirect is a LOCAL address (MA-042)",
-  "store metadata: ok",
-  "review notes: ok",
-  "age ratings: ok"
+  "new holds: AGCleaner, AGRecorder, AGStudio, ApexMarketWatch, BuddyPlay, CarDeal, ChefCount, FashionFactory, HomeWise, MileMaster, NearServe, NewsBoard, RideZap, RoomCraft, TripNest, VirtuBand",
+  "auth config: production redirect is a LOCAL address (MA-042)"
  ],
  "auth_config": [
   "site_url (default email redirect): http://localhost:3000   <-- LOCAL ADDRESS: every auth email lands on localhost",
@@ -46,27 +60,61 @@
   "  anonymous sign-ins: disabled",
   "  FIX (dashboard, no API path from here): Authentication -> URL Configuration -> Site URL. See MA-042."
  ],
+ "account_freeze": [
+  "AGCleaner",
+  "AGRecorder",
+  "AGStudio",
+  "ApexMarketWatch",
+  "BuddyPlay",
+  "CarDeal",
+  "ChefCount",
+  "FashionFactory",
+  "HomeWise",
+  "MileMaster",
+  "NearServe",
+  "NewsBoard",
+  "RideZap",
+  "RoomCraft",
+  "TripNest",
+  "VirtuBand"
+ ],
  "ready_to_submit": [],
  "held_back": [
+  "AGCleaner",
+  "AGRecorder",
+  "AGStudio",
   "AGrammarly",
   "AeroSwift",
+  "ApexMarketWatch",
   "BodyQuest",
+  "BuddyPlay",
   "CalcMaster",
+  "CarDeal",
+  "ChefCount",
   "CodeDeal",
   "DriftDate",
   "EventSpark",
+  "FashionFactory",
   "GadgetNest",
   "GroceryMatch",
   "HerJourney",
+  "HomeWise",
   "Kinnav",
+  "MileMaster",
   "MyCard",
   "MyFinance",
   "MyHealth",
+  "NearServe",
+  "NewsBoard",
   "NexusTransferPay",
   "Photriya",
   "PilotEnRoute",
+  "RideZap",
+  "RoomCraft",
+  "TripNest",
   "Uscis-Case",
   "Verba",
+  "VirtuBand",
   "WiFiTrail",
   "daily-pulse",
   "iMaps",
@@ -80,9 +128,11 @@
    "4.3 differentiation statement"
   ],
   "AGRecorder": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "AGStudio": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "AGrammarly": [
@@ -112,9 +162,11 @@
    "4.3 differentiation statement"
   ],
   "CodeDeal": [
+   "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
   "DriftDate": [
+   "iOS purpose strings for linked APIs",
    "4.3 differentiation statement"
   ],
   "EventSpark": [
@@ -125,10 +177,12 @@
    "4.3 differentiation statement"
   ],
   "GadgetNest": [
+   "No blank or near-empty store screenshots",
    "4.3 differentiation statement"
   ],
   "GroceryMatch": [
    "Every API host the app calls exists",
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "HerJourney": [
@@ -142,6 +196,7 @@
    "4.3 differentiation statement"
   ],
   "MileMaster": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "MyCard": [
@@ -165,20 +220,17 @@
    "4.3 differentiation statement"
   ],
   "Photriya": [
-   "Every API host the app calls exists",
-   "Launches on a simulator and stays up",
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "PilotEnRoute": [
    "Every API host the app calls exists",
-   "Launches on a simulator and stays up",
    "4.3 differentiation statement"
   ],
   "PlantPulse": [
    "4.3 differentiation statement"
   ],
   "RideZap": [
-   "Launches on a simulator and stays up",
    "4.3 differentiation statement"
   ],
   "RoomCraft": [
@@ -186,27 +238,25 @@
   ],
   "TripNest": [
    "Every API host the app calls exists",
-   "Has a launch screen",
    "4.3 differentiation statement"
   ],
   "Uscis-Case": [
    "Every API host the app calls exists",
-   "Launches on a simulator and stays up",
    "4.3 differentiation statement"
   ],
   "Verba": [
    "Every API host the app calls exists",
-   "Launches on a simulator and stays up",
    "4.3 differentiation statement"
   ],
   "VirtuBand": [
-   "Launches on a simulator and stays up",
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "WiFiTrail": [
    "4.3 differentiation statement"
   ],
   "daily-pulse": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "iMaps": [
@@ -214,18 +264,17 @@
    "4.3 differentiation statement"
   ],
   "iMeasure": [
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "portfolio-board": [
-   "Launches on a simulator and stays up",
    "4.3 differentiation statement"
   ],
   "radiotune": [
-   "Launches on a simulator and stays up",
+   "No blank or near-empty store screenshots",
    "4.3 differentiation statement"
   ],
   "yourtube": [
-   "Launches on a simulator and stays up",
    "4.3 differentiation statement"
   ]
  }

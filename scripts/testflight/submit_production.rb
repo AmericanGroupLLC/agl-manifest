@@ -18,6 +18,8 @@ require "spaceship"
 
 DRY = ARGV.include?("--dry-run")
 ONLY = ARGV.reject { |x| x.start_with?("--") }
+require_relative "account_freeze"
+AccountFreeze.enforce!(ARGV) unless DRY
 
 Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
   key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), filepath: ENV.fetch("ASC_KEY_PATH"))

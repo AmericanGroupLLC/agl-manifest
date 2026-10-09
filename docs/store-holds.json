@@ -1,132 +1,212 @@
 {
  "AeroSwift": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "AGrammarly": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "BodyQuest": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "CalcMaster": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "CodeDeal": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "daily-pulse": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "DriftDate": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "EventSpark": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "GadgetNest": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "GroceryMatch": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "HerJourney": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "iMaps": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "iMeasure": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "Kinnav": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "MyCard": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "MyFinance": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "MyHealth": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "NexusTransferPay": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "Photriya": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "PilotEnRoute": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "portfolio-board": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "radiotune": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "Uscis-Case": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "Verba": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
  },
  "WiFiTrail": {
   "guideline": "4.2.6",
   "why": "App generation service",
-  "seen": "2026-10-08T15:17:08"
+  "seen": "2026-10-08T22:59:50"
  },
  "yourtube": {
-  "guideline": "2.1",
-  "why": "Information needed \u2014 screen recording on a physical device",
-  "seen": "2026-10-08T15:17:08"
+  "guideline": "4.2.6",
+  "why": "App generation service",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "AGCleaner": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "AGRecorder": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "AGStudio": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "ApexMarketWatch": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "BuddyPlay": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "CarDeal": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "ChefCount": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "FashionFactory": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "HomeWise": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "MileMaster": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "NearServe": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "NewsBoard": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "RideZap": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "RoomCraft": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "TripNest": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
+ },
+ "VirtuBand": {
+  "guideline": "5.6",
+  "why": "Developer Code of Conduct \u2014 'features intentionally hidden during review'",
+  "seen": "2026-10-08T22:59:50"
  }
 }

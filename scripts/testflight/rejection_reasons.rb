@@ -59,15 +59,20 @@ apps.each do |a|
 
   body = get(tunes, "iris/v1/resolutionCenterThreads?filter[appStoreVersion]=#{ver.id}")
   threads = (body && body["data"]) || []
-  msgs = []
+  dated = []
   threads.each do |t|
     mb = get(tunes, "iris/v1/resolutionCenterThreads/#{t['id']}/resolutionCenterMessages")
     ((mb && mb["data"]) || []).each do |m|
       txt = m.dig("attributes", "messageBody").to_s
-      msgs << txt unless txt.empty?
+      dated << [m.dig("attributes", "createdDate").to_s, txt] unless txt.empty?
     end
   end
-  out[a["repo"]] = { "version" => ver.version_string, "threads" => threads.size, "messages" => msgs }
+  # Newest first. The API's order is not documented, and the report used to
+  # classify on whichever message happened to come last.
+  dated.sort_by! { |d, _| d }.reverse!
+  msgs = dated.map(&:last)
+  out[a["repo"]] = { "version" => ver.version_string, "threads" => threads.size,
+                     "messages" => msgs, "dates" => dated.map(&:first) }
   first = msgs.first.to_s.gsub(/\s+/, " ")
   puts format("%-18s %s", a["repo"], first.empty? ? "(no message text)" : first[0, 150])
 end

@@ -41,6 +41,8 @@ require_relative "../agl_paths"
 
 DRY  = ARGV.include?("--dry-run")
 ONLY = ARGV.reject { |a| a.start_with?("--") }
+require_relative "account_freeze"
+AccountFreeze.enforce!(ARGV) unless DRY
 HOST = "https://api.appstoreconnect.apple.com"
 
 TOKEN = Spaceship::ConnectAPI::Token.create(
