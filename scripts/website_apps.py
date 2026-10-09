@@ -188,6 +188,16 @@ def main() -> int:
         "export const mobileAppBySlug: Record<string, MobileAppListing> =\n"
         "  Object.fromEntries(mobileAppListings.map(a => [a.slug, a]));\n"
     )
+    # Format with the site's own Prettier, so the file written — and the
+    # file --check compares against — is byte-for-byte what gets committed.
+    # Without this, formatting the committed file made --check report the
+    # site stale on every scheduled pass.
+    fmt = subprocess.run(["npx", "--no-install", "prettier", "--stdin-filepath", str(OUT)],
+                         input=body, capture_output=True, text=True, cwd=SITE)
+    if fmt.returncode == 0 and fmt.stdout:
+        body = fmt.stdout
+    else:
+        print("  prettier unavailable — writing unformatted output")
     live = sum(1 for l in listings if l["status"] == "Live")
     print(f"  {len(listings)} apps: {live} live with a verified store link, "
           f"{len(listings) - live} beta; "
