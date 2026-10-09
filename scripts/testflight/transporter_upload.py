@@ -111,8 +111,11 @@ def ipa_blocker(ipa: pathlib.Path) -> str | None:
     if not info.get("UIApplicationSceneManifest"):
         return (f"build {info.get('CFBundleVersion')} has no UIApplicationSceneManifest — "
                 "it crashes on launch on iOS 27; rebuild from the fixed source")
+    from privacy_scan import plist_issues, scan
+    issues = plist_issues(info)
+    if issues:
+        return "; ".join(issues)
     # The purpose strings Apple's ITMS-90683 scan will demand of this binary.
-    from privacy_scan import scan
     _info, missing = scan(ipa)
     if missing:
         return ("missing purpose string(s) Apple will flag (ITMS-90683): "

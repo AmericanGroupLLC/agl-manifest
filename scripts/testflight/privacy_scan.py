@@ -101,6 +101,22 @@ def scan(ipa: pathlib.Path) -> tuple[dict, list[tuple[str, str]]]:
 ADVISORY = {"NSFaceIDUsageDescription", "NSUserTrackingUsageDescription"}
 
 
+# Info.plist configuration Apple's upload scan warns about, by ITMS number.
+# Each was first raised against one of our deliveries.
+def plist_issues(info: dict) -> list[str]:
+    out = []
+    # ITMS-90737, Photriya build 202610082339 (2026-10-09): CFBundleDocumentTypes
+    # without LSSupportsOpeningDocumentsInPlace or UISupportsDocumentBrowser.
+    # Check that the app really opens documents before adding a key — Photriya
+    # declared public.image but had no code that receives an opened file, so
+    # the fix was to remove the declaration.
+    if info.get("CFBundleDocumentTypes") and \
+            "LSSupportsOpeningDocumentsInPlace" not in info and "UISupportsDocumentBrowser" not in info:
+        out.append("ITMS-90737: CFBundleDocumentTypes declared without "
+                   "LSSupportsOpeningDocumentsInPlace or UISupportsDocumentBrowser")
+    return out
+
+
 # Apple's automated "the app contains VPN functionality" analysis. It asks
 # for a written answer, not a purpose string. WiFiTrail build 2 drew it with
 # no VPN code at all: network_info_plus links NetworkExtension.framework to
@@ -146,6 +162,9 @@ def main() -> int:
             bad += 1
             continue
         tag = f"build {info.get('CFBundleVersion')}"
+        for issue in plist_issues(info):
+            print(f"  {ipa.name:28} {tag:16} {issue}")
+            bad += 1
         if missing:
             bad += 1
             print(f"  {ipa.name:28} {tag:16} MISSING " +

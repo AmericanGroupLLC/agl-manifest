@@ -175,6 +175,25 @@ def vpn_statement(ctx):
              "'VPN FUNCTIONALITY' section to review_information.notes")
 
 
+def upload_scan_plist(ctx):
+    """ITMS warnings Apple's upload scan raises from Info.plist, judged on the staged IPA and the source plist."""
+    from privacy_scan import plist_issues
+    issues = []
+    ipa = DIST / f"{ctx['repo']}.ipa"
+    if ipa.exists():
+        with zipfile.ZipFile(ipa) as z:
+            n = next((x for x in z.namelist() if re.fullmatch(r"Payload/[^/]+\.app/Info\.plist", x)), None)
+            if n:
+                issues += [f"IPA: {i}" for i in plist_issues(plistlib.loads(z.read(n)))]
+    src = ctx["d"] / "ios/Runner/Info.plist"
+    if src.exists():
+        try:
+            issues += [f"source: {i}" for i in plist_issues(plistlib.loads(src.read_bytes()))]
+        except Exception as e:
+            issues.append(f"source Info.plist unreadable: {type(e).__name__}")
+    return (NO, "; ".join(issues)) if issues else (OK, "no Info.plist configuration Apple warns about")
+
+
 # Every Supabase call that can create an account, not only signUp(): an OTP
 # sign-in creates the user unless shouldCreateUser is false, and OAuth or an
 # Apple/Google ID token creates one on first use.
@@ -291,6 +310,12 @@ REQUIREMENTS = [
               "does not have VPN features, reply to this message to confirm and include this "
               "clarification in the App Review Information section.",
      "raised": ["WiFiTrail"], "check": vpn_statement},
+    {"id": "upload-scan-plist", "guideline": "ITMS-90737",
+     "name": "Info.plist passes Apple's upload scan",
+     "apple": "By declaring the CFBundleDocumentTypes key in your app, you've indicated that your "
+              "app is able to open documents. ... All document-based apps must include one of these "
+              "configurations.",
+     "raised": ["Photriya"], "check": upload_scan_plist},
     {"id": "account-deletion-5.1.1v", "guideline": "5.1.1(v)",
      "name": "In-app account deletion when the app creates accounts",
      "apple": "Account registration, login, and account deletion flows. Account deletion is "
