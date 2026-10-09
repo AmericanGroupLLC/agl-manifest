@@ -226,8 +226,12 @@ def account_deletion_in_app(ctx):
     return (OK if live else HUMAN), f"rpc('delete_user') in {where}" + ("" if live else "; server not probed")
 
 
-UGC = re.compile(r"(?i)\b(createPost|addComment|postComment|sendMessage|submitReview|uploadPost|"
-                 r"from\(['\"](posts|comments|messages|reviews)['\"]\)\.insert)")
+# Content one user writes that OTHER users see: a write to a shared table.
+# The first version matched method names (sendMessage, submitReview) and
+# failed three apps whose only matches were a private AI-assistant chat
+# (daily-pulse, PilotEnRoute) and reviews stored on the device (NearServe).
+UGC = re.compile(r"""(from|collection)\(\s*['"](posts|comments|messages|reviews|chats?|"""
+                 r"""feed|threads|replies|stories|listings)['"]\s*\)\s*\.\s*(insert|upsert|add|doc)""")
 REPORT = re.compile(r"(?i)\breport(ing)?\b.{0,30}(content|post|user|comment|message|abuse)|reportContent|flagContent")
 BLOCK = re.compile(r"(?i)block(ed)?[_ ]?user|blockUser|\bblock\b.{0,20}(user|account)")
 

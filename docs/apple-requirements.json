@@ -2,8 +2,8 @@
  "AeroSwift": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is sample (SAMPLE DATA); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is sample (SAMPLE DATA); APP_IPHONE_67: first screenshot is sample (SAMPLE DATA); APP_IPHONE_67: 4 of 4 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is sample (SAMPLE DATA); APP_IPHONE_67: APP_IPHONE_67-02.png is sample (SAMPLE DATA); APP_IPHONE_67: APP_IPHONE_67-03.png is sample (SAMPLE DATA); APP_IPHONE_67: APP_IPHONE_67-04.png is sample (Sample data)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -49,8 +49,8 @@
  "AGCleaner": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -96,8 +96,8 @@
  "AGrammarly": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is not_this_app (iOS home screen (contacts, fitness, health, passwords)); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is not_this_app (iOS home screen (contacts, fitness, health, passwords)); APP_IPHONE_67: first screenshot is not_this_app (iOS home screen (contacts, files, fitness, preview)); APP_IPHONE_67: APP_IPHONE_67-01.png is not_this_app (iOS home screen (contacts, files, fitness, preview))"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -143,8 +143,8 @@
  "AGRecorder": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -190,8 +190,8 @@
  "AGStudio": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is sample (local placeholder); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is sample (local placeholder); APP_IPHONE_67: first screenshot is sample (local placeholder); APP_IPHONE_67: APP_IPHONE_67-01.png is sample (local placeholder); APP_IPHONE_67: APP_IPHONE_67-02.png is sample (local placeholder)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -237,8 +237,8 @@
  "ApexMarketWatch": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -284,8 +284,8 @@
  "BodyQuest": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.1.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -299,13 +299,13 @@
   },
   {
    "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
-   "state": "FAIL",
-   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+   "state": "n/a",
+   "detail": "no in-app purchase code"
   },
   {
    "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
-   "state": "FAIL",
-   "detail": "declares NSUserTrackingUsageDescription but never shows the prompt \u2014 Apple: 'we are unable to locate the App Tracking Transparency permission request'"
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
   },
   {
    "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
@@ -315,7 +315,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -331,8 +331,8 @@
  "BuddyPlay": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -378,8 +378,8 @@
  "CalcMaster": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v4.0.2: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -398,8 +398,8 @@
   },
   {
    "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
-   "state": "HUMAN",
-   "detail": "requests tracking; no capture of the prompt appearing on a fresh install"
+   "state": "PASS",
+   "detail": "prompt captured: CalcMaster-iOS26.5-before-app-foreground.png"
   },
   {
    "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
@@ -413,8 +413,8 @@
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
-   "state": "FAIL",
-   "detail": "user-generated content without reporting and blocking"
+   "state": "n/a",
+   "detail": "no user-generated content found"
   },
   {
    "check": "Apple 2.1: Screen recording on a physical device is on file",
@@ -425,8 +425,8 @@
  "CarDeal": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPHONE_67: APP_IPHONE_67-04.png is sample (sample data)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -472,8 +472,8 @@
  "ChefCount": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -519,8 +519,8 @@
  "CodeDeal": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is error (Exception); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPHONE_67: first screenshot is error (Exception); APP_IPHONE_67: 3 of 4 are not the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -566,8 +566,8 @@
  "daily-pulse": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is onboarding (Get Started); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPHONE_67: first screenshot is onboarding (Get Started); APP_IPHONE_67: 1 of 1 are not the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -597,12 +597,12 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/core/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
-   "state": "FAIL",
-   "detail": "user-generated content without reporting and blocking"
+   "state": "n/a",
+   "detail": "no user-generated content found"
   },
   {
    "check": "Apple 2.1: Screen recording on a physical device is on file",
@@ -613,13 +613,13 @@
  "DriftDate": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is login (Log in); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPHONE_67: first screenshot is login (Log in); APP_IPHONE_67: 1 of 1 are not the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
    "state": "HUMAN",
-   "detail": "no staged IPA to inspect"
+   "detail": "IPA build 202610090041 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
   },
   {
    "check": "Apple 4: Sign-in and registration happen inside the app",
@@ -638,18 +638,18 @@
   },
   {
    "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
-   "state": "HUMAN",
-   "detail": "no staged IPA to inspect"
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
   },
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/supabase_drift_backend.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
-   "state": "n/a",
-   "detail": "no user-generated content found"
+   "state": "PASS",
+   "detail": "reporting and blocking present"
   },
   {
    "check": "Apple 2.1: Screen recording on a physical device is on file",
@@ -660,8 +660,8 @@
  "EventSpark": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is keyboard (software keyboard on screen)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -707,8 +707,8 @@
  "FashionFactory": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v2.2.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -754,8 +754,8 @@
  "GadgetNest": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -801,8 +801,8 @@
  "GroceryMatch": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is login (Login); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPHONE_67: first screenshot is login (Log in); APP_IPHONE_67: 1 of 1 are not the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -832,7 +832,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/core/auth/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -848,8 +848,8 @@
  "HerJourney": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is keyboard (software keyboard on screen); APP_IPAD_PRO_3GEN_129: 5 of 5 are not the app in use; APP_IPHONE_67: first screenshot is onboarding (GetStarted); APP_IPHONE_67: 1 of 1 are not the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -879,7 +879,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -895,8 +895,8 @@
  "HomeWise": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -942,8 +942,8 @@
  "iMaps": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.2: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -957,8 +957,8 @@
   },
   {
    "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
-   "state": "FAIL",
-   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+   "state": "n/a",
+   "detail": "no in-app purchase code"
   },
   {
    "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
@@ -973,7 +973,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -989,8 +989,8 @@
  "iMeasure": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v5.0.1: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1020,7 +1020,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -1036,13 +1036,13 @@
  "Kinnav": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is dev_ui (Demo mode); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is dev_ui (Demo mode); APP_IPHONE_67: first screenshot is dev_ui (test account); APP_IPHONE_67: 1 of 1 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is dev_ui (test account)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
    "state": "HUMAN",
-   "detail": "IPA build 202610081911 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+   "detail": "IPA build 202610090034 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
   },
   {
    "check": "Apple 4: Sign-in and registration happen inside the app",
@@ -1051,8 +1051,8 @@
   },
   {
    "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
-   "state": "FAIL",
-   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+   "state": "n/a",
+   "detail": "no in-app purchase code"
   },
   {
    "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
@@ -1067,7 +1067,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -1083,8 +1083,8 @@
  "MileMaster": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1130,8 +1130,8 @@
  "MyCard": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is system (Passcode); APP_IPAD_PRO_3GEN_129: 2 of 2 are not the app in use; APP_IPHONE_67: first screenshot is system (Passcode); APP_IPHONE_67: 2 of 2 are not the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1177,8 +1177,8 @@
  "MyFinance": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1224,8 +1224,8 @@
  "MyHealth": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is login (sign-in form); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPHONE_67: first screenshot is login (sign-in form); APP_IPHONE_67: 2 of 2 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-02.png is dev_ui (test account)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1255,7 +1255,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -1271,8 +1271,8 @@
  "NearServe": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1306,8 +1306,8 @@
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
-   "state": "FAIL",
-   "detail": "user-generated content without reporting and blocking"
+   "state": "n/a",
+   "detail": "no user-generated content found"
   },
   {
    "check": "Apple 2.1: Screen recording on a physical device is on file",
@@ -1318,8 +1318,8 @@
  "NewsBoard": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1365,8 +1365,8 @@
  "NexusTransferPay": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1412,13 +1412,13 @@
  "Photriya": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
    "state": "HUMAN",
-   "detail": "no staged IPA to inspect"
+   "detail": "IPA build 202610082339 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
   },
   {
    "check": "Apple 4: Sign-in and registration happen inside the app",
@@ -1437,13 +1437,13 @@
   },
   {
    "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
-   "state": "HUMAN",
-   "detail": "no staged IPA to inspect"
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
   },
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/core/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -1459,8 +1459,8 @@
  "PilotEnRoute": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is dev_ui (test account); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is dev_ui (test account); APP_IPHONE_67: first screenshot is dev_ui (test account); APP_IPHONE_67: 2 of 2 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is dev_ui (test account); APP_IPHONE_67: APP_IPHONE_67-02.png is dev_ui (test account)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1474,8 +1474,8 @@
   },
   {
    "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
-   "state": "FAIL",
-   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+   "state": "n/a",
+   "detail": "no in-app purchase code"
   },
   {
    "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
@@ -1490,12 +1490,12 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
-   "state": "FAIL",
-   "detail": "user-generated content without reporting and blocking"
+   "state": "n/a",
+   "detail": "no user-generated content found"
   },
   {
    "check": "Apple 2.1: Screen recording on a physical device is on file",
@@ -1506,8 +1506,8 @@
  "PlantPulse": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1553,8 +1553,8 @@
  "portfolio-board": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1600,8 +1600,8 @@
  "radiotune": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v2.0.1: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1631,7 +1631,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -1647,8 +1647,8 @@
  "RideZap": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is sample (SAMPLE DATA); APP_IPAD_PRO_3GEN_129: 3 of 3 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is sample (SAMPLE DATA); APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-02.png is sample (SAMPLE DATA); APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-03.png is sample (SAMPLE DATA); APP_IPHONE_67: first screenshot is sample (SAMPLE DATA); APP_IPHONE_67: 5 of 5 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is sample (SAMPLE DATA); APP_IPHONE_67: APP_IPHONE_67-02.png is sample (SAMPLE DATA); APP_IPHONE_67: APP_IPHONE_67-03.png is sample (sample data); APP_IPHONE_67: APP_IPHONE_67-04.png is sample (SAMPLE DATA); APP_IPHONE_67: APP_IPHONE_67-05.png is sample (sample data); APP_IPHONE_67: 1 duplicate screenshot(s)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1694,8 +1694,8 @@
  "RoomCraft": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1741,8 +1741,8 @@
  "TripNest": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya); APP_IPHONE_67: first screenshot is other_app (shows another app: photriya); APP_IPHONE_67: 1 of 1 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1788,8 +1788,8 @@
  "Uscis-Case": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya); APP_IPHONE_67: first screenshot is other_app (shows another app: photriya); APP_IPHONE_67: 1 of 1 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1819,7 +1819,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
@@ -1835,13 +1835,13 @@
  "Verba": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya); APP_IPHONE_67: first screenshot is other_app (shows another app: photriya); APP_IPHONE_67: 1 of 1 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
-   "state": "PASS",
-   "detail": "IPA build 202610081943 adopts UIScene; iPhone running; iPad running"
+   "state": "FAIL",
+   "detail": "iPad simulator: simulator_unresponsive"
   },
   {
    "check": "Apple 4: Sign-in and registration happen inside the app",
@@ -1850,13 +1850,13 @@
   },
   {
    "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
-   "state": "FAIL",
-   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+   "state": "n/a",
+   "detail": "no in-app purchase code"
   },
   {
    "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
-   "state": "FAIL",
-   "detail": "declares NSUserTrackingUsageDescription but never shows the prompt \u2014 Apple: 'we are unable to locate the App Tracking Transparency permission request'"
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
   },
   {
    "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
@@ -1882,13 +1882,13 @@
  "VirtuBand": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya); APP_IPHONE_67: first screenshot is other_app (shows another app: photriya); APP_IPHONE_67: 1 of 1 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
    "state": "HUMAN",
-   "detail": "IPA build 202610081945 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+   "detail": "IPA build 202610082351 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
   },
   {
    "check": "Apple 4: Sign-in and registration happen inside the app",
@@ -1897,8 +1897,8 @@
   },
   {
    "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
-   "state": "FAIL",
-   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+   "state": "n/a",
+   "detail": "no in-app purchase code"
   },
   {
    "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
@@ -1929,8 +1929,8 @@
  "WiFiTrail": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "PASS",
+   "detail": "v1.0.0: every set shows the app in use"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1976,8 +1976,8 @@
  "yourtube": [
   {
    "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
-   "state": "HUMAN",
-   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+   "state": "FAIL",
+   "detail": "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya); APP_IPHONE_67: first screenshot is other_app (shows another app: photriya); APP_IPHONE_67: 1 of 1 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
   },
   {
    "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
@@ -1996,8 +1996,8 @@
   },
   {
    "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
-   "state": "FAIL",
-   "detail": "declares NSUserTrackingUsageDescription but never shows the prompt \u2014 Apple: 'we are unable to locate the App Tracking Transparency permission request'"
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
   },
   {
    "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
@@ -2007,7 +2007,7 @@
   {
    "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
    "state": "FAIL",
-   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+   "detail": "lib/data/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
   },
   {
    "check": "Apple 1.2: User-generated content has reporting and blocking",
