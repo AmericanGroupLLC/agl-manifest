@@ -104,7 +104,12 @@ def patch_banner(app_dir):
         if n != t: f.write_text(n); changed.append(f)
     return changed
 
-def unpatch(app_dir): sh("git", "checkout", "--", "lib", cwd=app_dir)
+def unpatch(app_dir, files=None):
+    """Restore only the files patch_banner changed. Resetting all of lib/
+    would also discard anything another process edited during the capture."""
+    if not files:
+        return
+    sh("git", "checkout", "--", *[str(f) for f in files], cwd=app_dir)
 
 def clear_alerts(udid, rounds=4):
     """Tap through system permission alerts / first-run sheets, most permissive first."""
@@ -141,6 +146,88 @@ def enter_app(udid, rounds=4):
         tap(udid, *center(cand))
         time.sleep(6)
     clear_alerts(udid)   # whatever the app asks for once it is actually running
+
+
+def _qa_account():
+    """(email, password) of the QA account, read from the integration guide at
+    run time by the same code supabase_accounts.py uses. Never stored here,
+    never written to a log."""
+    try:
+        from supabase_accounts import accounts
+        return next(((e, pw) for role, e, pw in accounts() if e.lower().startswith("qa@")), None)
+    except BaseException:
+        return None
+
+
+def sign_in(udid) -> bool:
+    """Sign in with the QA account when the app is on a sign-in form.
+
+    2.3.3: "screenshots ... must show the actual app in use, and not merely
+    the ... login page". Six apps were rejected for exactly that, and the
+    bypass buttons the capture used to tap ("Use test account", "Demo mode
+    (dev)") were removed from every app — so the honest way in is a real
+    account. Only an email field, a password field and a sign-in button are
+    touched; nothing is created or changed."""
+    els = describe(udid)
+    lab = lambda e: ((e.get("AXLabel") or "") + " " + (e.get("AXValue") or "") + " " +
+                     (e.get("AXPlaceholderValue") or "")).lower()
+    email = next((e for e in els if e.get("type") in ("TextField", "Other") and "email" in lab(e)), None)
+    pw = next((e for e in els if e.get("type") in ("SecureTextField", "TextField", "Other")
+               and "password" in lab(e) and e is not email), None)
+    if not (email and pw):
+        return False
+    acct = _qa_account()
+    if not acct:
+        return False
+    tap(udid, *center(email)); time.sleep(1)
+    sh("idb", "ui", "text", acct[0], "--udid", udid, timeout=30)
+    tap(udid, *center(pw)); time.sleep(1)
+    sh("idb", "ui", "text", acct[1], "--udid", udid, timeout=30)
+    time.sleep(1)
+    go = next((e for e in describe(udid) if e.get("type") == "Button"
+               and (e.get("AXLabel") or "").strip().lower() in
+               ("sign in", "log in", "login", "sign in with email", "continue", "log in with email")), None)
+    if not go:
+        return False
+    tap(udid, *center(go)); time.sleep(10)
+    clear_alerts(udid)
+    return True
+
+
+def vet(shots: list, dev: str, repo: str, res: dict) -> list:
+    """Keep only frames App Review would accept, judged by screenshot_audit.
+
+    The capture used to publish whatever was on screen; App Store Connect was
+    found holding a passcode prompt (MyCard), the iOS home screen
+    (AGrammarly), another app's permission sheet (five apps) and "SAMPLE
+    DATA" banners. Every frame is now read and a rejected one never leaves
+    the staging directory."""
+    if not shots:
+        return shots
+    try:
+        import screenshot_audit as sa
+        if not sa.APP_NAMES:
+            for a in json.load(open(M / "apps.json"))["apps"]:
+                sa.APP_NAMES[a["repo"].lower()] = a["repo"]
+        text = sa.ocr(shots)
+    except BaseException as e:
+        res.setdefault("vet", {})[dev] = f"not vetted: {type(e).__name__}"
+        return []          # unvetted frames are not published
+    kept, dropped = [], []
+    for f in shots:
+        kind, why = sa.classify(text.get(str(f)), sa.stddev(f), repo)
+        (dropped if kind in sa.BAD else kept).append((f, kind, why))
+    for f, kind, why in dropped:
+        pathlib.Path(f).unlink(missing_ok=True)
+    out = []
+    for i, (f, _, _) in enumerate(kept, start=1):
+        dst = pathlib.Path(f).with_name(f"{dev}-{i:02d}.png")
+        if pathlib.Path(f) != dst:
+            pathlib.Path(f).replace(dst)
+        out.append(dst)
+    res.setdefault("vet", {})[dev] = {"kept": len(out),
+                                      "dropped": [f"{pathlib.Path(f).name}: {k} ({w})" for f, k, w in dropped]}
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -417,6 +504,10 @@ def drive_capture(app, app_dir, out_ios, out_android, udid):
     if len(real) < len(shots):
         res["blank_dropped"] = len(shots) - len(real)
     shots = real
+    shots = vet(shots, "iphone69", app["repo"], res)
+    if not shots:
+        res["error"] = "every frame failed the 2.3.3 audit: " + str(res.get("vet"))[:200]
+        return res
 
     # Same rule as the idb path: never replace a published set with a
     # smaller one, and stage before touching what is already there.
@@ -496,6 +587,9 @@ def capture(app, out_ios, out_android):
                         for e in before
                         for w in ("sign in", "log in", "password", "create account"))
             enter_app(udid)      # onboarding carousel, then a sign-in wall
+            if gated:
+                res["signed_in_with_qa"] = sign_in(udid)
+                enter_app(udid)  # post-sign-in onboarding, if any
             after = describe(udid)
             still = any(w in ((e.get("AXLabel") or "") + (e.get("AXValue") or "")).lower()
                         for e in after
@@ -582,6 +676,7 @@ def capture(app, out_ios, out_android):
                         shots.append(p)
                     else:
                         p.unlink(missing_ok=True)
+            shots = vet(shots, dev, repo, res)
             # The iOS half of the device logs. Crashlytics on iOS reports
             # through the same simulator log stream, so this is where an
             # "Initializing Firebase Crashlytics" line or a crash shows up.
@@ -641,7 +736,7 @@ def capture(app, out_ios, out_android):
             res["error"] = (res["error"] or
                             "nothing captured; existing screenshots left alone")
     finally:
-        if patched: unpatch(app_dir)
+        if patched: unpatch(app_dir, patched)
         if staging is not None:
             shutil.rmtree(staging, ignore_errors=True)
     return res

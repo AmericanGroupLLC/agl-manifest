@@ -126,7 +126,9 @@ def classify(lines: list[str] | None, sd: float | None, repo: str = "") -> tuple
         return "sample", SAMPLE.search(text).group(0)
     if SYSTEM.search(text):
         return "system", SYSTEM.search(text).group(0)
-    if singles >= 8 or ".?123" in text:
+    # A keyboard shows ~26 single letters; a weekday chart shows 7 (M T W T F
+    # S S), so the threshold sits above that, or the keyboard's own keys.
+    if singles >= 12 or ".?123" in text or (singles >= 8 and re.search(r"(?m)^\s*123\s*$", "\n".join(body))):
         return "keyboard", "software keyboard on screen"
     if ERROR.search(text):
         return "error", ERROR.search(text).group(0)

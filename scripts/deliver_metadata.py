@@ -36,6 +36,16 @@ for a in sel:
     rating = M / "store/ratings" / (f"{repo}.json" if (M / "store/ratings" / f"{repo}.json").exists() else "default.json")
     shots = d / "fastlane/screenshots"
     use_shots = with_shots and any(shots.glob("en-US/*.png"))
+    # Never upload a set App Review would reject under 2.3.3. The same audit
+    # that reads what App Store Connect holds reads what is about to replace it.
+    shot_block = ""
+    if use_shots:
+        aud = subprocess.run(["python3", str(M / "scripts/screenshot_audit.py"), "--local", repo],
+                             capture_output=True, text=True)
+        if " FAIL " in aud.stdout or aud.returncode != 0:
+            use_shots = False
+            shot_block = "screenshots not uploaded — local set fails 2.3.3: " + \
+                " ".join(l.strip() for l in aud.stdout.splitlines()[1:3])[:200]
     log = LOGS / f"{repo}.log"; out = {"repo": repo, "version": ver, "at": datetime.datetime.now().isoformat(timespec="seconds")}
     cmd = ["bundle", "exec", "fastlane", "run", "deliver", f"api_key_path:{KEYJSON}", f"app_identifier:{a['bundle_id']}", f"app_version:{ver}",
            f"metadata_path:{d/'fastlane/metadata'}", "skip_binary_upload:true", "force:true", "run_precheck_before_submit:false",
@@ -50,5 +60,6 @@ for a in sel:
     # upload_app_privacy_details_to_app_store needs an Apple ID web session, which
     # this machine does not have (MA-011). The answers are in store/privacy/<repo>.json.
     out["privacy"] = "human (MA-011)"; out["screenshots"] = use_shots
+    if shot_block: out["screenshots_blocked"] = shot_block
     results[repo] = out; json.dump(results, open(RESULTS, "w"), indent=1)
-    print(f"{repo:18} deliver={out['deliver']} screenshots={use_shots} {out.get('deliver_error','')[:160]}", flush=True)
+    print(f"{repo:18} deliver={out['deliver']} screenshots={use_shots} {out.get('deliver_error','')[:160]} {shot_block}", flush=True)
