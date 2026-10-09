@@ -19,7 +19,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.aeroswift"
       ios_bundle_id: "com.americangroupllc.aeroswift"
-    version: "1.0.0+1"
+    version: "1.0.0+2"
     release:
       android_enabled: true
       ios_enabled: true
@@ -38,7 +38,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.agcleaner"
       ios_bundle_id: "com.americangroupllc.agcleaner"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -57,7 +57,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.agrammarly"
       ios_bundle_id: "com.americangroupllc.agrammarly"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -76,7 +76,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.agrecorder"
       ios_bundle_id: "com.americangroupllc.agrecorder"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -95,7 +95,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.agstudio"
       ios_bundle_id: "com.americangroupllc.agstudio"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -114,7 +114,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.apexmarketwatch"
       ios_bundle_id: "com.americangroupllc.apexmarketwatch"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -133,7 +133,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.bodyquest"
       ios_bundle_id: "com.americangroupllc.bodyquest"
-    version: "1.1.0+2"
+    version: "1.1.0+3"
     release:
       android_enabled: true
       ios_enabled: true
@@ -152,7 +152,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.buddyplay"
       ios_bundle_id: "com.americangroupllc.buddyplay"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -209,7 +209,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.chefcount"
       ios_bundle_id: "com.americangroupllc.chefcount"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -228,7 +228,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.codedeal"
       ios_bundle_id: "com.americangroupllc.codedeal"
-    version: "1.4.0+15"
+    version: "1.4.0+17"
     release:
       android_enabled: true
       ios_enabled: true
@@ -247,7 +247,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.dailypulse"
       ios_bundle_id: "com.americangroupllc.dailypulse"
-    version: "1.0.0+1"
+    version: "1.0.0+3"
     release:
       android_enabled: true
       ios_enabled: true
@@ -266,7 +266,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.driftdate"
       ios_bundle_id: "com.americangroupllc.driftdate"
-    version: "1.0.0+1"
+    version: "1.0.0+2"
     release:
       android_enabled: true
       ios_enabled: true
@@ -285,7 +285,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.eventspark"
       ios_bundle_id: "com.americangroupllc.eventspark"
-    version: "1.0.0+3"
+    version: "1.0.0+5"
     release:
       android_enabled: true
       ios_enabled: true
@@ -304,7 +304,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.fashionfactory"
       ios_bundle_id: "com.americangroupllc.fashionfactory"
-    version: "2.2.0+4"
+    version: "2.2.0+5"
     release:
       android_enabled: true
       ios_enabled: true
@@ -323,7 +323,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.gadgetnest"
       ios_bundle_id: "com.americangroupllc.gadgetnest"
-    version: "1.0.0+1"
+    version: "1.0.0+2"
     release:
       android_enabled: true
       ios_enabled: true
@@ -340,7 +340,7 @@ apps:
       branch: main
       flutter_path: .
     identity:
-      android_package: "com.americangroupllc.grocerymatch"
+      android_package: "com.americangroupllc.GroceryMatch"
       ios_bundle_id: "com.americangroupllc.grocerymatch"
     version: "2.1.0+2"
     release:
@@ -361,7 +361,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.herjourney"
       ios_bundle_id: "com.americangroupllc.herjourney"
-    version: "1.2.0+3"
+    version: "1.2.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -380,7 +380,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.homewise"
       ios_bundle_id: "com.americangroupllc.homewise"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -399,7 +399,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.imaps"
       ios_bundle_id: "com.americangroupllc.imaps"
-    version: "1.0.2+5"
+    version: "1.0.2+6"
     release:
       android_enabled: true
       ios_enabled: true
@@ -418,7 +418,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.imeasure"
       ios_bundle_id: "com.americangroupllc.imeasure"
-    version: "5.0.1+3"
+    version: "5.0.1+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -437,7 +437,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.kinnav"
       ios_bundle_id: "com.americangroupllc.kinnav"
-    version: "1.0.1+4"
+    version: "1.0.1+5"
     release:
       android_enabled: true
       ios_enabled: true
@@ -456,7 +456,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.milemaster"
       ios_bundle_id: "com.americangroupllc.milemaster"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -475,7 +475,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.mycard"
       ios_bundle_id: "com.americangroupllc.mycard"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -494,7 +494,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.myfinance"
       ios_bundle_id: "com.americangroupllc.myfinance"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -513,7 +513,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.myhealth"
       ios_bundle_id: "com.americangroupllc.myhealth"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -532,7 +532,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.nearserve"
       ios_bundle_id: "com.americangroupllc.nearserve"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -551,7 +551,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.newsboard"
       ios_bundle_id: "com.americangroupllc.newsboard"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -570,7 +570,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.nexustransferpay"
       ios_bundle_id: "com.americangroupllc.nexustransferpay"
-    version: "1.0.0+3"
+    version: "1.0.0+5"
     release:
       android_enabled: true
       ios_enabled: true
@@ -589,7 +589,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.photriya"
       ios_bundle_id: "com.americangroupllc.photriya"
-    version: "1.0.0+1"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -608,7 +608,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.pilotenroute"
       ios_bundle_id: "com.americangroupllc.pilotenroute"
-    version: "1.0.0+2"
+    version: "1.0.0+5"
     release:
       android_enabled: true
       ios_enabled: true
@@ -627,7 +627,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.plantpulse"
       ios_bundle_id: "com.americangroupllc.plantpulse"
-    version: "1.0.0+1"
+    version: "1.0.0+2"
     release:
       android_enabled: true
       ios_enabled: true
@@ -646,7 +646,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.portfolioboard"
       ios_bundle_id: "com.americangroupllc.portfolioboard"
-    version: "1.0.0+1"
+    version: "1.0.0+2"
     release:
       android_enabled: true
       ios_enabled: true
@@ -665,7 +665,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.radiotune"
       ios_bundle_id: "com.americangroupllc.radiotune"
-    version: "2.0.1+3"
+    version: "2.0.1+5"
     release:
       android_enabled: true
       ios_enabled: true
@@ -684,7 +684,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.ridezap"
       ios_bundle_id: "com.americangroupllc.ridezap"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -703,7 +703,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.roomcraft"
       ios_bundle_id: "com.americangroupllc.roomcraft"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -722,7 +722,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.tripnest"
       ios_bundle_id: "com.americangroupllc.tripnest"
-    version: "1.0.0+1"
+    version: "1.0.0+2"
     release:
       android_enabled: true
       ios_enabled: true
@@ -741,7 +741,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.usciscase"
       ios_bundle_id: "com.americangroupllc.usciscase"
-    version: "1.0.2+4"
+    version: "1.0.2+5"
     release:
       android_enabled: true
       ios_enabled: true
@@ -760,7 +760,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.verba"
       ios_bundle_id: "com.americangroupllc.verba"
-    version: "1.0.0+1"
+    version: "1.0.0+2"
     release:
       android_enabled: true
       ios_enabled: true
@@ -779,7 +779,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.virtuband"
       ios_bundle_id: "com.americangroupllc.virtuband"
-    version: "1.0.1+2"
+    version: "1.0.1+3"
     release:
       android_enabled: true
       ios_enabled: true
@@ -798,7 +798,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.wifitrail"
       ios_bundle_id: "com.americangroupllc.wifitrail"
-    version: "1.0.0+2"
+    version: "1.0.0+4"
     release:
       android_enabled: true
       ios_enabled: true
@@ -817,7 +817,7 @@ apps:
     identity:
       android_package: "com.americangroupllc.yourtube"
       ios_bundle_id: "com.americangroupllc.yourtube"
-    version: "1.0.2+4"
+    version: "1.0.2+8"
     release:
       android_enabled: true
       ios_enabled: true
