@@ -108,13 +108,27 @@ REGULATED = "The app is not in a regulated industry and carries no licensed " \
             "third-party material. All content, artwork and copy are the " \
             "developer's own.".freeze
 
+# App-specific answers live in their own fields of review_information and are
+# always carried into the generated text. Until 2026-10-09 this script rebuilt
+# every app's notes from the template alone and pushed them to App Store
+# Connect on each scheduled pass, which erased WiFiTrail's answer to Apple's
+# VPN question, CalcMaster's description of where the ATT prompt appears,
+# CodeDeal's in-app sign-in instructions and the real deletion paths — both
+# here and in the notes Apple reads.
+#   access            replaces the generic "SETTING UP AND REACHING" text
+#   account_deletion  replaces the generic deletion sentence
+#   services_extra    extra lines for EXTERNAL SERVICES (keyless HTTP APIs)
+#   notes_extra       appended verbatim, as its own sections, at the end
 def notes_for(a, copy)
+  ri = copy["review_information"] || {}
   en = copy.dig("copy", "en") || {}
   purpose = en["description"].to_s.split("\n\n").first.to_s.strip
   purpose = en["short_description"].to_s if purpose.empty?
   audience = en["subtitle"].to_s
   auth = a["auth"] || {}
-  services = services_for(a)
+  # Keyless public APIs reached over plain HTTP have no pubspec dependency to
+  # name them, so the app's own record lists them (services_extra).
+  services = services_for(a) + Array(ri["services_extra"]).map(&:to_s).reject(&:empty?)
   locales = locales_for(a)
 
   access =
@@ -124,7 +138,17 @@ def notes_for(a, copy)
       "No account and no login are required. Every feature is reachable from the first screen after launch."
     end
 
-  <<~NOTE.strip
+  access = ri["access"].to_s.strip unless ri["access"].to_s.strip.empty?
+  deletion = if !ri["account_deletion"].to_s.strip.empty?
+               ri["account_deletion"].to_s.strip
+             elsif auth["login_screen"]
+               "Account deletion is available in the app under Settings, and on the support site."
+             else
+               "The app creates no account, so there is nothing to delete."
+             end
+  extra = ri["notes_extra"].to_s.strip
+
+  text = <<~NOTE.strip
     2. DEVICES AND OS VERSIONS TESTED
     Automated tests run on every build: #{TEST_DEVICES}.
     Each release is also installed and launched on those targets, so a
@@ -151,8 +175,9 @@ def notes_for(a, copy)
 
 
     ACCOUNT DELETION
-    #{auth['login_screen'] ? 'Account deletion is available in the app under Settings, and on the support site.' : 'The app creates no account, so there is nothing to delete.'}
+    #{deletion}
   NOTE
+  extra.empty? ? text : "#{text}\n\n#{extra}"
 end
 
 apps = JSON.parse(File.read(File.join(M, "apps.json")))["apps"]
@@ -182,11 +207,16 @@ apps.each do |a|
   # read the stored notes, which still answered Apple's old five-item
   # request, and reported PASS while the live notes were a different text.
   begin
-    cp_json = File.exist?(cp) ? JSON.parse(File.read(cp)) : {}
+    raw = File.exist?(cp) ? File.read(cp) : "{}"
+    cp_json = JSON.parse(raw)
     cp_json["review_information"] ||= {}
     if cp_json["review_information"]["notes"] != text
       cp_json["review_information"]["notes"] = text
-      File.write(cp, JSON.pretty_generate(cp_json) + "\n")
+      # Keep the file's own format (these are written by Python with a
+      # one-space indent and \u escapes); rewriting every file in Ruby's
+      # default style turned a one-line change into a whole-file diff.
+      indent = raw.start_with?("{\n ") && !raw.start_with?("{\n  ") ? " " : "  "
+      File.write(cp, JSON.pretty_generate(cp_json, indent: indent, ascii_only: raw.include?("\\u")) + "\n")
     end
   rescue StandardError => e
     warn "  #{a['repo']}: could not update #{cp}: #{e.message[0, 90]}"
