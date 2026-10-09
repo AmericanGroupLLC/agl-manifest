@@ -101,6 +101,36 @@ def scan(ipa: pathlib.Path) -> tuple[dict, list[tuple[str, str]]]:
 ADVISORY = {"NSFaceIDUsageDescription", "NSUserTrackingUsageDescription"}
 
 
+# Apple's automated "the app contains VPN functionality" analysis. It asks
+# for a written answer, not a purpose string. WiFiTrail build 2 drew it with
+# no VPN code at all: network_info_plus links NetworkExtension.framework to
+# call NEHotspotNetwork.fetchCurrent for the Wi-Fi name (verified with
+# otool -L). Of the 41 IPAs in DIST only WiFiTrail matches these.
+VPN_NEEDLES = [
+    b"/System/Library/Frameworks/NetworkExtension.framework/NetworkExtension",
+    b"NEHotspotNetwork", b"NEHotspotConfigurationManager", b"NEVPNManager",
+    b"NETunnelProviderManager", b"NEPacketTunnelProvider", b"NEAppProxyProvider",
+    b"NEFilterDataProvider", b"NEDNSProxyProvider",
+]
+
+
+def vpn_scan(ipa: pathlib.Path) -> list[str]:
+    """['<binary>: <symbol>', ...] for each Mach-O that would draw the VPN question."""
+    hits = []
+    with zipfile.ZipFile(ipa) as z:
+        for n in z.namelist():
+            if not re.search(r"\.app/(Frameworks/[^/]+\.framework/[^/.]+|PlugIns/[^/]+\.appex/[^/.]+|[^/.]+)$", n):
+                continue
+            data = z.read(n)
+            if data[:4] not in (b"\xcf\xfa\xed\xfe", b"\xca\xfe\xba\xbe", b"\xfe\xed\xfa\xcf"):
+                continue
+            for needle in VPN_NEEDLES:
+                if needle in data:
+                    hits.append(f"{n.rsplit('/', 1)[-1]}: {needle.decode().rsplit('/', 1)[-1]}")
+                    break
+    return hits
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--all", action="store_true")

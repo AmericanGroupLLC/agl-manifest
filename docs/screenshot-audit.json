@@ -1,0 +1,5462 @@
+{
+ "AeroSwift": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is sample (SAMPLE DATA)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: first screenshot is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: 4 of 4 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: APP_IPHONE_67-02.png is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: APP_IPHONE_67-03.png is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: APP_IPHONE_67-04.png is sample (Sample data)"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "eefd0738155e",
+     "text": [
+      "9:41AMMonSep 14",
+      "AeroSwift",
+      "Search",
+      "SAMPLE DATA-these are not real flights.Tap to use live OpenSky data.",
+      "Airports",
+      "Search flights",
+      "Watchlist",
+      "UA1691",
+      "SFO-LHR",
+      "BA286",
+      "Lufthansa",
+      "JFK-LAX"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "b6c1869cbac2",
+     "text": [
+      "1:06",
+      "AeroSwift",
+      "SAMPLE DATA - these are not real flights. Tap to use",
+      "live OpenSky data.",
+      "Search flights",
+      "UA1691",
+      "SFO-LHR",
+      "BA286",
+      "Lufthansa",
+      "JF",
+      "Traffic near SFO\u00b77",
+      "AF 83"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "6f15cc46bcec",
+     "text": [
+      "1:06",
+      "Airport board",
+      "Departures",
+      "Arrivals",
+      "SAMPLE DATA - these are not real flights. Tap to use",
+      "live OpenSky data.",
+      "SFO . San Francisco International Airp...",
+      "1",
+      "SanFrancisco\u00b7US\u00b7KSFO",
+      "2 departures between 05:06 and 21:06.",
+      "Demonstration schedule \u2014not a real board for SFO.",
+      "BA 286"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "c03766caa2e6",
+     "text": [
+      "1:06",
+      "Watchlist",
+      "SAMPLE DATA - these are not real flights. Tap to use",
+      "live OpenSky data.",
+      "No flights watched yet",
+      "Tap the bookmark on any flight to keep it here.",
+      "Watched flights stay on this device and remain",
+      "readable offline with their last known status.",
+      "Search",
+      "Airports",
+      "Watchlist",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "sample",
+     "why": "Sample data",
+     "sha": "74b638e3653c",
+     "text": [
+      "1:06",
+      "Settings",
+      "DATASOURCE",
+      "Sample data",
+      "OFFLINESAMPLE",
+      "A fixed demonstration schedule bundled with the app.",
+      "Nothing here is a real flight and no aircraft is actually",
+      "where this screen shows it. Use it to explore AeroSwift",
+      "offline, then switch to OpenSky Network for live",
+      "positions.",
+      "OpenSky Network",
+      "Live \u00b7 NO KEY"
+     ]
+    }
+   ]
+  }
+ },
+ "AGCleaner": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "31 words",
+     "sha": "6f6589b570c7",
+     "text": [
+      "RatioTune9:41AMTueSep22",
+      " English",
+      "AGcleaner Pro",
+      "Find duplicate contacts and photos",
+      "\u53f8",
+      "B",
+      "Cache",
+      "Contacts",
+      "Photos",
+      "Appcache",
+      "842.5 KB",
+      "AGCleaner's own temporary files.Clearing them frees this space.No other app is affected."
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "17 words",
+     "sha": "ce9fbe33ae51",
+     "text": [
+      "RatioTune9:41AMTueSep22",
+      " English",
+      "AGcleaner Pro",
+      "Find duplicate contacts and photos",
+      "\u56de",
+      "B",
+      "Cache",
+      "Contacts",
+      "Photos",
+      "00",
+      "AGCleaneronlyfindsduplicates.Itnevereditsordeletesacontact.",
+      "Find Duplicates"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "22 words",
+     "sha": "64dc3957d46c",
+     "text": [
+      "RatioTune9:41AMTueSep22",
+      " English",
+      "AGcleaner Pro",
+      "Find duplicate contacts and photos",
+      "\u56de",
+      "B",
+      "Cache",
+      "Contacts",
+      "Photos",
+      "Only byte-for-byte identical copies arelisted.",
+      "Q",
+      "Find Duplicates"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "30 words",
+     "sha": "b7ec83cc3646",
+     "text": [
+      "10:59",
+      "English",
+      "AGCleaner Pro",
+      "Find duplicate contacts and photos",
+      "\u56de",
+      "Cache",
+      "Contacts",
+      "Photos",
+      "App cache",
+      "842.5 KB",
+      "AGCleaner's own temporary files. Clearing them frees this",
+      "space. No other app is affected."
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "23 words",
+     "sha": "f601e899fa25",
+     "text": [
+      "10:59",
+      "English",
+      "AGCleaner Pro",
+      "Find duplicate contacts and photos",
+      "B",
+      "Cache",
+      "Contacts",
+      "Photos",
+      "AGCleaner only finds duplicates. It never edits or deletes a",
+      "contact.",
+      " Find Duplicates"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "21 words",
+     "sha": "b67e0ca7a7ee",
+     "text": [
+      "10:59",
+      "English",
+      "AGCleaner Pro",
+      "Find duplicate contacts and photos",
+      "B",
+      "L",
+      "Cache",
+      "Contacts",
+      "Photos",
+      "Only byte-for-byte identical copies are listed.",
+      "Q",
+      "Find Duplicates"
+     ]
+    }
+   ]
+  }
+ },
+ "AGrammarly": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is not_this_app (iOS home screen (contacts, fitness, health, passwords))",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is not_this_app (iOS home screen (contacts, fitness, health, passwords))",
+   "APP_IPHONE_67: first screenshot is not_this_app (iOS home screen (contacts, files, fitness, preview))",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is not_this_app (iOS home screen (contacts, files, fitness, preview))"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "not_this_app",
+     "why": "iOS home screen (contacts, fitness, health, passwords)",
+     "sha": "7b621a9d4e30",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Contacts",
+      "Shortcuts",
+      "Passwords",
+      "Preview",
+      "Health",
+      "AG",
+      "ChronicCare",
+      "Fitness",
+      "Wallet",
+      "Kinnav",
+      "AGStudio"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "not_this_app",
+     "why": "iOS home screen (contacts, files, fitness, preview)",
+     "sha": "10680efa82b1",
+     "text": [
+      "1:11",
+      "Fitness",
+      "Watch",
+      "Contacts",
+      "Files",
+      "919",
+      "Preview",
+      "Utilities",
+      "BodyQuest",
+      "Daily Pulse",
+      "MyHealth",
+      "Photriya"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "4 words",
+     "sha": "be510da5c5a5",
+     "text": [
+      "1:11",
+      "Messages",
+      "+1(888) 555-1212",
+      "12/31/00",
+      "JA",
+      "+1 (555) 564-8583",
+      "12/31/00",
+      "KB",
+      "Search"
+     ]
+    }
+   ]
+  }
+ },
+ "AGRecorder": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "22 words",
+     "sha": "7455bac91306",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "AGRecorder",
+      "High-FramerateScreen&Cloud-Backed AudioCapturer",
+      "Cloud Storage Sync: Connected",
+      "Select a source and clickRecord tostart",
+      "Microphone",
+      "Camera",
+      "Start Recording"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "22 words",
+     "sha": "a21b0093bfb4",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "AGRecorder",
+      "High-FramerateScreen&Cloud-Backed AudioCapturer",
+      "Cloud Storage Sync: Connected",
+      "Select a source and clickRecord tostart",
+      "Microphone",
+      "Camera",
+      "Start Recording"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "24 words",
+     "sha": "354162d23b4d",
+     "text": [
+      "1:13",
+      " Messages",
+      "AGRecorder",
+      "High-Framerate Screen & Cloud-Backed Audio Capturer",
+      "Cloud Storage Sync: Connected",
+      "Select a source and click Record to start",
+      "Microphone",
+      "Camera",
+      "Start Recording"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "24 words",
+     "sha": "3993ab9d1e1a",
+     "text": [
+      "1:13",
+      " Messages",
+      "AGRecorder",
+      "High-Framerate Screen & Cloud-Backed Audio Capturer",
+      "Cloud Storage Sync: Connected",
+      "Select a source and click Record to start",
+      "Microphone",
+      "Camera",
+      "Start Recording"
+     ]
+    }
+   ]
+  }
+ },
+ "AGStudio": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is sample (local placeholder)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is sample (local placeholder)",
+   "APP_IPHONE_67: first screenshot is sample (local placeholder)",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is sample (local placeholder)",
+   "APP_IPHONE_67: APP_IPHONE_67-02.png is sample (local placeholder)"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "sample",
+     "why": "local placeholder",
+     "sha": "4feb2bbf03ec",
+     "text": [
+      "1:14",
+      "AGSTUDIO",
+      "AG",
+      "Dual-mode Al image generation",
+      "Create Without Limits",
+      "Al image generation that works offline and online. Fast.",
+      "Private. Cinematic.",
+      "Preview mode - no image is being generated by",
+      "AI",
+      "This build has no image-generation endpoint or key, so",
+      "AGStudio draws a local placeholder from your prompt",
+      "text instead. It is not an Al image. Everything else -"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "sample",
+     "why": "local placeholder",
+     "sha": "9e55d39ba2c0",
+     "text": [
+      "1:14",
+      "Studio",
+      "2 credits",
+      "Preview mode - no image is being generated by",
+      "AI",
+      "This build has no image-generation endpoint or key, so",
+      "AGStudio draws a local placeholder from your prompt text",
+      "instead. It is not an Al image. Everything else - history,",
+      "saving, sharing, languages - is real.",
+      "Offline Mode",
+      " Online Mode",
+      "Cloud rendering. HD quality. Cinematic power."
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "17 words",
+     "sha": "2a11cfa6b8a8",
+     "text": [
+      "1:14",
+      "My Gallery",
+      "All",
+      "Offline",
+      "Online",
+      "Preview",
+      "No generations yet. Create your first image.",
+      "Home",
+      "Studio",
+      "Gallery",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "78 words",
+     "sha": "05b367b63d54",
+     "text": [
+      "1:14",
+      "Settings",
+      "IMAGEBACKEND",
+      "Not configured",
+      "Build with --dart-define=AGSTUDIO_API_BASE_URL=...and --",
+      "dart-define=AGSTUDlO_APl_KEY=... to enable real generation.",
+      "On-device engine",
+      "No on-device model is bundled with this build, so Offline Mode",
+      "also falls back to preview rendering.",
+      "TRANSLATIONS",
+      "12/12",
+      "32 interface strings are translated into all 12 languages. 60"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "sample",
+     "why": "local placeholder",
+     "sha": "0a649022e532",
+     "text": [
+      "9:41AMMon Sep 14",
+      "AGSTUDIO",
+      "Home",
+      "AG",
+      "Dual-mode Al image generation",
+      "Studio",
+      "Create Without Limits",
+      "Al image generation that works offline and online.Fast.Private.Cinematic.",
+      "Gallery",
+      "\u4eac",
+      "Previewmode-no imageisbeing generatedbyAl",
+      "Settings"
+     ]
+    }
+   ]
+  }
+ },
+ "ApexMarketWatch": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "44 words",
+     "sha": "6ae1efc24898",
+     "text": [
+      "1:16",
+      "M ApexMarketWatch",
+      "8",
+      "C",
+      "Market Ingest",
+      "S&P500Index",
+      "7,619.98",
+      " -0.48%",
+      "Nasdaq 100",
+      "29,127.16",
+      "-0.82%",
+      "Volatility Index (ViX)"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "83 words",
+     "sha": "df4275e8590d",
+     "text": [
+      "1:16",
+      "13F Whale Activity",
+      "Q1 2026 \u2192 Q2 2026",
+      "Position changes across 3 tracked institutions. 13F filings",
+      "are published upto 45days after quarter end \u2014 these are",
+      "not live trades.",
+      "Gross buying",
+      "Gross selling",
+      "$47.31B",
+      "$37.65B",
+      "Net flow",
+      "+$9.66B"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "127 words",
+     "sha": "61a5fd358f22",
+     "text": [
+      "1:16",
+      "Deals & Arbitrage",
+      "SAMPLEDATA-NOTLIVEMARKETPRICES",
+      "Live data unavailable, so the bundled offline dataset is",
+      "shown. Do not trade on it.",
+      "Reason: No retail deals provider is configured, and none is",
+      "available without a key",
+      "Unlike quotes and 13F filings, retail pricing has no free",
+      "public source. This feed needs a deals gateway, configured",
+      "at build time with API_GATEWAY_URL. Until then it showS",
+      "the bundled examples.",
+      "ARBITRAGEOPPORTUNITY"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "76 words",
+     "sha": "88557fb3b424",
+     "text": [
+      "1:17",
+      "Crash Index",
+      "17",
+      "/100",
+      "LOW rISK",
+      "Calm tape - volatility and institutional flow both benign",
+      "Largest contributor: Volatility level (Vix) - VlX 17.12,",
+      "adding 9.5 of 17 points.",
+      "How this score was calculated",
+      "Each input is mapped to 0-100, multiplied by its weight,",
+      "and summed. The weights total 1o0%.",
+      "Volatility level (VIX)"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "46 words",
+     "sha": "cbd9d5f6c837",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "ApexMarketWatch",
+      "8",
+      "C",
+      "Market Ingest",
+      "S&P500Index",
+      "7,619.98",
+      "-0.48%",
+      "Nasdaq100",
+      "29,127.16",
+      "-0.82%",
+      "Volatility Index(VIX)"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "119 words",
+     "sha": "f7cc861e620f",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "13FWhaleActivity",
+      "Q12026\u2192Q22026",
+      "Position changes across3 tracked institutions.13Ffilings arepublishedupto45days afterquarterend-these arenot live trades.",
+      "Gross buying",
+      "Gross selling",
+      "$47.31B",
+      "$37.65B",
+      "Net flow",
+      "+$9.66B",
+      "Trackedinstitutionsaddedmorethantheysold",
+      "AlI (2985)"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "137 words",
+     "sha": "7ad54195e81a",
+     "text": [
+      "9:41AMMonSep 14",
+      "Deals&Arbitrage",
+      "SAMPLEDATA-NOTLIVEMARKETPRICES",
+      "Live data unavailable, so the bundled offline dataset is shown. Do not trade on it.",
+      "Reason:No retail deals provider is configured, and none is available without a key",
+      "Unlike quotes and13Ffilings,retailpricinghasnofreepublic source.Thisfeed needs adealsgateway,configured atbuild time withAPl_GATEWAY_URL.Until",
+      "thenitshows thebundled examples.",
+      "ARBITRAGEOPPORTUNITY",
+      "Jun 28,2026",
+      "Apple iPad Pro M4 (256GB)",
+      "Price drop onAmazonversusBestBuy on thesame configuration.Stockconfirmed atbothmerchants.",
+      "Amazon"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "154 words",
+     "sha": "d705054bfdcc",
+     "text": [
+      "9:41AMMonSep 14",
+      "Crash Index",
+      "17",
+      "/100",
+      "LOW RISK",
+      "Calm tape-volatility and institutional flow both benign",
+      "Largestcontributor:Volatilitylevel(Vix)-ViX17.13,adding9.5of 17points.",
+      "How this score was calculated",
+      "Each input is mapped to 0-100, multiplied by its weight, and summed. The weights total 100%.",
+      "Volatilitylevel (Vix)",
+      "24 x 40% = 9.5",
+      "VIX 17.13"
+     ]
+    }
+   ]
+  }
+ },
+ "BodyQuest": {
+  "source": "app_store_connect",
+  "version": "1.1.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "93 words",
+     "sha": "9f008a5e24b8",
+     "text": [
+      "2:50",
+      "BodyQuest",
+      "Health Education Through Play",
+      "Our app wants to stay free for you",
+      "Ads help support our business. Tap \"Allow\"",
+      "on the next screen to give permission to",
+      "show ads that are more relevant to you.",
+      "Continue",
+      "Not Medical Advice",
+      "+",
+      "Always seek the advice of your physician or qualified",
+      "health provider with any medical questions. Never"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "93 words",
+     "sha": "1a73a8b2492d",
+     "text": [
+      "2:51",
+      "BodyQuest",
+      "Health Education Through Play",
+      "Our app wants to stay free for you",
+      "Ads help support our business. Tap \"Allow\"",
+      "on the next screen to give permission to",
+      "show ads that are more relevant to you.",
+      "Continue",
+      "Not Medical Advice",
+      "+",
+      "Always seek the advice of your physician or qualified",
+      "health provider with any medical questions. Never"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "118 words",
+     "sha": "b57fa28581d8",
+     "text": [
+      "2:51AMMonSep28",
+      "100%",
+      "BodyQuest",
+      "HealthEducationThroughPlay",
+      "Works Offline",
+      "Kid-Friendly",
+      "I Science-Backed",
+      "Earn Rewards",
+      "Educational Purposes Only",
+      "\u76ee",
+      "This app provides general health and wellness information for educational purposes only. It is not intended as a substitute for professional medical advice,",
+      "diagnosis,or treatment."
+     ]
+    }
+   ]
+  }
+ },
+ "BuddyPlay": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "84 words",
+     "sha": "be7f7172bce9",
+     "text": [
+      "1:21",
+      "BuddyPlay",
+      "AlIl23",
+      "Tier 1. Works anywhere",
+      "Tier 2 \u00b7 Wi-Fi",
+      "23 games. Nothing here needs an account, a server, or a signal.",
+      "Tier 1\u00b7BLE\u00b7wi-Fi\u00b7Hotspot",
+      "11 games",
+      "Royal chess",
+      "Dice Kingdom",
+      "Turn-based \u00b7 classic 8x8",
+      "Turn-based \u00b7 DuoPlay"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "28 words",
+     "sha": "dd8560ce2d43",
+     "text": [
+      "1:21",
+      "Rivalries",
+      "No matchesyet",
+      "Play someone and your head-to-head record shows up here.",
+      "It stays on this phone - BuddyPlay has nowhere to send it.",
+      "Play",
+      "Rivalries",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "41 words",
+     "sha": "b9236e6cb895",
+     "text": [
+      "1:21",
+      "Settings",
+      "PLAYERS",
+      "Your name",
+      "Player",
+      "Second player name",
+      "Player 2",
+      "PLAY",
+      "Default game",
+      "Royal Chess",
+      "Sound",
+      "Feedback on moves and results"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "215 words",
+     "sha": "aaea0fca2a6e",
+     "text": [
+      "9:41AMMon Sep 14",
+      "BuddyPlay",
+      "All23",
+      "Tier 1 \u00b7 Works anywhere",
+      "Tier 2 \u00b7 Wi-Fi",
+      "Tier 3\u00b7 Pass-and-play",
+      "23 games. Nothing here needs an account, a server, or a signal.",
+      "Tier 1\u00b7BLE\u00b7Wi-Fi\u00b7Hotspot",
+      "11games",
+      "\u4e1a",
+      "Royal Chess",
+      "Dice Kingdom"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "13 words",
+     "sha": "541dcdea3044",
+     "text": [
+      "9:41AMMonSep14",
+      "Rivalries",
+      "Nomatchesyet",
+      "Playsomeone andyourhead-to-headrecordshowsuphere.Itstaysonthisphone-BuddyPlayhasnowheretosend it.",
+      "\u56fd",
+      "Play",
+      "Rivalries",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "137 words",
+     "sha": "381cf55ac84e",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Settings",
+      "PLAYERS",
+      "Your name",
+      "Player",
+      "Secondplayer name",
+      "Player 2",
+      "PLAY",
+      "Default game",
+      "Royal Chess",
+      "Sound",
+      "Feedback on moves and results"
+     ]
+    }
+   ]
+  }
+ },
+ "CalcMaster": {
+  "source": "app_store_connect",
+  "version": "4.0.2",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "33 words",
+     "sha": "141fe634eb92",
+     "text": [
+      "9:41AMMon Sep 14",
+      "CALCULATORS",
+      "Calculate",
+      "Standard\u00b7Scientific\u00b7Percentage\u00b7Base\u00b7Fraction",
+      "Standard",
+      "Scientific",
+      "Basic arithmetic",
+      "Trig, log, powers",
+      "%",
+      "88",
+      "Percentage",
+      "Base"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "34 words",
+     "sha": "ee28ca35f126",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "CALCULATORS",
+      "Calculate",
+      "Standard\u00b7Scientific\u00b7Percentage\u00b7Base\u00b7Fraction",
+      "Standard",
+      "Scientific",
+      "Basic arithmetic",
+      "Trig, log, powers",
+      "%",
+      "88",
+      "Percentage",
+      "Base"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "33 words",
+     "sha": "0cfd3e0dedb1",
+     "text": [
+      "9:41AMMon Sep 14",
+      "CALCULATORS",
+      "Calculate",
+      "Standard\u00b7 Scientific\u00b7Percentage\u00b7 Base\u00b7Fraction",
+      "Standard",
+      "Scientific",
+      "Basic arithmetic",
+      "Trig, log, powers",
+      "%",
+      "88",
+      "Percentage",
+      "Base"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "21 words",
+     "sha": "d49ad36743b9",
+     "text": [
+      "9:41AMMon Sep 14",
+      "- Fraction",
+      "Add, subtract, multiply, divide",
+      "Numerator A",
+      "Numerator B",
+      "Denominator A",
+      "Denominator B",
+      "2",
+      "3",
+      "Operator",
+      "Simplified",
+      "5/6"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "21 words",
+     "sha": "7f6637f406f0",
+     "text": [
+      "9:41AMMon Sep 14",
+      "- Fraction",
+      "Add, subtract, multiply, divide",
+      "Numerator A",
+      "Numerator B",
+      "Denominator A",
+      "Denominator B",
+      "2",
+      "3",
+      "Operator",
+      "Simplified",
+      "5/6"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "31 words",
+     "sha": "de6c6408ae57",
+     "text": [
+      "1:23",
+      "CALCULATORS",
+      "Calculate",
+      "Standard\u00b7 Scientific\u00b7 Percentage\u00b7Base\u00b7 Fraction",
+      "Standard",
+      "Scientific",
+      "Basic arithmetic",
+      "Trig, log, powers",
+      "%",
+      "88",
+      "Percentage",
+      "Base"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "31 words",
+     "sha": "ab0ff35ce9c0",
+     "text": [
+      "1:23",
+      "CALCULATORS",
+      "Calculate",
+      "Standard\u00b7 Scientific\u00b7 Percentage\u00b7Base\u00b7 Fraction",
+      "Standard",
+      "Scientific",
+      "Basic arithmetic",
+      "Trig, log, powers",
+      "%",
+      "88",
+      "Percentage",
+      "Base"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "48 words",
+     "sha": "d30931ee7d62",
+     "text": [
+      "1:23",
+      "FINANCETOOLS",
+      "Finance",
+      "Tax\u00b7Tip & Split\u00b7Discount\u00b7Compound Interest\u00b7EMl\u00b7",
+      "Currency\u00b7Unit Price",
+      "\u76ee",
+      "Tax",
+      "Tip & Split",
+      "Sales tax & VAT calculator",
+      "Restaurant bill splitter",
+      "Discount",
+      "Compound Interest"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "61 words",
+     "sha": "a727239a74c4",
+     "text": [
+      "1:23",
+      "UTILITYTOOLS",
+      "Tools",
+      "GPS\u00b7Ohm's Law\u00b7BMl\u00b7Date Diff.Time Zones\u00b7ADC/DAC\u00b7",
+      "Age\u00b7Aspect Ratio",
+      "GPS Coordinates",
+      "Ohm's Law",
+      "Decimal > DMS conversion",
+      "V, I, R, P calculator",
+      "\u753b",
+      "BMI",
+      "Date Difference"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "28 words",
+     "sha": "2274c3e753ea",
+     "text": [
+      "1:23",
+      "SAVEDNOTES",
+      "Notes",
+      "Save calculations, formulas, and reminders",
+      "Q Search notes",
+      "New note title",
+      "Body",
+      "Add note",
+      "No notes yet. Add your first one above.",
+      "Convert",
+      "Calculate",
+      "Finance"
+     ]
+    }
+   ]
+  }
+ },
+ "CarDeal": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPHONE_67: APP_IPHONE_67-04.png is sample (sample data)"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "64 words",
+     "sha": "de65725ff257",
+     "text": [
+      "1:26",
+      "Find your next car",
+      "12 cars, priced against the market",
+      "Sample inventory \u2014 illustrative prices, not live listings.",
+      "Every price below is illustrative.",
+      "Sedan (4)",
+      "SUV (4)",
+      "Truck (1)",
+      "Hatchback (2)",
+      "Great prices",
+      "4 cars priced well under comparable cars \u00b7 $11,500",
+      "See all"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "52 words",
+     "sha": "0e89b91094fa",
+     "text": [
+      "1:26",
+      "Make, model or body type",
+      "Sample inventory \u2014 illustrative prices, not live listings.",
+      "12 cars",
+      "\u2191Best value",
+      "2020ToyotaCamry",
+      "SE",
+      "$19,750",
+      "Sample",
+      "GREAT",
+      " 61,300 mi B Petrol  Automatic  5.9 mi away",
+      "2023ChevroletBoltEUV"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "41 words",
+     "sha": "72eea384c163",
+     "text": [
+      "1:26",
+      "Nothing saved yet",
+      "Tap the heart on any listing to keep it here, and the",
+      "bookmark on a search to re-run it later. Saved cars are",
+      "checked for price drops each time the app opens.",
+      "Browsecars",
+      "Browse",
+      "Search",
+      "Saved",
+      "Budget",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "sample",
+     "why": "sample data",
+     "sha": "3efcaabcbab6",
+     "text": [
+      "1:26",
+      "What can I afford?",
+      "You canafford about",
+      "$25,780",
+      "$450 a month over 60 months \u00b7 4 cars in range",
+      "Monthlybudget",
+      "$450",
+      "Down payment",
+      "$3,000",
+      "APR",
+      "6.9%",
+      "Sales tax"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "54 words",
+     "sha": "2918674ed640",
+     "text": [
+      "1:27",
+      "Settings",
+      "WHEREPRICESCOMEFROM",
+      "Sample catalogue",
+      "Sample catalogue\u00b7 12 illustrative listings, no network",
+      "This build has no dealer-feed credentials, so it runs entirely",
+      "offline on an illustrative catalogue. No price here is an offer,",
+      "andeveryscreenthatshowsonesaysso.",
+      "12listingsloaded",
+      "Reload",
+      "APPEARANCE",
+      "Followthedevice"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "100 words",
+     "sha": "edcc44549876",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Find your next car",
+      "12 cars,priced against the market",
+      "Sampleinventory\u2014illustrativeprices,not livelistings.",
+      "Every price below is illustrative.",
+      "Sedan (4)",
+      "SUV (4)",
+      "Truck (1)",
+      "Hatchback (2)",
+      "Van (1)",
+      "Great prices",
+      "See all"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "99 words",
+     "sha": "3db8c80cdb90",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Make, model or body type",
+      "Sample inventory \u2014 illustrative prices, not live listings.",
+      "12 cars",
+      "\u2191Bestvalue",
+      "2020 Toyota Camry",
+      "2023ChevroletBoltEUV",
+      "SE",
+      "Premier",
+      "$19,750",
+      "Sample",
+      "$21,400"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "19 words",
+     "sha": "20956706d287",
+     "text": [
+      "9:41AMMonSep14",
+      "Nothingsavedyet",
+      "Taptheheartonanylistingtokeepit here,and thebookmarkonasearchtore-run it later.Saved cars arecheckedforpricedropseachtime",
+      "theappopens.",
+      "Browsecars",
+      "Browse",
+      "Search",
+      "Saved",
+      "Budget",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "79 words",
+     "sha": "18219c8ac126",
+     "text": [
+      "9:41AMMonSep14",
+      "What can I afford?",
+      "You can afford about",
+      "$25,780",
+      "$450 a month over 60 months \u00b7 4 cars in range",
+      "Monthly budget",
+      "$450",
+      "Down payment",
+      "$3,000",
+      "APR",
+      "6.9%",
+      "Sales tax"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "106 words",
+     "sha": "a39e4ea7e50d",
+     "text": [
+      "9:41AMMonSep14",
+      "Settings",
+      "WHEREPRICESCOMEFROM",
+      "Sample catalogue",
+      "Samplecatalogue\u00b712illustrativelistings,nonetwork",
+      "Thisbuild hasnodealer-feed credentials,soit runs entirely offline on an illustrative catalogue.Nopricehere is an offer,and every screen that showsone",
+      "says so.",
+      "12 listings loaded",
+      "C",
+      "Reload",
+      "APPEARANCE",
+      "Followthedevice"
+     ]
+    }
+   ]
+  }
+ },
+ "ChefCount": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "20 words",
+     "sha": "e5d6ea1a01e4",
+     "text": [
+      "9:41AMMon Sep 14",
+      "ChefCount",
+      "Al Fridge \u2192 Recipe Engine",
+      "Scan Your Fridge",
+      "Al detects ingredients instantly",
+      "Camera",
+      "Gallery",
+      "Scan",
+      "Recipes",
+      "Kitchen",
+      "Profile"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "88 words",
+     "sha": "c48894e6ed06",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "ChefCount",
+      "Al Fridge\u2192Recipe Engine",
+      "AlI",
+      "Breakfast",
+      "Lunch",
+      "Dinner",
+      "Snack",
+      "Garlic Tomato Scramble",
+      "Breakfast",
+      "Easy",
+      "13m"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "21 words",
+     "sha": "e34ee07a0315",
+     "text": [
+      "9:41AMMonSep14",
+      "ChefCount ",
+      "Al Fridge \u2192 Recipe Engine",
+      "Kitchen is empty",
+      "Scan your fridge to populate your kitchen inventory.",
+      "Scan",
+      "Recipes",
+      "Kitchen",
+      "Profile"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "20 words",
+     "sha": "56e242c760f0",
+     "text": [
+      "9:41AMMon Sep 14",
+      "ChefCount",
+      "Al Fridge \u2192 Recipe Engine",
+      "ChefCount Member",
+      "Your kitchen stats",
+      "12",
+      "$531.93",
+      "Ingredients",
+      "Recipes",
+      "Shop Value",
+      "Scan",
+      "Recipes"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "18 words",
+     "sha": "a33db1c85e63",
+     "text": [
+      "1:29",
+      "ChefCount",
+      "Al Fridge \u2192 Recipe Engine",
+      "Scan Your Fridge",
+      "Al detects ingredients instantly",
+      " Camera",
+      "Gallery",
+      "Scan",
+      "Recipes",
+      "Kitchen",
+      "Profile"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "55 words",
+     "sha": "dca2f07c2213",
+     "text": [
+      "1:29",
+      "ChefCount",
+      "Al Fridge \u2192 Recipe Engine",
+      "AIl",
+      "Breakfast",
+      "Lunch",
+      "Dinner",
+      "Snack",
+      "Garlic Tomato Scramble",
+      "Breakfast",
+      "Easy",
+      "13m"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "20 words",
+     "sha": "33d35c5ee117",
+     "text": [
+      "1:29",
+      "ChefCount",
+      "Al Fridge \u2192 Recipe Engine",
+      "Kitchen is empty",
+      "Scan your fridge to populate your kitchen inventory.",
+      "Scan",
+      "Recipes",
+      "Kitchen",
+      "Profile"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "18 words",
+     "sha": "6a471f25e9bf",
+     "text": [
+      "1:29",
+      "ChefCount",
+      "Al Fridge \u2192 Recipe Engine",
+      "ChefCount Member",
+      "Your kitchen stats",
+      "12",
+      "$531.93",
+      "Ingredients",
+      "Recipes",
+      "Shop Value",
+      "Scan",
+      "Recipes"
+     ]
+    }
+   ]
+  }
+ },
+ "CodeDeal": {
+  "source": "app_store_connect",
+  "version": "1.4.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is error (Exception)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: first screenshot is error (Exception)",
+   "APP_IPHONE_67: 3 of 4 are not the app in use"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "error",
+     "why": "Exception",
+     "sha": "8261fa2298d3",
+     "text": [
+      "9:41AMMonSep14",
+      "CodeDeal",
+      "Home",
+      "Find the Best Deals,",
+      "Deals",
+      "Save More Every Day",
+      "Verifiedcodesfrom10,0o0+storesworldwide.",
+      "Search",
+      "Explore Deals",
+      "Profile",
+      "Trending Deals",
+      "Couldnotreach theCodeDealAPl."
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "error",
+     "why": "Exception",
+     "sha": "19905e0e239d",
+     "text": [
+      "1:31",
+      "CodeDeal",
+      "Find the Best Deals,",
+      "SaveMoreEveryDay",
+      "Verified codes from 10,oo0+ stores worldwide.",
+      "Explore Deals",
+      "Trending Deals",
+      "Could not reach the CodeDeal APl.",
+      "TrpcException(-): Network error",
+      "Check your internet connection. APl: https://api.codedeal.com",
+      "Retry",
+      "Home"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "error",
+     "why": "Exception",
+     "sha": "d0428b57432c",
+     "text": [
+      "1:31",
+      "Deals",
+      "Search deals",
+      "Trending",
+      "all",
+      "code",
+      "deal",
+      "referral",
+      "Error: TrpcException(-): Network error",
+      "Home",
+      "Deals",
+      "Search"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "12 words",
+     "sha": "129e91dee6ed",
+     "text": [
+      "1:31",
+      "Search",
+      "Search",
+      "0",
+      "Search 5ok+ deals across stores worldwide.",
+      "Home",
+      "Deals",
+      "Search",
+      "Profile"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "login",
+     "why": "Sign in",
+     "sha": "7d5c686e83fc",
+     "text": [
+      "1:32",
+      "Profile",
+      "Sign in to access saved deals, referrals, and",
+      "premium.",
+      "Sign in with OAuth",
+      "Home",
+      "Deals",
+      "Search",
+      "Profile"
+     ]
+    }
+   ]
+  }
+ },
+ "daily-pulse": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is onboarding (Get Started)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: first screenshot is onboarding (Get Started)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "onboarding",
+     "why": "Get Started",
+     "sha": "5fd73e84c721",
+     "text": [
+      "9:41AMTueSep22",
+      "Daily Pulse",
+      "Your Al-powered global intelligence feed",
+      "WorldwideCoverage",
+      "12+freeglobalnewssources",
+      "Person Intelligence",
+      "TrackanyworldleaderorCEO",
+      "AIPersonalization",
+      "Learnsyourinterestsovertime",
+      "Get Started"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "onboarding",
+     "why": "Get Started",
+     "sha": "f4a1ea6693b2",
+     "text": [
+      "1:53",
+      "Daily Pulse",
+      "Your Al-powered global intelligence feed",
+      "Worldwide Coverage",
+      "12+ free global news sources",
+      "Person Intelligence",
+      "Track anyworld leader or CEO",
+      "Al Personalization",
+      "Learnsyourinterestsover time",
+      "Get Started"
+     ]
+    }
+   ]
+  }
+ },
+ "DriftDate": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is login (Log in)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: first screenshot is login (Log in)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "login",
+     "why": "Log in",
+     "sha": "c9cd15491666",
+     "text": [
+      "9:41AMMon Sep 14",
+      "DRIFT",
+      "Find Real People",
+      "Not Just Profiles",
+      "Get started",
+      "Already have an account? Log in"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "login",
+     "why": "Log in",
+     "sha": "6a876726d757",
+     "text": [
+      "3:47",
+      "DRIFT",
+      "Find Real People",
+      "Not Just Profiles",
+      "Get started",
+      "Already have an account? Log in"
+     ]
+    }
+   ]
+  }
+ },
+ "EventSpark": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is keyboard (software keyboard on screen)"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "ec2193bc9fd7",
+     "text": [
+      "9:41AMMonSep14",
+      "EventSpark",
+      "Hi there",
+      "SanFrancisco,CA",
+      "Sample catalogue \u2014these events and prices are examples, not real listings.",
+      "Search events in San Francisco",
+      "\u7531",
+      "\u6c34",
+      "3",
+      "Entertainment",
+      "Outdoor",
+      "Vacation"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "34 words",
+     "sha": "abae7b855586",
+     "text": [
+      "9:41AMMonSep14",
+      "My tickets",
+      "Upcoming (0)",
+      "Past (0)",
+      "No tickets yet",
+      "When you reserve a place at an event it will appear here, with the code to show on the door.",
+      "Browse events",
+      "8",
+      "Discover",
+      "Tickets",
+      "Host",
+      "Saved"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "17 words",
+     "sha": "f38b7838e14f",
+     "text": [
+      "9:41AMMonSep14",
+      "Hosting",
+      "Hostyourfirstevent",
+      "Create anevent,build aguestlistandcheckpeopleinatthedoor\u2014allfromhere.Nopartner accountneeded.",
+      "Createevent",
+      "+Newevent",
+      "Discover",
+      "Tickets",
+      "Host",
+      "Saved",
+      "Menu"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "11 words",
+     "sha": "182567fad219",
+     "text": [
+      "9:41AMMonSep14",
+      "Saved",
+      "Nothingsavedyet",
+      "Tapthebookmarkonanyeventtokeepithere.Savedeventsstayavailableoffline.",
+      "Browseevents",
+      "Discover",
+      "Tickets",
+      "Host",
+      "Saved",
+      "Menu"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "44 words",
+     "sha": "889e517b87db",
+     "text": [
+      "9:41AMMonSep14",
+      "Menu",
+      "Setupyourprofile",
+      "Name, home city and host name",
+      "Tickets",
+      "Saved",
+      "Hosting",
+      "HOSTING",
+      "Yourevents",
+      "Create an event",
+      "Analytics",
+      "DISCOVER"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "67 words",
+     "sha": "935691c6384e",
+     "text": [
+      "1:40",
+      "EventSpark",
+      "Hi there",
+      "O San Francisco, CA ",
+      "Sample catalogue \u2014 these events and prices are examples,",
+      "not real listings.",
+      "Search events in San Francisco",
+      "\u4e2d",
+      "Entertainment",
+      "Outdoor",
+      "Vacation",
+      "Social"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "27 words",
+     "sha": "df9c6c3ad341",
+     "text": [
+      "1:40",
+      "My tickets",
+      "Upcoming (0)",
+      "Past (0)",
+      "\uff1a",
+      "No tickets yet",
+      "When you reserve a place at an event it will appear here, with",
+      "thecodetoshowon thedoor.",
+      "Browseevents",
+      "Discover",
+      "Tickets",
+      "Host"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "34 words",
+     "sha": "c41d9045c07b",
+     "text": [
+      "1:40",
+      "Hosting",
+      "Host your first event",
+      "Create an event, build a guest list and check people in at the",
+      "door \u2014 all from here. No partner account needed.",
+      "Create event",
+      "+ New event",
+      "N",
+      "Discover",
+      "Tickets",
+      "Host",
+      "Saved"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "empty",
+     "why": "Nothing saved",
+     "sha": "65baaf4127a1",
+     "text": [
+      "1:40",
+      "Saved",
+      "Nothing savedyet",
+      "Tap the bookmark on any event to keep it here. Saved events",
+      "stayavailableoffline.",
+      "Browseevents",
+      "\u516c",
+      "Discover",
+      "Tickets",
+      "Host",
+      "Saved",
+      "Menu"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "40 words",
+     "sha": "4b247311da87",
+     "text": [
+      "1:40",
+      "Menu",
+      "Set up your profile",
+      "Name, home city and host name",
+      "Tickets",
+      "Saved",
+      "Hosting",
+      "HOSTING",
+      "Your events",
+      "Create an event",
+      "Analytics",
+      "DISCOVER"
+     ]
+    }
+   ]
+  }
+ },
+ "FashionFactory": {
+  "source": "app_store_connect",
+  "version": "2.2.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "60 words",
+     "sha": "a732b0f27aea",
+     "text": [
+      "9:41AM Mon Sep 14",
+      " Fashion Factory",
+      "+",
+      "Search36 deals-brands,products,stores",
+      "\u25b3",
+      "Sampleprices\u00b7notlivedata\u00b7No affiliatelinks",
+      "Shop by category",
+      "AlI36\u2192",
+      "Fashion",
+      "Shoes",
+      "Bags",
+      "Perfume"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "130 words",
+     "sha": "d0cb777acbf0",
+     "text": [
+      "9:41AM Mon Sep 14",
+      " Fashion Factory",
+      "n",
+      "Search36 deals-brands,products,stores",
+      "Sampleprices\u00b7notlivedata\u00b7No affiliatelinks",
+      "8",
+      "6categories\u00b736sub-categories\u00b728brands",
+      "Fashion",
+      "6>",
+      "Dresses,Coats &jackets,Knitwear +3 more",
+      "Shoes",
+      "6>"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "80 words",
+     "sha": "7ef1b01c6af2",
+     "text": [
+      "9:41AM Mon Sep 14",
+      " Fashion Factory",
+      "D",
+      "Search 36 deals -brands,products, stores",
+      "Sample prices\u00b7not livedata\u00b7No affiliate links",
+      "All (36)",
+      "Trending (6)",
+      "New (6)",
+      "Sale (19)",
+      "Premium (5)",
+      "-46%",
+      "KATE SPADE"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "33 words",
+     "sha": "268419b5ff57",
+     "text": [
+      "9:41AMMonSep14",
+      " Fashion Factory",
+      "+",
+      "n",
+      "Searchyoursaved items",
+      "\u25b3",
+      "Sampleprices\u00b7notlivedata\u00b7No affiliatelinks",
+      "Saved.0",
+      "Pricealerts\u00b7o",
+      "Nothing savedyet",
+      "Taptheheart on anyproduct and it landshere,withtheprice it was at whenyou saved it.",
+      "Browse deals"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "131 words",
+     "sha": "8bd3fbf22c0d",
+     "text": [
+      "9:41AMMon Sep 14",
+      " Fashion Factory",
+      "+",
+      "D",
+      "Search36deals-brands,products,stores",
+      "Sampleprices\u00b7notlivedata\u00b7Noaffiliatelinks",
+      "Notifications",
+      "PriceDropAlert",
+      "Getnotifiedwhenpricesdropby20%ormore",
+      "BackinStock",
+      "Alert when sold-out items become available",
+      "FlashSales"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "51 words",
+     "sha": "7f92e7366bb8",
+     "text": [
+      "1:42",
+      "Fashion Factory",
+      "+",
+      "Search 36 deals \u2014 brands, products, stores",
+      "Q",
+      " Sample prices \u00b7 not live data \u00b7 No affiliate links",
+      "Shop by category",
+      "AlI36\u2192",
+      "Fashion",
+      "Shoes",
+      "6 deals",
+      "6 deals"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "80 words",
+     "sha": "ea3bed477fc5",
+     "text": [
+      "1:42",
+      "Fashion Factory",
+      "+",
+      "Search 36 deals - brands, products, stores",
+      "Q",
+      " Sample prices \u00b7 not live data \u00b7 No affiliate links",
+      "6categories\u00b736 sub-categories\u00b728brands",
+      "Fashion",
+      "Dresses, Coats & jackets, Knitwear +3 more",
+      "Shoes",
+      "6",
+      "Sneakers,Boots, Heels +3 more"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "55 words",
+     "sha": "750e0bbcafd8",
+     "text": [
+      "1:42",
+      "Fashion Factory",
+      "+",
+      "Search 36 deals - brands, products, stores",
+      "Q",
+      "Sample prices\u00b7not live data\u00b7No affiliate links",
+      "AIl (36)",
+      "Trending (6)",
+      "New (6)",
+      "Sale (19)",
+      "P",
+      "46%"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "42 words",
+     "sha": "a1bd4953fd0c",
+     "text": [
+      "1:42",
+      "Fashion Factory",
+      "+",
+      "Q",
+      "Searchyoursaveditems",
+      "Q",
+      " Sample prices \u00b7 not live data \u00b7 No affiliate links",
+      "Saved.0",
+      "Price alerts \u00b7 0",
+      "Nothing saved yet",
+      "Tap the heart on any product and it lands here, with the price it was",
+      "at whenyou saved it."
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "98 words",
+     "sha": "67b0c2640c11",
+     "text": [
+      "1:42",
+      "Fashion Factory",
+      "+",
+      "n",
+      "Search 36 deals \u2014 brands, products, stores",
+      "Q",
+      " Sample prices \u00b7 not live data \u00b7 No affiliate links",
+      "Notifications",
+      "Price Drop Alert",
+      "Get notified when prices drop by 20% or more",
+      "Back in Stock",
+      "Alertwhensold-outitemsbecomeavailable"
+     ]
+    }
+   ]
+  }
+ },
+ "GadgetNest": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "77 words",
+     "sha": "5eed11bb96c0",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "GadgetNest",
+      "The cheapest place to buy it",
+      "Every price is the total you pay \u2014\u2014 item plus delivery \u2014 across 9 retailers.",
+      "Phones",
+      "Laptops",
+      "Headphones",
+      "Tablets",
+      "TVS",
+      "Wearables",
+      "Cameras",
+      "\u56fd"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "68 words",
+     "sha": "892483f87e19",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Browse",
+      "Search phones, laptops, headphones...",
+      "Categories",
+      "Phones",
+      "2 products",
+      "Laptops",
+      "1 product",
+      "Headphones",
+      "1 product",
+      "Tablets",
+      "1 product"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "80 words",
+     "sha": "f0443b2180ae",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Deals",
+      "Any condition",
+      "New",
+      "Open box",
+      "Certifiedrefurbished",
+      "Ranked by discountoff the manufacturer'slistprice.",
+      "SAMSUNG",
+      "GalaxyWatch8Classic46mm",
+      "$329.00",
+      "-34%",
+      "at eBay\u00b7free delivery"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "11 words",
+     "sha": "14ee6a0ed9ff",
+     "text": [
+      "9:41AMMonSep14",
+      "My list",
+      "Yourlistisempty",
+      "AddafewproductsandGadgetNestwillworkoutwhetheroneorderorseveralischeaper.",
+      "Home",
+      "Browse",
+      "Deals",
+      "My list",
+      "Saved"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "empty",
+     "why": "Nothing saved",
+     "sha": "1e84a5148ded",
+     "text": [
+      "9:41AMMonSep14",
+      "Saved",
+      "Nothing saved yet",
+      "Tap the heart on a product to keep an eye on its price.",
+      "\u54c1",
+      "Home",
+      "Browse",
+      "Deals",
+      "My list",
+      "Saved"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "57 words",
+     "sha": "89d8ee89f6db",
+     "text": [
+      "1:45",
+      "GadgetNest",
+      "The cheapest place to buy it",
+      "Every price is the total you pay \u2014 item plus delivery \u2014",
+      "across 9 retailers.",
+      "Phones",
+      "Laptops",
+      "Headphones",
+      "Biggest discounts",
+      "See all",
+      "-34%",
+      "SAMSUNG"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "28 words",
+     "sha": "dc34044892aa",
+     "text": [
+      "1:45",
+      "Browse",
+      "Search phones, laptops, headphones...",
+      "Categories",
+      "Phones",
+      "2 products",
+      "Laptops",
+      "1 product",
+      "Headphones",
+      "1 product",
+      "Tablets",
+      "1 product"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "53 words",
+     "sha": "7841a547f121",
+     "text": [
+      "1:45",
+      "Deals",
+      "Any condition",
+      "New",
+      "Open box",
+      "Certifiec",
+      "Ranked by discount off the manufacturer'slist price.",
+      "SAMSUNG",
+      "GalaxyWatch8Classic46mm",
+      "$329.00",
+      "-34%",
+      "at eBay\u00b7free delivery"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "27 words",
+     "sha": "39adbd6a3019",
+     "text": [
+      "1:45",
+      "My list",
+      "Your list is empty",
+      "Add a few products and GadgetNest will work out",
+      "whether one order or several is cheaper.",
+      "\u56fd",
+      "Home",
+      "Browse",
+      "Deals",
+      "My list",
+      "Saved"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "empty",
+     "why": "Nothing saved",
+     "sha": "d8ead3004674",
+     "text": [
+      "1:45",
+      "Saved",
+      "Nothing saved yet",
+      "Tap the heart on a product to keep an eye on its price.",
+      "Home",
+      "Browse",
+      "Deals",
+      "My list",
+      "Saved"
+     ]
+    }
+   ]
+  }
+ },
+ "GroceryMatch": {
+  "source": "app_store_connect",
+  "version": "2.1.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is login (Login)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: first screenshot is login (Log in)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "login",
+     "why": "Login",
+     "sha": "147bafec42b4",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Welcometo",
+      "GroceryMatch",
+      "Eat out for less too",
+      "Delivery markup and fees included, so the price is the price.",
+      "Let's GetStarted",
+      "Alreadyhaveanaccount?Login"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "login",
+     "why": "Log in",
+     "sha": "274bef535f88",
+     "text": [
+      "3:51",
+      "Welcome to",
+      "GroceryMatch",
+      "Eat out for less too",
+      "Delivery markup and fees included, so the",
+      "price is the price.",
+      "Let's Get Started",
+      "Already have an account? Log in"
+     ]
+    }
+   ]
+  }
+ },
+ "HerJourney": {
+  "source": "app_store_connect",
+  "version": "1.2.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is keyboard (software keyboard on screen)",
+   "APP_IPAD_PRO_3GEN_129: 5 of 5 are not the app in use",
+   "APP_IPHONE_67: first screenshot is onboarding (GetStarted)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "abd9a2730b53",
+     "text": [
+      "9:41AMMonSep14",
+      "Cycle Details",
+      "Help us predict your cycle accurately.",
+      "First day of last period",
+      "Tap toselect",
+      "Averagecyclelength",
+      "28 days",
+      "Averageperiodlength",
+      "5 days",
+      "Start My Journey",
+      "Skip for now",
+      "Back"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "39981ca0b8d2",
+     "text": [
+      "9:41AMMonSep14",
+      "Cycle Details",
+      "Help us predict your cycle accurately.",
+      "First day of lastperiod",
+      "Tap toselect",
+      "Average cyclelength",
+      "28 days",
+      "Averageperiodlength",
+      "5 days",
+      "Start My Journey",
+      "Skip for now",
+      "Back"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "2fb76cb7fb43",
+     "text": [
+      "9:41AMMonSep14",
+      "Cycle Details",
+      "Help us predict your cycle accurately.",
+      "First day of lastperiod",
+      "Tap toselect",
+      "Average cyclelength",
+      "28 days",
+      "Averageperiodlength",
+      "5 days",
+      "Start My Journey",
+      "Skip for now",
+      "Back"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "8f787efabd04",
+     "text": [
+      "9:41AMMonSep14",
+      "Cycle Details",
+      "Help us predict your cycle accurately.",
+      "First day of lastperiod",
+      "Tap toselect",
+      "Average cyclelength",
+      "28 days",
+      "Averageperiodlength",
+      "5 days",
+      "Start My Journey",
+      "Skip for now",
+      "Back"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "2e78086912b7",
+     "text": [
+      "9:41AMMonSep14",
+      "Cycle Details",
+      "Help us predict your cycle accurately.",
+      "First day of lastperiod",
+      "Tap toselect",
+      "Average cyclelength",
+      "28 days",
+      "Averageperiodlength",
+      "5 days",
+      "Start My Journey",
+      "Skip for now",
+      "Back"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "onboarding",
+     "why": "GetStarted",
+     "sha": "e72afea2f3d5",
+     "text": [
+      "3:56",
+      "Welcometo",
+      "HerJourney",
+      "Your personal health companion for every phase",
+      "of your journey \u2014 powered by Al.",
+      "GetStarted",
+      "100% private \u00b7 No account required"
+     ]
+    }
+   ]
+  }
+ },
+ "HomeWise": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "113 words",
+     "sha": "f8b4d03b49b6",
+     "text": [
+      "1:52",
+      "Affordability",
+      "You could buy up to",
+      "With $40,000 down at 6.70% over 30 years",
+      "$274,000",
+      "Loan amount",
+      "$234,000",
+      "Price less your deposit",
+      "Monthly housing cost at that price",
+      "$1,983",
+      "Principal, interest, tax, insurance, mortgage",
+      "insurance"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "92 words",
+     "sha": "1f42c34113b8",
+     "text": [
+      "1:52",
+      "Monthly cost",
+      "What you pay each month",
+      "$274,000 home, $234,000 borrowed at 6.70% over 30 years",
+      "$1,983",
+      "per month",
+      "Principal",
+      "$203",
+      "In the first payment. It grows every month.",
+      "Interest",
+      "$1,307",
+      "In the first payment, on $234,000 at 6.70%."
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "74 words",
+     "sha": "494dd31158b9",
+     "text": [
+      "1:53",
+      "Schedule",
+      "Where every payment goes",
+      "$234,000at6.70%over30years",
+      "$1.51K",
+      "$755",
+      "$0.00",
+      "Yr 1",
+      "Yr 16",
+      "Yr30",
+      "Interest",
+      "Principal"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "49 words",
+     "sha": "2dc23b60cc6b",
+     "text": [
+      "1:53",
+      "Scenarios",
+      "Compare the options",
+      "Save the numbers you have now, change the deposit,",
+      "rate or term, and save again. They line up side by side",
+      "here so you can see what each choice costs over the",
+      "whole loan.",
+      " Save the current setup",
+      "Save current",
+      "Afford",
+      "Monthly",
+      "Schedule"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "85 words",
+     "sha": "c1c3cae4a593",
+     "text": [
+      "1:53",
+      "Assumptions",
+      "Lending limits",
+      "The two ratios underwriting applies. The defaults are the",
+      "conventional28/36rule.",
+      "Front-end limit (housing)",
+      "28.0%",
+      "Housing costs as a share of gross income.",
+      "Back-end limit (all debt)",
+      "36.0%",
+      "All debt including housing. 43% is the Qualified Mortgage",
+      "ceiling; lenders go to 45-50% with strong reserves or a large"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "125 words",
+     "sha": "f32176f8d486",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Affordability",
+      "You could buy up to",
+      "With $40,000 down at 6.70%over 30years",
+      "$274,000",
+      "Loan amount",
+      "$234,000",
+      "Price less your deposit",
+      "Monthlyhousingcostatthatprice",
+      "$1,983",
+      "Principal, interest, tax, insurance,mortgage insurance",
+      "Yourmonthlyhousingbudget"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "171 words",
+     "sha": "9b58488f7ee8",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Monthly cost",
+      "Whatyou pay each month",
+      "$274,000 home, $234,000 borrowed at 6.70% over 30 years",
+      "$1,983",
+      "per month",
+      "Principal",
+      "$203",
+      "In the first payment.It grows every month.",
+      "Interest",
+      "$1,307",
+      "In the first payment, on $234,000 at 6.70%. It shrinks every month."
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "009ffac7347a",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Schedule",
+      "Whereeverypaymentgoes",
+      "$234,000at6.70%over30years",
+      "$1.51K",
+      "$755",
+      "$0.00",
+      "Yr 1",
+      "Yr 16",
+      "Yr30",
+      "Interest",
+      "Principal"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "43 words",
+     "sha": "cdcfba48dad3",
+     "text": [
+      "9:41AMMon Sep 14",
+      "Scenarios",
+      "Compare the options",
+      "Save the numbersyou havenow,change the deposit,rate or term,and save again.Theylineup side by sidehere soyou can seewhat each",
+      "choice costs overthe whole loan.",
+      " Save the current setup",
+      "[ Save current",
+      "Afford",
+      "Monthly",
+      "Schedule",
+      "Compare",
+      "Assume"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "184 words",
+     "sha": "041b96d4d81d",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Assumptions",
+      "Lending limits",
+      "The two ratios underwriting applies.The defaults are the conventional 28/36rule.",
+      "Front-end limit (housing)",
+      "28.0%",
+      "Housing costs as a share of gross income.",
+      "Back-end limit (all debt)",
+      "36.0%",
+      "All debt including housing.43%is the Qualified Mortgage ceiling;lenders go to 45-50%with strong reserves or a large deposit.",
+      "Costs that scalewith theprice",
+      "Property tax"
+     ]
+    }
+   ]
+  }
+ },
+ "iMaps": {
+  "source": "app_store_connect",
+  "version": "1.0.2",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "9 words",
+     "sha": "fe69339d21e1",
+     "text": [
+      "9:41AMMonSep14",
+      "\u4e09",
+      "Maps Radar",
+      "Navigate\u00b7Report Arrive",
+      "Initializing Al navigation."
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "83 words",
+     "sha": "53e3fed7e206",
+     "text": [
+      "Bush Street",
+      "4:01",
+      "Sutter Str",
+      "Geary Street",
+      "Post Stree",
+      "Search destination...",
+      "70\u00b0F Overcast",
+      "ss Avenue",
+      "Franklin Street",
+      "com/basen",
+      "PI KEYN",
+      "carto."
+     ]
+    }
+   ]
+  }
+ },
+ "iMeasure": {
+  "source": "app_store_connect",
+  "version": "5.0.1",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "52 words",
+     "sha": "dbd265c04dd5",
+     "text": [
+      "2:00",
+      "Measure Everything",
+      "Metric",
+      "11 instruments \u00b7 works offline",
+      "Ready",
+      "11",
+      "cm",
+      "Offline",
+      "Tools",
+      "Saved",
+      "Units",
+      "Instruments"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "37 words",
+     "sha": "2db4a6ccd5c0",
+     "text": [
+      "2:00",
+      "Measure",
+      "Metric",
+      "Tap two points for a distance",
+      "Screen Ruler",
+      "Camera",
+      "Tap to set point A",
+      "Distance A \u2192 B",
+      "\u00b11-5 cm",
+      "approximate",
+      "Clear",
+      "Save"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "43 words",
+     "sha": "98766687d5f9",
+     "text": [
+      "2:01",
+      "Level",
+      "Metric",
+      "Pitch and roll, live",
+      "Level",
+      "Bullseye",
+      "T",
+      "Sensor not available on this",
+      "device",
+      "This device has no accelerometer, so",
+      "the level cannot read a surface.",
+      "Pitch\u00b7X"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "32 words",
+     "sha": "c911ed049b13",
+     "text": [
+      "2:01",
+      "Compass",
+      "Metric",
+      "Magnetic heading",
+      "Sensor not available on this device",
+      "This device has no magnetometer, so a heading",
+      "cannot be read.",
+      "Nice job!",
+      "Test mode",
+      "test ad.",
+      "TI",
+      "Home"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "40 words",
+     "sha": "04d928f0aa42",
+     "text": [
+      "2:01",
+      "Records",
+      "Metric",
+      "Saved, labelled, exportable",
+      "Search labels and jobs",
+      "Export Csv",
+      "Entries",
+      "Jobs",
+      "No records yet",
+      "Capture a reading from Measure, Level or",
+      "Compass and it lands here.",
+      "Measure"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "70 words",
+     "sha": "9e2a1b35c0f1",
+     "text": [
+      "9:41AMMonSep 14",
+      "Measure Everything",
+      "Metric",
+      "\u4e2d",
+      "11 instruments\u00b7works offline",
+      "Ready",
+      "11",
+      "cm",
+      "Offline",
+      "Tools",
+      "Saved",
+      "Units"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "36 words",
+     "sha": "192df8e04116",
+     "text": [
+      "9:41AMMonSep14",
+      "Measure",
+      "Metric",
+      "Tap two points for a distance",
+      "Screen Ruler",
+      "Camera",
+      "Taptosetpoint A",
+      "Distance A\u2192B",
+      "\u00b11-5 cm",
+      "approximate",
+      "Clear",
+      "Save"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "44 words",
+     "sha": "323c6591408b",
+     "text": [
+      "9:41AMMonSep14",
+      "Level",
+      "Metric",
+      "Pitchand roll, live",
+      "Level",
+      "Bullseye",
+      "Sensor not available on this device",
+      "This device has no accelerometer, so the level cannot read a surface.",
+      "Pitch\u00b7X",
+      "Roll \u00b7 Y",
+      "0.00\u00b0",
+      "0.00\u00b0"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "20 words",
+     "sha": "c1a989486f2e",
+     "text": [
+      "9:41AMMonSep14",
+      "Compass",
+      "Metric",
+      "Magneticheading",
+      "Sensornot availableonthisdevice",
+      "Thisdevicehasnomagnetometer,so aheading cannotberead.",
+      "AdMobhasaY",
+      "Test mode",
+      "Tapfortutorials",
+      "more.",
+      "Home",
+      "Measure"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "27 words",
+     "sha": "f544fe9a9b43",
+     "text": [
+      "9:41AMMonSep14",
+      "Records",
+      "Metric",
+      "Saved,labelled,exportable",
+      "Q",
+      "Searchlabelsandjobs",
+      "Entries",
+      "Export CsV",
+      "Jobs",
+      "Norecordsyet",
+      "CaptureareadingfromMeasure,LevelorCompassanditlandshere.",
+      "Measure"
+     ]
+    }
+   ]
+  }
+ },
+ "Kinnav": {
+  "source": "app_store_connect",
+  "version": "1.0.1",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is dev_ui (Demo mode)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is dev_ui (Demo mode)",
+   "APP_IPHONE_67: first screenshot is dev_ui (test account)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is dev_ui (test account)"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "dev_ui",
+     "why": "test account",
+     "sha": "7abdd2f82eb2",
+     "text": [
+      "4:05",
+      "Join Kinnav",
+      "Sign in to connect with guardians near you.",
+      "Email",
+      "Password",
+      "I confirm I am 18 years or older",
+      "Log in",
+      "Use test account",
+      "Sign in with Apple",
+      "Continue with Google",
+      "G",
+      "By continuing you agree to our Terms & Privacy Policy."
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "dev_ui",
+     "why": "Demo mode",
+     "sha": "7b05ab828533",
+     "text": [
+      "9:41AMMonSep14",
+      "Join Kinnav",
+      "Sign in to connect with guardians nearyou.",
+      "Email",
+      "Password",
+      "I confirm I am 18 years or older",
+      "Log in",
+      "Usetestaccount",
+      "or",
+      "Sign in with Apple",
+      "G",
+      "ContinuewithGoogle"
+     ]
+    }
+   ]
+  }
+ },
+ "MileMaster": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "52 words",
+     "sha": "7f6f238334a3",
+     "text": [
+      "3:01",
+      "u",
+      "MileMaster",
+      "EN",
+      "TOTAL MILES",
+      "This Month ",
+      "miles ..",
+      "TaxDeduction:-",
+      "Rates:70.0c/mi-2025 IRSrate,applied to2026because no",
+      "2026rate isbuilt in.Thisbuild ships no 2026rate-check the",
+      "current IRS figure and set it in Settings.",
+      "0%"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "46 words",
+     "sha": "9c0dbc4d5e22",
+     "text": [
+      "3:02",
+      "u",
+      "MileMaster",
+      "EN",
+      "miles \u00b7.",
+      "Tax Deduction:",
+      "Rates:70.0c/mi-2025IRSrate,applied to2026becauseno",
+      "2026rate isbuilt in.Thisbuild shipsno2026rate-check the",
+      "current IRS figure and set it in Settings.",
+      "0%",
+      "0%",
+      "0.0 mi"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "54 words",
+     "sha": "91297eb766fd",
+     "text": [
+      "9:41AMTueSep22",
+      "s.",
+      "MileMaster",
+      "EN",
+      "TOTALMILES",
+      "This Month",
+      "miles.",
+      "TaxDeduction:",
+      "Rates:70.0t/mi-2025 IRS rate,applied to 2026 because no 2026 rate is built in.This build ships no",
+      "2026 rate -check the current IRS figure and set it in Settings.",
+      "0%",
+      "0%"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "54 words",
+     "sha": "072c14aa02c0",
+     "text": [
+      "9:41AMTueSep22",
+      "s.",
+      "MileMaster",
+      "EN",
+      "TOTALMILES",
+      "This Month",
+      "miles.",
+      "TaxDeduction:",
+      "Rates:70.0t/mi-2025 IRS rate,applied to 2026 because no 2026 rate is built in.This build ships no",
+      "2026 rate -check the current IRS figure and set it in Settings.",
+      "0%",
+      "0%"
+     ]
+    }
+   ]
+  }
+ },
+ "MyCard": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is system (Passcode)",
+   "APP_IPAD_PRO_3GEN_129: 2 of 2 are not the app in use",
+   "APP_IPHONE_67: first screenshot is system (Passcode)",
+   "APP_IPHONE_67: 2 of 2 are not the app in use"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "system",
+     "why": "Passcode",
+     "sha": "2150a5fab828",
+     "text": [
+      "3:04",
+      "Enter iPhone Passcode for \"MyCard\"",
+      "Unlock your MyCard wallet",
+      "W",
+      "e",
+      "t",
+      "O",
+      "a",
+      "S",
+      "f",
+      "d",
+      "k"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "system",
+     "why": "Passcode",
+     "sha": "33cfd1c08e67",
+     "text": [
+      "3:04",
+      "Enter iPhone Passcode for \"MyCard\"",
+      "Unlock your MyCard wallet",
+      "W",
+      "e",
+      "t",
+      "O",
+      "a",
+      "S",
+      "f",
+      "d",
+      "k"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "system",
+     "why": "Passcode",
+     "sha": "a4a8e477d447",
+     "text": [
+      "Enter iPad Passcode for \"MyCard\"",
+      "Unlock your MyCard wallet",
+      "@2",
+      "#3",
+      "$4",
+      "%5",
+      "\uff067",
+      "6",
+      "8",
+      "9",
+      "0",
+      "q"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "system",
+     "why": "Passcode",
+     "sha": "c344896cb199",
+     "text": [
+      "Enter iPad Passcode for \"MyCard\"",
+      "Unlock your MyCard wallet",
+      "@2",
+      "#3",
+      "$4",
+      "%5",
+      "\uff067",
+      "6",
+      "8",
+      "9",
+      "0",
+      "q"
+     ]
+    }
+   ]
+  }
+ },
+ "MyFinance": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "40 words",
+     "sha": "479222f4ee5b",
+     "text": [
+      "2:25",
+      "Good morning",
+      "+ Add",
+      "MyFinance",
+      "Total Balance",
+      "$18,432.75",
+      "$1,247.50 (8.3%) this month",
+      "\u798f",
+      "$6,050.00",
+      "$360.86",
+      "$847",
+      "Income"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "48 words",
+     "sha": "80094d839dca",
+     "text": [
+      "2:25",
+      "Good morning",
+      "+ Add",
+      "MyFinance",
+      "All Transactions",
+      "Salary Deposit",
+      "+$4,850.00",
+      "Income \u00b7 Today",
+      "Netflix Premium",
+      "-$23.00",
+      "Entertainment \u00b7 Today",
+      "Whole Foods Market"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "19 words",
+     "sha": "00c03c060412",
+     "text": [
+      "2:25",
+      "Good morning",
+      "+ Add",
+      "MyFinance",
+      "Monthly Budgets",
+      "Spent: $943.00 / Budget: $1,300.00",
+      "Food & Dining",
+      "$287.00/$400.00",
+      "Entertainment",
+      "$156.00 / $150.00",
+      "Shopping",
+      "$234.00/$300.00"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "46 words",
+     "sha": "b6876575b1ad",
+     "text": [
+      "2:25",
+      "Good morning",
+      "+ Add",
+      "MyFinance",
+      "Subscriptions",
+      "$192.96/mo",
+      " 2 subscriptions flagged for review",
+      "Netflix Premium",
+      "$23.00/mo",
+      "Next: Jun 1",
+      "Spotify Family",
+      "$16.99/mo"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "37 words",
+     "sha": "fb3e4dcacf36",
+     "text": [
+      "9:41AMMonSep14",
+      "Good morning",
+      "+ Add",
+      "MyFinance",
+      "Total Balance",
+      "$18,432.75",
+      "$1,247.50 (8.3%) this month",
+      "$6,050.00",
+      "$360.86",
+      "$847",
+      "Income",
+      "Expenses"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "47 words",
+     "sha": "b90d93b895fb",
+     "text": [
+      "9:41AMMonSep14",
+      "Good morning",
+      "+ Add",
+      "MyFinance",
+      "All Transactions",
+      "Salary Deposit",
+      "+$4,850.00",
+      "Income \u00b7 Today",
+      "NetflixPremium",
+      "-$23.00",
+      "Entertainment\u00b7Today",
+      "WholeFoodsMarket"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "20 words",
+     "sha": "c0d15731c783",
+     "text": [
+      "9:41AMMonSep14",
+      "Good morning",
+      "+ Add",
+      "MyFinance",
+      "Monthly Budgets",
+      "Spent:$943.00 / Budget:$1,300.00",
+      "Food&Dining",
+      "$287.00 / $400.00",
+      "Entertainment",
+      "$156.00/ $150.00",
+      "Shopping",
+      "$234.00/ $300.00"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "45 words",
+     "sha": "490b2e15f6be",
+     "text": [
+      "9:41AMMonSep14",
+      "Good morning",
+      "+ Add",
+      "MyFinance",
+      "Subscriptions",
+      "$192.96/mo",
+      " 2 subscriptions flagged for review",
+      "NetflixPremium",
+      "$23.00/mo",
+      "Next: Jun 1",
+      "Spotify Family",
+      "$16.99/mo"
+     ]
+    }
+   ]
+  }
+ },
+ "MyHealth": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is login (sign-in form)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: first screenshot is login (sign-in form)",
+   "APP_IPHONE_67: 2 of 2 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-02.png is dev_ui (test account)"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "login",
+     "why": "sign-in form",
+     "sha": "5feff2976cb2",
+     "text": [
+      "9:41AM TueSep22",
+      "MyHealth",
+      "Al-poweredhealth,oneverydevice.",
+      "Email",
+      "Password",
+      "Sign In",
+      "Usetestaccount",
+      "Create an account",
+      "OR",
+      "Sign in with Apple",
+      "ContinuewithGoogle",
+      "Continue with Phone"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "login",
+     "why": "sign-in form",
+     "sha": "cc16584db025",
+     "text": [
+      "3:16",
+      "MyHealth",
+      "Al-powered health,oneverydevice.",
+      "Email",
+      "Password",
+      "Sign In",
+      "Usetestaccount",
+      "Create an account",
+      "OR",
+      "Sign in with Apple",
+      "G",
+      "Continue with Google"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "dev_ui",
+     "why": "test account",
+     "sha": "a4a5d5f4d253",
+     "text": [
+      "3:16",
+      "MyHealth",
+      "Al-powered health,on every device.",
+      "Email",
+      "Password",
+      "Sign In",
+      " Use test account",
+      "Create an account",
+      "OR",
+      "Sign in with Apple",
+      "GContinue with Google",
+      "Continue with Phone"
+     ]
+    }
+   ]
+  }
+ },
+ "NearServe": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "189 words",
+     "sha": "4ddf28d16b8f",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Find a local pro",
+      "16 providers nearby",
+      "Sample directory",
+      "Every listing is an example in a town called Sampleton. None of these businesses exists, there are no phone numbers or addresses to call or visit, and the prices",
+      "are illustrativerather than quotes.",
+      "Cleaning (2)",
+      "Mechanic (2)",
+      "Tutoring (2)",
+      "Pet care (2)",
+      "Plumbing (1)",
+      "Electrical (1)"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "155 words",
+     "sha": "5397eadd5676",
+     "text": [
+      "9:41AMMonSep 14",
+      "Plumber, tutor, a job...",
+      "16 providers",
+      "Bestmatch",
+      "Sample directory",
+      "Every listing is an example in a town called Sampleton. None of these businesses exists.",
+      "SampletonPipeworks",
+      "SAMPLE",
+      "SampletonStrengthStudio",
+      "SAMPLE",
+      "Emergency call-outs, seven days a week",
+      "One-to-one coaching and small-group sessions"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "15 words",
+     "sha": "32ffc856431a",
+     "text": [
+      "9:41AMMonSep14",
+      "My bookings",
+      "Upcoming (0)",
+      "Past (0)",
+      "Nothing booked yet",
+      "Browse providers",
+      "\u54c1",
+      "o",
+      "Browse",
+      "Search",
+      "Bookings",
+      "Saved"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "empty",
+     "why": "Nothing saved",
+     "sha": "3062bee55dd8",
+     "text": [
+      "9:41AMMonSep14",
+      "Nothing saved yet",
+      "Browseproviders",
+      "\u54c1",
+      "Browse",
+      "Search",
+      "Bookings",
+      "Saved",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "66 words",
+     "sha": "953396e903f1",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Settings",
+      "DIRECTORY",
+      "Sample directory (offline)",
+      "Build with:",
+      "--dart-define=NEARSERVE_API_BASE_URL=..",
+      "APPEARANCE",
+      "Follow the system",
+      "Light",
+      "Dark",
+      "LANGUAGE",
+      "Language"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "101 words",
+     "sha": "81af4a2b0873",
+     "text": [
+      "2:32",
+      "Find a local pro",
+      "16 providers nearby",
+      "\u25b3",
+      " Sample directory",
+      "Every listing is an example in a town called Sampleton.",
+      "None of these businesses exists, there are no phone",
+      "numbers or addresses to call or visit, and the prices are",
+      "illustrative rather than quotes.",
+      "Cleaning (2)",
+      "Mechanic (2)",
+      "Tutoring (2)"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "88 words",
+     "sha": "6fd818d09971",
+     "text": [
+      "2:32",
+      "Plumber, tutor, a job...",
+      "16 providers",
+      "\u2191 Best match",
+      " Sample directory",
+      "Every listing is an example in a town called Sampleton.",
+      "None of these businesses exists.",
+      "Sampleton Pipeworks",
+      "SAMPLE",
+      "Emergency call-outs, seven days a week",
+      "\u2605 4.8 (214)",
+      "Verified"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "24 words",
+     "sha": "9962a6470cb1",
+     "text": [
+      "2:33",
+      "My bookings",
+      "Upcoming (0)",
+      "Past (0)",
+      "Nothing booked yet",
+      "Find a provider and pick a slot. Your appointments",
+      "show up here.",
+      "Browse providers",
+      "Browse",
+      "Search",
+      "Bookings",
+      "Saved"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "empty",
+     "why": "Nothing saved",
+     "sha": "4818ced54709",
+     "text": [
+      "2:33",
+      "Nothing saved yet",
+      "Bookmark a provider to keep them here and compare",
+      "prices before you book.",
+      "Browse providers",
+      "Browse",
+      "Search",
+      "Bookings",
+      "Saved",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "102 words",
+     "sha": "40218ff40c7e",
+     "text": [
+      "2:33",
+      "Settings",
+      "DIRECTORY",
+      "\u25b3Sample directory (offline)",
+      "No directory is configured for this build, so NearServe is",
+      "showing sample listings from a town called Sampleton. They",
+      "are not real businesses and there is nothing to call or visit.",
+      "Everything else \u2014 search, booking, reviews \u2014 works exactly",
+      "as it will against a real directory.",
+      "Build with:",
+      "--dart-define=NEARSERVE_API_BASE_URL=..",
+      "APPEARANCE"
+     ]
+    }
+   ]
+  }
+ },
+ "NewsBoard": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "c9fa17944367",
+     "text": [
+      "11:02",
+      "What interests you?",
+      "Pick a few topics - you can change these any time.",
+      "Trending",
+      "Tech",
+      "Finance",
+      " Politics",
+      "Sports",
+      " Science",
+      "Health",
+      "Entertainment",
+      "World"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "0b86f2544b43",
+     "text": [
+      "11:02",
+      "What interests you?",
+      "Pick a few topics - you can change these any time.",
+      "Trending",
+      "Tech",
+      "Finance",
+      " Politics",
+      "Sports",
+      " Science",
+      "Health",
+      "Entertainment",
+      "World"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "762c26b14e52",
+     "text": [
+      "11:02",
+      "What interests you?",
+      "Pick a few topics - you can change these any time.",
+      "Trending",
+      "Tech",
+      "Finance",
+      " Politics",
+      "Sports",
+      " Science",
+      "Health",
+      "Entertainment",
+      "World"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "26 words",
+     "sha": "33ede15d8e14",
+     "text": [
+      "9:41AMTueSep22",
+      "What interests you?",
+      "Pick a few topics - you can change these any time.",
+      "Trending",
+      "Tech",
+      "Finance",
+      "\u8840Politics",
+      " Sports",
+      "Science",
+      "Health",
+      "Entertainment",
+      "World"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "26 words",
+     "sha": "d16dbbab285d",
+     "text": [
+      "9:41AMTueSep22",
+      "What interests you?",
+      "Pick a few topics - you can change these any time.",
+      "Trending",
+      "Tech",
+      "Finance",
+      "\u8840Politics",
+      " Sports",
+      "Science",
+      "Health",
+      "Entertainment",
+      "World"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "26 words",
+     "sha": "224dd40e5c67",
+     "text": [
+      "9:41AMTueSep22",
+      "What interests you?",
+      "Pick a few topics - you can change these any time.",
+      "Trending",
+      "Tech",
+      "Finance",
+      "\u8840Politics",
+      " Sports",
+      "Science",
+      "Health",
+      "Entertainment",
+      "World"
+     ]
+    }
+   ]
+  }
+ },
+ "NexusTransferPay": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "62 words",
+     "sha": "20f98f54816e",
+     "text": [
+      "2:39",
+      "Smart Money Transfers & Financial Intelligence",
+      "NP",
+      "NexusPay",
+      "Total Balance",
+      "$7,771.96",
+      "?",
+      "Send",
+      "Top Up",
+      "History",
+      "More",
+      "My Wallets"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "24 words",
+     "sha": "0382a3437d95",
+     "text": [
+      "2:40",
+      "Send Money",
+      "You Send",
+      "0.00",
+      "USD",
+      "Recipient Gets",
+      "1 USD = 0.8657 EUR",
+      "0.00",
+      "EUR",
+      "Recipient",
+      "Full Name *",
+      "Email (optional)"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "18 words",
+     "sha": "289f6d42e9dd",
+     "text": [
+      "2:40",
+      "Credit Score",
+      "No credit data",
+      "Complete your KYC to view your credit score",
+      "Home",
+      "Transfer",
+      "Credit",
+      "AI",
+      "More"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "61 words",
+     "sha": "7fb4c7ffc6e4",
+     "text": [
+      "2:40",
+      "AI Assistant",
+      "\u4e2d",
+      "Al assistant for your financial life",
+      "\u4e2d",
+      "Hi! I'm your NexusPay Al assistant",
+      "I can help you with:",
+      "\u00b7 Understanding your credit score",
+      " Finding the best credit cards & loans",
+      " Analyzing your spending habits",
+      "\u00b7 Personalized money-saving tips",
+      "What would you like to know?"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "35 words",
+     "sha": "850b2bce6114",
+     "text": [
+      "2:40",
+      "More",
+      "NexusPay User",
+      "NP",
+      "Upgrade to Premium",
+      "Free Plan",
+      "Financial Health",
+      "History",
+      "Credit Score",
+      "Borrow & Protect",
+      "Account",
+      "Upgrade to Premium"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "63 words",
+     "sha": "b3a51c571345",
+     "text": [
+      "9:41AMMonSep 14",
+      "Smart Money Transfers &Financial Intelligence",
+      "NP",
+      "NexusPay",
+      "TotalBalance",
+      "$4,823.42",
+      "?",
+      "Send",
+      "TopUp",
+      "History",
+      "More",
+      "My Wallets"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "6abfdcb15eee",
+     "text": [
+      "9:41AMMon Sep 14",
+      "Send Money",
+      "You Send",
+      "0.00",
+      "USD",
+      "Recipient Gets",
+      "1 USD = 0.8657 EUR",
+      "0.00",
+      "EUR",
+      "Recipient",
+      "Full Name *",
+      "\u53e3"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "13 words",
+     "sha": "051a1d3358c8",
+     "text": [
+      "9:41AMMonSep14",
+      "Credit Score",
+      "Nocreditdata",
+      "CompleteyourKYC toviewyour credit score",
+      "8",
+      "Home",
+      "Transfer",
+      "Credit",
+      "AI",
+      "More"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "75 words",
+     "sha": "6eb75d09986a",
+     "text": [
+      "9:41AMMonSep14",
+      "Al Assistant",
+      "Al assistant for your financial life",
+      "Hi! I'm your NexusPay Al assistant",
+      "I can help you with:",
+      "\u00b7 Understanding your credit score",
+      "\u00b7Finding the best credit cards &loans",
+      "\u00b7 Analyzing your spending habits",
+      "\u00b7 Personalized money-saving tips",
+      "What would you like to know?",
+      "How can I improve my credit score?",
+      "What's the best credit card for travel rewards?"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "41 words",
+     "sha": "4c5d365b24c3",
+     "text": [
+      "9:41AMMonSep 14",
+      "More",
+      "NexusPay User",
+      "NP",
+      "Upgrade to Premium",
+      "Free Plan",
+      "Financial Health",
+      "History",
+      "Credit Score",
+      "Borrow&Protect",
+      "Account",
+      "Upgrade to Premium"
+     ]
+    }
+   ]
+  }
+ },
+ "Photriya": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "20 words",
+     "sha": "0239ec45e689",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Library",
+      "\u56db",
+      "Recents",
+      "+New",
+      "6 media\u00b70 palettes",
+      "AlIl",
+      "Favorites",
+      "Recent",
+      "Gallery",
+      "Palettes",
+      "Colors"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "23 words",
+     "sha": "f764145df9b7",
+     "text": [
+      "9:41AMMonSep14",
+      "Library",
+      "Recents",
+      "+New",
+      "6media\u00b70palettes",
+      "AlIl",
+      "Favorites",
+      "Recent",
+      "Gallery",
+      "Palettes",
+      "Colors",
+      "Favorites"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "22 words",
+     "sha": "776efbb0a738",
+     "text": [
+      "9:41AMMonSep14",
+      "Library",
+      "Recents",
+      "+New",
+      "6 media\u00b70palettes",
+      "AlIl",
+      "Favorites",
+      "Recent",
+      "Gallery",
+      "Palettes",
+      "Colors",
+      "Favorites"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "95c835d0917a",
+     "text": [
+      "9:41AMMonSep14",
+      "Library",
+      "Recents",
+      "+New",
+      "6media\u00b70palettes",
+      "AlIl",
+      "Favorites",
+      "Recent",
+      "Gallery",
+      "Palettes",
+      "Colors",
+      "Favorites"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "17 words",
+     "sha": "94ab1c1eb364",
+     "text": [
+      "4:28",
+      "Library",
+      "Recents",
+      "+New",
+      "6 media\u00b70 palettes",
+      "AII",
+      "Favorites",
+      "Recent",
+      "Gallery",
+      "Palettes",
+      "Colors",
+      "Favorites"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "d3fbe972862f",
+     "text": [
+      "4:28",
+      "Library",
+      "Recents",
+      "+New",
+      "6 media \u00b7 0 palettes",
+      "AlII",
+      "Favorites",
+      "Recent",
+      "Gallery",
+      "Palettes",
+      "Colors",
+      "Favorites"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "21 words",
+     "sha": "516be88a1938",
+     "text": [
+      "4:28",
+      "Library",
+      "Recents",
+      "+New",
+      "6 media \u00b7 0 palettes",
+      "AlII",
+      "Favorites",
+      "Recent",
+      "Gallery",
+      "Palettes",
+      "Colors",
+      "Favorites"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "28 words",
+     "sha": "c1309a6207d6",
+     "text": [
+      "4:28",
+      "Library",
+      "Recents",
+      "+New",
+      "6 media \u00b7 0 palettes",
+      "AlII",
+      "Favorites",
+      "Recent",
+      "Gallery",
+      "Palettes",
+      "Colors",
+      "Favorites"
+     ]
+    }
+   ]
+  }
+ },
+ "PilotEnRoute": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is dev_ui (test account)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is dev_ui (test account)",
+   "APP_IPHONE_67: first screenshot is dev_ui (test account)",
+   "APP_IPHONE_67: 2 of 2 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is dev_ui (test account)",
+   "APP_IPHONE_67: APP_IPHONE_67-02.png is dev_ui (test account)"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "dev_ui",
+     "why": "test account",
+     "sha": "141d78880b31",
+     "text": [
+      "3:53",
+      "PILOTENROUTE",
+      "Complete Aviation Training Platform",
+      "Email",
+      "B",
+      "Password",
+      "SIGN IN",
+      "Use test account",
+      "OR",
+      "Sign in with Apple",
+      "Continue with Google",
+      "Continue without signing in"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "dev_ui",
+     "why": "test account",
+     "sha": "dd07c4b150cf",
+     "text": [
+      "3:54",
+      "PILOTENROUTE",
+      "Complete Aviation Training Platform",
+      "Email",
+      "B",
+      "Password",
+      "SIGN IN",
+      "Use test account",
+      "OR",
+      "Sign in with Apple",
+      "Continue with Google",
+      "Continue without signing in"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "dev_ui",
+     "why": "test account",
+     "sha": "d3bc2e5ecb2b",
+     "text": [
+      "9:41AMTue Sep 22",
+      "PILOTENROUTE",
+      "Complete Aviation Training Platform",
+      "Email",
+      "\u767d",
+      "Password",
+      "SIGN IN",
+      "Use test account",
+      "OR",
+      "Sign inwithApple",
+      "G Continue with Google",
+      "Continue without signing in"
+     ]
+    }
+   ]
+  }
+ },
+ "PlantPulse": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "53 words",
+     "sha": "0a25aef0f8cf",
+     "text": [
+      "4:35",
+      "OmniControl",
+      "Simulated",
+      "Universal remotehub",
+      "Simulatormode",
+      "Add your devices, then point the app at a hub to start",
+      "transmitting.",
+      "<> Configure hub",
+      "Simulator mode",
+      "No hub is configured,so nothing is transmitted.",
+      "Controls move this app only -no Tv, bridge or console",
+      "is connected."
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "de69ebbd74c0",
+     "text": [
+      "4:35",
+      "TV Remote",
+      "Simulated",
+      "No TV added\u00b7controls are simulated",
+      "Simulator mode",
+      "No hub is configured,so nothing is transmitted.",
+      "Controls move this app only -no Tv,bridge or console",
+      "is connected.",
+      "No smart tvadded yet",
+      "+Add",
+      "U",
+      "OMNICONTROL"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "52 words",
+     "sha": "1a2f1b9f4c90",
+     "text": [
+      "4:35",
+      "Smart Lights",
+      "Simulated",
+      "3of4zoneson\u00b7~2owestimated",
+      "Simulator mode",
+      "No hub is configured,so nothing is transmitted.",
+      "Controls move this app only -no Tv, bridge or console",
+      "is connected.",
+      "No smart light added yet",
+      "+Add",
+      "ZONES",
+      " All off"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "49c27c867804",
+     "text": [
+      "4:35",
+      "Game Controller",
+      "Simulated",
+      "Not paired",
+      "Simulatormode",
+      "No hub is configured,so nothing is transmitted.",
+      "Controls move this app only -no Tv, bridge or console",
+      "isconnected.",
+      "Noconsoleaddedyet",
+      "+ Add",
+      "Mark the controller aspairedtostartsending",
+      " Pair"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "63 words",
+     "sha": "583ef72a309e",
+     "text": [
+      "9:41AM MonSep 14",
+      "OmniControl",
+      " Simulated",
+      "Universalremotehub",
+      "Simulator mode",
+      "Add your devices,thenpoint the app at ahub tostart transmitting.",
+      "<>Configure hub",
+      "Simulatormode",
+      "No hub is configured,so nothing is transmitted.Controlsmove this app only -no Tv,bridge or console is connected.",
+      "QUICKLAUNCH",
+      "\u56fd",
+      "TVRemote"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "19b6ee306f1c",
+     "text": [
+      "9:41AMMonSep14",
+      "TV Remote",
+      "Simulated",
+      "NoTVadded\u00b7controlsaresimulated",
+      "Simulatormode",
+      "No hub is configured,so nothing is transmitted.Controlsmove this app only-no Tv,bridge or console is connected.",
+      "Nosmarttvaddedyet",
+      "+Add",
+      "U",
+      "OMNICONTROL",
+      "Q",
+      "VOL"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "56 words",
+     "sha": "a3b1e459e78a",
+     "text": [
+      "9:41AMMonSep14",
+      "Smart Lights",
+      "Simulated",
+      "3 of4zones on\u00b7~2owestimated",
+      "Simulatormode",
+      "No hub is configured,so nothing is transmitted.Controlsmove this app only-no Tv,bridge or console is connected.",
+      "Nosmart lightaddedyet",
+      "+Add",
+      "ZONES",
+      " All off",
+      "Living Room",
+      "Bedroom"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "9c47c594896b",
+     "text": [
+      "9:41AMMonSep14",
+      "Game Controller",
+      "\u56fd",
+      "Simulated",
+      "Not paired",
+      "Simulatormode",
+      "No hub is configured,so nothing is transmitted.Controlsmove this app only-no Tv,bridge or console is connected.",
+      "Noconsoleaddedyet",
+      "+Add",
+      "Markthecontrolleraspairedtostartsending",
+      " Pair",
+      "L2"
+     ]
+    }
+   ]
+  }
+ },
+ "portfolio-board": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "91 words",
+     "sha": "94bc904ff72d",
+     "text": [
+      "4:38",
+      "Portfolio board",
+      "28 projects\u00b75 shared-infra specs\u00b7200 documents",
+      "Stage distribution",
+      "Exactly as the source documents record it \u2014 nothing moved yet.",
+      "\u81ea",
+      "Stage-2comesfrom the Tier-1table inPORTFOLlO.md;every other",
+      "record is a Stage-1spec.Tier-3\"park\"and Tier-4\"drop\"in",
+      "PRIORITIZATlON.md are recommendations,not recorded stages, so",
+      "no project is shown in them until someone moves it.",
+      "Categories",
+      "Grouped exactly as roadmap/README.md lists them."
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "75 words",
+     "sha": "c7c0a3cbb367",
+     "text": [
+      "4:38",
+      "Browse",
+      "Search 198 spec documents",
+      "33 records",
+      "ai-compliance-platform",
+      "SOC2/HIPAA/GDPR/ISO27001automationforSMBs",
+      "Stage-2 discovery",
+      "$199-$2,000/mo",
+      "2",
+      "ai-medical-scribe",
+      "T3",
+      "Clinicalscribe+ICD-10coding frompatientvisits"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "101 words",
+     "sha": "f7a6de4717cd",
+     "text": [
+      "4:38",
+      "Health",
+      "28",
+      "200",
+      "Projects",
+      "Documents",
+      "Moved",
+      "+5 shared-infra",
+      "113k words",
+      "since the specs",
+      "Where the portfolio sits",
+      "Current stage of all records, and what the documents say."
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "89 words",
+     "sha": "30692094b44b",
+     "text": [
+      "4:38",
+      "Settings",
+      "Roadmap pack",
+      "What is bundled in this build.",
+      "Records",
+      "33 (28 projects + 5 shared-infra)",
+      "Documents",
+      "200",
+      "Specsgenerated",
+      "2026-05-08",
+      "roadmap/commit2026-05-1006:02",
+      "Pack built"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "109 words",
+     "sha": "e771f6c78122",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Portfolio board",
+      "28 projects\u00b75 shared-infra specs\u00b7200 documents",
+      "Stage distribution",
+      "Exactlyasthesourcedocumentsrecord it-nothingmovedyet.",
+      "Stage-2 comes from the Tier-1 table in PORTFOLIO.md; every other record is a Stage-1 spec. Tier-3 \"park\" and Tier-4 \"drop\" in PRlORITIZATION.md are recommendations,",
+      "not recorded stages,so noproject isshown in them until someone moves it.",
+      "Categories",
+      "Groupedexactlyasroadmap/README.mdliststhem.",
+      "VerticalAl SaaS",
+      "5 Stage-1spec\u00b73Stage-2discovery",
+      "Sales&Marketing"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "keyboard",
+     "why": "software keyboard on screen",
+     "sha": "4d66985468ad",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Browse",
+      "Search198specdocuments",
+      "33records",
+      "ai-compliance-platform",
+      "SOC2/HIPAA/GDPR/ISO27001automationforSMBs",
+      "Stage-2 discovery",
+      "$199-$2,000/mo",
+      "ai-medical-scribe",
+      "T3",
+      "Clinical scribe+ICD-10 coding from patient visits",
+      "Stage-1 spec"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "184 words",
+     "sha": "d5331613b336",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "Health",
+      "28",
+      "200",
+      "Projects",
+      "Documents",
+      "Moved",
+      "+5 shared-infra",
+      "113k words",
+      "since the specs",
+      "Wheretheportfoliosits",
+      "Current stage of all records,and what the documents say."
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "74 words",
+     "sha": "974698d4f8ea",
+     "text": [
+      "9:41AMMon Sep 14",
+      "Settings",
+      "Roadmap pack",
+      "What is bundled in this build.",
+      "Records",
+      "33 (28 projects + 5 shared-infra)",
+      "Documents",
+      "200",
+      "Specs generated2026-05-08",
+      "roadmap/commit2026-05-1006:02",
+      "Packbuilt",
+      "2026-09-12 20:17"
+     ]
+    }
+   ]
+  }
+ },
+ "radiotune": {
+  "source": "app_store_connect",
+  "version": "2.0.1",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "41 words",
+     "sha": "10f3b27d2e7d",
+     "text": [
+      "1:55",
+      "RatioTune",
+      "NOWLIVE",
+      "Your world",
+      "of sound",
+      "Radio\u00b7 Podcasts\u00b7 Music\u00b7 Live events",
+      "55,000",
+      "180",
+      "Free",
+      "stations",
+      "countries",
+      "no account"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "49 words",
+     "sha": "5d7fdf4d03f9",
+     "text": [
+      "1:55",
+      "Stations, podcasts, artists, genres",
+      "Moods & moments",
+      "Focus",
+      "Workout",
+      "Chill",
+      "Commute",
+      "Party",
+      "Sleep",
+      "Podcast categories",
+      "News",
+      "True Crime"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "66 words",
+     "sha": "7cba63044f08",
+     "text": [
+      "1:55",
+      "Live",
+      "On air",
+      "Concerts",
+      "Festivals",
+      "FR\u00b7AAC\u00b764KBPS",
+      "RTL",
+      "g\u00e9n\u00e9raliste",
+      "FR\u00b7MP3.128KBPS",
+      "France Info",
+      "France",
+      "FR\u00b7AAC.128KBPS"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "d436dd060981",
+     "text": [
+      "1:55",
+      "Library",
+      "Favorites",
+      "Playlists",
+      "Podcasts",
+      "Recent",
+      "No favorites yet",
+      "Tap the heart on any station and it lands here - no",
+      "account needed.",
+      "(0)",
+      "Listen",
+      "Browse"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "72 words",
+     "sha": "9b0ab51aa36d",
+     "text": [
+      "9:41AMTueSep22",
+      "RatioTune",
+      "?",
+      "NOWLIVE",
+      "Your world",
+      "of sound",
+      "Radio\u00b7Podcasts\u00b7Music\u00b7Live events",
+      "55,000",
+      "180",
+      "Free",
+      "stations",
+      "countries"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "98 words",
+     "sha": "937dc0831cc7",
+     "text": [
+      "9:41AMTue Sep 22",
+      "Stations,podcasts,artists,genres",
+      "Moods&moments",
+      "Focus",
+      "Workout",
+      "Chill",
+      "Commute",
+      "Party",
+      "Sleep",
+      "Podcastcategories",
+      "News",
+      "True Crime"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "108 words",
+     "sha": "0febe96c209e",
+     "text": [
+      "9:41AM Tue Sep 22",
+      "Live",
+      "On air",
+      "Concerts",
+      "Festivals",
+      "FR\u00b7AAC.64KBPS",
+      "RTL",
+      "generaliste",
+      "FR\u00b7MP3.128KBPS",
+      "France Info",
+      "France",
+      "FR\u00b7AAC.128KBPS"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "16 words",
+     "sha": "01df85bea915",
+     "text": [
+      "9:41AMTueSep22",
+      "Library",
+      "Favorites",
+      "Playlists",
+      "Podcasts",
+      "Recent",
+      "Nofavoritesyet",
+      "Taptheheartonanystation and itlandshere-no accountneeded.",
+      "\u5c0f",
+      "(0)",
+      "Listen",
+      "Browse"
+     ]
+    }
+   ]
+  }
+ },
+ "RideZap": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is sample (SAMPLE DATA)",
+   "APP_IPAD_PRO_3GEN_129: 3 of 3 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is sample (SAMPLE DATA)",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-02.png is sample (SAMPLE DATA)",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-03.png is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: first screenshot is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: 5 of 5 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: APP_IPHONE_67-02.png is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: APP_IPHONE_67-03.png is sample (sample data)",
+   "APP_IPHONE_67: APP_IPHONE_67-04.png is sample (SAMPLE DATA)",
+   "APP_IPHONE_67: APP_IPHONE_67-05.png is sample (sample data)",
+   "APP_IPHONE_67: 1 duplicate screenshot(s)"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "8334f29b7fb7",
+     "text": [
+      "3:33",
+      "RideZap",
+      "\u767d",
+      "Rides",
+      "Flights",
+      "Hotels",
+      "SAMPLE DATA \u2014 these are not live quotes. Nothing here",
+      "can be booked at these prices.",
+      "Pick-up",
+      "\u2191Swap",
+      "Drop-off",
+      "Pick-up time"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "26b8a0c9a18f",
+     "text": [
+      "3:34",
+      "Watch list",
+      "SAMPLE DATA - these are not live quotes. Nothing here",
+      "can be booked at these prices.",
+      "Nothing on the watch list yet",
+      "Run a comparison and tap the bookmark to watch a",
+      "price. RideZap stores each check on this device and",
+      "tells you which way the price has moved.",
+      "Compare a trip",
+      "Compare",
+      "Watch list",
+      "History"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "sample",
+     "why": "sample data",
+     "sha": "67f8cd8d95a8",
+     "text": [
+      "3:34",
+      "Settings",
+      "WHEREPRICESCOMEFROM",
+      "Bundledsampledata",
+      "NOT REAL PRICES",
+      "Demonstration prices generated on this",
+      "device. They are realistic in shape but they",
+      "are not quotes from Uber, Lyft, Bolt, Expedia",
+      "or Booking.com, and nothing can be booked",
+      "at them. Confirm the real price with the",
+      "provider before you pay.",
+      "Active: Bundled sample data \u2014 Generated by RideZap. No"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "84b85f921a12",
+     "text": [
+      "3:34",
+      "Trip history",
+      "SAMPLE DATA - these are not live quotes. Nothing here",
+      "can be booked at these prices.",
+      "No searches yet",
+      "Compare a ride, flight or hotel and it will appear here,",
+      "with what RideZap found, so you can run it again",
+      "without retyping it.",
+      "Compare a trip",
+      "Compare",
+      "Watch list",
+      "History"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "sample",
+     "why": "sample data",
+     "sha": "67f8cd8d95a8",
+     "text": [
+      "3:34",
+      "Settings",
+      "WHEREPRICESCOMEFROM",
+      "Bundledsampledata",
+      "NOT REAL PRICES",
+      "Demonstration prices generated on this",
+      "device. They are realistic in shape but they",
+      "are not quotes from Uber, Lyft, Bolt, Expedia",
+      "or Booking.com, and nothing can be booked",
+      "at them. Confirm the real price with the",
+      "provider before you pay.",
+      "Active: Bundled sample data \u2014 Generated by RideZap. No"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "a595ef864ed4",
+     "text": [
+      "9:41AMTueSep22",
+      "RideZap",
+      "Compare",
+      "B",
+      "Rides",
+      "Flights",
+      "Hotels",
+      "Watch list",
+      "SAMPLE DATA \u2014 these are not live quotes. Nothing here can be booked at these prices.",
+      "History",
+      "Pick-up",
+      "Settings"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "79187545c8b8",
+     "text": [
+      "9:41AMTueSep22",
+      "RideZap",
+      "Compare",
+      "Rides",
+      "Flights",
+      "Hotels",
+      "Watchlist",
+      "SAMPLE DATA \u2014 these are not live quotes. Nothing here can be booked at these prices.",
+      "History",
+      "From",
+      "Settings",
+      "To"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "sample",
+     "why": "SAMPLE DATA",
+     "sha": "5738937688a9",
+     "text": [
+      "9:41AMTueSep22",
+      "RideZap",
+      "Compare",
+      "B",
+      "Rides",
+      "Flights",
+      "Hotels",
+      "Watch list",
+      "SAMPLE DATA \u2014 these are not live quotes. Nothing here can be booked at these prices.",
+      "History",
+      " Where to",
+      "Settings"
+     ]
+    }
+   ]
+  }
+ },
+ "RoomCraft": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "18 words",
+     "sha": "1cbeb32d9366",
+     "text": [
+      "3:37",
+      "RoomCraft \u2014 Design",
+      "Plan a room",
+      "Room type",
+      "Living Room",
+      "Square footage",
+      "250",
+      "Style",
+      "Modern Minimalist",
+      "Get suggestions",
+      "\u5ba3",
+      "Design"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "43 words",
+     "sha": "905ee1fd8ca2",
+     "text": [
+      "3:37",
+      "RoomCraft - Redesign",
+      "Describe the room",
+      "Room type",
+      "Living Room",
+      "Square footage",
+      "250",
+      "What is in the room?",
+      "Large window on north wall, brick",
+      "fireplace on east wall.",
+      "Mentions of window, door, fireplace or radiator shape t..",
+      "Target style"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "14 words",
+     "sha": "3b256784952c",
+     "text": [
+      "3:37",
+      "RoomCraft \u2014 Sourcing",
+      "Find local materials",
+      "Latitude",
+      "Longitude",
+      "42.3601",
+      "-71.0589",
+      "Material",
+      "wood",
+      "Find suppliers",
+      "\u5ba3",
+      "Design"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "21 words",
+     "sha": "735ffd2e4c4d",
+     "text": [
+      "9:41AM Tue Sep 22",
+      "RoomCraft \u2014 Design",
+      "Plan a room",
+      "Room type",
+      "Living Room",
+      "Square footage",
+      "250",
+      "Style",
+      "Modern Minimalist",
+      "Get suggestions",
+      "Design",
+      "Redesign"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "40 words",
+     "sha": "c8bd02de6b99",
+     "text": [
+      "9:41AMTueSep22",
+      "RoomCraft -Redesign",
+      "Describe the room",
+      "Room type",
+      "Living Room",
+      "Square footage",
+      "250",
+      "Whatis intheroom?",
+      "Large window on north wall, brick fireplace on east wall.",
+      "Mentions ofwindow,door,fireplace orradiator shape the advice.",
+      "Target style",
+      "ScandinavianHygge"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "17 words",
+     "sha": "af67a1995463",
+     "text": [
+      "9:41AM Tue Sep 22",
+      "RoomCraft \u2014 Sourcing",
+      "Find local materials",
+      "Latitude",
+      "Longitude",
+      "42.3601",
+      "-71.0589",
+      "Material",
+      "wood",
+      "Find suppliers",
+      "Design",
+      "Redesign"
+     ]
+    }
+   ]
+  }
+ },
+ "TripNest": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "b65fbe53e5f3",
+     "text": [
+      "9:41AMMonSep14",
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can importphotosfor color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and ",
+      "audio.",
+      "Limit Access..."
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "cb9b340da9e2",
+     "text": [
+      "3:10",
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can import photos for color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and",
+      "audio.",
+      "Limit Access..."
+     ]
+    }
+   ]
+  }
+ },
+ "Uscis-Case": {
+  "source": "app_store_connect",
+  "version": "1.0.2",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
+  ],
+  "sets": {
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "83d8af213c34",
+     "text": [
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can importphotos for color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and",
+      "audio.",
+      "Limit Access...",
+      "Allow Full Access"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "7f51f24391a5",
+     "text": [
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can import photos for color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and",
+      "audio.",
+      "Limit Access...",
+      "Allow Full Access"
+     ]
+    }
+   ]
+  }
+ },
+ "Verba": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "b70bb2b9df78",
+     "text": [
+      "3:18",
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can import photos for color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and",
+      "audio.",
+      "Limit Access..."
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "faae62c70165",
+     "text": [
+      "9:41AM Mon Sep 14",
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can import photos for color",
+      "analysis and Al Playground",
+      "transformations.",
+      "Ads hi",
+      "enext",
+      "scree",
+      "nore",
+      "6 Photos"
+     ]
+    }
+   ]
+  }
+ },
+ "VirtuBand": {
+  "source": "app_store_connect",
+  "version": "1.0.1",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "fb6a59d40c5f",
+     "text": [
+      "3:24",
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can import photos for color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and",
+      "audio.",
+      "Limit Access..."
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "a682b2aa7042",
+     "text": [
+      "9:41AMMonSep14",
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can importphotosfor color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and ",
+      "audio.",
+      "Limit Access..."
+     ]
+    }
+   ]
+  }
+ },
+ "WiFiTrail": {
+  "source": "app_store_connect",
+  "version": "1.0.0",
+  "verdict": "PASS",
+  "problems": [],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "97 words",
+     "sha": "2263bc2380b2",
+     "text": [
+      "3:42",
+      "WiFiTrail",
+      "Wi-Fi",
+      "Connection facts, measured",
+      "Connection",
+      "Speed Test",
+      "Security",
+      "Current connection",
+      "Wi-Fi",
+      "Reported by the operating system",
+      "Wi-Fi network",
+      "Network name (SSID)"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "94 words",
+     "sha": "7f9c002dfd40",
+     "text": [
+      "3:42",
+      "WiFiTrail",
+      "Wi-Fi",
+      "Connection facts, measured",
+      "Connection",
+      "Speed Test",
+      "Security",
+      "Reported by the operating system",
+      "Wi-Fi network",
+      "Network name (SSID)",
+      "SSID hidden by the OS",
+      "This device on this network"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "72 words",
+     "sha": "5566d55fdf59",
+     "text": [
+      "9:41AMTueSep 22",
+      "WiFiTrail",
+      "Wi-Fi",
+      "Connection facts,measured",
+      "Connection",
+      "Speed Test",
+      "Security",
+      "Current connection",
+      "Wi-Fi",
+      "Reported by the operating system",
+      "Wi-Finetwork",
+      "Network name (SSID)"
+     ]
+    }
+   ]
+  }
+ },
+ "yourtube": {
+  "source": "app_store_connect",
+  "version": "1.0.2",
+  "verdict": "FAIL",
+  "problems": [
+   "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
+   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: first screenshot is other_app (shows another app: photriya)",
+   "APP_IPHONE_67: 1 of 1 are not the app in use",
+   "APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
+  ],
+  "sets": {
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "f9846f085c2d",
+     "text": [
+      "3:30",
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can import photos for color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and",
+      "audio.",
+      "Limit Access..."
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "other_app",
+     "why": "shows another app: photriya",
+     "sha": "9b378d705fda",
+     "text": [
+      "9:41AMMonSep14",
+      "\"Photriya\" would like full access",
+      "to your Photo Library.",
+      "Photriya accesses your photo library",
+      "so you can importphotosfor color",
+      "analysis and Al Playground",
+      "transformations.",
+      "6 Photos",
+      "Photos may contain data associated with",
+      "location, depth information, captions, and ",
+      "audio.",
+      "Limit Access..."
+     ]
+    }
+   ]
+  }
+ }
+}

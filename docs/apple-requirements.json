@@ -1,0 +1,2023 @@
+{
+ "AeroSwift": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 1 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "AGCleaner": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "AGrammarly": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "AGRecorder": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "AGStudio": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "ApexMarketWatch": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "BodyQuest": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081811 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "FAIL",
+   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "FAIL",
+   "detail": "declares NSUserTrackingUsageDescription but never shows the prompt \u2014 Apple: 'we are unable to locate the App Tracking Transparency permission request'"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "BuddyPlay": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "CalcMaster": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610082300 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "PASS",
+   "detail": "3 product(s) ready"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "HUMAN",
+   "detail": "requests tracking; no capture of the prompt appearing on a fresh install"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "FAIL",
+   "detail": "user-generated content without reporting and blocking"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "CarDeal": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081848 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "ChefCount": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "CodeDeal": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 15 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "FAIL",
+   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "daily-pulse": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 1 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "FAIL",
+   "detail": "user-generated content without reporting and blocking"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "DriftDate": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "no staged IPA to inspect"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "HUMAN",
+   "detail": "no staged IPA to inspect"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "EventSpark": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 3 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "FashionFactory": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 4 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "GadgetNest": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 1 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "GroceryMatch": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610082311 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "HerJourney": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 3 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "HomeWise": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081859 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "iMaps": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081901 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "FAIL",
+   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "iMeasure": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610082315 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "FAIL",
+   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "Kinnav": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081911 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "FAIL",
+   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "MileMaster": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "MyCard": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "MyFinance": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "MyHealth": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081914 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "NearServe": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081919 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "FAIL",
+   "detail": "user-generated content without reporting and blocking"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "NewsBoard": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "NexusTransferPay": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 3 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "Photriya": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "no staged IPA to inspect"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "HUMAN",
+   "detail": "no staged IPA to inspect"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "PilotEnRoute": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081927 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "FAIL",
+   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "FAIL",
+   "detail": "user-generated content without reporting and blocking"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "PlantPulse": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "portfolio-board": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081931 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "radiotune": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081934 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "RideZap": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081936 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "RoomCraft": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "TripNest": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 1 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "Uscis-Case": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081939 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "Verba": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "PASS",
+   "detail": "IPA build 202610081943 adopts UIScene; iPhone running; iPad running"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "FAIL",
+   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "FAIL",
+   "detail": "declares NSUserTrackingUsageDescription but never shows the prompt \u2014 Apple: 'we are unable to locate the App Tracking Transparency permission request'"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "VirtuBand": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081945 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "FAIL",
+   "detail": "binary links in_app_purchase but App Store Connect has no products (Guideline 2.1(b) risk: create the products or remove the billing code)"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "WiFiTrail": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 2 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "n/a",
+   "detail": "does not request tracking (App Privacy must not declare tracking)"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "PASS",
+   "detail": "network_info_plus: NetworkExtension; review notes answer the VPN questions"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "n/a",
+   "detail": "no account creation"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ],
+ "yourtube": [
+  {
+   "check": "Apple 2.3.3: Screenshots on App Store Connect show the app in use",
+   "state": "HUMAN",
+   "detail": "not audited \u2014 run asc_screenshots.rb then screenshot_audit.py"
+  },
+  {
+   "check": "Apple 2.1(a): Launches on iOS 27, iPhone and iPad",
+   "state": "HUMAN",
+   "detail": "IPA build 202610081949 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+  },
+  {
+   "check": "Apple 4: Sign-in and registration happen inside the app",
+   "state": "PASS",
+   "detail": "no sign-in flow leaves the app"
+  },
+  {
+   "check": "Apple 2.1(b) / 3.1.1: In-app purchases are configured and submitted with the app",
+   "state": "n/a",
+   "detail": "no in-app purchase code"
+  },
+  {
+   "check": "Apple 2.1 / 5.1.2: Tracking prompt appears when tracking is declared",
+   "state": "FAIL",
+   "detail": "declares NSUserTrackingUsageDescription but never shows the prompt \u2014 Apple: 'we are unable to locate the App Tracking Transparency permission request'"
+  },
+  {
+   "check": "Apple 2.1 (automated): VPN questions answered when the binary links NetworkExtension",
+   "state": "n/a",
+   "detail": "binary does not link NetworkExtension"
+  },
+  {
+   "check": "Apple 5.1.1(v): In-app account deletion when the app creates accounts",
+   "state": "FAIL",
+   "detail": "creates accounts but nothing deletes the account on the server (rpc('delete_user'))"
+  },
+  {
+   "check": "Apple 1.2: User-generated content has reporting and blocking",
+   "state": "n/a",
+   "detail": "no user-generated content found"
+  },
+  {
+   "check": "Apple 2.1: Screen recording on a physical device is on file",
+   "state": "HUMAN",
+   "detail": "record on a physical iPhone on the latest iOS, save as store/recordings/<App>.mov"
+  }
+ ]
+}

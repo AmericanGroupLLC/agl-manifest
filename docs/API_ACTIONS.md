@@ -33,6 +33,11 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | --- | --- |
 | `sync_testflight_testers.rb` | Mirrors Users and Access into every app's **internal** beta group, creating the group when absent with auto-distribute on |
 | `asc_build_state.rb` | Asks Apple which apps really have a usable build **and where each one stands in review**. Writes `docs/asc-build-state.json`, which is committed and readable in CI; it used to write only `~/agl/.sweep/asc_upload.psv`, outside the repo, which went stale and made the checklist report 14 apps with no build when Apple had 38 |
+| `testflight/asc_screenshots.rb` | Downloads the screenshots App Store Connect **actually holds** for each app's newest version into `<DIST>/asc-screenshots/`. Read-only. Written because six 2.3.3 rejections passed a gate that judged the PNGs on this laptop |
+| `screenshot_audit.py` | Reads every uploaded screenshot with OCR (RapidOCR in `<DIST>/ocr-venv`; macOS Vision fails here with an e5rt compile error) and fails login forms, system prompts, keyboards, onboarding, test-account/demo buttons, SAMPLE DATA banners, the iOS home screen and other apps. Writes `docs/screenshot-audit.json` |
+| `testflight/iap_readiness.rb` | Per app: billing plugin in the binary versus IAP/subscription products in App Store Connect, with state and missing metadata. Read-only by default; never submits. Writes `<DIST>/iap-readiness.json` |
+| `apple_requirements.py` | The catalogue of every requirement App Review has raised against our apps, each with the check that enforces it; folded into the submission gate. Writes `docs/apple-requirements.json` and `docs/APPLE_REQUIREMENTS.md` |
+| `testflight/account_freeze.rb` | Makes `submit_production.rb` and `resubmit_rejected.rb` exit 4 while any app holds a Guideline 5.6 finding (MA-043) |
 | `appstore_records.rb` | Reports the app records that exist |
 | `testflight/run_batch.py` | Builds and uploads to TestFlight |
 | `testflight/build_only.py` | Builds a signed IPA via the fastlane lane, no upload |

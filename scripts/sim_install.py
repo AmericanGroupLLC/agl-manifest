@@ -395,13 +395,24 @@ def ios_devices() -> list[dict]:
     return [{**d, "runtime": rt} for rt, ds in data.items() if "iOS" in rt for d in ds]
 
 
-def ios_device(want: str | None) -> str | None:
+def ios_device(want: str | None, family: str = "iPhone") -> str | None:
+    """A simulator of the given family, preferring the iOS release App Review
+    uses. Nine apps were rejected for crashing on launch on "iPhone 17 Pro
+    Max, iOS 27.0", and Apple adds that apps "downloaded onto iPad devices
+    should function as expected for iPad users" — so both are tested."""
     devs = ios_devices()
     if want:
         match = [d for d in devs if want in (d["udid"], d["name"])]
     else:
-        booted = [d for d in devs if d["state"] == "Booted" and d["name"].startswith("iPhone")]
-        match = booted or [d for d in devs if d["name"].startswith("iPhone")][-1:]
+        fam = [d for d in devs if d["name"].startswith(family)]
+        # Newest runtime *that has a device of this family* — the first
+        # version took the newest runtime overall, found no iPad on it, and
+        # fell back to an iPad on iOS 26.5.
+        newest = sorted({d["runtime"] for d in fam},
+                        key=lambda r: [int(x) for x in re.findall(r"\d+", r)])
+        top = [d for d in fam if newest and d["runtime"] == newest[-1]] or fam
+        booted = [d for d in top if d["state"] == "Booted"]
+        match = booted or top[-1:]
     if not match:
         return None
     dev = match[0]
@@ -438,8 +449,9 @@ def ios_responsive(udid: str) -> bool:
     return rc == 0
 
 
-def ios(app: dict, d: pathlib.Path, udid: str, args, log: pathlib.Path) -> dict:
-    rec: dict = {"platform": "ios", "device": udid}
+def ios(app: dict, d: pathlib.Path, udid: str, args, log: pathlib.Path,
+        tag: str = "ios") -> dict:
+    rec: dict = {"platform": tag, "device": udid}
     if not ios_responsive(udid):
         return {**rec, "status": "simulator_unresponsive",
                 "detail": f"{udid} does not answer simctl (frozen?) — iOS skipped for this run"}
@@ -478,7 +490,7 @@ def ios(app: dict, d: pathlib.Path, udid: str, args, log: pathlib.Path) -> dict:
         return {**rec, "status": "launch_failed", "detail": tail(out)}
     time.sleep(args.settle)
     _, procs = run(["xcrun", "simctl", "spawn", udid, "launchctl", "list"], timeout=60)
-    shot = LOGS / f"{app['repo']}-ios.png"
+    shot = LOGS / f"{app['repo']}-{tag}.png"
     run(["xcrun", "simctl", "io", udid, "screenshot", shot], timeout=60)
     if f"UIKitApplication:{bundle}" not in procs:
         return {**rec, "status": "launch_failed",
@@ -515,6 +527,9 @@ def main() -> int:
     ap.add_argument("--ios", action="store_true", help="iOS only")
     ap.add_argument("--android", action="store_true", help="Android only")
     ap.add_argument("--ios-device", help="simulator UDID or name (default: a booted iPhone)")
+    ap.add_argument("--ipad", action="store_true",
+                    help="also install and launch the iOS build on an iPad simulator")
+    ap.add_argument("--ipad-device", help="iPad simulator UDID or name (default: newest iOS)")
     ap.add_argument("--android-serial", help="emulator serial, e.g. emulator-5560")
     ap.add_argument("--avd", help="AVD to boot when no emulator is running")
     ap.add_argument("--skip-build", action="store_true",
@@ -559,6 +574,10 @@ def main() -> int:
             print("no iOS simulator available — check `xcrun simctl list devices`", file=sys.stderr)
             return 1
         print(f"iOS simulator: {udid}")
+    ipad = None
+    if do_ios and args.ipad:
+        ipad = ios_device(args.ipad_device, family="iPad")
+        print(f"iPad simulator: {ipad}")
     if do_android:
         serial = android_device(args.android_serial, args.avd)
         if not serial:
@@ -625,6 +644,18 @@ def main() -> int:
             mark = "ok " if rec["status"] in ("running", "installed") else "ERR"
             print(f"    {mark} {name:<7} {rec['status']}"
                   + (f" — {rec['detail']}" if rec.get("detail") else ""), flush=True)
+            # The same simulator build, on an iPad: no second compile.
+            if name == "ios" and ipad and rec["status"] in ("running", "installed"):
+                t0 = time.time()
+                prev_skip = args.skip_build
+                args.skip_build = True
+                prec = ios(app, d, ipad, args, log, tag="ipad")
+                args.skip_build = prev_skip
+                prec.update(repo=app["repo"], seconds=round(time.time() - t0), log=str(log))
+                results.append(prec)
+                mark = "ok " if prec["status"] in ("running", "installed") else "ERR"
+                print(f"    {mark} ipad    {prec['status']}"
+                      + (f" — {prec['detail']}" if prec.get("detail") else ""), flush=True)
         if args.clean_after:
             others = busy_by_other(d)
             print(f"    not cleaned: in use by {', '.join(others[:3])}" if others
