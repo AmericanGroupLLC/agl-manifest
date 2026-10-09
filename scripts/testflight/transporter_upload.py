@@ -55,7 +55,7 @@ import sys
 import time
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
-from agl_paths import MANIFEST, DIST  # noqa: E402
+from agl_paths import MANIFEST, DIST, ROOT  # noqa: E402
 
 IT = pathlib.Path("/Applications/Transporter.app/Contents/itms/bin/iTMSTransporter")
 
@@ -68,11 +68,64 @@ PROXY = [
 ]
 
 
+def stage_fresh(apps: list[str]) -> None:
+    """Build each app and put *that* IPA where this script uploads from.
+
+    The previous IPA is moved to <DIST>/ipa-previous/ rather than deleted.
+    An app whose build fails keeps nothing staged, so it cannot fall back to
+    an old binary.
+    """
+    import shutil
+    manifest = {a["repo"]: a for a in json.loads((MANIFEST / "apps.json").read_text())["apps"]}
+    prev = DIST / "ipa-previous"
+    prev.mkdir(parents=True, exist_ok=True)
+    here = pathlib.Path(__file__).resolve().parent
+    for repo in apps:
+        a = manifest[repo]
+        app_dir = ROOT / repo / (a.get("dir") or ".")
+        staged = DIST / f"{repo}.ipa"
+        if staged.exists():
+            shutil.move(str(staged), str(prev / f"{repo}.ipa"))
+        r = subprocess.run([sys.executable, str(here / "build_only.py"), repo],
+                           capture_output=True, text=True, timeout=3600)
+        line = (r.stdout.strip().splitlines() or [""])[-1]
+        ipas = sorted((app_dir / "build/ios/ipa").glob("*.ipa"), key=lambda q: q.stat().st_mtime)
+        if r.returncode != 0 or " OK " not in f" {line} " or not ipas:
+            print(f"  {repo:18} BUILD FAILED — nothing staged: {line[:120]}", flush=True)
+            continue
+        shutil.copy(ipas[-1], staged)
+        print(f"  {repo:18} built and staged {staged.name}", flush=True)
+
+
+def ipa_blocker(ipa: pathlib.Path) -> str | None:
+    """Why this IPA must not be uploaded, or None."""
+    import plistlib, zipfile
+    try:
+        with zipfile.ZipFile(ipa) as z:
+            name = next(n for n in z.namelist()
+                        if n.startswith("Payload/") and n.endswith(".app/Info.plist")
+                        and n.count("/") == 2)
+            info = plistlib.loads(z.read(name))
+    except (StopIteration, zipfile.BadZipFile, KeyError, plistlib.InvalidFileException) as e:
+        return f"cannot read the app's Info.plist ({type(e).__name__})"
+    if not info.get("UIApplicationSceneManifest"):
+        return (f"build {info.get('CFBundleVersion')} has no UIApplicationSceneManifest — "
+                "it crashes on launch on iOS 27; rebuild from the fixed source")
+    return None
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--build", action="store_true",
+                    help="build a fresh signed IPA for each named app first (build_only.py) "
+                         "and stage exactly that file, setting the previous one aside")
     ap.add_argument("apps", nargs="*")
     args = ap.parse_args()
+    if args.build:
+        if not args.apps:
+            raise SystemExit("  --build needs app names")
+        stage_fresh(args.apps)
 
     if not IT.exists():
         raise SystemExit(f"Transporter not found at {IT}")
@@ -99,6 +152,17 @@ def main() -> int:
             out[repo] = {"status": "no-ipa"}
             print(f"  {repo:18} no IPA in {DIST}", flush=True)
             missing += 1
+            continue
+        # Refuse a binary that crashes on launch on iOS 27. On 2026-10-08 the
+        # IPA sitting here for BodyQuest was the 29 September build (build 3)
+        # with no UIApplicationSceneManifest, while the fixed build was in
+        # the app's build/ folder; uploading by filename would have shipped
+        # the crash again. Read the plist inside the binary, not the repo.
+        why = ipa_blocker(ipa)
+        if why:
+            out[repo] = {"status": "refused", "detail": why}
+            print(f"  {repo:18} REFUSED: {why}", flush=True)
+            failed += 1
             continue
         if args.dry_run:
             print(f"  {repo:18} would upload {ipa.name} "
