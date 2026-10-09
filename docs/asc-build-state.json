@@ -6,7 +6,8 @@
     "version": "1",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:48:52-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6816369678"
   },
   {
     "repo": "AGCleaner",
@@ -15,7 +16,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:52:16-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6809933116"
   },
   {
     "repo": "AGrammarly",
@@ -24,7 +26,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-03T23:53:02-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6809935878"
   },
   {
     "repo": "AGRecorder",
@@ -33,7 +36,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:53:10-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808749726"
   },
   {
     "repo": "AGStudio",
@@ -42,7 +46,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-03T23:54:33-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808749158"
   },
   {
     "repo": "ApexMarketWatch",
@@ -51,7 +56,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:53:37-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808755213"
   },
   {
     "repo": "BodyQuest",
@@ -60,7 +66,8 @@
     "version": "3",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:54:45-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6781642312"
   },
   {
     "repo": "BuddyPlay",
@@ -69,7 +76,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-03T23:58:53-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808753834"
   },
   {
     "repo": "CalcMaster",
@@ -78,7 +86,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T03:10:40-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6781554668"
   },
   {
     "repo": "CarDeal",
@@ -87,7 +96,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T03:18:47-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808735960"
   },
   {
     "repo": "ChefCount",
@@ -96,7 +106,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:01:19-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808751410"
   },
   {
     "repo": "CodeDeal",
@@ -105,7 +116,8 @@
     "version": "15",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:02:45-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808745768"
   },
   {
     "repo": "daily-pulse",
@@ -114,7 +126,8 @@
     "version": "1",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-23T18:09:12-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6815373573"
   },
   {
     "repo": "DriftDate",
@@ -123,7 +136,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T04:25:32-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808753103"
   },
   {
     "repo": "EventSpark",
@@ -132,7 +146,8 @@
     "version": "3",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T01:31:33-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808744751"
   },
   {
     "repo": "FashionFactory",
@@ -141,7 +156,8 @@
     "version": "4",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:55:59-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6817174985"
   },
   {
     "repo": "GadgetNest",
@@ -150,7 +166,8 @@
     "version": "1",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:08:49-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6816369849"
   },
   {
     "repo": "GroceryMatch",
@@ -159,7 +176,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:57:15-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6816370080"
   },
   {
     "repo": "HerJourney",
@@ -168,7 +186,8 @@
     "version": "3",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:12:36-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6816370228"
   },
   {
     "repo": "HomeWise",
@@ -177,7 +196,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:57:33-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808744604"
   },
   {
     "repo": "iMaps",
@@ -186,7 +206,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T05:01:34-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6799074818"
   },
   {
     "repo": "iMeasure",
@@ -195,7 +216,8 @@
     "version": "3",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:15:22-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6816370264"
   },
   {
     "repo": "Kinnav",
@@ -204,7 +226,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T05:09:19-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6802507741"
   },
   {
     "repo": "MileMaster",
@@ -213,7 +236,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:18:40-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6810385482"
   },
   {
     "repo": "MyCard",
@@ -222,7 +246,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:58:29-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808746341"
   },
   {
     "repo": "MyFinance",
@@ -231,7 +256,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:21:24-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6809930891"
   },
   {
     "repo": "MyHealth",
@@ -240,7 +266,8 @@
     "version": "4",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:22:17-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6778216891"
   },
   {
     "repo": "NearServe",
@@ -249,7 +276,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:23:47-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808754204"
   },
   {
     "repo": "NewsBoard",
@@ -258,7 +286,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:25:03-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808751032"
   },
   {
     "repo": "NexusTransferPay",
@@ -267,7 +296,8 @@
     "version": "3",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T01:03:04-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808755704"
   },
   {
     "repo": "Photriya",
@@ -276,7 +306,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T06:03:39-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6781662812"
   },
   {
     "repo": "PilotEnRoute",
@@ -285,7 +316,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T01:35:58-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808738221"
   },
   {
     "repo": "PlantPulse",
@@ -294,7 +326,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:31:05-07:00",
-    "review_state": "PREPARE_FOR_SUBMISSION"
+    "review_state": "PREPARE_FOR_SUBMISSION",
+    "apple_id": "6817405301"
   },
   {
     "repo": "portfolio-board",
@@ -303,7 +336,8 @@
     "version": "1",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T01:36:31-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6816370415"
   },
   {
     "repo": "radiotune",
@@ -312,7 +346,8 @@
     "version": "5",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T01:01:34-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6781629995"
   },
   {
     "repo": "RideZap",
@@ -321,7 +356,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T01:02:43-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6810379386"
   },
   {
     "repo": "RoomCraft",
@@ -330,7 +366,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:37:12-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808746869"
   },
   {
     "repo": "TripNest",
@@ -339,7 +376,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T06:48:38-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808735167"
   },
   {
     "repo": "Uscis-Case",
@@ -348,7 +386,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T06:55:38-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6799033155"
   },
   {
     "repo": "Verba",
@@ -357,7 +396,8 @@
     "version": "1",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T01:39:02-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6816370315"
   },
   {
     "repo": "VirtuBand",
@@ -366,7 +406,8 @@
     "version": "202609250224",
     "processing_state": "VALID",
     "uploaded_at": "2026-09-25T07:05:16-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6799079701"
   },
   {
     "repo": "WiFiTrail",
@@ -375,7 +416,8 @@
     "version": "2",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:42:07-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6808756262"
   },
   {
     "repo": "yourtube",
@@ -384,6 +426,7 @@
     "version": "4",
     "processing_state": "VALID",
     "uploaded_at": "2026-10-04T00:44:50-07:00",
-    "review_state": "REJECTED"
+    "review_state": "REJECTED",
+    "apple_id": "6816370522"
   }
 ]

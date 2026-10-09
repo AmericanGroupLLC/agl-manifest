@@ -137,6 +137,15 @@ def main() -> int:
     ac = run(["python3", "scripts/supabase_accounts.py", "--audit-config"],
              timeout=600)
     report["auth_config"] = (ac.stdout or "").strip().splitlines()
+
+    # The marketing site's mobile pages are generated from store state. When
+    # an app goes live (or is pulled), say so, so the site is regenerated
+    # rather than left claiming the old state.
+    ws = run(["python3", "scripts/website_apps.py", "--check"], timeout=900)
+    if ws.returncode != 0:
+        report["actions"].append(
+            "website: app pages are out of date with store state — run "
+            "scripts/website_apps.py and deploy www.safecodeg.com")
     if ac.returncode != 0:
         report["actions"].append(
             "auth config: production redirect is a LOCAL address (MA-042)")

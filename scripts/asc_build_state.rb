@@ -58,9 +58,14 @@ end
 # including by me, claiming nothing had been submitted when 36 of 43 had.
 # Apple is the only authority, so ask it and commit the answer.
 review = {}
+# Apple's numeric app id, which is what an App Store link needs
+# (https://apps.apple.com/app/id<id>). Recorded so the website generator can
+# link an app the day it goes live, instead of a placeholder before then.
+apple_id = {}
 apps.each do |a|
   app = by_bid[a["bundle_id"]]
   next if app.nil?
+  apple_id[a["repo"]] = app.id.to_s
   begin
     v = app.get_app_store_versions(filter: { platform: "IOS" }).first
     review[a["repo"]] = v ? v.app_store_state.to_s : "NO_VERSION"
@@ -74,7 +79,8 @@ rows = lines.map do |l|
   repo, state, bundle, version, processing, uploaded = l.split("|")
   { "repo" => repo, "state" => state, "bundle_id" => bundle,
     "version" => version, "processing_state" => processing,
-    "uploaded_at" => uploaded, "review_state" => review[repo] }
+    "uploaded_at" => uploaded, "review_state" => review[repo],
+    "apple_id" => apple_id[repo] }
 end
 docs = File.expand_path(File.join(__dir__, "..", "docs", "asc-build-state.json"))
 File.write(docs, JSON.pretty_generate(rows) + "\n")

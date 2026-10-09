@@ -231,6 +231,7 @@ read means giving the harness another way in.
 | --- | --- |
 | `store_checklist.py` | Per-app readiness; the headline number |
 | `artifact_staleness.py` | Which artifacts predate a commit that could change them. Android and iOS inputs are kept separate — conflating them reported eight bundles as stale when only `ios/Podfile.lock` had changed |
+| `website_apps.py` | Generates www.safecodeg.com's 43 mobile-app pages (`client/src/data/mobileApps.generated.ts`) from each app's App Store copy, with status and store links from what Apple and Google report. A download button appears only for a live listing that answered HTTP 200. `--check` exits 1 when the site is stale; store_watch runs it |
 | `verify_api_hosts.py` | Whether every host each app calls **exists**, via Google DNS-over-HTTPS (plain DNS is blocked here, so `dig` times out on every name). NXDOMAIN fails the gate; anything short of an address is recorded as `unverified`, never as dead. Writes `docs/api-hosts.json`; runs in CI and in every `store_watch` pass |
 | `verify_store_urls.py` | Whether each store URL is real. **Do not trust HTTP 200** — this host serves its homepage for any unknown path, so the body is compared against a known-nonexistent path |
 | `verify_deletion_urls.py` | Whether every app has a working account-deletion page (Play Data safety) |
