@@ -184,6 +184,12 @@ def sign_in(udid) -> bool:
     tap(udid, *center(pw)); time.sleep(1)
     sh("idb", "ui", "text", acct[1], "--udid", udid, timeout=30)
     time.sleep(1)
+    # Required consent boxes on the form itself ("I confirm I am 18 years or
+    # older" on Kinnav): the Log in button does nothing until it is ticked.
+    for e in describe(udid):
+        if e.get("type") == "CheckBox" and str(e.get("AXValue")) == "0" and \
+                re.search(r"(?i)confirm|agree|accept|18|terms", e.get("AXLabel") or ""):
+            tap(udid, *center(e)); time.sleep(1)
     go = next((e for e in describe(udid) if e.get("type") == "Button"
                and (e.get("AXLabel") or "").strip().lower() in
                ("sign in", "log in", "login", "sign in with email", "continue", "log in with email")), None)
@@ -191,7 +197,41 @@ def sign_in(udid) -> bool:
         return False
     tap(udid, *center(go)); time.sleep(10)
     clear_alerts(udid)
+    complete_profile(udid)
     return True
+
+
+def complete_profile(udid, rounds=3):
+    """A first-run profile form after sign-in (Kinnav: "Your Profile — Tell us
+    a bit about you"). Only an empty Name field is filled, with "QA Tester" —
+    what the account is — and defaults are left as they are."""
+    def hide_keyboard():
+        # The software keyboard covers the Continue button (Kinnav). Its own
+        # "done" key closes it without submitting anything.
+        k = next((e for e in describe(udid) if e.get("type") == "Button"
+                  and (e.get("AXLabel") or "").strip().lower() in ("done", "return", "dismiss keyboard")), None)
+        if k:
+            tap(udid, *center(k)); time.sleep(1.5)
+    for _ in range(rounds):
+        hide_keyboard()
+        els = describe(udid)
+        name = next((e for e in els if e.get("type") == "TextField"
+                     and (e.get("AXLabel") or "").strip().lower() in ("name", "full name", "your name", "display name")
+                     and not (e.get("AXValue") or "").strip()), None)
+        go = next((e for e in els if e.get("type") == "Button"
+                   and re.match(r"(?i)^(continue|save|done|get started|finish|next)\b", (e.get("AXLabel") or "").strip())
+                   and " with " not in (e.get("AXLabel") or "").lower()), None)
+        if not go:
+            return
+        if name:
+            tap(udid, *center(name)); time.sleep(1)
+            sh("idb", "ui", "text", "QA Tester", "--udid", udid, timeout=30)
+            time.sleep(1)
+            hide_keyboard()
+            go = next((e for e in describe(udid) if e.get("type") == "Button"
+                       and (e.get("AXLabel") or "") == go.get("AXLabel")), go)
+        tap(udid, *center(go)); time.sleep(6)
+        clear_alerts(udid)
 
 
 def vet(shots: list, dev: str, repo: str, res: dict) -> list:
