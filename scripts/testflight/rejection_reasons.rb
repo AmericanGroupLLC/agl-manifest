@@ -18,7 +18,23 @@ require_relative "../agl_paths"
 USER = ENV.fetch("FASTLANE_USER", "srikanth.patchava@outlook.com")
 ONLY = ARGV.reject { |a| a.start_with?("--") }
 
-Spaceship::Tunes.login(USER)
+# --session-only (what store_watch uses): reuse a saved Apple ID session or
+# stop. A password sign-in makes Apple push a 6-digit code to the owner's
+# devices, and with the session expired the scheduled pass did that four
+# times a day — codes nobody asked for, which nothing could ever consume.
+# Refresh the session interactively with `fastlane spaceauth -u <user>`.
+if ARGV.include?("--session-only")
+  client = Spaceship::TunesClient.new
+  client.user = USER
+  unless client.send(:has_valid_session)
+    warn "No valid Apple ID session for #{USER} — not signing in (that would send a 2FA code)."
+    warn "Refresh it with: bundle exec fastlane spaceauth -u #{USER}"
+    exit 3
+  end
+  Spaceship::Tunes.client = client
+else
+  Spaceship::Tunes.login(USER)
+end
 Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
   key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), filepath: ENV.fetch("ASC_KEY_PATH"))
 tunes = Spaceship::Tunes.client

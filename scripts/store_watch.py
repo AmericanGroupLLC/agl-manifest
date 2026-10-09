@@ -109,7 +109,10 @@ def main() -> int:
     # --- 2. new rejections ----------------------------------------------
     rej_f = DIST / "rejections.json"
     before = set(holds)
-    r = run(["bundle", "exec", "ruby", "scripts/testflight/rejection_reasons.rb"],
+    # --session-only: never fall back to a password sign-in from a schedule;
+    # that pushes a 2FA code to the owner's devices on every pass.
+    r = run(["bundle", "exec", "ruby", "scripts/testflight/rejection_reasons.rb",
+             "--session-only"],
             timeout=3600)
     if rej_f.exists():
         for app, rec in json.loads(rej_f.read_text()).items():
