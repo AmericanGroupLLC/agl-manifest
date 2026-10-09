@@ -2099,8 +2099,8 @@
   },
   {
    "check": "Every API host the app calls exists",
-   "state": "PASS",
-   "detail": "3 host(s), all resolve"
+   "state": "FAIL",
+   "detail": "api.codedeal.com (lib/core/network/trpc_client.dart:9) - third-party host is gone: replace it"
   },
   {
    "check": "No blank or near-empty store screenshots",
@@ -5707,8 +5707,8 @@
   },
   {
    "check": "Every API host the app calls exists",
-   "state": "FAIL",
-   "detail": "photriya.cloud (lib/features/cloud/screens/collaboration_screen.dart:61) - ours, never deployed: move to Supabase"
+   "state": "PASS",
+   "detail": "2 host(s), all resolve"
   },
   {
    "check": "No blank or near-empty store screenshots",

@@ -237,11 +237,15 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [],
+  "dead_hosts": [
+   "api.codedeal.com"
+  ],
   "gate_failures": [
+   "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
   "automatable": [
+   "calls hosts that do not exist: api.codedeal.com",
    "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
@@ -680,16 +684,12 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "photriya.cloud"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
   "automatable": [
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: photriya.cloud",
    "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
