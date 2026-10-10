@@ -51,6 +51,24 @@ def boot(udid):
     sh("xcrun", "simctl", "boot", udid, timeout=180)
 
 
+def biometrics(udid, match=False):
+    """Enroll simulated Face ID (before launch), or present a matching face.
+
+    MyCard locks itself behind device authentication at launch. With no Face ID
+    enrolled the simulator falls back to the passcode sheet, and the capture
+    shot "Enter iPhone Passcode for MyCard" four times — the vet refused every
+    frame. Enrolled, the app gets the Face ID prompt, and a simulated match
+    unlocks it the way a user's face would."""
+    if match:
+        sh("xcrun", "simctl", "spawn", udid, "notifyutil", "-p",
+           "com.apple.BiometricKit_Sim.pearl.match", timeout=30)
+        return
+    sh("xcrun", "simctl", "spawn", udid, "notifyutil", "-s",
+       "com.apple.BiometricKit.enrollmentChanged", "1", timeout=30)
+    sh("xcrun", "simctl", "spawn", udid, "notifyutil", "-p",
+       "com.apple.BiometricKit.enrollmentChanged", timeout=30)
+
+
 def revive(udid):
     """A frozen simulator still reports Booted while every simctl call against
     it times out — on 2026-10-09 the iPhone froze at BuddyPlay and the next 17
@@ -638,8 +656,12 @@ def capture(app, out_ios, out_android):
             # left iOS's "◀ Kinnav" back-link in AeroSwift's status bar — a
             # store screenshot naming a different app.
             sh("idb", "ui", "button", "HOME", "--udid", udid, timeout=30); time.sleep(2)
+            biometrics(udid)
             sh("xcrun", "simctl", "launch", udid, bundle, timeout=60)
             time.sleep(8)
+            if any(w in ((e.get("AXLabel") or "") + " " + (e.get("AXValue") or "")).lower()
+                   for e in describe(udid) for w in ("face id", "passcode", "touch id")):
+                biometrics(udid, match=True); time.sleep(4)
             clear_alerts(udid)   # first-run sheets and permission prompts
             time.sleep(4); clear_alerts(udid)   # consent forms (UMP) arrive a few seconds after launch
             # Record whether a sign-in gate was seen and whether we got past
