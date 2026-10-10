@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate the website's mobile-app pages from what the stores actually hold.
 
-    python3 scripts/website_apps.py            # -> www.safecodeg.com/client/src/data/mobileApps.generated.ts
+    python3 scripts/website_apps.py            # -> americangroup.ai/client/src/data/mobileApps.generated.ts
     python3 scripts/website_apps.py --check    # report only; exit 1 if the site would change
 
 Every app's marketing page should promote the app — truthfully. Measured on
@@ -45,7 +45,7 @@ import sys
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from agl_paths import ROOT, MANIFEST as M  # noqa: E402
 
-SITE = ROOT / "www.safecodeg.com"
+SITE = ROOT / "americangroup.ai"
 OUT = SITE / "client/src/data/mobileApps.generated.ts"
 
 # The site's own ProductCategory vocabulary.

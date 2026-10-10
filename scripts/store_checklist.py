@@ -429,7 +429,7 @@ def main() -> int:
         needs_delete = bool(set(auth.get("providers") or []) &
                             {"Supabase", "Google", "Apple", "Firebase"})
         slug = rec.get("slug", repo.lower())
-        del_page = (ROOT / "www.safecodeg.com/client/public/policy" / slug /
+        del_page = (ROOT / "americangroup.ai/client/public/policy" / slug /
                     "delete-account.html")
         add("Account-deletion page (if accounts)",
             NA if not needs_delete else (OK if del_page.exists() else NO),

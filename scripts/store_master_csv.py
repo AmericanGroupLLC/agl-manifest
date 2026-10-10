@@ -207,7 +207,7 @@ def build_rows() -> list[dict]:
                     paywall.append(f)
         paywall_no_iap = bool(paywall) and not iap
 
-        policy = ROOT / "www.safecodeg.com/client/public/policy" / slug
+        policy = ROOT / "americangroup.ai/client/public/policy" / slug
         del_page = policy / "delete-account.html"
         tos_page = policy / "terms.html"
 

@@ -22,7 +22,7 @@ import subprocess
 SKIP = {
     "AmericanGroupLLC-Backend",
     "AmericanGroupLLC.github.io",
-    "www.safecodeg.com",
+    "americangroup.ai",       # the website (renamed from www.safecodeg.com, 2026-10-09)
     ".github",
     # This repository. It holds the shared packages, so it looks like a Flutter
     # project to find_app_root — but it is the delivery engine, not an app.

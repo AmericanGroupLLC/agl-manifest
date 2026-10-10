@@ -25,7 +25,7 @@ def get(url):
 assert get("https://www.safecodeg.com/ThisPathCannotExist999888")[0]
 
 # The local site checkout is the source of truth for which slugs exist.
-policy_dir = ROOT / "www.safecodeg.com/client/public/policy"
+policy_dir = ROOT / "americangroup.ai/client/public/policy"
 slugs = sorted(p.name for p in policy_dir.iterdir() if p.is_dir())
 
 SLUGS = {"TripNest":"TripNest","AGrammarly":"agrammarly","BodyQuest":"bodyquest","CalcMaster":"calcmaster",
