@@ -93,7 +93,7 @@ def step(state: dict, check_only: bool) -> dict:
     ok, why = serves_site()
     state["1_serves_site"] = why
     if not ok:
-        state["next"] = "deploy the site to /home2/safecode/americangroup.ai: authorise the deploy key in cPanel, then re-run the website deploy (gh workflow run deploy.yml -R AmericanGroupLLC/americangroup.ai)"
+        state["next"] = "owner: cPanel -> Domains -> americangroup.ai -> document root /home2/safecode/americangroup.ai (the site is already deployed there; it currently points at public_html/website_d85c586d, a Coming Soon page)"
         return state
     subprocess.run(["git", "-C", str(SITE), "fetch", "-q", "origin"])
     if not merged():
@@ -115,6 +115,13 @@ def step(state: dict, check_only: bool) -> dict:
     ok3, why3 = redirects()
     okp, whyp = policy_live("americangroup.ai")
     state["3_redirect"], state["3_policy"] = why3, whyp
+    # safecodeg.com redirects only once public_html carries the new .htaccess;
+    # a push deploys americangroup.ai alone, so ask for the both-folders run
+    # (no --delete) once, when americangroup.ai is proven live.
+    if okp and not ok3 and not state.get("2b_public_html_deploy") and not check_only:
+        r = subprocess.run(["gh", "workflow", "run", "deploy.yml", "-R", "AmericanGroupLLC/americangroup.ai",
+                            "--ref", "main", "-f", "target=both"], capture_output=True, text=True)
+        state["2b_public_html_deploy"] = "requested" if r.returncode == 0 else f"failed: {r.stderr.strip()[:160]}"
     if not (ok3 and okp):
         state["next"] = "waiting for the deploy (redirect + policy page on americangroup.ai)"
         return state
