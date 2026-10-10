@@ -111,6 +111,13 @@ def classify(lines: list[str] | None, sd: float | None, repo: str = "") -> tuple
     text = " ".join(body)
     words = re.findall(r"[A-Za-z]{2,}", text)
     singles = sum(1 for l in body if len(l.strip()) <= 2)
+    # iOS's back-to-previous-app link in the status bar ("◀ Kinnav").
+    # OCR drops the arrow and reads it as the bare name on its own line, so
+    # any other app's exact name among the first lines is that link.
+    back = next((l for l in lines[:4] if re.match(r"^\s*[◀<]\s*\w", l)
+                 or (APP_NAMES.get(l.strip().lower()) not in (None, repo))), None)
+    if back:
+        return "other_app", f"status bar links back to another app: {back.strip()}"
     icons = {l.strip().lower() for l in body} & SPRINGBOARD
     if len(icons) >= 4:
         return "not_this_app", "iOS home screen (" + ", ".join(sorted(icons)[:4]) + ")"
