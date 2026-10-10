@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.americangroupllc.aioffice</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/spatchava/agl/agl-manifest/ai-office/scripts/office_run.sh</string>
+  </array>
+  <!-- Daily 07:45 local: after the 06:00 UTC delivery and 08:00 UTC store
+       health runs have reported, before the working day. -->
+  <key>StartCalendarInterval</key>
+  <dict><key>Hour</key><integer>7</integer><key>Minute</key><integer>45</integer></dict>
+  <key>RunAtLoad</key>
+  <false/>
+  <key>StandardOutPath</key>
+  <string>/Users/spatchava/agl/.dist/ai-office/launchd.out</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/spatchava/agl/.dist/ai-office/launchd.err</string>
+</dict>
+</plist>

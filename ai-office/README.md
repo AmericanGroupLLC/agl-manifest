@@ -21,6 +21,10 @@ it.
 - **Operations:** operations-manager, workflow-designer, documentation-specialist, qa-reviewer, data-analyst
 
 ## Runs by itself
+- `com.americangroupllc.aioffice` (launchd on this Mac): daily 07:45, refreshes the
+  stand-up and has the local Claude Code login triage it — opens/updates/closes
+  `ai-office` issues and writes `reports/<date>-office.md`. Load once with
+  `launchctl load -w ~/Library/LaunchAgents/com.americangroupllc.aioffice.plist`.
 - `ai-office-standup.yml` (agl-manifest Actions): daily 13:00 UTC, builds the
   stand-up from measured state and keeps the pinned issue "AI office: daily
   stand-up" current. No AI key needed.
