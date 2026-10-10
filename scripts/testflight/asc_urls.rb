@@ -32,8 +32,16 @@ Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
 apps = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
 apps = apps.select { |a| ONLY.include?(a["repo"]) } unless ONLY.empty?
 verified = JSON.parse(File.read(File.join(AglPaths::DIST, "policy-urls.json")))
-generated = File.read(File.join(AglPaths::ROOT, "americangroup.ai/client/src/data/mobileApps.generated.ts"))
-product = generated.scan(/repo: "([^"]+)",\s*slug: "([^"]+)"/).to_h
+# Product-page slugs come from the website's generated data when that repo is
+# checked out (the laptop); on a CI runner it is not, so fall back to the slug
+# in store/apps/<repo>.json, which is what the generator uses anyway.
+gen_path = File.join(AglPaths::ROOT, "americangroup.ai/client/src/data/mobileApps.generated.ts")
+product = File.exist?(gen_path) ? File.read(gen_path).scan(/repo: "([^"]+)",\s*slug: "([^"]+)"/).to_h : {}
+apps.each do |a|
+  next if product[a["repo"]]
+  rec = File.join(AglPaths::MANIFEST, "store/apps/#{a['repo']}.json")
+  product[a["repo"]] = ((JSON.parse(File.read(rec))["slug"] rescue nil) || a["repo"]).downcase if File.exist?(rec)
+end
 
 changed = 0
 apps.each do |a|

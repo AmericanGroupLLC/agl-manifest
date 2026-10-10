@@ -1,0 +1,65 @@
+name: Store health (daily)
+
+# What the stores and reviewers see, checked from CI so it never depends on the
+# laptop: App Store state, 147 policy URLs, 43 deletion pages, every App Store
+# URL field, Play contact details (scripts/store_health.py). One issue opens on
+# failure, its body stays current, and it closes when everything is green.
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+env:
+  FLUTTER_VERSION: 3.44.2
+
+jobs:
+  health:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup-agl
+        with:
+          token: ${{ secrets.AGL_PACKAGES_TOKEN }}
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+      - name: Credentials (temp files, never logged)
+        env:
+          ASC_KEY_CONTENT: ${{ secrets.ASC_KEY_CONTENT }}
+          PLAY_JSON: ${{ secrets.PLAY_SERVICE_ACCOUNT_JSON }}
+        run: |
+          mkdir -p "$RUNNER_TEMP/secrets"
+          printf '%s' "$ASC_KEY_CONTENT" | base64 --decode > "$RUNNER_TEMP/secrets/asc.p8"
+          printf '%s' "$PLAY_JSON" > "$RUNNER_TEMP/secrets/play.json"
+          {
+            echo "ASC_KEY_PATH=$RUNNER_TEMP/secrets/asc.p8"
+            echo "ASC_KEY_ID=${{ secrets.ASC_KEY_ID }}"
+            echo "ASC_ISSUER_ID=${{ secrets.ASC_ISSUER_ID }}"
+            echo "PLAY_SERVICE_ACCOUNT=$RUNNER_TEMP/secrets/play.json"
+            echo "AGL_DIST=$RUNNER_TEMP/dist"
+          } >> "$GITHUB_ENV"
+          mkdir -p "$RUNNER_TEMP/dist"
+      - name: Run checks
+        id: health
+        continue-on-error: true
+        run: python3 scripts/store_health.py --markdown
+      - name: Open, update or close the store-health issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OUTCOME: ${{ steps.health.outcome }}
+        run: |
+          TITLE="Store health: checks failing"
+          NUM=$(gh issue list --state open --limit 100 --json number,title -q ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+          RUN="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          if [ "$OUTCOME" = "failure" ]; then
+            printf 'Last checked by %s at %s UTC. Owner roles: web-domains (pages), store-compliance (URLs, Play).\n\n' "$RUN" "$(date -u '+%Y-%m-%d %H:%M')" > body.md
+            cat store-health.md >> body.md
+            if [ -n "$NUM" ]; then gh issue edit "$NUM" --body-file body.md
+            else gh issue create --title "$TITLE" --label ai-office --body-file body.md; fi
+            exit 1
+          elif [ -n "$NUM" ]; then
+            gh issue close "$NUM" --comment "All store-health checks pass again ($RUN)."
+          fi

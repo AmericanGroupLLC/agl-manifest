@@ -41,6 +41,7 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | `testflight/asc_urls.rb` | Sets every app's App Store privacy / support / marketing URL in every localization to the pages `verify_policy_urls.py` proved live on www.americangroup.ai, and reads them back; `--check` reports only. Written because `deliver` reported ok for 43 apps while 28 still carried safecodeg.com |
 | `cloudflare_dns.py` | Keeps the americangroup.ai Cloudflare zone safe for the site and its mail: website (@, www) proxied, every other host DNS-only, MX on DNS-only names, SSL Full (strict), Always Use HTTPS. Report by default, `--apply` to fix. Token: `~/agl/.secrets/cloudflare-token` |
 | `monitor_domains.py` | Every 30 min in CI (`domain-monitor.yml`): website + redirects, store-facing policy pages, app-ads.txt, webmail/cPanel services, mail ports + MX/SPF/DKIM/DMARC, TLS expiry, Supabase health. Opens one issue on failure, closes it when green. Writes `docs/domain-health.json` |
+| `store_health.py` | Daily in CI (`store-health.yml`): App Store state, 147 policy URLs, 43 deletion pages, App Store URL fields, Play contact details; issue on failure, closed when green |
 | `testflight/account_freeze.rb` | Makes `submit_production.rb` and `resubmit_rejected.rb` exit 4 while any app holds a Guideline 5.6 finding (MA-043) |
 | `appstore_records.rb` | Reports the app records that exist |
 | `testflight/run_batch.py` | Builds and uploads to TestFlight |

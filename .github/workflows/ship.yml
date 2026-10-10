@@ -38,8 +38,8 @@ on:
         type: choice
         options: [validate, build, release, internal, production]
       bump_versions:
-        description: 'Raise build numbers past Play and commit them if they collide'
-        default: false
+        description: 'Raise build numbers past Play when they collide (scheduled runs always do)'
+        default: true
         type: boolean
   push:
     tags: ['v*']
@@ -201,7 +201,11 @@ jobs:
         run: |
           mkdir -p "$RUNNER_TEMP/dist"
           python3 scripts/play_version_codes.py --out "$RUNNER_TEMP/dist/play-version-codes.json"
-          if [ "${{ inputs.bump_versions }}" = "true" ]; then
+          # Bump by default: a collision with a code Play already holds is fixed
+          # here (the bundle is built with the next free code) instead of failing
+          # the run. Scheduled runs have no inputs, so only an explicit
+          # bump_versions=false on a manual run keeps the strict check.
+          if [ "${{ inputs.bump_versions }}" != "false" ]; then
             python3 scripts/preflight_version_codes.py --bump \
               --apps "${{ matrix.apps }}" \
               --codes "$RUNNER_TEMP/dist/play-version-codes.json"
