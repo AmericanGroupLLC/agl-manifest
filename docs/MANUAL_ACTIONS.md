@@ -2087,3 +2087,20 @@ What only the account holder can do:
    consent first, banner + capped interstitial, test ads only in debug) is
    rolled out from there. An iOS build that includes the AdMob SDK without a
    real app id crashes at launch, which is why the SDK is not added first.
+
+### MA-044 update (2026-10-10): apply it from GitHub, with one click and an approval
+
+The backend's `deploy.yml` now deploys `supabase/migrations/` to production
+(it had pointed at a `main` branch that no longer exists, so nothing reached
+Supabase since July). First run, once:
+
+1. github.com/AmericanGroupLLC/AmericanGroupLLC-Backend → Actions →
+   "Deploy — Supabase migrations" → Run workflow → branch `dev`,
+   **baseline = true** → Run.
+2. Approve the `production` deployment when GitHub asks (reviewer: srpatcha).
+
+The run records every migration older than 20261009 as already applied
+(without executing it) and then applies `20261009_delete_user.sql`. If any of
+those older migrations was in fact never applied to production, say so before
+running — the baseline would mark it applied. From then on every new migration
+merged to dev deploys after the same approval.
