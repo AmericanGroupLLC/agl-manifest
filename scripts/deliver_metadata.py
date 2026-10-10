@@ -29,6 +29,14 @@ def blocked(repo):
 if names: sel = [a for a in apps if a["repo"] in names]
 else: sel = [a for a in apps if a["bundle_id"] in recs and not blocked(a["repo"])]
 results = json.load(open(RESULTS)) if RESULTS.exists() else {}
+# Render the listing text from store/apps/<repo>.json into every repo first.
+# deliver uploads the repo's fastlane/metadata, and those copies had drifted:
+# on 2026-10-09 GadgetNest's still advertised a price-history chart and
+# AGRecorder's a cloud sync, both removed from the app and from the manifest.
+_gen = subprocess.run(["python3", str(M / "scripts/store_metadata.py"), "generate"],
+                      capture_output=True, text=True)
+if _gen.returncode != 0:
+    sys.exit("store_metadata.py generate failed — not uploading stale listing text:\n" + _gen.stderr[-400:])
 env = dict(os.environ, LC_ALL="en_US.UTF-8")
 for a in sel:
     repo = a["repo"]; d = ROOT / repo / (a["dir"] if a["dir"] != "." else "")
