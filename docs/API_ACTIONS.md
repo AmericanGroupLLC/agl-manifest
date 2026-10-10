@@ -38,6 +38,7 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | `testflight/iap_readiness.rb` | Per app: billing plugin in the binary versus IAP/subscription products in App Store Connect, with state and missing metadata. Read-only by default; never submits. Writes `<DIST>/iap-readiness.json` |
 | `apple_requirements.py` | The catalogue of every requirement App Review has raised against our apps, each with the check that enforces it; folded into the submission gate. Writes `docs/apple-requirements.json` and `docs/APPLE_REQUIREMENTS.md` |
 | `domain_cutover.py` | Moves every store listing to americangroup.ai the moment the domain serves the site: merge + deploy the website branch, verify the 301 and the policy pages, then App Store Connect metadata (`deliver_metadata.py`) and Play contact details (`play_gap_audit.py --fix --domain`). `--watch` polls every 10 min |
+| `testflight/asc_urls.rb` | Sets every app's App Store privacy / support / marketing URL in every localization to the pages `verify_policy_urls.py` proved live on www.americangroup.ai, and reads them back; `--check` reports only. Written because `deliver` reported ok for 43 apps while 28 still carried safecodeg.com |
 | `testflight/account_freeze.rb` | Makes `submit_production.rb` and `resubmit_rejected.rb` exit 4 while any app holds a Guideline 5.6 finding (MA-043) |
 | `appstore_records.rb` | Reports the app records that exist |
 | `testflight/run_batch.py` | Builds and uploads to TestFlight |
