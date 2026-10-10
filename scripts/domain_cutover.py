@@ -76,9 +76,12 @@ def redirects() -> tuple[bool, str]:
 
 
 def merged() -> bool:
-    r = subprocess.run(["git", "-C", str(SITE), "branch", "-r", "--merged", "origin/main"],
+    """The domain move is in main. The site repo has one branch since
+    2026-10-09; the move branch was merged and deleted (tag
+    archive/domain-americangroup-ai), so check main's .htaccess instead."""
+    r = subprocess.run(["git", "-C", str(SITE), "show", "origin/main:.htaccess"],
                        capture_output=True, text=True)
-    return f"origin/{BRANCH}" in r.stdout
+    return "Canonical host: americangroup.ai" in r.stdout
 
 
 def run(cmd, timeout=7200):
@@ -90,7 +93,7 @@ def step(state: dict, check_only: bool) -> dict:
     ok, why = serves_site()
     state["1_serves_site"] = why
     if not ok:
-        state["next"] = "deploy the site to /home2/safecode/americangroup.ai: authorise the deploy key in cPanel, then gh workflow run deploy.yml --ref domain/americangroup-ai"
+        state["next"] = "deploy the site to /home2/safecode/americangroup.ai: authorise the deploy key in cPanel, then re-run the website deploy (gh workflow run deploy.yml -R AmericanGroupLLC/americangroup.ai)"
         return state
     subprocess.run(["git", "-C", str(SITE), "fetch", "-q", "origin"])
     if not merged():
