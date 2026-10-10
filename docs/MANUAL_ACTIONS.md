@@ -2019,3 +2019,28 @@ Note: accounts are shared across every app on this project, so deleting from
 one app deletes for all; the apps' confirmation dialogs say so. Never test
 deletion with dev@ or qa@safecodeg.com. Apps offering Sign in with Apple
 should also revoke the Apple token on deletion (Apple's guidance); not done.
+
+## MA-045 · P0 · Point americangroup.ai at the website — the rest of the domain move is automatic
+
+Found 2026-10-09. Every repo, the store copy, the fastlane metadata and the
+website now use americangroup.ai (≈1,700 replacements across 46 repos; the
+Supabase account identities dev@/qa@/admin@safecodeg.com and the HostGator
+login are deliberately unchanged). The website repo is renamed
+`AmericanGroupLLC/americangroup.ai`.
+
+americangroup.ai itself serves a HostGator WordPress "Coming Soon" page from a
+separate docroot (same server, 192.185.39.65). Until that changes nothing can
+safely point at it, so `scripts/domain_cutover.py --watch` is running and
+does the rest the moment it can (merge the site branch → deploy → verify the
+301 from safecodeg.com → App Store Connect URLs and copy → Play contact
+email/website). Progress: `~/agl/.dist/domain-cutover.json`.
+
+What only the account holder can do:
+
+1. cPanel → Domains → americangroup.ai → document root `public_html`; remove
+   the coming-soon site.
+2. Create contact@, careers@, internships@, india@ and support@americangroup.ai
+   (or forwarders).
+3. After the cutover reports done: Play Console → each app → Policy → App
+   content → Privacy policy → https://americangroup.ai/policy/<slug>/ (no API;
+   the old URL keeps working through the 301 meanwhile).

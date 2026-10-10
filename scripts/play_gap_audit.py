@@ -69,6 +69,8 @@ def call(tok, method, url, body=None):
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--fix", action="store_true")
+    ap.add_argument("--domain", action="store_true",
+                    help="also replace a contact email/website still on the old safecodeg.com domain")
     ap.add_argument("apps", nargs="*")
     args = ap.parse_args()
 
@@ -105,9 +107,11 @@ def main() -> int:
         prod_rel = (prod.get("releases") or [{}])[0]
 
         gaps = []
-        if not details.get("contactEmail"):
+        # The site moved to americangroup.ai on 2026-10-09 (scripts/domain_cutover.py).
+        old = lambda v: args.domain and "safecodeg" in (v or "").lower()
+        if not details.get("contactEmail") or old(details.get("contactEmail")):
             gaps.append("contactEmail")
-        if not details.get("contactWebsite"):
+        if not details.get("contactWebsite") or old(details.get("contactWebsite")):
             gaps.append("contactWebsite")
         if not listing.get("title"):
             gaps.append("title")

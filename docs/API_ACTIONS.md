@@ -37,6 +37,7 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | `screenshot_audit.py` | Reads every uploaded screenshot with OCR (RapidOCR in `<DIST>/ocr-venv`; macOS Vision fails here with an e5rt compile error) and fails login forms, system prompts, keyboards, onboarding, test-account/demo buttons, SAMPLE DATA banners, the iOS home screen and other apps. Writes `docs/screenshot-audit.json` |
 | `testflight/iap_readiness.rb` | Per app: billing plugin in the binary versus IAP/subscription products in App Store Connect, with state and missing metadata. Read-only by default; never submits. Writes `<DIST>/iap-readiness.json` |
 | `apple_requirements.py` | The catalogue of every requirement App Review has raised against our apps, each with the check that enforces it; folded into the submission gate. Writes `docs/apple-requirements.json` and `docs/APPLE_REQUIREMENTS.md` |
+| `domain_cutover.py` | Moves every store listing to americangroup.ai the moment the domain serves the site: merge + deploy the website branch, verify the 301 and the policy pages, then App Store Connect metadata (`deliver_metadata.py`) and Play contact details (`play_gap_audit.py --fix --domain`). `--watch` polls every 10 min |
 | `testflight/account_freeze.rb` | Makes `submit_production.rb` and `resubmit_rejected.rb` exit 4 while any app holds a Guideline 5.6 finding (MA-043) |
 | `appstore_records.rb` | Reports the app records that exist |
 | `testflight/run_batch.py` | Builds and uploads to TestFlight |
