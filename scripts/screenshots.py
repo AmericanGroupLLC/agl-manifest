@@ -49,6 +49,26 @@ def boot(udid):
                 if d["udid"] == udid and d["state"] == "Booted":
                     return
     sh("xcrun", "simctl", "boot", udid, timeout=180)
+
+
+def revive(udid):
+    """A frozen simulator still reports Booted while every simctl call against
+    it times out — on 2026-10-09 the iPhone froze at BuddyPlay and the next 17
+    apps all failed on install. Probe it; if it does not answer, restart it."""
+    try:
+        r = sh("xcrun", "simctl", "spawn", udid, "launchctl", "list", timeout=30)
+        if r.returncode == 0:
+            return False
+    except subprocess.TimeoutExpired:
+        pass
+    for cmd, t in ((("xcrun", "simctl", "shutdown", udid), 120),
+                   (("xcrun", "simctl", "boot", udid), 180),
+                   (("xcrun", "simctl", "bootstatus", udid, "-b"), 300)):
+        try:
+            sh(*cmd, timeout=t)
+        except subprocess.TimeoutExpired:
+            pass
+    return True
     sh("xcrun", "simctl", "bootstatus", udid, "-b", timeout=300)
 
 def tap(udid, x, y): sh("idb", "ui", "tap", str(int(x)), str(int(y)), "--udid", udid, timeout=30)
@@ -845,6 +865,13 @@ def main():
         else:
             try: r = capture(a, out_ios, out_android)
             except Exception as e: r = {"repo": a["repo"], "screens": {}, "error": f"{type(e).__name__}: {e}"[:300]}
+            # A timeout means a simulator stopped answering: restart it and
+            # give this app one more try instead of failing every app after it.
+            if "TimeoutExpired" in str(r.get("error")):
+                restarted = [d for d, u in DEVICES.items() if revive(u)]
+                print(f"{a['repo']}: simulator timeout — restarted {restarted or 'none'}; retrying once", flush=True)
+                try: r = capture(a, out_ios, out_android)
+                except Exception as e: r = {"repo": a["repo"], "screens": {}, "error": f"{type(e).__name__}: {e}"[:300]}
         if serial:
             try:
                 r["android"] = android_capture(a, app_dir, out_android, serial)
