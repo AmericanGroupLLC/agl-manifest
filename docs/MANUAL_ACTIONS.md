@@ -2060,3 +2060,30 @@ sales@/support@/contact@americangroup.ai.
 The first API token was pasted into a chat transcript on 2026-10-09: roll it
 (dash.cloudflare.com → My Profile → API Tokens → Roll), copy the new value and
 run `pbpaste > ~/agl/.secrets/cloudflare-token`.
+
+## MA-047 · P1 · AdMob for every app — 72 AdMob apps must be created in the AdMob UI
+
+Measured 2026-10-09. AdMob account pub-8528784688453695 holds 14 apps (8
+Android, 6 iOS) and 18 ad units (Android only). Every app needs one AdMob app
+per platform (86) with a Banner and an Interstitial each. Only 11 of 43 apps
+show ads today; 32 have no AdMob SDK.
+
+`scripts/admob_setup.py` can create all of it, but AdMob refuses both
+`apps.create` and `adUnits.create` for this account ("The caller does not
+have permission"), although the credential carries the admob.monetization
+scope — those v1beta methods are restricted by Google. Reads work.
+
+What only the account holder can do:
+
+1. Create the 72 missing AdMob apps in https://admob.google.com → Apps → Add
+   app (list with names and package/bundle ids:
+   `~/agl/.dist/admob-apps-to-create.csv`), each with a Banner and an
+   Interstitial ad unit named "<App name> Banner" / "<App name> Interstitial".
+   Or ask Google (AdMob support / account manager) to enable the AdMob API
+   write methods, after which `python3 scripts/admob_setup.py` does it all.
+2. For each app: App settings → Link to Firebase.
+3. Then run `python3 scripts/admob_setup.py --sync` (read-only) — it copies the
+   real ids into docs/admob-ids.json, and the per-app integration (agl_ads:
+   consent first, banner + capped interstitial, test ads only in debug) is
+   rolled out from there. An iOS build that includes the AdMob SDK without a
+   real app id crashes at launch, which is why the SDK is not added first.
