@@ -35,9 +35,9 @@ import urllib.request
 
 import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
-from agl_paths import ROOT, MANIFEST  # noqa: E402
+from agl_paths import ROOT, MANIFEST, DIST  # noqa: E402
 M = MANIFEST
-OUT = ROOT / ".dist/policy-urls.json"
+OUT = DIST / "policy-urls.json"   # honours AGL_DIST like every other script
 BASE = "https://www.americangroup.ai/policy"
 CONTROL = f"{BASE}/definitely-not-an-app-control/"
 

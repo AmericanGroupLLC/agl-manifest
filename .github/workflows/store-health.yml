@@ -39,9 +39,15 @@ jobs:
             echo "ASC_KEY_ID=${{ secrets.ASC_KEY_ID }}"
             echo "ASC_ISSUER_ID=${{ secrets.ASC_ISSUER_ID }}"
             echo "PLAY_SERVICE_ACCOUNT=$RUNNER_TEMP/secrets/play.json"
-            echo "AGL_DIST=$RUNNER_TEMP/dist"
           } >> "$GITHUB_ENV"
-          mkdir -p "$RUNNER_TEMP/dist"
+      - name: Website checkout next to agl-manifest (as on the laptop)
+        env:
+          TOKEN: ${{ secrets.AGL_PACKAGES_TOKEN }}
+        run: |
+          # The deletion-page check and product-page slugs read the website's
+          # files from ../americangroup.ai, exactly as on the laptop layout.
+          git clone -q --depth 1 "https://x-access-token:${TOKEN}@github.com/AmericanGroupLLC/americangroup.ai.git" ../americangroup.ai
+          mkdir -p ../.dist
       - name: Run checks
         id: health
         continue-on-error: true
