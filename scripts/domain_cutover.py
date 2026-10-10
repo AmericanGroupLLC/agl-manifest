@@ -90,7 +90,7 @@ def step(state: dict, check_only: bool) -> dict:
     ok, why = serves_site()
     state["1_serves_site"] = why
     if not ok:
-        state["next"] = "owner: point americangroup.ai's docroot at public_html in cPanel"
+        state["next"] = "deploy the site to /home2/safecode/americangroup.ai: authorise the deploy key in cPanel, then gh workflow run deploy.yml --ref domain/americangroup-ai"
         return state
     subprocess.run(["git", "-C", str(SITE), "fetch", "-q", "origin"])
     if not merged():
