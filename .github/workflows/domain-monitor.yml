@@ -1,0 +1,41 @@
+name: Domain monitor (americangroup.ai)
+
+# Every 30 minutes: the website, the redirects that store listings depend on,
+# policy pages, app-ads.txt, webmail/cPanel services, mail ports + MX/SPF/DKIM/
+# DMARC, certificate expiry, and the Supabase backend (scripts/monitor_domains.py).
+# One issue is opened on failure, its body kept current, and closed when green.
+on:
+  schedule:
+    - cron: "*/30 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run checks
+        id: mon
+        continue-on-error: true
+        run: python3 scripts/monitor_domains.py --markdown
+      - name: Open, update or close the monitor issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+          OUTCOME: ${{ steps.mon.outcome }}
+        run: |
+          TITLE="Domain monitor: americangroup.ai checks failing"
+          NUM=$(gh issue list --state open --limit 50 --json number,title -q ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+          RUN="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          if [ "$OUTCOME" = "failure" ]; then
+            printf 'Last checked by %s at %s UTC.\n\n' "$RUN" "$(date -u '+%Y-%m-%d %H:%M')" > body.md
+            cat domain-health.md >> body.md
+            if [ -n "$NUM" ]; then gh issue edit "$NUM" --body-file body.md; else gh issue create --title "$TITLE" --body-file body.md; fi
+            exit 1
+          elif [ -n "$NUM" ]; then
+            gh issue close "$NUM" --comment "All checks pass again ($RUN)."
+          fi

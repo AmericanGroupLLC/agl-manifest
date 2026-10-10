@@ -1,0 +1,192 @@
+{
+ "checked_at": "2026-10-10T05:56:26Z",
+ "fail": 0,
+ "rows": [
+  {
+   "group": "website",
+   "check": "https://www.americangroup.ai/",
+   "state": "PASS",
+   "detail": "HTTP 200"
+  },
+  {
+   "group": "website",
+   "check": "https://americangroup.ai/ -> www",
+   "state": "PASS",
+   "detail": "HTTP 301 -> https://www.americangroup.ai/"
+  },
+  {
+   "group": "website",
+   "check": "https://safecodeg.com/ -> www",
+   "state": "PASS",
+   "detail": "HTTP 301 -> https://www.americangroup.ai/"
+  },
+  {
+   "group": "website",
+   "check": "https://www.safecodeg.com/policy/kinnav/privacy.html -> www",
+   "state": "PASS",
+   "detail": "HTTP 301 -> https://www.americangroup.ai/policy/kinnav/privacy.html"
+  },
+  {
+   "group": "policy",
+   "check": "/policy/kinnav/privacy.html",
+   "state": "PASS",
+   "detail": "HTTP 200"
+  },
+  {
+   "group": "policy",
+   "check": "/policy/calcmaster/support.html",
+   "state": "PASS",
+   "detail": "HTTP 200"
+  },
+  {
+   "group": "policy",
+   "check": "/policy/virtuband/delete-account.html",
+   "state": "PASS",
+   "detail": "HTTP 200"
+  },
+  {
+   "group": "ads",
+   "check": "app-ads.txt",
+   "state": "PASS",
+   "detail": "HTTP 200"
+  },
+  {
+   "group": "cpanel",
+   "check": "webmail.americangroup.ai",
+   "state": "PASS",
+   "detail": "HTTP 200"
+  },
+  {
+   "group": "cpanel",
+   "check": "cpanel.americangroup.ai",
+   "state": "PASS",
+   "detail": "HTTP 200"
+  },
+  {
+   "group": "cpanel",
+   "check": "webdisk.americangroup.ai",
+   "state": "PASS",
+   "detail": "HTTP 401"
+  },
+  {
+   "group": "cpanel",
+   "check": "cpcalendars.americangroup.ai",
+   "state": "PASS",
+   "detail": "HTTP 401"
+  },
+  {
+   "group": "cpanel",
+   "check": "cpcontacts.americangroup.ai",
+   "state": "PASS",
+   "detail": "HTTP 401"
+  },
+  {
+   "group": "cpanel",
+   "check": "autodiscover.americangroup.ai",
+   "state": "PASS",
+   "detail": "HTTP 400"
+  },
+  {
+   "group": "cpanel",
+   "check": "autoconfig.americangroup.ai",
+   "state": "PASS",
+   "detail": "HTTP 200"
+  },
+  {
+   "group": "mail",
+   "check": "mail.americangroup.ai:465 SMTPS",
+   "state": "SKIP",
+   "detail": "outbound :465 blocked here"
+  },
+  {
+   "group": "mail",
+   "check": "mail.americangroup.ai:587 Submission",
+   "state": "SKIP",
+   "detail": "outbound :587 blocked here"
+  },
+  {
+   "group": "mail",
+   "check": "mail.americangroup.ai:993 IMAPS",
+   "state": "SKIP",
+   "detail": "outbound :993 blocked here"
+  },
+  {
+   "group": "mail",
+   "check": "mail.americangroup.ai:995 POP3S",
+   "state": "SKIP",
+   "detail": "outbound :995 blocked here"
+  },
+  {
+   "group": "mail",
+   "check": "MX",
+   "state": "PASS",
+   "detail": "10 americangroup.ai., 0 mail.americangroup.ai."
+  },
+  {
+   "group": "mail",
+   "check": "SPF",
+   "state": "PASS",
+   "detail": "v=spf1 a mx include:websitewelcome.com ~all"
+  },
+  {
+   "group": "mail",
+   "check": "DKIM",
+   "state": "PASS",
+   "detail": "present"
+  },
+  {
+   "group": "mail",
+   "check": "DMARC",
+   "state": "PASS",
+   "detail": "v=DMARC1; p=none"
+  },
+  {
+   "group": "tls",
+   "check": "www.americangroup.ai",
+   "state": "SKIP",
+   "detail": "outbound :443 blocked here"
+  },
+  {
+   "group": "tls",
+   "check": "americangroup.ai",
+   "state": "SKIP",
+   "detail": "outbound :443 blocked here"
+  },
+  {
+   "group": "tls",
+   "check": "webmail.americangroup.ai",
+   "state": "SKIP",
+   "detail": "outbound :443 blocked here"
+  },
+  {
+   "group": "tls",
+   "check": "cpanel.americangroup.ai",
+   "state": "SKIP",
+   "detail": "outbound :443 blocked here"
+  },
+  {
+   "group": "cpanel",
+   "check": "FTP ftp.americangroup.ai:21",
+   "state": "SKIP",
+   "detail": "outbound blocked here"
+  },
+  {
+   "group": "cpanel",
+   "check": "SSH ssh.americangroup.ai:22",
+   "state": "SKIP",
+   "detail": "outbound blocked here"
+  },
+  {
+   "group": "cpanel",
+   "check": "WHM whm.americangroup.ai:2087",
+   "state": "SKIP",
+   "detail": "outbound blocked here"
+  },
+  {
+   "group": "backend",
+   "check": "Supabase auth health",
+   "state": "PASS",
+   "detail": "HTTP 401"
+  }
+ ]
+}

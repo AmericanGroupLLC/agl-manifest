@@ -34,3 +34,4 @@ __pycache__/
 # source. They are rewritten on every invocation and name this machine.
 firebase-debug.log
 supabase/.temp/
+domain-health.md
