@@ -42,6 +42,21 @@ CONSOLE_ONLY = ["content rating (IARC)", "data safety", "target audience",
 
 
 def token() -> str:
+    """A Play API token. With a service-account key file (on a runner the
+    workflow writes it to $PLAY_SERVICE_ACCOUNT; on the laptop it is under
+    .secrets/) use it directly — a runner has no gcloud, which made the CI
+    store-health check die with FileNotFoundError. Otherwise impersonate."""
+    from agl_paths import play_key
+    key = play_key()
+    if key.exists():
+        script = ('require "googleauth"; '
+                  f'c=Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: File.open("{key}"), '
+                  'scope: "https://www.googleapis.com/auth/androidpublisher"); '
+                  'print c.fetch_access_token!["access_token"]')
+        r = subprocess.run(["bundle", "exec", "ruby", "-e", script], cwd=str(MANIFEST),
+                           capture_output=True, text=True, timeout=300)
+        if r.stdout.strip():
+            return r.stdout.strip()
     r = subprocess.run(
         [GCLOUD, "auth", "print-access-token", f"--impersonate-service-account={SA}",
          "--scopes=https://www.googleapis.com/auth/androidpublisher"],
