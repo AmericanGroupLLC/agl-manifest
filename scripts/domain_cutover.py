@@ -81,7 +81,7 @@ def merged() -> bool:
     archive/domain-americangroup-ai), so check main's .htaccess instead."""
     r = subprocess.run(["git", "-C", str(SITE), "show", "origin/main:.htaccess"],
                        capture_output=True, text=True)
-    return "Canonical host: americangroup.ai" in r.stdout
+    return re.search(r"Canonical host: (www\.)?americangroup\.ai", r.stdout) is not None
 
 
 def run(cmd, timeout=7200):
