@@ -2044,3 +2044,19 @@ What only the account holder can do:
 3. After the cutover reports done: Play Console → each app → Policy → App
    content → Privacy policy → https://americangroup.ai/policy/<slug>/ (no API;
    the old URL keeps working through the 301 meanwhile).
+
+## MA-046 · Switch americangroup.ai's nameservers to Cloudflare (optional, ready)
+
+The Cloudflare zone (`343f908aebb2c1b2fa41be67d7f4119a`, Free plan) holds every
+record HostGator serves, and `scripts/cloudflare_dns.py` has made it safe:
+the website proxied, mail/FTP/SSH/cPanel DNS-only, both MX on
+mail.americangroup.ai, SSL Full (strict), Always Use HTTPS. Status: pending.
+
+To activate: at the domain's registrar replace hgns1/hgns2.hostgator.com with
+**gordon.ns.cloudflare.com** and **ryleigh.ns.cloudflare.com**. Then run
+`python3 scripts/cloudflare_dns.py` (expects no changes) and send a test mail to
+sales@/support@/contact@americangroup.ai.
+
+The first API token was pasted into a chat transcript on 2026-10-09: roll it
+(dash.cloudflare.com → My Profile → API Tokens → Roll), copy the new value and
+run `pbpaste > ~/agl/.secrets/cloudflare-token`.
