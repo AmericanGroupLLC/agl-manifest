@@ -72,7 +72,7 @@ def policy_live(host: str) -> tuple[bool, str]:
 
 def redirects() -> tuple[bool, str]:
     code, redir, _ = fetch(f"https://safecodeg.com{PROBE}", follow=False)
-    return (code == "301" and redir.startswith("https://americangroup.ai/")), f"{code} -> {redir}"
+    return (code == "301" and redir.startswith("https://www.americangroup.ai/")), f"{code} -> {redir}"
 
 
 def merged() -> bool:
@@ -113,7 +113,7 @@ def step(state: dict, check_only: bool) -> dict:
         return state
     state["2_merge"] = "merged"
     ok3, why3 = redirects()
-    okp, whyp = policy_live("americangroup.ai")
+    okp, whyp = policy_live("www.americangroup.ai")
     state["3_redirect"], state["3_policy"] = why3, whyp
     # safecodeg.com redirects only once public_html carries the new .htaccess;
     # a push deploys americangroup.ai alone, so ask for the both-folders run
