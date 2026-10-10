@@ -54,7 +54,7 @@ with ThreadPoolExecutor(max_workers=8) as ex:
 # The site root legitimately IS the homepage, so it hashes the same as the
 # catch-all. Flagging it would be a false positive, not a finding.
 ROOTS = {"https://www.americangroup.ai", "https://www.americangroup.ai/",
-         "https://americangroup.ai", "https://americangroup.ai/"}
+         "https://www.americangroup.ai", "https://www.americangroup.ai/"}
 
 bad = []
 for url, (is_ca, n) in zip(urls, res):

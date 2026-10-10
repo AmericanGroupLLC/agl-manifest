@@ -58,7 +58,7 @@ def fetch(url: str, follow=True) -> tuple[str, str, str]:
 
 
 def serves_site() -> tuple[bool, str]:
-    code, _, body = fetch("https://americangroup.ai/")
+    code, _, body = fetch("https://www.americangroup.ai/")
     m = re.search(r"<title>([^<]*)</title>", body, re.I)
     title = m.group(1) if m else ""
     return (code == "200" and TITLE in title), f"{code} '{title[:60]}'"
