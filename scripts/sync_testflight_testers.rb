@@ -24,6 +24,7 @@ require "json"
 require "net/http"
 require "spaceship"
 
+require "fileutils"
 require_relative "agl_paths"
 ROOT = AglPaths::ROOT
 DRY = ARGV.include?("--dry-run")
@@ -175,7 +176,10 @@ apps.each do |a|
   failed.each { |f| puts "      #{f}" }
 end
 
-File.write("#{ROOT}/.sweep/testflight-tester-sync.json", JSON.pretty_generate(results))
+# <DIST>, not ~/agl/.sweep: .sweep exists only on the old laptop layout, and
+# writing there crashed the CI job after every app had already synced.
+FileUtils.mkdir_p(AglPaths::DIST)
+File.write(File.join(AglPaths::DIST, "testflight-tester-sync.json"), JSON.pretty_generate(results))
 counts = results.group_by { |r| r[:state] }.transform_values(&:size)
 puts "\n#{counts.map { |k, v| "#{k}=#{v}" }.join('  ')}"
 puts "testers added this run: #{added_total}" unless DRY
