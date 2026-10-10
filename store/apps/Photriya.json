@@ -11,15 +11,15 @@
    "promotional_text": "New: AI Playground \u2014 transform any photo into stunning artwork with 10 styles and 8 moods. Try it free!",
    "release_notes": "\u2022 Introducing Photriya \u2014 completely rebuilt from the ground up\n\u2022 New AI Playground: analyze photos and generate stunning imaginations\n\u2022 10 artistic styles: Watercolor, Oil Painting, Anime, Cinematic, Neon Noir, and more\n\u2022 8 moods: Serene, Dramatic, Ethereal, Romantic, Energetic, and more\n\u2022 Real-time camera color detection with HEX, RGB, HSL, CMYK\n\u2022 Color harmony generator with 5 harmony types\n\u2022 Stunning dark glassmorphism UI with fluid animations\n\u2022 10-language support\n\u2022 Performance improvements and bug fixes",
    "changelog": "\u2022 Introducing Photriya \u2014 completely rebuilt from the ground up\n\u2022 New AI Playground: analyze photos and generate stunning imaginations\n\u2022 10 artistic styles and 8 moods for imagination generation\n\u2022 Real-time camera color detection with HEX, RGB, HSL, CMYK\n\u2022 Color harmony generator with 5 harmony types\n\u2022 Stunning dark glassmorphism UI with fluid animations\n\u2022 10-language support\n\u2022 Performance improvements and bug fixes",
-   "support_url": "https://www.safecodeg.com/policy/photriya/support.html",
-   "privacy_url": "https://www.safecodeg.com/policy/photriya/",
-   "marketing_url": "https://www.safecodeg.com"
+   "support_url": "https://www.americangroup.ai/policy/photriya/support.html",
+   "privacy_url": "https://www.americangroup.ai/policy/photriya/",
+   "marketing_url": "https://www.americangroup.ai"
   }
  },
  "review_information": {
   "first_name": "App",
   "last_name": "Reviewer",
-  "email_address": "contact@safecodeg.com",
+  "email_address": "contact@americangroup.ai",
   "phone_number": "+1 669 388 1960",
   "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nPhotriya \u2014 the most beautiful color capture and AI imagination app.\n\nIntended audience:\nCapture & imagine colours\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nThe app opens on a sign-in screen. An account is optional; the main features can be reached without signing in.\n\n5. EXTERNAL SERVICES USED\n- Firebase (Google) \u2014 app initialisation\n- Firebase Authentication (Google) \u2014 sign-in\n- Supabase \u2014 account and data storage\n- Google Sign-In \u2014 authentication\n- Sign in with Apple \u2014 authentication\n- Apple In-App Purchase \u2014 paid features\n- device location services (on-device)\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nAccount deletion is available in the app under Settings, and on the support site.",
   "demo_account_name": "qa@safecodeg.com",

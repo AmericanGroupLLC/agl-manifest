@@ -55,7 +55,7 @@ listings, testers, tracks`. Nothing here can be scripted:
 - Ads declaration
 - App access / reviewer sign-in
 - Data safety, including the **account deletion URL** — see MA-029, the value to
-  use is `https://www.safecodeg.com/policy/<slug>/delete-account.html`
+  use is `https://www.americangroup.ai/policy/<slug>/delete-account.html`
 - Government, financial and health declarations
 - Countries and territories, and the production rollout itself
 

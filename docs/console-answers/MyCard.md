@@ -25,7 +25,7 @@ Appeals to children: **No**.
 **This app does not collect or share any user data.**
 
 Encrypted in transit: **Yes**. Users can request deletion: **Yes** —
-https://www.safecodeg.com/policy/mycard/delete-account.html
+https://www.americangroup.ai/policy/mycard/delete-account.html
 
 ## After the forms
 The production release is already staged as a draft with a signed bundle.

@@ -93,7 +93,7 @@ def review_attrs(meta, defaults)
   attrs = {
     contactFirstName: ri["first_name"] || defaults["review_contact_first"] || "App",
     contactLastName: ri["last_name"] || defaults["review_contact_last"] || "Support",
-    contactEmail: ri["email_address"] || defaults["support_email"] || "contact@safecodeg.com",
+    contactEmail: ri["email_address"] || defaults["support_email"] || "contact@americangroup.ai",
     contactPhone: ri["phone_number"] || defaults["support_phone"] || "+1 669 388 1960",
     demoAccountRequired: false,
   }
@@ -212,7 +212,7 @@ manifest.each do |a|
       gaps << "name(#{nm})" if nm.to_s.strip != want_name.strip
       if FIX
         attrs = {}
-        attrs["privacyPolicyUrl"] = "https://www.safecodeg.com/policy/#{slug}/privacy.html" if pp.to_s.empty?
+        attrs["privacyPolicyUrl"] = "https://www.americangroup.ai/policy/#{slug}/privacy.html" if pp.to_s.empty?
         attrs["name"] = want_name if nm.to_s.strip != want_name.strip
         attrs["subtitle"] = en["subtitle"][0, 30] if en["subtitle"] && loc.dig("attributes", "subtitle").to_s.empty?
         # One PATCH per attribute. Combined, a single rejected field takes the
@@ -260,7 +260,7 @@ manifest.each do |a|
         attrs["description"] = (en["description"] || "")[0, 3990] if at["description"].to_s.empty? && en["description"]
         attrs["keywords"]    = (en["keywords"] || "")[0, 100]     if at["keywords"].to_s.empty? && en["keywords"]
         if at["supportUrl"].to_s.empty?
-          attrs["supportUrl"] = (defaults["support_url_template"] || "https://www.safecodeg.com/policy/{slug}/support.html")
+          attrs["supportUrl"] = (defaults["support_url_template"] || "https://www.americangroup.ai/policy/{slug}/support.html")
                                 .gsub("{slug}", slug)
         end
         if attrs.any?

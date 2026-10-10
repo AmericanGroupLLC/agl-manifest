@@ -3,15 +3,14 @@
   "311.dc.gov": "ok",
   "311api.cityofchicago.org": "ok",
   "9to5mac.com": "ok",
-  "agoda.com": "ok",
   "air-quality-api.open-meteo.com": "ok",
-  "amazon.com": "ok",
   "americangroupllc.com": "ok",
   "api-to-find-grocery-prices.p.rapidapi.com": "ok",
+  "api.adsbdb.com": "ok",
   "api.americangroupllc.com": "NXDOMAIN",
   "api.anthropic.com": "ok",
   "api.aviationapi.com": "unverified: no address record",
-  "api.codedeal.com": "PARKED",
+  "api.bls.gov": "ok",
   "api.coingecko.com": "ok",
   "api.dailymotion.com": "ok",
   "api.duckduckgo.com": "ok",
@@ -20,7 +19,7 @@
   "api.foursquare.com": "ok",
   "api.frankfurter.dev": "ok",
   "api.kroger.com": "ok",
-  "api.myhealth.app": "unverified: no address record",
+  "api.mymemory.translated.net": "ok",
   "api.nal.usda.gov": "ok",
   "api.nyc.gov": "ok",
   "api.open-elevation.com": "ok",
@@ -32,7 +31,7 @@
   "api.openrouteservice.org": "ok",
   "api.pexels.com": "ok",
   "api.rainviewer.com": "ok",
-  "api.safecodeg.com": "NXDOMAIN",
+  "api.americangroup.ai": "NXDOMAIN",
   "api.spoonacular.com": "ok",
   "api.verba.americangroupllc.com": "NXDOMAIN",
   "api.veryfi.com": "ok",
@@ -41,24 +40,16 @@
   "api.yelp.com": "ok",
   "app.posthog.com": "ok",
   "apps.apple.com": "ok",
-  "autozone.com": "ok",
   "aviationweather.gov": "ok",
   "aviationweek.com": "ok",
-  "booking.com": "ok",
   "booking.tp.st": "ok",
   "bus.tp.st": "ok",
-  "buy.itunes.apple.com": "ok",
-  "careem.com": "ok",
-  "carrefour.com": "ok",
   "cars.tp.st": "ok",
   "ceac.state.gov": "ok",
-  "codedeal.com": "ok",
   "cointelegraph.com": "ok",
   "connect.garmin.com": "ok",
   "connect.instacart.com": "ok",
   "console.cloud.google.com": "ok",
-  "coupang.com": "ok",
-  "cvs.com": "ok",
   "d.liveatc.net": "ok",
   "davidmegginson.github.io": "ok",
   "de1.api.radio-browser.info": "ok",
@@ -74,9 +65,7 @@
   "developer.nrel.gov": "unverified: no address record",
   "developer.nutritionix.com": "ok",
   "developers.google.com": "ok",
-  "didi.com": "ok",
   "docs.developer.yelp.com": "ok",
-  "doordash.com": "ok",
   "doordash.pxf.io": "ok",
   "duckduckgo.com": "ok",
   "dynonavionics.com": "ok",
@@ -99,41 +88,29 @@
   "flag.dol.gov": "ok",
   "flightaware.com": "ok",
   "foreflight.com": "ok",
+  "fred.stlouisfed.org": "ok",
   "geocoding-api.open-meteo.com": "ok",
   "github.com": "ok",
-  "gojek.com": "ok",
-  "grab.com": "ok",
-  "grocerymatch.app": "NXDOMAIN",
   "grubhub.pxf.io": "ok",
   "hacker-news.firebaseio.com": "ok",
   "health.gov": "ok",
-  "hellofresh.com": "ok",
   "huggingface.co": "ok",
   "i94.cbp.dhs.gov": "ok",
-  "ifood.com.br": "ok",
-  "iherb.com": "ok",
   "infiniteflight.com": "ok",
   "ipapi.co": "ok",
   "kinnav.com": "ok",
-  "libretranslate.com": "ok",
-  "libretranslate.de": "ok",
-  "lidl.com": "ok",
   "location.foursquare.com": "ok",
   "maps.apple.com": "ok",
   "maps.google.com": "ok",
   "maps.googleapis.com": "ok",
-  "marketwatch.com": "ok",
-  "marriott.com": "ok",
   "mayors24.cityofboston.gov": "ok",
-  "mcdonalds.com": "ok",
   "medxpress.faa.gov": "ok",
   "meet.jit.si": "ok",
-  "mercadolibre.com": "ok",
   "mobile311.sfgov.org": "ok",
   "news.google.com": "ok",
   "news.ycombinator.com": "ok",
   "nominatim.openstreetmap.org": "ok",
-  "olacabs.com": "ok",
+  "npiregistry.cms.hhs.gov": "ok",
   "openfoodfacts.github.io": "ok",
   "openmhz.com": "ok",
   "opensky-network.org": "ok",
@@ -145,24 +122,19 @@
   "play.google.com": "ok",
   "preply.com": "ok",
   "pub.dev": "ok",
-  "rakuten.com": "ok",
+  "query1.finance.yahoo.com": "ok",
   "rapidapi.com": "ok",
   "registry.faa.gov": "ok",
   "rotatepilot.com": "ok",
   "router.project-osrm.org": "ok",
   "rss.dw.com": "ok",
   "rss.politico.com": "ok",
-  "sandbox.itunes.apple.com": "ok",
   "server.arcgisonline.com": "ok",
-  "shell.com": "ok",
   "skyvector.com": "ok",
   "smvvjivvlprjhzhoizym.supabase.co": "ok",
   "spoonacular.com": "ok",
-  "starbucks.com": "ok",
   "techcrunch.com": "ok",
-  "tesco.com": "ok",
   "thehill.com": "ok",
-  "thrivemarket.com": "ok",
   "ticketmaster.tp.st": "ok",
   "tile.openstreetmap.org": "ok",
   "tile.opentopomap.org": "ok",
@@ -170,7 +142,6 @@
   "timesofindia.indiatimes.com": "ok",
   "trackapi.nutritionix.com": "ok",
   "transfer.tp.st": "ok",
-  "translate.terraprint.co": "ok",
   "travel.state.gov": "ok",
   "travel.tp.st": "ok",
   "ubereats.pxf.io": "ok",
@@ -197,7 +168,6 @@
   "www.bing.com": "ok",
   "www.bolt.eu": "ok",
   "www.booking.com": "ok",
-  "www.broadcastify.com": "ok",
   "www.calahealth.com": "ok",
   "www.cbp.gov": "ok",
   "www.channelnewsasia.com": "ok",
@@ -252,7 +222,7 @@
   "www.purplecarrot.com": "ok",
   "www.rodsandcones.com": "ok",
   "www.roguefitness.com": "ok",
-  "www.safecodeg.com": "ok",
+  "www.americangroup.ai": "ok",
   "www.samsung.com": "ok",
   "www.sciencedaily.com": "ok",
   "www.signos.com": "ok",
@@ -301,11 +271,11 @@
    "dead": {},
    "unverified": {},
    "comment_only": [
-    "api.safecodeg.com"
+    "api.americangroup.ai"
    ]
   },
   "AGRecorder": {
-   "hosts": 1,
+   "hosts": 0,
    "dead": {},
    "unverified": {},
    "comment_only": []
@@ -315,7 +285,8 @@
    "dead": {},
    "unverified": {},
    "comment_only": [
-    "agstudio.app"
+    "agstudio.app",
+    "image.pollinations.ai"
    ]
   },
   "ApexMarketWatch": {
@@ -343,7 +314,7 @@
   "CalcMaster": {
    "hosts": 7,
    "dead": {
-    "api.safecodeg.com": [
+    "api.americangroup.ai": [
      "lib/services/api_client.dart:17"
     ]
    },
@@ -373,13 +344,8 @@
    "comment_only": []
   },
   "CodeDeal": {
-   "hosts": 3,
-   "dead": {
-    "api.codedeal.com": [
-     "lib/core/network/trpc_client.dart:9",
-     "lib/features/home/home_page.dart:80"
-    ]
-   },
+   "hosts": 2,
+   "dead": {},
    "unverified": {},
    "comment_only": []
   },
@@ -389,7 +355,6 @@
    "unverified": {},
    "comment_only": [
     "coingecko.com",
-    "finance.yahoo.com",
     "open-meteo.com"
    ]
   },
@@ -437,9 +402,6 @@
     "api.walmart.io": [
      "lib/core/config/api_config.dart:68"
     ],
-    "grocerymatch.app": [
-     "lib/features/family_mode/family_mode_screen.dart:438"
-    ],
     "developer.instacart.com": [
      "lib/services/integrations/integration_registry.dart:166"
     ]
@@ -456,25 +418,24 @@
    "comment_only": []
   },
   "HomeWise": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "iMaps": {
-   "hosts": 51,
+   "hosts": 25,
    "dead": {
     "api.americangroupllc.com": [
      "lib/services/analytics_service.dart:18",
-     "lib/services/incident_service.dart:35",
-     "lib/services/purchase_service.dart:26"
+     "lib/services/incident_service.dart:35"
     ]
    },
    "unverified": {
     "developer.nrel.gov": {
      "why": "unverified: no address record",
      "sites": [
-      "lib/services/navigation_data_service.dart:664"
+      "lib/services/navigation_data_service.dart:671"
      ]
     }
    },
@@ -528,14 +489,7 @@
      "lib/config/app_config.dart:41"
     ]
    },
-   "unverified": {
-    "api.myhealth.app": {
-     "why": "unverified: no address record",
-     "sites": [
-      "lib/data/more_data.dart:193"
-     ]
-    }
-   },
+   "unverified": {},
    "comment_only": [
     "operations.osmfoundation.org"
    ]
@@ -557,8 +511,8 @@
   "NexusTransferPay": {
    "hosts": 4,
    "dead": {
-    "api.safecodeg.com": [
-     "lib/core/api_service.dart:25"
+    "api.americangroup.ai": [
+     "lib/core/api_service.dart:26"
     ]
    },
    "unverified": {},
@@ -571,7 +525,7 @@
    "comment_only": []
   },
   "PilotEnRoute": {
-   "hosts": 56,
+   "hosts": 57,
    "dead": {
     "api.americangroupllc.com": [
      "lib/config/backend_config.dart:14"
@@ -652,7 +606,7 @@
    ]
   },
   "Verba": {
-   "hosts": 13,
+   "hosts": 9,
    "dead": {
     "api.verba.americangroupllc.com": [
      "lib/app_env.dart:27"
@@ -661,8 +615,6 @@
    "unverified": {},
    "comment_only": [
     "admob.google.com",
-    "androidpublisher.googleapis.com",
-    "api.yourserver.com",
     "console.firebase.google.com"
    ]
   },
@@ -672,7 +624,6 @@
    "unverified": {},
    "comment_only": [
     "api.openai.com",
-    "api.virtuband.app",
     "virtuband.app"
    ]
   },

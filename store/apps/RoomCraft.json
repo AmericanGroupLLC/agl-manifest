@@ -14,7 +14,7 @@
  "review_information": {
   "first_name": "App",
   "last_name": "Reviewer",
-  "email_address": "contact@safecodeg.com",
+  "email_address": "contact@americangroup.ai",
   "phone_number": "+1 669 388 1960",
   "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nRoomCraft turns a room's size and purpose into concrete layout advice.\n\nIntended audience:\nRoom layout, worked out\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Firebase (Google) \u2014 app initialisation\n- Firebase Crashlytics (Google) \u2014 crash reporting\n- OpenStreetMap Overpass API (overpass-api.de) \u2014 shops near the coordinates the user enters on the Sourcing tab\n- OpenStreetMap Nominatim (nominatim.openstreetmap.org) \u2014 place name for those coordinates\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry. The Sourcing tab shows shop data from OpenStreetMap under the Open Database License, with attribution in the app. All other content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
  },

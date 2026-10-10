@@ -22,7 +22,7 @@ def get(url):
     r = subprocess.run(["curl","-sL","--max-time","45",url], capture_output=True, timeout=90)
     return (HOME_TITLE in r.stdout), len(r.stdout), r.stdout[:4000].decode("utf8","ignore")
 
-assert get("https://www.safecodeg.com/ThisPathCannotExist999888")[0]
+assert get("https://www.americangroup.ai/ThisPathCannotExist999888")[0]
 
 # The local site checkout is the source of truth for which slugs exist.
 policy_dir = ROOT / "americangroup.ai/client/public/policy"
@@ -48,7 +48,7 @@ rows = []
 def check(a):
     repo = a["repo"]; s = slug_for(repo)
     if not s: return {"repo":repo,"slug":None,"state":"NO_SLUG"}
-    url = f"https://www.safecodeg.com/policy/{s}/delete-account.html"
+    url = f"https://www.americangroup.ai/policy/{s}/delete-account.html"
     is_ca,n,body = get(url)
     ok = not is_ca
     return {"repo":repo,"slug":s,"url":url,"state":"REAL" if ok else "CATCH_ALL","bytes":n,

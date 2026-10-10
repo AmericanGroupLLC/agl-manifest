@@ -4,7 +4,7 @@
     python3 scripts/verify_policy_urls.py            # -> ~/agl/.dist/policy-urls.json
     python3 scripts/verify_policy_urls.py CalcMaster
 
-**A 200 is not evidence.** www.safecodeg.com is a single-page app and answers
+**A 200 is not evidence.** www.americangroup.ai is a single-page app and answers
 every unmatched path with its own index, so a policy URL for an app that does
 not exist returns 200 with ~369 KB of SPA shell. An earlier sweep recorded 131
 URLs as passing while none of the pages was actually published.
@@ -38,7 +38,7 @@ _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from agl_paths import ROOT, MANIFEST  # noqa: E402
 M = MANIFEST
 OUT = ROOT / ".dist/policy-urls.json"
-BASE = "https://www.safecodeg.com/policy"
+BASE = "https://www.americangroup.ai/policy"
 CONTROL = f"{BASE}/definitely-not-an-app-control/"
 
 TITLE = re.compile(r"<title>([^<]*)</title>", re.I)

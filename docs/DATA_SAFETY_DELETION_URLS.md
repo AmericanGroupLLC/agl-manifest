@@ -34,7 +34,7 @@ slugs are not the lowercased repo name:
 | daily-pulse | `dailypulse` |
 | Uscis-Case | `uscis-case-tracker` |
 
-`https://www.safecodeg.com/policy/imaps/delete-account.html` — lowercase —
+`https://www.americangroup.ai/policy/imaps/delete-account.html` — lowercase —
 returns HTTP 200 and 369,371 bytes, which is the marketing single-page app, not
 a deletion page. The correct URL returns 11,364 bytes. Every check here
 therefore compares byte length against a nonsense control path; a 200 on this

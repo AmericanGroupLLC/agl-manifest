@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Find every safecodeg.com URL the apps reference, and prove which are real.
+"""Find every americangroup.ai URL the apps reference, and prove which are real.
 
 The host serves an SPA catch-all: any unknown path returns HTTP 200 with the
 marketing homepage. So a 200 means nothing. The only reliable test is to fetch
@@ -27,7 +27,7 @@ def fetch(url):
                        capture_output=True, timeout=90)
     return (HOME_TITLE in r.stdout), len(r.stdout)
 
-assert fetch("https://www.safecodeg.com/ThisPathCannotExist999888")[0], "catch-all probe failed"
+assert fetch("https://www.americangroup.ai/ThisPathCannotExist999888")[0], "catch-all probe failed"
 print("catch-all identified by homepage <title>\n")
 
 apps = json.loads((MANIFEST / "apps.json").read_text())["apps"]
@@ -47,14 +47,14 @@ for a in apps:
                 pass
 
 urls = sorted(found)
-print(f"distinct safecodeg.com URLs referenced by apps: {len(urls)}")
+print(f"distinct americangroup.ai URLs referenced by apps: {len(urls)}")
 with ThreadPoolExecutor(max_workers=8) as ex:
     res = list(ex.map(fetch, urls))
 
 # The site root legitimately IS the homepage, so it hashes the same as the
 # catch-all. Flagging it would be a false positive, not a finding.
-ROOTS = {"https://www.safecodeg.com", "https://www.safecodeg.com/",
-         "https://safecodeg.com", "https://safecodeg.com/"}
+ROOTS = {"https://www.americangroup.ai", "https://www.americangroup.ai/",
+         "https://americangroup.ai", "https://americangroup.ai/"}
 
 bad = []
 for url, (is_ca, n) in zip(urls, res):

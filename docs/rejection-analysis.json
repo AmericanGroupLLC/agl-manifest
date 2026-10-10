@@ -188,7 +188,7 @@
   "play": "LIVE_PRODUCTION",
   "scene_lifecycle": true,
   "dead_hosts": [
-   "api.safecodeg.com"
+   "api.americangroup.ai"
   ],
   "gate_failures": [
    "Every API host the app calls exists",
@@ -196,7 +196,7 @@
   ],
   "automatable": [
    "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.safecodeg.com",
+   "calls hosts that do not exist: api.americangroup.ai",
    "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [
@@ -722,14 +722,14 @@
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [
-   "api.safecodeg.com"
+   "api.americangroup.ai"
   ],
   "gate_failures": [
    "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
   "automatable": [
-   "calls hosts that do not exist: api.safecodeg.com",
+   "calls hosts that do not exist: api.americangroup.ai",
    "extend the drafted reply from 5 to Apple's 9 questions"
   ],
   "needs_a_person": [

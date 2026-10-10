@@ -96,7 +96,7 @@ target audience, ads and app access are console-only. So per app:
    Export the CSV template from any app here and hand it over; the rest can then
    be generated for all 43 and uploaded through `applications.dataSafety`.
 2. **App content → Content rating** — the IARC questionnaire. No API exists.
-   Contact email: `contact@safecodeg.com`.
+   Contact email: `contact@americangroup.ai`.
 3. **App content → Target audience and content**
 4. **App content → Ads** — 11 apps serve ads. `status.csv` column *Contains Ads*
    is measured from whether the binary actually links google_mobile_ads, so trust

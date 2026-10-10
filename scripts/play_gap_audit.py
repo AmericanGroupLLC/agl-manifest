@@ -123,9 +123,9 @@ def main() -> int:
         if args.fix and gaps:
             patch = {}
             if "contactEmail" in gaps:
-                patch["contactEmail"] = defaults.get("support_email", "contact@safecodeg.com")
+                patch["contactEmail"] = defaults.get("support_email", "contact@americangroup.ai")
             if "contactWebsite" in gaps:
-                patch["contactWebsite"] = defaults.get("marketing_url", "https://www.safecodeg.com")
+                patch["contactWebsite"] = defaults.get("marketing_url", "https://www.americangroup.ai")
             if patch:
                 patch["defaultLanguage"] = details.get("defaultLanguage", "en-US")
                 s, _ = call(tok, "PATCH", f"{API}/{pkg}/edits/{eid}/details", patch)

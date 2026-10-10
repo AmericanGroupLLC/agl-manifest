@@ -190,7 +190,7 @@ def main() -> int:
         if up.exists():
             uploaded = {l.split("|")[0] for l in up.read_text().splitlines()
                         if "|UPLOADED" in l}
-    # A 200 is not evidence. www.safecodeg.com serves its SPA for every
+    # A 200 is not evidence. www.americangroup.ai serves its SPA for every
     # unmatched path, so a policy URL for an app that does not exist returned
     # byte-identical content to a real one - 131 URLs "passed" while none of
     # the pages was actually published. The evidence file must therefore record
@@ -282,7 +282,7 @@ def main() -> int:
             # existed and went away (feeds.reuters.com, retired radio-browser
             # mirrors), so it needs a live replacement, not Supabase.
             def hint(h, v):
-                ours = h.endswith(("americangroupllc.com", "safecodeg.com")) or \
+                ours = h.endswith(("americangroupllc.com", "americangroup.ai")) or \
                     h in FIRST_PARTY
                 return (f"{h} ({v[0]}) - ours, never deployed: move to Supabase"
                         if ours else f"{h} ({v[0]}) - third-party host is gone: replace it")

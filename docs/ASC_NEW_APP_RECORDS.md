@@ -71,8 +71,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.aeroswift`  ·  **SKU** `aeroswift-001`  ·  **Version** 1.0.0
 * **Subtitle** (24/30) — Flight and airport board
 * **Category** — Travel
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/aeroswift/  _(live (2982 B))_
-* **Support URL** — https://www.safecodeg.com/policy/aeroswift/support.html  _(live (1640 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/aeroswift/  _(live (2982 B))_
+* **Support URL** — https://www.americangroup.ai/policy/aeroswift/support.html  _(live (1640 B))_
 * **Keywords** (85/100) — `flight,tracker,airport,arrivals,departures,aviation,opensky,callsign,aircraft,flights`
 * Description, promotional text and release notes are in
   `AeroSwift/fastlane/metadata/en-US/`, and screenshots in
@@ -83,8 +83,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.bodyquest`  ·  **SKU** `bodyquest-001`  ·  **Version** 1.1.0
 * **Subtitle** (28/30) — Wellness, learned by playing
 * **Category** — Health & Fitness
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/bodyquest/  _(live (3509 B))_
-* **Support URL** — https://www.safecodeg.com/policy/bodyquest/support.html  _(live (2524 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/bodyquest/  _(live (3509 B))_
+* **Support URL** — https://www.americangroup.ai/policy/bodyquest/support.html  _(live (2524 B))_
 * **Keywords** (96/100) — `health,wellness,education,game,fitness,diet,nutrition,workout,breathing,mindfulness,learn,habits`
 * Description, promotional text and release notes are in
   `BodyQuest/fastlane/metadata/en-US/`, and screenshots in
@@ -95,8 +95,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.dailypulse`  ·  **SKU** `dailypulse-001`  ·  **Version** 1.0.0
 * **Subtitle** (28/30) — News, weather, air & markets
 * **Category** — Lifestyle
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/dailypulse/  _(live (3860 B))_
-* **Support URL** — https://www.safecodeg.com/policy/dailypulse/support.html  _(live (2347 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/dailypulse/  _(live (3860 B))_
+* **Support URL** — https://www.americangroup.ai/policy/dailypulse/support.html  _(live (2347 B))_
 * **Keywords** (94/100) — `news,briefing,morning,weather,air quality,stocks,markets,good news,world news,crypto,headlines`
 * Description, promotional text and release notes are in
   `daily-pulse/fastlane/metadata/en-US/`, and screenshots in
@@ -107,8 +107,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.fashionfactory`  ·  **SKU** `fashionfactory-001`  ·  **Version** 2.2.0
 * **Subtitle** (27/30) — Compare prices, track drops
 * **Category** — Lifestyle
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/fashionfactory/  _(live (3375 B))_
-* **Support URL** — https://www.safecodeg.com/policy/fashionfactory/support.html  _(live (2456 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/fashionfactory/  _(live (3375 B))_
+* **Support URL** — https://www.americangroup.ai/policy/fashionfactory/support.html  _(live (2456 B))_
 * **Keywords** (96/100) — `deals,price comparison,shopping,fashion,shoes,bags,perfume,watches,tech,discount,sale,price drop`
 * Description, promotional text and release notes are in
   `FashionFactory/fastlane/metadata/en-US/`, and screenshots in
@@ -119,8 +119,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.gadgetnest`  ·  **SKU** `gadgetnest-001`  ·  **Version** 1.0.0
 * **Subtitle** (27/30) — Compare tech before you buy
 * **Category** — Shopping
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/gadgetnest/  _(live (2988 B))_
-* **Support URL** — https://www.safecodeg.com/policy/gadgetnest/support.html  _(live (1650 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/gadgetnest/  _(live (2988 B))_
+* **Support URL** — https://www.americangroup.ai/policy/gadgetnest/support.html  _(live (1650 B))_
 * **Keywords** (81/100) — `tech deals,compare,price history,laptop,phone,gpu,specs,gadgets,shopping,pc build`
 * Description, promotional text and release notes are in
   `GadgetNest/fastlane/metadata/en-US/`, and screenshots in
@@ -131,8 +131,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.grocerymatch`  ·  **SKU** `grocerymatch-001`  ·  **Version** 2.1.0
 * **Subtitle** (29/30) — Compare grocery & meal prices
 * **Category** — Shopping
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/grocerymatch/  _(live (3864 B))_
-* **Support URL** — https://www.safecodeg.com/policy/grocerymatch/support.html  _(live (2420 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/grocerymatch/  _(live (3864 B))_
+* **Support URL** — https://www.americangroup.ai/policy/grocerymatch/support.html  _(live (2420 B))_
 * **Keywords** (90/100) — `grocery,price comparison,shopping list,coupons,walmart,kroger,target,aldi,doordash,savings`
 * Description, promotional text and release notes are in
   `GroceryMatch/fastlane/metadata/en-US/`, and screenshots in
@@ -143,8 +143,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.herjourney`  ·  **SKU** `herjourney-001`  ·  **Version** 1.2.0
 * **Subtitle** (27/30) — Cycle, pregnancy, menopause
 * **Category** — Health & Fitness
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/herjourney/  _(live (5045 B))_
-* **Support URL** — https://www.safecodeg.com/policy/herjourney/support.html  _(live (3212 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/herjourney/  _(live (5045 B))_
+* **Support URL** — https://www.americangroup.ai/policy/herjourney/support.html  _(live (3212 B))_
 * **Keywords** (95/100) — `cycle,period,tracker,ovulation,fertility,pregnancy,due date,menopause,women,health,symptoms,log`
 * Description, promotional text and release notes are in
   `HerJourney/fastlane/metadata/en-US/`, and screenshots in
@@ -155,8 +155,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.imeasure`  ·  **SKU** `imeasure-001`  ·  **Version** 5.0.1
 * **Subtitle** (28/30) — Ruler, level, compass & more
 * **Category** — Utilities
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/iMeasure/  _(live (8871 B))_
-* **Support URL** — https://www.safecodeg.com/policy/iMeasure/support.html  _(live (2364 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/iMeasure/  _(live (8871 B))_
+* **Support URL** — https://www.americangroup.ai/policy/iMeasure/support.html  _(live (2364 B))_
 * **Keywords** (97/100) — `ruler,level,compass,protractor,measure,converter,barometer,altimeter,pedometer,bubble,angle,tools`
 * Description, promotional text and release notes are in
   `iMeasure/fastlane/metadata/en-US/`, and screenshots in
@@ -167,8 +167,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.myhealth`  ·  **SKU** `myhealth-001`  ·  **Version** 1.0.0
 * **Subtitle** (29/30) — Activity, diet, sleep, vitals
 * **Category** — Health & Fitness
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/myhealth/  _(live (3741 B))_
-* **Support URL** — https://www.safecodeg.com/policy/myhealth/support.html  _(live (2607 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/myhealth/  _(live (3741 B))_
+* **Support URL** — https://www.americangroup.ai/policy/myhealth/support.html  _(live (2607 B))_
 * **Keywords** (91/100) — `health,fitness,tracker,activity,diet,nutrition,sleep,vitals,medicine,workout,running,hiking`
 * Description, promotional text and release notes are in
   `MyHealth/fastlane/metadata/en-US/`, and screenshots in
@@ -179,8 +179,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.plantpulse`  ·  **SKU** `plantpulse-001`  ·  **Version** 1.0.0
 * **Subtitle** (23/30) — Remote for your own hub
 * **Category** — Utilities
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/plantpulse/  _(live (2932 B))_
-* **Support URL** — https://www.safecodeg.com/policy/plantpulse/support.html  _(live (1657 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/plantpulse/  _(live (2932 B))_
+* **Support URL** — https://www.americangroup.ai/policy/plantpulse/support.html  _(live (1657 B))_
 * **Keywords** (79/100) — `remote,smart home,tv remote,lights,gamepad,hub,controller,local,home automation`
 * Description, promotional text and release notes are in
   `PlantPulse/fastlane/metadata/en-US/`, and screenshots in
@@ -191,8 +191,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.portfolioboard`  ·  **SKU** `portfolioboard-001`  ·  **Version** 1.0.0
 * **Subtitle** (28/30) — Offline spec and stage board
 * **Category** — Productivity
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/portfolio-board/  _(live (3430 B))_
-* **Support URL** — https://www.safecodeg.com/policy/portfolio-board/support.html  _(live (1680 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/portfolio-board/  _(live (3430 B))_
+* **Support URL** — https://www.americangroup.ai/policy/portfolio-board/support.html  _(live (1680 B))_
 * **Keywords** (92/100) — `portfolio,roadmap,specs,pipeline,stage,tracker,product,board,offline,startup,research,search`
 * Description, promotional text and release notes are in
   `portfolio-board/fastlane/metadata/en-US/`, and screenshots in
@@ -203,8 +203,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.radiotune`  ·  **SKU** `radiotune-001`  ·  **Version** 2.0.1
 * **Subtitle** (26/30) — 50,000+ stations worldwide
 * **Category** — Music
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/radiotune/  _(live (8157 B))_
-* **Support URL** — https://www.safecodeg.com/policy/radiotune/support.html  _(live (2514 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/radiotune/  _(live (8157 B))_
+* **Support URL** — https://www.americangroup.ai/policy/radiotune/support.html  _(live (2514 B))_
 * **Keywords** (81/100) — `radio,live radio,fm,am,stations,tuner,music,news,talk,streaming,world,sleep timer`
 * Description, promotional text and release notes are in
   `radiotune/fastlane/metadata/en-US/`, and screenshots in
@@ -215,8 +215,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.verba`  ·  **SKU** `verba-001`  ·  **Version** 1.0.0
 * **Subtitle** (23/30) — Translate, talk & learn
 * **Category** — Education
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/verba/  _(live (3673 B))_
-* **Support URL** — https://www.safecodeg.com/policy/verba/support.html  _(live (2464 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/verba/  _(live (3673 B))_
+* **Support URL** — https://www.americangroup.ai/policy/verba/support.html  _(live (2464 B))_
 * **Keywords** (92/100) — `translate,translator,voice,speech,language,learn,phrasebook,flashcards,conversation,practice`
 * Description, promotional text and release notes are in
   `Verba/fastlane/metadata/en-US/`, and screenshots in
@@ -227,8 +227,8 @@ serves the marketing homepage for any unknown path.
 * **Bundle ID** `com.americangroupllc.yourtube`  ·  **SKU** `yourtube-001`  ·  **Version** 1.0.2
 * **Subtitle** (27/30) — Stock video, worth watching
 * **Category** — Entertainment
-* **Privacy Policy URL** — https://www.safecodeg.com/policy/yourtube/  _(live (3929 B))_
-* **Support URL** — https://www.safecodeg.com/policy/yourtube/support.html  _(live (1947 B))_
+* **Privacy Policy URL** — https://www.americangroup.ai/policy/yourtube/  _(live (3929 B))_
+* **Support URL** — https://www.americangroup.ai/policy/yourtube/support.html  _(live (1947 B))_
 * **Keywords** (79/100) — `video,watch,stock video,shorts,streaming,player,trending,for you,tv,watch later`
 * Description, promotional text and release notes are in
   `yourtube/fastlane/metadata/en-US/`, and screenshots in

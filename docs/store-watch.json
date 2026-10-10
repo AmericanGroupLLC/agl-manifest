@@ -1,8 +1,8 @@
 {
- "ran": "2026-10-08T22:59:50",
+ "ran": "2026-10-09T15:32:01",
  "apple": {
-  "PREPARE_FOR_SUBMISSION": 1,
-  "REJECTED": 42
+  "REJECTED": 42,
+  "PREPARE_FOR_SUBMISSION": 1
  },
  "play": {},
  "holds": {
@@ -50,8 +50,11 @@
   "VirtuBand": "5.6"
  },
  "actions": [
-  "new holds: AGCleaner, AGRecorder, AGStudio, ApexMarketWatch, BuddyPlay, CarDeal, ChefCount, FashionFactory, HomeWise, MileMaster, NearServe, NewsBoard, RideZap, RoomCraft, TripNest, VirtuBand",
-  "auth config: production redirect is a LOCAL address (MA-042)"
+  "website: app pages are out of date with store state \u2014 run scripts/website_apps.py and deploy www.americangroup.ai",
+  "auth config: production redirect is a LOCAL address (MA-042)",
+  "store metadata: ok",
+  "review notes: ok",
+  "age ratings: ok"
  ],
  "auth_config": [
   "site_url (default email redirect): http://localhost:3000   <-- LOCAL ADDRESS: every auth email lands on localhost",
@@ -162,11 +165,11 @@
    "4.3 differentiation statement"
   ],
   "CodeDeal": [
-   "Every API host the app calls exists",
+   "Demo account when the app gates on sign-in",
    "4.3 differentiation statement"
   ],
   "DriftDate": [
-   "iOS purpose strings for linked APIs",
+   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "EventSpark": [
@@ -182,7 +185,6 @@
   ],
   "GroceryMatch": [
    "Every API host the app calls exists",
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "HerJourney": [
@@ -193,6 +195,7 @@
   ],
   "Kinnav": [
    "Every API host the app calls exists",
+   "Screenshots show the app, not a login screen",
    "4.3 differentiation statement"
   ],
   "MileMaster": [
@@ -220,7 +223,6 @@
    "4.3 differentiation statement"
   ],
   "Photriya": [
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "PilotEnRoute": [
@@ -249,14 +251,13 @@
    "4.3 differentiation statement"
   ],
   "VirtuBand": [
-   "Binary has every purpose string Apple requires (ITMS-90683)",
+   "Play short description (<=80)",
    "4.3 differentiation statement"
   ],
   "WiFiTrail": [
    "4.3 differentiation statement"
   ],
   "daily-pulse": [
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "iMaps": [
@@ -264,7 +265,6 @@
    "4.3 differentiation statement"
   ],
   "iMeasure": [
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "portfolio-board": [

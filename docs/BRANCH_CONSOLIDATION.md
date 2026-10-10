@@ -32,7 +32,7 @@ default in that same pass. Every branch removed was either `identical`,
 | Repo | Extra branch | Why it is still there |
 | --- | --- | --- |
 | Kinnav | `deploy` | cPanel builds the live marketing site from it. Contains `.cpanel.yml`, `.htaccess` and a built site, with no common ancestor with `master`. Deleting it takes the site down |
-| www.safecodeg.com | `deploy` | Same arrangement for the main website |
+| www.americangroup.ai | `deploy` | Same arrangement for the main website |
 | AmericanGroupLLC-Backend | `match-certificates` | An orphan branch that self-documents as `fastlane match` storage — "do not merge into dev or main". Currently holds only its README. Unused, because provisioning profiles now come from the App Store Connect API (`scripts/ios_profile_map.rb`), but it is deliberate structure and relates to the unresolved iOS signing certificate. **Decision needed** — it is safe to delete if match is not going to be used |
 
 ### Default branch names are not consistent
@@ -59,7 +59,7 @@ deleted once the remote confirmed it was contained.
 
 ## Deliberately left alone
 
-### `deploy` branches — Kinnav, www.safecodeg.com
+### `deploy` branches — Kinnav, www.americangroup.ai
 
 These are **not stale**. They are build output with `.cpanel.yml`, committed as
 "Build website from &lt;sha&gt;", and cPanel deploys the live site from them.
@@ -67,7 +67,7 @@ They have unrelated histories to `main` by design. Merging or deleting them
 would break deployment.
 
 > Consequence worth knowing: the policy pages merged into
-> `www.safecodeg.com/main` are **not live** until the site is rebuilt and
+> `www.americangroup.ai/main` are **not live** until the site is rebuilt and
 > pushed to its `deploy` branch.
 
 ### `match-certificates` — AmericanGroupLLC-Backend
@@ -93,7 +93,7 @@ twelve are now settled:
 | HomeWise | `chore/store-details` | Salvaged — see below |
 | daily-pulse | `local-master-2026-09-06` | Salvaged — see below |
 | yourtube | `agl/ai-docs-logo`, `local-master-2026-09-06` | Salvaged — see below |
-| Kinnav, www.safecodeg.com | `deploy` | Kept — cPanel deploys from them |
+| Kinnav, www.americangroup.ai | `deploy` | Kept — cPanel deploys from them |
 | AmericanGroupLLC-Backend | `main` vs `dev` | Still open — a project decision |
 
 ### The four salvages
@@ -135,7 +135,7 @@ Until that is answered this repo keeps both.
 ## Note on the count
 
 The org has 44 repos: **42 mobile apps**, one backend
-(`AmericanGroupLLC-Backend`) and one website (`www.safecodeg.com`).
+(`AmericanGroupLLC-Backend`) and one website (`www.americangroup.ai`).
 
 An earlier revision counted 41 by treating `PlantPulse` as non-mobile. That was
 wrong — PlantPulse is a plant-health monitoring app. It currently exists only as

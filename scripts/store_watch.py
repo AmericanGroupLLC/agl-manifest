@@ -174,7 +174,7 @@ def main() -> int:
     if ws.returncode != 0:
         report["actions"].append(
             "website: app pages are out of date with store state — run "
-            "scripts/website_apps.py and deploy www.safecodeg.com")
+            "scripts/website_apps.py and deploy www.americangroup.ai")
     if ac.returncode != 0:
         report["actions"].append(
             "auth config: production redirect is a LOCAL address (MA-042)")

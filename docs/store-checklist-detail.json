@@ -31,6 +31,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned AeroSwift.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -78,7 +83,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "991 chars"
+   "detail": "883 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -216,6 +221,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned AGCleaner.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -405,6 +415,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned AGrammarly.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -589,12 +604,17 @@
   {
    "check": "Every API host the app calls exists",
    "state": "PASS",
-   "detail": "1 host(s), all resolve"
+   "detail": "0 host(s), all resolve"
   },
   {
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "FAIL",
+   "detail": "NSCameraUsageDescription (binary references AVCaptureDevice), NSLocationAlwaysAndWhenInUseUsageDescription (binary references requestAlwaysAuthorization)"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -644,17 +664,17 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "607 chars"
+   "detail": "387 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "67 chars"
+   "detail": "54 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "79 chars"
+   "detail": "77 chars"
   },
   {
    "check": "Primary category",
@@ -782,6 +802,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "FAIL",
+   "detail": "NSPhotoLibraryUsageDescription (binary references PHPhotoLibrary)"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -971,6 +996,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned ApexMarketWatch.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -1158,6 +1188,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned BodyQuest.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -1205,7 +1240,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1458 chars"
+   "detail": "1242 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -1348,6 +1383,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned BuddyPlay.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -1529,12 +1569,17 @@
   {
    "check": "Every API host the app calls exists",
    "state": "FAIL",
-   "detail": "api.safecodeg.com (lib/services/api_client.dart:17) - ours, never deployed: move to Supabase"
+   "detail": "api.americangroup.ai (lib/services/api_client.dart:17) - ours, never deployed: move to Supabase"
   },
   {
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned CalcMaster.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -1584,7 +1629,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "3163 chars"
+   "detail": "3171 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -1729,6 +1774,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned CarDeal.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -1776,17 +1826,17 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "781 chars"
+   "detail": "588 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "18 chars"
+   "detail": "33 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "87 chars"
+   "detail": "95 chars"
   },
   {
    "check": "Primary category",
@@ -1914,6 +1964,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned ChefCount.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -2099,13 +2154,18 @@
   },
   {
    "check": "Every API host the app calls exists",
-   "state": "FAIL",
-   "detail": "api.codedeal.com (lib/core/network/trpc_client.dart:9) - third-party host is gone: replace it"
+   "state": "PASS",
+   "detail": "2 host(s), all resolve"
   },
   {
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned CodeDeal.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -2239,8 +2299,8 @@
   },
   {
    "check": "Demo account when the app gates on sign-in",
-   "state": "PASS",
-   "detail": "no sign-in gate"
+   "state": "FAIL",
+   "detail": "sign-in wall with NO demo account"
   },
   {
    "check": "Screenshots show the app, not a login screen",
@@ -2295,6 +2355,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned daily-pulse.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -2342,7 +2407,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1448 chars"
+   "detail": "1466 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2485,6 +2550,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "FAIL",
+   "detail": "NSLocationAlwaysAndWhenInUseUsageDescription (binary references requestAlwaysAuthorization)"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -2679,6 +2749,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned EventSpark.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -2726,7 +2801,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "559 chars"
+   "detail": "521 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2866,6 +2941,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned FashionFactory.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -2913,22 +2993,22 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1238 chars"
+   "detail": "784 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "77 chars"
+   "detail": "72 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "96 chars"
+   "detail": "76 chars"
   },
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "153 chars"
+   "detail": "127 chars"
   },
   {
    "check": "Primary category",
@@ -3058,6 +3138,11 @@
    "detail": "fastlane/metadata/android/en-US/images/tenInchScreenshots/05.png (near-empty screen)"
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned GadgetNest.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -3105,17 +3190,17 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "700 chars"
+   "detail": "605 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "70 chars"
+   "detail": "52 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "81 chars"
+   "detail": "67 chars"
   },
   {
    "check": "Primary category",
@@ -3237,12 +3322,17 @@
   {
    "check": "Every API host the app calls exists",
    "state": "FAIL",
-   "detail": "api.americangroupllc.com (lib/core/auth/auth_service.dart:29) - ours, never deployed: move to Supabase; api.walmart.io (lib/core/config/api_config.dart:68) - third-party host is gone: replace it; developer.instacart.com (lib/services/integrations/integration_registry.dart:166) - third-party host is gone: replace it; grocerymatch.app (lib/features/family_mode/family_mode_screen.dart:438) - ours, never deployed: move to Supabase"
+   "detail": "api.americangroupllc.com (lib/core/auth/auth_service.dart:29) - ours, never deployed: move to Supabase; api.walmart.io (lib/core/config/api_config.dart:68) - third-party host is gone: replace it; developer.instacart.com (lib/services/integrations/integration_registry.dart:166) - third-party host is gone: replace it"
   },
   {
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned GroceryMatch.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -3292,12 +3382,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1382 chars"
+   "detail": "1249 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "78 chars"
+   "detail": "74 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -3307,7 +3397,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "163 chars"
+   "detail": "100 chars"
   },
   {
    "check": "Primary category",
@@ -3435,6 +3525,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned HerJourney.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -3621,12 +3716,17 @@
   {
    "check": "Every API host the app calls exists",
    "state": "PASS",
-   "detail": "0 host(s), all resolve"
+   "detail": "1 host(s), all resolve"
   },
   {
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned HomeWise.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -3816,6 +3916,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned iMaps.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -3863,12 +3968,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2065 chars"
+   "detail": "2208 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "78 chars"
+   "detail": "73 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -3878,7 +3983,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "151 chars"
+   "detail": "144 chars"
   },
   {
    "check": "Primary category",
@@ -4006,6 +4111,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned iMeasure.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -4200,6 +4310,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned Kinnav.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -4247,12 +4362,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1913 chars"
+   "detail": "2131 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "75 chars"
+   "detail": "77 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -4262,7 +4377,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "150 chars"
+   "detail": "157 chars"
   },
   {
    "check": "Primary category",
@@ -4341,8 +4456,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "PASS",
-   "detail": "capture walked past the sign-in gate"
+   "state": "FAIL",
+   "detail": "capture stopped at the sign-in screen"
   },
   {
    "check": "App preview video",
@@ -4390,6 +4505,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "FAIL",
+   "detail": "NSLocationAlwaysAndWhenInUseUsageDescription (binary references requestAlwaysAuthorization)"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -4584,6 +4704,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned MyCard.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -4771,6 +4896,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned MyFinance.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -4818,7 +4948,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1659 chars"
+   "detail": "1456 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4963,6 +5093,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned MyHealth.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -5010,22 +5145,22 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1763 chars"
+   "detail": "1959 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "77 chars"
+   "detail": "70 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "91 chars"
+   "detail": "83 chars"
   },
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "143 chars"
+   "detail": "136 chars"
   },
   {
    "check": "Primary category",
@@ -5155,6 +5290,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned NearServe.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -5202,7 +5342,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "609 chars"
+   "detail": "824 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5340,6 +5480,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned NewsBoard.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -5521,12 +5666,17 @@
   {
    "check": "Every API host the app calls exists",
    "state": "FAIL",
-   "detail": "api.safecodeg.com (lib/core/api_service.dart:25) - ours, never deployed: move to Supabase"
+   "detail": "api.americangroup.ai (lib/core/api_service.dart:26) - ours, never deployed: move to Supabase"
   },
   {
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned NexusTransferPay.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -5576,7 +5726,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "3256 chars"
+   "detail": "3284 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5714,6 +5864,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned Photriya.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -5908,6 +6063,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned PilotEnRoute.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -6100,6 +6260,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned PlantPulse.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -6285,6 +6450,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned portfolio-board.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -6479,6 +6649,11 @@
    "detail": "fastlane/metadata/android/en-US/images/tenInchScreenshots/04.png (near-empty screen)"
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned radiotune.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -6671,6 +6846,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned RideZap.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -6718,17 +6898,17 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "686 chars"
+   "detail": "603 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "79 chars"
+   "detail": "77 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "74 chars"
+   "detail": "64 chars"
   },
   {
    "check": "Primary category",
@@ -6856,6 +7036,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned RoomCraft.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -7043,6 +7228,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned TripNest.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -7237,6 +7427,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned Uscis-Case.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -7429,6 +7624,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned Verba.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -7476,7 +7676,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1472 chars"
+   "detail": "1357 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -7621,6 +7821,11 @@
    "detail": ""
   },
   {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned VirtuBand.ipa"
+  },
+  {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
    "state": "PASS",
    "detail": "UIApplicationSceneManifest present"
@@ -7668,12 +7873,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1242 chars"
+   "detail": "1337 chars"
   },
   {
    "check": "Play short description (<=80)",
-   "state": "PASS",
-   "detail": "77 chars"
+   "state": "FAIL",
+   "detail": "101 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -7683,7 +7888,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "152 chars"
+   "detail": "165 chars"
   },
   {
    "check": "Primary category",
@@ -7811,6 +8016,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned WiFiTrail.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
@@ -8003,6 +8213,11 @@
    "check": "No blank or near-empty store screenshots",
    "state": "PASS",
    "detail": ""
+  },
+  {
+   "check": "Binary has every purpose string Apple requires (ITMS-90683)",
+   "state": "PASS",
+   "detail": "scanned yourtube.ipa"
   },
   {
    "check": "Adopts the UIScene lifecycle (launches on iOS 27)",

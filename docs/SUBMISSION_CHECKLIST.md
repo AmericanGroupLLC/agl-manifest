@@ -78,7 +78,7 @@ submitted together.
 
 Added 2026-10-07. **18 apps** called hosts with no DNS record at all, and
 seven of those hosts were our own: `api.americangroupllc.com` (11 apps),
-`api.safecodeg.com`, `api.verba.americangroupllc.com`, `photriya.cloud`,
+`api.americangroup.ai`, `api.verba.americangroupllc.com`, `photriya.cloud`,
 `grocerymatch.app`, `uscis-case94.manus.app`, `api.ridezap.americangroupllc.com`.
 GroceryMatch's *sign-in* posted to one of them.
 

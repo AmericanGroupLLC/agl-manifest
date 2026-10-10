@@ -88,7 +88,7 @@ def page(title, app_name, slug, body, nav_extra=""):
     <article>
 {body}
     </article>
-    <footer><p>© {datetime.date.today().year} American Group LLC · <a href="https://www.safecodeg.com">safecodeg.com</a> · <a href="mailto:contact@safecodeg.com">contact@safecodeg.com</a></p></footer>
+    <footer><p>© {datetime.date.today().year} American Group LLC · <a href="https://www.americangroup.ai">americangroup.ai</a> · <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a></p></footer>
   </div>
 </body>
 </html>
@@ -104,7 +104,7 @@ def privacy(a, f, name, slug):
          f"<tr><td><strong>iOS bundle id</strong></td><td>{e(a['bundle_id'])}</td></tr>",
          f"<tr><td><strong>Android package</strong></td><td>{e(a['application_id'])}</td></tr>",
          "<tr><td><strong>Developer</strong></td><td>American Group LLC</td></tr>",
-         "<tr><td><strong>Contact</strong></td><td><a href=\"mailto:contact@safecodeg.com\">contact@safecodeg.com</a></td></tr>",
+         "<tr><td><strong>Contact</strong></td><td><a href=\"mailto:contact@americangroup.ai\">contact@americangroup.ai</a></td></tr>",
          "</tbody></table>"]
     s.append("<h3>Accounts</h3>")
     if has_account:
@@ -147,9 +147,9 @@ def privacy(a, f, name, slug):
     s.append("<p>Account data is kept until you delete your account, after which it is removed from our systems within 30 days. Anything stored only on your device is removed when you uninstall the app." if has_account
              else "<p>Data the app stores lives on your device and is removed when you uninstall the app.</p>")
     s.append("<h3>Children</h3><p>The app is not directed to children under 13 and we do not knowingly collect personal information from them.</p>")
-    s.append("<h3>Your rights</h3><p>You may ask us to access, correct or delete personal data we hold about you by emailing <a href=\"mailto:contact@safecodeg.com\">contact@safecodeg.com</a>. We answer within 30 days.</p>")
+    s.append("<h3>Your rights</h3><p>You may ask us to access, correct or delete personal data we hold about you by emailing <a href=\"mailto:contact@americangroup.ai\">contact@americangroup.ai</a>. We answer within 30 days.</p>")
     s.append("<h3>Changes</h3><p>We will post any change to this policy on this page with a new date.</p>")
-    s.append("<h3>Contact</h3><p>American Group LLC · <a href=\"https://www.safecodeg.com\">safecodeg.com</a> · <a href=\"mailto:contact@safecodeg.com\">contact@safecodeg.com</a></p>")
+    s.append("<h3>Contact</h3><p>American Group LLC · <a href=\"https://www.americangroup.ai\">americangroup.ai</a> · <a href=\"mailto:contact@americangroup.ai\">contact@americangroup.ai</a></p>")
     return "\n".join(s)
 
 def terms(a, f, name):
@@ -167,7 +167,7 @@ def terms(a, f, name):
 <h3>7. Termination</h3><p>We may suspend access for serious violations of these Terms. You may stop using the app at any time by uninstalling it.</p>
 <h3>8. Changes</h3><p>We may update these Terms; material changes are posted on this page with a new effective date.</p>
 <h3>9. Governing law</h3><p>These Terms are governed by the laws of the State of California, USA.</p>
-<h3>10. Contact</h3><p><a href="mailto:contact@safecodeg.com">contact@safecodeg.com</a></p>"""
+<h3>10. Contact</h3><p><a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a></p>"""
 
 def support(a, f, name, copy):
     e = html.escape
@@ -177,7 +177,7 @@ def support(a, f, name, copy):
     return f"""<h2>Support</h2>
 <p>{e(about)}</p>
 <p>We answer every email within one business day:</p>
-<p style="font-size:22px">📧 <a href="mailto:contact@safecodeg.com?subject={e(name)}%20support">contact@safecodeg.com</a></p>
+<p style="font-size:22px">📧 <a href="mailto:contact@americangroup.ai?subject={e(name)}%20support">contact@americangroup.ai</a></p>
 <h3>Frequent questions</h3>
 <p><strong>Which platforms are supported?</strong> {e(name)} runs on iPhone and iPad (iOS 15 or later) and on Android phones and tablets.</p>
 <p><strong>Where is my data stored?</strong> See the <a href="index.html">privacy policy</a> — it lists exactly what the app stores and where.</p>
@@ -200,14 +200,14 @@ def delete_account(a, f, name, has_account=True):
 clear it from inside the app, or through your device settings, without uninstalling.</p>
 <h3>Anything else</h3>
 <p>If you believe we hold data about you and you want it removed, email
-<a href="mailto:contact@safecodeg.com?subject=Delete%20my%20{subj}%20data">contact@safecodeg.com</a>
+<a href="mailto:contact@americangroup.ai?subject=Delete%20my%20{subj}%20data">contact@americangroup.ai</a>
 and say which app you are writing about. We answer within 30 days.</p>"""
     return f"""<h2>Delete your {e(name)} account</h2>
 <p>You can delete your account and all data linked to it at any time. Deletion is permanent.</p>
 <h3>In the app</h3>
 <ol><li>Open <strong>Settings</strong> (profile or gear icon).</li><li>Choose <strong>Delete account</strong>.</li><li>Confirm. Your account and its data are removed from our systems within 30 days.</li></ol>
 <h3>By email</h3>
-<p>If you no longer have the app installed, email <a href="mailto:contact@safecodeg.com?subject=Delete%20my%20{subj}%20account">contact@safecodeg.com</a> from the address you signed up with, or include the Sign in with Apple / Google identifier you used. We confirm deletion within 30 days.</p>
+<p>If you no longer have the app installed, email <a href="mailto:contact@americangroup.ai?subject=Delete%20my%20{subj}%20account">contact@americangroup.ai</a> from the address you signed up with, or include the Sign in with Apple / Google identifier you used. We confirm deletion within 30 days.</p>
 <h3>What is deleted</h3>
 <p>Your profile (email, display name, provider identifier) and everything the app saved to your account. Data kept only on your device is removed when you uninstall the app.</p>"""
 
@@ -258,10 +258,10 @@ items = "\n".join(f'      <li><a href="{s}/">{html.escape(n)}</a> — <a href="{
 <body>
   {MARK}
   <div class="wrap">
-    <header class="top"><a class="logo" href="https://www.safecodeg.com">American Group LLC</a><nav><a href="https://www.safecodeg.com/privacy">Company privacy</a><a href="https://www.safecodeg.com/support">Contact</a></nav></header>
+    <header class="top"><a class="logo" href="https://www.americangroup.ai">American Group LLC</a><nav><a href="https://www.americangroup.ai/privacy">Company privacy</a><a href="https://www.americangroup.ai/support">Contact</a></nav></header>
     <article>
     <h2>Privacy policy, terms and support for every app</h2>
-    <p>One page per app. Questions: <a href="mailto:contact@safecodeg.com">contact@safecodeg.com</a>.</p>
+    <p>One page per app. Questions: <a href="mailto:contact@americangroup.ai">contact@americangroup.ai</a>.</p>
     <ul>
 {items}
     </ul>

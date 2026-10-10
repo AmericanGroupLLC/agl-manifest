@@ -11,15 +11,15 @@
    "keywords": "reply,replies,suggestions,keyboard,writing,messages,texting,offline,private,phrases,emoji",
    "promotional_text": "Paste in a message and get three replies to choose from \u2014 casual, professional and short. It learns the phrases and emoji you use, all on your phone.",
    "release_notes": "First release of AGrammarly.\n\n\u2022 Three suggested replies for any message \u2014 casual, professional, short\n\u2022 Matching runs on your device, with no network and no account\n\u2022 Learns the phrases and emoji you actually use\n\u2022 A practice keyboard with the suggestion bar, and a count of keystrokes saved\n\u2022 Delete everything it has learned, in one action",
-   "support_url": "https://www.safecodeg.com/policy/agrammarly/support.html",
-   "privacy_url": "https://www.safecodeg.com/policy/agrammarly/",
-   "marketing_url": "https://www.safecodeg.com"
+   "support_url": "https://www.americangroup.ai/policy/agrammarly/support.html",
+   "privacy_url": "https://www.americangroup.ai/policy/agrammarly/",
+   "marketing_url": "https://www.americangroup.ai"
   }
  },
  "review_information": {
   "first_name": "App",
   "last_name": "Reviewer",
-  "email_address": "contact@safecodeg.com",
+  "email_address": "contact@americangroup.ai",
   "phone_number": "+1 669 388 1960",
   "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nAGrammarly suggests replies to the messages you get, and it does the whole job on your phone.\n\nIntended audience:\nOn-device reply suggestions\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
  },

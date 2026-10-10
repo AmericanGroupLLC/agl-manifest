@@ -151,7 +151,7 @@ For each: collected **Yes**, shared **No**, processed ephemerally **No**,
 collection is **required**. Purpose: *App functionality* and *Analytics*;
 add *Advertising* for the advertising row.'''}
 Encrypted in transit: **Yes**. Users can request deletion: **Yes** —
-{(a.get('deletion_url') or 'https://www.safecodeg.com/policy/' + repo.lower() + '/delete-account.html')}
+{(a.get('deletion_url') or 'https://www.americangroup.ai/policy/' + repo.lower() + '/delete-account.html')}
 
 ## After the forms
 The production release is already staged as a draft with a signed bundle.

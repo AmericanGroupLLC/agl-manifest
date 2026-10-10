@@ -11,15 +11,15 @@
    "keywords": "radio,live radio,fm,am,stations,tuner,music,news,talk,streaming,world,sleep timer",
    "promotional_text": "Browse by country, genre or what is playing near you. Save favourites, set a sleep timer, and keep listening with the screen off.",
    "release_notes": "Radio Tune 2.0.\n\n\u2022 Live radio from the Radio Browser directory \u2014 over 50,000 working stations\n\u2022 Browse by genre, search by name, or find stations near you\n\u2022 Background playback with lock-screen controls\n\u2022 Sleep timer and on-device favourites\n\u2022 New dark interface with a live audio visualiser",
-   "support_url": "https://www.safecodeg.com/policy/radiotune/support.html",
-   "privacy_url": "https://www.safecodeg.com/policy/radiotune/",
-   "marketing_url": "https://www.safecodeg.com"
+   "support_url": "https://www.americangroup.ai/policy/radiotune/support.html",
+   "privacy_url": "https://www.americangroup.ai/policy/radiotune/",
+   "marketing_url": "https://www.americangroup.ai"
   }
  },
  "review_information": {
   "first_name": "App",
   "last_name": "Reviewer",
-  "email_address": "contact@safecodeg.com",
+  "email_address": "contact@americangroup.ai",
   "phone_number": "+1 669 388 1960",
   "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nRadio Tune is a live radio player. It opens straight to the stations people are listening to right now, and everything works without an account.\n\nIntended audience:\n50,000+ stations worldwide\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nThe app opens on a sign-in screen. Test credentials are in the demo account fields of App Review Information.\n\n5. EXTERNAL SERVICES USED\n- Supabase \u2014 account and data storage\n- Google AdMob \u2014 advertising\n- Google Sign-In \u2014 authentication\n- Sign in with Apple \u2014 authentication\n- device location services (on-device)\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nAccount deletion is available in the app under Settings, and on the support site.",
   "demo_account_name": "qa@safecodeg.com",

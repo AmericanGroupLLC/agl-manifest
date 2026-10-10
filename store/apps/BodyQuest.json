@@ -10,16 +10,16 @@
    "full_description": "BodyQuest teaches wellness by letting you play with it, instead of lecturing you about it.\n\n<b>Six modules</b>\nCare - the basics of looking after yourself. Diet - how food actually works, without a calorie ledger. Workout - movement without equipment or a gym. Explore - wander the topics. Games - the learning, as play. Breathe - guided breathing for when you need the simplest thing that works.\n\n<b>How it is set up</b>\nA one-time health disclaimer on first launch, then sign-in, then a dashboard across the six modules. There is a shop with product suggestions.\n\n<b>Ads and shop links</b>\nBodyQuest is free and shows ads through Google AdMob. The Shop links out to Amazon and iHerb using affiliate tags, so a purchase may earn us a commission at no extra cost to you.\n\n<b>Education, not medical advice</b>\nBodyQuest is a health-education game. It is not a medical device, does not diagnose or treat anything, and nothing in it is medical advice - including any product shown in the Shop. Talk to a qualified clinician before changing your diet, starting an exercise programme, or taking any supplement.",
    "keywords": "health,wellness,education,game,fitness,diet,nutrition,workout,breathing,mindfulness,learn,habits",
    "promotional_text": "Six modules that teach wellness by playing rather than lecturing - care, diet, workout, explore, games and breathe. Learn the why, not just the what.",
-   "release_notes": "BodyQuest 1.1.\n\n\u2022 Six modules: Care, Diet, Workout, Explore, Games and Breathe\n\u2022 Guided breathing exercises\n\u2022 Shop with product suggestions\n\u2022 Free with ads via Google AdMob\n\nBodyQuest is health education, not medical advice, and the Shop uses affiliate links which may earn us a commission at no extra cost to you.\n\nFeedback: contact@safecodeg.com",
-   "support_url": "https://www.safecodeg.com/policy/bodyquest/support.html",
-   "privacy_url": "https://www.safecodeg.com/policy/bodyquest/",
-   "marketing_url": "https://www.safecodeg.com"
+   "release_notes": "BodyQuest 1.1.\n\n\u2022 Six modules: Care, Diet, Workout, Explore, Games and Breathe\n\u2022 Guided breathing exercises\n\u2022 Shop with product suggestions\n\u2022 Free with ads via Google AdMob\n\nBodyQuest is health education, not medical advice, and the Shop uses affiliate links which may earn us a commission at no extra cost to you.\n\nFeedback: contact@americangroup.ai",
+   "support_url": "https://www.americangroup.ai/policy/bodyquest/support.html",
+   "privacy_url": "https://www.americangroup.ai/policy/bodyquest/",
+   "marketing_url": "https://www.americangroup.ai"
   }
  },
  "review_information": {
   "first_name": "App",
   "last_name": "Reviewer",
-  "email_address": "contact@safecodeg.com",
+  "email_address": "contact@americangroup.ai",
   "phone_number": "+1 669 388 1960",
   "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nBodyQuest teaches wellness by letting you play with it, instead of lecturing you about it.\n\nIntended audience:\nWellness, learned by playing\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nThe app opens on a sign-in screen. An account is optional; the main features can be reached without signing in.\n\n5. EXTERNAL SERVICES USED\n- Supabase \u2014 account and data storage\n- Google AdMob \u2014 advertising\n- Google Sign-In \u2014 authentication\n- Sign in with Apple \u2014 authentication\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nAccount deletion is in the app: Home > gear icon (Profile Settings) > Delete account.",
   "demo_account_name": "qa@safecodeg.com",

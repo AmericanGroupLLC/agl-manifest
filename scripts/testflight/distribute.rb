@@ -44,7 +44,7 @@ SLUGS = { "TripNest" => "TripNest", "AGrammarly" => "agrammarly", "BodyQuest" =>
           "HerJourney" => "herjourney", "iMaps" => "iMaps", "iMeasure" => "iMeasure", "MyHealth" => "myhealth",
           "Photriya" => "photriya", "PilotEnRoute" => "pilotenroute", "radiotune" => "radiotune",
           "Uscis-Case" => "uscis-case-tracker", "Verba" => "verba", "VirtuBand" => "virtuband" }.freeze
-def policy_url(repo) = "https://www.safecodeg.com/policy/#{SLUGS.fetch(repo, repo.downcase)}/"
+def policy_url(repo) = "https://www.americangroup.ai/policy/#{SLUGS.fetch(repo, repo.downcase)}/"
 
 REPORT = ARGV.include?("--report")
 STATE  = ARGV.include?("--state")
@@ -124,7 +124,7 @@ end
 def ensure_metadata(app, build, repo)
   locs = Spaceship::ConnectAPI.get_beta_app_localizations(filter: { app: app.id }).to_models
   attrs = { feedbackEmail: CONTACT[:email], description: WHATS_NEW,
-            privacyPolicyUrl: policy_url(repo), marketingUrl: "https://www.safecodeg.com" }
+            privacyPolicyUrl: policy_url(repo), marketingUrl: "https://www.americangroup.ai" }
   if (loc = locs.find { |l| l.locale == "en-US" })
     Spaceship::ConnectAPI.patch_beta_app_localizations(localization_id: loc.id, attributes: attrs)
   else

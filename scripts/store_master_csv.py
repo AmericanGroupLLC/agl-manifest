@@ -288,7 +288,7 @@ def build_rows() -> list[dict]:
             "Privacy Policy URL": defaults.get("privacy_url_template", "").format(slug=slug) or NEEDS,
             # Derived from the slug, not from a local file. This used to be
             # emitted only `if del_page.exists()`, a check against a checkout of
-            # www.safecodeg.com — which CI does not have. So the housekeeping
+            # www.americangroup.ai — which CI does not have. So the housekeeping
             # job regenerated this sheet on a runner and replaced all 43 real
             # URLs with "n/a" and "NEEDS-INPUT", and Google's Data safety
             # rejection for iMaps then looked like a missing URL rather than a
@@ -296,15 +296,15 @@ def build_rows() -> list[dict]:
             # against a nonsense control path, because the site answers every
             # path with a 200.
             "Account/Data Deletion URL":
-                f"https://www.safecodeg.com/policy/{slug}/delete-account.html",
+                f"https://www.americangroup.ai/policy/{slug}/delete-account.html",
             "Website URL": defaults.get("marketing_url", NEEDS),
             "Marketing URL": defaults.get("marketing_url", NEEDS),
             "Support URL": defaults.get("support_url_template", "").format(slug=slug) or NEEDS,
             # Derived, not file-gated — same reason as the deletion URL. The
-            # check was against a checkout of www.safecodeg.com, which CI does
+            # check was against a checkout of www.americangroup.ai, which CI does
             # not have, so regenerating there wrote NEEDS-INPUT over all 43.
             "Terms of Service URL":
-                f"https://www.safecodeg.com/policy/{slug}/terms.html",
+                f"https://www.americangroup.ai/policy/{slug}/terms.html",
             "Data Retention Policy URL": (
                 defaults.get("privacy_url_template", "").format(slug=slug) or NEEDS),
             "App Icon": "1024x1024 present" if icon else NEEDS,

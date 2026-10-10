@@ -8,7 +8,7 @@ Twenty of the 288 hosts the apps call did not resolve when this was first
 run, and seven of those were *our own* backends that were never deployed:
 
     api.americangroupllc.com         7 apps, including GroceryMatch's sign-in
-    api.safecodeg.com                CalcMaster's AI chat, profile, analytics
+    api.americangroup.ai                CalcMaster's AI chat, profile, analytics
     api.verba.americangroupllc.com   api.myhealth.app   photriya.cloud
     grocerymatch.app                 uscis-case94.manus.app
 

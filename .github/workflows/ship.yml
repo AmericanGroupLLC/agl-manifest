@@ -664,7 +664,7 @@ jobs:
           # Not every org repo is an app: the manifest, the backend and the
           # website are there too.
           known_non_apps = {'agl-manifest', 'AmericanGroupLLC-Backend',
-                            'www.safecodeg.com'}
+                            'www.americangroup.ai'}
           missing = sorted(org - listed - known_non_apps)
           gone = sorted(listed - org)
           if missing:

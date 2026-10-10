@@ -11,15 +11,15 @@
    "keywords": "cycle,period,tracker,ovulation,fertility,pregnancy,due date,menopause,women,health,symptoms,log",
    "promotional_text": "One app for every stage: cycle, trying to conceive, pregnancy and menopause. Log symptoms, sync with Apple Health or Health Connect, and keep it all on your phone.",
    "release_notes": "HerJourney 1.2.\n\n\u2022 Four journeys in one app: cycle, trying to conceive, pregnancy and menopause\n\u2022 Log periods, flow, symptoms, mood and notes\n\u2022 Ovulation and due-date calculators\n\u2022 Two-way Apple Health and Health Connect sync\n\u2022 Charts for your metrics over time\n\u2022 Everything you log stays on your device",
-   "support_url": "https://www.safecodeg.com/policy/herjourney/support.html",
-   "privacy_url": "https://www.safecodeg.com/policy/herjourney/",
-   "marketing_url": "https://www.safecodeg.com"
+   "support_url": "https://www.americangroup.ai/policy/herjourney/support.html",
+   "privacy_url": "https://www.americangroup.ai/policy/herjourney/",
+   "marketing_url": "https://www.americangroup.ai"
   }
  },
  "review_information": {
   "first_name": "App",
   "last_name": "Reviewer",
-  "email_address": "contact@safecodeg.com",
+  "email_address": "contact@americangroup.ai",
   "phone_number": "+1 669 388 1960",
   "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nHerJourney is a women's health tracker that follows you through four stages of life, and keeps what you log on your own device.\n\nIntended audience:\nCycle, pregnancy, menopause\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nNo account and no login are required. Every feature is reachable from the first screen after launch.\n\n5. EXTERNAL SERVICES USED\n- Supabase \u2014 account and data storage\n- Google Sign-In \u2014 authentication\n- Sign in with Apple \u2014 authentication\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nThe app creates no account, so there is nothing to delete."
  },

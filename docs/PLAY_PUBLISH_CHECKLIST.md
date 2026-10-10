@@ -33,49 +33,49 @@ release itself are all in place, written through the API.
 
 | App | production track | API gap | deletion URL for Data safety |
 | --- | --- | --- | --- |
-| AeroSwift | draft | — | https://www.safecodeg.com/policy/aeroswift/delete-account.html |
-| AGCleaner | draft | — | https://www.safecodeg.com/policy/agcleaner/delete-account.html |
-| AGrammarly | draft | — | https://www.safecodeg.com/policy/agrammarly/delete-account.html |
-| AGRecorder | draft | — | https://www.safecodeg.com/policy/agrecorder/delete-account.html |
-| AGStudio | draft | — | https://www.safecodeg.com/policy/agstudio/delete-account.html |
-| ApexMarketWatch | draft | — | https://www.safecodeg.com/policy/apexmarketwatch/delete-account.html |
-| BodyQuest | draft | — | https://www.safecodeg.com/policy/bodyquest/delete-account.html |
-| BuddyPlay | draft | — | https://www.safecodeg.com/policy/buddyplay/delete-account.html |
-| CalcMaster | completed | — | https://www.safecodeg.com/policy/calcmaster/delete-account.html |
-| CarDeal | draft | no production release | https://www.safecodeg.com/policy/cardeal/delete-account.html |
-| ChefCount | draft | — | https://www.safecodeg.com/policy/chefcount/delete-account.html |
-| CodeDeal | draft | — | https://www.safecodeg.com/policy/codedeal/delete-account.html |
-| daily-pulse | draft | phoneScreenshots(1) | https://www.safecodeg.com/policy/dailypulse/delete-account.html |
-| DriftDate | draft | — | https://www.safecodeg.com/policy/driftdate/delete-account.html |
-| EventSpark | draft | — | https://www.safecodeg.com/policy/eventspark/delete-account.html |
-| FashionFactory | draft | — | https://www.safecodeg.com/policy/fashionfactory/delete-account.html |
-| GadgetNest | draft | — | https://www.safecodeg.com/policy/gadgetnest/delete-account.html |
-| GroceryMatch | no Play entry | — | https://www.safecodeg.com/policy/grocerymatch/delete-account.html |
-| HerJourney | draft | — | https://www.safecodeg.com/policy/herjourney/delete-account.html |
-| HomeWise | draft | — | https://www.safecodeg.com/policy/homewise/delete-account.html |
-| iMaps | completed | — | https://www.safecodeg.com/policy/iMaps/delete-account.html |
-| iMeasure | completed | — | https://www.safecodeg.com/policy/iMeasure/delete-account.html |
-| Kinnav | none | phoneScreenshots(1), no production release | https://www.safecodeg.com/policy/kinnav/delete-account.html |
-| MileMaster | draft | — | https://www.safecodeg.com/policy/milemaster/delete-account.html |
-| MyCard | draft | — | https://www.safecodeg.com/policy/mycard/delete-account.html |
-| MyFinance | draft | — | https://www.safecodeg.com/policy/myfinance/delete-account.html |
-| MyHealth | draft | — | https://www.safecodeg.com/policy/myhealth/delete-account.html |
-| NearServe | draft | — | https://www.safecodeg.com/policy/nearserve/delete-account.html |
-| NewsBoard | draft | — | https://www.safecodeg.com/policy/newsboard/delete-account.html |
-| NexusTransferPay | draft | — | https://www.safecodeg.com/policy/nexustransferpay/delete-account.html |
-| Photriya | draft | — | https://www.safecodeg.com/policy/photriya/delete-account.html |
-| PilotEnRoute | draft | — | https://www.safecodeg.com/policy/pilotenroute/delete-account.html |
-| PlantPulse | draft | — | https://www.safecodeg.com/policy/plantpulse/delete-account.html |
-| portfolio-board | draft | — | https://www.safecodeg.com/policy/portfolio-board/delete-account.html |
-| radiotune | draft | — | https://www.safecodeg.com/policy/radiotune/delete-account.html |
-| RideZap | draft | — | https://www.safecodeg.com/policy/ridezap/delete-account.html |
-| RoomCraft | draft | — | https://www.safecodeg.com/policy/roomcraft/delete-account.html |
-| TripNest | completed | — | https://www.safecodeg.com/policy/TripNest/delete-account.html |
-| Uscis-Case | completed | — | https://www.safecodeg.com/policy/uscis-case-tracker/delete-account.html |
-| Verba | draft | phoneScreenshots(1) | https://www.safecodeg.com/policy/verba/delete-account.html |
-| VirtuBand | completed | — | https://www.safecodeg.com/policy/virtuband/delete-account.html |
-| WiFiTrail | draft | — | https://www.safecodeg.com/policy/wifitrail/delete-account.html |
-| yourtube | draft | — | https://www.safecodeg.com/policy/yourtube/delete-account.html |
+| AeroSwift | draft | — | https://www.americangroup.ai/policy/aeroswift/delete-account.html |
+| AGCleaner | draft | — | https://www.americangroup.ai/policy/agcleaner/delete-account.html |
+| AGrammarly | draft | — | https://www.americangroup.ai/policy/agrammarly/delete-account.html |
+| AGRecorder | draft | — | https://www.americangroup.ai/policy/agrecorder/delete-account.html |
+| AGStudio | draft | — | https://www.americangroup.ai/policy/agstudio/delete-account.html |
+| ApexMarketWatch | draft | — | https://www.americangroup.ai/policy/apexmarketwatch/delete-account.html |
+| BodyQuest | draft | — | https://www.americangroup.ai/policy/bodyquest/delete-account.html |
+| BuddyPlay | draft | — | https://www.americangroup.ai/policy/buddyplay/delete-account.html |
+| CalcMaster | completed | — | https://www.americangroup.ai/policy/calcmaster/delete-account.html |
+| CarDeal | draft | no production release | https://www.americangroup.ai/policy/cardeal/delete-account.html |
+| ChefCount | draft | — | https://www.americangroup.ai/policy/chefcount/delete-account.html |
+| CodeDeal | draft | — | https://www.americangroup.ai/policy/codedeal/delete-account.html |
+| daily-pulse | draft | phoneScreenshots(1) | https://www.americangroup.ai/policy/dailypulse/delete-account.html |
+| DriftDate | draft | — | https://www.americangroup.ai/policy/driftdate/delete-account.html |
+| EventSpark | draft | — | https://www.americangroup.ai/policy/eventspark/delete-account.html |
+| FashionFactory | draft | — | https://www.americangroup.ai/policy/fashionfactory/delete-account.html |
+| GadgetNest | draft | — | https://www.americangroup.ai/policy/gadgetnest/delete-account.html |
+| GroceryMatch | no Play entry | — | https://www.americangroup.ai/policy/grocerymatch/delete-account.html |
+| HerJourney | draft | — | https://www.americangroup.ai/policy/herjourney/delete-account.html |
+| HomeWise | draft | — | https://www.americangroup.ai/policy/homewise/delete-account.html |
+| iMaps | completed | — | https://www.americangroup.ai/policy/iMaps/delete-account.html |
+| iMeasure | completed | — | https://www.americangroup.ai/policy/iMeasure/delete-account.html |
+| Kinnav | none | phoneScreenshots(1), no production release | https://www.americangroup.ai/policy/kinnav/delete-account.html |
+| MileMaster | draft | — | https://www.americangroup.ai/policy/milemaster/delete-account.html |
+| MyCard | draft | — | https://www.americangroup.ai/policy/mycard/delete-account.html |
+| MyFinance | draft | — | https://www.americangroup.ai/policy/myfinance/delete-account.html |
+| MyHealth | draft | — | https://www.americangroup.ai/policy/myhealth/delete-account.html |
+| NearServe | draft | — | https://www.americangroup.ai/policy/nearserve/delete-account.html |
+| NewsBoard | draft | — | https://www.americangroup.ai/policy/newsboard/delete-account.html |
+| NexusTransferPay | draft | — | https://www.americangroup.ai/policy/nexustransferpay/delete-account.html |
+| Photriya | draft | — | https://www.americangroup.ai/policy/photriya/delete-account.html |
+| PilotEnRoute | draft | — | https://www.americangroup.ai/policy/pilotenroute/delete-account.html |
+| PlantPulse | draft | — | https://www.americangroup.ai/policy/plantpulse/delete-account.html |
+| portfolio-board | draft | — | https://www.americangroup.ai/policy/portfolio-board/delete-account.html |
+| radiotune | draft | — | https://www.americangroup.ai/policy/radiotune/delete-account.html |
+| RideZap | draft | — | https://www.americangroup.ai/policy/ridezap/delete-account.html |
+| RoomCraft | draft | — | https://www.americangroup.ai/policy/roomcraft/delete-account.html |
+| TripNest | completed | — | https://www.americangroup.ai/policy/TripNest/delete-account.html |
+| Uscis-Case | completed | — | https://www.americangroup.ai/policy/uscis-case-tracker/delete-account.html |
+| Verba | draft | phoneScreenshots(1) | https://www.americangroup.ai/policy/verba/delete-account.html |
+| VirtuBand | completed | — | https://www.americangroup.ai/policy/virtuband/delete-account.html |
+| WiFiTrail | draft | — | https://www.americangroup.ai/policy/wifitrail/delete-account.html |
+| yourtube | draft | — | https://www.americangroup.ai/policy/yourtube/delete-account.html |
 
 ## The three that need something first
 

@@ -14,8 +14,8 @@ M = pathlib.Path(__file__).resolve().parents[1]
 SA = "american-group-publisher@american-group-llc.iam.gserviceaccount.com"
 GCLOUD = str(pathlib.Path.home() / "google-cloud-sdk/bin/gcloud")
 API = "https://androidpublisher.googleapis.com/androidpublisher/v3/applications"
-EMAIL = "contact@safecodeg.com"
-SITE = "https://www.safecodeg.com"
+EMAIL = "contact@americangroup.ai"
+SITE = "https://www.americangroup.ai"
 
 _tok = {"v": "", "at": 0.0}
 def token():

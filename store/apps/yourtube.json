@@ -14,7 +14,7 @@
  "review_information": {
   "first_name": "App",
   "last_name": "Reviewer",
-  "email_address": "contact@safecodeg.com",
+  "email_address": "contact@americangroup.ai",
   "phone_number": "+1 669 388 1960",
   "notes": "2. DEVICES AND OS VERSIONS TESTED\nAutomated tests run on every build: iPhone 17 Pro Max and iPad Pro 13-inch simulators on iOS 26, and a Pixel Android emulator on API 34.\nEach release is also installed and launched on those targets, so a\nbuild that cannot start never ships.\n\n3. WHAT THIS APP DOES, AND FOR WHOM\nYourTube is a clean way to watch high-quality stock video on your phone or TV.\n\nIntended audience:\nStock video, worth watching\n\n4. SETTING UP AND REACHING THE MAIN FEATURES\nThe app opens on a sign-in screen. An account is optional; the main features can be reached without signing in.\n\n5. EXTERNAL SERVICES USED\n- Supabase \u2014 account and data storage\n- Google AdMob \u2014 advertising\n- Google Sign-In \u2014 authentication\n- Sign in with Apple \u2014 authentication\n- HTTPS requests to the app's own endpoints\n\n6. REGIONAL DIFFERENCES\nThe app ships 12 languages (Arabic, Chinese (Simplified), English, French, German, Hindi, Italian, Japanese, Korean, Portuguese, Russian, Spanish). Features are identical in every region.\n\n7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL\n\nThe app is not in a regulated industry and carries no licensed third-party material. All content, artwork and copy are the developer's own.\n\n\nACCOUNT DELETION\nAccount deletion is available in the app under Settings, and on the support site.",
   "demo_account_name": "qa@safecodeg.com",
