@@ -37,8 +37,8 @@
   ]
  },
  "_blocker": {
-  "gate": "DO NOT SUBMIT THIS LISTING against a build that still uses the default configuration. The description below describes the live product; the default build shows sample/placeholder content, which makes this copy false and is a direct App Store 2.3 / Play deceptive-listing rejection. Ship the listing only once the configuration named in _blocker.requires is set at build time.",
-  "why": "video_api_service.dart:30 returns _getMockVideos() unless AppConstants.pexelsConfigured, and PEXELS_API_KEY has no default (app_constants.dart:34-39). The default build shows mock videos. Note also that the content is third-party stock footage, not user uploads \u2014 the name invites a comparison the app does not make, and Apple may read it as one.",
+  "gate": "DO NOT SUBMIT THIS LISTING until a human has checked it against a build. The default build no longer shows sample or placeholder content (the bundled sample catalogue was removed on 2026-10-09): feeds come from Dailymotion's public API, and from Pexels only when PEXELS_API_KEY is set. Without that key the Shorts tab is empty ('No shorts available'), so the description's short-form vertical video line is only true for a build with the key.",
+  "why": "video_api_service.dart now returns an empty list, never sample videos, when a source fails or has no key; Pexels is skipped when AppConstants.pexelsConfigured is false (PEXELS_API_KEY has no default, app_constants.dart). Most content is Dailymotion uploads rather than stock footage unless the Pexels key is set, so the 'stock video' wording also needs a human check. Note also that the content is third-party video, not user uploads to this app \u2014 the name invites a comparison the app does not make, and Apple may read it as one.",
   "requires": [
    "PEXELS_API_KEY at build time",
    "SUPABASE_URL + SUPABASE_ANON_KEY for sign-in",

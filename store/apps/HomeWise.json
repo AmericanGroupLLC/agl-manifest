@@ -18,7 +18,7 @@
    "copy.en.description",
    "copy.en.keywords"
   ],
-  "drawn_from": "lib/features/{affordability,payment,schedule,scenarios,assumptions}, lib/models/{affordability_inputs,affordability_result,amortization,monthly_breakdown,credit_band,scenario}.dart, UI strings 'Back-end (all debt)', 'Crossover, month $crossover'. market_data_service only activates with HOMEWISE_RATE_API_URL, so live rates are not claimed.",
+  "drawn_from": "lib/features/{affordability,payment,schedule,scenarios,assumptions}, lib/models/{affordability_inputs,affordability_result,amortization,monthly_breakdown,scenario}.dart, UI strings 'Back-end (all debt)', 'Crossover, month $crossover'. market_data_service fetches the Freddie Mac PMMS weekly average via FRED (30/15-year); no other live data is claimed.",
   "still_missing": [
    "copy.en.promotional_text",
    "copy.en.release_notes",

@@ -6,7 +6,7 @@
    "name": "iEventSpark",
    "short_description": "Event hosting & ticketing",
    "subtitle": "Find events, run events",
-   "description": "EventSpark is both sides of an event.\n\nGOING\nDiscover what is on near you or in a city you pick, filter it down, and save what you like. Buy into a tier, keep the ticket in the app, and follow the agenda for the day. Some events run a live video room you can join from the listing.\n\nHOSTING\nCreate an event, set your ticket tiers, and manage it from your phone. Check attendees in at the door, see who has arrived, and read the analytics afterwards.\n\nYOURS\nSaved events, tickets and your profile stay on your device unless you are signed in to a host account.",
+   "description": "EventSpark is both sides of an event.\n\nGOING\nLive event listings, prices and ticket checkout are coming soon. Until the ticketing partnerships are signed, the app says so plainly instead of showing sample events, organisers, agendas or prices.\n\nHOSTING\nCreate an event, set your ticket tiers, and manage it from your phone. Check attendees in at the door, see who has arrived, and read the analytics afterwards.\n\nYOURS\nSaved events, tickets and your profile stay on your device unless you are signed in to a host account.",
    "keywords": "events,tickets,nearby,conference,meetup,host,check in,agenda,local,rsvp",
    "title": "EventSpark"
   }
