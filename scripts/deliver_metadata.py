@@ -22,7 +22,11 @@ KEYJSON = ROOT / ".dist/ios-batch/asc-key.json"
 apps = json.load(open(M / "apps.json"))["apps"]
 recs = {r["bundleId"] for r in json.load(open(M / "docs/appstore-records.json"))}
 names = [x for x in sys.argv[1:] if not x.startswith("--")]
-with_shots = "--screenshots" in sys.argv
+with_shots = "--screenshots" in sys.argv or "--screenshots-only" in sys.argv
+# Screenshots without listing text: used while the text is waiting for the
+# americangroup.ai cutover (scripts/domain_cutover.py), so the text's new URLs
+# are not pushed before the domain serves the site.
+shots_only = "--screenshots-only" in sys.argv
 def blocked(repo):
     p = M / "store/apps" / f"{repo}.json"
     return p.exists() and "_blocked" in json.load(open(p))
@@ -70,6 +74,11 @@ for a in sel:
            "precheck_include_in_app_purchases:false", "ignore_language_directory_validation:true", "submit_for_review:false",
            f"app_rating_config_path:{rating}"]
     cmd += [f"screenshots_path:{shots}", "overwrite_screenshots:true", "skip_screenshots:false"] if use_shots else ["skip_screenshots:true"]
+    if shots_only:
+        if not use_shots:
+            print(f"{repo:18} skipped: no uploadable screenshots {shot_block}", flush=True)
+            continue
+        cmd += ["skip_metadata:true", "skip_app_version_update:true"]
     with open(log, "w") as fh:
         rc = subprocess.call(cmd, cwd=M / "scripts/testflight", env=env, stdout=fh, stderr=subprocess.STDOUT)
     text = log.read_text(errors="replace"); out["deliver"] = "ok" if rc == 0 else "failed"
