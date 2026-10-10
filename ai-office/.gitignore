@@ -1,0 +1,5 @@
+.env
+reports/private/
+projects/sales/leads/*.csv
+projects/support/inbox/
+*.local.*

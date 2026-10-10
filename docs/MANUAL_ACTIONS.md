@@ -2020,7 +2020,7 @@ one app deletes for all; the apps' confirmation dialogs say so. Never test
 deletion with dev@ or qa@safecodeg.com. Apps offering Sign in with Apple
 should also revoke the Apple token on deletion (Apple's guidance); not done.
 
-## MA-045 · P0 · Point americangroup.ai at the website — the rest of the domain move is automatic
+## MA-045 · DONE 2026-10-09 · americangroup.ai serves the website; stores moved to it (Play privacy-policy field still manual)
 
 Found 2026-10-09. Every repo, the store copy, the fastlane metadata and the
 website now use americangroup.ai (≈1,700 replacements across 46 repos; the

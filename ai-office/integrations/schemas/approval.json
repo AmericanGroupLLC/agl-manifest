@@ -1,0 +1,5 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"Founder approval request","type":"object",
+ "required":["decision","charter_item","action","evidence","undo"],
+ "properties":{"decision":{"type":"string"},"charter_item":{"type":"integer","minimum":1,"maximum":8},
+  "why_now":{"type":"string"},"action":{"type":"string"},"evidence":{"type":"array","items":{"type":"string"}},
+  "risks":{"type":"string"},"undo":{"type":"string"}}}

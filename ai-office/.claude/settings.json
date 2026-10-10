@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(rsync * --delete*)",
+      "Bash(rsync --delete*)",
+      "Bash(supabase config push*)",
+      "Bash(supabase db push*)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git reset --hard*)",
+      "Bash(rm -rf /*)",
+      "Bash(*submit_production.rb* --override-account-freeze*)",
+      "Bash(*resubmit_rejected.rb* --override-account-freeze*)"
+    ]
+  }
+}

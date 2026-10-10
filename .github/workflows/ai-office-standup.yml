@@ -1,0 +1,46 @@
+name: AI office — daily stand-up
+
+# Builds the stand-up from measured state (ai-office/scripts/standup.py) and
+# keeps one pinned issue current. With an ANTHROPIC_API_KEY secret, Claude also
+# triages the report and opens ai-office issues for new failures; without it
+# that step is skipped.
+on:
+  schedule:
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  standup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the stand-up
+        env:
+          GH_TOKEN: ${{ secrets.AGL_PACKAGES_TOKEN || github.token }}
+        run: python3 ai-office/scripts/standup.py
+      - name: Update the pinned stand-up issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="AI office: daily stand-up"
+          REPORT=$(ls -t ai-office/reports/*-standup.md | head -1)
+          NUM=$(gh issue list --state open --limit 100 --json number,title -q ".[] | select(.title == \"$TITLE\") | .number" | head -1)
+          if [ -n "$NUM" ]; then gh issue edit "$NUM" --body-file "$REPORT"
+          else gh issue create --title "$TITLE" --label ai-office --body-file "$REPORT"; fi
+      - name: Claude triage (only with ANTHROPIC_API_KEY)
+        if: ${{ env.HAS_KEY == 'true' }}
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          npm install -g @anthropic-ai/claude-code >/dev/null
+          cd ai-office
+          claude -p "Read the newest reports/*-standup.md. For each failing automation or gate that has no open ai-office issue, open one with the evidence and the owning role (see .claude/agents). Do not change code, stores or production. Reply with the issues you opened." \
+            --allowedTools "Read,Glob,Grep,Bash(gh issue *)"

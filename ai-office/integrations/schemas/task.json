@@ -1,0 +1,6 @@
+{"$schema":"https://json-schema.org/draft/2020-12/schema","title":"AI office task","type":"object",
+ "required":["title","owner","acceptance","status"],
+ "properties":{"title":{"type":"string"},"owner":{"type":"string","description":"role name from .claude/agents"},
+  "acceptance":{"type":"array","items":{"type":"string"}},"depends_on":{"type":"array","items":{"type":"string"}},
+  "status":{"enum":["open","in_progress","blocked","needs_founder","done"]},
+  "evidence":{"type":"array","items":{"type":"string"},"description":"commands run, outputs, links"}}}
