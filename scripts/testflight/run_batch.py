@@ -74,7 +74,12 @@ for i, a in enumerate(apps, 1):
     SHOTS = _ROOT / ".dist/screenshots_current"
     while SHOTS.exists() and SHOTS.read_text().strip() == a["repo"]:
         print(f"    screenshots.py is building {a['repo']} — waiting", flush=True); time.sleep(60)
-    LOCK = _ROOT / ".dist/ios-batch/current_app"; LOCK.write_text(a["repo"])  # screenshots.py waits while this names its app
+    LOCK = _ROOT / ".dist/ios-batch/current_app"
+    # The directory exists on the laptop but not on a fresh CI runner, where
+    # this line raised FileNotFoundError and failed every 'Upload to
+    # TestFlight' step (issue #4, found by the AI office's daily pass).
+    LOCK.parent.mkdir(parents=True, exist_ok=True)
+    LOCK.write_text(a["repo"])  # screenshots.py waits while this names its app
 
     repo = a["repo"]
     if results.get(repo, {}).get("status") == "uploaded":

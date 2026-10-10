@@ -12,6 +12,9 @@ STAMP=$(date +%Y%m%d-%H%M%S)
   cd "$M/ai-office" && claude -p "$(cat scripts/office_prompt.md)" \
     --max-turns 40 \
     --allowedTools "Read,Glob,Grep,Write(reports/**),Bash(gh issue *),Bash(gh run list *),Bash(gh run view *),Bash(gh label list *),Bash(date *),Bash(ls *),Bash(cat *)"
-  echo "=== exit $? ==="
+  echo "=== claude exit $? ==="
+  # Keep the reports in git (the stand-up issue links them).
+  cd "$M" && git add ai-office/reports && git commit -q -m "AI office daily pass $(date +%Y-%m-%d)" -- ai-office/reports \
+    && git pull -q --rebase --autostash && git push -q && echo "reports committed"
 } > "$LOGDIR/$STAMP.log" 2>&1
 ln -sf "$LOGDIR/$STAMP.log" "$LOGDIR/latest.log"

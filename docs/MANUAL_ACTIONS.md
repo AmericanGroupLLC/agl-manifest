@@ -2104,3 +2104,10 @@ The run records every migration older than 20261009 as already applied
 those older migrations was in fact never applied to production, say so before
 running — the baseline would mark it applied. From then on every new migration
 merged to dev deploys after the same approval.
+
+### MA-042 update (2026-10-10): the Site URL target is the new domain
+
+Set Supabase → Authentication → URL Configuration → **Site URL** to
+`https://www.americangroup.ai` (not safecodeg.com — the company moved to
+americangroup.ai on 2026-10-09), and keep any app deep-link redirect URLs in
+the allow-list. Check with `python3 scripts/supabase_accounts.py --audit-config`.
