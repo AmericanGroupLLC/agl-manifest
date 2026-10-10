@@ -47,6 +47,16 @@ for a in sel:
     # Never upload a set App Review would reject under 2.3.3. The same audit
     # that reads what App Store Connect holds reads what is about to replace it.
     shot_block = ""
+    # Screenshots older than the app's last code change may show a UI that no
+    # longer exists — on 2026-10-09 six apps' committed sets still showed the
+    # invented data their code had just stopped producing.
+    if use_shots:
+        newest_png = max(f.stat().st_mtime for f in shots.glob("en-US/*.png"))
+        code_ts = subprocess.run(["git", "log", "-1", "--format=%ct", "--", "lib"],
+                                 cwd=d, capture_output=True, text=True).stdout.strip()
+        if code_ts and newest_png < int(code_ts):
+            use_shots = False
+            shot_block = "screenshots not uploaded — older than the last lib/ change; recapture (scripts/screenshots.py)"
     if use_shots:
         aud = subprocess.run(["python3", str(M / "scripts/screenshot_audit.py"), "--local", repo],
                              capture_output=True, text=True)
