@@ -582,24 +582,11 @@ def drive_capture(app, app_dir, out_ios, out_android, udid):
         res["error"] = "no integration_test/test_driver pair"
         return res
 
-    raw = app_dir / "store_screenshots"
-    shutil.rmtree(raw, ignore_errors=True)
-    r = sh(FLUTTER, "drive", "--driver=test_driver/integration_test.dart",
-           f"--target=integration_test/store_screenshots_test.dart",
-           "--dart-define=SCREENSHOT=true", "-d", udid,
-           cwd=app_dir, timeout=2400)
-    shots = sorted(raw.glob("*.png")) if raw.is_dir() else []
-    if not shots:
-        res["error"] = "drive produced no screenshots: " + \
-                       (r.stderr or r.stdout).strip()[-220:]
-        return res
-
-    # Drop blank frames. A degraded simulator answers takeScreenshot with a
-    # uniform white image, and the capture counts them as successes: a 43-app
-    # run published ten apps' worth of empty screenshots, every frame
-    # byte-identical, and the count alone looked fine. Standard deviation of
-    # the greyscale is ~0 for a blank frame and >0.04 for a real screen.
+    # Every frame is checked the same way whichever device produced it.
     def blank(f):
+        # A degraded simulator answers takeScreenshot with a uniform white
+        # image; a 43-app run once published ten apps of empty frames. The
+        # greyscale standard deviation is ~0 for a blank frame, >0.04 otherwise.
         out = sh("magick", str(f), "-colorspace", "Gray", "-format",
                  "%[fx:standard_deviation]", "info:").stdout.strip()
         try:
@@ -607,47 +594,77 @@ def drive_capture(app, app_dir, out_ios, out_android, udid):
         except ValueError:
             return False
 
-    real = [s for s in shots if not blank(s)]
-    if not real:
-        res["error"] = (f"all {len(shots)} frames were blank — the simulator "
-                        "was not rendering; reboot it and retry")
-        return res
-    if len(real) < len(shots):
-        res["blank_dropped"] = len(shots) - len(real)
-    shots = real
-    shots = vet(shots, "iphone69", app["repo"], res)
-    if not shots:
-        res["error"] = "every frame failed the 2.3.3 audit: " + str(res.get("vet"))[:200]
-        return res
+    # The QA account, for apps whose script signs in. Passed as dart-defines at
+    # run time (read by String.fromEnvironment in the test), never written to
+    # the repo or to this script's output.
+    acct = _qa_account()
+    defines = ["--dart-define=SCREENSHOT=true"]
+    if acct:
+        defines += [f"--dart-define=QA_EMAIL={acct[0]}", f"--dart-define=QA_PASSWORD={acct[1]}"]
 
-    # Same rule as the idb path: never replace a published set with a
-    # smaller one, and stage before touching what is already there.
-    have = len(list(out_ios.glob("iphone69-*.png"))) if out_ios.is_dir() else 0
-    if len(shots) < max(have, 1):
-        res["error"] = f"captured {len(shots)} but {have} already published"
-        res["screens"]["iphone69"] = have
-        return res
+    staged = {}
+    for dev, dev_udid in DEVICES.items():
+        boot(dev_udid)
+        clear_alerts(dev_udid)
+        # First-launch state every time: the script walks onboarding and
+        # sign-in itself, and a leftover install would skip them on one device
+        # and not the other.
+        sh("xcrun", "simctl", "uninstall", dev_udid, app["bundle_id"], timeout=120)
+        biometrics(dev_udid)
+        raw = app_dir / "store_screenshots"
+        shutil.rmtree(raw, ignore_errors=True)
+        r = sh(FLUTTER, "drive", "--driver=test_driver/integration_test.dart",
+               "--target=integration_test/store_screenshots_test.dart", *defines,
+               "-d", dev_udid, cwd=app_dir, timeout=2400)
+        log = (r.stdout + r.stderr)
+        if acct:
+            log = log.replace(acct[1], "***")
+        shots = sorted(raw.glob("*.png")) if raw.is_dir() else []
+        if not shots:
+            res["error"] += f"{dev}: drive produced no screenshots: {log.strip()[-220:]} "
+            continue
+        real = [x for x in shots if not blank(x)]
+        if len(real) < len(shots):
+            res[f"blank_dropped_{dev}"] = len(shots) - len(real)
+        # Copy out of raw/ before the next device's run clears it.
+        keep = pathlib.Path(tempfile.mkdtemp(prefix=f"aglshots-{app['repo']}-{dev}-"))
+        real = [pathlib.Path(shutil.copy(x, keep / x.name)) for x in real]
+        real = vet(real, dev, app["repo"], res)
+        if not real:
+            res["error"] += f"{dev}: every frame failed the 2.3.3 audit: {str(res.get('vet'))[:160]} "
+            continue
+        staged[dev] = real
+    shutil.rmtree(app_dir / "store_screenshots", ignore_errors=True)
 
-    out_ios.mkdir(parents=True, exist_ok=True)
-    for old in out_ios.glob("iphone69-*.png"):
-        old.unlink()
-    for i, s in enumerate(shots, start=1):
-        shutil.copy(s, out_ios / f"iphone69-{i:02d}.png")
-
-    tgt = out_android / "phoneScreenshots"
-    tgt.mkdir(parents=True, exist_ok=True)
-    for old in tgt.glob("*.png"):
-        old.unlink()
-    for i, s in enumerate(shots, start=1):
-        # Play wants at most 2:1; the simulator frame is taller than that.
-        col = sh("magick", str(s), "-gravity", "North", "-crop", "1x1+0+0",
-                 "+repage", "-format", "%[pixel:p{0,0}]", "info:").stdout.strip() or "black"
-        sh("magick", str(s), "-background", col, "-gravity", "center",
-           "-extent", "1440x2880", str(tgt / f"{i:02d}.png"))
-
-    res["screens"]["iphone69"] = len(shots)
-    res["passed_sign_in"] = True   # the drive starts the app already signed in
+    # Same rule as the idb path: never replace a published set with a smaller
+    # one, and only touch what is published once a set has passed.
+    for dev, shots in staged.items():
+        have = len(list(out_ios.glob(f"{dev}-*.png"))) if out_ios.is_dir() else 0
+        if len(shots) < min(have, 3):
+            res["error"] += f"{dev}: captured {len(shots)} but {have} already published "
+            res["screens"][dev] = have
+            continue
+        out_ios.mkdir(parents=True, exist_ok=True)
+        for old in out_ios.glob(f"{dev}-*.png"):
+            old.unlink()
+        for i, x in enumerate(shots, start=1):
+            shutil.copy(x, out_ios / f"{dev}-{i:02d}.png")
+        # Play: phone set from the iPhone frames, ten-inch set from the iPad's,
+        # padded to Play's 2:1 limit with the frame's own top colour.
+        tgt = out_android / ("phoneScreenshots" if dev == "iphone69" else "tenInchScreenshots")
+        tgt.mkdir(parents=True, exist_ok=True)
+        for old in tgt.glob("*.png"):
+            old.unlink()
+        size = "1440x2880" if dev == "iphone69" else "2064x2752"
+        for i, x in enumerate(shots, start=1):
+            col = sh("magick", str(x), "-gravity", "North", "-crop", "1x1+0+0",
+                     "+repage", "-format", "%[pixel:p{0,0}]", "info:").stdout.strip() or "black"
+            sh("magick", str(x), "-background", col, "-gravity", "center",
+               "-extent", size, str(tgt / f"{i:02d}.png"))
+        res["screens"][dev] = len(shots)
+    res["passed_sign_in"] = bool(staged)
     res["sign_in_gate"] = None
+    res["error"] = res["error"].strip()
     return res
 
 
@@ -907,11 +924,9 @@ def main():
         t0 = time.time(); print(f"{a['repo']}: building…", flush=True)
         if "--drive" in sys.argv:
             # Drive the app under integration_test instead of poking at it
-            # with idb. See drive_capture for why.
-            ios_udid = next(iter(DEVICES.values()))
-            boot(ios_udid)
+            # with idb, on the iPhone and the iPad. See drive_capture for why.
             try:
-                r = drive_capture(a, app_dir, out_ios, out_android, ios_udid)
+                r = drive_capture(a, app_dir, out_ios, out_android, None)
             except Exception as e:
                 r = {"repo": a["repo"], "screens": {},
                      "error": f"{type(e).__name__}: {e}"[:300]}
