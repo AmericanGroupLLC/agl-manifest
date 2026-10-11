@@ -12,5 +12,19 @@
       "Bash(*submit_production.rb* --override-account-freeze*)",
       "Bash(*resubmit_rejected.rb* --override-account-freeze*)"
     ]
+  },
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3  /Users/spatchava/agl/agl-manifest/ai-office/scripts/judge.py",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
   }
 }
