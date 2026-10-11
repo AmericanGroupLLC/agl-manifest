@@ -33,6 +33,10 @@ SLUGS = {
     "Uscis-Case": "uscis-case-tracker", "Verba": "verba", "VirtuBand": "virtuband",
 }
 def slug_for(repo): return SLUGS.get(repo, repo.lower())
+def privacy_label(repo):
+    """What privacy_details.py measured for this app (crash, analytics, ...)."""
+    p = MANIFEST / "store/privacy" / f"{repo}.json"
+    return (json.loads(p.read_text()).get("_derived_from") or {}) if p.exists() else {}
 
 apps = json.load(open(MANIFEST / "apps.json"))["apps"]
 
@@ -139,7 +143,21 @@ def privacy(a, f, name, slug):
              else "<p>The app has no in-app purchases.</p>")
     if f["speech"]:
         s.append("<h3>Speech recognition</h3><p>Voice input is converted to text by the speech-recognition service of your device's operating system, which may send audio to Apple or Google for processing under their terms.</p>")
-    s.append("<h3>Analytics and crash reporting</h3><p>This release sends no analytics and no crash reports to us. If a future version enables crash reporting, this page will be updated first.</p>")
+    # From store/privacy/<repo>.json (privacy_details.py detects AglCrash /
+    # AglInsights in the app's code). This used to say "sends no analytics and
+    # no crash reports" on every page — false for the 42 apps that run
+    # Crashlytics, and a contradiction of their own App Privacy labels.
+    lab = privacy_label(a["repo"])
+    s.append("<h3>Analytics and crash reporting</h3>")
+    if lab.get("crash") or lab.get("analytics"):
+        sent = []
+        if lab.get("crash"):
+            sent.append("crash reports through Google Firebase Crashlytics (the error, the device model, operating system and app version, and a random installation identifier)")
+        if lab.get("analytics"):
+            sent.append("anonymous usage statistics and performance measurements through Google Firebase Analytics and Performance Monitoring")
+        s.append("<p>To find and fix problems, the app sends " + e("; and ".join(sent)) + ". This data is not linked to your name or account, is not used for advertising, and is processed by Google under <a href=\"https://firebase.google.com/support/privacy\">Firebase's privacy terms</a>.</p>")
+    else:
+        s.append("<p>This release sends no analytics and no crash reports to us. If a future version enables crash reporting, this page will be updated first.</p>")
     s.append("<h3>Network</h3>")
     s.append("<p>The app connects to the internet to provide its features" + (" and to your account backend" if has_account else "") + ". Connections use HTTPS.</p>" if f["network"] or has_account
              else "<p>The app declares no network permission on Android and works entirely on your device.</p>")
