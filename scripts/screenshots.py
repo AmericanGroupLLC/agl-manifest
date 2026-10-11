@@ -175,10 +175,39 @@ BYPASS = ["demo mode", "use test account", "continue as guest", "browse as guest
           "explore first", "guest mode", "try it free"]
 
 
+# First-run disclaimer and consent gates (BodyQuest "I understand this app is
+# for educational purposes ... Let's Begin", MyHealth "Accept & Continue").
+# Accepting a disclaimer is what any user does to start the app; it creates,
+# sends and buys nothing. Prefix-matched because labels carry arrows/icons.
+GATE_BUTTONS = ["accept & continue", "accept and continue", "agree & continue", "agree and continue",
+                "let\u2019s begin", "let's begin", "i understand", "i agree", "accept", "continue"]
+
+
+def pass_gate(udid) -> bool:
+    """Tick required acknowledgement boxes, then press the gate's button."""
+    els = describe(udid)
+    ticked = False
+    for e in els:
+        if e.get("type") in ("CheckBox", "Switch") and str(e.get("AXValue")) in ("0", "false") and \
+                re.search(r"(?i)understand|agree|accept|confirm|acknowledge|terms|educational|not a substitute",
+                          e.get("AXLabel") or ""):
+            tap(udid, *center(e)); time.sleep(1); ticked = True
+    els = describe(udid) if ticked else els
+    for want in GATE_BUTTONS:
+        b = next((e for e in els if e.get("type") == "Button" and e.get("enabled", True) is not False
+                  and (e.get("AXLabel") or "").strip().lower().startswith(want)), None)
+        if b:
+            tap(udid, *center(b)); time.sleep(4)
+            return True
+    return False
+
+
 def enter_app(udid, rounds=4):
-    """Walk onboarding and a login gate until the app itself is on screen."""
+    """Walk onboarding, disclaimer gates and a login gate until the app itself is on screen."""
     for _ in range(rounds):
         clear_alerts(udid)
+        while pass_gate(udid) and rounds > 0:
+            rounds -= 1
         els = describe(udid)
         cand = next((e for e in els
                      if e.get("type") in ("Button", "Cell", "Link", "StaticText")

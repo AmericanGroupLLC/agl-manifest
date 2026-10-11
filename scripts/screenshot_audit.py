@@ -53,6 +53,12 @@ SYSTEM = re.compile(r"(?i)passcode|would like to|don.t allow|allow once|allow wh
 LOGIN = re.compile(r"(?i)\b(sign ?in|log ?in|sign ?up|create (an )?account|password|"
                    r"forgot|continue with (apple|google|email)|e-?mail address)\b")
 ONBOARD = re.compile(r"(?i)\b(welcome|get ?started|let.s go|skip|onboarding|next)\b")
+# A first-run disclaimer or consent gate. Found 2026-10-11 in fresh captures:
+# BodyQuest's "Educational Purposes Only ... Let's Begin" and MyHealth's "Your
+# privacy comes first ... Accept & Continue" passed as app screens because they
+# carry well over 30 words. The call to action is what gives them away.
+GATE = re.compile(r"(?i)accept\s*(&|and)\s*continue|agree\s*(&|and)\s*continue|let.s begin|"
+                  r"i understand (this|that)|before you continue|by continuing,? you agree")
 ERROR = re.compile(r"(?i)something went wrong|failed to load|no internet|you.re offline|"
                    r"connection (failed|error)|exception|error loading|try again later")
 EMPTY = re.compile(r"(?i)nothing (here|saved|yet)|no (items|data|results|entries)( yet)?\b|"
@@ -147,6 +153,8 @@ def classify(lines: list[str] | None, sd: float | None, repo: str = "") -> tuple
         return "login", LOGIN.search(text).group(0)
     if len(words) <= 3:
         return "onboarding", f"only {len(words)} word(s) — splash or title art"
+    if GATE.search(text) and len(words) < 160:
+        return "onboarding", f"disclaimer/consent gate ({GATE.search(text).group(0)})"
     if ONBOARD.search(text) and len(words) < 30:
         return "onboarding", ONBOARD.search(text).group(0)
     if EMPTY.search(text) and len(words) < 30:
