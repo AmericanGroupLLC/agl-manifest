@@ -10,6 +10,8 @@
     "att_prompt": false,
     "health": false,
     "iap": false,
-    "date": "2026-09-14"
+    "crash": false,
+    "analytics": false,
+    "date": "2026-10-11"
   }
 }

@@ -1,7 +1,13 @@
 {
   "data_protections": [
     {
-      "data_type": "DATA_NOT_COLLECTED"
+      "data_type": "CRASH_DATA",
+      "protections": [
+        "DATA_NOT_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
     }
   ],
   "_derived_from": {
@@ -10,6 +16,8 @@
     "att_prompt": false,
     "health": false,
     "iap": false,
-    "date": "2026-09-14"
+    "crash": true,
+    "analytics": false,
+    "date": "2026-10-11"
   }
 }

@@ -30,7 +30,6 @@
     {
       "data_type": "DEVICE_ID",
       "protections": [
-        "DATA_USED_TO_TRACK_YOU",
         "DATA_NOT_LINKED_TO_YOU"
       ],
       "purposes": [
@@ -40,7 +39,6 @@
     {
       "data_type": "ADVERTISING_DATA",
       "protections": [
-        "DATA_USED_TO_TRACK_YOU",
         "DATA_NOT_LINKED_TO_YOU"
       ],
       "purposes": [
@@ -48,9 +46,27 @@
       ]
     },
     {
-      "data_type": "PURCHASE_HISTORY",
+      "data_type": "CRASH_DATA",
       "protections": [
-        "DATA_LINKED_TO_YOU"
+        "DATA_NOT_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "APP_FUNCTIONALITY"
+      ]
+    },
+    {
+      "data_type": "PRODUCT_INTERACTION",
+      "protections": [
+        "DATA_NOT_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "ANALYTICS"
+      ]
+    },
+    {
+      "data_type": "PERFORMANCE_DATA",
+      "protections": [
+        "DATA_NOT_LINKED_TO_YOU"
       ],
       "purposes": [
         "APP_FUNCTIONALITY"
@@ -60,9 +76,11 @@
   "_derived_from": {
     "account": true,
     "ads": true,
-    "att_prompt": true,
+    "att_prompt": false,
     "health": false,
-    "iap": true,
-    "date": "2026-09-14"
+    "iap": false,
+    "crash": true,
+    "analytics": true,
+    "date": "2026-10-11"
   }
 }
