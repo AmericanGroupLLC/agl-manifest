@@ -54,11 +54,12 @@ def app_dir(a)
   a["dir"].to_s.empty? || a["dir"] == "." ? "#{ROOT}/#{a['repo']}" : "#{ROOT}/#{a['repo']}/#{a['dir']}"
 end
 
-def services_for(a)
+def services_for(a, omit = [])
   path = File.join(app_dir(a), "pubspec.yaml")
   return [] unless File.exist?(path)
   deps = File.read(path).split("dev_dependencies").first.to_s
-  SERVICES.select { |k, _| deps.match?(/^\s{2}#{Regexp.escape(k)}\s*:/) }.values
+  SERVICES.reject { |k, _| omit.include?(k) }
+          .select { |k, _| deps.match?(/^\s{2}#{Regexp.escape(k)}\s*:/) }.values
 end
 
 # The languages the *app* runs in, not the languages its store listing is
@@ -84,6 +85,24 @@ LANG = {
 # — so the package list, not the app's, is what the binary actually ships.
 SHARED_LOCALES = Dir[File.join(M, "packages/agl_i18n/lib/l10n/agl_*.arb")]
                  .map { |f| File.basename(f, ".arb").sub("agl_", "") }.sort
+
+# Declaring 12 locales is not translating 12 locales: most apps translate the
+# shared labels (agl_i18n) and leave their own screens in English. Telling App
+# Review "the app ships 12 languages" for those was a false claim that the
+# 2026-10-11 verification found re-appearing in Verba, GadgetNest and others
+# whenever this generator ran. The claim now follows docs/i18n-audit.json.
+def regional_text(a, locales)
+  return "None. Features and content are identical in every region." if locales.size <= 1
+  row = I18N[a["repo"]] || {}
+  ui, done = row["ui_files"].to_i, row["ui_files_localized"].to_i
+  names = locales.sort.join(", ")
+  if ui.positive? && done >= ui && row["hardcoded_ui_strings"].to_i.zero?
+    "The app is translated into #{locales.size} languages (#{names}). Features are identical in every region."
+  else
+    "The app follows the device language for #{locales.size} locales (#{names}), but translation is partial: " \
+      "shared labels are translated, while most screen text is in English only. Features are identical in every region."
+  end
+end
 
 def locales_for(a)
   row = I18N[a["repo"]] || {}
@@ -118,6 +137,11 @@ REGULATED = "The app is not in a regulated industry and carries no licensed " \
 #   access            replaces the generic "SETTING UP AND REACHING" text
 #   account_deletion  replaces the generic deletion sentence
 #   services_extra    extra lines for EXTERNAL SERVICES (keyless HTTP APIs)
+#   services_omit     pubspec packages whose generic SERVICES line is wrong
+#                     for this app (e.g. "http" when the app calls third-party
+#                     APIs, not its own endpoints); list them in services_extra
+#   regulated         replaces the generic REGULATED sentence in section 7,
+#                     for apps that do carry third-party material
 #   notes_extra       appended verbatim, as its own sections, at the end
 def notes_for(a, copy)
   ri = copy["review_information"] || {}
@@ -128,7 +152,8 @@ def notes_for(a, copy)
   auth = a["auth"] || {}
   # Keyless public APIs reached over plain HTTP have no pubspec dependency to
   # name them, so the app's own record lists them (services_extra).
-  services = services_for(a) + Array(ri["services_extra"]).map(&:to_s).reject(&:empty?)
+  omit = Array(ri["services_omit"]).map(&:to_s)
+  services = services_for(a, omit) + Array(ri["services_extra"]).map(&:to_s).reject(&:empty?)
   locales = locales_for(a)
 
   access =
@@ -147,6 +172,8 @@ def notes_for(a, copy)
                "The app creates no account, so there is nothing to delete."
              end
   extra = ri["notes_extra"].to_s.strip
+  regulated = ri["regulated"].to_s.strip
+  regulated = REGULATED if regulated.empty?
 
   text = <<~NOTE.strip
     2. DEVICES AND OS VERSIONS TESTED
@@ -167,11 +194,11 @@ def notes_for(a, copy)
     #{services.empty? ? 'None. The app works entirely on the device and calls no external service.' : services.map { |s| "- #{s}" }.join("\n")}
 
     6. REGIONAL DIFFERENCES
-    #{locales.size > 1 ? "The app ships #{locales.size} languages (#{locales.sort.join(', ')}). Features are identical in every region." : 'None. Features and content are identical in every region.'}
+    #{regional_text(a, locales)}
 
     7. REGULATED INDUSTRY OR THIRD-PARTY MATERIAL
 
-    #{REGULATED}
+    #{regulated}
 
 
     ACCOUNT DELETION
