@@ -25,7 +25,11 @@ _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from agl_paths import ROOT, MANIFEST as M, DIST, flutter_bin, flutter_sdk  # noqa: E402
 FLUTTER = str(flutter_bin())
 DEVICES = {"iphone69": "3A41E921-1471-466E-BCDA-30E428297CCF", "ipadpro13": "3C6104B3-00B8-4468-A26B-06E7AF142E97"}
-ENV = dict(os.environ, PATH=f"/opt/homebrew/bin:{pathlib.Path.home()}/.idb-venv/bin:{flutter_sdk()}/bin:" + os.environ["PATH"])
+# rbenv's shims come first: Homebrew's own CocoaPods breaks whenever Homebrew
+# upgrades Ruby (2026-10-11: ruby 4.0.7 left it unable to load ffi, and every
+# capture died on "CocoaPods not installed or not in valid state"). Homebrew
+# stays ahead of the rest for idb_companion.
+ENV = dict(os.environ, PATH=f"{pathlib.Path.home()}/.rbenv/shims:/opt/homebrew/bin:{pathlib.Path.home()}/.idb-venv/bin:{flutter_sdk()}/bin:" + os.environ["PATH"])
 DISMISS = ["Start", "Let\u2019s go", "Let's go", "Allow Full Access", "Allow While Using App", "Allow Once", "Allow", "OK", "Continue", "Get Started", "Get started", "Skip", "Not now", "Not Now", "Maybe later", "Accept", "Agree", "I agree", "Done", "Next", "Don\u2019t Allow", "Don't Allow"]
 MAX_SCREENS = 5
 RESULTS = ROOT / ".dist/screenshots-results.json"
