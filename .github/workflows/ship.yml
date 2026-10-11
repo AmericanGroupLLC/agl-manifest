@@ -560,7 +560,9 @@ jobs:
       # Store Connect whether the build arrived, because altool reports failure
       # for builds Apple has in fact accepted.
       - name: Upload to TestFlight
-        run: python3 scripts/testflight/run_batch.py --wave records --no-resume --apps "${{ steps.list.outputs.csv }}"
+        # The IPAs come from the iOS build shards (artifact ios-archives-*,
+        # unpacked under work/.dist). This job has no app source to build from.
+        run: python3 scripts/testflight/run_batch.py --wave records --no-resume --prebuilt work/.dist --apps "${{ steps.list.outputs.csv }}"
 
       - name: Put every build in front of the testers
         run: bundle exec ruby scripts/testflight/distribute.rb --all

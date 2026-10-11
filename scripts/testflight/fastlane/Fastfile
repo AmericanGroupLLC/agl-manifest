@@ -91,9 +91,18 @@ platform :ios do
     bundle_id = o[:bundle_id]
     build_number = o[:build_number]
     UI.user_error!("app_dir, bundle_id and build_number are required") unless app_dir && bundle_id && build_number
-    UI.user_error!("#{app_dir}/ios/Runner.xcodeproj not found") unless Dir.exist?(File.join(app_dir, "ios/Runner.xcodeproj"))
+    # ipa: an IPA already built and distribution-signed elsewhere (ship.yml's
+    # iOS shard). The upload job has no app source — 38 of 38 uploads failed on
+    # "Runner.xcodeproj not found" in run 38084489575 — so it only uploads.
+    prebuilt = o[:ipa].to_s.empty? ? nil : File.expand_path(o[:ipa])
+    UI.user_error!("#{prebuilt} not found") if prebuilt && !File.exist?(prebuilt)
+    UI.user_error!("#{app_dir}/ios/Runner.xcodeproj not found") unless prebuilt || Dir.exist?(File.join(app_dir, "ios/Runner.xcodeproj"))
 
     key = asc_key
+    if prebuilt
+      build_number = ipa_build_number(prebuilt) || build_number
+      ipa = prebuilt
+    else
 
     remove_installed_profiles("#{bundle_id} AppStore")
     get_provisioning_profile(
@@ -130,6 +139,7 @@ platform :ios do
 
     ipa = Dir[File.join(app_dir, "build/ios/ipa/*.ipa")].max_by { |f| File.mtime(f) }
     UI.user_error!("no .ipa produced under #{app_dir}/build/ios/ipa") if ipa.nil?
+    end
     UI.success("IPA: #{ipa} (#{(File.size(ipa) / 1_048_576.0).round(1)} MB)")
     # pilot/altool lose an IPA whose name has a space ("Radio Tune.ipa", radiotune 2026-09-14).
     if ipa.include?(" ")
