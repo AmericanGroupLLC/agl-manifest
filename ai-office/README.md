@@ -35,3 +35,14 @@ it.
 See CHARTER.md: store submissions and replies, production database approval,
 money, credentials, external contact, legal text, people decisions, removing
 apps. It prepares them; the founder decides.
+
+## Judgment agent (no yes/no pop-ups)
+
+`scripts/judge.py` answers Claude Code permission prompts for the office, as a
+`PermissionRequest` hook: fixed rules deny the CHARTER's founder-only actions and
+known-destructive commands, allow routine work, and send anything else to a
+tool-less `claude -p` (haiku) that must answer allow or deny with a reason. If
+the judge cannot decide, the normal prompt appears. Decisions are logged to
+`~/agl/.dist/ai-office/judge.log`. `python3 ai-office/scripts/judge.py --test`
+checks the rule table. Installing the hook into `.claude/settings.json` is a
+founder step (Claude may not change its own permissions).
