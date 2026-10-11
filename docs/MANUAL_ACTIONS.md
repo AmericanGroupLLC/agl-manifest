@@ -435,6 +435,22 @@ GitHub Pages; delete that repository once safecodeg.com serves the pages.
 
 ## MA-011 · P2 · App Privacy labels must be entered in App Store Connect by a person
 
+**Update 2026-10-11 — automated for 40 of 43.** With the Apple ID web session
+`env.sh` exports (FASTLANE_SESSION), `scripts/testflight/privacy_upload.py`
+publishes every label from `store/privacy/<repo>.json`; Apple stamps
+`last_published` at the moment the answers are replaced (AGrammarly:
+2026-10-11T13:29:58-07:00). The labels now declare crash/analytics data (they
+said "Data Not Collected" for 24 Crashlytics apps). Still a person:
+- **CalcMaster** — a tracking app (ATT + ads): Apple's API refuses the
+  tracking answers ("Your binary indicates that your app tracks users", open
+  fastlane bug #19781). Enter its label in App Store Connect → App Privacy.
+- **Verba, BodyQuest** — removed ATT on 2026-10-09 but the builds on App Store
+  Connect still carry it, so Apple refuses a non-tracking label. They publish
+  automatically once a build without ATT is uploaded (re-run privacy_upload.py).
+When FASTLANE_SESSION expires the script fails for every app; the session is
+renewed by a person (2FA), never by the office.
+
+
 **Verified 2026-09-14.** The App Store "nutrition label" is not exposed by the
 App Store Connect API; fastlane's `upload_app_privacy_details_to_app_store`
 logs in with an Apple ID web session and fails here with *"Missing password

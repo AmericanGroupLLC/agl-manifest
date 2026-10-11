@@ -232,11 +232,22 @@ platform :ios do
 
   desc "Upload the App Store privacy details (nutrition label) JSON for one app"
   lane :privacy do |o|
-    asc_key   # puts the API token in Spaceship::ConnectAPI so no Apple ID login is needed
+    asc_key   # the data-usage endpoints also need the Apple ID web session env.sh exports (FASTLANE_SESSION)
     upload_app_privacy_details_to_app_store(
       app_identifier: o[:bundle_id],
       json_path: o[:json],
-      skip_json_file_saving: true
+      skip_json_file_saving: true,
+      skip_publish: true
     )
+    # The action publishes only when Apple reports the label unpublished, and
+    # Apple still reported "published" after the answers were replaced
+    # (2026-10-11), so the new answers may never have gone live. Publish
+    # explicitly and print Apple's own timestamps as evidence.
+    app = Spaceship::ConnectAPI::App.find(o[:bundle_id])
+    state = Spaceship::ConnectAPI::AppDataUsagesPublishState.get(app_id: app.id)
+    before = state.last_published
+    state.publish!
+    after = Spaceship::ConnectAPI::AppDataUsagesPublishState.get(app_id: app.id)
+    UI.success("PRIVACY_PUBLISHED #{o[:bundle_id]} last_published #{before.inspect} -> #{after.last_published.inspect}")
   end
 end
