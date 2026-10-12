@@ -432,7 +432,7 @@ jobs:
 
       - name: Prove every IPA is distribution-signed
         if: matrix.apps != ''
-        run: python3 scripts/verify_ipa_signing.py
+        run: python3 scripts/verify_ipa_signing.py ${{ steps.list.outputs.names }}
 
       - uses: actions/upload-artifact@v4
         # Even when the build failed — same reason as the Android side. The
@@ -463,6 +463,10 @@ jobs:
       contains(fromJSON('["release","internal","production"]'), needs.resolve.outputs.stop_after)
     runs-on: ubuntu-latest
     timeout-minutes: 60
+    # Artifacts unpack under work/.dist (see the build jobs); run 38203990386
+    # skipped every app here as "no verified artefact" for lack of this.
+    env:
+      AGL_ROOT: ${{ github.workspace }}/work
     permissions:
       contents: write
     steps:
@@ -513,6 +517,12 @@ jobs:
       contains(fromJSON('["internal","production"]'), needs.resolve.outputs.stop_after)
     runs-on: macos-latest
     timeout-minutes: 300
+    # The build jobs write bundles and IPAs to $AGL_ROOT/.dist = work/.dist,
+    # and the artifacts unpack there. Without this the upload scripts looked in
+    # <workspace>/../.dist and run 38203990386 reported "uploaded 0/43" to Play
+    # in 0.1 s with 7 signed bundles sitting in work/.dist.
+    env:
+      AGL_ROOT: ${{ github.workspace }}/work
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-agl
@@ -584,9 +594,10 @@ jobs:
         with:
           name: internal-testing-results
           path: |
-            .dist/play-results.json
-            .dist/ios-batch/results.json
+            work/.dist/play-results.json
+            work/.dist/ios-batch/results.json
           if-no-files-found: warn
+          include-hidden-files: true
 
   production:
     name: Promote to production

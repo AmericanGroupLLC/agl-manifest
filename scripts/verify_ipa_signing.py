@@ -6,6 +6,10 @@ _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
 from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 ROOT=_ROOT; DIST=ROOT/".dist"
 apps=[a for a in json.loads((_MANIFEST/"apps.json").read_text())["apps"] if a.get("flutter")]
+# Positional names = the apps this run built (a CI shard). Those must all be
+# valid or the step fails; it used to print "IPAs fully valid: 0/43" and exit 0.
+only=[x for x in _sys.argv[1:] if not x.startswith("-")]
+if only: apps=[a for a in apps if a["repo"] in only]
 bad=[]; ok=0
 for a in apps:
     repo=a["repo"]; want=a["bundle_id"]
@@ -33,3 +37,5 @@ for a in apps:
         else: ok+=1
 print(f"IPAs fully valid: {ok}/{len(apps)}")
 for r,p,b in bad: print(f"   {r}: {p}")
+if only and bad:
+    _sys.exit(1)

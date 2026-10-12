@@ -454,6 +454,16 @@ def build_one(app: dict, entry: dict | None, timeout: int,
     env = dict(os.environ, JAVA_TOOL_OPTIONS=java_tool_options())
     started = time.time()
     proc = subprocess.run(cmd, cwd=d, capture_output=True, text=True, env=env, timeout=timeout)
+    # Flutter leaves .dart_tool/package_graph.json stale when a pub run drops an
+    # SDK package from the graph, then refuses to build: "Failed to parse
+    # .../package_graph.json: dependencies for `flutter_localizations` missing.
+    # Try running `flutter pub get`" (ship run 38203990386: ApexMarketWatch,
+    # AeroSwift, BuddyPlay, 2-4 s each). A clean .dart_tool and one retry fixes it.
+    if proc.returncode != 0 and "package_graph.json" in (proc.stderr + proc.stdout):
+        shutil.rmtree(d / ".dart_tool", ignore_errors=True)
+        subprocess.run([str(FLUTTER), "pub", "get"], cwd=d, capture_output=True, text=True, env=env, timeout=900)
+        proc = subprocess.run(cmd, cwd=d, capture_output=True, text=True, env=env, timeout=timeout)
+        rec["retried_after_stale_package_graph"] = True
     rec["seconds"] = round(time.time() - started, 1)
 
     # Take the path Flutter reports rather than guessing. Modification time is

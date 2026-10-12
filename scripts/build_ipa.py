@@ -160,7 +160,12 @@ def main() -> int:
 
     outfile = pathlib.Path(args.out)
     records = json.loads(outfile.read_text()) if outfile.exists() else []
-    done = {r["repo"] for r in records if r.get("result") == "EXPORTED"}
+    # "Already exported" only when the IPA is actually here. The evidence file
+    # is committed, so on a CI runner it lists the laptop's exports: ship run
+    # 38203990386 skipped all 43 builds as "already exported" and uploaded
+    # nothing, because no IPA existed on the runner.
+    done = {r["repo"] for r in records
+            if r.get("result") == "EXPORTED" and r.get("ipa") and (ROOT / r["ipa"]).exists()}
 
     for i, app in enumerate(wanted, 1):
         repo = app["repo"]
