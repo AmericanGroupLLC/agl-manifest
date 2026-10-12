@@ -137,3 +137,23 @@ def flutter_sdk() -> pathlib.Path:
 
 def flutter_bin() -> pathlib.Path:
     return flutter_sdk() / "bin" / "flutter"
+
+
+def admob_defines(repo: str) -> list[str]:
+    """`--dart-define`s carrying an app's AdMob ad-unit ids, from
+    docs/admob-ids.json (the founder's AdMob plan, 2026-10-12: 43 apps x 2
+    platforms x 6 formats). Unit ids are passed at build time, not committed
+    in app repos (see packages/agl_ads/lib/src/ad_ids.dart). Keys:
+    ADMOB_<BANNER|INTERSTITIAL|REWARDED|REWARDED_INTERSTITIAL|NATIVE|APP_OPEN>_<ANDROID|IOS>.
+    An app that reads none of them is unaffected."""
+    try:
+        ids = json.loads((MANIFEST / "docs" / "admob-ids.json").read_text()).get(repo) or {}
+    except (OSError, ValueError):
+        return []
+    out = []
+    for key, value in sorted(ids.items()):
+        plat, _, fmt = key.partition("_")
+        if fmt == "app_id" or plat not in ("android", "ios") or not value:
+            continue
+        out.append(f"--dart-define=ADMOB_{fmt.upper()}_{plat.upper()}={value}")
+    return out

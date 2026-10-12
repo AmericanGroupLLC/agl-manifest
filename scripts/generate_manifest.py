@@ -48,7 +48,7 @@ def _admob(repo: str) -> dict:
     if not path.exists():
         return {}
     data = json.loads(path.read_text())
-    return data.get(_ADMOB_ALIAS.get(repo, repo), {})
+    return data.get(repo) or data.get(_ADMOB_ALIAS.get(repo, repo), {})
 
 
 def _has_description(repo: str) -> bool:

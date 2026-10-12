@@ -53,7 +53,7 @@ import sys
 import time
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
-from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT, flutter_bin  # noqa: E402
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT, admob_defines, flutter_bin  # noqa: E402
 
 ROOT = _ROOT
 MANIFEST = _MANIFEST
@@ -447,7 +447,7 @@ def build_one(app: dict, entry: dict | None, timeout: int,
     rec["flavour_built"] = flavour
 
     target = "apk" if kind == "apk" else "appbundle"
-    cmd = [str(FLUTTER), "build", target, "--release"]
+    cmd = [str(FLUTTER), "build", target, "--release", *admob_defines(app["repo"])]
     if flavour:
         cmd += ["--flavor", flavour]
 

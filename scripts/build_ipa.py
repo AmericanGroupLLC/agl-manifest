@@ -31,7 +31,7 @@ import subprocess
 import time
 import sys as _sys, pathlib as _pl
 _sys.path.insert(0, str(_pl.Path(__file__).resolve().parent))
-from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT, flutter_bin  # noqa: E402
+from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT, admob_defines, flutter_bin  # noqa: E402
 
 ROOT = _ROOT
 MANIFEST = _MANIFEST / "apps.json"
@@ -71,13 +71,13 @@ def build(app: dict, profile: str) -> dict:
 
     # 1. Compile Dart and install pods. --no-codesign because signing happens in
     #    the archive step, and doing it here would need the same profile twice.
-    r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}"], cwd=d, timeout=3600)
+    r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}", *admob_defines(app["repo"])], cwd=d, timeout=3600)
     # Flutter's stale .dart_tool/package_graph.json (see build_release.py):
     # AeroSwift and BuddyPlay failed here in under 4 s on it.
     if r.returncode != 0 and "package_graph.json" in (r.stdout + r.stderr):
         shutil.rmtree(d / ".dart_tool", ignore_errors=True)
         run([str(FLUTTER), "pub", "get"], cwd=d, timeout=900)
-        r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}"], cwd=d, timeout=3600)
+        r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}", *admob_defines(app["repo"])], cwd=d, timeout=3600)
         rec["retried_after_stale_package_graph"] = True
     if r.returncode != 0:
         rec.update(result="FLUTTER_BUILD_FAILED", detail=tail(r.stdout + r.stderr))
