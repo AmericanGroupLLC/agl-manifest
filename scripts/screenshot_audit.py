@@ -70,7 +70,7 @@ STATUS = re.compile(r"^\d{1,2}:\d{2}$")
 # feature the reviewer cannot find; "SAMPLE DATA — these are not live quotes"
 # banners (RideZap, AeroSwift); AGrammarly's screenshots were the iOS home
 # screen and the Messages app; Uscis-Case's showed Photriya's permission sheet.
-DEV_UI = re.compile(r"(?i)test account|demo mode|\(dev\)|skip to app|debug menu|debug build")
+DEV_UI = re.compile(r"(?i)test account|demo mode|\(dev\)|skip to app|debug menu|debug build|\btest ad\b|test mode")
 SAMPLE = re.compile(r"(?i)sample data|not real (flights|data|quotes)|not live quotes|"
                     r"local placeholder|lorem ipsum")
 SPRINGBOARD = {"contacts", "files", "fitness", "watch", "health", "shortcuts", "passwords",
