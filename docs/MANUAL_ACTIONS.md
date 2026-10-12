@@ -2077,6 +2077,29 @@ The first API token was pasted into a chat transcript on 2026-10-09: roll it
 (dash.cloudflare.com → My Profile → API Tokens → Roll), copy the new value and
 run `pbpaste > ~/agl/.secrets/cloudflare-token`.
 
+## MA-048 · P1 · Reset the Play upload key for 8 apps (Play rejects the current one)
+
+**Measured 2026-10-12, ship run 38249463590:** 35 of 43 apps uploaded to Play
+internal testing. These 8 were refused with *"The Android App Bundle was signed
+with the wrong key"*: **CalcMaster, CarDeal, iMaps, iMeasure, Kinnav, TripNest,
+Uscis-Case, VirtuBand.** Six of them (CalcMaster, iMaps, iMeasure, TripNest,
+Uscis-Case, VirtuBand) are the apps whose original upload keystores were pushed
+to git and then replaced (see SECRET_SWEEP / MA-001): Play still has the old,
+exposed key registered. Signing with the exposed keys would get through but is
+exactly what must not happen. CarDeal and VirtuBand both expect the same old
+certificate (SHA1 ED:9C:A5:63:…).
+
+**Required (Play Console, per app):** Test and release → App integrity → App
+signing → *Request upload key reset* → upload the PEM of the **current** upload
+certificate, exported on the laptop with:
+
+    keytool -export -rfc -keystore <keystore path for the app, see .secrets/keystores.json> \
+      -alias <its alias> -file <App>-upload-cert.pem
+
+Google applies a reset after a waiting period (typically ~48 h). The next
+ship.yml run then uploads these 8 with no code change. (The office cannot do
+this: it reads keystore passwords and changes a Play credential — CHARTER 4.)
+
 ## MA-047 · P1 · AdMob for every app — 72 AdMob apps must be created in the AdMob UI
 
 Measured 2026-10-09. AdMob account pub-8528784688453695 holds 14 apps (8
