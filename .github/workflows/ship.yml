@@ -757,7 +757,14 @@ jobs:
           signal, localization signal and per-app check. Written by
           scripts/status.py from the JSON the generators above emit. Measured,
           not maintained - change the script rather than the file."
-          git push
+          # master moves while this job runs (other pushes), and GitHub
+          # occasionally rejects a push outright ("fatal error in commit_refs",
+          # run 38249463590). Rebase and retry instead of failing the run.
+          for i in 1 2 3 4; do
+            git pull --rebase -q && git push && exit 0
+            sleep $((i * 15))
+          done
+          exit 1
 
   testers:
     name: Keep the tester lists in step
