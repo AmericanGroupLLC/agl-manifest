@@ -27,7 +27,8 @@
   "account_deletion": "Account deletion is in the app: open the menu (drawer) > Account > Delete account.",
   "services_extra": [
    "Free public data APIs, no account: OpenSky Network (live traffic), adsbdb.com (aircraft lookup by registration), U.S. Bureau of Labor Statistics (career median pay), aviationweather.gov (weather), RotatePilot (practice question bank, EASA ATPL syllabus), aviationapi.com (FAA airport data and chart links)"
-  ]
+  ],
+  "notes_locked": true
  },
  "slug": "pilotenroute",
  "primary_category": "TRAVEL",

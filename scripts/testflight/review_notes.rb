@@ -219,7 +219,14 @@ apps.each do |a|
 
   cp = File.join(M, "store/apps", "#{a['repo']}.json")
   copy = File.exist?(cp) ? JSON.parse(File.read(cp)) : {}
-  text = notes_for(a, copy)
+  # notes_locked: the notes were written for this app by hand (or by a
+  # verified fix) and are uploaded exactly as they are, never regenerated.
+  # The scheduled store watch reran this script on 2026-10-12 and replaced
+  # 19 apps' verified notes with template text that was false for them
+  # ("HTTPS requests to the app's own endpoints" for apps with no backend),
+  # both in the repository and in the notes Apple reads.
+  locked = copy.dig("review_information", "notes_locked") && !copy.dig("review_information", "notes").to_s.strip.empty?
+  text = locked ? copy["review_information"]["notes"] : notes_for(a, copy)
 
   if DRY
     puts "=== #{a['repo']} (#{ver.version_string}, #{ver.app_store_state})"
