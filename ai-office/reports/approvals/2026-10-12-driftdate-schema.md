@@ -1,0 +1,9 @@
+# Approval: deploy DriftDate's backend (driftdate.* schema) to production Supabase
+
+- **Decision needed:** approve https://github.com/AmericanGroupLLC/AmericanGroupLLC-Backend/pull/1 (merge into `dev`, then approve the `production` environment in the deploy run).
+- **Why now:** DriftDate cannot work for anyone. Sign-in succeeds, then the app reads its profile table, which does not exist in production (`PGRST205 Could not find the table 'public.profiles'`, simulator run 2026-10-12). Its 7 migrations lived only in the app repo and were never deployed. They cannot go into `public` because other apps already own `public.conversations` and `public.messages`, so the PR creates everything in a new `driftdate` schema; the app (pushed, 355d9b5) already reads that schema.
+- **Before approving:** in the Supabase dashboard → API settings, check the "Exposed schemas" list. Migration 2 sets `pgrst.db_schemas` to the current value plus `driftdate`, falling back to `public, graphql_public, driftdate`; if the dashboard lists more schemas, add `driftdate` there instead and drop migration 2. Never `supabase config push`.
+- **Deploy pipeline note:** the last deploy run (38053376544) failed; the first successful run may need `baseline=true`, which also applies `20261009_delete_user.sql` (MA-044).
+- **Evidence:** SQL ran twice cleanly in PGlite with Supabase's auth/storage/roles stubbed; RLS behaviour checked (others' rows refused, self-verification refused, messaging requires both verified, blocking hides, anon refused). Not checked against real hosted Supabase.
+- **Undo:** `drop schema driftdate cascade;` and remove `driftdate` from `pgrst.db_schemas` (then `notify pgrst, 'reload config'`).
+- **Separate, not in this PR:** Kinnav's `public.guardians` table (Kinnav/supabase/migrations/0001_guardians.sql) is also absent from the backend repo; the app reads it.
