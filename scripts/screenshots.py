@@ -613,15 +613,25 @@ def drive_capture(app, app_dir, out_ios, out_android, udid):
         biometrics(dev_udid)
         raw = app_dir / "store_screenshots"
         shutil.rmtree(raw, ignore_errors=True)
-        r = sh(FLUTTER, "drive", "--driver=test_driver/integration_test.dart",
-               "--target=integration_test/store_screenshots_test.dart", *defines,
-               "-d", dev_udid, cwd=app_dir, timeout=2400)
-        log = (r.stdout + r.stderr)
+        try:
+            r = sh(FLUTTER, "drive", "--driver=test_driver/integration_test.dart",
+                   "--target=integration_test/store_screenshots_test.dart", *defines,
+                   "-d", dev_udid, cwd=app_dir, timeout=2400)
+            log = (r.stdout + r.stderr)
+        except subprocess.TimeoutExpired as ex:
+            # Never let the exception text through: it carries the whole
+            # command line, dart-defines included — the QA password reached
+            # screenshots-results.json this way on 2026-10-11.
+            log = f"timed out after {ex.timeout}s\n" + ((ex.stdout or b"").decode(errors="replace") if isinstance(ex.stdout, bytes) else (ex.stdout or ""))
         if acct:
-            log = log.replace(acct[1], "***")
+            log = log.replace(acct[1], "***").replace(acct[0], "<qa>")
+        # Full log per app and device, for diagnosing a script that fails.
+        logs = DIST / "drive-logs"; logs.mkdir(parents=True, exist_ok=True)
+        (logs / f"{app['repo']}-{dev}.log").write_text(log)
         shots = sorted(raw.glob("*.png")) if raw.is_dir() else []
         if not shots:
-            res["error"] += f"{dev}: drive produced no screenshots: {log.strip()[-220:]} "
+            fail = [l for l in log.splitlines() if re.search(r"(?i)expected:|actual:|exception|failed|timed out|Some tests failed|which:", l)]
+            res["error"] += f"{dev}: drive produced no screenshots: {' | '.join(fail[-4:])[:300] or log.strip()[-220:]} "
             continue
         real = [x for x in shots if not blank(x)]
         if len(real) < len(shots):
@@ -928,8 +938,11 @@ def main():
             try:
                 r = drive_capture(a, app_dir, out_ios, out_android, None)
             except Exception as e:
-                r = {"repo": a["repo"], "screens": {},
-                     "error": f"{type(e).__name__}: {e}"[:300]}
+                msg = f"{type(e).__name__}: {e}"
+                acct = _qa_account()
+                if acct:
+                    msg = msg.replace(acct[1], "***")
+                r = {"repo": a["repo"], "screens": {}, "error": msg[:300]}
         elif skip_ios:
             r = {"repo": a["repo"], "screens": {}, "error": ""}
         else:
