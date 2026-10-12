@@ -582,12 +582,17 @@ jobs:
       # Guard 3 lives inside run_batch.py: an upload is confirmed by asking App
       # Store Connect whether the build arrived, because altool reports failure
       # for builds Apple has in fact accepted.
+      # !cancelled(): a Play failure (8 wrong-upload-key apps in run
+      # 38249463590) skipped this step, so 43 built IPAs were never uploaded.
+      # Each store is attempted; the job still fails if either did.
       - name: Upload to TestFlight
+        if: ${{ !cancelled() }}
         # The IPAs come from the iOS build shards (artifact ios-archives-*,
         # unpacked under work/.dist). This job has no app source to build from.
         run: python3 scripts/testflight/run_batch.py --wave records --no-resume --prebuilt work/.dist --apps "${{ steps.list.outputs.csv }}"
 
       - name: Put every build in front of the testers
+        if: ${{ !cancelled() }}
         run: bundle exec ruby scripts/testflight/distribute.rb --all
 
       - uses: actions/upload-artifact@v4
