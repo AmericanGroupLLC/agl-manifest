@@ -68,7 +68,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1485 chars"
+   "detail": "1839 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -245,7 +245,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2090 chars"
+   "detail": "2549 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -604,7 +604,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "897 chars"
+   "detail": "1431 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -781,7 +781,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "749 chars"
+   "detail": "1174 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -958,7 +958,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1254 chars"
+   "detail": "1740 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -1317,12 +1317,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1219 chars"
+   "detail": "1477 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "66 chars"
+   "detail": "68 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -1676,7 +1676,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "588 chars"
+   "detail": "929 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -1853,7 +1853,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2061 chars"
+   "detail": "2453 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2035,7 +2035,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "391 chars"
+   "detail": "793 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2212,7 +2212,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1678 chars"
+   "detail": "2120 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2394,7 +2394,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1778 chars"
+   "detail": "2194 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2576,7 +2576,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "947 chars"
+   "detail": "1257 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2753,7 +2753,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "784 chars"
+   "detail": "1084 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2935,7 +2935,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "858 chars"
+   "detail": "1248 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -3112,7 +3112,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1284 chars"
+   "detail": "1644 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -3294,7 +3294,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2341 chars"
+   "detail": "2689 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -3476,7 +3476,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1101 chars"
+   "detail": "1460 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4017,7 +4017,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2280 chars"
+   "detail": "2664 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4199,7 +4199,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2168 chars"
+   "detail": "2580 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4214,7 +4214,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "149 chars"
+   "detail": "165 chars"
   },
   {
    "check": "Primary category",
@@ -4381,7 +4381,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1281 chars"
+   "detail": "1771 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4558,7 +4558,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1741 chars"
+   "detail": "2205 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4573,7 +4573,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "132 chars"
+   "detail": "152 chars"
   },
   {
    "check": "Primary category",
@@ -4740,12 +4740,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2297 chars"
+   "detail": "2704 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "70 chars"
+   "detail": "75 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -4755,7 +4755,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "136 chars"
+   "detail": "146 chars"
   },
   {
    "check": "Primary category",
@@ -4922,7 +4922,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1271 chars"
+   "detail": "1584 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5099,7 +5099,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2113 chars"
+   "detail": "2541 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5276,7 +5276,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2263 chars"
+   "detail": "2730 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5453,7 +5453,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1876 chars"
+   "detail": "2215 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5817,7 +5817,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1488 chars"
+   "detail": "1872 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5994,7 +5994,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2492 chars"
+   "detail": "3107 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -6176,7 +6176,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1284 chars"
+   "detail": "1532 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -6358,7 +6358,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1113 chars"
+   "detail": "1363 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -6535,7 +6535,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1642 chars"
+   "detail": "1946 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -7440,7 +7440,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2476 chars"
+   "detail": "3022 chars"
   },
   {
    "check": "Play short description (<=80)",
