@@ -385,73 +385,170 @@
  "AGrammarly": {
   "source": "app_store_connect",
   "version": "1.0.0",
-  "verdict": "FAIL",
-  "problems": [
-   "APP_IPAD_PRO_3GEN_129: first screenshot is not_this_app (iOS home screen (contacts, fitness, health, passwords))",
-   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
-   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is not_this_app (iOS home screen (contacts, fitness, health, passwords))",
-   "APP_IPHONE_67: first screenshot is not_this_app (iOS home screen (contacts, files, fitness, preview))",
-   "APP_IPHONE_67: APP_IPHONE_67-01.png is not_this_app (iOS home screen (contacts, files, fitness, preview))"
-  ],
+  "verdict": "PASS",
+  "problems": [],
   "sets": {
-   "APP_IPAD_PRO_3GEN_129": [
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-01.png",
-     "kind": "not_this_app",
-     "why": "iOS home screen (contacts, fitness, health, passwords)",
-     "sha": "7b621a9d4e30",
-     "text": [
-      "9:41AM Mon Sep 14",
-      "Contacts",
-      "Shortcuts",
-      "Passwords",
-      "Preview",
-      "Health",
-      "AG",
-      "ChronicCare",
-      "Fitness",
-      "Wallet",
-      "Kinnav",
-      "AGStudio"
-     ]
-    }
-   ],
    "APP_IPHONE_67": [
     {
      "file": "APP_IPHONE_67-01.png",
-     "kind": "not_this_app",
-     "why": "iOS home screen (contacts, files, fitness, preview)",
-     "sha": "10680efa82b1",
+     "kind": "app",
+     "why": "32 words",
+     "sha": "336badde3bee",
      "text": [
-      "1:11",
-      "Fitness",
-      "Watch",
-      "Contacts",
-      "Files",
-      "919",
-      "Preview",
-      "Utilities",
-      "BodyQuest",
-      "Daily Pulse",
-      "MyHealth",
-      "Photriya"
+      "Keyboard",
+      "Try it",
+      "Copy it.",
+      "-Incomingmessage",
+      "Are you free for coffee on Saturday?",
+      "YOURREPLY",
+      "Copy",
+      "Yes! When works for you?",
+      "cAsuAL Yes! When works for you?",
+      "PROFESSIONALIShOuldb",
+      "W",
+      "e"
      ]
     },
     {
      "file": "APP_IPHONE_67-02.png",
      "kind": "app",
-     "why": "4 words",
-     "sha": "be510da5c5a5",
+     "why": "42 words",
+     "sha": "423de482806a",
      "text": [
-      "1:11",
-      "Messages",
-      "+1(888) 555-1212",
-      "12/31/00",
-      "JA",
-      "+1 (555) 564-8583",
-      "12/31/00",
-      "KB",
-      "Search"
+      "Keyboard",
+      "Try it",
+      "Copy it.",
+      "-Incoming message",
+      "Running ten minutes late, sorry!",
+      "YOURREPLY",
+      "Copy",
+      "No problem at all, thank you for letting me know.",
+      "EARLIERREPLIES",
+      "Let's grab something!",
+      "You'rewelcome!",
+      "Yes! When works for you?"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "54 words",
+     "sha": "7847dbc29d3d",
+     "text": [
+      "AGrammarly",
+      "Replies that sound like you",
+      "Running on-device. Nothing you type leaves this phone.",
+      "115",
+      "Suggestions",
+      "Keystrokessaved",
+      "Emoji learned",
+      "YOUREMOJI",
+      "AA",
+      "How it works",
+      "Suggestions come from a pattern set that runs on this",
+      "device, plus the phrasings you use most. The more you"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "54 words",
+     "sha": "3d458890999d",
+     "text": [
+      "Settings",
+      "SUGGESTIONS",
+      "On-device",
+      "Nothing you type leaves the phone. Works offline.",
+      "Suggestions are generated on this device. This build has no cloud",
+      "suggestions service configured, so nothing you type is sent",
+      "anywhere.",
+      "APP",
+      "About",
+      "Privacy policy",
+      "Support",
+      "DATA"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "34 words",
+     "sha": "0d538ea01457",
+     "text": [
+      "Keyboard",
+      "Home",
+      "Try it",
+      "Keyboard",
+      "Paste a message you received. Tap a suggested reply, then Copy it.",
+      "Incomingmessage",
+      "\u7ae0",
+      "AreyoufreeforcoffeeonSaturday?",
+      "Settings",
+      "YOURREPLY",
+      "Copy",
+      "Yes! When works for you?"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "48 words",
+     "sha": "6182ce46442b",
+     "text": [
+      "Keyboard",
+      "Home",
+      "Try it",
+      "Keyboard",
+      "Paste a message you received. Tap a suggested reply, then Copy it.",
+      "Incoming message",
+      "\u4eac",
+      "Running ten minutes late, sorry!",
+      "Settings",
+      "YOURREPLY",
+      "Copy",
+      "No problem at all, thank you for letting me know."
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "49 words",
+     "sha": "70ed2081d756",
+     "text": [
+      "AGrammarly",
+      "Home",
+      "Repliesthat sound likeyou",
+      "Keyboard",
+      "Running on-device.Nothing you type leaves this phone.",
+      "\u7ae0",
+      "Settings",
+      "4",
+      "115",
+      "2",
+      "Suggestions",
+      "Keystrokessaved"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "45 words",
+     "sha": "e9d1a40a1483",
+     "text": [
+      "Settings",
+      "Home",
+      "SUGGESTIONS",
+      "Keyboard",
+      "On-device",
+      "Nothing you type leaves the phone. Works offline.",
+      "Settings",
+      "Suggestions are generatedon this device.Thisbuild hasnocloud suggestions service",
+      "configured, sonothingyou type is sent anywhere.",
+      "APP",
+      "About",
+      "Privacypolicy"
      ]
     }
    ]
@@ -467,31 +564,69 @@
     {
      "file": "APP_IPHONE_67-01.png",
      "kind": "app",
-     "why": "24 words",
-     "sha": "9ed2565d31f9",
+     "why": "25 words",
+     "sha": "b7004927175a",
      "text": [
-      "6:23",
-      "AGRecorder",
-      "Audio recorder - recordings are saved on this device",
-      "Saved on this device only",
-      "Select a source and click Record to start",
-      "Microphone",
-      "Start Recording"
+      "Recordings",
+      "Weekly team standup",
+      "Mon, Oct 12 7:43 AM \u00b7 128 KB",
+      "00:01",
+      "90:00",
+      "Chorus idea for the new song",
+      "Mon, Oct 12 7:43 AM \u00b7 93 KB",
+      "Lecture notes, chapter 4",
+      "Mon, Oct 12 7:43 AM \u00b7 98 KB"
      ]
     },
     {
      "file": "APP_IPHONE_67-02.png",
      "kind": "app",
-     "why": "24 words",
-     "sha": "5bedd306fc2a",
+     "why": "36 words",
+     "sha": "2760c2aa6abf",
      "text": [
-      "6:24",
+      "AGRecorder",
+      "Audio recorder - recordings are saved on this device",
+      "Saved on this device only",
+      "Recording...",
+      "Microphone",
+      "Stop recording",
+      "Keep the app open while recording. Locking your phone or switching",
+      "apps stops and saves the take.",
+      "Recordings"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "48 words",
+     "sha": "65dd2e8ae1ea",
+     "text": [
       "AGRecorder",
       "Audio recorder - recordings are saved on this device",
       "Saved on this device only",
       "Select a source and click Record to start",
+      "Saved to this device: AGRec0rder 2026-10-12",
+      "07-43-27.m4a",
       "Microphone",
-      "Start Recording"
+      "Start Recording",
+      "Keep the app open while recording. Locking your phone or switching",
+      "apps stops and saves the take.",
+      "Recordings"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "e13fe6c37547",
+     "text": [
+      "Recordings",
+      "Weekly team standup",
+      "Mon, Oct 12 7:43 AM \u00b7 128 KB",
+      "Chorus idea for the new song",
+      "Mon, Oct 12 7:43 AM \u00b7 93 KB",
+      "Lecture notes, chapter 4",
+      "Mon, Oct 12 7:43 AM \u00b7 98 KB"
      ]
     }
    ],
@@ -500,17 +635,68 @@
      "file": "APP_IPAD_PRO_3GEN_129-01.png",
      "kind": "app",
      "why": "25 words",
-     "sha": "d71fecae60c9",
+     "sha": "1c126785eadd",
      "text": [
-      "6:24PMFriOct9",
-      " 100% (",
+      "Recordings",
+      "Weekly team standup",
+      "Mon,Oct127:45 AM\u00b7126 KB",
+      "00:01",
+      "00:06",
+      "Chorus idea for the new song",
+      "Mon, Oct 12 7:45 AM \u00b7 92 KB",
+      "Lecture notes, chapter 4",
+      "Mon, 0ct 12 7:44 AM \u00b7 98 KB"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "16 words",
+     "sha": "c914025e2adf",
+     "text": [
       "AGRecorder",
-      "Audio recorder \u2014 recordings are saved on this device",
+      "Audio recorder -recordings are saved on this device",
       "\u53e3",
-      "Saved on this device only",
-      "Select a source and click Record to start",
+      "Savedonthisdeviceonly",
+      "Recording...",
       "Microphone",
-      "Start Recording"
+      "Stop recording",
+      "take.",
+      "Recordings"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "26 words",
+     "sha": "922bf95157cf",
+     "text": [
+      "AGRecorder",
+      "Audiorecorder-recordings aresavedonthisdevice",
+      "\u53e3",
+      "Savedonthisdeviceonly",
+      "SelectasourceandclickRecordtostart",
+      "Saved to this device:AGRecorder 2026-10-12 07-44-52.m4a",
+      "Microphone",
+      "Start Recording",
+      "Keepthe app openwhilerecording.Lockingyourphone orswitching apps stops and saves the",
+      "take.",
+      "Recordings"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "cf6fe08b798a",
+     "text": [
+      "Recordings",
+      "Weekly team standup",
+      "Mon, Oct 12 7:45 AM \u00b7 126 KB",
+      "Chorus idea for the new song",
+      "Mon, Oct 12 7:45 AM \u00b7 92 KB",
+      "Lecture notes, chapter 4",
+      "Mon, Oct 12 7:44 AM \u00b7 98 KB"
      ]
     }
    ]
