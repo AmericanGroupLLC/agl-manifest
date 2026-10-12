@@ -23,7 +23,7 @@ import hashlib, json, os, pathlib, re, shutil, subprocess, sys, tempfile, time
 import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from agl_paths import ROOT, MANIFEST as M, DIST, flutter_bin, flutter_sdk  # noqa: E402
-from sim_permissions import services_for, grant, grant_after_install  # noqa: E402
+from sim_permissions import services_for, prepare  # noqa: E402
 FLUTTER = str(flutter_bin())
 DEVICES = {"iphone69": "3A41E921-1471-466E-BCDA-30E428297CCF", "ipadpro13": "3C6104B3-00B8-4468-A26B-06E7AF142E97"}
 # rbenv's shims come first: Homebrew's own CocoaPods breaks whenever Homebrew
@@ -614,8 +614,8 @@ def drive_capture(app, app_dir, out_ios, out_android, udid):
         biometrics(dev_udid)
         # Pre-answer the permission prompts the app declares (sim_permissions.py).
         perms = services_for(app_dir)
-        grant(dev_udid, app["bundle_id"], perms)
-        watcher = grant_after_install(dev_udid, app["bundle_id"], perms)
+        note = prepare(dev_udid, app["bundle_id"], app_dir, perms, FLUTTER, defines, ENV)
+        res[f"permissions_{dev}"] = note.replace(acct[1], "***") if acct else note
         raw = app_dir / "store_screenshots"
         shutil.rmtree(raw, ignore_errors=True)
         try:

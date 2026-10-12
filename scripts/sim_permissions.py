@@ -57,6 +57,32 @@ def grant(udid: str, bundle_id: str, services: list[str]) -> None:
                        capture_output=True, timeout=60)
 
 
+def prepare(udid: str, bundle_id: str, app_dir: pathlib.Path, services: list[str],
+            flutter: str, defines: list[str], env: dict | None = None) -> str:
+    """Leave the app installed, never launched, with its permissions granted.
+
+    Granting while the app runs terminates it (simctl: "Some permission changes
+    will terminate the application if running"), and `flutter drive` launches
+    the moment it has installed — so a grant raced after install killed iMaps'
+    run on both devices (2026-10-12, 40-minute hangs). Instead: build the
+    test target for the simulator, install it, grant, and let `flutter drive`
+    reinstall over it — an over-install keeps the grants, and the app has
+    still never run. Only needed for location; other grants survive install.
+    Returns a short note for the log."""
+    grant(udid, bundle_id, services)
+    if "location" not in services and "location-always" not in services:
+        return f"granted before install: {', '.join(services) or 'none'}"
+    b = subprocess.run([flutter, "build", "ios", "--simulator", "--debug",
+                        "--target=integration_test/store_screenshots_test.dart", *defines],
+                       cwd=app_dir, capture_output=True, text=True, timeout=2400, env=env)
+    apps = sorted((app_dir / "build/ios/iphonesimulator").glob("*.app"))
+    if b.returncode != 0 or not apps:
+        return "prebuild for location grant failed: " + (b.stdout + b.stderr).strip()[-200:]
+    subprocess.run(["xcrun", "simctl", "install", udid, str(apps[0])], capture_output=True, timeout=300)
+    grant(udid, bundle_id, services)
+    return f"installed then granted (not launched): {', '.join(services)}"
+
+
 def grant_after_install(udid: str, bundle_id: str, services: list[str],
                         timeout: float = 900) -> threading.Thread:
     """Grant again as soon as the app's container appears (flutter drive has
