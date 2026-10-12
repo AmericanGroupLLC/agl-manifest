@@ -65,6 +65,13 @@ def build(app: dict, profile: str) -> dict:
     # 1. Compile Dart and install pods. --no-codesign because signing happens in
     #    the archive step, and doing it here would need the same profile twice.
     r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign"], cwd=d, timeout=3600)
+    # Flutter's stale .dart_tool/package_graph.json (see build_release.py):
+    # AeroSwift and BuddyPlay failed here in under 4 s on it.
+    if r.returncode != 0 and "package_graph.json" in (r.stdout + r.stderr):
+        shutil.rmtree(d / ".dart_tool", ignore_errors=True)
+        run([str(FLUTTER), "pub", "get"], cwd=d, timeout=900)
+        r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign"], cwd=d, timeout=3600)
+        rec["retried_after_stale_package_graph"] = True
     if r.returncode != 0:
         rec.update(result="FLUTTER_BUILD_FAILED", detail=tail(r.stdout + r.stderr))
         rec["seconds"] = round(time.time() - t0, 1)
@@ -185,8 +192,9 @@ def main() -> int:
             # Print the reason, not just the verdict. The evidence file holds
             # it, but a failed job skips the artifact upload, so the log was
             # the only place left and it said nothing.
-            if rec.get("result") != "EXPORTED" and rec.get("detail"):
-                for line in str(rec["detail"]).strip().splitlines()[-12:]:
+            why = rec.get("detail") or rec.get("export_detail")
+            if rec.get("result") != "EXPORTED" and why:
+                for line in str(why).strip().splitlines()[-12:]:
                     print(f"    {line}", flush=True)
             records = [r for r in records if r["repo"] != repo]
             records.append(rec)

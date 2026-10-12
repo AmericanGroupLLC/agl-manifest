@@ -338,6 +338,7 @@ jobs:
         with:
           token: ${{ secrets.AGL_PACKAGES_TOKEN }}
           flutter-version: ${{ env.FLUTTER_VERSION }}
+          cocoapods: 'true'
       - name: Check out the apps
         if: matrix.apps != ''
         run: |

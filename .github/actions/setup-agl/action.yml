@@ -66,6 +66,24 @@ runs:
         ruby-version: '3.3'
         bundler-cache: true
 
+    # This Mac builds with Swift Package Manager off; Flutter 3.44 turns it on
+    # by default, and on a runner flutter_native_splash then fails to resolve
+    # ("public headers directory path ... is invalid": Photriya, yourtube in
+    # ship run 38219562305). Match the laptop.
+    - name: Flutter builds with CocoaPods, not Swift Package Manager
+      shell: bash
+      run: if command -v flutter >/dev/null; then flutter config --no-enable-swift-package-manager; fi
+
+    # The runner's Homebrew CocoaPods breaks whenever Homebrew upgrades Ruby
+    # (run 38219562305: /usr/local/bin/pod died in rubygems for BodyQuest,
+    # iMaps, Verba). Install it into the job's own Ruby, which is first on PATH.
+    - name: CocoaPods from the job's Ruby
+      if: inputs.cocoapods == 'true' && inputs.ruby == 'true'
+      shell: bash
+      run: |
+        gem install cocoapods --no-document
+        which pod && pod --version
+
     # Every app pulls the same Firebase and AdMob pods. Fetching the spec repo
     # once per batch is a large part of what makes the macOS job affordable.
     - name: Cache CocoaPods

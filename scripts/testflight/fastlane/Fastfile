@@ -105,10 +105,15 @@ platform :ios do
     else
 
     remove_installed_profiles("#{bundle_id} AppStore")
+    # include_all_certificates: a profile recreated here otherwise names only
+    # this Mac's certificate, and CI (which signs with the other one) fails to
+    # export — 22 profiles had drifted that way by 2026-10-12 (ship run
+    # 38219562305: "Provisioning profile ... doesn't include signing certificate").
     get_provisioning_profile(
       api_key: key,
       app_identifier: bundle_id,
       force: true,
+      include_all_certificates: true,
       output_path: File.join(app_dir, "build/profiles")
     )
 
