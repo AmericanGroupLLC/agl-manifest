@@ -10,7 +10,7 @@
   public/sandbox APIs) or an honest empty/error state. No invented people,
   prices, ratings, metrics, reviews, statuses, timers or marketing numbers.
 - No demo/test login buttons in release builds. Real users only; testing uses
-  dev@ / qa@safecodeg.com (Supabase account identities — do not rename).
+  dev@ / qa@ / admin@americangroup.ai (Supabase test accounts; the @safecodeg.com trio was deleted on 2026-10-12 at the owner's request — App Review's demo login is qa@americangroup.ai).
 
 ## Stores
 - Check what the store checks (the IPA, the uploaded screenshots, the live

@@ -31,7 +31,7 @@
   ],
   "regulated": "The app is not in a regulated industry. It does show third-party material: the videos, thumbnails, titles and channel names come from Dailymotion's public API (and from Pexels and Pixabay in builds that have their API keys). The app does not host, re-upload or redistribute any of it. Dailymotion videos play only in Dailymotion's own embedded player, under Dailymotion's terms, with its controls and branding intact, and links that leave the player open in the browser. YourTube is not affiliated with YouTube, Google or Dailymotion.",
   "notes_extra": "HOW TO REACH THE APP AS A GUEST\nOn the sign-in screen, tap \"Continue as guest\", below the \"Sign in with Apple\" and \"Continue with Google\" buttons. This creates an anonymous session and opens the app; no account details are asked for. The demo account in App Review Information can instead be entered in the email and password fields at the top of the same screen.\n\nLANGUAGE OF APP-SPECIFIC TEXT\nThe languages listed in section 6 cover the shared interface text (sign-in, Settings, common buttons and messages). Text specific to YourTube is in English in every language. Video titles and descriptions appear in whatever language the uploader used.\n\nTHIRD-PARTY CONTENT\nAll videos are public videos published by third parties on Dailymotion (and on Pexels and Pixabay when those keys are set). Users cannot upload anything to YourTube. The menu on each video card offers \"Not interested\", which hides the video, and \"Report\", which sends a report by email.",
-  "demo_account_name": "qa@safecodeg.com",
+  "demo_account_name": "qa@americangroup.ai",
   "demo_account_required": true,
   "notes_locked": true
  },

@@ -127,10 +127,15 @@ def main() -> int:
     ap.add_argument("--wire-store", action="store_true",
                     help="record the QA account on every app that signs in, "
                          "so asc_readiness.rb hands it to App Review")
+    ap.add_argument("--delete", nargs="+", metavar="EMAIL",
+                    help="delete these auth users from the project (and nothing "
+                         "else); refuses any address still listed in the guide")
     args = ap.parse_args()
 
     if args.audit_config:
         return audit_config()
+    if args.delete:
+        return delete_accounts(args.delete)
 
     want = accounts()
     if not want:
@@ -243,6 +248,33 @@ def audit_config() -> int:
         print("  FIX (dashboard, no API path from here): Authentication -> URL "
               "Configuration -> Site URL. See MA-042.")
     return 1 if local else 0
+
+
+def delete_accounts(emails: list[str]) -> int:
+    """Delete retired test accounts (2026-10-12: the @safecodeg.com trio, after
+    App Review's demo login moved to qa@americangroup.ai). An address still in
+    the guide is refused — delete the row first, so nothing keeps handing out a
+    login that no longer exists."""
+    documented = {e.lower() for _r, e, _p in accounts()}
+    still = [e for e in emails if e.lower() in documented]
+    if still:
+        raise SystemExit(f"  still listed in {GUIDE.name}: {', '.join(still)} — remove those rows first")
+    _anon, svc = keys()
+    code, body = api(f"{BASE}/auth/v1/admin/users?per_page=200", svc, svc)
+    if code != 200:
+        raise SystemExit(f"  could not list users: HTTP {code}")
+    by_email = {(u.get("email") or "").lower(): u["id"] for u in body.get("users", [])}
+    failed = 0
+    for e in emails:
+        uid = by_email.get(e.lower())
+        if not uid:
+            print(f"  {e:28} not in the project (nothing to delete)")
+            continue
+        code, out = api(f"{BASE}/auth/v1/admin/users/{uid}", svc, svc, "DELETE")
+        ok = code in (200, 204)
+        failed += not ok
+        print(f"  {e:28} {'deleted' if ok else f'FAILED HTTP {code} {str(out)[:120]}'}")
+    return 1 if failed else 0
 
 
 def wire_store(qa_email: str) -> int:
