@@ -3328,47 +3328,187 @@
   "verdict": "PASS",
   "problems": [],
   "sets": {
-   "APP_IPAD_PRO_3GEN_129": [
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-01.png",
-     "kind": "app",
-     "why": "92 words",
-     "sha": "a598884fc093",
-     "text": [
-      "9:57PM Fri Oct 9",
-      " 100%",
-      "Q",
-      "Search destination..",
-      "sfapikey",
-      "aps",
-      "API KEY REQUIRED",
-      "API KEY REQUIRED",
-      "carto.",
-      "API KEY REQUIRED",
-      "carto",
-      "API KEY REQUIRED"
-     ]
-    }
-   ],
    "APP_IPHONE_67": [
     {
      "file": "APP_IPHONE_67-01.png",
      "kind": "app",
-     "why": "52 words",
-     "sha": "d6c45c81737f",
+     "why": "95 words",
+     "sha": "3c77f11b09aa",
      "text": [
-      "99:6",
-      "API KEY",
-      "API KEY",
-      "carto.",
-      "carto.2om",
-      "Q",
-      "Search destination...",
-      "API KEY REQUIRED",
-      "API KEY REQUIRED",
-      "carto.com/basemaps/apikey",
-      "+",
-      "KEY REQUIRED"
+      "Live Events",
+      "Updated justnow",
+      "AIl (22)",
+      "City Incident (20)",
+      "Weather Alert (1)",
+      "BeachHazards",
+      "NWS/NOAA",
+      "Statement",
+      "BeachHazardsStatementissuedOctober12at",
+      "3:51AMPDTuntilOctober 12at10:00PMPDTbyNW..",
+      "\u2460 7h ago",
+      "Graffiti"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "53 words",
+     "sha": "0486c769916c",
+     "text": [
+      "South Airport Boulevard, San Francisco",
+      "Emeryville",
+      "DADInIAI",
+      "A",
+      "Danv",
+      "Oakland",
+      "San Francisco",
+      "San Leandro",
+      "Alameda",
+      "Watershed",
+      "SanLeandro",
+      "Daly.City"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "114 words",
+     "sha": "a79edbf43d9e",
+     "text": [
+      "Safety near you",
+      "Clear all",
+      "Watch+",
+      "Caution+",
+      "Critical",
+      "Reports from other drivers are not available yet. Reports you",
+      "makestayonthis device.",
+      "Street or sidewalk cleaning",
+      "0.3 mi",
+      "Street Cleaning",
+      "2 min ago\u00b7Open311",
+      "Street defect"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "74 words",
+     "sha": "e2a9e745b62c",
+     "text": [
+      "Local Radio",
+      "Police\u00b7Fire\u00b7EMS\u00b7Weather\u00b7ATC",
+      "AIl (4)",
+      "Police (1)",
+      "Fire (1)",
+      "Weather Radio (1)",
+      "SomaFM SF",
+      "Police",
+      "Police",
+      "Scanner",
+      "Listed on radio-browser.info",
+      "O San Francisco CA, San Fra..."
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "130 words",
+     "sha": "2155bc16d11c",
+     "text": [
+      "Live Events",
+      "Updated just now",
+      "AlI (22)",
+      "CityIncident\uff0820)",
+      " Weather Alert (1)",
+      " Flood (1)",
+      "BeachHazardsStatement",
+      "NWS/NOAA",
+      "BeachHazardsStatementissuedOctober12at3:51AMPDTuntilOctober12at10:00PMPDTbyNWSSanFranciscoCA",
+      "\u2460 7h ago",
+      "Graffiti",
+      "Open311"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "54 words",
+     "sha": "6276581b6a7b",
+     "text": [
+      "SouthAirportBoulevard,SanFrancisco",
+      "Emeryville",
+      "LosVaqueros",
+      "North Farallon",
+      "Reservoir",
+      "islands",
+      "Oakland",
+      "and Watershed",
+      "StateMarine",
+      "San Francisco",
+      "San Leandro",
+      "Mountain"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "163 words",
+     "sha": "af16514898ee",
+     "text": [
+      "Safety near you",
+      "Clear all",
+      "Watch+",
+      "Caution+",
+      "Critical",
+      "Reportsfromotherdriversarenotavailableyet.Reportsyoumakestayonthisdevice.",
+      "Streetorsidewalkcleaning",
+      "0.5 mi",
+      "Smashed fruit. Tripping hazard",
+      "43 min ago\u00b7Open311",
+      "Streetorsidewalkcleaning",
+      "0.5 mi"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "48 words",
+     "sha": "fae23dbd62bd",
+     "text": [
+      "NearbyServices",
+      "55foundnearby",
+      "Elevation",
+      "19m (61ft)",
+      "EV",
+      "Fuel",
+      "Parking",
+      "Transit",
+      "30",
+      "25",
+      "Parking",
+      "1210m$Paid"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "59 words",
+     "sha": "1199824284f1",
+     "text": [
+      "Local Radio",
+      "Police\u00b7Fire\u00b7EMS\u00b7Weather\u00b7ATC",
+      "AlI (4)",
+      "Police (1)",
+      " Fire (1)",
+      "Weather Radio (1)",
+      "Air Traffic Control (1)",
+      "SomaFMSFPoliceScanner",
+      "Police",
+      "Listed on radio-browser.info",
+      "SanFrancisco CA,San Francisco CA\u00b7LiVE",
+      "SomaFMSF10-33(128kMP3)"
      ]
     }
    ]
