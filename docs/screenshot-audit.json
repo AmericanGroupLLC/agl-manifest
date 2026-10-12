@@ -2509,15 +2509,35 @@
     {
      "file": "APP_IPAD_PRO_3GEN_129-01.png",
      "kind": "app",
-     "why": "77 words",
-     "sha": "5eed11bb96c0",
+     "why": "20 words",
+     "sha": "e35b9f44a307",
      "text": [
-      "9:41AM Mon Sep 14",
-      "GadgetNest",
-      "The cheapest place to buy it",
-      "Every price is the total you pay \u2014\u2014 item plus delivery \u2014 across 9 retailers.",
+      "Browse",
+      "Search phones, laptops, headphones...",
+      "Categories",
       "Phones",
       "Laptops",
+      "Headphones",
+      "Tablets",
+      "TVs",
+      "Wearables",
+      "Cameras",
+      "Consoles",
+      "\u54c1"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "51 words",
+     "sha": "9cd76fc93a7f",
+     "text": [
+      "GadgetNest",
+      "Gadget price comparison",
+      "Price comparison is not connected to any retailer yet.",
+      "Phones",
+      "Laptops",
+      "?",
       "Headphones",
       "Tablets",
       "TVS",
@@ -2527,78 +2547,23 @@
      ]
     },
     {
-     "file": "APP_IPAD_PRO_3GEN_129-02.png",
-     "kind": "app",
-     "why": "68 words",
-     "sha": "892483f87e19",
-     "text": [
-      "9:41AM Mon Sep 14",
-      "Browse",
-      "Search phones, laptops, headphones...",
-      "Categories",
-      "Phones",
-      "2 products",
-      "Laptops",
-      "1 product",
-      "Headphones",
-      "1 product",
-      "Tablets",
-      "1 product"
-     ]
-    },
-    {
      "file": "APP_IPAD_PRO_3GEN_129-03.png",
      "kind": "app",
-     "why": "80 words",
-     "sha": "f0443b2180ae",
+     "why": "95 words",
+     "sha": "b50b9fdb466d",
      "text": [
-      "9:41AM Mon Sep 14",
-      "Deals",
-      "Any condition",
-      "New",
-      "Open box",
-      "Certifiedrefurbished",
-      "Ranked by discountoff the manufacturer'slistprice.",
-      "SAMSUNG",
-      "GalaxyWatch8Classic46mm",
-      "$329.00",
-      "-34%",
-      "at eBay\u00b7free delivery"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-04.png",
-     "kind": "app",
-     "why": "11 words",
-     "sha": "14ee6a0ed9ff",
-     "text": [
-      "9:41AMMonSep14",
-      "My list",
-      "Yourlistisempty",
-      "AddafewproductsandGadgetNestwillworkoutwhetheroneorderorseveralischeaper.",
-      "Home",
-      "Browse",
-      "Deals",
-      "My list",
-      "Saved"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-05.png",
-     "kind": "empty",
-     "why": "Nothing saved",
-     "sha": "1e84a5148ded",
-     "text": [
-      "9:41AMMonSep14",
-      "Saved",
-      "Nothing saved yet",
-      "Tap the heart on a product to keep an eye on its price.",
-      "\u54c1",
-      "Home",
-      "Browse",
-      "Deals",
-      "My list",
-      "Saved"
+      "Settings",
+      "Appearance",
+      "Match the system",
+      "Light",
+      "Dark",
+      "Wherepricescomefrom",
+      "No prices shown \u2014 no retailer feed is connected",
+      "GadgetNest is not connected to any retailer feed yet, so nothing it shows is a price a retailer published. It is",
+      "not the seller, takes no payment, and never sees your card details \u2014 any purchase happens on the",
+      "retailer's own site.",
+      "Retailerlinks",
+      "never ranked by who pays."
      ]
     }
    ],
@@ -2606,97 +2571,81 @@
     {
      "file": "APP_IPHONE_67-01.png",
      "kind": "app",
-     "why": "57 words",
-     "sha": "89d8ee89f6db",
+     "why": "20 words",
+     "sha": "fd802d91355e",
      "text": [
-      "1:45",
-      "GadgetNest",
-      "The cheapest place to buy it",
-      "Every price is the total you pay \u2014 item plus delivery \u2014",
-      "across 9 retailers.",
+      "Browse",
+      "Search phones, laptops, headphones...",
+      "Categories",
       "Phones",
       "Laptops",
       "Headphones",
-      "Biggest discounts",
-      "See all",
-      "-34%",
-      "SAMSUNG"
+      "Tablets",
+      "TVs",
+      "Wearables",
+      "Cameras",
+      "Consoles",
+      "\u54c1"
      ]
     },
     {
      "file": "APP_IPHONE_67-02.png",
      "kind": "app",
-     "why": "28 words",
-     "sha": "dc34044892aa",
+     "why": "42 words",
+     "sha": "cbb342d9c9c7",
      "text": [
-      "1:45",
-      "Browse",
-      "Search phones, laptops, headphones...",
-      "Categories",
+      "GadgetNest",
+      "Gadget price comparison",
+      "Price comparison is not connected to any retailer yet.",
       "Phones",
-      "2 products",
       "Laptops",
-      "1 product",
+      "?",
       "Headphones",
-      "1 product",
-      "Tablets",
-      "1 product"
+      "Live prices are unavailable",
+      "build, so it will not show you a price. It will not show",
+      "you a made-up oneeither.",
+      "Home",
+      "Browse"
      ]
     },
     {
      "file": "APP_IPHONE_67-03.png",
      "kind": "app",
-     "why": "53 words",
-     "sha": "7841a547f121",
+     "why": "111 words",
+     "sha": "4e9ed0c7de26",
      "text": [
-      "1:45",
-      "Deals",
-      "Any condition",
-      "New",
-      "Open box",
-      "Certifiec",
-      "Ranked by discount off the manufacturer'slist price.",
-      "SAMSUNG",
-      "GalaxyWatch8Classic46mm",
-      "$329.00",
-      "-34%",
-      "at eBay\u00b7free delivery"
+      "Settings",
+      "Appearance",
+      "Match the system",
+      "Light",
+      "Dark",
+      "Where prices come from",
+      "No prices shown \u2014 no retailer feed is connected",
+      "GadgetNest is not connected to any retailer feed yet, so",
+      "nothing it shows is a price a retailer published. It is not the",
+      "seller, takes no payment, and never sees your card details",
+      "- any purchase happens on the retailer's own site.",
+      "Retailer links"
      ]
     },
     {
      "file": "APP_IPHONE_67-04.png",
      "kind": "app",
-     "why": "27 words",
-     "sha": "39adbd6a3019",
+     "why": "108 words",
+     "sha": "9d9ad3cfb8d3",
      "text": [
-      "1:45",
-      "My list",
-      "Your list is empty",
-      "Add a few products and GadgetNest will work out",
-      "whether one order or several is cheaper.",
-      "\u56fd",
-      "Home",
-      "Browse",
-      "Deals",
-      "My list",
-      "Saved"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-05.png",
-     "kind": "empty",
-     "why": "Nothing saved",
-     "sha": "d8ead3004674",
-     "text": [
-      "1:45",
-      "Saved",
-      "Nothing saved yet",
-      "Tap the heart on a product to keep an eye on its price.",
-      "Home",
-      "Browse",
-      "Deals",
-      "My list",
-      "Saved"
+      "Settings",
+      "GadgetNest is not connected to any retailer feed yet, so",
+      "nothing it shows is a price a retailer published. It is not the",
+      "seller, takes no payment, and never sees your card details",
+      "- any purchase happens on the retailer's own site.",
+      "Retailer links",
+      "GadgetNest has no affiliate agreement with any retailer",
+      "yet, so it earns nothing when you buy. Results are never",
+      "ranked by who pays.",
+      "Your data",
+      "Saved items and list",
+      "Stored on this device only. There is no account and"
      ]
     }
    ]
@@ -2705,46 +2654,190 @@
  "GroceryMatch": {
   "source": "app_store_connect",
   "version": "2.1.0",
-  "verdict": "FAIL",
-  "problems": [
-   "APP_IPAD_PRO_3GEN_129: first screenshot is login (Login)",
-   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
-   "APP_IPHONE_67: first screenshot is login (Log in)",
-   "APP_IPHONE_67: 1 of 1 are not the app in use"
-  ],
+  "verdict": "PASS",
+  "problems": [],
   "sets": {
-   "APP_IPAD_PRO_3GEN_129": [
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-01.png",
-     "kind": "login",
-     "why": "Login",
-     "sha": "147bafec42b4",
-     "text": [
-      "9:41AM Mon Sep 14",
-      "Welcometo",
-      "GroceryMatch",
-      "Eat out for less too",
-      "Delivery markup and fees included, so the price is the price.",
-      "Let's GetStarted",
-      "Alreadyhaveanaccount?Login"
-     ]
-    }
-   ],
    "APP_IPHONE_67": [
     {
      "file": "APP_IPHONE_67-01.png",
-     "kind": "login",
-     "why": "Log in",
-     "sha": "274bef535f88",
+     "kind": "app",
+     "why": "39 words",
+     "sha": "fb425527a97a",
      "text": [
-      "3:51",
-      "Welcome to",
-      "GroceryMatch",
-      "Eat out for less too",
-      "Delivery markup and fees included, so the",
-      "price is the price.",
-      "Let's Get Started",
-      "Already have an account? Log in"
+      "My List",
+      "8 items",
+      "Search or add an item",
+      "\u54c1",
+      "Look UpBarcode",
+      "Quick Add",
+      "BrowseAisles",
+      "RecentlyAdded",
+      "Clear All",
+      "Chicken Breast",
+      "X",
+      "2 Ibs"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "54 words",
+     "sha": "0118f9676a87",
+     "text": [
+      "Grocery Stores Near You",
+      "California).",
+      "GroceryMatch has no live price source, so store prices are not",
+      "shown.",
+      "Trader Joe's",
+      "1.2 mi",
+      "2100 Santa Rosa Avenue, Santa Rosa",
+      "FoodMaxx",
+      "1.3 mi",
+      "2055SebastopolRoad,SantaRosa",
+      "Lola's Supermarket",
+      "1.5 mi"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "61 words",
+     "sha": "bc667534811b",
+     "text": [
+      "Look Up Barcode",
+      "Camerascanningisn'tavailableyet",
+      "Type or paste the number under the barcode instead.",
+      "Barcode number",
+      "8076800195057",
+      "Look up",
+      "Spaghetti N\u00b05",
+      "Barilla\u00b7500 g",
+      "Barc0de8076800195057",
+      "Nutri-Score A",
+      "NOVA 1",
+      "Eco-Score A"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "58 words",
+     "sha": "81957dfff5b9",
+     "text": [
+      "Healthy Alternatives",
+      "greek yogurt",
+      "Ranked by Nutri-Score (A is best). Nutrition data from Open Food",
+      "Facts.",
+      "GreekStrainedYogurtwithVanillaflavour",
+      "A",
+      "Chobani",
+      "Sugar 7.0 g \u00b7 Protein 20.0 g per 100 g",
+      "organic GREEK YOGURT plain",
+      "A",
+      "KIRKLAND Signature",
+      "Sugar 2.4 g \u00b7 Protein 10.6 g per 100 g"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "30 words",
+     "sha": "3e4b986bacd0",
+     "text": [
+      "Meal Planner",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Salmon & Rice",
+      "25 min\u00b72 servings",
+      "Auto-generated List",
+      "4 items",
+      "Salmon Fillet"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "41 words",
+     "sha": "fed604117bd4",
+     "text": [
+      "My List",
+      "8items",
+      "Search or add an item",
+      "\u54c1",
+      "\u54c1",
+      "Look Up Barcode",
+      "Quick Add",
+      "Browse Aisles",
+      "RecentlyAdded",
+      "Clear All",
+      "Chicken Breast",
+      "2Ibs"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "71 words",
+     "sha": "9af2452aa015",
+     "text": [
+      "Grocery Stores Near You",
+      "Straight-line distances from your approximate location (Santa Rosa, California)",
+      "GroceryMatchhasnolivepricesource,so storeprices arenot shown.",
+      "Trader Joe's",
+      "1.2 mi",
+      "2100 Santa RosaAvenue,Santa Rosa",
+      "FoodMaxx",
+      "1.3 mi",
+      "2055SebastopolRoad,SantaRosa",
+      "Lola'sSupermarket",
+      "1.5 mi",
+      "ImwalleGardens"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "42 words",
+     "sha": "302292713531",
+     "text": [
+      "Look Up Barcode",
+      "Camerascanningisn'tavailableyet",
+      "Typeorpastethenumberunderthebarcodeinstead.",
+      "Barcodenumber",
+      "8076800195057",
+      "Look up",
+      "Spaghetti N\u00b05",
+      "Barilla\u00b7500 g",
+      "Barcode8076800195057",
+      "Nutri-Score A",
+      "NOVA1",
+      "Eco-Score A"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "29 words",
+     "sha": "ddca6f1ef427",
+     "text": [
+      "Meal Planner",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat",
+      "Sun",
+      "Salmon&Rice",
+      "25 min\u00b72 servings",
+      "Auto-generatedList",
+      "4 items"
      ]
     }
    ]
@@ -3105,37 +3198,17 @@
     {
      "file": "APP_IPHONE_67-01.png",
      "kind": "app",
-     "why": "52 words",
-     "sha": "c023bb110f12",
+     "why": "28 words",
+     "sha": "adb6b2b8bb36",
      "text": [
-      "10:04",
-      "Measure Everything",
-      "Metric",
-      "11 instruments \u00b7 works offline",
-      "Ready",
-      "11",
-      "cm",
-      "Offline",
-      "Tools",
-      "Saved",
-      "Units",
-      "Instruments"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-02.png",
-     "kind": "app",
-     "why": "38 words",
-     "sha": "d1521ba3ab76",
-     "text": [
-      "10:04",
       "Measure",
       "Metric",
       "Tap two points for a distance",
       "Screen Ruler",
       "Camera",
-      "Tap to set point A",
+      "B",
       "Distance A \u2192 B",
+      "4.50 cm",
       "\u00b11-5 cm",
       "approximate",
       "Clear",
@@ -3143,63 +3216,63 @@
      ]
     },
     {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "37 words",
+     "sha": "299e75b990ed",
+     "text": [
+      "Records",
+      "Metric",
+      "Saved, labelled, exportable",
+      "Search labels and jobs",
+      "AlI",
+      "Hallway gallery wall",
+      "Export csv",
+      "Entries",
+      "Jobs",
+      "HALLWAYGALLERYWALL",
+      "3 entries",
+      "Picture hook nail"
+     ]
+    },
+    {
      "file": "APP_IPHONE_67-03.png",
      "kind": "app",
-     "why": "43 words",
-     "sha": "1ac759159022",
+     "why": "45 words",
+     "sha": "e716c61ed1ef",
      "text": [
-      "10:04",
-      "Level",
+      "Measure Everything",
       "Metric",
-      "Pitch and roll, live",
-      "Level",
-      "Bullseye",
-      "T",
-      "Sensor not available on this",
-      "device",
-      "This device has no accelerometer, so",
-      "the level cannot read a surface.",
-      "Pitch\u00b7X"
+      "11 instruments \u00b7 works offline",
+      "Ready",
+      "11",
+      "3",
+      "cm",
+      "Offline",
+      "Tools",
+      "Saved",
+      "Units",
+      "Recent"
      ]
     },
     {
      "file": "APP_IPHONE_67-04.png",
      "kind": "app",
-     "why": "31 words",
-     "sha": "3bd74b51ffd1",
+     "why": "110 words",
+     "sha": "983b8227490d",
      "text": [
-      "10:04",
-      "Compass",
-      "Metric",
-      "Magnetic heading",
-      "Sensor not available on this device",
-      "This device has no magnetometer, so a heading",
-      "cannot be read.",
-      "Test mode",
-      "Nice job!",
-      "est ad.",
-      "Home",
-      "Measure"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-05.png",
-     "kind": "app",
-     "why": "39 words",
-     "sha": "22c79ee9a743",
-     "text": [
-      "10:04",
-      "Records",
-      "Metric",
-      "Saved, labelled, exportable",
-      "Search labels and jobs",
-      "Export Csv",
-      "Entries",
-      "Jobs",
-      "No records yet",
-      "Capture a reading from Measure, Level or",
-      "Compass and it lands here.",
-      "Measure"
+      "Quick Answers",
+      "Offline quick reference. Ask a unit conversion (\"6 ft 2 in to cm\") or",
+      "type a keyword (level, distance, angle, compass...) for tips. This uses",
+      "a built-in guide, not Al.",
+      "How do I level a picture frame?",
+      "Rest the long edge of the phone on the top of",
+      "the frame (or the shelf), open the Level tab in",
+      "Level mode, and adjust until the reading shows",
+      "0.0\u00b0 and the bar turns to level. If your phone",
+      "case has a bump, set zero on a surface you",
+      "know is flat first.",
+      "6 ft 2 in to cm"
      ]
     }
    ],
@@ -3207,16 +3280,56 @@
     {
      "file": "APP_IPAD_PRO_3GEN_129-01.png",
      "kind": "app",
-     "why": "67 words",
-     "sha": "27d2e2bf2615",
+     "why": "26 words",
+     "sha": "3e80d78a62a4",
      "text": [
-      "10:05PMFriOct9",
-      "100%",
+      "Measure",
+      "Metric",
+      "Tap two points for a distance",
+      "Screen Ruler",
+      "Camera",
+      "Distance A \u2192 B",
+      "4.50 cm",
+      "\u00b11-5 cm",
+      "approximate",
+      "Clear",
+      "Save",
+      "Shutter captures thereading\u00b7Save addsalabel"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "39 words",
+     "sha": "8b251c5d93c0",
+     "text": [
+      "Records",
+      "Metric",
+      "Saved,labelled,exportable",
+      "Q",
+      "Search labels and jobs",
+      "AlI",
+      "Hallway gallery wall",
+      "3",
+      "Export CsV",
+      "Entries",
+      "Jobs",
+      "HALLWAY GALLERY WALL"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "73 words",
+     "sha": "ee81bb07f657",
+     "text": [
       "Measure Everything",
       "Metric",
+      "\u4e2d",
       "11 instruments\u00b7works offline",
       "Ready",
       "11",
+      "3",
       "cm",
       "Offline",
       "Tools",
@@ -3225,83 +3338,21 @@
      ]
     },
     {
-     "file": "APP_IPAD_PRO_3GEN_129-02.png",
-     "kind": "app",
-     "why": "30 words",
-     "sha": "df86d78c105e",
-     "text": [
-      "10:05PMFriOct9",
-      " 100% ",
-      "Measure",
-      "Metric",
-      "Taptwopointsfor adistance",
-      "Screen Ruler",
-      "Camera",
-      "TaptosetpointA",
-      "DistanceA\u2192B",
-      "\u00b11-5 cm",
-      "approximate",
-      "Clear"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-03.png",
-     "kind": "app",
-     "why": "43 words",
-     "sha": "501e9b96ee2c",
-     "text": [
-      "10:06PMFriOct9",
-      "100%",
-      "Level",
-      "Metric",
-      "Pitchand roll, live",
-      "Level",
-      "Bullseye",
-      "Sensor not available on this device",
-      "This device has no accelerometer, so the level cannot read a surface.",
-      "Pitch\u00b7X",
-      "Roll \u00b7 Y",
-      "0.00\u00b0"
-     ]
-    },
-    {
      "file": "APP_IPAD_PRO_3GEN_129-04.png",
      "kind": "app",
-     "why": "21 words",
-     "sha": "526adb22e799",
+     "why": "85 words",
+     "sha": "ff790a47597d",
      "text": [
-      "10:06PMFriOct9",
-      " 100% ",
-      "Compass",
-      "Metric",
-      "Magneticheading",
-      "Sensornot availableonthisdevice",
-      "Thisdevicehasnomagnetometer,so aheading cannotberead.",
-      "Nice job!",
-      "Test mode",
-      "est ad.",
-      "Home",
-      "Measure"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-05.png",
-     "kind": "app",
-     "why": "36 words",
-     "sha": "7c4c11989078",
-     "text": [
-      "10:06PMFriOct9",
-      " 100%",
-      "Records",
-      "Metric",
-      "Saved,labelled,exportable",
-      "Q",
-      "Search labelsandjobs",
-      "Export CSv",
-      "Entries",
-      "Jobs",
-      "Norecordsyet",
-      "Capture a reading from Measure, Level or Compass and it lands here."
+      "Quick Answers",
+      "Offline quick reference.Ask a unit conversion(\"6 ft 2in to cm\")or type a keyword (level, distance,angle,compass..)for tips.This uses a built-in guide,not Al.",
+      "How do I level a picture frame?",
+      "Rest thelongedgeof thephone on the topof theframe(or theshelf),open theLevel tabinLevel mode,and adjust",
+      "until thereadingshowsO.o\u00b0and thebarturnstolevel.Ifyourphonecasehasabump,setzeroonasurfaceyou",
+      "know is flat first.",
+      "6 ft 2 in to cm",
+      "6 ft 2 in = 187.96 cm. The Unit Converter on the Home tab does the same for length and five other categories.",
+      "Ask anything about measuring...",
+      "\u4e2a"
      ]
     }
    ]
@@ -3683,95 +3734,170 @@
  "MyCard": {
   "source": "app_store_connect",
   "version": "1.0.0",
-  "verdict": "FAIL",
-  "problems": [
-   "APP_IPAD_PRO_3GEN_129: first screenshot is system (Passcode)",
-   "APP_IPAD_PRO_3GEN_129: 2 of 2 are not the app in use",
-   "APP_IPHONE_67: first screenshot is system (Passcode)",
-   "APP_IPHONE_67: 2 of 2 are not the app in use"
-  ],
+  "verdict": "PASS",
+  "problems": [],
   "sets": {
-   "APP_IPHONE_67": [
-    {
-     "file": "APP_IPHONE_67-01.png",
-     "kind": "system",
-     "why": "Passcode",
-     "sha": "2150a5fab828",
-     "text": [
-      "3:04",
-      "Enter iPhone Passcode for \"MyCard\"",
-      "Unlock your MyCard wallet",
-      "W",
-      "e",
-      "t",
-      "O",
-      "a",
-      "S",
-      "f",
-      "d",
-      "k"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-02.png",
-     "kind": "system",
-     "why": "Passcode",
-     "sha": "33cfd1c08e67",
-     "text": [
-      "3:04",
-      "Enter iPhone Passcode for \"MyCard\"",
-      "Unlock your MyCard wallet",
-      "W",
-      "e",
-      "t",
-      "O",
-      "a",
-      "S",
-      "f",
-      "d",
-      "k"
-     ]
-    }
-   ],
    "APP_IPAD_PRO_3GEN_129": [
     {
      "file": "APP_IPAD_PRO_3GEN_129-01.png",
-     "kind": "system",
-     "why": "Passcode",
-     "sha": "a4a8e477d447",
+     "kind": "app",
+     "why": "71 words",
+     "sha": "c4242c200172",
      "text": [
-      "Enter iPad Passcode for \"MyCard\"",
-      "Unlock your MyCard wallet",
-      "@2",
-      "#3",
-      "$4",
-      "%5",
-      "\uff067",
-      "6",
-      "8",
-      "9",
-      "0",
-      "q"
+      "MyCard",
+      "\u66f0",
+      "Q",
+      "Searchcards,tags,issuers...",
+      "All",
+      "Favourites",
+      "Protected",
+      "Productivity",
+      "Payment & Loyalty",
+      "Identit",
+      "BOARDINGPASS",
+      "Boston to Lisbon"
      ]
     },
     {
      "file": "APP_IPAD_PRO_3GEN_129-02.png",
-     "kind": "system",
-     "why": "Passcode",
-     "sha": "c344896cb199",
+     "kind": "app",
+     "why": "42 words",
+     "sha": "0e44b86edb5f",
      "text": [
-      "Enter iPad Passcode for \"MyCard\"",
-      "Unlock your MyCard wallet",
-      "@2",
-      "#3",
-      "$4",
-      "%5",
-      "\uff067",
-      "6",
-      "8",
-      "9",
-      "0",
-      "q"
+      "Boarding Pass",
+      "Boston to Lisbon",
+      "\u2191",
+      "Boarding Pass",
+      "Name",
+      "Maya Patel",
+      "Airline",
+      "Harborline Air",
+      "Flight",
+      "HL 214",
+      "From",
+      "Boston (BOS)"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "33 words",
+     "sha": "b618d9f9b964",
+     "text": [
+      "Credit Card",
+      "EverydayVisa",
+      "Credit Card",
+      "Card number",
+      "....6467",
+      "Cardholdername",
+      "Maya Patel",
+      "Expires",
+      "08/29",
+      "Security code (Cvv)",
+      "Issuer",
+      "Harbor Federal Credit Union"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "40 words",
+     "sha": "528de95c1086",
+     "text": [
+      "MyCard",
+      "Q",
+      "travel",
+      "All",
+      "Favourites",
+      "Protected",
+      "Productivity",
+      "Payment &Loyalty",
+      "ldentity 8",
+      "BOARDINGPASS",
+      "Boston to Lisbon",
+      "Travel & Events"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "58 words",
+     "sha": "0556d5d6c91e",
+     "text": [
+      "MyCard",
+      "Search cards, tags, issuers...",
+      "AlIl",
+      "Favourites",
+      " Protected",
+      "Productiv",
+      "BOARDING PASS",
+      "Boston to Lisbon",
+      "Travel&Events",
+      "#travel",
+      "CREDIT CARD",
+      "Everyday Visa"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "32 words",
+     "sha": "1a8bf972023c",
+     "text": [
+      "Boarding Pass",
+      "Boston to Lisbon",
+      "Boarding Pass",
+      "Name",
+      "Maya Patel",
+      "Airline",
+      "Harborline Air",
+      "Flight",
+      "HL 214",
+      "From",
+      "Boston (BOS)",
+      "To"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "34 words",
+     "sha": "d4b6292e42f8",
+     "text": [
+      "Credit Card",
+      "EverydayVisa",
+      "Credit Card",
+      "Card number",
+      ".\u00b7.6467",
+      "Cardholder name",
+      "Maya Patel",
+      "Expires",
+      "08/29",
+      "Security code (Cvv)",
+      "Issuer",
+      "Harbor Federal Credit Union"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "34 words",
+     "sha": "03c5bbcdec54",
+     "text": [
+      "MyCard",
+      "travel",
+      "All",
+      "Favourites",
+      "Protected",
+      "Productivity",
+      "BOARDINGPASS",
+      "Boston to Lisbon",
+      "Travel&Events",
+      "#travel",
+      "NOTE",
+      "\u65e5"
      ]
     }
    ]
@@ -4544,202 +4670,167 @@
   "verdict": "PASS",
   "problems": [],
   "sets": {
-   "APP_IPHONE_67": [
-    {
-     "file": "APP_IPHONE_67-01.png",
-     "kind": "app",
-     "why": "62 words",
-     "sha": "20f98f54816e",
-     "text": [
-      "2:39",
-      "Smart Money Transfers & Financial Intelligence",
-      "NP",
-      "NexusPay",
-      "Total Balance",
-      "$7,771.96",
-      "?",
-      "Send",
-      "Top Up",
-      "History",
-      "More",
-      "My Wallets"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-02.png",
-     "kind": "app",
-     "why": "24 words",
-     "sha": "0382a3437d95",
-     "text": [
-      "2:40",
-      "Send Money",
-      "You Send",
-      "0.00",
-      "USD",
-      "Recipient Gets",
-      "1 USD = 0.8657 EUR",
-      "0.00",
-      "EUR",
-      "Recipient",
-      "Full Name *",
-      "Email (optional)"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-03.png",
-     "kind": "app",
-     "why": "18 words",
-     "sha": "289f6d42e9dd",
-     "text": [
-      "2:40",
-      "Credit Score",
-      "No credit data",
-      "Complete your KYC to view your credit score",
-      "Home",
-      "Transfer",
-      "Credit",
-      "AI",
-      "More"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-04.png",
-     "kind": "app",
-     "why": "61 words",
-     "sha": "7fb4c7ffc6e4",
-     "text": [
-      "2:40",
-      "AI Assistant",
-      "\u4e2d",
-      "Al assistant for your financial life",
-      "\u4e2d",
-      "Hi! I'm your NexusPay Al assistant",
-      "I can help you with:",
-      "\u00b7 Understanding your credit score",
-      " Finding the best credit cards & loans",
-      " Analyzing your spending habits",
-      "\u00b7 Personalized money-saving tips",
-      "What would you like to know?"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-05.png",
-     "kind": "app",
-     "why": "35 words",
-     "sha": "850b2bce6114",
-     "text": [
-      "2:40",
-      "More",
-      "NexusPay User",
-      "NP",
-      "Upgrade to Premium",
-      "Free Plan",
-      "Financial Health",
-      "History",
-      "Credit Score",
-      "Borrow & Protect",
-      "Account",
-      "Upgrade to Premium"
-     ]
-    }
-   ],
    "APP_IPAD_PRO_3GEN_129": [
     {
      "file": "APP_IPAD_PRO_3GEN_129-01.png",
      "kind": "app",
-     "why": "63 words",
-     "sha": "b3a51c571345",
+     "why": "61 words",
+     "sha": "ef47a4993394",
      "text": [
-      "9:41AMMonSep 14",
-      "Smart Money Transfers &Financial Intelligence",
-      "NP",
-      "NexusPay",
-      "TotalBalance",
-      "$4,823.42",
-      "?",
-      "Send",
-      "TopUp",
-      "History",
-      "More",
-      "My Wallets"
+      "Currencyconverter",
+      "Livereferenceexchangerates",
+      "From",
+      "500",
+      "USD",
+      "To",
+      "48,365.00",
+      "INR",
+      "1USD=96.7300INR",
+      "1 INR= 0.01034 USD",
+      "ECBreferencerate,Oct9,2026",
+      "Rate history\u00b7USD/INR"
      ]
     },
     {
      "file": "APP_IPAD_PRO_3GEN_129-02.png",
      "kind": "app",
-     "why": "25 words",
-     "sha": "6abfdcb15eee",
+     "why": "64 words",
+     "sha": "16fcf058a3fc",
      "text": [
-      "9:41AMMon Sep 14",
-      "Send Money",
-      "You Send",
-      "0.00",
+      "Currencyconverter",
+      "Livereferenceexchangerates",
+      "From",
+      "500",
       "USD",
-      "Recipient Gets",
-      "1 USD = 0.8657 EUR",
-      "0.00",
-      "EUR",
-      "Recipient",
-      "Full Name *",
-      "\u53e3"
+      "To",
+      "48,365.00",
+      "INR",
+      "1USD=96.7300INR",
+      "1INR=0.01034 USD",
+      "ECBreferencerate,Oct9,2026",
+      "Rate history\u00b7USD/INR"
      ]
     },
     {
      "file": "APP_IPAD_PRO_3GEN_129-03.png",
      "kind": "app",
-     "why": "13 words",
-     "sha": "051a1d3358c8",
+     "why": "70 words",
+     "sha": "a08e15c8c958",
      "text": [
-      "9:41AMMonSep14",
-      "Credit Score",
-      "Nocreditdata",
-      "CompleteyourKYC toviewyour credit score",
-      "8",
-      "Home",
-      "Transfer",
-      "Credit",
-      "AI",
-      "More"
+      "Currency converter",
+      "Livereferenceexchangerates",
+      "From",
+      "500",
+      "USD",
+      "To",
+      "48,365.00",
+      "INR",
+      "1USD=96.7300INR",
+      "1INR=0.01034 USD",
+      "ECBreferencerate,Oct9,2026",
+      "Rate history\u00b7USD/INR"
      ]
     },
     {
      "file": "APP_IPAD_PRO_3GEN_129-04.png",
      "kind": "app",
-     "why": "75 words",
-     "sha": "6eb75d09986a",
+     "why": "90 words",
+     "sha": "92c0c99f62ae",
      "text": [
-      "9:41AMMonSep14",
-      "Al Assistant",
-      "Al assistant for your financial life",
-      "Hi! I'm your NexusPay Al assistant",
-      "I can help you with:",
-      "\u00b7 Understanding your credit score",
-      "\u00b7Finding the best credit cards &loans",
-      "\u00b7 Analyzing your spending habits",
-      "\u00b7 Personalized money-saving tips",
-      "What would you like to know?",
-      "How can I improve my credit score?",
-      "What's the best credit card for travel rewards?"
+      "Exchange rates",
+      "Basecurrency",
+      "USD",
+      "ECBreferencerate,Oct9,2026",
+      "1.4324",
+      "AUD",
+      "Australian Dollar",
+      "1 AUD = 0.69813 USD",
+      "5.0050",
+      "BRL",
+      "Brazilian Real",
+      "1 BRL = 0.19980 USD"
+     ]
+    }
+   ],
+   "APP_IPHONE_67": [
+    {
+     "file": "APP_IPHONE_67-01.png",
+     "kind": "app",
+     "why": "31 words",
+     "sha": "27b09a505430",
+     "text": [
+      "Currency converter",
+      "Live reference exchange rates",
+      "From",
+      "500",
+      "USD",
+      "To",
+      "48,365.00",
+      "INR",
+      "1USD=96.7300INR",
+      "1INR=0.01034USD",
+      "ECB reference rate, Oct 9, 2026",
+      "Rate history\u00b7USD/INR"
      ]
     },
     {
-     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "file": "APP_IPHONE_67-02.png",
      "kind": "app",
-     "why": "41 words",
-     "sha": "4c5d365b24c3",
+     "why": "55 words",
+     "sha": "3fdaf3cc66c9",
      "text": [
-      "9:41AMMonSep 14",
-      "More",
-      "NexusPay User",
-      "NP",
-      "Upgrade to Premium",
-      "Free Plan",
-      "Financial Health",
-      "History",
-      "Credit Score",
-      "Borrow&Protect",
-      "Account",
-      "Upgrade to Premium"
+      "USD",
+      "To",
+      "48,365.00",
+      "INR ",
+      "1USD=96.7300INR",
+      "1INR=0.01034USD",
+      "ECBreferencerate,Oct9,2026",
+      "Rate history \u00b7 USD/INR",
+      "1 month",
+      "3 months",
+      "1 year",
+      "Low"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "81 words",
+     "sha": "e6c792868334",
+     "text": [
+      "USD = 96.7300 INR",
+      "1 INR= 0.01034 USD",
+      "ECBreferencerate,Oct9,2026",
+      "Ratehistory\u00b7USD/INR",
+      "1 month",
+      "3 months",
+      "1 year",
+      "Low",
+      "High",
+      "Change",
+      "87.8100",
+      "96.8300"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "56 words",
+     "sha": "d6458fa864a0",
+     "text": [
+      "Exchange rates",
+      "Base currency",
+      "USD",
+      "ECB reference rate, Oct 9, 2026",
+      "1.4324",
+      "AUD",
+      "Australian Doll...",
+      "1 AUD = 0.69813 USD",
+      "5.0050",
+      "BRL",
+      "Brazilian Real",
+      "1 BRL = 0.19980 USD"
      ]
     }
    ]
@@ -4751,167 +4842,207 @@
   "verdict": "PASS",
   "problems": [],
   "sets": {
-   "APP_IPAD_PRO_3GEN_129": [
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-01.png",
-     "kind": "app",
-     "why": "20 words",
-     "sha": "0239ec45e689",
-     "text": [
-      "9:41AM Mon Sep 14",
-      "Library",
-      "\u56db",
-      "Recents",
-      "+New",
-      "6 media\u00b70 palettes",
-      "AlIl",
-      "Favorites",
-      "Recent",
-      "Gallery",
-      "Palettes",
-      "Colors"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-02.png",
-     "kind": "app",
-     "why": "23 words",
-     "sha": "f764145df9b7",
-     "text": [
-      "9:41AMMonSep14",
-      "Library",
-      "Recents",
-      "+New",
-      "6media\u00b70palettes",
-      "AlIl",
-      "Favorites",
-      "Recent",
-      "Gallery",
-      "Palettes",
-      "Colors",
-      "Favorites"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-03.png",
-     "kind": "app",
-     "why": "22 words",
-     "sha": "776efbb0a738",
-     "text": [
-      "9:41AMMonSep14",
-      "Library",
-      "Recents",
-      "+New",
-      "6 media\u00b70palettes",
-      "AlIl",
-      "Favorites",
-      "Recent",
-      "Gallery",
-      "Palettes",
-      "Colors",
-      "Favorites"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-04.png",
-     "kind": "app",
-     "why": "25 words",
-     "sha": "95c835d0917a",
-     "text": [
-      "9:41AMMonSep14",
-      "Library",
-      "Recents",
-      "+New",
-      "6media\u00b70palettes",
-      "AlIl",
-      "Favorites",
-      "Recent",
-      "Gallery",
-      "Palettes",
-      "Colors",
-      "Favorites"
-     ]
-    }
-   ],
    "APP_IPHONE_67": [
     {
      "file": "APP_IPHONE_67-01.png",
      "kind": "app",
-     "why": "17 words",
-     "sha": "94ab1c1eb364",
+     "why": "24 words",
+     "sha": "a9802c1a4e40",
      "text": [
-      "4:28",
-      "Library",
-      "Recents",
-      "+New",
-      "6 media\u00b70 palettes",
-      "AII",
-      "Favorites",
-      "Recent",
-      "Gallery",
-      "Palettes",
+      "Terracotta Dusk",
+      "Save",
+      "3 colors \u00b7 tap to rename",
+      "nplementary",
+      "Triadic",
+      "Analogous",
+      "Split-Comp",
+      "Tetradic",
       "Colors",
-      "Favorites"
+      "Adjust",
+      "Preview",
+      "Pink"
      ]
     },
     {
      "file": "APP_IPHONE_67-02.png",
      "kind": "app",
-     "why": "25 words",
-     "sha": "d3fbe972862f",
+     "why": "23 words",
+     "sha": "31045b9d10a5",
      "text": [
-      "4:28",
       "Library",
-      "Recents",
-      "+New",
-      "6 media \u00b7 0 palettes",
+      "+ New",
+      "O media\u00b73 palettes",
       "AlII",
       "Favorites",
       "Recent",
       "Gallery",
       "Palettes",
       "Colors",
-      "Favorites"
+      "Favorites",
+      "Terracotta Dusk",
+      "Lagoon"
      ]
     },
     {
      "file": "APP_IPHONE_67-03.png",
      "kind": "app",
-     "why": "21 words",
-     "sha": "516be88a1938",
+     "why": "52 words",
+     "sha": "4cfb5573e531",
      "text": [
-      "4:28",
-      "Library",
-      "Recents",
-      "+New",
-      "6 media \u00b7 0 palettes",
-      "AlII",
-      "Favorites",
-      "Recent",
-      "Gallery",
-      "Palettes",
-      "Colors",
-      "Favorites"
+      "Shot Planner",
+      "37.75\u00b0N,119.53\u00b0W\u00b7Oct 12",
+      "37.75\u00b0N,119.53\u00b0W",
+      "Times are shown in your device's time zone.",
+      "Use my location",
+      "Enter coordinates",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
      ]
     },
     {
      "file": "APP_IPHONE_67-04.png",
      "kind": "app",
-     "why": "28 words",
-     "sha": "c1309a6207d6",
+     "why": "44 words",
+     "sha": "a7fc0c88d413",
      "text": [
-      "4:28",
+      "Photriya",
+      "Guest",
+      "One app. Two experiences.",
+      "Explore the Academy free. Sign in to unlock more",
+      "Studio tools.",
+      "Academy",
+      "Sign in",
+      "Photriya Academy",
+      "Learn & practise",
+      "\uff1f",
+      "Academy",
+      "Lessons"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "69 words",
+     "sha": "5dc623f4ae8b",
+     "text": [
+      "Learn",
+      "8 lessons\u00b70 completed",
+      "Your Progress",
+      "0 of 8 lessons complete",
+      "AII",
+      "Beginner",
+      "Color Theory",
+      "Lighting",
+      "Composition",
+      "Lessons",
+      "Bookmarked",
+      "Understanding Color Temperature"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "25 words",
+     "sha": "2a8e41ebeb69",
+     "text": [
+      "Terracotta Dusk",
+      "\u5c71",
+      "Save",
+      "3 colors\u00b7tap to rename",
+      "Custom",
+      "Complementary",
+      "Triadic",
+      "Analogous",
+      "Split-Comp",
+      "Tetradic",
+      "Colors",
+      "Adjust"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "22 words",
+     "sha": "0a8df6cc9ac6",
+     "text": [
       "Library",
-      "Recents",
       "+New",
-      "6 media \u00b7 0 palettes",
-      "AlII",
+      "0 media\u00b73 palettes",
+      "AlIl",
       "Favorites",
       "Recent",
       "Gallery",
       "Palettes",
       "Colors",
-      "Favorites"
+      "Favorites",
+      "Terracotta Dusk",
+      "Lagoon"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "109 words",
+     "sha": "f215adbbb590",
+     "text": [
+      "Shot Planner",
+      "37.75\u00b0N,119.53\u00b0W\u00b7Oct 12",
+      "37.75\u00b0N,119.53\u00b0W",
+      "Times areshown inyour device'stimezone.",
+      " Use my location",
+      "Enter coordinates",
+      "Mon",
+      "Tue",
+      "Wed",
+      "Thu",
+      "Fri",
+      "Sat"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "44 words",
+     "sha": "48ca39907f1c",
+     "text": [
+      "Photriya",
+      "Guest",
+      "C1",
+      "One app. Two experiences.",
+      "ExploretheAcademyfree.SignintounlockmoreStudiotools.",
+      "Academy",
+      "Sign in",
+      "Photriya Academy",
+      "Learn &practise",
+      "\u56de",
+      "\u76ee",
+      "Academy"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "80 words",
+     "sha": "2f4ce71db70d",
+     "text": [
+      "Learn",
+      "8 lessons\u00b70 completed",
+      "Your Progress",
+      "0of8lessons complete",
+      "AlII",
+      "Beginner",
+      "Color Theory",
+      "Lighting",
+      "Composition",
+      "Al Tools",
+      "Pro Tips",
+      "Lessons"
      ]
     }
    ]
@@ -5523,30 +5654,47 @@
     {
      "file": "APP_IPHONE_67-01.png",
      "kind": "app",
-     "why": "41 words",
-     "sha": "10f3b27d2e7d",
+     "why": "43 words",
+     "sha": "98290ae75fac",
      "text": [
-      "1:55",
-      "RatioTune",
+      "RadioTune",
       "NOWLIVE",
       "Your world",
       "of sound",
-      "Radio\u00b7 Podcasts\u00b7 Music\u00b7 Live events",
-      "55,000",
-      "180",
+      "Radio\u00b7Podcasts\u00b7 Music",
+      "54,684",
+      "241",
       "Free",
       "stations",
       "countries",
-      "no account"
+      "no account",
+      "Trending now"
      ]
     },
     {
      "file": "APP_IPHONE_67-02.png",
      "kind": "app",
-     "why": "49 words",
-     "sha": "5d7fdf4d03f9",
+     "why": "13 words",
+     "sha": "5456ceef40e6",
      "text": [
-      "1:55",
+      "NOW PLAYING",
+      "l. ON AIR",
+      "France Info",
+      "France\u00b7 128kbps",
+      "\u53f8",
+      "\u5c0f",
+      "Queue",
+      "Car mode",
+      "Similar",
+      "Share"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "48 words",
+     "sha": "2ebb55cb30e0",
+     "text": [
       "Stations, podcasts, artists, genres",
       "Moods & moments",
       "Focus",
@@ -5557,47 +5705,48 @@
       "Sleep",
       "Podcast categories",
       "News",
-      "True Crime"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-03.png",
-     "kind": "app",
-     "why": "66 words",
-     "sha": "7cba63044f08",
-     "text": [
-      "1:55",
-      "Live",
-      "On air",
-      "Concerts",
-      "Festivals",
-      "FR\u00b7AAC\u00b764KBPS",
-      "RTL",
-      "g\u00e9n\u00e9raliste",
-      "FR\u00b7MP3.128KBPS",
-      "France Info",
-      "France",
-      "FR\u00b7AAC.128KBPS"
+      "True Crime",
+      "Comedy"
      ]
     },
     {
      "file": "APP_IPHONE_67-04.png",
      "kind": "app",
-     "why": "25 words",
-     "sha": "d436dd060981",
+     "why": "56 words",
+     "sha": "8837b8e811f4",
      "text": [
-      "1:55",
+      "jazz",
+      "Stations (40)",
+      "Podcasts (25)",
+      "Start \"jazz\" radio",
+      "A rolling mix built from this search",
+      "101SMOOTHJAZZ",
+      "US\u00b7MP3\u00b7192kbps",
+      "easy listening \u00b7 jazz",
+      "Adroit Jazz Underground",
+      "US\u00b7MP3\u00b7320kbps",
+      "avant-garde\u00b7 bebop",
+      "Jazz Radio Blues"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "37 words",
+     "sha": "b84e9868d782",
+     "text": [
       "Library",
       "Favorites",
       "Playlists",
       "Podcasts",
       "Recent",
-      "No favorites yet",
-      "Tap the heart on any station and it lands here - no",
-      "account needed.",
-      "(0)",
-      "Listen",
-      "Browse"
+      ".l",
+      "France Info",
+      "FR\u00b7MP3\u00b7128kbps",
+      "101SMOOTHJAZZ",
+      "US\u00b7MP3\u00b7192kbps",
+      "easy listening\u00b7 jazz",
+      "Adroit Jazz Underground"
      ]
     }
    ],
@@ -5605,81 +5754,101 @@
     {
      "file": "APP_IPAD_PRO_3GEN_129-01.png",
      "kind": "app",
-     "why": "72 words",
-     "sha": "9b0ab51aa36d",
+     "why": "67 words",
+     "sha": "4bc0c7be1ecc",
      "text": [
-      "9:41AMTueSep22",
-      "RatioTune",
-      "?",
+      "RadioTune",
       "NOWLIVE",
       "Your world",
       "of sound",
-      "Radio\u00b7Podcasts\u00b7Music\u00b7Live events",
-      "55,000",
-      "180",
+      "Radio\u00b7Podcasts\u00b7Music",
+      "54,684",
+      "241",
       "Free",
       "stations",
-      "countries"
+      "countries",
+      "no account",
+      "Trending now"
      ]
     },
     {
      "file": "APP_IPAD_PRO_3GEN_129-02.png",
      "kind": "app",
-     "why": "98 words",
-     "sha": "937dc0831cc7",
+     "why": "12 words",
+     "sha": "6029c72c092a",
      "text": [
-      "9:41AMTue Sep 22",
-      "Stations,podcasts,artists,genres",
-      "Moods&moments",
+      "NOW PLAYING",
+      "I. ON AIR",
+      "France Info",
+      "France\u00b7128kbps",
+      "P",
+      "\u53f8",
+      "\u65e5",
+      "\u5c0f",
+      "Queue",
+      "Carmode",
+      "Similar",
+      "Share"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "103 words",
+     "sha": "208f00b8a15c",
+     "text": [
+      "Stations, podcasts, artists, genres",
+      "Moods & moments",
       "Focus",
       "Workout",
       "Chill",
       "Commute",
       "Party",
       "Sleep",
-      "Podcastcategories",
+      "Podcast categories",
       "News",
-      "True Crime"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-03.png",
-     "kind": "app",
-     "why": "108 words",
-     "sha": "0febe96c209e",
-     "text": [
-      "9:41AM Tue Sep 22",
-      "Live",
-      "On air",
-      "Concerts",
-      "Festivals",
-      "FR\u00b7AAC.64KBPS",
-      "RTL",
-      "generaliste",
-      "FR\u00b7MP3.128KBPS",
-      "France Info",
-      "France",
-      "FR\u00b7AAC.128KBPS"
+      "True Crime",
+      "Comedy"
      ]
     },
     {
      "file": "APP_IPAD_PRO_3GEN_129-04.png",
      "kind": "app",
-     "why": "16 words",
-     "sha": "01df85bea915",
+     "why": "141 words",
+     "sha": "66680126dae7",
      "text": [
-      "9:41AMTueSep22",
+      "Q",
+      "jazz",
+      "X",
+      "Stations (40)",
+      "Podcasts (25)",
+      "Start \"jazz\" radio",
+      "A rolling mix built from this search",
+      "101SMOOTHJAZZ",
+      "US\u00b7MP3\u00b7192kbps",
+      "easylistening\u00b7jazz",
+      "AdroitJazzUnderground",
+      "US\u00b7MP3\u00b7320kbps"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "35 words",
+     "sha": "98562ab9037e",
+     "text": [
       "Library",
       "Favorites",
       "Playlists",
       "Podcasts",
       "Recent",
-      "Nofavoritesyet",
-      "Taptheheartonanystation and itlandshere-no accountneeded.",
-      "\u5c0f",
-      "(0)",
-      "Listen",
-      "Browse"
+      "France Info",
+      "FR\u00b7 MP3\u00b7128kbps",
+      "101SMOOTHJAZZ",
+      "US\u00b7MP3\u00b7192kbps",
+      "easy listening\u00b7jazz",
+      "AdroitJazzUnderground",
+      "US\u00b7MP3\u00b7320kbps"
      ]
     }
    ]
@@ -5907,61 +6076,81 @@
     {
      "file": "APP_IPHONE_67-01.png",
      "kind": "app",
-     "why": "18 words",
-     "sha": "1cbeb32d9366",
+     "why": "99 words",
+     "sha": "15884eb86b6b",
      "text": [
-      "3:37",
       "RoomCraft \u2014 Design",
-      "Plan a room",
-      "Room type",
-      "Living Room",
-      "Square footage",
-      "250",
-      "Style",
-      "Modern Minimalist",
-      "Get suggestions",
-      "\u5ba3",
-      "Design"
+      "Scandinavian Hygge",
+      "Warm, cozy, bright, and functional. Emphasizes natural",
+      "light and wooden textures.",
+      "Living Room\u00b7320 sq ft",
+      "Colour palette",
+      "#FFFFFF (Pure White)",
+      "#A8DADC (Soft Blue-Gray)",
+      "#E9C46A (Light Birch)",
+      "Recommendedfurniture",
+      "Up to 8 pieces for a 320 sq ft living room, most important",
+      "first."
      ]
     },
     {
      "file": "APP_IPHONE_67-02.png",
      "kind": "app",
-     "why": "43 words",
-     "sha": "905ee1fd8ca2",
+     "why": "83 words",
+     "sha": "3d5fc02d81d9",
      "text": [
-      "3:37",
-      "RoomCraft - Redesign",
-      "Describe the room",
-      "Room type",
-      "Living Room",
-      "Square footage",
-      "250",
-      "What is in the room?",
-      "Large window on north wall, brick",
-      "fireplace on east wall.",
-      "Mentions of window, door, fireplace or radiator shape t..",
-      "Target style"
+      "RoomCraft \u2014 Design",
+      "Japandi",
+      "Japanese restraint meets Scandinavian warmth: low,",
+      "simple forms, natural materials and a calm, muted",
+      "palette.",
+      "Bedroom\u00b7180 sq ft",
+      "Colour palette",
+      "#EDE6DB (Rice Paper)",
+      "#8B7E74 (Warm Taupe)",
+      "#2F2F2F (Ink)",
+      "Recommendedfurniture",
+      "Up to 5 pieces for a 180 sq ft bedroom, most important first."
      ]
     },
     {
      "file": "APP_IPHONE_67-03.png",
      "kind": "app",
-     "why": "14 words",
-     "sha": "3b256784952c",
+     "why": "121 words",
+     "sha": "509e07a9fc89",
      "text": [
-      "3:37",
+      "RoomCraft \u2014 Redesign",
+      "Mid-CenturyModern",
+      "Living Room \u00b7 280 sq ft\u00b7 up to 5 pieces",
+      "Detected features",
+      "Window",
+      "Doorway",
+      "Fireplace (Focal Point)",
+      "Radiator (Do not block)",
+      "Positioning",
+      "Position primary seating or desks perpendicular to",
+      "windows to maximize natural light without glare.",
+      "Arrange seating in a semi-circle facing the fireplace as"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "85 words",
+     "sha": "57d6a1bea094",
+     "text": [
       "RoomCraft \u2014 Sourcing",
-      "Find local materials",
-      "Latitude",
-      "Longitude",
-      "42.3601",
-      "-71.0589",
-      "Material",
-      "wood",
-      "Find suppliers",
-      "\u5ba3",
-      "Design"
+      "Near Boston",
+      "Place found: Boston, Suffolk County, Massachusetts, United",
+      "States (42.3588, -71.0578)",
+      "85 shops found within 15 km for wood. Searched",
+      "OpenStreetMap for: Timber merchant, DlY / home",
+      "improvement, Hardware, Furniture. OpenStreetMap",
+      "does not list what each shop stocks, so check before",
+      "you go.",
+      "Showing the nearest 20.",
+      "Shop data @ OpenStreetMap contributors (ODbL).",
+      "Johnston & Murphy"
      ]
     }
    ],
@@ -5969,61 +6158,81 @@
     {
      "file": "APP_IPAD_PRO_3GEN_129-01.png",
      "kind": "app",
-     "why": "21 words",
-     "sha": "735ffd2e4c4d",
+     "why": "127 words",
+     "sha": "be035207cc12",
      "text": [
-      "9:41AM Tue Sep 22",
       "RoomCraft \u2014 Design",
       "Plan a room",
       "Room type",
       "Living Room",
       "Square footage",
-      "250",
+      "320",
       "Style",
-      "Modern Minimalist",
+      "Scandinavian Hygge",
       "Get suggestions",
-      "Design",
-      "Redesign"
+      "Scandinavian Hygge",
+      "Warm, cozy, bright, and functional.Emphasizes natural light and wooden textures.",
+      "Living Room\u00b7320 sq ft"
      ]
     },
     {
      "file": "APP_IPAD_PRO_3GEN_129-02.png",
      "kind": "app",
-     "why": "40 words",
-     "sha": "c8bd02de6b99",
+     "why": "115 words",
+     "sha": "9abc0a1da5af",
      "text": [
-      "9:41AMTueSep22",
-      "RoomCraft -Redesign",
-      "Describe the room",
+      "RoomCraft \u2014 Design",
+      "Plan a room",
       "Room type",
-      "Living Room",
+      "Bedroom",
       "Square footage",
-      "250",
-      "Whatis intheroom?",
-      "Large window on north wall, brick fireplace on east wall.",
-      "Mentions ofwindow,door,fireplace orradiator shape the advice.",
-      "Target style",
-      "ScandinavianHygge"
+      "180",
+      "Style",
+      "Japandi",
+      "Get suggestions",
+      "Japandi",
+      "JapaneserestraintmeetsScandinavianwarmth:low,simpleforms,naturalmaterials",
+      "and a calm,mutedpalette."
      ]
     },
     {
      "file": "APP_IPAD_PRO_3GEN_129-03.png",
      "kind": "app",
-     "why": "17 words",
-     "sha": "af67a1995463",
+     "why": "144 words",
+     "sha": "f3d59975656b",
      "text": [
-      "9:41AM Tue Sep 22",
+      "RoomCraft \u2014 Redesign",
+      "Mentions of window, door, fireplace or radiator shape the advice.",
+      "Target style",
+      "Mid-Century Modern",
+      "Plan redesign",
+      "Mid-Century Modern",
+      "Living Room\u00b7280 sq ft\u00b7upto5 pieces",
+      "Detected features",
+      "Window",
+      "\uff1aDoorway",
+      "Fireplace (Focal Point)",
+      "Radiator (Do not block)"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "101 words",
+     "sha": "75b38a1686c0",
+     "text": [
       "RoomCraft \u2014 Sourcing",
-      "Find local materials",
-      "Latitude",
-      "Longitude",
-      "42.3601",
-      "-71.0589",
-      "Material",
-      "wood",
-      "Find suppliers",
-      "Design",
-      "Redesign"
+      "Near Boston",
+      "Place found:Boston,Suffolk County, Massachusetts,United States (42.3588,-71.0578)",
+      "85shopsfoundwithin15kmforwood.SearchedOpenStreetMapfor:Timber",
+      "merchant,DlY/homeimprovement,Hardware,Furniture.OpenStreetMap doesnot",
+      "listwhat each shop stocks,so checkbeforeyou go.",
+      "Showing the nearest 20.",
+      "Shop data  OpenStreetMap contributors(ODbL).",
+      "Johnston & Murphy",
+      "Furniture",
+      "0.2 km (0.1 mi)",
+      "Charles Street Supply"
      ]
     }
    ]
@@ -6164,57 +6373,210 @@
  "Uscis-Case": {
   "source": "app_store_connect",
   "version": "1.0.2",
-  "verdict": "FAIL",
-  "problems": [
-   "APP_IPAD_PRO_3GEN_129: first screenshot is other_app (shows another app: photriya)",
-   "APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use",
-   "APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is other_app (shows another app: photriya)",
-   "APP_IPHONE_67: first screenshot is other_app (shows another app: photriya)",
-   "APP_IPHONE_67: 1 of 1 are not the app in use",
-   "APP_IPHONE_67: APP_IPHONE_67-01.png is other_app (shows another app: photriya)"
-  ],
+  "verdict": "PASS",
+  "problems": [],
   "sets": {
-   "APP_IPAD_PRO_3GEN_129": [
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-01.png",
-     "kind": "other_app",
-     "why": "shows another app: photriya",
-     "sha": "83d8af213c34",
-     "text": [
-      "\"Photriya\" would like full access",
-      "to your Photo Library.",
-      "Photriya accesses your photo library",
-      "so you can importphotos for color",
-      "analysis and Al Playground",
-      "transformations.",
-      "6 Photos",
-      "Photos may contain data associated with",
-      "location, depth information, captions, and",
-      "audio.",
-      "Limit Access...",
-      "Allow Full Access"
-     ]
-    }
-   ],
    "APP_IPHONE_67": [
     {
      "file": "APP_IPHONE_67-01.png",
-     "kind": "other_app",
-     "why": "shows another app: photriya",
-     "sha": "7f51f24391a5",
+     "kind": "app",
+     "why": "76 words",
+     "sha": "7d34edd7563f",
      "text": [
-      "\"Photriya\" would like full access",
-      "to your Photo Library.",
-      "Photriya accesses your photo library",
-      "so you can import photos for color",
-      "analysis and Al Playground",
-      "transformations.",
-      "6 Photos",
-      "Photos may contain data associated with",
-      "location, depth information, captions, and",
-      "audio.",
-      "Limit Access...",
-      "Allow Full Access"
+      "IOE0925514876",
+      "Ana's green card (l-485)",
+      "1OE0925514876",
+      "Interview Was Scheduled",
+      "InterviewWasScheduled",
+      "Bring original birth and marriage certificates",
+      "Recorded by you from the UsCiS website as of Sep 30, 2026",
+      "=, Record status",
+      "Check on UsCIS",
+      "Status history",
+      "InterviewWasScheduled",
+      "Sep 30, 2026\u00b7Recorded by you"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "93 words",
+     "sha": "40a92ab9a55a",
+     "text": [
+      "My Cases",
+      "Case Status Checker",
+      "Save your receipt numbers and keep a history of every",
+      "status.",
+      "Receipt Number",
+      "MSC2190000001",
+      "Add",
+      "Enter your 13-character UsClS receipt number.",
+      "How tracking works",
+      "This app does not fetch statuses from Uscis. Save a",
+      "receipt number, check it on the official UsCiS Case Status",
+      "page, then record what it says on the case page. The app"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-03.png",
+     "kind": "app",
+     "why": "76 words",
+     "sha": "fde01fe610a3",
+     "text": [
+      "Case History",
+      "Total Cases",
+      "Approved",
+      "Pending",
+      "Ana's greencard (l-485)",
+      "IOE0925514876",
+      "Interview Was Scheduled",
+      "Carlos's work permit (l-765)",
+      "MSC2591048372",
+      "Case Was Approved",
+      "Timeline",
+      "Case Was Approved"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "45 words",
+     "sha": "a62c31681d67",
+     "text": [
+      "4/128",
+      "3 correct",
+      "Principles of American Government",
+      "Question 4",
+      "The U.S. Constitution starts with the",
+      "words \"we the People.\"what does \"We",
+      "the People\" mean?",
+      "Answer:",
+      "Self-government",
+      "Popular sovereignty",
+      "Consent of the governed",
+      "People should govern themselves"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-05.png",
+     "kind": "app",
+     "why": "122 words",
+     "sha": "f4de6d71a8f1",
+     "text": [
+      "USCIS News",
+      "AlI",
+      "USCIS",
+      "ICE",
+      "CBP",
+      "DOL",
+      "DOS",
+      "Latest USCIS, ICE and CBP documents from the Federal Register",
+      "(federalregister.gov).",
+      "CBP",
+      "justnow",
+      "Advance Traveler Information for Rail"
+     ]
+    }
+   ],
+   "APP_IPAD_PRO_3GEN_129": [
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-01.png",
+     "kind": "app",
+     "why": "51 words",
+     "sha": "54f6bf64c9f7",
+     "text": [
+      "IOE0925514876",
+      "Ana's green card (l-485)",
+      "1OE0925514876",
+      "InterviewWasScheduled",
+      "InterviewWasScheduled",
+      "Bringoriginalbirthandmarriagecertificates",
+      "Recorded by you from the USCIS website as of Sep 30, 2026",
+      "Record status",
+      "Z",
+      "CheckonUsCIS",
+      "Status history",
+      "InterviewWasScheduled"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "99 words",
+     "sha": "b0880b0e1c64",
+     "text": [
+      "My Cases",
+      "IndependentApp-NotaGovernmentService",
+      "Case Tracker for USCIS is an independent app developed by American Group LLC and is NOT affiliated with or endorsed by USCIS, DHS, or any government",
+      "agency.",
+      "Case Status Checker",
+      "Saveyourreceiptnumbersandkeepahistoryofeverystatus.",
+      "ReceiptNumber",
+      "MSC2190000001",
+      "Add",
+      "Enteryour13-characterUsCiSreceiptnumber.",
+      "How tracking works",
+      "This app does not fetch statuses from UsCIS. Save a receipt number, checkit on the official UsClS Case Status page, then record what it says on the"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "63 words",
+     "sha": "985447605456",
+     "text": [
+      "Case History",
+      "Total Cases",
+      "Approved",
+      "Pending",
+      "Ana'sgreen card (I-485)",
+      "IOE0925514876",
+      "Interview Was Scheduled",
+      "Carlos's work permit(l-765)",
+      "MSC2591048372",
+      "CaseWasApproved",
+      "Timeline",
+      "CaseWasApproved"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-04.png",
+     "kind": "app",
+     "why": "37 words",
+     "sha": "320e4fdadeed",
+     "text": [
+      "4/128",
+      "3 correct",
+      "Principles of American Government",
+      "Question4",
+      "TheU.S.Constitution startswith the words\"We thePeople.\"What does\"We thePeople\"mean?",
+      "Answer:",
+      "Self-government",
+      "Popular sovereignty",
+      "Consent of the governed",
+      "Peopleshouldgovernthemselves",
+      "(Exampleof)socialcontract",
+      "Did you get it right?"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-05.png",
+     "kind": "app",
+     "why": "278 words",
+     "sha": "a2341891e314",
+     "text": [
+      "USCIS News",
+      "All",
+      "USCIS",
+      "ICE",
+      "CBP",
+      "DOL",
+      "DOS",
+      "Policy",
+      "LatestUsCiS,ICE and CBP documentsfrom theFederal Register (federalregister.gov).",
+      "CBP",
+      "just now",
+      "AdvanceTravelerInformationforRail"
      ]
     }
    ]
@@ -6644,61 +7006,61 @@
     {
      "file": "APP_IPAD_PRO_3GEN_129-01.png",
      "kind": "app",
-     "why": "72 words",
-     "sha": "00aef20a0e00",
+     "why": "44 words",
+     "sha": "cb69dcfd77bc",
      "text": [
-      "10:31PMFriOct9",
-      "100%",
-      "WiFiTrail",
-      "Wi-Fi",
-      "Connection facts,measured",
-      "Connection",
-      "Speed Test",
-      "Security",
-      "Current connection",
-      "Wi-Fi",
-      "Reported by the operating system",
-      "Wi-Finetwork"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-02.png",
-     "kind": "app",
-     "why": "21 words",
-     "sha": "d40435464e3f",
-     "text": [
-      "10:31PMFriOct9",
-      " 100% ",
-      "WiFiTrail",
-      "Wi-Fi",
-      "Connectionfacts,measured",
-      "Connection",
-      "Speed Test",
-      "Security",
-      "Mbps",
-      "Download",
-      "Not measured yet",
-      "Start speed test"
-     ]
-    },
-    {
-     "file": "APP_IPAD_PRO_3GEN_129-03.png",
-     "kind": "app",
-     "why": "132 words",
-     "sha": "76acf090e6a0",
-     "text": [
-      "10:31PMFriOct9",
-      "100%",
       "WiFiTrail",
       "Wi-Fi",
       "Connection facts, measured",
       "Connection",
       "Speed Test",
       "Security",
-      "GeneralWi-Figuidance",
+      "335",
+      "Mbps",
+      "Download",
+      "Measure again",
+      "335 Mbps",
+      "64.1 Mbps"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-02.png",
+     "kind": "app",
+     "why": "90 words",
+     "sha": "a3eef8be04fb",
+     "text": [
+      "WiFiTrail",
+      "Wi-Fi",
+      "Connection facts, measured",
+      "Connection",
+      "Speed Test",
+      "Security",
+      "Current connection",
+      "Wi-Fi",
+      "Reported by the operating system",
+      "Wi-Finetwork",
+      "Network name (SSID)",
+      "SSID hidden by the OS"
+     ]
+    },
+    {
+     "file": "APP_IPAD_PRO_3GEN_129-03.png",
+     "kind": "app",
+     "why": "132 words",
+     "sha": "0c5f0f640f7e",
+     "text": [
+      "WiFiTrail",
+      "Wi-Fi",
+      "Connection facts, measured",
+      "Connection",
+      "Speed Test",
+      "Security",
+      "General Wi-Fi guidance",
       "Advice, not a scan. WiFiTrail cannot inspect your router, firewall, DNS or open ports, and gives your network",
       "no score.",
-      "UseWPA3,orWPA2attheleast"
+      "UseWPA3,orWPA2attheleast",
+      "shows which mode it is using.",
+      "Keeptherouterupdated and itspassword changed"
      ]
     }
    ],
@@ -6706,10 +7068,29 @@
     {
      "file": "APP_IPHONE_67-01.png",
      "kind": "app",
-     "why": "85 words",
-     "sha": "13b0a08a8ea8",
+     "why": "45 words",
+     "sha": "320054c51750",
      "text": [
-      "10:30",
+      "WiFiTrail",
+      "Wi-Fi",
+      "Connection facts, measured",
+      "Connection",
+      "Speed Test",
+      "Security",
+      "358",
+      "Mbps",
+      "Download",
+      "Measure again",
+      "358 Mbps",
+      "45.4 Mbps"
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-02.png",
+     "kind": "app",
+     "why": "84 words",
+     "sha": "858d22ec1698",
+     "text": [
       "WiFiTrail",
       "Wi-Fi",
       "Connection facts, measured",
@@ -6720,47 +7101,48 @@
       "Wi-Fi",
       "Reported by the operating system",
       "Wi-Fi network",
-      "Network name (SSID)"
-     ]
-    },
-    {
-     "file": "APP_IPHONE_67-02.png",
-     "kind": "app",
-     "why": "21 words",
-     "sha": "55a10e2e6412",
-     "text": [
-      "10:30",
-      "WiFiTrail",
-      "Wi-Fi",
-      "Connection facts, measured",
-      "Connection",
-      "Speed Test",
-      "Security",
-      "Mbps",
-      "Download",
-      "Not measured yet",
-      "Start speed test",
-      "Download"
+      "Network name (SSID)",
+      "SSID hidden by the OS"
      ]
     },
     {
      "file": "APP_IPHONE_67-03.png",
      "kind": "app",
-     "why": "173 words",
-     "sha": "0f4b87dd8148",
+     "why": "162 words",
+     "sha": "b4e05db50c4d",
      "text": [
-      "10:30",
       "WiFiTrail",
       "Wi-Fi",
       "Connection facts, measured",
       "Connection",
       "Speed Test",
       "Security",
-      "General wi-Fi guidance",
-      "Advice, not a scan. wiFiTrail cannot inspect your router,",
-      "firewall, DNs or open ports, and gives your network no score.",
+      "General Wi-Fi guidance",
+      "Advice, not a scan. WiFiTrail cannot inspect your router,",
       "Use WPA3, or WPA2 at the least",
-      "Open and wEP networks put every byte you send in"
+      "Open and wEP networks put every byte you send in",
+      "reach of anyone nearby. Your router's admin page shows",
+      "which mode it is using."
+     ]
+    },
+    {
+     "file": "APP_IPHONE_67-04.png",
+     "kind": "app",
+     "why": "14 words",
+     "sha": "defdfd8d4877",
+     "text": [
+      "Language",
+      "System default",
+      "Follow the device language",
+      "O",
+      "English",
+      "Espanol",
+      "\u4e2d\u6587 (\u7b80\u4f53)",
+      "O",
+      "f4",
+      "Francais",
+      "Deutsch",
+      "O"
      ]
     }
    ]
