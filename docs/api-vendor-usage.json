@@ -1,0 +1,319 @@
+{
+ "vendors": {
+  "Amadeus": {},
+  "Duffel": {},
+  "Travelport": {},
+  "Sabre": {},
+  "Kiwi.com Tequila": {},
+  "Skyscanner": {},
+  "Travelpayouts": {
+   "EventSpark": "mobile/lib/core/engine/affiliate.dart:82",
+   "TripNest": "mobile/lib/core/engine/affiliate.dart:71"
+  },
+  "Expedia Group": {
+   "RideZap": "mobile/lib/features/search/flight_search_form.dart:180",
+   "TripNest": "mobile/lib/core/engine/affiliate.dart:99"
+  },
+  "Booking.com": {
+   "RideZap": "mobile/lib/features/search/flight_search_form.dart:180",
+   "TripNest": "mobile/lib/core/engine/affiliate.dart:78"
+  },
+  "Hotelbeds": {},
+  "Agoda": {},
+  "CarTrawler": {},
+  "Rentalcars.com": {
+   "TripNest": "mobile/lib/core/engine/affiliate.dart:85"
+  },
+  "DiscoverCars": {},
+  "VIPCars": {},
+  "Busbud": {
+   "TripNest": "mobile/lib/core/engine/affiliate.dart:92"
+  },
+  "Distribusion": {},
+  "Omio": {},
+  "Wanderu": {},
+  "Rome2Rio": {},
+  "Trainline": {},
+  "Viator": {
+   "EventSpark": "mobile/lib/core/engine/affiliate.dart:79",
+   "TripNest": "mobile/lib/core/engine/affiliate.dart:107"
+  },
+  "GetYourGuide": {},
+  "Welcome Pickups": {},
+  "Jayride": {},
+  "HomeToGo": {},
+  "Cover Genius": {},
+  "Allianz Partners": {},
+  "Airalo": {},
+  "Holafly": {},
+  "Dragonpass": {},
+  "LoungeKey": {},
+  "Bounce": {},
+  "Radical Storage": {},
+  "FlightAware AeroAPI": {
+   "PilotEnRoute": "lib/screens/garmin_screen.dart:410"
+  },
+  "ADS-B Exchange": {},
+  "OpenSky Network": {
+   "AeroSwift": "mobile/lib/core/env.dart:23",
+   "PilotEnRoute": "lib/screens/garmin_screen.dart:440"
+  },
+  "Airplanes.Live": {},
+  "Cirium": {},
+  "Aviationstack": {},
+  "AviationWeather.gov": {
+   "PilotEnRoute": "lib/screens/airport_screen.dart:93"
+  },
+  "NOAA / weather.gov": {
+   "iMaps": "lib/services/radio_service.dart:242"
+  },
+  "CheckWX": {},
+  "OpenWeather": {},
+  "Tomorrow.io": {},
+  "FAA": {
+   "PilotEnRoute": "lib/screens/airport_screen.dart:113"
+  },
+  "eCFR": {
+   "PilotEnRoute": "lib/screens/education_screen.dart:353"
+  },
+  "FAASTeam": {
+   "PilotEnRoute": "lib/screens/garmin_screen.dart:433"
+  },
+  "FAA DroneZone": {
+   "PilotEnRoute": "lib/screens/drone_screen.dart:851"
+  },
+  "NTSB": {},
+  "NASA ASRS": {},
+  "OurAirports": {
+   "AeroSwift": "mobile/lib/features/settings/settings_screen.dart:164",
+   "PilotEnRoute": "lib/screens/navdb_screen.dart:110"
+  },
+  "OpenAIP": {},
+  "ForeFlight": {
+   "PilotEnRoute": "lib/screens/garmin_screen.dart:389"
+  },
+  "Garmin": {
+   "MyHealth": "lib/data/profile_data.dart:347",
+   "PilotEnRoute": "lib/screens/garmin_screen.dart:130"
+  },
+  "Rotate Pilot": {
+   "PilotEnRoute": "lib/services/aviation_api_service.dart:7"
+  },
+  "Open-Meteo": {
+   "daily-pulse": "lib/core/constants/app_constants.dart:28",
+   "iMaps": "lib/services/weather_service.dart:170",
+   "MyHealth": "lib/services/weather.dart:9"
+  },
+  "Supabase": {
+   "BodyQuest": "lib/app_env.dart:46",
+   "CalcMaster": "lib/main.dart:7",
+   "CodeDeal": "mobile/codedeal_app/lib/core/auth/auth_repository.dart:4",
+   "daily-pulse": "lib/app_env.dart:46",
+   "DriftDate": "lib/main.dart:8",
+   "GroceryMatch": "lib/core/auth/auth_service.dart:20",
+   "HerJourney": "lib/app_env.dart:46",
+   "iMaps": "lib/main.dart:10",
+   "iMeasure": "lib/app_env.dart:50",
+   "Kinnav": "lib/app_env.dart:46",
+   "MyHealth": "lib/app_env.dart:46",
+   "Photriya": "lib/app_env.dart:59",
+   "PilotEnRoute": "lib/app_env.dart:46",
+   "radiotune": "lib/main.dart:20",
+   "Uscis-Case": "lib/main.dart:7",
+   "VirtuBand": "lib/main.dart:5",
+   "yourtube": "lib/app_env.dart:46"
+  },
+  "Firebase": {
+   "AGrammarly": "mobile/lib/features/about/about_screen.dart:66",
+   "ApexMarketWatch": "mobile/lib/core/crash_reporting.dart:23",
+   "CalcMaster": "lib/monetization/monetization_config.dart:140",
+   "CarDeal": "mobile/lib/core/observability/crash_reporting.dart:21",
+   "daily-pulse": "lib/core/services/news_service.dart:508",
+   "EventSpark": "mobile/lib/features/settings/settings_screen.dart:27",
+   "GadgetNest": "lib/core/observability/crash_reporting.dart:21",
+   "GroceryMatch": "lib/core/config/api_config.dart:240",
+   "HerJourney": "lib/config/app_config.dart:28",
+   "Kinnav": "lib/config/app_config.dart:55",
+   "MyFinance": "lib/main.dart:6",
+   "MyHealth": "lib/config/app_config.dart:56",
+   "Photriya": "pubspec.yaml:78",
+   "PilotEnRoute": "lib/config/backend_config.dart:25",
+   "PlantPulse": "mobile/lib/l10n/generated/app_localizations_ar.dart:747",
+   "RoomCraft": "lib/core/observability/crash_reporting.dart:21",
+   "Verba": "lib/core/config/verba_config.dart:92",
+   "VirtuBand": "lib/screens/legal_screen.dart:56",
+   "WiFiTrail": "lib/core/observability/crash_reporting.dart:21"
+  },
+  "Auth0": {},
+  "Stripe": {
+   "FashionFactory": "lib/ui/screens/compare_screen.dart:85",
+   "RoomCraft": "lib/domain/design_styles.dart:146",
+   "Uscis-Case": "lib/services/civics_data.dart:668"
+  },
+  "RevenueCat": {
+   "CalcMaster": "lib/monetization/monetization_config.dart:100"
+  },
+  "OpenAI": {
+   "daily-pulse": "lib/core/constants/app_constants.dart:50",
+   "HerJourney": "lib/config/app_config.dart:77",
+   "Photriya": "lib/core/providers/app_providers.dart:13"
+  },
+  "Google AI (Gemini)": {
+   "MyHealth": "lib/data/profile_data.dart:230"
+  },
+  "Anthropic": {
+   "PilotEnRoute": "lib/services/ai_service.dart:19"
+  },
+  "Google Maps Platform": {
+   "GroceryMatch": "lib/core/config/api_config.dart:115",
+   "Kinnav": "lib/widgets/live_map.dart:2"
+  },
+  "Mapbox": {},
+  "Resend": {},
+  "SendGrid": {},
+  "Firebase Cloud Messaging": {
+   "GroceryMatch": "lib/services/push/push_notification_service.dart:10",
+   "MyHealth": "lib/config/app_config.dart:63",
+   "Verba": "lib/core/services/notification_service.dart:3",
+   "VirtuBand": "lib/services/monetization.dart:64"
+  },
+  "Sentry": {
+   "BuddyPlay": "mobile/lib/core/games/twenty_questions.dart:6",
+   "DriftDate": "lib/services/crash_reporting.dart:1",
+   "MyHealth": "lib/config/app_config.dart:44",
+   "NexusTransferPay": "flutter-mobile-app/lib/main.dart:11",
+   "PilotEnRoute": "lib/services/integrations_service.dart:465",
+   "portfolio-board": "mobile/lib/services/portfolio_health.dart:49",
+   "Uscis-Case": "lib/models/tracked_case.dart:10"
+  },
+  "PostHog": {
+   "MyHealth": "lib/config/app_config.dart:48"
+  },
+  "Cloudflare": {
+   "WiFiTrail": "lib/domain/speed_test.dart:256"
+  },
+  "Rakuten Advertising": {
+   "FashionFactory": "lib/domain/stores.dart:37",
+   "VirtuBand": "lib/services/monetization.dart:73"
+  },
+  "Awin": {
+   "FashionFactory": "lib/domain/stores.dart:58"
+  },
+  "CJ Affiliate": {},
+  "Impact": {
+   "GroceryMatch": "lib/services/dining/affiliate_links.dart:21"
+  },
+  "Amazon Associates": {
+   "ApexMarketWatch": "mobile/lib/features/filings/filings_screen.dart:323",
+   "BodyQuest": "lib/screens/shop_screen.dart:60",
+   "CalcMaster": "lib/monetization/affiliate_service.dart:23",
+   "ChefCount": "lib/domain/models.dart:90",
+   "FashionFactory": "lib/domain/stores.dart:29",
+   "GadgetNest": "lib/core/engine/catalog.dart:156",
+   "VirtuBand": "lib/services/monetization.dart:84"
+  },
+  "eBay Partner Network": {
+   "GadgetNest": "lib/core/engine/catalog.dart:174"
+  },
+  "Best Buy": {
+   "GadgetNest": "lib/core/engine/catalog.dart:57"
+  },
+  "Walmart": {
+   "GadgetNest": "lib/core/engine/catalog.dart:49",
+   "GroceryMatch": "lib/core/config/api_config.dart:51"
+  },
+  "ShareASale": {},
+  "FlexOffers": {},
+  "Ticketmaster": {
+   "EventSpark": "mobile/lib/core/engine/affiliate.dart:87"
+  },
+  "Eventbrite": {
+   "EventSpark": "mobile/lib/core/engine/affiliate.dart:95"
+  },
+  "NewsAPI": {},
+  "GNews": {},
+  "Finnhub": {},
+  "Polygon.io": {},
+  "Alpha Vantage": {},
+  "SEC EDGAR": {
+   "ApexMarketWatch": "mobile/lib/features/settings/sources_screen.dart:40"
+  },
+  "Spoonacular": {
+   "GroceryMatch": "lib/core/config/api_config.dart:80"
+  },
+  "Edamam": {
+   "GroceryMatch": "lib/core/config/api_config.dart:170"
+  },
+  "Kroger": {
+   "GroceryMatch": "lib/core/config/api_config.dart:35"
+  },
+  "Instacart": {
+   "GroceryMatch": "lib/core/config/api_config.dart:57"
+  },
+  "Nutritionix": {
+   "GroceryMatch": "lib/core/config/api_config.dart:121"
+  },
+  "FatSecret": {
+   "GroceryMatch": "lib/core/config/api_config.dart:199"
+  },
+  "Veryfi": {
+   "GroceryMatch": "lib/core/config/api_config.dart:90",
+   "MyHealth": "lib/data/diary_data.dart:147"
+  },
+  "Yelp Fusion": {
+   "GroceryMatch": "lib/core/config/api_config.dart:183"
+  },
+  "Foursquare": {
+   "GroceryMatch": "lib/core/config/api_config.dart:191"
+  },
+  "RapidAPI": {
+   "GroceryMatch": "lib/core/config/api_config.dart:135"
+  },
+  "USDA FoodData Central": {
+   "GroceryMatch": "lib/core/config/api_config.dart:71"
+  },
+  "NREL / NLR alt-fuel": {
+   "iMaps": "lib/services/navigation_data_service.dart:702"
+  },
+  "Open Charge Map": {
+   "iMaps": "lib/services/navigation_data_service.dart:146"
+  },
+  "NASA FIRMS": {
+   "iMaps": "lib/services/realtime_data_service.dart:464"
+  },
+  "Agora": {
+   "AGStudio": "mobile/lib/l10n/app_localizations_pt.dart:320",
+   "daily-pulse": "lib/l10n/app_localizations_pt.dart:111",
+   "Kinnav": "lib/config/app_config.dart:23",
+   "MyFinance": "lib/i18n/translations.dart:643",
+   "NexusTransferPay": "flutter-mobile-app/lib/l10n/generated/app_localizations_pt.dart:105"
+  },
+  "YouTube Data API": {
+   "yourtube": "lib/core/constants/app_constants.dart:60"
+  },
+  "Pexels": {
+   "yourtube": "lib/core/constants/app_constants.dart:36"
+  },
+  "Pixabay": {
+   "yourtube": "lib/core/constants/app_constants.dart:44"
+  },
+  "DoorDash": {
+   "GroceryMatch": "lib/core/config/api_config.dart:224",
+   "MyHealth": "lib/data/diary_data.dart:84"
+  },
+  "Uber Eats": {
+   "GroceryMatch": "lib/core/config/api_config.dart:228",
+   "MyHealth": "lib/data/diary_data.dart:85"
+  },
+  "Grubhub": {
+   "GroceryMatch": "lib/core/config/api_config.dart:232",
+   "MyHealth": "lib/data/diary_data.dart:86"
+  },
+  "Uber": {
+   "RideZap": "mobile/lib/models/travel_provider.dart:16"
+  },
+  "Lyft": {
+   "RideZap": "mobile/lib/models/travel_provider.dart:22"
+  }
+ }
+}

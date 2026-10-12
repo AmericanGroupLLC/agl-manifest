@@ -1,0 +1,102 @@
+group,vendor,money,signup,what you get / where it goes,apps in code (evidence),note
+"1 SIGN UP NOW - wired in code, token/ID missing",Agora,Cost (usage),agora.io,App ID + server token service,Kinnav (lib/config/app_config.dart:23),Kinnav calls (AGORA_APP_ID)
+"1 SIGN UP NOW - wired in code, token/ID missing",Amazon Associates,Affiliate commission,affiliate-program.amazon.com,One tracking ID per app (store ID ending -20),BodyQuest (lib/screens/shop_screen.dart:60); CalcMaster (lib/monetization/affiliate_service.dart:23); ChefCount (lib/domain/models.dart:90); FashionFactory (lib/domain/stores.dart:29); GadgetNest (lib/core/engine/catalog.dart:156); VirtuBand (lib/services/monetization.dart:84),"Hard-coded unregistered tags today: bodyquest-20, calcmaster-20/-21 (REPLACE), virtuband-20, ChefCount ""americangroupllc"" (invalid format); FashionFactory AGL_AFFILIATE_TAGS empty. GadgetNest links are made-up product URLs"
+"1 SIGN UP NOW - wired in code, token/ID missing",Anthropic,Cost (usage) - server-side only,console.anthropic.com,API key behind a Supabase Edge Function,PilotEnRoute (lib/services/ai_service.dart:19),PilotEnRoute
+"1 SIGN UP NOW - wired in code, token/ID missing",Awin,Affiliate commission,awin.com,Publisher ID,FashionFactory (lib/domain/stores.dart:58),"FashionFactory (Zalando, ASOS)"
+"1 SIGN UP NOW - wired in code, token/ID missing",Best Buy,Affiliate commission,bestbuy.com (affiliate programme),Affiliate ID,GadgetNest (lib/core/engine/catalog.dart:57),GadgetNest retailer catalog
+"1 SIGN UP NOW - wired in code, token/ID missing",Booking.com,Affiliate commission,booking.com/affiliate-program (Demand API: developers.booking.com),Affiliate ID (aid),RideZap (mobile/lib/features/search/flight_search_form.dart:180); TripNest (mobile/lib/core/engine/affiliate.dart:78),RideZap placeholder; TripNest routes hotels via Travelpayouts
+"1 SIGN UP NOW - wired in code, token/ID missing",Expedia Group,Affiliate commission,partner.expediagroup.com,Affiliate ID,RideZap (mobile/lib/features/search/flight_search_form.dart:180); TripNest (mobile/lib/core/engine/affiliate.dart:99),"RideZap hard-codes affiliateId ""americangroupllc"" (placeholder)"
+"1 SIGN UP NOW - wired in code, token/ID missing",Finnhub,Cost / free tier,finnhub.io/register,API key (server-side),,ApexMarketWatch FINNHUB_API_KEY (code may be changing in the current AI-office run)
+"1 SIGN UP NOW - wired in code, token/ID missing","Google Cloud (OAuth, Maps, YouTube)",Cost (usage),console.cloud.google.com,"iOS OAuth client ID (15 apps), Maps key, YouTube Data API key",GroceryMatch (lib/core/config/api_config.dart:115); Kinnav (lib/widgets/live_map.dart:2); yourtube (lib/core/constants/app_constants.dart:60),GOOGLE_IOS_CLIENT_ID empty in 15 apps; GroceryMatch/Kinnav maps; yourtube YouTube
+"1 SIGN UP NOW - wired in code, token/ID missing",Impact,Affiliate commission,impact.com,Publisher ID + per-brand campaign IDs,GroceryMatch (lib/services/dining/affiliate_links.dart:21),GroceryMatch DoorDash/Uber Eats/Grubhub pxf.io links; DOORDASH/UBEREATS/GRUBHUB_AFFILIATE_ID empty
+"1 SIGN UP NOW - wired in code, token/ID missing",Instacart,Affiliate / partner,docs.instacart.com/developer_platform_api,API key,GroceryMatch (lib/core/config/api_config.dart:57),GroceryMatch INSTACART_API_KEY empty
+"1 SIGN UP NOW - wired in code, token/ID missing",OpenAI,Cost (usage) - server-side only,platform.openai.com,API key behind a Supabase Edge Function,daily-pulse (lib/core/constants/app_constants.dart:50); HerJourney (lib/config/app_config.dart:77); Photriya (lib/core/providers/app_providers.dart:13),"Photriya, daily-pulse, HerJourney"
+"1 SIGN UP NOW - wired in code, token/ID missing",PostHog,Optional,posthog.com,Project key,MyHealth (lib/config/app_config.dart:48),MyHealth
+"1 SIGN UP NOW - wired in code, token/ID missing",Rakuten Advertising,Affiliate commission,rakutenadvertising.com,Publisher site ID,FashionFactory (lib/domain/stores.dart:37); VirtuBand (lib/services/monetization.dart:73),"FashionFactory (Nordstrom, Macy's, Jomashop), VirtuBand"
+"1 SIGN UP NOW - wired in code, token/ID missing",RevenueCat,Revenue (subscriptions),revenuecat.com,iOS/Android public SDK keys,CalcMaster (lib/monetization/monetization_config.dart:100),CalcMaster revenueCatIosKey
+"1 SIGN UP NOW - wired in code, token/ID missing",Sentry,Optional,sentry.io,DSN,DriftDate (lib/services/crash_reporting.dart:1); MyHealth (lib/config/app_config.dart:44); NexusTransferPay (flutter-mobile-app/lib/main.dart:11),"DriftDate, MyHealth, NexusTransferPay (Crashlytics already covers crashes)"
+"1 SIGN UP NOW - wired in code, token/ID missing",Travelpayouts,Affiliate commission,travelpayouts.com,Numeric marker; join brand programmes in dashboard,EventSpark (mobile/lib/core/engine/affiliate.dart:82); TripNest (mobile/lib/core/engine/affiliate.dart:71),"TripNest (flights/hotels/cars/buses/tours) and EventSpark (Viator/Ticketmaster/Eventbrite) send marker ""americangroupllc"" - markers are numeric, so likely earning nothing"
+"1 SIGN UP NOW - wired in code, token/ID missing",Walmart,Affiliate commission,affiliates.walmart.com,Affiliate ID / API key,GadgetNest (lib/core/engine/catalog.dart:49); GroceryMatch (lib/core/config/api_config.dart:51),GadgetNest catalog; GroceryMatch WALMART_API_KEY empty
+"1 SIGN UP NOW - wired in code, token/ID missing",eBay Partner Network,Affiliate commission,partnernetwork.ebay.com,Campaign ID,GadgetNest (lib/core/engine/catalog.dart:174),GadgetNest retailer catalog (currently sample inventory)
+2 NO SIGNUP - already used keyless/public,AviationWeather.gov,Free public,aviationweather.gov/data/api,-,PilotEnRoute (lib/screens/airport_screen.dart:93),PilotEnRoute (now also airport details)
+2 NO SIGNUP - already used keyless/public,Cloudflare speed test,Free,speed.cloudflare.com,-,WiFiTrail (lib/domain/speed_test.dart:256),WiFiTrail
+2 NO SIGNUP - already used keyless/public,"FAA (d-TPP, eCFR, FAASTeam, DroneZone)",Free public,faa.gov,-,PilotEnRoute (lib/screens/education_screen.dart:353),PilotEnRoute links/charts
+2 NO SIGNUP - already used keyless/public,Firebase / FCM,Already have,firebase.google.com,Per-app config files,AGrammarly (mobile/lib/features/about/about_screen.dart:66); ApexMarketWatch (mobile/lib/core/crash_reporting.dart:23); CalcMaster (lib/monetization/monetization_config.dart:140); CarDeal (mobile/lib/core/observability/crash_reporting.dart:21); daily-pulse (lib/core/services/news_service.dart:508); EventSpark (mobile/lib/features/settings/settings_screen.dart:27); GadgetNest (lib/core/observability/crash_reporting.dart:21); GroceryMatch (lib/core/config/api_config.dart:240); HerJourney (lib/config/app_config.dart:28); Kinnav (lib/config/app_config.dart:55); MyFinance (lib/main.dart:6); MyHealth (lib/config/app_config.dart:56); Photriya (pubspec.yaml:78); PilotEnRoute (lib/config/backend_config.dart:25); PlantPulse (mobile/lib/l10n/generated/app_localizations_ar.dart:747); RoomCraft (lib/core/observability/crash_reporting.dart:21); Verba (lib/core/config/verba_config.dart:92); VirtuBand (lib/screens/legal_screen.dart:56); WiFiTrail (lib/core/observability/crash_reporting.dart:21),19 apps
+2 NO SIGNUP - already used keyless/public,NOAA / weather.gov,Free public,weather.gov,-,iMaps (lib/services/radio_service.dart:242),iMaps
+2 NO SIGNUP - already used keyless/public,Open-Meteo,Free (check commercial terms),open-meteo.com,-,daily-pulse (lib/core/constants/app_constants.dart:28); iMaps (lib/services/weather_service.dart:170); MyHealth (lib/services/weather.dart:9),"daily-pulse, iMaps, MyHealth"
+2 NO SIGNUP - already used keyless/public,OpenSky Network,Check commercial-use terms,opensky-network.org,Account may be needed for commercial use,AeroSwift (mobile/lib/core/env.dart:23); PilotEnRoute (lib/screens/garmin_screen.dart:440),AeroSwift data source; app shows ads
+2 NO SIGNUP - already used keyless/public,OurAirports,Free dataset - check licence,ourairports.com,-,AeroSwift (mobile/lib/features/settings/settings_screen.dart:164); PilotEnRoute (lib/screens/navdb_screen.dart:110),"AeroSwift, PilotEnRoute"
+2 NO SIGNUP - already used keyless/public,Rotate Pilot,Free - check terms,rotatepilot.com,-,PilotEnRoute (lib/services/aviation_api_service.dart:7),PilotEnRoute airport lookup
+2 NO SIGNUP - already used keyless/public,SEC EDGAR,Free public,sec.gov/edgar,-,ApexMarketWatch (mobile/lib/features/settings/sources_screen.dart:40),ApexMarketWatch
+2 NO SIGNUP - already used keyless/public,Supabase,Already have,supabase.com,Project smvvjivvlprjhzhoizym,BodyQuest (lib/app_env.dart:46); CalcMaster (lib/main.dart:7); CodeDeal (mobile/codedeal_app/lib/core/auth/auth_repository.dart:4); daily-pulse (lib/app_env.dart:46); DriftDate (lib/main.dart:8); GroceryMatch (lib/core/auth/auth_service.dart:20); HerJourney (lib/app_env.dart:46); iMaps (lib/main.dart:10); iMeasure (lib/app_env.dart:50); Kinnav (lib/app_env.dart:46); MyHealth (lib/app_env.dart:46); Photriya (lib/app_env.dart:59); PilotEnRoute (lib/app_env.dart:46); radiotune (lib/main.dart:20); Uscis-Case (lib/main.dart:7); VirtuBand (lib/main.dart:5); yourtube (lib/app_env.dart:46),17 apps
+3 CANDIDATE - no app uses it yet (needs building first),ADS-B Exchange,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Agoda,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Airalo,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Airplanes.Live,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Allianz Partners,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Alpha Vantage,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Amadeus,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Auth0,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Aviationstack,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Bounce,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),CJ Affiliate,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),CarTrawler,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),CheckWX,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Cirium,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Cover Genius,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),DiscoverCars,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Distribusion,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Dragonpass,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Duffel,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),FlexOffers,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),FlightAware AeroAPI,-,see founder directory,-,PilotEnRoute (lib/screens/garmin_screen.dart:410),Only named/linked in PilotEnRoute partner list; no API integration
+3 CANDIDATE - no app uses it yet (needs building first),ForeFlight,-,see founder directory,-,PilotEnRoute (lib/screens/garmin_screen.dart:389),Only named/linked in PilotEnRoute partner list; no API integration
+3 CANDIDATE - no app uses it yet (needs building first),GNews,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Garmin,-,see founder directory,-,MyHealth (lib/data/profile_data.dart:347); PilotEnRoute (lib/screens/garmin_screen.dart:130),Only named/linked in PilotEnRoute partner list; no API integration
+3 CANDIDATE - no app uses it yet (needs building first),GetYourGuide,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Google AI (Gemini),-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Holafly,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),HomeToGo,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Hotelbeds,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Jayride,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Kiwi.com Tequila,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),LoungeKey,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Mapbox,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),NASA ASRS,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),NTSB,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),NewsAPI,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Omio,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),OpenAIP,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),OpenWeather,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Polygon.io,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Radical Storage,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Resend,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Rome2Rio,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Sabre,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),SendGrid,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),ShareASale,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Skyscanner,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Stripe,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Ticketmaster Discovery API,-,see founder directory,-,,EventSpark links Ticketmaster via Travelpayouts only; Discovery API not integrated
+3 CANDIDATE - no app uses it yet (needs building first),Tomorrow.io,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Trainline,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Travelport,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),VIPCars,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Wanderu,-,see founder directory,-,,Not used by any app
+3 CANDIDATE - no app uses it yet (needs building first),Welcome Pickups,-,see founder directory,-,,Not used by any app
+4 MISSING FROM YOUR LIST - apps need it,Edamam,Cost / free tier,developer.edamam.com,App ID + key,GroceryMatch (lib/core/config/api_config.dart:170),GroceryMatch
+4 MISSING FROM YOUR LIST - apps need it,Eventbrite,Affiliate via Travelpayouts link,eventbrite.com,-,EventSpark (mobile/lib/core/engine/affiliate.dart:95),EventSpark
+4 MISSING FROM YOUR LIST - apps need it,FatSecret,Cost / free tier,platform.fatsecret.com,Client ID + secret (server-side),GroceryMatch (lib/core/config/api_config.dart:199),GroceryMatch
+4 MISSING FROM YOUR LIST - apps need it,Foursquare,Free tier,foursquare.com/developers,API key,GroceryMatch (lib/core/config/api_config.dart:191),GroceryMatch
+4 MISSING FROM YOUR LIST - apps need it,Kroger,Free (developer),developer.kroger.com,Client ID + secret (server-side),GroceryMatch (lib/core/config/api_config.dart:35),GroceryMatch
+4 MISSING FROM YOUR LIST - apps need it,NASA FIRMS,Free,firms.modaps.eosdis.nasa.gov/api,MAP_KEY,iMaps (lib/services/realtime_data_service.dart:464),iMaps
+4 MISSING FROM YOUR LIST - apps need it,Nutritionix,Cost,developer.nutritionix.com,App ID + key,GroceryMatch (lib/core/config/api_config.dart:121),GroceryMatch
+4 MISSING FROM YOUR LIST - apps need it,Open Charge Map,Free,openchargemap.org/site/develop/api,API key,iMaps (lib/services/navigation_data_service.dart:146),iMaps
+4 MISSING FROM YOUR LIST - apps need it,Pexels,Free,pexels.com/api,API key,yourtube (lib/core/constants/app_constants.dart:36),yourtube
+4 MISSING FROM YOUR LIST - apps need it,Pixabay,Free,pixabay.com/api/docs,API key,yourtube (lib/core/constants/app_constants.dart:44),yourtube
+4 MISSING FROM YOUR LIST - apps need it,RapidAPI,Cost,rapidapi.com,API key (server-side),GroceryMatch (lib/core/config/api_config.dart:135),GroceryMatch
+4 MISSING FROM YOUR LIST - apps need it,Spoonacular,Cost / free tier,spoonacular.com/food-api,API key (server-side),GroceryMatch (lib/core/config/api_config.dart:80),GroceryMatch; also fits ChefCount
+4 MISSING FROM YOUR LIST - apps need it,Uber / Lyft,Affiliate availability not verified,uber.com / lyft.com,-,RideZap (mobile/lib/models/travel_provider.dart:22),RideZap links to front doors only
+4 MISSING FROM YOUR LIST - apps need it,Veryfi,Cost (paid OCR) - server-side only,veryfi.com,4 credentials,GroceryMatch (lib/core/config/api_config.dart:90),GroceryMatch receipt scan
+4 MISSING FROM YOUR LIST - apps need it,Yelp Fusion,Free tier,yelp.com/developers,API key (server-side),GroceryMatch (lib/core/config/api_config.dart:183),GroceryMatch
+4 MISSING FROM YOUR LIST - apps need it,api.data.gov (USDA FDC + NREL/NLR),Free,api.data.gov/signup,One free key,GroceryMatch (lib/core/config/api_config.dart:71); iMaps (lib/services/navigation_data_service.dart:702),GroceryMatch USDA and iMaps NREL run on rate-limited DEMO_KEY

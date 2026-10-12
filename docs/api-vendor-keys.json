@@ -4,26 +4,8 @@
   "AGCleaner": {},
   "AGrammarly": {},
   "AGRecorder": {},
-  "AGStudio": {
-   "AGSTUDIO_API_KEY": {
-    "default": null,
-    "sites": [
-     "mobile/lib/core/app_config.dart:25"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   }
-  },
-  "ApexMarketWatch": {
-   "FINNHUB_API_KEY": {
-    "default": null,
-    "sites": [
-     "mobile/lib/core/env.dart:14"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   }
-  },
+  "AGStudio": {},
+  "ApexMarketWatch": {},
   "BodyQuest": {
    "GOOGLE_SERVER_CLIENT_ID": {
     "default": "146431650883-blpfddrf32ureu4ucqlp3oku9jo07luq.apps.googleusercontent.com",

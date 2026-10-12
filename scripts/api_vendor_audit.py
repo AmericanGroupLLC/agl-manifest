@@ -28,6 +28,59 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from agl_paths import ROOT, MANIFEST as M  # noqa: E402
 
 OUT = M / "docs/api-vendor-keys.json"
+USAGE_OUT = M / "docs/api-vendor-usage.json"
+
+# Candidate vendors (the founder's directory, 2026-10-12, plus what the apps
+# already call). Each maps to lowercase fragments searched in non-comment Dart
+# lines and pubspec.yaml. A hit means the app names the vendor in code; it
+# does not prove a live integration — the key table says whether it can work.
+VENDORS = {
+    # travel
+    "Amadeus": ["amadeus"], "Duffel": ["duffel"], "Travelport": ["travelport"], "Sabre": ["sabre.com", "sabre "],
+    "Kiwi.com Tequila": ["tequila.kiwi", "kiwi.com"], "Skyscanner": ["skyscanner"],
+    "Travelpayouts": ["travelpayouts", ".tp.st", "tp.media"], "Expedia Group": ["expedia"],
+    "Booking.com": ["booking.com"], "Hotelbeds": ["hotelbeds"], "Agoda": ["agoda"], "CarTrawler": ["cartrawler"],
+    "Rentalcars.com": ["rentalcars"], "DiscoverCars": ["discovercars"], "VIPCars": ["vipcars"], "Busbud": ["busbud"],
+    "Distribusion": ["distribusion"], "Omio": ["omio"], "Wanderu": ["wanderu"], "Rome2Rio": ["rome2rio"],
+    "Trainline": ["trainline"], "Viator": ["viator"], "GetYourGuide": ["getyourguide"],
+    "Welcome Pickups": ["welcomepickups"], "Jayride": ["jayride"], "HomeToGo": ["hometogo"],
+    "Cover Genius": ["covergenius"], "Allianz Partners": ["allianz"], "Airalo": ["airalo"], "Holafly": ["holafly"],
+    "Dragonpass": ["dragonpass"], "LoungeKey": ["loungekey"], "Bounce": ["usebounce", "bounce.com"],
+    "Radical Storage": ["radicalstorage"],
+    # aviation
+    "FlightAware AeroAPI": ["flightaware", "aeroapi"], "ADS-B Exchange": ["adsbexchange"],
+    "OpenSky Network": ["opensky-network"], "Airplanes.Live": ["airplanes.live"], "Cirium": ["cirium"],
+    "Aviationstack": ["aviationstack"], "AviationWeather.gov": ["aviationweather.gov"],
+    "NOAA / weather.gov": ["noaa.gov", "api.weather.gov"], "CheckWX": ["checkwx"],
+    "OpenWeather": ["openweathermap"], "Tomorrow.io": ["tomorrow.io"], "FAA": ["faa.gov"], "eCFR": ["ecfr.gov"],
+    "FAASTeam": ["faasafety.gov"], "FAA DroneZone": ["faadronezone"], "NTSB": ["ntsb.gov"],
+    "NASA ASRS": ["asrs.arc.nasa.gov"], "OurAirports": ["ourairports"], "OpenAIP": ["openaip"],
+    "ForeFlight": ["foreflight"], "Garmin": ["garmin.com"], "Rotate Pilot": ["rotatepilot.com"],
+    "Open-Meteo": ["open-meteo.com"],
+    # shared infrastructure
+    "Supabase": ["supabase"], "Firebase": ["firebase"], "Auth0": ["auth0"], "Stripe": ["stripe"],
+    "RevenueCat": ["revenuecat", "purchases_flutter"], "OpenAI": ["openai.com", "openai_"],
+    "Google AI (Gemini)": ["generativelanguage.googleapis", "google_generative_ai", "gemini"],
+    "Anthropic": ["anthropic.com"], "Google Maps Platform": ["maps.googleapis.com", "google_maps_flutter", "places.googleapis"],
+    "Mapbox": ["mapbox"], "Resend": ["resend.com"], "SendGrid": ["sendgrid"],
+    "Firebase Cloud Messaging": ["firebase_messaging"], "Sentry": ["sentry"], "PostHog": ["posthog"],
+    "Cloudflare": ["cloudflare"],
+    # commerce / affiliate
+    "Rakuten Advertising": ["rakuten"], "Awin": ["awin.com", "'awin'", "awin1.com"], "CJ Affiliate": ["cj.com", "anrdoezrs", "dpbolvw", "jdoqocy", "tkqlhce"],
+    "Impact": ["impact.com", "pxf.io", "sjv.io"], "Amazon Associates": ["amazon.com/", "tag=", "associates"],
+    "eBay Partner Network": ["ebay.com", "campid"], "Best Buy": ["bestbuy"], "Walmart": ["walmart"],
+    "ShareASale": ["shareasale"], "FlexOffers": ["flexoffers"],
+    # other categories
+    "Ticketmaster": ["ticketmaster"], "Eventbrite": ["eventbrite"], "NewsAPI": ["newsapi.org"], "GNews": ["gnews.io"],
+    "Finnhub": ["finnhub"], "Polygon.io": ["polygon.io"], "Alpha Vantage": ["alphavantage"], "SEC EDGAR": ["sec.gov"],
+    "Spoonacular": ["spoonacular"], "Edamam": ["edamam"], "Kroger": ["kroger"], "Instacart": ["instacart"],
+    "Nutritionix": ["nutritionix"], "FatSecret": ["fatsecret"], "Veryfi": ["veryfi"], "Yelp Fusion": ["yelp"],
+    "Foursquare": ["foursquare"], "RapidAPI": ["rapidapi"], "USDA FoodData Central": ["api.nal.usda.gov"],
+    "NREL / NLR alt-fuel": ["developer.nlr.gov", "developer.nrel.gov"], "Open Charge Map": ["openchargemap"],
+    "NASA FIRMS": ["firms.modaps"], "Agora": ["agora"], "YouTube Data API": ["youtube.googleapis", "youtube/v3"],
+    "Pexels": ["pexels"], "Pixabay": ["pixabay"], "DoorDash": ["doordash"], "Uber Eats": ["ubereats"],
+    "Grubhub": ["grubhub"], "Uber": ["uber.com"], "Lyft": ["lyft.com"],
+}
 DEFINE = re.compile(r"(?:String|bool|int)\.fromEnvironment\(\s*'([A-Z0-9_]+)'\s*"
                     r"(?:,\s*defaultValue:\s*(?:'([^']*)'|([^\)]+)))?", re.S)
 CREDENTIAL = re.compile(r"KEY|TOKEN|SECRET|CLIENT_ID|APP_ID|AFFILIATE|_TAG|PARTNER|PUBLISHER|"
@@ -61,6 +114,25 @@ def main() -> int:
             rec["effective_in_release"] = ("default" if rec["default"] else "EMPTY")
         report[a["repo"]] = keys
     OUT.write_text(json.dumps({"apps": report}, indent=1) + "\n")
+
+    usage: dict[str, dict[str, str]] = {v: {} for v in VENDORS}
+    for a in apps:
+        base = ROOT / a["repo"] / (a.get("dir") or ".")
+        files = sorted((base / "lib").rglob("*.dart")) + [base / "pubspec.yaml"]
+        for f in files:
+            if not f.exists():
+                continue
+            for i, line in enumerate(f.read_text(errors="ignore").splitlines(), 1):
+                s = line.strip()
+                if s.startswith("//") or s.startswith("#"):
+                    continue
+                low = s.lower()
+                for vendor, frags in VENDORS.items():
+                    if a["repo"] not in usage[vendor] and any(fr in low for fr in frags):
+                        usage[vendor][a["repo"]] = f"{f.relative_to(ROOT / a['repo'])}:{i}"
+    USAGE_OUT.write_text(json.dumps({"vendors": usage}, indent=1) + "\n")
+    print(f"  {sum(1 for v in usage.values() if v)} of {len(usage)} candidate vendors are named "
+          f"in app code; -> {USAGE_OUT}")
     distinct = {k for v in report.values() for k in v}
     empty = {k for v in report.values() for k, r in v.items() if not r["default"]}
     print(f"  {len(distinct)} credential keys across {sum(1 for v in report.values() if v)} apps; "
