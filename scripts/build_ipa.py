@@ -23,6 +23,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
 import pathlib
 import plistlib
 import shutil
@@ -35,6 +36,12 @@ from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT, flutter_bin  # noqa:
 ROOT = _ROOT
 MANIFEST = _MANIFEST / "apps.json"
 PROFILE_MAP = ROOT / ".dist" / "ios" / "profile_map.json"
+# CFBundleVersion for every IPA this run builds. The pubspec's +N is the
+# Android version code and often already exists on App Store Connect: on
+# 2026-10-12 daily-pulse's IPA carried build 1, Apple already had build 1 from
+# September, and the upload lane reported it "present" without uploading.
+# A minute timestamp only ever increases. AGL_IOS_BUILD_NUMBER overrides.
+BUILD_NUMBER = os.environ.get("AGL_IOS_BUILD_NUMBER") or time.strftime("%Y%m%d%H%M")
 FLUTTER = flutter_bin()
 DIST = ROOT / ".dist"
 WORK = ROOT / ".dist" / "ios-work"
@@ -64,13 +71,13 @@ def build(app: dict, profile: str) -> dict:
 
     # 1. Compile Dart and install pods. --no-codesign because signing happens in
     #    the archive step, and doing it here would need the same profile twice.
-    r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign"], cwd=d, timeout=3600)
+    r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}"], cwd=d, timeout=3600)
     # Flutter's stale .dart_tool/package_graph.json (see build_release.py):
     # AeroSwift and BuddyPlay failed here in under 4 s on it.
     if r.returncode != 0 and "package_graph.json" in (r.stdout + r.stderr):
         shutil.rmtree(d / ".dart_tool", ignore_errors=True)
         run([str(FLUTTER), "pub", "get"], cwd=d, timeout=900)
-        r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign"], cwd=d, timeout=3600)
+        r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}"], cwd=d, timeout=3600)
         rec["retried_after_stale_package_graph"] = True
     if r.returncode != 0:
         rec.update(result="FLUTTER_BUILD_FAILED", detail=tail(r.stdout + r.stderr))

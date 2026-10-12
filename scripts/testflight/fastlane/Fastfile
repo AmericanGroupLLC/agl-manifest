@@ -165,6 +165,9 @@ platform :ios do
     attempts = 0
     loop do
       if build_present?(bundle_id, build_number)
+        # Present before this run tried anything = an old build with the same
+        # number, not a delivery (daily-pulse, 2026-10-12). Say so and fail.
+        UI.user_error!("ALREADY_PRESENT #{bundle_id} build #{build_number} was on App Store Connect before this upload; nothing new was delivered") if attempts.zero? && prebuilt
         UI.success("UPLOADED #{bundle_id} build #{build_number} (present on App Store Connect)")
         break
       end
