@@ -102,10 +102,14 @@ def main() -> int:
     # --- website and redirects ------------------------------------------
     s, _, body = http(f"{WWW}/", follow=True)
     add("website", f"{WWW}/", "PASS" if s == 200 and "American Group LLC" in body else "FAIL", f"HTTP {s}")
-    for src in (f"https://{D}/", "https://safecodeg.com/", "https://www.safecodeg.com/policy/kinnav/privacy.html"):
+    s, loc, _ = http(f"https://{D}/")
+    add("website", f"https://{D}/ -> www", "PASS" if s == 301 and loc.startswith(f"{WWW}/") else "FAIL",
+        f"HTTP {s} -> {loc or '-'}")
+    # safecodeg.com was retired on 2026-10-12 (owner): it must serve nothing
+    # and redirect nowhere. A 200 or a 3xx means the old site came back.
+    for src in ("https://safecodeg.com/", "https://www.safecodeg.com/"):
         s, loc, _ = http(src)
-        ok = s == 301 and loc.startswith(f"{WWW}/")
-        add("website", f"{src} -> www", "PASS" if ok else "FAIL", f"HTTP {s} -> {loc or '-'}")
+        add("website", f"{src} retired", "PASS" if s in (403, 404, 410) else "FAIL", f"HTTP {s} -> {loc or '-'}")
 
     # --- store-facing pages (one app per kind each run) -------------------
     for path, needle in (("/policy/kinnav/privacy.html", "privacy"),
