@@ -108,6 +108,12 @@ def stddev(path: pathlib.Path) -> float | None:
         return None
 
 
+# Apps whose product IS a keyboard: the keys on screen are the app's own UI,
+# not the system keyboard over a half-filled form. AGrammarly's two best frames
+# (reply suggestions above its in-app keyboard) were dropped as "keyboard".
+KEYBOARD_APPS = {"AGrammarly"}
+
+
 def classify(lines: list[str] | None, sd: float | None, repo: str = "") -> tuple[str, str]:
     if sd is not None and sd < 0.005:
         return "blank", "solid frame"
@@ -141,7 +147,8 @@ def classify(lines: list[str] | None, sd: float | None, repo: str = "") -> tuple
         return "system", SYSTEM.search(text).group(0)
     # A keyboard shows ~26 single letters; a weekday chart shows 7 (M T W T F
     # S S), so the threshold sits above that, or the keyboard's own keys.
-    if singles >= 12 or ".?123" in text or (singles >= 8 and re.search(r"(?m)^\s*123\s*$", "\n".join(body))):
+    if (singles >= 12 or ".?123" in text or (singles >= 8 and re.search(r"(?m)^\s*123\s*$", "\n".join(body)))) \
+            and repo not in KEYBOARD_APPS:
         return "keyboard", "software keyboard on screen"
     if ERROR.search(text):
         return "error", ERROR.search(text).group(0)

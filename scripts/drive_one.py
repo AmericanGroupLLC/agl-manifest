@@ -45,6 +45,11 @@ env = dict(os.environ, PATH=f"{pathlib.Path.home()}/.rbenv/shims:/opt/homebrew/b
 subprocess.run(["xcrun", "simctl", "boot", udid], capture_output=True)
 subprocess.run(["xcrun", "simctl", "bootstatus", udid, "-b"], capture_output=True, timeout=600)
 subprocess.run(["xcrun", "simctl", "uninstall", udid, app["bundle_id"]], capture_output=True)
+from sim_permissions import services_for, grant, grant_after_install  # noqa: E402
+perms = services_for(app_dir)
+grant(udid, app["bundle_id"], perms)
+grant_after_install(udid, app["bundle_id"], perms)
+print(f"permissions pre-granted: {', '.join(perms) or 'none'}")
 raw = app_dir / "store_screenshots"
 for f in raw.glob("*.png") if raw.is_dir() else []:
     f.unlink()
