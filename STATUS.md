@@ -18,7 +18,7 @@ creating AdMob apps, upload keys or store records.
 | App Store record matching a live bundle id | 38 |
 | Upload keystores loaded into this repo's secrets | 43 |
 | Firebase config present | 43 of 43 |
-| Binary anyone can download | 39 |
+| Binary anyone can download | 43 |
 | Signed release bundle, verified against its upload key | 43 of 43 |
 
 ## 1. Every app
@@ -30,7 +30,7 @@ wired.
 | # | App | Package / bundle id | Status | Android | iOS | Ads | Sign-in | Store record | Build | Binaries |
 | --: | --- | --- | --- | :-: | :-: | :-: | --- | --- | --- | --- |
 | 1 | [AeroSwift](https://github.com/AmericanGroupLLC/AeroSwift) | `com.americangroupllc.aeroswift` | Binary published | yes | yes | — | none | AeroSwift | v1.0.0-android | `AeroSwift-app-release.aab`, `AeroSwift-app-release.apk`, `app-release.aab`, `app-release.apk` |
-| 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `com.americangroupllc.agcleaner` | Binary published | yes | yes | — | none | AGCleaner | v1.0.0-android | `AGCleaner-app-release.aab`, `AGCleaner-app-release.apk` |
+| 2 | [AGCleaner](https://github.com/AmericanGroupLLC/AGCleaner) | `com.americangroupllc.agcleaner` | Binary published | yes | yes | — | none | AGCleaner | v1.0.0-android | `AGCleaner-app-release.apk`, `AGCleaner-app-release.aab` |
 | 3 | [AGrammarly](https://github.com/AmericanGroupLLC/AGrammarly) | `com.americangroupllc.agrammarly` | Binary published | yes | yes | — | none | AGrammarly: Reply Helper | v1.0.0-android | `AGrammarly-app-release.aab`, `AGrammarly-app-release.apk` |
 | 4 | [AGRecorder](https://github.com/AmericanGroupLLC/AGRecorder) | `com.americangroupllc.agrecorder` | Binary published | yes | yes | — | none | AGRecorder | v1.0.0-android | `AGRecorder-app-release.aab`, `AGRecorder-app-release.apk` |
 | 5 | [AGStudio](https://github.com/AmericanGroupLLC/AGStudio) | `com.americangroupllc.agstudio` | Binary published | yes | yes | — | none | AGStudio | v1.0.0-android | `AGStudio-app-release.aab`, `AGStudio-app-release.apk` |
@@ -38,12 +38,12 @@ wired.
 | 7 | [BodyQuest](https://github.com/AmericanGroupLLC/BodyQuest) | `com.americangroupllc.bodyquest` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | **none** | v1.1.0-android | `BodyQuest-app-prod-release.aab`, `BodyQuest-app-prod-release.apk` |
 | 8 | [BuddyPlay](https://github.com/AmericanGroupLLC/BuddyPlay) | `com.americangroupllc.buddyplay` | Binary published | yes | yes | — | none | iBuddyPlay | v1.0.0-android | `BuddyPlay-app-release.aab`, `BuddyPlay-app-release.apk` |
 | 9 | [CalcMaster](https://github.com/AmericanGroupLLC/CalcMaster) | `com.americangroupllc.calcmaster` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | CalcMaster: World Calc | v4.0.2-android | `CalcMaster-app-prod-release.aab`, `CalcMaster-app-prod-release.apk` |
-| 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `com.americangroupllc.cardeal` | Binary published | yes | yes | — | none | iCarDeal | v1.0.0-android | `CarDeal-app-release.apk` |
+| 10 | [CarDeal](https://github.com/AmericanGroupLLC/CarDeal) | `com.americangroupllc.cardeal` | Binary published | yes | yes | — | none | iCarDeal | v1.0.0-android | `CarDeal-app-release.aab`, `CarDeal-app-release.apk` |
 | 11 | [ChefCount](https://github.com/AmericanGroupLLC/ChefCount) | `com.americangroupllc.chefcount` | Binary published | yes | yes | — | none | ChefCount | v1.0.0-android | `ChefCount-app-release.aab`, `ChefCount-app-release.apk` |
 | 12 | [CodeDeal](https://github.com/AmericanGroupLLC/CodeDeal) | `com.americangroupllc.codedeal` | Binary published | yes | yes | — | none | CodeDeal | v1.4.0-android | `CodeDeal-app-release.aab`, `CodeDeal-app-release.apk` |
-| 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `com.americangroupllc.dailypulse` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | Supabase + Google + Apple (optional) | iDailyPulse | v1.0.0-android | — |
+| 13 | [daily-pulse](https://github.com/AmericanGroupLLC/daily-pulse) | `com.americangroupllc.dailypulse` | Binary published | yes | yes | — | Supabase + Google + Apple (optional) | iDailyPulse | v1.0.0-android | `daily-pulse-app-prod-release.aab` |
 | 14 | [DriftDate](https://github.com/AmericanGroupLLC/DriftDate) | `com.americangroupllc.driftdate` | Binary published | yes | yes | — | Supabase + Google + Apple | DriftDate: Layered Dating | v1.0.0-android | `DriftDate-app-prod-release.aab`, `DriftDate-app-prod-release.apk` |
-| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `com.americangroupllc.eventspark` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | none | iEventSpark | v1.0.0-android | — |
+| 15 | [EventSpark](https://github.com/AmericanGroupLLC/EventSpark) | `com.americangroupllc.eventspark` | Binary published | yes | yes | — | none | iEventSpark | v1.0.0-android | `EventSpark-app-release.aab` |
 | 16 | [FashionFactory](https://github.com/AmericanGroupLLC/FashionFactory) | `com.americangroupllc.fashionfactory` | Binary published | yes | yes | — | none | **none** | v2.2.0-android | `FashionFactory-app-prod-release.aab`, `FashionFactory-app-prod-release.apk` |
 | 17 | [GadgetNest](https://github.com/AmericanGroupLLC/GadgetNest) | `com.americangroupllc.gadgetnest` | Binary published | yes | yes | — | none | GadgetNest | v1.0.0-android | `GadgetNest-app-release.aab`, `GadgetNest-app-release.apk` |
 | 18 | [GroceryMatch](https://github.com/AmericanGroupLLC/GroceryMatch) | A `com.americangroupllc.GroceryMatch`<br>i `com.americangroupllc.grocerymatch` | Binary published | yes | yes | — | Supabase + Firebase + Google + Apple (optional) | GroceryMatch: Save on Food | v2.1.0-android | `GroceryMatch-app-prod-release.aab`, `GroceryMatch-app-prod-release.apk` |
@@ -55,14 +55,14 @@ wired.
 | 24 | [MileMaster](https://github.com/AmericanGroupLLC/MileMaster) | `com.americangroupllc.milemaster` | Binary published | yes | yes | — | none | iMileMaster | v1.0.0-android | `MileMaster-app-release.aab`, `MileMaster-app-release.apk` |
 | 25 | [MyCard](https://github.com/AmericanGroupLLC/MyCard) | `com.americangroupllc.mycard` | Binary published | yes | yes | — | Biometric (no screen) | iMyCard | v1.0.0-android | `MyCard-app-release.aab`, `MyCard-app-release.apk` |
 | 26 | [MyFinance](https://github.com/AmericanGroupLLC/MyFinance) | `com.americangroupllc.myfinance` | Binary published | yes | yes | — | none | iMyFinance | v1.0.0-android | `MyFinance-app-release.aab`, `MyFinance-app-release.apk` |
-| 27 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `com.americangroupllc.myhealth` | Binary published | yes | yes | — | Supabase + Google + Apple (optional) | **none** | v1.0.0-android | `MyHealth-app-prod-release.apk` |
-| 28 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | `com.americangroupllc.nearserve` | Binary published | yes | yes | — | none | NearServe | v1.0.0-android | `NearServe-app-release.apk` |
+| 27 | [MyHealth](https://github.com/AmericanGroupLLC/MyHealth) | `com.americangroupllc.myhealth` | Binary published | yes | yes | — | Supabase + Google + Apple (optional) | **none** | v1.0.0-android | `MyHealth-app-prod-release.aab`, `MyHealth-app-prod-release.apk` |
+| 28 | [NearServe](https://github.com/AmericanGroupLLC/NearServe) | `com.americangroupllc.nearserve` | Binary published | yes | yes | — | none | NearServe | v1.0.0-android | `NearServe-app-release.aab`, `NearServe-app-release.apk` |
 | 29 | [NewsBoard](https://github.com/AmericanGroupLLC/NewsBoard) | `com.americangroupllc.newsboard` | Binary published | yes | yes | — | none | iNewsBoard | v1.0.0-android | `NewsBoard-app-release.aab`, `NewsBoard-app-release.apk` |
 | 30 | [NexusTransferPay](https://github.com/AmericanGroupLLC/NexusTransferPay) | `com.americangroupllc.nexustransferpay` | Binary published | yes | yes | — | Biometric (no screen) | NexusTransferPay | v1.0.0-android | `NexusTransferPay-app-release.aab`, `NexusTransferPay-app-release.apk` |
 | 31 | [Photriya](https://github.com/AmericanGroupLLC/Photriya) | `com.americangroupllc.photriya` | Binary published | yes | yes | — | Supabase + Firebase + Google + Apple (optional) | Photriya | v1.0.0-android | `Photriya-app-prod-release.aab` |
-| 32 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `com.americangroupllc.pilotenroute` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | yes | Supabase + Google + Apple (optional) | PilotEnRoute: Pilot Training | v1.0.0-android | — |
+| 32 | [PilotEnRoute](https://github.com/AmericanGroupLLC/PilotEnRoute) | `com.americangroupllc.pilotenroute` | Binary published | yes | yes | yes | Supabase + Google + Apple (optional) | PilotEnRoute: Pilot Training | v1.0.0-android | `PilotEnRoute-app-prod-release.aab` |
 | 33 | [PlantPulse](https://github.com/AmericanGroupLLC/PlantPulse) | `com.americangroupllc.plantpulse` | Binary published | yes | yes | — | none | **none** | v1.0.0-android | `PlantPulse-app-release.aab`, `PlantPulse-app-release.apk` |
-| 34 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `com.americangroupllc.portfolioboard` | Ready — needs AGL_PACKAGES_TOKEN | yes | yes | — | none | Portfolio Board | v1.0.0-android | — |
+| 34 | [portfolio-board](https://github.com/AmericanGroupLLC/portfolio-board) | `com.americangroupllc.portfolioboard` | Binary published | yes | yes | — | none | Portfolio Board | v1.0.0-android | `portfolio-board-app-release.aab` |
 | 35 | [radiotune](https://github.com/AmericanGroupLLC/radiotune) | `com.americangroupllc.radiotune` | Binary published | yes | yes | yes | Supabase + Google + Apple | **none** | v2.0.1-android | `radiotune-app-release.aab`, `radiotune-app-release.apk` |
 | 36 | [RideZap](https://github.com/AmericanGroupLLC/RideZap) | `com.americangroupllc.ridezap` | Binary published | yes | yes | — | none | RideZap | v1.0.0-android | `RideZap-app-release.aab` |
 | 37 | [RoomCraft](https://github.com/AmericanGroupLLC/RoomCraft) | `com.americangroupllc.roomcraft` | Binary published | yes | yes | — | none | iRoomCraft | v1.0.0-android | `RoomCraft-app-release.aab`, `RoomCraft-app-release.apk` |
