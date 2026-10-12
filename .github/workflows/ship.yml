@@ -452,7 +452,15 @@ jobs:
   release:
     name: Publish a labelled release per app
     needs: [resolve, android, ios]
-    if: contains(fromJSON('["release","internal","production"]'), needs.resolve.outputs.stop_after)
+    # One app's failed build must not hold back the other 42: ship run
+    # 38137433920 skipped every upload because AeroSwift's lockfile was stale.
+    # Runs when at least one build job produced something; apps without an
+    # artefact are reported by the steps below, not silently dropped.
+    if: >-
+      !cancelled() && needs.resolve.result == 'success' &&
+      (needs.android.result == 'success' || needs.android.result == 'failure' ||
+       needs.ios.result == 'success' || needs.ios.result == 'failure') &&
+      contains(fromJSON('["release","internal","production"]'), needs.resolve.outputs.stop_after)
     runs-on: ubuntu-latest
     timeout-minutes: 60
     permissions:
@@ -498,7 +506,11 @@ jobs:
   internal:
     name: Internal testing
     needs: [resolve, release]
-    if: contains(fromJSON('["internal","production"]'), needs.resolve.outputs.stop_after)
+    # Same reasoning: upload whatever was built (run_batch --prebuilt reports
+    # an app with no IPA as no_ipa). Production promotion below stays strict.
+    if: >-
+      !cancelled() && (needs.release.result == 'success' || needs.release.result == 'failure') &&
+      contains(fromJSON('["internal","production"]'), needs.resolve.outputs.stop_after)
     runs-on: macos-latest
     timeout-minutes: 300
     steps:
