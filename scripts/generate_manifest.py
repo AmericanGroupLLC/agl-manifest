@@ -151,7 +151,7 @@ def main() -> None:
             # `_was_blocked_resolved` rather than `_blocked`, so the portfolio
             # is 43 apps and not 42.
             "store_eligible": store_eligible(r["repo"]),
-            "ads": bool(r.get("dep_google_mobile_ads")),
+            "ads": bool(r.get("dep_google_mobile_ads") or r.get("dep_agl_ads")),
             "platforms": {
                 "android": bool(r.get("platform_android")),
                 "ios": bool(r.get("platform_ios")),
@@ -165,7 +165,7 @@ def main() -> None:
             # come from the console record. A build only serves the live units
             # when they are passed at build time.
             "admob": {
-                "integrated": bool(r.get("dep_google_mobile_ads")),
+                "integrated": bool(r.get("dep_google_mobile_ads") or r.get("dep_agl_ads")),
                 "android_app_id": r.get("android_admob_id", ""),
                 "ios_app_id": r.get("ios_admob_id", ""),
                 **{k: v for k, v in _admob(r["repo"]).items()

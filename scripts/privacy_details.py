@@ -6,7 +6,7 @@ in the shape fastlane's upload_app_privacy_details_to_app_store expects.
 
 Rules (what actually leaves the device, per the code and its dependencies):
   accounts (Supabase / Sign in with Google or Apple)  -> EMAIL_ADDRESS, NAME, USER_ID  linked, APP_FUNCTIONALITY
-  ads (google_mobile_ads)                              -> DEVICE_ID, ADVERTISING_DATA  not linked, THIRD_PARTY_ADVERTISING;
+  ads (google_mobile_ads, or agl_ads which wraps it)  -> DEVICE_ID, ADVERTISING_DATA  not linked, THIRD_PARTY_ADVERTISING;
                                                           marked "used to track you" only when the app asks App Tracking Transparency
   health package + account                             -> HEALTH  linked, APP_FUNCTIONALITY
   purchases                                            -> PURCHASE_HISTORY linked (receipts tied to the account/Apple ID)
@@ -37,7 +37,7 @@ for a in apps:
     pl = plistlib.load(open(d / "ios/Runner/Info.plist", "rb"))
     att = "NSUserTrackingUsageDescription" in pl
     account = dep("supabase_flutter") or dep("google_sign_in") or dep("sign_in_with_apple") or bool(set(a["auth"]["providers"]) & {"Supabase", "Google", "Apple", "Firebase"})
-    ads = a["ads"] or dep("google_mobile_ads"); iap = dep("in_app_purchase") or dep("purchases_flutter"); health = dep("health")
+    ads = a["ads"] or dep("google_mobile_ads") or dep("agl_ads"); iap = dep("in_app_purchase") or dep("purchases_flutter"); health = dep("health")
     code = "\n".join(f.read_text(errors="ignore") for f in (d / "lib").rglob("*.dart")) if (d / "lib").is_dir() else ""
     crash = bool(re.search(r"\bAglCrash\.|FirebaseCrashlytics\.instance", code))
     analytics = bool(re.search(r"\bAglInsights\.|FirebaseAnalytics\.instance|FirebasePerformance\.instance", code))

@@ -53,7 +53,7 @@ def facts(a):
     deps = (d / "pubspec.yaml").read_text().split("dev_dependencies")[0]
     dep = lambda k: re.search(rf"^\s+{k}:", deps, re.M) is not None
     return dict(usage=usage, perms=perms, iap=dep("in_app_purchase") or dep("purchases_flutter"),
-                ads=a["ads"] or dep("google_mobile_ads"), supabase=dep("supabase_flutter"),
+                ads=a["ads"] or dep("google_mobile_ads") or dep("agl_ads"), supabase=dep("supabase_flutter"),
                 google=dep("google_sign_in"), apple=dep("sign_in_with_apple"), biometric=dep("local_auth"),
                 speech=dep("speech_to_text"), health=dep("health"), providers=a["auth"]["providers"],
                 network="INTERNET" in perms)
