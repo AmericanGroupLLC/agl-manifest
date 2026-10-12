@@ -157,7 +157,12 @@ def main() -> int:
             todo = diff.count("TODO")
             human.append(f"answer the market-gap and beta-testing questions ({todo} TODO in the draft)"
                          if diff else "differentiation answers not drafted")
-            auto.append("extend the drafted reply from 5 to Apple's 9 questions")
+            # Only when the draft really lacks questions: this was appended
+            # unconditionally and kept reporting 26 drafts as five-question
+            # long after all of them carried Apple's nine.
+            asked = {n for n in range(1, 10) if re.search(rf"(?m)^{n}\. ", diff)}
+            if len(asked) < 9:
+                auto.append(f"extend the drafted reply from {len(asked)} to Apple's 9 questions")
         if kind == "CONDUCT_5_6":
             human.append("decide and approve the 5.6 reply after the hidden-feature audit "
                          "(docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)")

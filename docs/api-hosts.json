@@ -1,11 +1,256 @@
 {
- "hosts": {},
+ "hosts": {
+  "311.dc.gov": "ok",
+  "311api.cityofchicago.org": "ok",
+  "9to5mac.com": "ok",
+  "air-quality-api.open-meteo.com": "ok",
+  "api-to-find-grocery-prices.p.rapidapi.com": "ok",
+  "api.adsbdb.com": "ok",
+  "api.anthropic.com": "ok",
+  "api.aviationapi.com": "NODATA",
+  "api.bls.gov": "ok",
+  "api.coingecko.com": "ok",
+  "api.dailymotion.com": "ok",
+  "api.duckduckgo.com": "ok",
+  "api.edamam.com": "ok",
+  "api.fda.gov": "ok",
+  "api.foursquare.com": "ok",
+  "api.frankfurter.dev": "ok",
+  "api.kroger.com": "ok",
+  "api.mymemory.translated.net": "ok",
+  "api.nal.usda.gov": "ok",
+  "api.nyc.gov": "ok",
+  "api.open-elevation.com": "ok",
+  "api.open-meteo.com": "ok",
+  "api.openai.com": "ok",
+  "api.openchargemap.io": "ok",
+  "api.openmhz.com": "ok",
+  "api.openrouteservice.org": "ok",
+  "api.pexels.com": "ok",
+  "api.rainviewer.com": "ok",
+  "api.spoonacular.com": "ok",
+  "api.veryfi.com": "ok",
+  "api.weather.gov": "ok",
+  "api.yelp.com": "ok",
+  "app.posthog.com": "ok",
+  "apps.apple.com": "ok",
+  "aviationweather.gov": "ok",
+  "aviationweek.com": "ok",
+  "booking.tp.st": "ok",
+  "bus.tp.st": "ok",
+  "cars.tp.st": "ok",
+  "ceac.state.gov": "ok",
+  "cointelegraph.com": "ok",
+  "connect.garmin.com": "ok",
+  "connect.instacart.com": "ok",
+  "console.cloud.google.com": "ok",
+  "davidmegginson.github.io": "ok",
+  "de1.api.radio-browser.info": "ok",
+  "de2.api.radio-browser.info": "ok",
+  "decrypt.co": "ok",
+  "designee.faa.gov": "ok",
+  "dev.to": "ok",
+  "developer.apple.com": "ok",
+  "developer.edamam.com": "ok",
+  "developer.garmin.com": "ok",
+  "developer.kroger.com": "ok",
+  "developer.nlr.gov": "ok",
+  "developer.nutritionix.com": "ok",
+  "developers.google.com": "ok",
+  "docs.developer.yelp.com": "ok",
+  "docs.instacart.com": "ok",
+  "doordash.pxf.io": "ok",
+  "duckduckgo.com": "ok",
+  "dynonavionics.com": "ok",
+  "earthquake.usgs.gov": "ok",
+  "egov.uscis.gov": "ok",
+  "embed.windy.com": "ok",
+  "eventbrite.tp.st": "ok",
+  "external-api.faa.gov": "ok",
+  "faadronezone.faa.gov": "ok",
+  "fdc.nal.usda.gov": "ok",
+  "feeds.arstechnica.com": "ok",
+  "feeds.bbci.co.uk": "ok",
+  "feeds.finance.yahoo.com": "ok",
+  "feeds.marketwatch.com": "ok",
+  "feeds.npr.org": "ok",
+  "feeds.skynews.com": "ok",
+  "findahelpline.com": "ok",
+  "firebase.google.com": "ok",
+  "firms.modaps.eosdis.nasa.gov": "ok",
+  "flag.dol.gov": "ok",
+  "flightaware.com": "ok",
+  "foreflight.com": "ok",
+  "frankfurter.dev": "ok",
+  "fred.stlouisfed.org": "ok",
+  "geocoding-api.open-meteo.com": "ok",
+  "get.geojs.io": "ok",
+  "github.com": "ok",
+  "grubhub.pxf.io": "ok",
+  "hacker-news.firebaseio.com": "ok",
+  "health.gov": "ok",
+  "huggingface.co": "ok",
+  "i94.cbp.dhs.gov": "ok",
+  "infiniteflight.com": "ok",
+  "ipapi.co": "ok",
+  "kinnav.com": "ok",
+  "location.foursquare.com": "ok",
+  "m.uber.com": "ok",
+  "maps.apple.com": "ok",
+  "maps.google.com": "ok",
+  "maps.googleapis.com": "ok",
+  "mayors24.cityofboston.gov": "ok",
+  "medxpress.faa.gov": "ok",
+  "mobile311.sfgov.org": "ok",
+  "news.google.com": "ok",
+  "news.ycombinator.com": "ok",
+  "nominatim.openstreetmap.org": "ok",
+  "npiregistry.cms.hhs.gov": "ok",
+  "openfoodfacts.github.io": "ok",
+  "openmhz.com": "ok",
+  "opensky-network.org": "ok",
+  "overpass-api.de": "ok",
+  "overpass.private.coffee": "ok",
+  "pixabay.com": "ok",
+  "places.googleapis.com": "ok",
+  "platform.fatsecret.com": "ok",
+  "plausible.io": "ok",
+  "play.google.com": "ok",
+  "preply.com": "ok",
+  "pub.dev": "ok",
+  "query1.finance.yahoo.com": "ok",
+  "rapidapi.com": "ok",
+  "registry.faa.gov": "ok",
+  "rotatepilot.com": "ok",
+  "router.project-osrm.org": "ok",
+  "rss.dw.com": "ok",
+  "rss.politico.com": "ok",
+  "server.arcgisonline.com": "ok",
+  "skyvector.com": "ok",
+  "smvvjivvlprjhzhoizym.supabase.co": "ok",
+  "spoonacular.com": "ok",
+  "techcrunch.com": "ok",
+  "thehill.com": "ok",
+  "ticketmaster.tp.st": "ok",
+  "tile.openstreetmap.org": "ok",
+  "tile.opentopomap.org": "ok",
+  "tilecache.rainviewer.com": "ok",
+  "timesofindia.indiatimes.com": "ok",
+  "trackapi.nutritionix.com": "ok",
+  "transfer.tp.st": "ok",
+  "travel.state.gov": "ok",
+  "travel.tp.st": "ok",
+  "ubereats.pxf.io": "ok",
+  "udds-faa.opendata.arcgis.com": "ok",
+  "vfrmap.com": "ok",
+  "viator.tp.st": "ok",
+  "walmart.io": "ok",
+  "world.openfoodfacts.org": "ok",
+  "www.abc.net.au": "ok",
+  "www.aljazeera.com": "ok",
+  "www.amazon.com": "ok",
+  "www.americangroup.ai": "ok",
+  "www.androidauthority.com": "ok",
+  "www.aopa.org": "ok",
+  "www.appareo.com": "ok",
+  "www.apple.com": "ok",
+  "www.avidyne.com": "ok",
+  "www.avweb.com": "ok",
+  "www.babbel.com": "ok",
+  "www.bbc.com": "ok",
+  "www.bestbuy.com": "ok",
+  "www.bhphotovideo.com": "ok",
+  "www.bing.com": "ok",
+  "www.bolt.eu": "ok",
+  "www.booking.com": "ok",
+  "www.calahealth.com": "ok",
+  "www.cbc.ca": "ok",
+  "www.cbp.gov": "ok",
+  "www.channelnewsasia.com": "ok",
+  "www.cloudahoy.com": "ok",
+  "www.cnbc.com": "ok",
+  "www.coindesk.com": "ok",
+  "www.daily-harvest.com": "ok",
+  "www.dailymotion.com": "ok",
+  "www.dji.com": "ok",
+  "www.doordash.com": "ok",
+  "www.ebay.com": "ok",
+  "www.ecfr.gov": "ok",
+  "www.engadget.com": "ok",
+  "www.esperbionics.com": "ok",
+  "www.espn.com": "ok",
+  "www.expedia.com": "ok",
+  "www.faa.gov": "ok",
+  "www.faasafety.gov": "ok",
+  "www.factor75.com": "ok",
+  "www.federalregister.gov": "ok",
+  "www.flightschoolcandidates.gov": "NODATA",
+  "www.flightsimulator.com": "ok",
+  "www.flyingmag.com": "ok",
+  "www.flysto.net": "ok",
+  "www.france24.com": "ok",
+  "www.garmin.com": "ok",
+  "www.gdacs.org": "ok",
+  "www.google.com": "ok",
+  "www.googleapis.com": "ok",
+  "www.grubhub.com": "ok",
+  "www.icao.int": "ok",
+  "www.ice.gov": "ok",
+  "www.identifyher.com": "ok",
+  "www.iherb.com": "ok",
+  "www.italki.com": "ok",
+  "www.japantimes.co.jp": "ok",
+  "www.levelshealth.com": "ok",
+  "www.liveatc.net": "ok",
+  "www.lyft.com": "ok",
+  "www.microcenter.com": "ok",
+  "www.nasa.gov": "ok",
+  "www.nature.com": "ok",
+  "www.newegg.com": "ok",
+  "www.nike.com": "ok",
+  "www.npr.org": "ok",
+  "www.onepeloton.com": "ok",
+  "www.openstreetmap.org": "ok",
+  "www.pilotedge.net": "ok",
+  "www.pimsleur.com": "ok",
+  "www.prepar3d.com": "ok",
+  "www.purplecarrot.com": "ok",
+  "www.rodsandcones.com": "ok",
+  "www.roguefitness.com": "ok",
+  "www.samsung.com": "ok",
+  "www.sciencedaily.com": "ok",
+  "www.scmp.com": "ok",
+  "www.signos.com": "ok",
+  "www.sportys.com": "ok",
+  "www.strava.com": "ok",
+  "www.suunto.com": "ok",
+  "www.technologyreview.com": "ok",
+  "www.theguardian.com": "ok",
+  "www.thehindu.com": "ok",
+  "www.therabody.com": "ok",
+  "www.theverge.com": "ok",
+  "www.trifectanutrition.com": "ok",
+  "www.uber.com": "ok",
+  "www.ubereats.com": "ok",
+  "www.uscis.gov": "ok",
+  "www.vatsim.net": "ok",
+  "www.veryfi.com": "ok",
+  "www.walmart.com": "ok",
+  "www.weather.gov": "ok",
+  "www.wfp.org": "ok",
+  "www.who.int": "ok",
+  "www.windy.com": "ok",
+  "www.wired.com": "ok",
+  "www.x-plane.com": "ok"
+ },
  "apps": {
   "AeroSwift": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "openskynetwork.github.io"
+   ]
   },
   "AGCleaner": {
    "hosts": 0,
@@ -14,10 +259,12 @@
    "comment_only": []
   },
   "AGrammarly": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "api.americangroup.ai"
+   ]
   },
   "AGRecorder": {
    "hosts": 0,
@@ -26,22 +273,29 @@
    "comment_only": []
   },
   "AGStudio": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "agstudio.app",
+    "image.pollinations.ai"
+   ]
   },
   "ApexMarketWatch": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "api.apexmarketwatch.americangroupllc.com"
+   ]
   },
   "BodyQuest": {
-   "hosts": 0,
+   "hosts": 3,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "developers.google.com"
+   ]
   },
   "BuddyPlay": {
    "hosts": 0,
@@ -50,94 +304,116 @@
    "comment_only": []
   },
   "CalcMaster": {
-   "hosts": 0,
+   "hosts": 6,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "developers.google.com"
+   ]
   },
   "CarDeal": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "www.autotrader.com",
+    "www.carmax.com",
+    "www.tesla.com"
+   ]
   },
   "ChefCount": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "CodeDeal": {
-   "hosts": 0,
+   "hosts": 2,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "daily-pulse": {
-   "hosts": 0,
+   "hosts": 51,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "coingecko.com",
+    "open-meteo.com"
+   ]
   },
   "DriftDate": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "EventSpark": {
-   "hosts": 0,
+   "hosts": 4,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "eventspark.americangroupllc.com"
+   ]
   },
   "FashionFactory": {
    "hosts": 0,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "api.fashionfactory.americangroupllc.com",
+    "nordstrom.com",
+    "www.amazon.com",
+    "www.macys.com"
+   ]
   },
   "GadgetNest": {
-   "hosts": 0,
+   "hosts": 10,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "GroceryMatch": {
-   "hosts": 0,
+   "hosts": 43,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "HerJourney": {
-   "hosts": 0,
+   "hosts": 2,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "HomeWise": {
-   "hosts": 0,
+   "hosts": 1,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "iMaps": {
-   "hosts": 0,
+   "hosts": 25,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "openchargemap.org"
+   ]
   },
   "iMeasure": {
-   "hosts": 0,
+   "hosts": 4,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "developers.google.com"
+   ]
   },
   "Kinnav": {
-   "hosts": 0,
+   "hosts": 2,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "maps.google.com"
+   ]
   },
   "MileMaster": {
    "hosts": 0,
@@ -158,40 +434,56 @@
    "comment_only": []
   },
   "MyHealth": {
-   "hosts": 0,
+   "hosts": 38,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "operations.osmfoundation.org"
+   ]
   },
   "NearServe": {
-   "hosts": 0,
+   "hosts": 5,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "api.nearserve.app",
+    "wiki.openstreetmap.org"
+   ]
   },
   "NewsBoard": {
-   "hosts": 0,
+   "hosts": 7,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "NexusTransferPay": {
-   "hosts": 0,
+   "hosts": 4,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "Photriya": {
-   "hosts": 0,
+   "hosts": 3,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "PilotEnRoute": {
-   "hosts": 0,
-   "dead": {},
+   "hosts": 52,
+   "dead": {
+    "api.aviationapi.com": [
+     "lib/screens/airport_screen.dart:97",
+     "lib/screens/airport_screen.dart:101",
+     "lib/services/chart_service.dart:23"
+    ],
+    "www.flightschoolcandidates.gov": [
+     "lib/screens/icara_screen.dart:156"
+    ]
+   },
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "developers.google.com"
+   ]
   },
   "PlantPulse": {
    "hosts": 0,
@@ -206,16 +498,18 @@
    "comment_only": []
   },
   "radiotune": {
-   "hosts": 0,
+   "hosts": 3,
    "dead": {},
    "unverified": {},
    "comment_only": []
   },
   "RideZap": {
-   "hosts": 0,
+   "hosts": 6,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "developer.uber.com"
+   ]
   },
   "RoomCraft": {
    "hosts": 0,
@@ -224,28 +518,39 @@
    "comment_only": []
   },
   "TripNest": {
-   "hosts": 0,
+   "hosts": 6,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "developers.google.com"
+   ]
   },
   "Uscis-Case": {
-   "hosts": 0,
+   "hosts": 11,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "developers.google.com"
+   ]
   },
   "Verba": {
-   "hosts": 0,
+   "hosts": 8,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "console.firebase.google.com",
+    "developers.google.com"
+   ]
   },
   "VirtuBand": {
-   "hosts": 0,
+   "hosts": 3,
    "dead": {},
    "unverified": {},
-   "comment_only": []
+   "comment_only": [
+    "api.openai.com",
+    "developers.google.com",
+    "virtuband.app"
+   ]
   },
   "WiFiTrail": {
    "hosts": 0,
@@ -254,7 +559,7 @@
    "comment_only": []
   },
   "yourtube": {
-   "hosts": 0,
+   "hosts": 7,
    "dead": {},
    "unverified": {},
    "comment_only": []

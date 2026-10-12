@@ -56,20 +56,40 @@ IGNORE = {"www.w3.org", "schemas.android.com", "xmlns.com", "example.com",
 
 
 def doh(host: str) -> str:
-    """'ok', 'NXDOMAIN', or 'unverified …' — never a guess."""
-    try:
-        for rtype in ("A", "AAAA", "CNAME"):
-            url = f"https://dns.google/resolve?name={host}&type={rtype}"
+    """'ok', 'NXDOMAIN', 'NODATA', or 'unverified …' — never a guess.
+
+    NODATA is Google answering NOERROR with no A, AAAA or CNAME record and no
+    NS for the name: it exists in no usable form. api.aviationapi.com and
+    developer.nrel.gov (the lab was renamed; the API moved to developer.nlr.gov)
+    sat in "unverified" while every request to them failed. A SERVFAIL is
+    different — it says nothing about the name — so it is retried once and
+    otherwise stays unverified, which is also what used to flag
+    api.nal.usda.gov intermittently.
+    """
+    def ask(rtype):
+        url = f"https://dns.google/resolve?name={host}&type={rtype}"
+        for attempt in range(2):
             with urllib.request.urlopen(url, timeout=20) as r:
                 d = json.load(r)
+            if d.get("Status") != 2:
+                return d
+        return d
+
+    try:
+        clean = True
+        for rtype in ("A", "AAAA", "CNAME", "NS"):
+            d = ask(rtype)
             if d.get("Status") == 3:
                 return "NXDOMAIN"
             if d.get("Answer"):
                 return "ok"
-        return "unverified: no address record"
+            clean = clean and d.get("Status") == 0
+        return "NODATA" if clean else "unverified: no address record"
     except Exception as e:  # network, proxy, timeout
         return f"unverified: {type(e).__name__}"
 
+
+DEAD = ("NXDOMAIN", "NODATA", "PARKED")
 
 PARKING = ("/lander", "parked", "domain is for sale", "buy this domain", "afternic",
            "sedoparking", "parkingcrew", "bodis.com", "hugedomains")
@@ -144,7 +164,7 @@ def main() -> int:
     for a in apps:
         repo = a["repo"]
         calls = sites.get(repo, {})
-        dead = {h: v for h, v in calls.items() if status[h] in ("NXDOMAIN", "PARKED")}
+        dead = {h: v for h, v in calls.items() if status[h] in DEAD}
         unv = {h: v for h, v in calls.items() if status[h].startswith("unverified")}
         report[repo] = {
             "hosts": len(calls),
@@ -154,11 +174,11 @@ def main() -> int:
         }
     OUT.write_text(json.dumps({"hosts": status, "apps": report}, indent=1) + "\n")
 
-    n_dead = sum(1 for s in status.values() if s in ("NXDOMAIN", "PARKED"))
+    n_dead = sum(1 for s in status.values() if s in DEAD)
     n_unv = sum(1 for s in status.values() if s.startswith("unverified"))
     bad = [r for r, v in report.items() if v["dead"]]
     print(f"  {len(hosts)} hosts called from code: {len(hosts) - n_dead - n_unv} "
-          f"resolve, {n_dead} dead (NXDOMAIN or parked), {n_unv} unverified")
+          f"resolve, {n_dead} dead (NXDOMAIN, NODATA or parked), {n_unv} unverified")
     print(f"  apps calling a host that does not exist: {len(bad)}")
     if args.print:
         for r in bad:

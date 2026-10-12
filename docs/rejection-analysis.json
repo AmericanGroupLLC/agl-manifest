@@ -15,9 +15,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
@@ -60,9 +58,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
@@ -146,10 +142,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
@@ -187,18 +180,11 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "LIVE_PRODUCTION",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroup.ai"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.americangroup.ai",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)"
   ]
@@ -213,17 +199,11 @@
   "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroupllc.com"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.americangroupllc.com"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
@@ -261,17 +241,13 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.codedeal.com"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
+   "Demo account when the app gates on sign-in",
+   "Screenshots show the app, not a login screen",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "calls hosts that do not exist: api.codedeal.com",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
@@ -291,12 +267,10 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
   "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "extend the drafted reply from 5 to Apple's 9 questions"
+   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
   ],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
@@ -317,13 +291,10 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
-   "iOS purpose strings for linked APIs",
+   "Screenshots show the app, not a login screen",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
@@ -341,17 +312,11 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroupllc.com"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "calls hosts that do not exist: api.americangroupllc.com",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 1 declaration(s) need attention"
@@ -369,6 +334,7 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "Screenshots show the app, not a login screen",
    "4.3 differentiation statement"
   ],
   "automatable": [],
@@ -391,12 +357,9 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
-   "No blank or near-empty store screenshots",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
@@ -415,22 +378,12 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroupllc.com",
-   "api.walmart.io",
-   "developer.instacart.com",
-   "grocerymatch.app"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
    "Every API host the app calls exists",
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.americangroupllc.com, api.walmart.io, developer.instacart.com, grocerymatch.app",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
@@ -454,9 +407,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
@@ -476,9 +427,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
@@ -496,18 +445,13 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "LIVE_PRODUCTION",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroupllc.com"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
+   "iOS purpose strings for linked APIs",
+   "Screenshots show the app, not a login screen",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.americangroupllc.com",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)"
   ]
@@ -526,13 +470,9 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)"
   ]
@@ -551,18 +491,13 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroupllc.com"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
    "Every API host the app calls exists",
+   "iOS purpose strings for linked APIs",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.americangroupllc.com",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
@@ -606,9 +541,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
@@ -630,11 +563,9 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
-   "answer the market-gap and beta-testing questions (5 TODO in the draft)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
@@ -650,18 +581,12 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroupllc.com"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
    "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.americangroupllc.com",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
@@ -681,9 +606,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
@@ -721,19 +644,13 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroup.ai"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "calls hosts that do not exist: api.americangroup.ai",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
-   "answer the market-gap and beta-testing questions (5 TODO in the draft)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 1 declaration(s) need attention"
   ]
  },
@@ -751,13 +668,9 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 11 declaration(s) need attention"
@@ -776,16 +689,15 @@
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
   "dead_hosts": [
-   "api.americangroupllc.com"
+   "api.aviationapi.com",
+   "www.flightschoolcandidates.gov"
   ],
   "gate_failures": [
-   "Every API host the app calls exists",
+   "iOS purpose strings for linked APIs",
    "4.3 differentiation statement"
   ],
   "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.americangroupllc.com",
-   "extend the drafted reply from 5 to Apple's 9 questions"
+   "calls hosts that do not exist: api.aviationapi.com, www.flightschoolcandidates.gov"
   ],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
@@ -825,10 +737,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
@@ -847,13 +756,9 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
-   "No blank or near-empty store screenshots",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 1 declaration(s) need attention"
@@ -873,9 +778,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)",
    "Play: console-only: App content declarations + press Publish"
@@ -911,16 +814,11 @@
   "asked": "Apple: 'features that appear to have been intentionally hidden during the review process'. Not a reply-and-wait finding: repeated 5.6 findings put the developer account at risk. Remove every runtime switch that changes what a reviewer sees (remote config feature flags, date or region gates, reviewer detection, hidden gestures), then reply describing exactly what changed.",
   "play": "LIVE_PRODUCTION",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.americangroupllc.com"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "calls hosts that do not exist: api.americangroupllc.com"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)"
   ]
@@ -938,18 +836,12 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "LIVE_PRODUCTION",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "uscis-case94.manus.app"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
-   "Every API host the app calls exists",
+   "Play short description (<=80)",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: uscis-case94.manus.app",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)"
   ]
@@ -966,18 +858,13 @@
   "asked": "Do not resubmit. Reply answering nine questions: what it does, who for, market gap, beta testing, suite or standalone, could it be an in-app purchase elsewhere, shared code with your apps, shared code with third parties, made for a client.",
   "play": "PRODUCTION_DRAFT_STAGED",
   "scene_lifecycle": true,
-  "dead_hosts": [
-   "api.verba.americangroupllc.com"
-  ],
+  "dead_hosts": [],
   "gate_failures": [
    "Every API host the app calls exists",
+   "Play short description (<=80)",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "calls hosts that do not exist: api.verba.americangroupllc.com",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (3 TODO in the draft)",
    "Play Console App content: 10 declaration(s) need attention"
@@ -995,12 +882,9 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
-   "Binary has every purpose string Apple requires (ITMS-90683)",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "decide and approve the 5.6 reply after the hidden-feature audit (docs/REJECTION_ANALYSIS.md, CONDUCT_5_6)"
   ]
@@ -1018,13 +902,12 @@
   "scene_lifecycle": true,
   "dead_hosts": [],
   "gate_failures": [
+   "iOS purpose strings for linked APIs",
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
-   "answer the market-gap and beta-testing questions (5 TODO in the draft)",
+   "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play: console-only: App content declarations + press Publish"
   ]
  },
@@ -1044,10 +927,7 @@
   "gate_failures": [
    "4.3 differentiation statement"
   ],
-  "automatable": [
-   "upload a new build \u2014 the build Apple holds predates the iOS 27 launch fix",
-   "extend the drafted reply from 5 to Apple's 9 questions"
-  ],
+  "automatable": [],
   "needs_a_person": [
    "answer the market-gap and beta-testing questions (4 TODO in the draft)",
    "Play Console App content: 1 declaration(s) need attention"
