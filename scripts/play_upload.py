@@ -42,12 +42,31 @@ API = "https://androidpublisher.googleapis.com/androidpublisher/v3/applications"
 UPLOAD = "https://androidpublisher.googleapis.com/upload/androidpublisher/v3/applications"
 
 _tok = {"v": "", "at": 0.0}
+def _fresh_token():
+    """With the service-account key (on a runner: $PLAY_SERVICE_ACCOUNT) use it
+    directly; a runner has no gcloud, and ship run 38219562305 failed all 43
+    Play uploads on '/Users/runner/google-cloud-sdk/bin/gcloud' not found.
+    Otherwise (this laptop without the key) impersonate through gcloud."""
+    from agl_paths import play_key
+    key = play_key()
+    if key.exists():
+        script = ('require "googleauth"; '
+                  f'c=Google::Auth::ServiceAccountCredentials.make_creds(json_key_io: File.open("{key}"), '
+                  'scope: "https://www.googleapis.com/auth/androidpublisher"); '
+                  'print c.fetch_access_token!["access_token"]')
+        r = subprocess.run(["bundle", "exec", "ruby", "-e", script], cwd=str(M),
+                           capture_output=True, text=True, timeout=300)
+        if r.stdout.strip():
+            return r.stdout.strip()
+    return subprocess.run(
+        [GCLOUD, "auth", "print-access-token", f"--impersonate-service-account={SA}",
+         "--scopes=https://www.googleapis.com/auth/androidpublisher"],
+        capture_output=True, text=True).stdout.strip()
+
+
 def token():
     if time.time() - _tok["at"] > 1500:      # a 43-app run outlives one token
-        _tok["v"] = subprocess.run(
-            [GCLOUD, "auth", "print-access-token", f"--impersonate-service-account={SA}",
-             "--scopes=https://www.googleapis.com/auth/androidpublisher"],
-            capture_output=True, text=True).stdout.strip()
+        _tok["v"] = _fresh_token()
         _tok["at"] = time.time()
     return _tok["v"]
 
@@ -125,4 +144,7 @@ for a in apps:
     json.dump(results, open(RESULTS, "w"), indent=1)
 
 ok = sum(1 for v in results.values() if v["status"] == "uploaded")
-print(f"\nuploaded {ok}/{len(results)} -> {RESULTS}")
+failed = [k for k, v in results.items() if v["status"] == "failed"]
+print(f"\nuploaded {ok}/{len(results)}  failed {len(failed)} -> {RESULTS}")
+# A run that uploads nothing must not go green (run 38219562305: 43 failures, exit 0).
+sys.exit(1 if failed else 0)
