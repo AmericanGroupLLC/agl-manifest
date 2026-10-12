@@ -6,24 +6,7 @@
   "AGRecorder": {},
   "AGStudio": {},
   "ApexMarketWatch": {},
-  "BodyQuest": {
-   "GOOGLE_SERVER_CLIENT_ID": {
-    "default": "146431650883-blpfddrf32ureu4ucqlp3oku9jo07luq.apps.googleusercontent.com",
-    "sites": [
-     "lib/services/supabase_config.dart:26"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "default"
-   },
-   "GOOGLE_IOS_CLIENT_ID": {
-    "default": null,
-    "sites": [
-     "lib/services/supabase_config.dart:35"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   }
-  },
+  "BodyQuest": {},
   "BuddyPlay": {},
   "CalcMaster": {
    "GOOGLE_SERVER_CLIENT_ID": {

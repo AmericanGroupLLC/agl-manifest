@@ -85,7 +85,7 @@
   "NTSB": {},
   "NASA ASRS": {},
   "OurAirports": {
-   "AeroSwift": "mobile/lib/features/settings/settings_screen.dart:164",
+   "AeroSwift": "mobile/lib/features/settings/settings_screen.dart:133",
    "PilotEnRoute": "lib/screens/navdb_screen.dart:110"
   },
   "OpenAIP": {},
@@ -105,7 +105,6 @@
    "MyHealth": "lib/services/weather.dart:9"
   },
   "Supabase": {
-   "BodyQuest": "lib/app_env.dart:46",
    "CalcMaster": "lib/main.dart:7",
    "CodeDeal": "mobile/codedeal_app/lib/core/auth/auth_repository.dart:4",
    "daily-pulse": "lib/app_env.dart:46",
@@ -205,7 +204,6 @@
   },
   "Amazon Associates": {
    "ApexMarketWatch": "mobile/lib/features/filings/filings_screen.dart:323",
-   "BodyQuest": "lib/screens/shop_screen.dart:60",
    "CalcMaster": "lib/monetization/affiliate_service.dart:23",
    "ChefCount": "lib/domain/models.dart:90",
    "FashionFactory": "lib/domain/stores.dart:29",

@@ -1,0 +1,2448 @@
+{
+ "_about": "Append-only vendor registry; see scripts/vendor_registry.py",
+ "vendors": {
+  "ADS-B Exchange": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Agoda": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Agora": {
+   "added": "2026-10-12",
+   "money": "Cost (usage)",
+   "signup_url": "agora.io",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Airalo": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Airplanes.Live": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Allianz Partners": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Alpha Vantage": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Amadeus": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Amazon Associates": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "affiliate-program.amazon.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Anthropic": {
+   "added": "2026-10-12",
+   "money": "Cost (usage) - server-side only",
+   "signup_url": "console.anthropic.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "api.data.gov (USDA FDC + NREL/NLR)": {
+   "added": "2026-10-12",
+   "money": "Free",
+   "signup_url": "api.data.gov/signup",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Auth0": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Aviationstack": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "AviationWeather.gov": {
+   "added": "2026-10-12",
+   "money": "Free public",
+   "signup_url": "aviationweather.gov/data/api",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "Awin": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "awin.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Best Buy": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "bestbuy.com (affiliate programme)",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Booking.com": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "booking.com/affiliate-program (Demand API: developers.booking.com)",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Bounce": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "CarTrawler": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "CheckWX": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Cirium": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "CJ Affiliate": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Cloudflare speed test": {
+   "added": "2026-10-12",
+   "money": "Free",
+   "signup_url": "speed.cloudflare.com",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "Cover Genius": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "DiscoverCars": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Distribusion": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Dragonpass": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Duffel": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "eBay Partner Network": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "partnernetwork.ebay.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Edamam": {
+   "added": "2026-10-12",
+   "money": "Cost / free tier",
+   "signup_url": "developer.edamam.com",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Eventbrite": {
+   "added": "2026-10-12",
+   "money": "Affiliate via Travelpayouts link",
+   "signup_url": "eventbrite.com",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Expedia Group": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "partner.expediagroup.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "FAA (d-TPP, eCFR, FAASTeam, DroneZone)": {
+   "added": "2026-10-12",
+   "money": "Free public",
+   "signup_url": "faa.gov",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "FatSecret": {
+   "added": "2026-10-12",
+   "money": "Cost / free tier",
+   "signup_url": "platform.fatsecret.com",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Finnhub": {
+   "added": "2026-10-12",
+   "money": "Cost / free tier",
+   "signup_url": "finnhub.io/register",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Firebase / FCM": {
+   "added": "2026-10-12",
+   "money": "Already have",
+   "signup_url": "firebase.google.com",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "FlexOffers": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "FlightAware AeroAPI": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "ForeFlight": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Foursquare": {
+   "added": "2026-10-12",
+   "money": "Free tier",
+   "signup_url": "foursquare.com/developers",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Garmin": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "GetYourGuide": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "GNews": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Google AI (Gemini)": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Google Cloud (OAuth, Maps, YouTube)": {
+   "added": "2026-10-12",
+   "money": "Cost (usage)",
+   "signup_url": "console.cloud.google.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Holafly": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "HomeToGo": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Hotelbeds": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Impact": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "impact.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Instacart": {
+   "added": "2026-10-12",
+   "money": "Affiliate / partner",
+   "signup_url": "docs.instacart.com/developer_platform_api",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Jayride": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Kiwi.com Tequila": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Kroger": {
+   "added": "2026-10-12",
+   "money": "Free (developer)",
+   "signup_url": "developer.kroger.com",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "LoungeKey": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Mapbox": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "NASA ASRS": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "NASA FIRMS": {
+   "added": "2026-10-12",
+   "money": "Free",
+   "signup_url": "firms.modaps.eosdis.nasa.gov/api",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "NewsAPI": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "NOAA / weather.gov": {
+   "added": "2026-10-12",
+   "money": "Free public",
+   "signup_url": "weather.gov",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "NTSB": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Nutritionix": {
+   "added": "2026-10-12",
+   "money": "Cost",
+   "signup_url": "developer.nutritionix.com",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Omio": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Open Charge Map": {
+   "added": "2026-10-12",
+   "money": "Free",
+   "signup_url": "openchargemap.org/site/develop/api",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Open-Meteo": {
+   "added": "2026-10-12",
+   "money": "Free (check commercial terms)",
+   "signup_url": "open-meteo.com",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "OpenAI": {
+   "added": "2026-10-12",
+   "money": "Cost (usage) - server-side only",
+   "signup_url": "platform.openai.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "OpenAIP": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "OpenSky Network": {
+   "added": "2026-10-12",
+   "money": "Check commercial-use terms",
+   "signup_url": "opensky-network.org",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "OpenWeather": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "OurAirports": {
+   "added": "2026-10-12",
+   "money": "Free dataset - check licence",
+   "signup_url": "ourairports.com",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "Pexels": {
+   "added": "2026-10-12",
+   "money": "Free",
+   "signup_url": "pexels.com/api",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Pixabay": {
+   "added": "2026-10-12",
+   "money": "Free",
+   "signup_url": "pixabay.com/api/docs",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Polygon.io": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "PostHog": {
+   "added": "2026-10-12",
+   "money": "Optional",
+   "signup_url": "posthog.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Radical Storage": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Rakuten Advertising": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "rakutenadvertising.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "RapidAPI": {
+   "added": "2026-10-12",
+   "money": "Cost",
+   "signup_url": "rapidapi.com",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Resend": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "RevenueCat": {
+   "added": "2026-10-12",
+   "money": "Revenue (subscriptions)",
+   "signup_url": "revenuecat.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Rome2Rio": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Rotate Pilot": {
+   "added": "2026-10-12",
+   "money": "Free - check terms",
+   "signup_url": "rotatepilot.com",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "Sabre": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "SEC EDGAR": {
+   "added": "2026-10-12",
+   "money": "Free public",
+   "signup_url": "sec.gov/edgar",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "SendGrid": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Sentry": {
+   "added": "2026-10-12",
+   "money": "Optional",
+   "signup_url": "sentry.io",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "ShareASale": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Skyscanner": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Spoonacular": {
+   "added": "2026-10-12",
+   "money": "Cost / free tier",
+   "signup_url": "spoonacular.com/food-api",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Stripe": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Supabase": {
+   "added": "2026-10-12",
+   "money": "Already have",
+   "signup_url": "supabase.com",
+   "directory_group": "2 NO SIGNUP - already used keyless/public",
+   "last_updated": "2026-10-12"
+  },
+  "Ticketmaster Discovery API": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Tomorrow.io": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Trainline": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Travelpayouts": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "travelpayouts.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Travelport": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Uber / Lyft": {
+   "added": "2026-10-12",
+   "money": "Affiliate availability not verified",
+   "signup_url": "uber.com / lyft.com",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "Veryfi": {
+   "added": "2026-10-12",
+   "money": "Cost (paid OCR) - server-side only",
+   "signup_url": "veryfi.com",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  },
+  "VIPCars": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Walmart": {
+   "added": "2026-10-12",
+   "money": "Affiliate commission",
+   "signup_url": "affiliates.walmart.com",
+   "directory_group": "1 SIGN UP NOW - wired in code, token/ID missing",
+   "last_updated": "2026-10-12"
+  },
+  "Wanderu": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Welcome Pickups": {
+   "added": "2026-10-12",
+   "money": "-",
+   "signup_url": "see founder directory",
+   "directory_group": "3 CANDIDATE - no app uses it yet (needs building first)",
+   "last_updated": "2026-10-12"
+  },
+  "Yelp Fusion": {
+   "added": "2026-10-12",
+   "money": "Free tier",
+   "signup_url": "yelp.com/developers",
+   "directory_group": "4 MISSING FROM YOUR LIST - apps need it",
+   "last_updated": "2026-10-12"
+  }
+ },
+ "pairs": {
+  "AeroSwift|OpenSky Network": {
+   "app": "AeroSwift",
+   "vendor": "OpenSky Network",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/env.dart:23"
+  },
+  "AeroSwift|OurAirports": {
+   "app": "AeroSwift",
+   "vendor": "OurAirports",
+   "status": "proposed",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    }
+   ],
+   "code_evidence": "mobile/lib/features/settings/settings_screen.dart:133",
+   "note": "linked/named only, no API integration"
+  },
+  "AGrammarly|Firebase": {
+   "app": "AGrammarly",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/features/about/about_screen.dart:66"
+  },
+  "ApexMarketWatch|Firebase": {
+   "app": "ApexMarketWatch",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/crash_reporting.dart:23"
+  },
+  "ApexMarketWatch|SEC EDGAR": {
+   "app": "ApexMarketWatch",
+   "vendor": "SEC EDGAR",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/features/settings/sources_screen.dart:40"
+  },
+  "CalcMaster|Amazon Associates": {
+   "app": "CalcMaster",
+   "vendor": "Amazon Associates",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/monetization/affiliate_service.dart:23"
+  },
+  "CalcMaster|Firebase": {
+   "app": "CalcMaster",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/monetization/monetization_config.dart:140"
+  },
+  "CalcMaster|RevenueCat": {
+   "app": "CalcMaster",
+   "vendor": "RevenueCat",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/monetization/monetization_config.dart:100"
+  },
+  "CalcMaster|Supabase": {
+   "app": "CalcMaster",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/main.dart:7"
+  },
+  "CarDeal|Firebase": {
+   "app": "CarDeal",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/observability/crash_reporting.dart:21"
+  },
+  "ChefCount|Amazon Associates": {
+   "app": "ChefCount",
+   "vendor": "Amazon Associates",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/domain/models.dart:90"
+  },
+  "CodeDeal|Supabase": {
+   "app": "CodeDeal",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/codedeal_app/lib/core/auth/auth_repository.dart:4"
+  },
+  "daily-pulse|Firebase": {
+   "app": "daily-pulse",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/services/news_service.dart:508"
+  },
+  "daily-pulse|Open-Meteo": {
+   "app": "daily-pulse",
+   "vendor": "Open-Meteo",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/constants/app_constants.dart:28"
+  },
+  "daily-pulse|OpenAI": {
+   "app": "daily-pulse",
+   "vendor": "OpenAI",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/constants/app_constants.dart:50"
+  },
+  "daily-pulse|Supabase": {
+   "app": "daily-pulse",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/app_env.dart:46"
+  },
+  "DriftDate|Sentry": {
+   "app": "DriftDate",
+   "vendor": "Sentry",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/crash_reporting.dart:1",
+   "credential_state": "SENTRY_DSN=EMPTY in release"
+  },
+  "DriftDate|Supabase": {
+   "app": "DriftDate",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/main.dart:8"
+  },
+  "EventSpark|Eventbrite": {
+   "app": "EventSpark",
+   "vendor": "Eventbrite",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:95"
+  },
+  "EventSpark|Firebase": {
+   "app": "EventSpark",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/features/settings/settings_screen.dart:27"
+  },
+  "EventSpark|Ticketmaster": {
+   "app": "EventSpark",
+   "vendor": "Ticketmaster",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:87"
+  },
+  "EventSpark|Travelpayouts": {
+   "app": "EventSpark",
+   "vendor": "Travelpayouts",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:82"
+  },
+  "EventSpark|Viator": {
+   "app": "EventSpark",
+   "vendor": "Viator",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:79"
+  },
+  "FashionFactory|Amazon Associates": {
+   "app": "FashionFactory",
+   "vendor": "Amazon Associates",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/domain/stores.dart:29"
+  },
+  "FashionFactory|Awin": {
+   "app": "FashionFactory",
+   "vendor": "Awin",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/domain/stores.dart:58"
+  },
+  "FashionFactory|Rakuten Advertising": {
+   "app": "FashionFactory",
+   "vendor": "Rakuten Advertising",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/domain/stores.dart:37"
+  },
+  "GadgetNest|Amazon Associates": {
+   "app": "GadgetNest",
+   "vendor": "Amazon Associates",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/engine/catalog.dart:156"
+  },
+  "GadgetNest|Best Buy": {
+   "app": "GadgetNest",
+   "vendor": "Best Buy",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/engine/catalog.dart:57"
+  },
+  "GadgetNest|eBay Partner Network": {
+   "app": "GadgetNest",
+   "vendor": "eBay Partner Network",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/engine/catalog.dart:174"
+  },
+  "GadgetNest|Firebase": {
+   "app": "GadgetNest",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/observability/crash_reporting.dart:21"
+  },
+  "GadgetNest|Walmart": {
+   "app": "GadgetNest",
+   "vendor": "Walmart",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/engine/catalog.dart:49"
+  },
+  "GroceryMatch|DoorDash": {
+   "app": "GroceryMatch",
+   "vendor": "DoorDash",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:224",
+   "credential_state": "DOORDASH_AFFILIATE_ID=EMPTY in release"
+  },
+  "GroceryMatch|Edamam": {
+   "app": "GroceryMatch",
+   "vendor": "Edamam",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:170",
+   "credential_state": "EDAMAM_APP_ID=EMPTY in release; EDAMAM_APP_KEY=EMPTY in release"
+  },
+  "GroceryMatch|FatSecret": {
+   "app": "GroceryMatch",
+   "vendor": "FatSecret",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:199",
+   "credential_state": "FATSECRET_CLIENT_ID=EMPTY in release; FATSECRET_CLIENT_SECRET=EMPTY in release"
+  },
+  "GroceryMatch|Firebase": {
+   "app": "GroceryMatch",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:240"
+  },
+  "GroceryMatch|Firebase Cloud Messaging": {
+   "app": "GroceryMatch",
+   "vendor": "Firebase Cloud Messaging",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/push/push_notification_service.dart:10"
+  },
+  "GroceryMatch|Foursquare": {
+   "app": "GroceryMatch",
+   "vendor": "Foursquare",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:191",
+   "credential_state": "FOURSQUARE_API_KEY=EMPTY in release"
+  },
+  "GroceryMatch|Google Maps Platform": {
+   "app": "GroceryMatch",
+   "vendor": "Google Maps Platform",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:115",
+   "credential_state": "GOOGLE_SERVER_CLIENT_ID=default; GOOGLE_IOS_CLIENT_ID=EMPTY in release; GOOGLE_MAPS_API_KEY=EMPTY in release"
+  },
+  "GroceryMatch|Grubhub": {
+   "app": "GroceryMatch",
+   "vendor": "Grubhub",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:232",
+   "credential_state": "GRUBHUB_AFFILIATE_ID=EMPTY in release"
+  },
+  "GroceryMatch|Impact": {
+   "app": "GroceryMatch",
+   "vendor": "Impact",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/dining/affiliate_links.dart:21"
+  },
+  "GroceryMatch|Instacart": {
+   "app": "GroceryMatch",
+   "vendor": "Instacart",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:57",
+   "credential_state": "INSTACART_API_KEY=EMPTY in release"
+  },
+  "GroceryMatch|Kroger": {
+   "app": "GroceryMatch",
+   "vendor": "Kroger",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:35",
+   "credential_state": "KROGER_CLIENT_ID=EMPTY in release; KROGER_CLIENT_SECRET=EMPTY in release"
+  },
+  "GroceryMatch|Nutritionix": {
+   "app": "GroceryMatch",
+   "vendor": "Nutritionix",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:121",
+   "credential_state": "NUTRITIONIX_APP_ID=EMPTY in release; NUTRITIONIX_API_KEY=EMPTY in release"
+  },
+  "GroceryMatch|RapidAPI": {
+   "app": "GroceryMatch",
+   "vendor": "RapidAPI",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:135",
+   "credential_state": "RAPIDAPI_KEY=EMPTY in release"
+  },
+  "GroceryMatch|Spoonacular": {
+   "app": "GroceryMatch",
+   "vendor": "Spoonacular",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:80",
+   "credential_state": "SPOONACULAR_API_KEY=EMPTY in release"
+  },
+  "GroceryMatch|Supabase": {
+   "app": "GroceryMatch",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/auth/auth_service.dart:20"
+  },
+  "GroceryMatch|Uber Eats": {
+   "app": "GroceryMatch",
+   "vendor": "Uber Eats",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:228",
+   "credential_state": "UBEREATS_AFFILIATE_ID=EMPTY in release"
+  },
+  "GroceryMatch|USDA FoodData Central": {
+   "app": "GroceryMatch",
+   "vendor": "USDA FoodData Central",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:71",
+   "credential_state": "USDA_API_KEY=default"
+  },
+  "GroceryMatch|Veryfi": {
+   "app": "GroceryMatch",
+   "vendor": "Veryfi",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:90",
+   "credential_state": "VERYFI_CLIENT_ID=EMPTY in release; VERYFI_CLIENT_SECRET=EMPTY in release; VERYFI_USERNAME=EMPTY in release; VERYFI_API_KEY=EMPTY in release"
+  },
+  "GroceryMatch|Walmart": {
+   "app": "GroceryMatch",
+   "vendor": "Walmart",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:51",
+   "credential_state": "WALMART_API_KEY=EMPTY in release"
+  },
+  "GroceryMatch|Yelp Fusion": {
+   "app": "GroceryMatch",
+   "vendor": "Yelp Fusion",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/api_config.dart:183",
+   "credential_state": "YELP_API_KEY=EMPTY in release"
+  },
+  "HerJourney|Firebase": {
+   "app": "HerJourney",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/app_config.dart:28",
+   "credential_state": "FIREBASE_PROJECT_ID=default"
+  },
+  "HerJourney|OpenAI": {
+   "app": "HerJourney",
+   "vendor": "OpenAI",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/app_config.dart:77"
+  },
+  "HerJourney|Supabase": {
+   "app": "HerJourney",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/app_env.dart:46"
+  },
+  "iMaps|NASA FIRMS": {
+   "app": "iMaps",
+   "vendor": "NASA FIRMS",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/realtime_data_service.dart:464",
+   "credential_state": "NASA_FIRMS_KEY=EMPTY in release"
+  },
+  "iMaps|NOAA / weather.gov": {
+   "app": "iMaps",
+   "vendor": "NOAA / weather.gov",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/radio_service.dart:242"
+  },
+  "iMaps|NREL / NLR alt-fuel": {
+   "app": "iMaps",
+   "vendor": "NREL / NLR alt-fuel",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/navigation_data_service.dart:702",
+   "credential_state": "NREL_API_KEY=default"
+  },
+  "iMaps|Open Charge Map": {
+   "app": "iMaps",
+   "vendor": "Open Charge Map",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/navigation_data_service.dart:146",
+   "credential_state": "OPENCHARGEMAP_KEY=EMPTY in release"
+  },
+  "iMaps|Open-Meteo": {
+   "app": "iMaps",
+   "vendor": "Open-Meteo",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/weather_service.dart:170"
+  },
+  "iMaps|Supabase": {
+   "app": "iMaps",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/main.dart:10"
+  },
+  "iMeasure|Supabase": {
+   "app": "iMeasure",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/app_env.dart:50"
+  },
+  "Kinnav|Agora": {
+   "app": "Kinnav",
+   "vendor": "Agora",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/app_config.dart:23",
+   "credential_state": "AGORA_APP_ID=EMPTY in release"
+  },
+  "Kinnav|Firebase": {
+   "app": "Kinnav",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/app_config.dart:55",
+   "credential_state": "FIREBASE_PROJECT_ID=default"
+  },
+  "Kinnav|Google Maps Platform": {
+   "app": "Kinnav",
+   "vendor": "Google Maps Platform",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/widgets/live_map.dart:2",
+   "credential_state": "GOOGLE_CLIENT_ID=default; GOOGLE_SERVER_CLIENT_ID=default; GOOGLE_IOS_CLIENT_ID=EMPTY in release"
+  },
+  "Kinnav|Supabase": {
+   "app": "Kinnav",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/app_env.dart:46"
+  },
+  "MyFinance|Firebase": {
+   "app": "MyFinance",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/main.dart:6"
+  },
+  "MyHealth|DoorDash": {
+   "app": "MyHealth",
+   "vendor": "DoorDash",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/data/diary_data.dart:84"
+  },
+  "MyHealth|Firebase": {
+   "app": "MyHealth",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/app_config.dart:56",
+   "credential_state": "FIREBASE_API_KEY=EMPTY in release; FIREBASE_PROJECT_ID=EMPTY in release; FIREBASE_APP_ID=EMPTY in release; FIREBASE_MESSAGING_SENDER_ID=EMPTY in release"
+  },
+  "MyHealth|Firebase Cloud Messaging": {
+   "app": "MyHealth",
+   "vendor": "Firebase Cloud Messaging",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/app_config.dart:63",
+   "credential_state": "FIREBASE_API_KEY=EMPTY in release; FIREBASE_PROJECT_ID=EMPTY in release; FIREBASE_APP_ID=EMPTY in release; FIREBASE_MESSAGING_SENDER_ID=EMPTY in release"
+  },
+  "MyHealth|Garmin": {
+   "app": "MyHealth",
+   "vendor": "Garmin",
+   "status": "proposed",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    }
+   ],
+   "code_evidence": "lib/data/profile_data.dart:347",
+   "note": "linked/named only, no API integration"
+  },
+  "MyHealth|Grubhub": {
+   "app": "MyHealth",
+   "vendor": "Grubhub",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/data/diary_data.dart:86"
+  },
+  "MyHealth|Open-Meteo": {
+   "app": "MyHealth",
+   "vendor": "Open-Meteo",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/weather.dart:9"
+  },
+  "MyHealth|PostHog": {
+   "app": "MyHealth",
+   "vendor": "PostHog",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/app_config.dart:48",
+   "credential_state": "POSTHOG_API_KEY=EMPTY in release"
+  },
+  "MyHealth|Sentry": {
+   "app": "MyHealth",
+   "vendor": "Sentry",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/app_config.dart:44",
+   "credential_state": "SENTRY_DSN=EMPTY in release"
+  },
+  "MyHealth|Supabase": {
+   "app": "MyHealth",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/app_env.dart:46"
+  },
+  "MyHealth|Uber Eats": {
+   "app": "MyHealth",
+   "vendor": "Uber Eats",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/data/diary_data.dart:85"
+  },
+  "NexusTransferPay|Sentry": {
+   "app": "NexusTransferPay",
+   "vendor": "Sentry",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "flutter-mobile-app/lib/main.dart:11",
+   "credential_state": "SENTRY_DSN=EMPTY in release"
+  },
+  "Photriya|Firebase": {
+   "app": "Photriya",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "pubspec.yaml:78"
+  },
+  "Photriya|OpenAI": {
+   "app": "Photriya",
+   "vendor": "OpenAI",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/providers/app_providers.dart:13",
+   "credential_state": "OPENAI_API_KEY=EMPTY in release"
+  },
+  "Photriya|Supabase": {
+   "app": "Photriya",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/app_env.dart:59"
+  },
+  "PilotEnRoute|Anthropic": {
+   "app": "PilotEnRoute",
+   "vendor": "Anthropic",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/ai_service.dart:19",
+   "credential_state": "ANTHROPIC_API_KEY=EMPTY in release"
+  },
+  "PilotEnRoute|AviationWeather.gov": {
+   "app": "PilotEnRoute",
+   "vendor": "AviationWeather.gov",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/screens/airport_screen.dart:93"
+  },
+  "PilotEnRoute|eCFR": {
+   "app": "PilotEnRoute",
+   "vendor": "eCFR",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/screens/education_screen.dart:353"
+  },
+  "PilotEnRoute|FAA": {
+   "app": "PilotEnRoute",
+   "vendor": "FAA",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/screens/airport_screen.dart:113"
+  },
+  "PilotEnRoute|FAA DroneZone": {
+   "app": "PilotEnRoute",
+   "vendor": "FAA DroneZone",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/screens/drone_screen.dart:851"
+  },
+  "PilotEnRoute|FAASTeam": {
+   "app": "PilotEnRoute",
+   "vendor": "FAASTeam",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/screens/garmin_screen.dart:433"
+  },
+  "PilotEnRoute|Firebase": {
+   "app": "PilotEnRoute",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/config/backend_config.dart:25"
+  },
+  "PilotEnRoute|FlightAware AeroAPI": {
+   "app": "PilotEnRoute",
+   "vendor": "FlightAware AeroAPI",
+   "status": "proposed",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    }
+   ],
+   "code_evidence": "lib/screens/garmin_screen.dart:410",
+   "note": "linked/named only, no API integration"
+  },
+  "PilotEnRoute|ForeFlight": {
+   "app": "PilotEnRoute",
+   "vendor": "ForeFlight",
+   "status": "proposed",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    }
+   ],
+   "code_evidence": "lib/screens/garmin_screen.dart:389",
+   "note": "linked/named only, no API integration"
+  },
+  "PilotEnRoute|Garmin": {
+   "app": "PilotEnRoute",
+   "vendor": "Garmin",
+   "status": "proposed",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    }
+   ],
+   "code_evidence": "lib/screens/garmin_screen.dart:130",
+   "note": "linked/named only, no API integration"
+  },
+  "PilotEnRoute|OpenSky Network": {
+   "app": "PilotEnRoute",
+   "vendor": "OpenSky Network",
+   "status": "proposed",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    }
+   ],
+   "code_evidence": "lib/screens/garmin_screen.dart:440",
+   "note": "linked/named only, no API integration"
+  },
+  "PilotEnRoute|OurAirports": {
+   "app": "PilotEnRoute",
+   "vendor": "OurAirports",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/screens/navdb_screen.dart:110"
+  },
+  "PilotEnRoute|Rotate Pilot": {
+   "app": "PilotEnRoute",
+   "vendor": "Rotate Pilot",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/aviation_api_service.dart:7"
+  },
+  "PilotEnRoute|Supabase": {
+   "app": "PilotEnRoute",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/app_env.dart:46"
+  },
+  "PlantPulse|Firebase": {
+   "app": "PlantPulse",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/l10n/generated/app_localizations_ar.dart:747"
+  },
+  "radiotune|Supabase": {
+   "app": "radiotune",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/main.dart:20"
+  },
+  "RideZap|Booking.com": {
+   "app": "RideZap",
+   "vendor": "Booking.com",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/features/search/flight_search_form.dart:180"
+  },
+  "RideZap|Expedia Group": {
+   "app": "RideZap",
+   "vendor": "Expedia Group",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/features/search/flight_search_form.dart:180"
+  },
+  "RideZap|Lyft": {
+   "app": "RideZap",
+   "vendor": "Lyft",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/models/travel_provider.dart:22"
+  },
+  "RideZap|Uber": {
+   "app": "RideZap",
+   "vendor": "Uber",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/models/travel_provider.dart:16"
+  },
+  "RoomCraft|Firebase": {
+   "app": "RoomCraft",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/observability/crash_reporting.dart:21"
+  },
+  "TripNest|Booking.com": {
+   "app": "TripNest",
+   "vendor": "Booking.com",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:78"
+  },
+  "TripNest|Busbud": {
+   "app": "TripNest",
+   "vendor": "Busbud",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:92"
+  },
+  "TripNest|Expedia Group": {
+   "app": "TripNest",
+   "vendor": "Expedia Group",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:99"
+  },
+  "TripNest|Rentalcars.com": {
+   "app": "TripNest",
+   "vendor": "Rentalcars.com",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:85"
+  },
+  "TripNest|Travelpayouts": {
+   "app": "TripNest",
+   "vendor": "Travelpayouts",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:71"
+  },
+  "TripNest|Viator": {
+   "app": "TripNest",
+   "vendor": "Viator",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "mobile/lib/core/engine/affiliate.dart:107"
+  },
+  "Uscis-Case|Supabase": {
+   "app": "Uscis-Case",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/main.dart:7"
+  },
+  "Verba|Firebase": {
+   "app": "Verba",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/config/verba_config.dart:92"
+  },
+  "Verba|Firebase Cloud Messaging": {
+   "app": "Verba",
+   "vendor": "Firebase Cloud Messaging",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/services/notification_service.dart:3"
+  },
+  "VirtuBand|Amazon Associates": {
+   "app": "VirtuBand",
+   "vendor": "Amazon Associates",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/monetization.dart:84"
+  },
+  "VirtuBand|Firebase": {
+   "app": "VirtuBand",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/screens/legal_screen.dart:56"
+  },
+  "VirtuBand|Firebase Cloud Messaging": {
+   "app": "VirtuBand",
+   "vendor": "Firebase Cloud Messaging",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/monetization.dart:64"
+  },
+  "VirtuBand|Rakuten Advertising": {
+   "app": "VirtuBand",
+   "vendor": "Rakuten Advertising",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/services/monetization.dart:73"
+  },
+  "VirtuBand|Supabase": {
+   "app": "VirtuBand",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/main.dart:5"
+  },
+  "WiFiTrail|Cloudflare": {
+   "app": "WiFiTrail",
+   "vendor": "Cloudflare",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/domain/speed_test.dart:256"
+  },
+  "WiFiTrail|Firebase": {
+   "app": "WiFiTrail",
+   "vendor": "Firebase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/observability/crash_reporting.dart:21"
+  },
+  "yourtube|Pexels": {
+   "app": "yourtube",
+   "vendor": "Pexels",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/constants/app_constants.dart:36",
+   "credential_state": "PEXELS_API_KEY=EMPTY in release"
+  },
+  "yourtube|Pixabay": {
+   "app": "yourtube",
+   "vendor": "Pixabay",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/constants/app_constants.dart:44",
+   "credential_state": "PIXABAY_API_KEY=EMPTY in release"
+  },
+  "yourtube|Supabase": {
+   "app": "yourtube",
+   "vendor": "Supabase",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/app_env.dart:46"
+  },
+  "yourtube|YouTube Data API": {
+   "app": "yourtube",
+   "vendor": "YouTube Data API",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/core/constants/app_constants.dart:60",
+   "credential_state": "YOUTUBE_API_KEY=EMPTY in release"
+  }
+ }
+}
