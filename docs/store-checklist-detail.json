@@ -68,7 +68,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "883 chars"
+   "detail": "1485 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -245,7 +245,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1722 chars"
+   "detail": "2090 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -422,7 +422,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1601 chars"
+   "detail": "2020 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -437,7 +437,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "149 chars"
+   "detail": "159 chars"
   },
   {
    "check": "Primary category",
@@ -604,7 +604,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "387 chars"
+   "detail": "897 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -614,7 +614,7 @@
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "77 chars"
+   "detail": "81 chars"
   },
   {
    "check": "Primary category",
@@ -958,12 +958,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "941 chars"
+   "detail": "1254 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "67 chars"
+   "detail": "69 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -1135,7 +1135,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1242 chars"
+   "detail": "1199 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -1317,7 +1317,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "993 chars"
+   "detail": "1219 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -1494,7 +1494,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "3171 chars"
+   "detail": "3854 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -1509,7 +1509,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "145 chars"
+   "detail": "115 chars"
   },
   {
    "check": "Primary category",
@@ -1853,7 +1853,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1500 chars"
+   "detail": "2061 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -1963,7 +1963,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "CodeDeal": [
@@ -2035,12 +2035,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "477 chars"
+   "detail": "391 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "30 chars"
+   "detail": "45 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -2212,7 +2212,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1466 chars"
+   "detail": "1678 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2394,7 +2394,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1526 chars"
+   "detail": "1778 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -2409,7 +2409,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "147 chars"
+   "detail": "144 chars"
   },
   {
    "check": "Primary category",
@@ -2576,12 +2576,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "521 chars"
+   "detail": "947 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "25 chars"
+   "detail": "44 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -2863,7 +2863,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "5 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "GadgetNest": [
@@ -2935,17 +2935,17 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "605 chars"
+   "detail": "858 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "52 chars"
+   "detail": "79 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "67 chars"
+   "detail": "44 chars"
   },
   {
    "check": "Primary category",
@@ -3112,7 +3112,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1249 chars"
+   "detail": "1284 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -3294,12 +3294,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1831 chars"
+   "detail": "2341 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "79 chars"
+   "detail": "78 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -3309,7 +3309,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "163 chars"
+   "detail": "167 chars"
   },
   {
    "check": "Primary category",
@@ -3481,7 +3481,7 @@
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "61 chars"
+   "detail": "67 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -3653,7 +3653,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2208 chars"
+   "detail": "2552 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -3668,7 +3668,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "144 chars"
+   "detail": "147 chars"
   },
   {
    "check": "Primary category",
@@ -3835,7 +3835,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1562 chars"
+   "detail": "2240 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4017,7 +4017,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2131 chars"
+   "detail": "2280 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4032,7 +4032,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "157 chars"
+   "detail": "169 chars"
   },
   {
    "check": "Primary category",
@@ -4199,7 +4199,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1896 chars"
+   "detail": "2168 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4309,7 +4309,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "4 unanswered question(s)"
+   "detail": "3 unanswered question(s)"
   }
  ],
  "MyCard": [
@@ -4381,7 +4381,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1068 chars"
+   "detail": "1281 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4558,7 +4558,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1456 chars"
+   "detail": "1741 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4668,7 +4668,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "5 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "MyHealth": [
@@ -4740,7 +4740,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1959 chars"
+   "detail": "2297 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -4922,17 +4922,17 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "824 chars"
+   "detail": "1271 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "40 chars"
+   "detail": "69 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "92 chars"
+   "detail": "93 chars"
   },
   {
    "check": "Primary category",
@@ -5099,7 +5099,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2138 chars"
+   "detail": "2113 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5276,17 +5276,17 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "3290 chars"
+   "detail": "2263 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "45 chars"
+   "detail": "65 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "98 chars"
+   "detail": "93 chars"
   },
   {
    "check": "Primary category",
@@ -5453,12 +5453,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1951 chars"
+   "detail": "1876 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "61 chars"
+   "detail": "64 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -5468,7 +5468,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "103 chars"
+   "detail": "133 chars"
   },
   {
    "check": "Primary category",
@@ -5635,7 +5635,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1618 chars"
+   "detail": "1742 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5817,7 +5817,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1005 chars"
+   "detail": "1488 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -5994,7 +5994,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2195 chars"
+   "detail": "2492 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -6176,7 +6176,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1191 chars"
+   "detail": "1284 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -6358,7 +6358,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "603 chars"
+   "detail": "1113 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -6535,7 +6535,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1263 chars"
+   "detail": "1642 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -6640,7 +6640,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "5 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "TripNest": [
@@ -6702,17 +6702,17 @@
   {
    "check": "App Store name",
    "state": "PASS",
-   "detail": "TripNest: Travel Booking"
+   "detail": "TripNest: Trip Planner"
   },
   {
    "check": "Play title",
    "state": "PASS",
-   "detail": "TripNest \u2014 Travel Booking"
+   "detail": "TripNest \u2014 Trip Planner"
   },
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1407 chars"
+   "detail": "1549 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -6722,12 +6722,12 @@
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "98 chars"
+   "detail": "94 chars"
   },
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "143 chars"
+   "detail": "130 chars"
   },
   {
    "check": "Primary category",
@@ -6894,12 +6894,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1703 chars"
+   "detail": "2063 chars"
   },
   {
    "check": "Play short description (<=80)",
-   "state": "PASS",
-   "detail": "80 chars"
+   "state": "FAIL",
+   "detail": "81 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -6909,7 +6909,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "166 chars"
+   "detail": "144 chars"
   },
   {
    "check": "Primary category",
@@ -7076,12 +7076,12 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1357 chars"
+   "detail": "1449 chars"
   },
   {
    "check": "Play short description (<=80)",
-   "state": "PASS",
-   "detail": "73 chars"
+   "state": "FAIL",
+   "detail": "83 chars"
   },
   {
    "check": "App Store keywords (<=100)",
@@ -7091,7 +7091,7 @@
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "150 chars"
+   "detail": "121 chars"
   },
   {
    "check": "Primary category",
@@ -7258,22 +7258,22 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1337 chars"
+   "detail": "1919 chars"
   },
   {
    "check": "Play short description (<=80)",
-   "state": "FAIL",
-   "detail": "101 chars"
+   "state": "PASS",
+   "detail": "68 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "85 chars"
+   "detail": "86 chars"
   },
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "165 chars"
+   "detail": "162 chars"
   },
   {
    "check": "Primary category",
@@ -7440,7 +7440,7 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "2211 chars"
+   "detail": "2476 chars"
   },
   {
    "check": "Play short description (<=80)",
@@ -7550,7 +7550,7 @@
   {
    "check": "4.3 differentiation statement",
    "state": "FAIL",
-   "detail": "5 unanswered question(s)"
+   "detail": "4 unanswered question(s)"
   }
  ],
  "yourtube": [
@@ -7622,17 +7622,17 @@
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "733 chars"
+   "detail": "824 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "37 chars"
+   "detail": "68 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "79 chars"
+   "detail": "76 chars"
   },
   {
    "check": "Primary category",
