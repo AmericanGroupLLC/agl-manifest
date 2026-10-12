@@ -2,7 +2,6 @@ import 'package:agl_observability/agl_observability.dart';
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 
-import 'ad_ids.dart';
 import 'ads.dart';
 import 'consent.dart';
 
