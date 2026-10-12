@@ -70,6 +70,12 @@ def prepare(udid: str, bundle_id: str, app_dir: pathlib.Path, services: list[str
     still never run. Only needed for location; other grants survive install.
     Returns a short note for the log."""
     grant(udid, bundle_id, services)
+    if "location" in services or "location-always" in services:
+        # A fresh simulator has no position, so a granted app still never gets
+        # a fix (iMaps: "Timed out after 25s waiting for a GPS fix"). Use a
+        # real city so location-based screens show real local data.
+        subprocess.run(["xcrun", "simctl", "location", udid, "set", "37.7749,-122.4194"],
+                       capture_output=True, timeout=60)
     if "location" not in services and "location-always" not in services:
         return f"granted before install: {', '.join(services) or 'none'}"
     b = subprocess.run([flutter, "build", "ios", "--simulator", "--debug",
