@@ -29,6 +29,27 @@ Measured alongside, and worth knowing before answering question 3: no two of
 the 43 apps share more than 22% of their description vocabulary. The copy is
 not duplicated, so the 4.3 trigger is more likely the shared scaffold and the
 submission volume than the words.
+
+Where each answer comes from (2026-10-12, 26 apps rejected under 4.3/4.2.6):
+
+  2  The store subtitle ("Flight and airport board") is a fragment, not an
+     audience. A written audience goes in store/apps/<repo>.json under
+     `differentiation_overrides` -> {"2": "..."}; the subtitle is only the
+     fallback. Any question number can be overridden the same way, and an
+     override always wins over what this script derives.
+  4  Facts above the TODO come from docs/beta-evidence.json, which
+     scripts/testflight/beta_evidence.rb reads from App Store Connect (GET
+     only). The TODO stays: Apple asks for feedback that was applied, and only
+     a person can say what that was — the file shows what TestFlight holds.
+  6  Where other apps share the category, a "Proposed (owner to confirm)" line
+     gives the measured overlap (screen names in common, implementation
+     similarity). The TODO stays.
+
+This script rewrites the whole `differentiation` string and does NOT preserve
+hand edits made to it. Put lasting wording in `differentiation_overrides`, or
+regenerate only some questions and keep the rest of the current text verbatim:
+
+    python3 scripts/differentiation_scaffold.py --sections 2,4,6 AeroSwift
 """
 
 from __future__ import annotations
@@ -115,11 +136,116 @@ def features_of(app_dir: pathlib.Path) -> list[str]:
     return out[:12]
 
 
+SECTION_RE = re.compile(r"(?m)^([1-9])\. [A-Z][A-Z0-9 ,/-]*$")
+
+
+def split_sections(text: str) -> tuple[str, dict[str, str]]:
+    """(preamble, {"1": "1. WHAT IT DOES\\n...", ...}); joining them gives text back."""
+    marks = list(SECTION_RE.finditer(text))
+    if not marks:
+        return text, {}
+    out = {}
+    for i, m in enumerate(marks):
+        end = marks[i + 1].start() if i + 1 < len(marks) else len(text)
+        out[m.group(1)] = text[m.start():end]
+    return text[:marks[0].start()], out
+
+
+def apply_overrides(text: str, overrides: dict) -> str:
+    """Replace the body of each overridden question, keeping its heading."""
+    pre, secs = split_sections(text)
+    for k, body in (overrides or {}).items():
+        k = str(k)
+        if k in secs and isinstance(body, str) and body.strip():
+            heading = secs[k].split("\n", 1)[0]
+            secs[k] = f"{heading}\n{body.strip()}\n\n"
+    return pre + "".join(secs[k] for k in sorted(secs)).rstrip("\n") + "\n"
+
+
+def keep_sections(old: str, new: str, regenerate: set[str]) -> str:
+    """`new` for the questions in `regenerate`, the current text for the rest."""
+    pre_o, old_s = split_sections(old)
+    pre_n, new_s = split_sections(new)
+    if not old_s:
+        return new
+    keys = sorted(set(old_s) | set(new_s))
+    parts = [(new_s if (k in regenerate or k not in old_s) else old_s)[k] for k in keys]
+    for i, k in enumerate(keys[:-1]):          # every section but the last ends in a blank line
+        if not parts[i].endswith("\n\n"):
+            parts[i] = parts[i].rstrip("\n") + "\n\n"
+    parts[-1] = parts[-1].rstrip("\n") + "\n"
+    return pre_o + "".join(parts)
+
+
+def _day(iso: str | None) -> str:
+    return (iso or "")[:10] or "unknown"
+
+
+def _states(d: dict) -> str:
+    return ", ".join(f"{v} {k}" for k, v in sorted(d.items(), key=lambda kv: -kv[1])) or "none"
+
+
+def beta_facts(ev: dict | None, measured_at: str | None) -> str:
+    """Question 4's measured lines, from docs/beta-evidence.json. Facts only."""
+    if not ev:
+        return ("No TestFlight measurement for this app in docs/beta-evidence.json; run "
+                "scripts/testflight/beta_evidence.rb before answering.")
+    if not ev.get("app_store_record"):
+        return "App Store Connect holds no app record for this bundle id."
+    b = ev["builds"]
+    groups = ev.get("beta_groups") or []
+    t = ev["testers"]
+    internal = t.get("in_internal_groups",
+                     sum(g["testers"] for g in groups if g.get("internal")))
+    u = ev.get("usage_all_builds") or {}
+    by = ev.get("usage_by_tester_kind_365d") or {}
+    ints = (by.get("internal_group_members") or {}).get("sessionCount", 0)
+    exts = (by.get("external_only") or {}).get("sessionCount", 0)
+    sessions = u.get("sessionCount", 0)
+    fb = ev.get("feedback_submissions") or {}
+    rv = ev.get("beta_app_review_submissions") or {}
+    lines = [
+        f"Measured from App Store Connect on {_day(measured_at)} (GET only; "
+        "docs/beta-evidence.json):",
+        f"  - TestFlight builds uploaded: {b['count']} ({b['valid']} processed), "
+        f"first {_day(b.get('first_uploaded'))}, last {_day(b.get('last_uploaded'))}",
+        f"  - Tester records on its {len(groups)} beta group(s): {t['unique']}, of which "
+        f"{internal} in the internal group (App Store Connect users of this account); "
+        f"state as Apple reports it: {_states(t['states'])}",
+        "  - Beta App Review submissions (needed before external testers get a build): "
+        + (f"{rv['count']} ({_states(rv['states'])}), last {_day(rv.get('last_submitted'))}"
+           if rv.get("count") else "none"),
+        f"  - Recorded across all builds, last 365 days: {u.get('installCount', 0)} installs, "
+        f"{sessions} sessions, {u.get('crashCount', 0)} crashes",
+    ]
+    if sessions:
+        rest = max(sessions - ints - exts, 0)
+        lines.append(f"    of the sessions, {ints} came from internal-group members, {exts} from "
+                     f"external testers, and {rest} cannot be attributed to a tester record "
+                     "currently on the app")
+    lines.append(
+        f"  - Tester feedback recorded by TestFlight: {u.get('feedbackCount', 0)} "
+        f"(screenshot feedback submissions: {fb.get('screenshot')}, crash feedback "
+        f"submissions: {fb.get('crash')})")
+    if ev.get("refused"):
+        lines.append("  - Requests App Store Connect refused: "
+                     + "; ".join(f"{r['path']} -> {r['status']} {r.get('detail')}" for r in ev["refused"]))
+    return "\n".join(lines)
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--sections", default="",
+                    help="comma-separated question numbers to regenerate; the rest of the "
+                         "current text is kept verbatim (default: regenerate all)")
     ap.add_argument("apps", nargs="*")
     args = ap.parse_args()
+    regenerate = {s.strip() for s in args.sections.split(",") if s.strip()}
+
+    evf = M / "docs" / "beta-evidence.json"
+    evdoc = json.loads(evf.read_text()) if evf.exists() else {}
+    evidence = {r["repo"]: r for r in evdoc.get("apps") or []}
 
     manifest = json.loads((M / "apps.json").read_text())["apps"]
     if args.apps:
@@ -176,6 +302,24 @@ def main() -> int:
               f"{TODO}: {', '.join(same_cat)} share its category ({cat}). Say concretely "
               "why this is not a feature of one of them — this is a judgement, not a fact "
               "the repository holds." if cat else f"{TODO}: category unknown.")
+        if same_cat:
+            # Measured overlap only — the answer itself stays the owner's.
+            overlap = []
+            for r2 in same_cat:
+                d2 = ROOT / r2 / (next((x.get("dir") for x in full if x["repo"] == r2), ".") or ".")
+                common = sorted(set(feats) & set(features_of(d2)))
+                pct = round(cosine(mine, sigs[r2]) * 100) if r2 in sigs and mine else None
+                overlap.append((pct or 0, f"{r2}: {len(common)} screen name(s) in common"
+                                + (f" ({', '.join(common)})" if common else "")
+                                + (f", {pct}% implementation similarity" if pct is not None
+                                   else ", implementation similarity not measured")))
+            closest = max(overlap)[0]
+            q6 += ("\nProposed (owner to confirm): "
+                   + ("No. Measured overlap with each app in the category: "
+                      if closest < 50 else
+                      "no answer proposed — one app in the category is too close by "
+                      "implementation to judge from the numbers. Measured: ")
+                   + "; ".join(o for _, o in overlap) + ".")
         # Describe only what this app actually links. An earlier draft said
         # "ad mediation" for apps that do not use agl_ads — a false statement
         # in a reply to App Review.
@@ -185,6 +329,12 @@ def main() -> int:
               + ". It also uses the same Supabase project as our other apps for sign-in. "
               "No screens, features or content are shared; the similarity figure in 5 "
               "measures exactly that.") if ours else "No shared in-house packages."
+        ev = evidence.get(repo)
+        fb_count = "an unmeasured number of"
+        if ev and ev.get("app_store_record"):
+            fbs = ev.get("feedback_submissions") or {}
+            fb_count = max((ev.get("usage_all_builds") or {}).get("feedbackCount", 0),
+                           (fbs.get("screenshot") or 0) + (fbs.get("crash") or 0))
         text = f"""1. WHAT IT DOES
 {purpose or TODO + ': describe the primary problem this app solves.'}
 Screens it contains: {', '.join(feats) if feats else TODO}
@@ -198,9 +348,11 @@ Answer concretely — a named competitor and a named difference. This cannot
 be drafted from the repository; it is a claim about the market.
 
 4. BETA TESTING DONE
-{TODO}: which builds went to testers, over what period, and name one change
-made because of feedback. Nine external testers are configured on this app
-in TestFlight; the testing itself still has to have happened.
+{beta_facts(ev, evdoc.get("measured_at"))}
+{TODO}: describe the beta testing that actually happened and name one change
+made because of a tester's feedback. TestFlight records {fb_count} feedback
+item(s) for this app, so an example of applied feedback has to come from
+testing outside TestFlight and be shown, not asserted. If there is none, say so.
 
 5. STANDALONE OR PART OF A SUITE
 Part of a suite: 43 apps are published under this developer account.
@@ -235,6 +387,10 @@ No, beyond standard third-party frameworks{": " + ", ".join(sdks) if sdks else "
 client or partner? (Expected answer: no, built and published by American Group
 LLC. Only the account owner can state it.)
 """
+        if regenerate:
+            text = keep_sections(rec.get("differentiation") or "", text, regenerate)
+        # Last, so a written answer wins whether or not its question was regenerated.
+        text = apply_overrides(text, rec.get("differentiation_overrides") or {})
         if args.dry_run:
             print(f"  {repo:18} would draft {len(text)} chars, "
                   f"{text.count(TODO)} TODO(s)", flush=True)

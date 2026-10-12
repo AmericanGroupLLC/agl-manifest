@@ -49,6 +49,7 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | `testflight/build_only.py` | Builds a signed IPA via the fastlane lane, no upload |
 | `testflight/distribute.rb` | Fills the **external** group and submits for Beta App Review |
 | `testflight/list_builds.rb` | What Apple holds for one bundle id |
+| `testflight/beta_evidence.rb` | **GET only.** Per app: TestFlight builds (count, first/last upload, beta states), beta groups and tester states, installs/sessions/crashes/feedback from `betaBuildUsages`, sessions split internal vs external from `betaTesterUsages`, `betaFeedbackScreenshotSubmissions` / `betaFeedbackCrashSubmissions` counts, and Beta App Review submissions. No tester identities written. Writes `docs/beta-evidence.json`, which `differentiation_scaffold.py` quotes in question 4 of the 4.3 reply; refusals are recorded per app |
 | `testflight/check_build.rb`, `records_present.rb` | Polling helpers |
 | `testflight/enable_capabilities.rb` | Turns on app capabilities |
 | `testflight/clear_stale_submissions.rb` | Deletes review submissions prepared and never sent. The public API refuses (`403 does not allow 'DELETE'`, `409 not in cancellable state`); the `iris` host with an Apple ID session returns 204. Leaves `UNRESOLVED_ISSUES` alone — those are real rejections |
@@ -244,6 +245,7 @@ read means giving the harness another way in.
 | `artifact_staleness.py` | Which artifacts predate a commit that could change them. Android and iOS inputs are kept separate — conflating them reported eight bundles as stale when only `ios/Podfile.lock` had changed |
 | `website_apps.py` | Generates www.americangroup.ai's 43 mobile-app pages (`client/src/data/mobileApps.generated.ts`) from each app's App Store copy, with status and store links from what Apple and Google report. A download button appears only for a live listing that answered HTTP 200. `--check` exits 1 when the site is stale; store_watch runs it |
 | `verify_api_hosts.py` | Whether every host each app calls **exists**, via Google DNS-over-HTTPS (plain DNS is blocked here, so `dig` times out on every name). NXDOMAIN fails the gate; anything short of an address is recorded as `unverified`, never as dead. Writes `docs/api-hosts.json`; runs in CI and in every `store_watch` pass |
+| `probe_urls.py` | What a specific endpoint really returns before an app depends on it: HTTP status, final URL, content type, size and a body sample (`--head` for headers only). Read-only; writes `<DIST>/url-probe.json`. A host that resolves can still serve an HTML shell where the code expects JSON — www.aviationapi.com does |
 | `verify_store_urls.py` | Whether each store URL is real. **Do not trust HTTP 200** — this host serves its homepage for any unknown path, so the body is compared against a known-nonexistent path |
 | `verify_deletion_urls.py` | Whether every app has a working account-deletion page (Play Data safety) |
 | `audit_release_readiness.py` | 63 measured fields per app |
