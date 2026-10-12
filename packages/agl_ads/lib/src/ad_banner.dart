@@ -51,7 +51,8 @@ class _AglAdBannerState extends State<AglAdBanner> {
 
   Future<void> _load() async {
     final ids = AglAds.ids;
-    if (ids == null || !AglAdIds.isSupported || AglAds.isSuspended) return;
+    // isEnabled also covers store-screenshot builds (SCREENSHOT=true).
+    if (ids == null || !AglAds.isEnabled || AglAds.isSuspended) return;
     // Consent gates the request itself, not just personalisation.
     if (!await AglConsent.canRequestAds()) return;
     if (!mounted) return;

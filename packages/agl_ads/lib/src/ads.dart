@@ -35,8 +35,13 @@ abstract final class AglAds {
   /// signal that this app has no ads.
   static AglAdIds? get ids => _ids;
 
+  /// Store-screenshot builds (`--dart-define=SCREENSHOT=true`) never load ads:
+  /// a simulator debug build can only show Google's "Test mode" ad, and it
+  /// reached iMeasure's, iMaps' and Uscis-Case's App Store screenshots that way.
+  static const bool _screenshotBuild = bool.fromEnvironment('SCREENSHOT');
+
   /// Whether ads are configured and the platform supports them.
-  static bool get isEnabled => _ids != null && AglAdIds.isSupported;
+  static bool get isEnabled => !_screenshotBuild && _ids != null && AglAdIds.isSupported;
 
   /// Declares this app's AdMob ids. Call once, from `main()`.
   static void configure(AglAdIds ids) {
