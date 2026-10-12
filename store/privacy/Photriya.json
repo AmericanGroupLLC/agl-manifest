@@ -28,6 +28,24 @@
       ]
     },
     {
+      "data_type": "DEVICE_ID",
+      "protections": [
+        "DATA_NOT_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "THIRD_PARTY_ADVERTISING"
+      ]
+    },
+    {
+      "data_type": "ADVERTISING_DATA",
+      "protections": [
+        "DATA_NOT_LINKED_TO_YOU"
+      ],
+      "purposes": [
+        "THIRD_PARTY_ADVERTISING"
+      ]
+    },
+    {
       "data_type": "PURCHASE_HISTORY",
       "protections": [
         "DATA_LINKED_TO_YOU"
@@ -66,12 +84,12 @@
   ],
   "_derived_from": {
     "account": true,
-    "ads": false,
+    "ads": true,
     "att_prompt": false,
     "health": false,
     "iap": true,
     "crash": true,
     "analytics": true,
-    "date": "2026-10-11"
+    "date": "2026-10-12"
   }
 }
