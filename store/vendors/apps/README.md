@@ -33,3 +33,13 @@ python3 scripts/api_vendor_audit.py && python3 scripts/vendor_registry.py --from
 When a status reaches Approved/Done the registry marks the pair `signed-up`;
 wiring the ID into the build comes next (public IDs as `--dart-define`,
 secret keys behind a Supabase Edge Function — never inside the app).
+
+## The sign-up worklist — `store/vendors/signups.csv`
+
+One row per vendor (100 today): every vendor in the founder's directory
+(`store/vendors/directory.csv`) plus the ones the code needs that it does not
+list. `needed_by_apps` comes from the code; `suits_apps` is only a suggestion.
+Fill `signup_status`, `account_owner`, `applied_on`, `approved_on`,
+`id_or_vault_ref`, `notes` — they survive every regeneration
+(`python3 scripts/vendor_registry.py --from-code --export-signups`). The export
+refuses to run while any of those cells looks like a real secret.

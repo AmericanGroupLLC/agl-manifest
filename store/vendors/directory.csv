@@ -1,0 +1,92 @@
+section,vendor,category,access_type,signup_url,suits_apps
+TripNest,Amadeus for Developers,"Flights, travel data",API / sandbox,https://developers.amadeus.com/,TripNest
+TripNest,Duffel,Flight search and booking,API / commercial approval,https://duffel.com/,TripNest
+TripNest,Travelport,Flights and GDS,Commercial API,https://www.travelport.com/,TripNest
+TripNest,Sabre,Flights and GDS,Commercial API,https://www.sabre.com/,TripNest
+TripNest,Kiwi.com Tequila,Flights,Partner API,https://tequila.kiwi.com/,TripNest
+TripNest,Skyscanner Partners,Flight metasearch,Partner program,https://www.partners.skyscanner.net/,TripNest
+TripNest,Travelpayouts,Flight and hotel referrals,Affiliate,https://www.travelpayouts.com/,TripNest; EventSpark
+TripNest,Expedia Group,"Hotels, flights, cars",API / affiliate partnerships,https://partner.expediagroup.com/,TripNest; RideZap
+TripNest,Booking.com Demand API,"Hotels, cars, stays",Approved partner API,https://developers.booking.com/demand/,TripNest; RideZap
+TripNest,Hotelbeds,Hotel inventory,B2B API,https://www.hotelbeds.com/,TripNest
+TripNest,Agoda Partner Hub,Hotels,Affiliate / partner,https://partners.agoda.com/,TripNest
+TripNest,CarTrawler,Rental cars,B2B API,https://www.cartrawler.com/,TripNest
+TripNest,Rentalcars.com,Rental cars,Affiliate / partner,https://www.rentalcars.com/,TripNest
+TripNest,DiscoverCars,Rental cars,Affiliate / partner,https://www.discovercars.com/,TripNest
+TripNest,VIPCars,Rental cars,Affiliate / partner,https://www.vipcars.com/,TripNest
+TripNest,Busbud,Bus travel,Partner / API inquiry,https://www.busbud.com/,TripNest
+TripNest,Distribusion,Bus and ground transport,B2B API,https://www.distribusion.com/,TripNest
+TripNest,Omio,Trains and buses,Affiliate / partner,https://www.omio.com/,TripNest
+TripNest,Wanderu,Bus and train search,Partner inquiry,https://www.wanderu.com/,TripNest
+TripNest,Rome2Rio,Multimodal route search,Partner / API inquiry,https://www.rome2rio.com/,TripNest
+TripNest,Trainline,Train booking,Partner inquiry,https://www.thetrainline.com/,TripNest
+TripNest,Viator,Tours and activities,Affiliate / API options,https://partnerresources.viator.com/,TripNest; EventSpark
+TripNest,GetYourGuide,Tours and activities,Affiliate / partner,https://partner.getyourguide.com/,TripNest; EventSpark
+TripNest,Welcome Pickups,Airport transfers,Partner inquiry,https://www.welcomepickups.com/,TripNest
+TripNest,Jayride,Airport transfers,Affiliate / partner,https://www.jayride.com/,TripNest
+TripNest,HomeToGo,Vacation rentals,Partner program,https://www.hometogo.com/,TripNest
+TripNest,Cover Genius,Travel insurance infrastructure,Commercial partnership,https://covergenius.com/,TripNest
+TripNest,Allianz Partners,Travel insurance,Commercial partnership,https://www.allianz-partners.com/,TripNest
+TripNest,Airalo,eSIMs,Affiliate / partner,https://www.airalo.com/,TripNest
+TripNest,Holafly,eSIMs,Affiliate / partner,https://esim.holafly.com/,TripNest
+TripNest,Dragonpass,Airport lounges,Partnership,https://www.dragonpass.com/,TripNest
+TripNest,LoungeKey,Airport lounges,Partnership,https://www.loungekey.com/,TripNest
+TripNest,Bounce,Luggage storage,Partner / referral,https://bounce.com/,TripNest
+TripNest,Radical Storage,Luggage storage,Partner / referral,https://radicalstorage.com/,TripNest
+PilotEnRoute,FlightAware AeroAPI,Flight tracking and status,Commercial API,https://www.flightaware.com/commercial/data,PilotEnRoute; AeroSwift
+PilotEnRoute,ADS-B Exchange,Aircraft tracking,API / data plans,https://www.adsbexchange.com/,PilotEnRoute; AeroSwift
+PilotEnRoute,OpenSky Network,ADS-B flight data,Account / API; usage restrictions,https://opensky-network.org/,AeroSwift; PilotEnRoute
+PilotEnRoute,Airplanes.Live,Aircraft tracking,API; verify current terms,https://airplanes.live/,AeroSwift; PilotEnRoute
+PilotEnRoute,Cirium,Flight status and aviation data,Commercial data license,https://www.cirium.com/,AeroSwift; PilotEnRoute
+PilotEnRoute,Aviationstack,Flight and airport data,API key / plans,https://aviationstack.com/,AeroSwift; PilotEnRoute
+PilotEnRoute,AviationWeather.gov,"METAR, TAF, PIREPs, SIGMETs",Public API,https://aviationweather.gov/data/api/,PilotEnRoute
+PilotEnRoute,NOAA,Weather data,Public / service-specific APIs,https://www.noaa.gov/,PilotEnRoute; iMaps
+PilotEnRoute,CheckWX,Aviation weather,API / plans,https://www.checkwx.com/,PilotEnRoute
+PilotEnRoute,OpenWeather,General weather,API key / plans,https://openweathermap.org/api,PilotEnRoute; daily-pulse
+PilotEnRoute,Tomorrow.io,Weather and alerts,API / plans,https://www.tomorrow.io/,PilotEnRoute; daily-pulse
+PilotEnRoute,Federal Aviation Administration (FAA),Regulations and aviation data,Public resources / specific services,https://www.faa.gov/,PilotEnRoute
+PilotEnRoute,eCFR,Federal aviation regulations,Public access / API,https://www.ecfr.gov/,PilotEnRoute
+PilotEnRoute,FAA Safety Team (FAASTeam),Pilot safety education,Public training portal,https://www.faasafety.gov/,PilotEnRoute
+PilotEnRoute,FAA DroneZone,Drone registration workflows,Account-based services,https://faadronezone-access.faa.gov/,PilotEnRoute
+PilotEnRoute,FAA UAS,Drone rules and education,Public resources,https://www.faa.gov/uas,PilotEnRoute
+PilotEnRoute,NTSB,Aviation accident reports,Public data,https://www.ntsb.gov/,PilotEnRoute
+PilotEnRoute,NASA ASRS,Aviation safety reports,Public reports and resources,https://asrs.arc.nasa.gov/,PilotEnRoute
+PilotEnRoute,OurAirports,Airport data,Public dataset; check license,https://ourairports.com/,AeroSwift; PilotEnRoute
+PilotEnRoute,OpenAIP,Aeronautical information,Data access; verify license,https://www.openaip.net/,PilotEnRoute
+PilotEnRoute,ForeFlight,Pilot planning ecosystem,Commercial partnership / integrations,https://foreflight.com/,PilotEnRoute
+PilotEnRoute,Garmin Aviation,Avionics and aviation ecosystem,Commercial partnership,https://www.garmin.com/en-US/c/aviation/,PilotEnRoute
+Shared,Supabase,Authentication and database,Free and paid plans,https://supabase.com/,all apps with accounts
+Shared,Firebase,"Authentication, analytics, notifications",Free allowances and paid usage,https://firebase.google.com/,all apps
+Shared,Auth0,Authentication and identity,Free and paid tiers,https://auth0.com/,
+Shared,Stripe,Payments and billing,Account; transaction fees,https://stripe.com/,
+Shared,RevenueCat,Mobile subscriptions,Free allowance and paid plans,https://www.revenuecat.com/,CalcMaster; iMeasure
+Shared,OpenAI API,AI and language models,API billing,https://platform.openai.com/,Photriya; HerJourney; daily-pulse
+Shared,Google AI,AI models,API access and applicable quotas,https://ai.google.dev/,PlantPulse; AGStudio
+Shared,Anthropic,AI models,API billing,https://www.anthropic.com/api,PilotEnRoute
+Shared,Google Maps Platform,"Maps, places, directions",Usage-based pricing and applicable allowances,https://developers.google.com/maps,GroceryMatch; Kinnav; NearServe; iMaps
+Shared,Mapbox,Maps and geospatial services,Free allowances and paid usage,https://www.mapbox.com/,NearServe; iMaps
+Shared,Resend,Transactional email,Free allowance and paid tiers,https://resend.com/,
+Shared,SendGrid,Transactional email,Free or paid access depends on current plans,https://sendgrid.com/,
+Shared,Firebase Cloud Messaging,Push notifications,Generally no per-message charge for standard messaging,https://firebase.google.com/docs/cloud-messaging,GroceryMatch; MyHealth; Verba; VirtuBand
+Shared,Sentry,Error monitoring,Free and paid tiers,https://sentry.io/,DriftDate; MyHealth; NexusTransferPay
+Shared,PostHog,Product analytics,Free allowances and paid usage,https://posthog.com/,MyHealth
+Shared,Cloudflare,"DNS, security, edge services",Free and paid plans,https://www.cloudflare.com/,americangroup.ai; WiFiTrail
+Commerce,Rakuten Advertising,Retail and travel affiliates,Publisher application,https://rakutenadvertising.com/,FashionFactory; VirtuBand
+Commerce,Awin,"Retail product and fashion affiliates (incl. ShareASale)",Publisher application,https://www.awin.com/,FashionFactory; TripNest
+Commerce,CJ Affiliate,Retail and merchant affiliates,Publisher application,https://www.cj.com/,TripNest; CodeDeal; GadgetNest
+Commerce,Impact,Brand partnerships,Partner application,https://impact.com/,GroceryMatch; MyHealth; TripNest
+Commerce,Amazon Associates,Retail referrals,Affiliate application,https://affiliate-program.amazon.com/,CalcMaster; ChefCount; VirtuBand; FashionFactory; GadgetNest
+Commerce,eBay Partner Network,Marketplace referrals,Affiliate application,https://partnernetwork.ebay.com/,GadgetNest
+Commerce,Best Buy Affiliate Program,Consumer electronics,Affiliate application,https://www.bestbuy.com/,GadgetNest
+Commerce,Walmart Affiliates,Retail products,Affiliate application,https://affiliates.walmart.com/,GroceryMatch; GadgetNest
+Commerce,ShareASale,Retail and lifestyle affiliates (now part of Awin),Affiliate network,https://www.shareasale.com/,FashionFactory
+Commerce,FlexOffers,Retail and travel affiliates,Affiliate network,https://www.flexoffers.com/,
+Other,Ticketmaster Discovery API,Events,API key,https://developer.ticketmaster.com/,EventSpark
+Other,NewsAPI,News,API key,https://newsapi.org/,daily-pulse; NewsBoard
+Other,GNews,News,API key,https://gnews.io/,daily-pulse; NewsBoard
+Other,Finnhub,Stock market data,API key,https://finnhub.io/,ApexMarketWatch; daily-pulse
+Other,Polygon.io,Stock market data,API key / plans,https://polygon.io/,ApexMarketWatch; daily-pulse
+Other,Alpha Vantage,Stock market data,API key,https://www.alphavantage.co/,ApexMarketWatch; daily-pulse
+Other,SEC EDGAR,Company filings,Public API,https://www.sec.gov/edgar,ApexMarketWatch
+Other,Spoonacular,Recipes and nutrition,API key / plans,https://spoonacular.com/food-api,ChefCount; GroceryMatch
+Other,Edamam,Recipes and nutrition,API key / plans,https://www.edamam.com/,ChefCount; GroceryMatch

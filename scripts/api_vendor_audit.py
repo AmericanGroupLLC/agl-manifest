@@ -39,7 +39,7 @@ VENDORS = {
     "Amadeus": ["amadeus"], "Duffel": ["duffel"], "Travelport": ["travelport"], "Sabre": ["sabre.com", "sabre "],
     "Kiwi.com Tequila": ["tequila.kiwi", "kiwi.com"], "Skyscanner": ["skyscanner"],
     "Travelpayouts": ["travelpayouts", ".tp.st", "tp.media"], "Expedia Group": ["expedia"],
-    "Booking.com": ["booking.com"], "Hotelbeds": ["hotelbeds"], "Agoda": ["agoda"], "CarTrawler": ["cartrawler"],
+    "Booking.com": ["booking.com"], "Hotelbeds": ["hotelbeds"], "Agoda": ["re:agoda\\.com"], "CarTrawler": ["cartrawler"],
     "Rentalcars.com": ["rentalcars"], "DiscoverCars": ["discovercars"], "VIPCars": ["vipcars"], "Busbud": ["busbud"],
     "Distribusion": ["distribusion"], "Omio": ["omio"], "Wanderu": ["wanderu"], "Rome2Rio": ["rome2rio"],
     "Trainline": ["trainline"], "Viator": ["viator"], "GetYourGuide": ["getyourguide"],
@@ -58,16 +58,16 @@ VENDORS = {
     "ForeFlight": ["foreflight"], "Garmin": ["garmin.com"], "Rotate Pilot": ["rotatepilot.com"],
     "Open-Meteo": ["open-meteo.com"],
     # shared infrastructure
-    "Supabase": ["supabase"], "Firebase": ["firebase"], "Auth0": ["auth0"], "Stripe": ["stripe"],
+    "Supabase": ["supabase"], "Firebase": ["firebase"], "Auth0": ["auth0"], "Stripe": ["re:flutter_stripe|stripe\\.com|stripe\\.instance"],
     "RevenueCat": ["revenuecat", "purchases_flutter"], "OpenAI": ["openai.com", "openai_"],
     "Google AI (Gemini)": ["generativelanguage.googleapis", "google_generative_ai", "gemini"],
     "Anthropic": ["anthropic.com"], "Google Maps Platform": ["maps.googleapis.com", "google_maps_flutter", "places.googleapis"],
     "Mapbox": ["mapbox"], "Resend": ["resend.com"], "SendGrid": ["sendgrid"],
-    "Firebase Cloud Messaging": ["firebase_messaging"], "Sentry": ["sentry"], "PostHog": ["posthog"],
+    "Firebase Cloud Messaging": ["re:package:firebase_messaging|^\\s*firebase_messaging:"], "Sentry": ["re:sentry_flutter|sentry\\.io|sentry_dsn"], "PostHog": ["posthog"],
     "Cloudflare": ["cloudflare"],
     # commerce / affiliate
     "Rakuten Advertising": ["rakuten"], "Awin": ["awin.com", "'awin'", "awin1.com"], "CJ Affiliate": ["cj.com", "anrdoezrs", "dpbolvw", "jdoqocy", "tkqlhce"],
-    "Impact": ["impact.com", "pxf.io", "sjv.io"], "Amazon Associates": ["amazon.com/", "tag=", "associates"],
+    "Impact": ["impact.com", "pxf.io", "sjv.io"], "Amazon Associates": ["re:amazon\\.[a-z.]+/|[?&]tag=|tag=\\$|tag=[a-z0-9-]+-2[0-9]|amazon associates"],
     "eBay Partner Network": ["ebay.com", "campid"], "Best Buy": ["bestbuy"], "Walmart": ["walmart"],
     "ShareASale": ["shareasale"], "FlexOffers": ["flexoffers"],
     # other categories
@@ -77,7 +77,7 @@ VENDORS = {
     "Nutritionix": ["nutritionix"], "FatSecret": ["fatsecret"], "Veryfi": ["veryfi"], "Yelp Fusion": ["yelp"],
     "Foursquare": ["foursquare"], "RapidAPI": ["rapidapi"], "USDA FoodData Central": ["api.nal.usda.gov"],
     "NREL / NLR alt-fuel": ["developer.nlr.gov", "developer.nrel.gov"], "Open Charge Map": ["openchargemap"],
-    "NASA FIRMS": ["firms.modaps"], "Agora": ["agora"], "YouTube Data API": ["youtube.googleapis", "youtube/v3"],
+    "NASA FIRMS": ["firms.modaps"], "Agora": ["re:agora_rtc|agora\\.io|agora_app_id"], "YouTube Data API": ["youtube.googleapis", "youtube/v3"],
     "Pexels": ["pexels"], "Pixabay": ["pixabay"], "DoorDash": ["doordash"], "Uber Eats": ["ubereats"],
     "Grubhub": ["grubhub"], "Uber": ["uber.com"], "Lyft": ["lyft.com"],
 }
@@ -126,9 +126,10 @@ def main() -> int:
                 s = line.strip()
                 if s.startswith("//") or s.startswith("#"):
                     continue
-                low = s.lower()
+                low = re.sub(r"(?<![:/])//.*$", "", s).lower()
                 for vendor, frags in VENDORS.items():
-                    if a["repo"] not in usage[vendor] and any(fr in low for fr in frags):
+                    if a["repo"] not in usage[vendor] and any(
+                            re.search(fr[3:], low) if fr.startswith("re:") else fr in low for fr in frags):
                         usage[vendor][a["repo"]] = f"{f.relative_to(ROOT / a['repo'])}:{i}"
     USAGE_OUT.write_text(json.dumps({"vendors": usage}, indent=1) + "\n")
     print(f"  {sum(1 for v in usage.values() if v)} of {len(usage)} candidate vendors are named "

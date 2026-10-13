@@ -403,6 +403,137 @@ def import_apps(reg: dict) -> int:
     return 0
 
 
+
+SIGNUPS = M / "store/vendors/signups.csv"
+DIRECTORY_IN = M / "store/vendors/directory.csv"
+VIA_TRAVELPAYOUTS = {"Booking.com Demand API", "Expedia Group", "Rentalcars.com", "Busbud", "Viator"}
+SIGNUP_MANUAL = ["signup_status", "account_owner", "applied_on", "approved_on", "id_or_vault_ref", "notes"]
+SIGNUP_COLS = ["priority", "vendor", "category", "access_type", "signup_url", "needed_by_apps", "credential_names",
+               "token_in_build", "suits_apps", "what_you_get", "where_it_goes"] + SIGNUP_MANUAL + ["last_updated"]
+# registry name -> the founder directory's name for the same vendor
+ALIAS_TO_DIR = {"Booking.com": "Booking.com Demand API", "Best Buy": "Best Buy Affiliate Program",
+                "Walmart": "Walmart Affiliates", "OpenAI": "OpenAI API", "Google AI (Gemini)": "Google AI",
+                "NOAA / weather.gov": "NOAA", "FAA": "Federal Aviation Administration (FAA)",
+                "FAASTeam": "FAA Safety Team (FAASTeam)", "Garmin": "Garmin Aviation", "Skyscanner": "Skyscanner Partners",
+                "Amadeus": "Amadeus for Developers", "Agoda": "Agoda Partner Hub", "Firebase": "Firebase"}
+NO_SIGNUP = {"AviationWeather.gov", "NOAA", "Federal Aviation Administration (FAA)", "eCFR", "FAA Safety Team (FAASTeam)",
+             "FAA UAS", "NTSB", "NASA ASRS", "OurAirports", "SEC EDGAR", "Open-Meteo", "Rotate Pilot",
+             "Cloudflare speed test", "FAA DroneZone"}
+HAVE_ACCOUNT = {"Supabase", "Firebase", "Firebase Cloud Messaging", "Cloudflare", "Google AdMob"}
+SERVER_SIDE = {"OpenAI API", "Anthropic", "Veryfi", "Kroger", "FatSecret", "Spoonacular", "Edamam", "Nutritionix",
+               "Finnhub", "Yelp Fusion", "RapidAPI", "Amadeus for Developers", "Duffel", "FlightAware AeroAPI",
+               "Polygon.io", "Alpha Vantage", "NewsAPI", "GNews", "Ticketmaster Discovery API", "Aviationstack",
+               "CheckWX", "OpenWeather", "Tomorrow.io", "Cirium", "ADS-B Exchange", "Hotelbeds", "Sabre", "Travelport",
+               "Kiwi.com Tequila", "Instacart", "Agora", "Stripe", "Resend", "SendGrid", "Google AI"}
+
+
+def export_signups(reg: dict) -> int:
+    """One row per vendor: the founder's sign-up worklist."""
+    keys = json.loads(KEYS.read_text())["apps"] if KEYS.exists() else {}
+    directory = {r["vendor"]: r for r in csv.DictReader(open(DIRECTORY_IN, newline=""))} if DIRECTORY_IN.exists() else {}
+    rows: dict[str, dict] = {}
+
+    def row(name):
+        if name not in rows:
+            d = directory.get(name, {})
+            v = reg["vendors"].get(name, {})
+            rows[name] = {"vendor": name, "category": d.get("category") or v.get("kind") or "",
+                          "access_type": d.get("access_type") or v.get("network") or "",
+                          "signup_url": d.get("signup_url") or v.get("signup_url") or "",
+                          "suits_apps": d.get("suits_apps", ""), "_need": set(), "_creds": set(), "_state": []}
+        return rows[name]
+
+    for name in directory:
+        row(name)
+    for p in reg["pairs"].values():
+        if p["status"] != "in-code":
+            continue
+        name = ALIAS_TO_DIR.get(p["vendor"], p["vendor"])
+        r = row(name)
+        if not r["signup_url"]:
+            r["signup_url"] = reg["vendors"].get(p["vendor"], {}).get("signup_url", "")
+        r["_need"].add(p["app"])
+        names, state = _token_state(p["app"], p["vendor"], keys)
+        if names:
+            r["_creds"].update(n.strip() for n in names.split(","))
+        if state and state != "no credential read by code":
+            r["_state"].append(f"{p['app']}: {state}")
+    # platform rows the apps really depend on
+    g = row("Google Sign-In (OAuth client, iOS)")
+    g["signup_url"] = g["signup_url"] or "https://console.cloud.google.com/apis/credentials"
+    g["category"], g["access_type"] = "Sign-in", "Free — OAuth client id per app"
+    for app, ks in keys.items():
+        for k, r in ks.items():
+            if k == "GOOGLE_IOS_CLIENT_ID":
+                g["_need"].add(app); g["_creds"].add(k)
+                if not r["default"]:
+                    g["_state"].append(f"{app}: EMPTY in release")
+    ad = row("Google AdMob")
+    ad.update(signup_url="https://admob.google.com/", category="Ad monetization", access_type="Account (exists)")
+    ad["_state"].append("account exists; ad units in docs/admob-ids.json; AdMob apps still to create in the UI (#15)")
+
+    kept = {}
+    if SIGNUPS.exists():
+        for r in csv.DictReader(open(SIGNUPS, newline="")):
+            kept[r["vendor"]] = {k: r.get(k, "") for k in SIGNUP_MANUAL + ["last_updated"]}
+    bad = [f"{v}: {k}" for v, m in kept.items() for k in SIGNUP_MANUAL if SECRET_LIKE.search(m.get(k) or "")]
+    if bad:
+        print("  refused: these cells look like real secrets — replace them with a vault reference name first:\n   "
+              + "\n   ".join(bad))
+        return 1
+
+    out = []
+    for name, r in rows.items():
+        need = sorted(r["_need"])
+        affiliate = name in AFFILIATE_VENDORS or "ffiliate" in (r["access_type"] + r["category"]) \
+            or name in {"Booking.com Demand API", "Best Buy Affiliate Program", "Walmart Affiliates"}
+        empty = any(x in " ".join(r["_state"]) for x in ("EMPTY", "not verified", "not a valid", "placeholder",
+                                                          "numeric", "REPLACE"))
+        if name in NO_SIGNUP:
+            prio, status, get, where = "P3", "Not needed", "No sign-up (public data)", "—"
+        elif name in HAVE_ACCOUNT:
+            prio, status, get, where = ("P1" if name == "Google AdMob" else "P3"), "Done", "Account exists", "—"
+        else:
+            status = "Not started"
+            if need and (affiliate or name.startswith("Google Sign-In")):
+                prio = "P1"
+            elif need and empty:
+                prio = "P2"
+            elif need:
+                prio = "P3"
+            else:
+                prio = "P4"
+            get = ("Publisher / affiliate ID or tracking tag" if affiliate else
+                   "OAuth client id per app" if name.startswith("Google Sign-In") else
+                   "Commercial agreement + API credentials" if "B2B" in r["access_type"] or "Commercial" in r["access_type"]
+                   else "API key")
+            where = ("Supabase Edge Function secret — never inside the app" if name in SERVER_SIDE else
+                     "Build-time --dart-define (public id), per app")
+        # TripNest's partner links are Travelpayouts tp.st links (core/engine/affiliate.dart):
+        # those brands are joined inside the Travelpayouts account, not signed up separately.
+        if need == ["TripNest"] and name in VIA_TRAVELPAYOUTS:
+            get = "Join this brand's programme inside your Travelpayouts account (TripNest links are tp.st)"
+            where = "Nothing separate — the Travelpayouts marker covers it"
+        m = kept.get(name, {})
+        out.append({"priority": prio, "vendor": name, "category": r["category"], "access_type": r["access_type"],
+                    "signup_url": r["signup_url"], "needed_by_apps": "; ".join(need),
+                    "credential_names": ", ".join(sorted(r["_creds"])), "token_in_build": " | ".join(r["_state"][:8]),
+                    "suits_apps": r["suits_apps"] if not need else "", "what_you_get": get, "where_it_goes": where,
+                    "signup_status": m.get("signup_status") or status, "account_owner": m.get("account_owner", ""),
+                    "applied_on": m.get("applied_on", ""), "approved_on": m.get("approved_on", ""),
+                    "id_or_vault_ref": m.get("id_or_vault_ref", ""), "notes": m.get("notes", ""),
+                    "last_updated": m.get("last_updated") or today()})
+    out.sort(key=lambda r: (r["priority"], 0 if r["needed_by_apps"] else 1, r["vendor"].lower()))
+    with open(SIGNUPS, "w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=SIGNUP_COLS)
+        w.writeheader()
+        w.writerows(out)
+    by = {}
+    for r in out:
+        by[r["priority"]] = by.get(r["priority"], 0) + 1
+    print(f"  -> {SIGNUPS}: {len(out)} vendors " + " ".join(f"{k}={v}" for k, v in sorted(by.items())))
+    return 0
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--from-code", action="store_true")
@@ -413,6 +544,7 @@ def main() -> int:
     ap.add_argument("--summary", action="store_true")
     ap.add_argument("--export-apps", action="store_true")
     ap.add_argument("--import-apps", action="store_true")
+    ap.add_argument("--export-signups", action="store_true")
     a = ap.parse_args()
     reg = load()
     if a.from_code:
@@ -431,9 +563,11 @@ def main() -> int:
         save(reg)
     if a.export_apps:
         export_apps(reg)
+    if a.export_signups and export_signups(reg):
+        return 1
     if a.workbook:
         workbook(reg)
-    if a.summary or not (a.from_code or a.import_research or a.set or a.workbook or a.export_apps or a.import_apps):
+    if a.summary or not (a.from_code or a.import_research or a.set or a.workbook or a.export_apps or a.import_apps or a.export_signups):
         summary(reg)
     return 0
 
