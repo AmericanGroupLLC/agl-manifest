@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 """The founder's vendor sign-up tracker — ONE Excel file.
 
-    .venv/bin/python3 scripts/signup_playbook.py      # refreshes ~/agl/AGL_Vendor_Signup_Playbook.xlsx
+    .venv/bin/python3 scripts/signup_playbook.py          # refresh store/vendors/AGL_Vendor_Signup_Playbook.xlsx
+    .venv/bin/python3 scripts/signup_playbook.py --check  # scan it for anything that looks like a secret (before committing)
 
 The workbook is the single tracker (founder's request, 2026-10-13): the founder
 edits status, owner, dates, vault references and notes in it directly. A
 refresh reads those columns back FROM the workbook and keeps them, refuses to
 run while Excel has it open (the ~$ lock file), and first copies the previous
-version to ~/agl/.dist/backups/. store/vendors/signup_playbook.csv is written
-alongside as a history snapshot for git — nobody edits it.
+version to ~/agl/.dist/backups/. It lives in the repo
+(store/vendors/), the only .xlsx .gitignore lets through; it must never hold a
+key or password — only the name of where one is stored.
 
 Sheets:
   Start here       how to work through it, batch order, the no-secrets rule
@@ -43,7 +45,7 @@ from agl_paths import ROOT, MANIFEST as M, DIST  # noqa: E402
 from vendor_registry import SECRET_LIKE  # noqa: E402
 
 V = M / "store/vendors"
-XLSX = ROOT / "AGL_Vendor_Signup_Playbook.xlsx"
+XLSX = V / "AGL_Vendor_Signup_Playbook.xlsx"   # the one tracker, committed in the repo
 CSV_OUT = V / "signup_playbook.csv"
 MANUAL = ["status", "account_owner", "applied_on", "approved_on", "id_or_vault_ref", "your_notes"]
 STATUS_LIST = ["Not started", "Applied", "Approved", "Rejected", "Done", "Not needed"]
@@ -57,7 +59,25 @@ def load(p, default):
     return json.loads(p.read_text()) if p.exists() else default
 
 
+def check() -> int:
+    """Every cell of every sheet, scanned for anything that looks like a real secret."""
+    from openpyxl import load_workbook
+    hits = []
+    for ws in load_workbook(XLSX, read_only=True).worksheets:
+        for row in ws.iter_rows():
+            for c in row:
+                if isinstance(c.value, str) and not c.value.startswith(("http", "=")) and SECRET_LIKE.search(c.value):
+                    hits.append(f"{ws.title}!{c.coordinate}")
+    if hits:
+        print("looks like a secret — replace with a vault reference before committing:\n  " + "\n  ".join(hits))
+        return 1
+    print(f"  {XLSX.name}: no secret-like values")
+    return 0
+
+
 def main() -> int:
+    if "--check" in sys.argv:
+        return check()
     pb = load(V / "playbook.json", {})
     checks = load(V / "url-checks.json", {}).get("results", {})
     sig = {r["vendor"]: r for r in csv.DictReader(open(V / "signups.csv", newline=""))}
@@ -75,9 +95,7 @@ def main() -> int:
             d = dict(zip(hdr, row))
             if d.get("vendor"):
                 kept[d["vendor"]] = {k: ("" if d.get(k) is None else str(d.get(k))) for k in MANUAL}
-    elif CSV_OUT.exists():
-        for r in csv.DictReader(open(CSV_OUT, newline="")):
-            kept[r["vendor"]] = {k: r.get(k, "") for k in MANUAL}
+
     bad = [f"{v}: {k}" for v, m in kept.items() for k in MANUAL if SECRET_LIKE.search(m.get(k) or "")]
     if bad:
         print("refused — these cells look like real secrets; replace with a vault reference name:\n  " + "\n  ".join(bad))
@@ -100,10 +118,6 @@ def main() -> int:
             "cost": p["cost"], "approval": p["approval"], "notes": p["notes"],
             "status": m.get("status") or status_default, **{k: m.get(k, "") for k in MANUAL[1:]}})
     rows.sort(key=lambda r: (r["batch"], r["priority"], r["vendor"].lower()))
-    with open(CSV_OUT, "w", newline="") as fh:
-        w = csv.DictWriter(fh, fieldnames=COLS)
-        w.writeheader()
-        w.writerows(rows)
 
     # ---------- workbook ----------
     from openpyxl import Workbook
@@ -257,7 +271,6 @@ def main() -> int:
         shutil.copy2(XLSX, bk / f"{XLSX.stem}-{datetime.datetime.now():%Y%m%d-%H%M%S}.xlsx")
     wb.save(XLSX)
     print(f"  -> {XLSX}  ({len(rows)} vendors, {len(pairs)} app/vendor rows)")
-    print(f"  -> {CSV_OUT}")
     return 0
 
 

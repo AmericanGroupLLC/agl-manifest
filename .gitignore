@@ -21,6 +21,9 @@ SFG-AGL-MobileApp_Devlopment-Tools.xlsx*
 AmericanGroupLLC_Developer_Docs.pdf
 AmericanGroupLLC — *.md
 *.xlsx
+# The one exception: the founder's vendor sign-up tracker (no secrets — vault references only;
+# scripts/signup_playbook.py --check scans it). Every other spreadsheet stays ignored.
+!store/vendors/AGL_Vendor_Signup_Playbook.xlsx
 
 # fastlane run artefacts
 scripts/testflight/fastlane/report.xml
