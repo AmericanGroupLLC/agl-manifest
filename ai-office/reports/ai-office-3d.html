@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>AI Office — 3D agent flow · American Group LLC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root { --bg:#0b1020; --panel:#121a33ee; --ink:#e8ecf8; --muted:#9aa6c7; --line:#2a3560; }
+  html,body { margin:0; height:100%; background:var(--bg); color:var(--ink); font:14px/1.45 -apple-system,Segoe UI,Roboto,sans-serif; overflow:hidden; }
+  #scene { position:fixed; inset:0; }
+  .label { padding:2px 7px; border-radius:6px; background:#0b1020cc; border:1px solid #ffffff22; font-size:11px; white-space:nowrap; pointer-events:none; color:#dfe6ff; }
+  .label.big { font-size:13px; font-weight:600; border-color:#ffffff55; }
+  .label.dim { opacity:.25; }
+  #hud { position:fixed; left:16px; top:16px; width:330px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; backdrop-filter:blur(6px); }
+  #hud h1 { font-size:16px; margin:0 0 2px; }
+  #hud .sub { color:var(--muted); font-size:12px; margin-bottom:10px; }
+  .flows button { display:block; width:100%; text-align:left; margin:4px 0; padding:7px 10px; border-radius:8px; border:1px solid var(--line); background:#18224a; color:var(--ink); cursor:pointer; font-size:13px; }
+  .flows button.on { background:#2b3f8f; border-color:#6f8cff; }
+  .flows button small { display:block; color:var(--muted); font-size:11px; }
+  #steps { margin-top:10px; font-size:12px; color:#c9d3f2; max-height:28vh; overflow:auto; }
+  #steps ol { padding-left:18px; margin:4px 0; }
+  #steps li.now { color:#ffd166; font-weight:600; }
+  #info { position:fixed; right:16px; top:16px; width:320px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; display:none; }
+  #info h2 { margin:0 0 4px; font-size:15px; }
+  #info .dept { font-size:11px; text-transform:uppercase; letter-spacing:.06em; margin-bottom:8px; }
+  #info p { margin:6px 0; }
+  #info .k { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.05em; margin-top:10px; }
+  #legend { position:fixed; left:16px; bottom:16px; background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:10px 14px; font-size:12px; }
+  #legend span.dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:6px; vertical-align:-1px; }
+  #legend div { margin:2px 0; }
+  #hint { position:fixed; right:16px; bottom:16px; color:var(--muted); font-size:12px; background:var(--panel); border:1px solid var(--line); border-radius:10px; padding:8px 12px; }
+  #err { position:fixed; inset:0; display:none; align-items:center; justify-content:center; text-align:center; color:#ffb4b4; padding:40px; }
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="scene"></div>
+<div id="hud">
+  <h1>AI Office — agent flow</h1>
+  <div class="sub">American Group LLC · 34 roles · built from <code>ai-office/.claude</code> and <code>CHARTER.md</code></div>
+  <div class="flows" id="flows"></div>
+  <div id="steps"></div>
+</div>
+<div id="info"></div>
+<div id="legend"></div>
+<div id="hint">Drag to rotate · scroll to zoom · click a node</div>
+<div id="err">Could not load three.js from cdn.jsdelivr.net.<br>Open this file in a browser with internet access.</div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer.js';
+
+// ── Data: departments and roles exactly as ai-office/README.md and .claude/agents/*.md define them ──
+const DEPTS = {
+  Executive:                 { color:0xffc857, roles:['chief-of-staff','strategy-analyst','project-coordinator','portfolio-director'] },
+  'Product & Engineering':   { color:0x4cc9f0, roles:['product-manager','technical-architect','software-developer','test-engineer','security-reviewer','release-manager','store-compliance','qa-screenshots','data-honesty','backend-supabase','web-domains','monetization'] },
+  Marketing:                 { color:0xf72585, roles:['marketing-manager','market-researcher','content-strategist','copywriter','seo-analyst'] },
+  'Sales & Support':         { color:0x90be6d, roles:['sales-manager','lead-researcher','outreach-specialist','support-analyst'] },
+  'Finance & Admin':         { color:0xb388eb, roles:['finance-manager','budget-analyst','business-analyst','hr-assistant'] },
+  Operations:                { color:0xff8c42, roles:['operations-manager','workflow-designer','documentation-specialist','qa-reviewer','data-analyst'] },
+};
+const ROLE = {
+  'backend-supabase':['Owns the Supabase backend: migrations, auth config, account deletion.','May write and commit migrations. Production deploys need the founder\'s approval in GitHub.'],
+  'budget-analyst':['Cost calculations against approved budgets.','Analysis only.'],
+  'business-analyst':['Turns business questions into measurable requirements and KPIs.','Analysis only.'],
+  'chief-of-staff':['Coordinates the whole office: turns founder goals into tasks, delegates, checks evidence, consolidates one report.','May delegate, read, write plans/reports, run read-only commands. May NOT approve anything on the human-decision list.'],
+  'content-strategist':['Plans website and store content.','Plans only.'],
+  'copywriter':['Drafts store descriptions, website text, announcements. Never publishes.','Drafts only.'],
+  'data-analyst':['Analyses store state, crash data, analytics exports.','Analysis only.'],
+  'data-honesty':['Hunts fake, sample or invented data reachable in release builds across all 43 apps.','Read-only audits; fixes go to software-developer.'],
+  'documentation-specialist':['Writes SOPs, runbooks and decision records.','Documentation only.'],
+  'finance-manager':['Budget scenarios and cost visibility (CI, Apple/Google fees, hosting, AdMob revenue).','Analysis only. No payments, no approvals.'],
+  'hr-assistant':['Drafts HR documents and job descriptions.','Drafts only; employment decisions go to the founder.'],
+  'lead-researcher':['Finds leads from public, authorised sources.','Research only. Never contacts leads.'],
+  'market-researcher':['Researches competitors and trends.','Read-only research.'],
+  'marketing-manager':['Campaign strategy and positioning.','Plans only. Publishing and spending are founder decisions.'],
+  'monetization':['Owns AdMob, consent (UMP/ATT) and app-ads.txt.','May wire ads in code. Creating AdMob apps/units and payment settings are founder actions.'],
+  'operations-manager':['Runs the operating rhythm and automation health (ship.yml, store watch, domain monitor).','May re-run workflows; fixes go through software-developer.'],
+  'outreach-specialist':['Drafts outreach for review.','Drafts only. Never sends.'],
+  'portfolio-director':['Decides which of the 43 apps get attention, and which should be merged or retired.','Recommends; merging or retiring an app is a founder decision.'],
+  'product-manager':['Writes specs and acceptance criteria before anything non-trivial is built.','Writes specs; does not change code.'],
+  'project-coordinator':['Maintains plans, owners, dependencies and status for every project.','May edit plans and ai-office issues. No code, no stores.'],
+  'qa-reviewer':['The independent second check: re-runs what a deliverable claims, defaults to "not done" without evidence.','Reads and runs checks; never edits the work under review.'],
+  'qa-screenshots':['Captures, vets and uploads store screenshots.','May upload screenshots to App Store Connect after looking at a sample.'],
+  'release-manager':['Verifies builds, version codes and store configuration; runs the internal-testing release train.','May upload to TestFlight / Play internal. May NOT submit for review or promote to production.'],
+  'sales-manager':['Sales strategy and pipeline plans.','Plans only. Contacting anyone is a founder decision.'],
+  'security-reviewer':['Checks secrets, permissions, data exposure and dependency risk.','Read-only. Key rotation is a founder action.'],
+  'seo-analyst':['Search visibility for www.americangroup.ai.','Read-only.'],
+  'software-developer':['Implements approved changes in the app repos and scripts.','May commit and push to app main branches after tests pass. May NOT upload builds or submit to stores.'],
+  'store-compliance':['Owns App Review and Play policy: rejections, requirement checks, review notes, privacy answers.','May edit store copy and review notes. Replies to Apple and submissions are founder decisions.'],
+  'strategy-analyst':['Goals, risks and strategic options for the portfolio.','Recommends; never decides.'],
+  'support-analyst':['Triages support issues and drafts replies without promises.','Drafts only; sending is human.'],
+  'technical-architect':['Decides shared package vs app code, data sources and structure.','Read-only. Advises.'],
+  'test-engineer':['Writes and runs tests; proves features on simulators.','May write tests and run local builds.'],
+  'web-domains':['Owns www.americangroup.ai, policy pages, Cloudflare DNS, domain monitor.','May deploy the website. Nameserver and cPanel changes are founder actions.'],
+  'workflow-designer':['Designs and improves the office\'s standing procedures.','May edit procedures; changing approval points needs the founder.'],
+};
+const EXTRA = {
+  founder:   { name:'Founder', pos:[0,17,0], color:0xffffff, shape:'ico', size:1.5,
+               desc:'Sets goals and makes every decision on the CHARTER\'s human list.',
+               auth:'Only the founder: replies to App Review / submissions, production data, money, credentials & accounts, external contact, legal text, people, retiring or merging apps.' },
+  issues:    { name:'GitHub issues (ai-office queue)', pos:[-9,12,4], color:0x8892b0, shape:'box', size:0.9,
+               desc:'The work queue: issues labelled ai-office in AmericanGroupLLC/agl-manifest. Monitors and the stand-up open them.', auth:'Labels: ai-office, needs-founder, blocked.' },
+  approvals: { name:'Approval requests', pos:[9,12,4], color:0xff6b6b, shape:'oct', size:1.0,
+               desc:'reports/approvals/ — prepared by the office, decided by the founder. The office stops here.', auth:'Charter §1–8 items.' },
+  reports:   { name:'Reports', pos:[0,-9,0], color:0x8892b0, shape:'box', size:1.0,
+               desc:'reports/<date>-*.md — every claim with its evidence; anything not run is "not verified".', auth:'Evidence standard: committed, check run, output quoted.' },
+  repos:     { name:'43 app repos', pos:[-15,-7,10], color:0x5c677d, shape:'box', size:1.1,
+               desc:'Flutter apps under ~/agl/<repo>. Developers push to main only after analyze + tests pass.', auth:'' },
+  gate:      { name:'Pre-delivery gate', pos:[13,-6,12], color:0xff6b6b, shape:'oct', size:0.9,
+               desc:'scripts/predelivery.py — 45 checks, 5 gates. ipa_blocker() refuses any IPA without a PASS for that exact file, CI included.', auth:'No checklist pass, no delivery (founder rule 2026-10-12).' },
+  stores:    { name:'TestFlight / Play internal', pos:[17,-9,4], color:0x5c677d, shape:'box', size:1.1,
+               desc:'Internal testing only. Review submission and production are founder decisions; Apple submissions frozen while the 5.6 hold is on.', auth:'' },
+  apple:     { name:'Apple / Google (rejections, ITMS)', pos:[16,4,-12], color:0x5c677d, shape:'box', size:1.0,
+               desc:'Rejections and upload warnings arrive here; docs/REJECTION_PLAYBOOK.md turns each into a check swept across all 43 apps.', auth:'' },
+  registry:  { name:'Vendor registry', pos:[-17,-6,-6], color:0x5c677d, shape:'box', size:1.0,
+               desc:'store/vendors/registry.json + one CSV per app. Append-only; secrets refused.', auth:'Sign-ups are founder actions.' },
+};
+
+// ── Procedures (from .claude/skills and .claude/workflows) ──
+const FLOWS = [
+  { id:'chain', name:'Chain of work', note:'CHARTER.md', steps:[
+    ['founder','chief-of-staff','goal'], ['issues','chief-of-staff','issue'], ['chief-of-staff','product-manager','plan & delegate'],
+    ['product-manager','software-developer','spec'], ['software-developer','repos','commit after tests'],
+    ['software-developer','qa-reviewer','evidence'], ['qa-reviewer','reports','verified'], ['reports','chief-of-staff','consolidate'],
+    ['chief-of-staff','approvals','human-list item'], ['approvals','founder','decide'] ]},
+  { id:'reject', name:'Rejection response', note:'skill + workflow rejection-response', steps:[
+    ['apple','store-compliance','rejection / ITMS email'], ['store-compliance','software-developer','root cause → fix'],
+    ['software-developer','repos','fix + new check'], ['repos','qa-reviewer','sweep all 43'], ['qa-reviewer','store-compliance','verified'],
+    ['store-compliance','approvals','draft reply'], ['approvals','founder','send / resubmit?'] ]},
+  { id:'release', name:'Release train', note:'skill + workflow release-train', steps:[
+    ['repos','release-manager','build'], ['release-manager','gate','predelivery.py'], ['test-engineer','gate','device sign-off'],
+    ['gate','stores','upload (only if PASS)'], ['stores','qa-reviewer','prove arrival'], ['qa-reviewer','reports','report'] ]},
+  { id:'standup', name:'Daily stand-up', note:'07:45 launchd + 13:00 UTC Actions', steps:[
+    ['operations-manager','chief-of-staff','measured state'], ['chief-of-staff','issues','open / update / close'],
+    ['chief-of-staff','reports','stand-up report'], ['chief-of-staff','approvals','founder list'] ]},
+  { id:'realapps', name:'Real Apps (today, issue #24)', note:'workflow ai-office-real-apps — 42 apps', steps:[
+    ['founder','chief-of-staff','"every app a real product"'], ['technical-architect','product-manager','code template tells'],
+    ['store-compliance','product-manager','store template tells'], ['portfolio-director','approvals','consolidation (founder)'],
+    ['product-manager','software-developer','spec per app'], ['software-developer','repos','build + push'],
+    ['software-developer','qa-reviewer','evidence'], ['qa-reviewer','software-developer','one repair round'],
+    ['qa-reviewer','chief-of-staff','verdict'], ['chief-of-staff','reports','run report'] ]},
+  { id:'vendor', name:'Vendor scout', note:'skill vendor-scout (issue #26)', steps:[
+    ['market-researcher','qa-reviewer','vendors, official sources'], ['qa-reviewer','registry','confirmed / rejected'],
+    ['registry','founder','sign up (founder)'], ['founder','registry','status in per-app CSV'] ]},
+];
+
+// ── Scene ──
+let renderer;
+try {
+  renderer = new THREE.WebGLRenderer({ antialias:true });
+} catch (e) { document.getElementById('err').style.display='flex'; throw e; }
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+document.getElementById('scene').appendChild(renderer.domElement);
+const labels = new CSS2DRenderer();
+labels.setSize(innerWidth, innerHeight);
+Object.assign(labels.domElement.style, { position:'fixed', inset:'0', pointerEvents:'none' });
+document.body.appendChild(labels.domElement);
+
+const scene = new THREE.Scene();
+scene.fog = new THREE.Fog(0x0b1020, 45, 110);
+const camera = new THREE.PerspectiveCamera(50, innerWidth/innerHeight, 0.1, 500);
+camera.position.set(0, 16, 48);
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true; controls.target.set(0, 3, 0); controls.autoRotate = true; controls.autoRotateSpeed = 0.5;
+scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+const sun = new THREE.DirectionalLight(0xffffff, 1.1); sun.position.set(20, 30, 20); scene.add(sun);
+const grid = new THREE.PolarGridHelper(26, 12, 6, 64, 0x223066, 0x16204a); grid.position.y = -11; scene.add(grid);
+
+const nodes = {};   // id -> { mesh, label, pos, dept, color }
+function addNode(id, name, pos, color, shape='sphere', size=0.7, dept=null, big=false) {
+  const geo = shape==='ico' ? new THREE.IcosahedronGeometry(size, 1) : shape==='box' ? new THREE.BoxGeometry(size*1.6, size*1.6, size*1.6)
+            : shape==='oct' ? new THREE.OctahedronGeometry(size*1.2) : new THREE.SphereGeometry(size, 24, 16);
+  const mat = new THREE.MeshStandardMaterial({ color, emissive:color, emissiveIntensity:0.25, roughness:0.4, metalness:0.1 });
+  const mesh = new THREE.Mesh(geo, mat); mesh.position.set(...pos); mesh.userData.id = id; scene.add(mesh);
+  const div = document.createElement('div'); div.className = 'label' + (big ? ' big' : ''); div.textContent = name;
+  const lab = new CSS2DObject(div); lab.position.set(0, size + 0.9, 0); mesh.add(lab);
+  nodes[id] = { mesh, div, pos:new THREE.Vector3(...pos), dept, color, name };
+}
+
+// departments on a ring; each department's roles on a small ring around its centre
+const deptNames = Object.keys(DEPTS);
+const deptCentre = {};
+deptNames.forEach((d, i) => {
+  const a = (i / deptNames.length) * Math.PI * 2 + Math.PI/6;
+  const c = new THREE.Vector3(Math.cos(a)*15, (i%2 ? -1.5 : 1.5), Math.sin(a)*15);
+  deptCentre[d] = c;
+  const roles = DEPTS[d].roles.filter(r => r !== 'chief-of-staff');
+  const r0 = 2.2 + roles.length * 0.38;
+  roles.forEach((r, j) => {
+    const b = (j / roles.length) * Math.PI * 2;
+    const p = [c.x + Math.cos(b)*r0, c.y + Math.sin(b*2)*1.2, c.z + Math.sin(b)*r0];
+    addNode(r, r.replace(/-/g,' '), p, DEPTS[d].color, 'sphere', 0.62, d);
+  });
+  const div = document.createElement('div'); div.className = 'label big'; div.textContent = d; div.style.color = '#' + DEPTS[d].color.toString(16).padStart(6,'0');
+  const lab = new CSS2DObject(div); lab.position.copy(c).add(new THREE.Vector3(0, 4.2, 0)); scene.add(lab);
+  const ring = new THREE.Mesh(new THREE.TorusGeometry(r0, 0.04, 8, 80), new THREE.MeshBasicMaterial({ color:DEPTS[d].color, transparent:true, opacity:0.35 }));
+  ring.position.copy(c); ring.rotation.x = Math.PI/2; scene.add(ring);
+});
+addNode('chief-of-staff', 'Chief of Staff', [0, 8, 0], DEPTS.Executive.color, 'ico', 1.25, 'Executive', true);
+for (const [id, e] of Object.entries(EXTRA)) addNode(id, e.name, e.pos, e.color, e.shape, e.size, null, id==='founder');
+
+// faint structure lines: chief-of-staff to every department, department to its roles
+const faint = new THREE.LineBasicMaterial({ color:0x33407a, transparent:true, opacity:0.35 });
+for (const d of deptNames) {
+  scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([nodes['chief-of-staff'].pos, deptCentre[d]]), faint));
+  for (const r of DEPTS[d].roles) if (r !== 'chief-of-staff')
+    scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([deptCentre[d], nodes[r].pos]), faint));
+}
+scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([nodes.founder.pos, nodes['chief-of-staff'].pos]), faint));
+
+// ── Flow rendering ──
+let flowGroup = new THREE.Group(); scene.add(flowGroup);
+let particles = [], active = null, stepIdx = 0, stepT = 0;
+function curve(a, b) {
+  const mid = a.clone().add(b).multiplyScalar(0.5); mid.y += 3 + a.distanceTo(b) * 0.12;
+  return new THREE.QuadraticBezierCurve3(a.clone(), mid, b.clone());
+}
+function setFlow(f) {
+  scene.remove(flowGroup); flowGroup = new THREE.Group(); scene.add(flowGroup); particles = [];
+  active = f; stepIdx = 0; stepT = 0;
+  const involved = new Set(f.steps.flatMap(s => [s[0], s[1]]));
+  for (const [id, n] of Object.entries(nodes)) {
+    const on = involved.has(id);
+    n.div.classList.toggle('dim', !on);
+    n.mesh.material.emissiveIntensity = on ? 0.6 : 0.08;
+    n.mesh.material.opacity = on ? 1 : 0.35; n.mesh.material.transparent = !on;
+  }
+  f.steps.forEach((s, i) => {
+    const c = curve(nodes[s[0]].pos, nodes[s[1]].pos);
+    const tube = new THREE.Mesh(new THREE.TubeGeometry(c, 40, 0.06, 6, false),
+      new THREE.MeshBasicMaterial({ color:0x6f8cff, transparent:true, opacity:0.5 }));
+    tube.userData.step = i; flowGroup.add(tube);
+    for (let k = 0; k < 3; k++) {
+      const p = new THREE.Mesh(new THREE.SphereGeometry(0.22, 12, 8), new THREE.MeshBasicMaterial({ color:0xffd166 }));
+      p.userData = { curve:c, step:i, off:k/3 }; flowGroup.add(p); particles.push(p);
+    }
+  });
+  document.querySelectorAll('.flows button').forEach(b => b.classList.toggle('on', b.dataset.id === f.id));
+  renderSteps();
+}
+function renderSteps() {
+  const f = active;
+  document.getElementById('steps').innerHTML = `<b>${f.name}</b> <span style="color:#9aa6c7">— ${f.note}</span><ol>` +
+    f.steps.map((s, i) => `<li class="${i===stepIdx?'now':''}">${nodes[s[0]].name} → ${nodes[s[1]].name} <span style="color:#9aa6c7">(${s[2]})</span></li>`).join('') + '</ol>';
+}
+const flowsEl = document.getElementById('flows');
+for (const f of FLOWS) {
+  const b = document.createElement('button'); b.dataset.id = f.id;
+  b.innerHTML = `${f.name}<small>${f.steps.length} steps · ${f.note}</small>`;
+  b.onclick = () => { controls.autoRotate = false; setFlow(f); };
+  flowsEl.appendChild(b);
+}
+
+// ── Legend and info panel ──
+document.getElementById('legend').innerHTML = Object.entries(DEPTS).map(([d, v]) =>
+  `<div><span class="dot" style="background:#${v.color.toString(16).padStart(6,'0')}"></span>${d} (${v.roles.length})</div>`).join('') +
+  `<div style="margin-top:6px"><span class="dot" style="background:#ff6b6b"></span>Founder decision / gate</div>` +
+  `<div><span class="dot" style="background:#5c677d;border-radius:2px"></span>System (repos, stores, registry)</div>`;
+const ray = new THREE.Raycaster(), mouse = new THREE.Vector2();
+renderer.domElement.addEventListener('click', ev => {
+  mouse.set((ev.clientX/innerWidth)*2-1, -(ev.clientY/innerHeight)*2+1);
+  ray.setFromCamera(mouse, camera);
+  const hit = ray.intersectObjects(Object.values(nodes).map(n => n.mesh))[0];
+  const info = document.getElementById('info');
+  if (!hit) { info.style.display='none'; return; }
+  const id = hit.object.userData.id, n = nodes[id];
+  const [desc, auth] = ROLE[id] || [EXTRA[id]?.desc, EXTRA[id]?.auth];
+  const uses = FLOWS.filter(f => f.steps.some(s => s[0]===id || s[1]===id)).map(f => f.name);
+  const col = '#' + n.color.toString(16).padStart(6,'0');
+  info.innerHTML = `<div class="dept" style="color:${col}">${n.dept || 'Office system'}</div><h2>${n.name}</h2>
+    <p>${desc || ''}</p>${auth ? `<div class="k">Authority</div><p>${auth}</p>` : ''}
+    <div class="k">In procedures</div><p>${uses.length ? uses.join(' · ') : 'Called on demand by the chief-of-staff'}</p>`;
+  info.style.display = 'block';
+});
+
+// ── Animate ──
+const clock = new THREE.Clock();
+setFlow(FLOWS[0]);
+function tick() {
+  const dt = clock.getDelta();
+  if (active) {
+    stepT += dt * 0.55;
+    if (stepT >= 1) { stepT = 0; stepIdx = (stepIdx + 1) % active.steps.length; renderSteps(); }
+    for (const p of particles) {
+      const live = p.userData.step === stepIdx;
+      p.visible = live;
+      if (live) p.position.copy(p.userData.curve.getPoint(((stepT + p.userData.off) % 1)));
+    }
+    for (const t of flowGroup.children) if (t.userData.step !== undefined && t.geometry.type === 'TubeGeometry')
+      t.material.opacity = t.userData.step === stepIdx ? 0.95 : 0.25;
+  }
+  nodes.founder.mesh.rotation.y += dt * 0.4;
+  nodes['chief-of-staff'].mesh.rotation.y -= dt * 0.3;
+  controls.update();
+  renderer.render(scene, camera); labels.render(scene, camera);
+  requestAnimationFrame(tick);
+}
+tick();
+addEventListener('resize', () => {
+  camera.aspect = innerWidth/innerHeight; camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight); labels.setSize(innerWidth, innerHeight);
+});
+</script>
+</body>
+</html>
