@@ -194,6 +194,28 @@ def upload_scan_plist(ctx):
     return (NO, "; ".join(issues)) if issues else (OK, "no Info.plist configuration Apple warns about")
 
 
+def purpose_strings_90683(ctx):
+    """ITMS-90683: every purpose string the binary's linked APIs demand, judged as Apple judges it.
+
+    The staged IPA is the truth (privacy_scan.py reads its Mach-Os for the API
+    names Apple looks for); the source check catches a dependency added since
+    that IPA was built. Both must be clean.
+    """
+    from privacy_scan import scan
+    sys.path.insert(0, str(M / "scripts"))
+    from store_checklist import linked_frameworks_needing_strings
+    issues = []
+    ipa = DIST / f"{ctx['repo']}.ipa"
+    if ipa.exists():
+        _info, missing = scan(ipa)
+        issues += [f"IPA: {k} (binary references {api})" for k, api in missing]
+    issues += [f"source: {k}" for k in linked_frameworks_needing_strings(ctx["d"])]
+    if issues:
+        return NO, "; ".join(issues)
+    return OK, "every purpose string the linked APIs need is present" + ("" if ipa.exists() else
+                                                                        " (source only — no staged IPA)")
+
+
 # Every Supabase call that can create an account, not only signUp(): an OTP
 # sign-in creates the user unless shouldCreateUser is false, and OAuth or an
 # Apple/Google ID token creates one on first use.
@@ -316,6 +338,13 @@ REQUIREMENTS = [
               "app is able to open documents. ... All document-based apps must include one of these "
               "configurations.",
      "raised": ["Photriya"], "check": upload_scan_plist},
+    {"id": "purpose-strings-90683", "guideline": "ITMS-90683",
+     "name": "Info.plist carries every purpose string the binary's APIs require",
+     "apple": "Missing purpose string in Info.plist - Your app's code references one or more APIs "
+              "that access sensitive user data ... should contain a "
+              "NSLocationAlwaysAndWhenInUseUsageDescription key ... If you're using external "
+              "libraries or SDKs, they may reference APIs that require a purpose string.",
+     "raised": ["CalcMaster", "MileMaster"], "check": purpose_strings_90683},
     {"id": "account-deletion-5.1.1v", "guideline": "5.1.1(v)",
      "name": "In-app account deletion when the app creates accounts",
      "apple": "Account registration, login, and account deletion flows. Account deletion is "

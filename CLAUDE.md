@@ -26,6 +26,7 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | What is the state of every app? | **`status.csv`** — the single sheet: one row per app, and column groups `check:`, `measured:`, `gate:`, `quality:`, `i18n:`, `apple:` alongside the store fields. Counts go stale, so it does not quote one. Every identifier, artefact, store state, store gate, measured fact, quality signal and per-app check. `STATUS.md` is a rendering of it |
 | Which apps have a signed binary, and is it really signed? | `docs/build-evidence.json` (generated) |
 | **What must pass before an app is submitted?** | **`docs/SUBMISSION_CHECKLIST.md`** — the gate, and why each row exists |
+| **A rejection or upload warning arrived** | **`docs/REJECTION_PLAYBOOK.md`** — capture, make it a check, sweep all 43, fix, rebuild |
 | What must a human do that I cannot? | `docs/MANUAL_ACTIONS.md` |
 | What is broken right now? | `docs/KNOWN_ISSUES.md` |
 | Why is it built this way? | `docs/DECISIONS.md` |

@@ -100,6 +100,19 @@ for i, a in enumerate(apps, 1):
             json.dump(results, open(RESULTS, "w"), indent=1)
             LOCK.write_text("")
             print(f"[{i}/{len(apps)}] {repo}: no prebuilt IPA, skipping", flush=True); continue
+        # The same gate transporter_upload.py applies. CI ships through this
+        # path, which used to upload without it: MileMaster build 2 reached
+        # Apple without NSLocationAlwaysAndWhenInUseUsageDescription and came
+        # back as ITMS-90683, a warning privacy_scan.py would have raised here.
+        _sys.path.insert(0, str(HERE))
+        from transporter_upload import ipa_blocker
+        why = ipa_blocker(ipa)
+        if why:
+            results[repo] = {"status": "blocked", "bundle_id": a["bundle_id"], "error": why,
+                             "at": datetime.datetime.now().isoformat(timespec="seconds")}
+            json.dump(results, open(RESULTS, "w"), indent=1)
+            LOCK.write_text("")
+            print(f"[{i}/{len(apps)}] {repo}: NOT uploaded — {why}", flush=True); continue
         lane_args = [f"ipa:{ipa}"]
         # The post-check must ask for the build number inside the IPA, not this run's clock.
         r = subprocess.run(f"unzip -p {shlex.quote(str(ipa))} 'Payload/*.app/Info.plist' | plutil -extract CFBundleVersion raw -o - -",

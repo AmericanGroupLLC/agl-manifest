@@ -12,7 +12,13 @@ description: "Handle a new App Store or Google Play rejection end to end — rea
    `asc_screenshots.rb` + `screenshot_audit.py`, live URLs).
 4. **Fix** (software-developer / qa-screenshots / web-domains), then make sure a
    check enforces it from now on (`scripts/apple_requirements.py`); add one if
-   none exists.
+   none exists. ITMS upload warnings ("Although delivery was successful…")
+   count as rejections: they get a row too, and anything Apple's upload scan
+   decides goes into `transporter_upload.ipa_blocker`, which both upload paths
+   (`transporter_upload.py`, and `run_batch.py` that CI uses) refuse on.
+4b. **Sweep all 43 apps** with that check (`python3 scripts/apple_requirements.py`)
+   and fix every app that fails — not only the one Apple named. Follow
+   `docs/REJECTION_PLAYBOOK.md`.
 5. **Verify** (qa-reviewer) — re-run the check on the new artefact.
 6. **Rebuild and upload** to TestFlight (release-manager) if the binary changed.
 7. **Draft the reply** in `store/replies/<App>-<date>.md` — only true statements.
