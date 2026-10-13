@@ -63,7 +63,8 @@ DESIGN: dict[str, tuple[str, str, str]] = {
     # (waveform and flag on paper), and a run of this script must not replace it.
     "AGStudio":        ("auto_awesome",       "#4A148C", "#AB47BC"),
     "ApexMarketWatch": ("candlestick_chart",  "#0D2818", "#2E7D32"),
-    "BuddyPlay":       ("sports_esports",     "#1A237E", "#5C6BC0"),
+    # BuddyPlay is not listed: its two-pawns-on-felt-in-a-brass-ring icon is drawn by
+    # BuddyPlay/mobile/tool/draw_icon.py, and a run of this script must not replace it.
     "CarDeal":         ("directions_car",     "#263238", "#546E7A"),
     # ChefCount is not listed: its skillet-and-countdown icon is drawn by
     # ChefCount/tool/draw_icon.py, and a run of this script must not replace it.
