@@ -1,8 +1,14 @@
 #!/usr/bin/env python3
-"""The founder's vendor sign-up playbook: Excel workbook + CSV.
+"""The founder's vendor sign-up tracker — ONE Excel file.
 
-    .venv/bin/python3 scripts/signup_playbook.py      # -> ~/agl/AGL_Vendor_Signup_Playbook.xlsx
-                                                      #    store/vendors/signup_playbook.csv
+    .venv/bin/python3 scripts/signup_playbook.py      # refreshes ~/agl/AGL_Vendor_Signup_Playbook.xlsx
+
+The workbook is the single tracker (founder's request, 2026-10-13): the founder
+edits status, owner, dates, vault references and notes in it directly. A
+refresh reads those columns back FROM the workbook and keeps them, refuses to
+run while Excel has it open (the ~$ lock file), and first copies the previous
+version to ~/agl/.dist/backups/. store/vendors/signup_playbook.csv is written
+alongside as a history snapshot for git — nobody edits it.
 
 Sheets:
   Start here       how to work through it, batch order, the no-secrets rule
@@ -55,8 +61,21 @@ def main() -> int:
     pb = load(V / "playbook.json", {})
     checks = load(V / "url-checks.json", {}).get("results", {})
     sig = {r["vendor"]: r for r in csv.DictReader(open(V / "signups.csv", newline=""))}
+    lock = XLSX.with_name("~$" + XLSX.name)
+    if lock.exists():
+        print(f"refused — {XLSX.name} is open in Excel ({lock.name} exists). Save and close it, then re-run.")
+        return 1
     kept = {}
-    if CSV_OUT.exists():
+    if XLSX.exists():  # the founder's edits live in the workbook
+        from openpyxl import load_workbook
+        ws = load_workbook(XLSX, read_only=True)["Signups"]
+        it = ws.iter_rows(values_only=True)
+        hdr = list(next(it))
+        for row in it:
+            d = dict(zip(hdr, row))
+            if d.get("vendor"):
+                kept[d["vendor"]] = {k: ("" if d.get(k) is None else str(d.get(k))) for k in MANUAL}
+    elif CSV_OUT.exists():
         for r in csv.DictReader(open(CSV_OUT, newline="")):
             kept[r["vendor"]] = {k: r.get(k, "") for k in MANUAL}
     bad = [f"{v}: {k}" for v, m in kept.items() for k in MANUAL if SECRET_LIKE.search(m.get(k) or "")]
@@ -231,6 +250,11 @@ def main() -> int:
         for c in bt[bt.max_row]:
             c.alignment = wrap
 
+    if XLSX.exists():
+        import shutil
+        bk = ROOT / ".dist/backups"
+        bk.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(XLSX, bk / f"{XLSX.stem}-{datetime.datetime.now():%Y%m%d-%H%M%S}.xlsx")
     wb.save(XLSX)
     print(f"  -> {XLSX}  ({len(rows)} vendors, {len(pairs)} app/vendor rows)")
     print(f"  -> {CSV_OUT}")

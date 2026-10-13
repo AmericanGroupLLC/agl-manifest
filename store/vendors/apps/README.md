@@ -43,3 +43,12 @@ Fill `signup_status`, `account_owner`, `applied_on`, `approved_on`,
 `id_or_vault_ref`, `notes` — they survive every regeneration
 (`python3 scripts/vendor_registry.py --from-code --export-signups`). The export
 refuses to run while any of those cells looks like a real secret.
+
+## The one file to use — `~/agl/AGL_Vendor_Signup_Playbook.xlsx`
+
+Founder decision 2026-10-13: a single tracker. Edit status, owner, dates,
+vault references and notes directly in the workbook. A refresh
+(`.venv/bin/python3 scripts/signup_playbook.py`) keeps those columns, refuses to
+run while the workbook is open in Excel, and backs the old copy up to
+`~/agl/.dist/backups/`. The CSVs in this folder are inputs and history
+snapshots — nobody needs to open them.
