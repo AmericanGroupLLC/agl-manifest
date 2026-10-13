@@ -59,7 +59,8 @@ CODEPOINTS = _codepoints()
 DESIGN: dict[str, tuple[str, str, str]] = {
     "AeroSwift":       ("flight",             "#0B3D91", "#1E88E5"),
     "AGCleaner":       ("cleaning_services",  "#00695C", "#26A69A"),
-    "AGRecorder":      ("mic",                "#B71C1C", "#EF5350"),
+    # AGRecorder is not listed: its icon is drawn by AGRecorder/tool/draw_icon.py
+    # (waveform and flag on paper), and a run of this script must not replace it.
     "AGStudio":        ("auto_awesome",       "#4A148C", "#AB47BC"),
     "ApexMarketWatch": ("candlestick_chart",  "#0D2818", "#2E7D32"),
     "BuddyPlay":       ("sports_esports",     "#1A237E", "#5C6BC0"),
