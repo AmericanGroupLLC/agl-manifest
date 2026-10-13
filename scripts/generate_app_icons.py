@@ -74,7 +74,8 @@ DESIGN: dict[str, tuple[str, str, str]] = {
     "HomeWise":        ("home_work",          "#004D40", "#00897B"),
     "MileMaster":      ("speed",              "#0D47A1", "#42A5F5"),
     "MyCard":          ("credit_card",        "#212121", "#616161"),
-    "MyFinance":       ("savings",            "#1B5E20", "#66BB6A"),
+    # MyFinance is not listed: its ledger-sheet-and-runway icon is drawn by
+    # MyFinance/tool/draw_icon.py, and a run of this script must not replace it.
     "NearServe":       ("handyman",           "#E65100", "#FFA726"),
     "PlantPulse":      ("local_florist",      "#1B5E20", "#7CB342"),
     "portfolio-board": ("dashboard",          "#37474F", "#78909C"),
