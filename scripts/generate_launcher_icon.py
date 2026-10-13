@@ -37,7 +37,8 @@ BRANDS = {
     "AGStudio":        ("#6D28D9", "AG"),
     "AeroSwift":       ("#0B63CE", "AS"),
     "ApexMarketWatch": ("#0B7A55", "AM"),
-    "BuddyPlay":       ("#6D3BE4", "BP"),
+    # BuddyPlay is not listed: its two-pawns-on-felt icon is drawn by
+    # BuddyPlay/mobile/tool/draw_icon.py, and a run of this script must not replace it.
     "MyCard":          ("#4F46E5", "MC"),
     "PlantPulse":      ("#1E40AF", "OC"),   # product is OmniControl
 }
