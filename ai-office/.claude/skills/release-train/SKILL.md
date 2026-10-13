@@ -5,6 +5,12 @@ description: "Get apps from code to TestFlight and Play internal testing through
 
 1. Gate (release-manager): `python3 scripts/preflight_version_codes.py --check`
    (`--bump` + commit if behind Play); `python3 scripts/apple_requirements.py`.
+1b. **Pre-delivery checklist (mandatory, founder rule 2026-10-12)**: build the IPA
+   (`python3 scripts/build_ipa.py <App>`), run `python3 scripts/predelivery.py <App>`,
+   fix every ❌, and get every 👤 signed by the person who tested it on a device
+   (`--sign <id> --by --device --evidence`). The upload gate refuses an IPA
+   without a PASS for that exact file. After upload, `--after-upload` checks
+   section 6 (processing, internal group, testers can install, What to Test).
 2. Build and deliver: `gh workflow run ship.yml -R AmericanGroupLLC/agl-manifest`
    (default stops at internal testing), or locally
    `python3 scripts/testflight/transporter_upload.py --build <apps>` — its

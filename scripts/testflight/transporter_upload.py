@@ -120,6 +120,14 @@ def ipa_blocker(ipa: pathlib.Path) -> str | None:
     if missing:
         return ("missing purpose string(s) Apple will flag (ITMS-90683): "
                 + ", ".join(f"{k} — binary references {api}" for k, api in missing))
+    # Founder rule (2026-10-12): no pre-delivery checklist pass, no delivery.
+    # predelivery.py records a PASS for one exact IPA (sha256), so a rebuilt
+    # file — including one CI builds on its own runner — needs its own run.
+    sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
+    from predelivery import gate_for_upload
+    why = gate_for_upload(ipa.stem, ipa)
+    if why:
+        return why
     return None
 
 

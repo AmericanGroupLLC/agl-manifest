@@ -49,6 +49,7 @@ Auth: `ASC_KEY_ID`, `ASC_ISSUER_ID`, `ASC_KEY_PATH` — load with
 | `testflight/build_only.py` | Builds a signed IPA via the fastlane lane, no upload |
 | `testflight/distribute.rb` | Fills the **external** group and submits for Beta App Review |
 | `testflight/list_builds.rb` | What Apple holds for one bundle id |
+| `testflight/build_delivery_state.rb` | One build's TestFlight state: processing, export compliance, internal groups that see it, tester states, What to Test. GET only — section 6 of `predelivery.py` |
 | `testflight/beta_evidence.rb` | **GET only.** Per app: TestFlight builds (count, first/last upload, beta states), beta groups and tester states, installs/sessions/crashes/feedback from `betaBuildUsages`, sessions split internal vs external from `betaTesterUsages`, `betaFeedbackScreenshotSubmissions` / `betaFeedbackCrashSubmissions` counts, and Beta App Review submissions. No tester identities written. Writes `docs/beta-evidence.json`, which `differentiation_scaffold.py` quotes in question 4 of the 4.3 reply; refusals are recorded per app |
 | `testflight/check_build.rb`, `records_present.rb` | Polling helpers |
 | `testflight/enable_capabilities.rb` | Turns on app capabilities |
