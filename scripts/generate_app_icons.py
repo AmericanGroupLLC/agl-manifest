@@ -68,7 +68,8 @@ DESIGN: dict[str, tuple[str, str, str]] = {
     # ChefCount is not listed: its skillet-and-countdown icon is drawn by
     # ChefCount/tool/draw_icon.py, and a run of this script must not replace it.
     "EventSpark":      ("celebration",        "#6A1B9A", "#EC407A"),
-    "GadgetNest":      ("devices_other",      "#1B1B3A", "#3F51B5"),
+    # GadgetNest is not listed: its phone-and-countdown icon is drawn by
+    # GadgetNest/tool/draw_icon.py, and a run of this script must not replace it.
     "HomeWise":        ("home_work",          "#004D40", "#00897B"),
     "MileMaster":      ("speed",              "#0D47A1", "#42A5F5"),
     "MyCard":          ("credit_card",        "#212121", "#616161"),
