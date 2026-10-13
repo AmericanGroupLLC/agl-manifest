@@ -1,0 +1,13 @@
+{
+ "repo": "PilotEnRoute",
+ "dir": ".",
+ "mode": "fresh",
+ "spec_path": "/Users/spatchava/agl/agl-manifest/ai-office/projects/real-apps/specs/PilotEnRoute.md",
+ "base_sha": "",
+ "core_job": "",
+ "signature": "",
+ "must": [],
+ "last_verdict": "none",
+ "must_fix": [],
+ "note": ""
+}
