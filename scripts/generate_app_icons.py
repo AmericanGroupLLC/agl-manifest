@@ -72,7 +72,8 @@ DESIGN: dict[str, tuple[str, str, str]] = {
     # EventSpark/mobile/tool/draw_icon.py, and a run of this script must not replace it.
     # GadgetNest is not listed: its phone-and-countdown icon is drawn by
     # GadgetNest/tool/draw_icon.py, and a run of this script must not replace it.
-    "HomeWise":        ("home_work",          "#004D40", "#00897B"),
+    # HomeWise is not listed: its house-on-a-dimension-line icon is drawn by
+    # HomeWise/mobile/tool/draw_icon.py, and a run of this script must not replace it.
     "MileMaster":      ("speed",              "#0D47A1", "#42A5F5"),
     "MyCard":          ("credit_card",        "#212121", "#616161"),
     # MyFinance is not listed: its ledger-sheet-and-runway icon is drawn by
