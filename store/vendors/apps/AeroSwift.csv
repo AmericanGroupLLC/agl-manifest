@@ -1,0 +1,6 @@
+app,vendor,priority,signup_status,api_access,token_vault_ref,kind,money,what_it_does,signup_url,commission,credential_names,token_in_build,code_evidence,registry_status,owner,next_action,notes,last_updated
+AeroSwift,Apple App Store Connect,P0,Done,,,platform,Distribution,"iOS distribution (TestFlight, App Store)",appstoreconnect.apple.com,,,record 6816369678; build 202610121628 VALID; review REJECTED; HOLD 4.2.6,,,,,,2026-10-12
+AeroSwift,Google Play Console,P0,Done,,,platform,Distribution,Android distribution,play.google.com/console,,,PRODUCTION_DRAFT_STAGED — console-only: App content declarations + press Publish,,,,,,2026-10-12
+AeroSwift,Google AdMob,P0,Done,,,monetization,Ad revenue,Banner/interstitial/rewarded/native/app-open ads,admob.google.com,,"ADMOB_<FORMAT>_<PLATFORM>, android/ios app id","12 ad unit(s) + app ids in docs/admob-ids.json, passed at build time",,,,,,2026-10-12
+AeroSwift,OurAirports,P4,Not started,,,data-api,Free dataset - check licence,"linked/named only, no API integration",ourairports.com,,,no credential read by code,mobile/lib/features/settings/settings_screen.dart:133,proposed,,,,2026-10-12
+AeroSwift,OpenSky Network,P3,Not started,,,data-api,Check commercial-use terms,,opensky-network.org,,,no credential read by code,mobile/lib/core/env.dart:23,in-code,,,,2026-10-12

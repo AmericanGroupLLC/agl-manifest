@@ -1,0 +1,11 @@
+app,vendor,priority,signup_status,api_access,token_vault_ref,kind,money,what_it_does,signup_url,commission,credential_names,token_in_build,code_evidence,registry_status,owner,next_action,notes,last_updated
+iMaps,Apple App Store Connect,P0,Done,,,platform,Distribution,"iOS distribution (TestFlight, App Store)",appstoreconnect.apple.com,,,record 6799074818; build 202610121628 VALID; review REJECTED; HOLD 4.2.6,,,,,,2026-10-12
+iMaps,Google Play Console,P0,Done,,,platform,Distribution,Android distribution,play.google.com/console,,,LIVE_PRODUCTION,,,,,,2026-10-12
+iMaps,Google AdMob,P0,Done,,,monetization,Ad revenue,Banner/interstitial/rewarded/native/app-open ads,admob.google.com,,"ADMOB_<FORMAT>_<PLATFORM>, android/ios app id","12 ad unit(s) + app ids in docs/admob-ids.json, passed at build time",,,,,,2026-10-12
+iMaps,Google Sign-In (OAuth client),P1,Not started,,,auth,Free,Google sign-in (iOS needs its own OAuth client id),console.cloud.google.com/apis/credentials,,"GOOGLE_IOS_CLIENT_ID, GOOGLE_SERVER_CLIENT_ID",GOOGLE_IOS_CLIENT_ID: EMPTY in release; GOOGLE_SERVER_CLIENT_ID: default set,,,,,,2026-10-12
+iMaps,NASA FIRMS,P2,Not started,,,data-api,Free,,firms.modaps.eosdis.nasa.gov/api,,NASA_FIRMS_KEY,NASA_FIRMS_KEY: EMPTY in release,lib/services/realtime_data_service.dart:464,in-code,,,,2026-10-12
+iMaps,NOAA / weather.gov,P3,Not started,,,data-api,Free public,,weather.gov,,,no credential read by code,lib/services/radio_service.dart:242,in-code,,,,2026-10-12
+iMaps,NREL / NLR alt-fuel,P3,Not started,,,data-api,,,,,NREL_API_KEY,NREL_API_KEY: default set,lib/services/navigation_data_service.dart:702,in-code,,,,2026-10-12
+iMaps,Open Charge Map,P2,Not started,,,data-api,Free,,openchargemap.org/site/develop/api,,OPENCHARGEMAP_KEY,OPENCHARGEMAP_KEY: EMPTY in release,lib/services/navigation_data_service.dart:146,in-code,,,,2026-10-12
+iMaps,Open-Meteo,P3,Not started,,,data-api,Free (check commercial terms),,open-meteo.com,,,no credential read by code,lib/services/weather_service.dart:170,in-code,,,,2026-10-12
+iMaps,Supabase,P3,Not started,,,data-api,Already have,,supabase.com,,,no credential read by code,lib/main.dart:10,in-code,,,,2026-10-12

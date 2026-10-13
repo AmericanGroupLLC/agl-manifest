@@ -1,0 +1,19 @@
+app,vendor,priority,signup_status,api_access,token_vault_ref,kind,money,what_it_does,signup_url,commission,credential_names,token_in_build,code_evidence,registry_status,owner,next_action,notes,last_updated
+PilotEnRoute,Apple App Store Connect,P0,Done,,,platform,Distribution,"iOS distribution (TestFlight, App Store)",appstoreconnect.apple.com,,,record 6808738221; build 202610081927 VALID; review REJECTED; HOLD 4.2.6,,,,,,2026-10-12
+PilotEnRoute,Google Play Console,P0,Done,,,platform,Distribution,Android distribution,play.google.com/console,,,PRODUCTION_DRAFT_STAGED — console-only: App content declarations + press Publish,,,,,,2026-10-12
+PilotEnRoute,Google AdMob,P0,Done,,,monetization,Ad revenue,Banner/interstitial/rewarded/native/app-open ads,admob.google.com,,"ADMOB_<FORMAT>_<PLATFORM>, android/ios app id","12 ad unit(s) + app ids in docs/admob-ids.json, passed at build time",,,,,,2026-10-12
+PilotEnRoute,Google Sign-In (OAuth client),P1,Not started,,,auth,Free,Google sign-in (iOS needs its own OAuth client id),console.cloud.google.com/apis/credentials,,"GOOGLE_IOS_CLIENT_ID, GOOGLE_SERVER_CLIENT_ID",GOOGLE_IOS_CLIENT_ID: EMPTY in release; GOOGLE_SERVER_CLIENT_ID: default set,,,,,,2026-10-12
+PilotEnRoute,FlightAware AeroAPI,P4,Not started,,,data-api,-,"linked/named only, no API integration",see founder directory,,,no credential read by code,lib/screens/garmin_screen.dart:410,proposed,,,,2026-10-12
+PilotEnRoute,ForeFlight,P4,Not started,,,data-api,-,"linked/named only, no API integration",see founder directory,,,no credential read by code,lib/screens/garmin_screen.dart:389,proposed,,,,2026-10-12
+PilotEnRoute,Garmin,P4,Not started,,,data-api,-,"linked/named only, no API integration",see founder directory,,,no credential read by code,lib/screens/garmin_screen.dart:130,proposed,,,,2026-10-12
+PilotEnRoute,OpenSky Network,P4,Not started,,,data-api,Check commercial-use terms,"linked/named only, no API integration",opensky-network.org,,,no credential read by code,lib/screens/garmin_screen.dart:440,proposed,,,,2026-10-12
+PilotEnRoute,Anthropic,P2,Not started,,,data-api,Cost (usage) - server-side only,,console.anthropic.com,,ANTHROPIC_API_KEY,ANTHROPIC_API_KEY: EMPTY in release,lib/services/ai_service.dart:19,in-code,,,,2026-10-12
+PilotEnRoute,AviationWeather.gov,P3,Not started,,,data-api,Free public,,aviationweather.gov/data/api,,,no credential read by code,lib/screens/airport_screen.dart:93,in-code,,,,2026-10-12
+PilotEnRoute,eCFR,P3,Not started,,,data-api,,,,,,no credential read by code,lib/screens/education_screen.dart:353,in-code,,,,2026-10-12
+PilotEnRoute,FAA,P3,Not started,,,data-api,,,,,,no credential read by code,lib/screens/airport_screen.dart:113,in-code,,,,2026-10-12
+PilotEnRoute,FAA DroneZone,P3,Not started,,,data-api,,,,,,no credential read by code,lib/screens/drone_screen.dart:851,in-code,,,,2026-10-12
+PilotEnRoute,FAASTeam,P3,Not started,,,data-api,,,,,,no credential read by code,lib/screens/garmin_screen.dart:433,in-code,,,,2026-10-12
+PilotEnRoute,Firebase,P3,Not started,,,data-api,,,,,,no credential read by code,lib/config/backend_config.dart:25,in-code,,,,2026-10-12
+PilotEnRoute,OurAirports,P3,Not started,,,data-api,Free dataset - check licence,,ourairports.com,,,no credential read by code,lib/screens/navdb_screen.dart:110,in-code,,,,2026-10-12
+PilotEnRoute,Rotate Pilot,P3,Not started,,,data-api,Free - check terms,,rotatepilot.com,,,no credential read by code,lib/services/aviation_api_service.dart:7,in-code,,,,2026-10-12
+PilotEnRoute,Supabase,P3,Not started,,,data-api,Already have,,supabase.com,,,no credential read by code,lib/app_env.dart:46,in-code,,,,2026-10-12

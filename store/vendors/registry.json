@@ -720,6 +720,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/core/env.dart:23"
@@ -734,10 +744,39 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
     }
    ],
    "code_evidence": "mobile/lib/features/settings/settings_screen.dart:133",
    "note": "linked/named only, no API integration"
+  },
+  "AGCleaner|Agora": {
+   "app": "AGCleaner",
+   "vendor": "Agora",
+   "status": "in-code",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    }
+   ],
+   "code_evidence": "lib/l10n/generated/app_localizations_pt.dart:247"
   },
   "AGrammarly|Firebase": {
    "app": "AGrammarly",
@@ -745,6 +784,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -763,6 +812,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/core/crash_reporting.dart:23"
@@ -773,6 +832,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -791,6 +860,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/monetization/affiliate_service.dart:23"
@@ -801,6 +880,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -819,6 +908,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/monetization/monetization_config.dart:100"
@@ -829,6 +928,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -847,6 +956,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/core/observability/crash_reporting.dart:21"
@@ -857,6 +976,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -875,6 +1004,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/codedeal_app/lib/core/auth/auth_repository.dart:4"
@@ -889,9 +1028,19 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
-   "code_evidence": "lib/core/services/news_service.dart:508"
+   "code_evidence": "lib/core/services/news_service.dart:595"
   },
   "daily-pulse|Open-Meteo": {
    "app": "daily-pulse",
@@ -903,37 +1052,59 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
-   "code_evidence": "lib/core/constants/app_constants.dart:28"
+   "code_evidence": "lib/core/services/weather_service.dart:62"
   },
   "daily-pulse|OpenAI": {
    "app": "daily-pulse",
    "vendor": "OpenAI",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/core/constants/app_constants.dart:50"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/core/constants/app_constants.dart:50)"
   },
   "daily-pulse|Supabase": {
    "app": "daily-pulse",
    "vendor": "Supabase",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/app_env.dart:46"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/app_env.dart:46)"
   },
   "DriftDate|Sentry": {
    "app": "DriftDate",
@@ -941,6 +1112,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -960,6 +1141,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/main.dart:8"
@@ -967,16 +1158,22 @@
   "EventSpark|Eventbrite": {
    "app": "EventSpark",
    "vendor": "Eventbrite",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "mobile/lib/core/engine/affiliate.dart:95"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was mobile/lib/core/engine/affiliate.dart:95)"
   },
   "EventSpark|Firebase": {
    "app": "EventSpark",
@@ -988,135 +1185,199 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
-   "code_evidence": "mobile/lib/features/settings/settings_screen.dart:27"
+   "code_evidence": "mobile/lib/features/settings/settings_screen.dart:26"
   },
   "EventSpark|Ticketmaster": {
    "app": "EventSpark",
    "vendor": "Ticketmaster",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "mobile/lib/core/engine/affiliate.dart:87"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was mobile/lib/core/engine/affiliate.dart:87)"
   },
   "EventSpark|Travelpayouts": {
    "app": "EventSpark",
    "vendor": "Travelpayouts",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "mobile/lib/core/engine/affiliate.dart:82"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was mobile/lib/core/engine/affiliate.dart:82)"
   },
   "EventSpark|Viator": {
    "app": "EventSpark",
    "vendor": "Viator",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "mobile/lib/core/engine/affiliate.dart:79"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was mobile/lib/core/engine/affiliate.dart:79)"
   },
   "FashionFactory|Amazon Associates": {
    "app": "FashionFactory",
    "vendor": "Amazon Associates",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/domain/stores.dart:29"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/domain/stores.dart:29)"
   },
   "FashionFactory|Awin": {
    "app": "FashionFactory",
    "vendor": "Awin",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/domain/stores.dart:58"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/domain/stores.dart:58)"
   },
   "FashionFactory|Rakuten Advertising": {
    "app": "FashionFactory",
    "vendor": "Rakuten Advertising",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/domain/stores.dart:37"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/domain/stores.dart:37)"
   },
   "GadgetNest|Amazon Associates": {
    "app": "GadgetNest",
    "vendor": "Amazon Associates",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/core/engine/catalog.dart:156"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/core/engine/catalog.dart:156)"
   },
   "GadgetNest|Best Buy": {
    "app": "GadgetNest",
    "vendor": "Best Buy",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/core/engine/catalog.dart:57"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/core/engine/catalog.dart:57)"
   },
   "GadgetNest|eBay Partner Network": {
    "app": "GadgetNest",
    "vendor": "eBay Partner Network",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/core/engine/catalog.dart:174"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/core/engine/catalog.dart:174)"
   },
   "GadgetNest|Firebase": {
    "app": "GadgetNest",
@@ -1128,6 +1389,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/observability/crash_reporting.dart:21"
@@ -1135,16 +1406,22 @@
   "GadgetNest|Walmart": {
    "app": "GadgetNest",
    "vendor": "Walmart",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/core/engine/catalog.dart:49"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/core/engine/catalog.dart:49)"
   },
   "GroceryMatch|DoorDash": {
    "app": "GroceryMatch",
@@ -1152,6 +1429,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1171,6 +1458,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/api_config.dart:170",
@@ -1182,6 +1479,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1201,6 +1508,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/api_config.dart:240"
@@ -1215,6 +1532,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/services/push/push_notification_service.dart:10"
@@ -1225,6 +1552,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1244,6 +1581,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/api_config.dart:115",
@@ -1255,6 +1602,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1274,6 +1631,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/services/dining/affiliate_links.dart:21"
@@ -1284,6 +1651,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1303,6 +1680,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/api_config.dart:35",
@@ -1314,6 +1701,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1333,6 +1730,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/api_config.dart:135",
@@ -1344,6 +1751,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1363,6 +1780,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/auth/auth_service.dart:20"
@@ -1373,6 +1800,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1392,6 +1829,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/api_config.dart:71",
@@ -1403,6 +1850,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1422,6 +1879,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/api_config.dart:51",
@@ -1437,6 +1904,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/api_config.dart:183",
@@ -1445,21 +1922,47 @@
   "HerJourney|Firebase": {
    "app": "HerJourney",
    "vendor": "Firebase",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/config/app_config.dart:28",
-   "credential_state": "FIREBASE_PROJECT_ID=default"
+   "code_evidence": "",
+   "credential_state": "FIREBASE_PROJECT_ID=default",
+   "note": "removed from code on 2026-10-12 (was lib/config/app_config.dart:28)"
   },
   "HerJourney|OpenAI": {
    "app": "HerJourney",
    "vendor": "OpenAI",
+   "status": "proposed",
+   "added": "2026-10-12",
+   "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
+    }
+   ],
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/config/app_config.dart:77)"
+  },
+  "HerJourney|Sentry": {
+   "app": "HerJourney",
+   "vendor": "Sentry",
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
@@ -1467,23 +1970,34 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
-   "code_evidence": "lib/config/app_config.dart:77"
+   "code_evidence": "lib/screens/calendar/calendar_screen.dart:110"
   },
   "HerJourney|Supabase": {
    "app": "HerJourney",
    "vendor": "Supabase",
-   "status": "in-code",
+   "status": "proposed",
    "added": "2026-10-12",
    "history": [
     {
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "removed-from-code"
     }
    ],
-   "code_evidence": "lib/app_env.dart:46"
+   "code_evidence": "",
+   "note": "removed from code on 2026-10-12 (was lib/app_env.dart:46)"
   },
   "iMaps|NASA FIRMS": {
    "app": "iMaps",
@@ -1491,6 +2005,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1510,6 +2034,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/services/radio_service.dart:242"
@@ -1520,6 +2054,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1539,6 +2083,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/services/navigation_data_service.dart:146",
@@ -1550,6 +2104,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1568,6 +2132,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/main.dart:10"
@@ -1582,6 +2156,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/app_env.dart:50"
@@ -1592,6 +2176,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1611,6 +2205,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/config/app_config.dart:55",
@@ -1622,6 +2226,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1641,6 +2255,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/app_env.dart:46"
@@ -1651,6 +2275,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1669,6 +2303,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/data/diary_data.dart:84"
@@ -1679,6 +2323,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1698,6 +2352,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/config/app_config.dart:63",
@@ -1709,6 +2373,16 @@
    "status": "proposed",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1728,6 +2402,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/data/diary_data.dart:86"
@@ -1742,6 +2426,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/services/weather.dart:9"
@@ -1752,6 +2446,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1771,6 +2475,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/config/app_config.dart:44",
@@ -1782,6 +2496,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1800,6 +2524,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/data/diary_data.dart:85"
@@ -1810,6 +2544,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1829,6 +2573,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "pubspec.yaml:78"
@@ -1839,6 +2593,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1858,6 +2622,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/app_env.dart:59"
@@ -1868,6 +2642,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1887,6 +2671,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/screens/airport_screen.dart:93"
@@ -1897,6 +2691,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1915,6 +2719,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/screens/airport_screen.dart:113"
@@ -1925,6 +2739,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1943,6 +2767,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/screens/garmin_screen.dart:433"
@@ -1957,6 +2791,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/config/backend_config.dart:25"
@@ -1967,6 +2811,16 @@
    "status": "proposed",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -1986,6 +2840,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
     }
    ],
    "code_evidence": "lib/screens/garmin_screen.dart:389",
@@ -1997,6 +2861,16 @@
    "status": "proposed",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2016,6 +2890,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "proposed"
     }
    ],
    "code_evidence": "lib/screens/garmin_screen.dart:440",
@@ -2027,6 +2911,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2045,6 +2939,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/services/aviation_api_service.dart:7"
@@ -2055,6 +2959,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2073,6 +2987,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/l10n/generated/app_localizations_ar.dart:747"
@@ -2083,6 +3007,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2101,6 +3035,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/features/search/flight_search_form.dart:180"
@@ -2111,6 +3055,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2129,6 +3083,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/models/travel_provider.dart:22"
@@ -2139,6 +3103,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2157,6 +3131,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/observability/crash_reporting.dart:21"
@@ -2167,6 +3151,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2185,6 +3179,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/core/engine/affiliate.dart:92"
@@ -2195,6 +3199,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2213,6 +3227,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/core/engine/affiliate.dart:85"
@@ -2223,6 +3247,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2241,6 +3275,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "mobile/lib/core/engine/affiliate.dart:107"
@@ -2251,6 +3295,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2269,6 +3323,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/config/verba_config.dart:92"
@@ -2279,6 +3343,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2297,6 +3371,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/services/monetization.dart:84"
@@ -2307,6 +3391,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2325,6 +3419,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/services/monetization.dart:64"
@@ -2335,6 +3439,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2353,6 +3467,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/main.dart:5"
@@ -2363,6 +3487,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2381,6 +3515,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/observability/crash_reporting.dart:21"
@@ -2391,6 +3535,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",
@@ -2410,6 +3564,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/core/constants/app_constants.dart:44",
@@ -2425,6 +3589,16 @@
      "date": "2026-10-12",
      "source": "code-audit",
      "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
     }
    ],
    "code_evidence": "lib/app_env.dart:46"
@@ -2435,6 +3609,16 @@
    "status": "in-code",
    "added": "2026-10-12",
    "history": [
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
+    {
+     "date": "2026-10-12",
+     "source": "code-audit",
+     "status": "in-code"
+    },
     {
      "date": "2026-10-12",
      "source": "code-audit",

@@ -22,6 +22,10 @@ The registry is `store/vendors/registry.json` (append-only; never delete — mar
    `python3 scripts/vendor_registry.py --set <App> "<Vendor>" signed-up|live`.
    Signing up is a founder action (Charter §4); credentials never go in the
    registry or the workbook — vault references only.
+4b. **Per-app trackers**: `python3 scripts/vendor_registry.py --export-apps` writes
+   `store/vendors/apps/<App>.csv` (one per app; founder columns preserved);
+   after the founder edits them, `--import-apps` (refuses any cell that looks
+   like a real secret). See `store/vendors/apps/README.md`.
 5. **Publish**: `.venv/bin/python3 scripts/vendor_registry.py --workbook`
    regenerates `AGL_43_App_Vendor_API_Affiliate_Master.measured.xlsx`
    (gitignored), then commit `store/vendors/registry.json` and the docs it reads.

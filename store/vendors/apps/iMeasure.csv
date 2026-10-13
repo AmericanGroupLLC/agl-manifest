@@ -1,0 +1,6 @@
+app,vendor,priority,signup_status,api_access,token_vault_ref,kind,money,what_it_does,signup_url,commission,credential_names,token_in_build,code_evidence,registry_status,owner,next_action,notes,last_updated
+iMeasure,Apple App Store Connect,P0,Done,,,platform,Distribution,"iOS distribution (TestFlight, App Store)",appstoreconnect.apple.com,,,record 6816370264; build 202610121628 VALID; review REJECTED; HOLD 4.2.6,,,,,,2026-10-12
+iMeasure,Google Play Console,P0,Done,,,platform,Distribution,Android distribution,play.google.com/console,,,LIVE_PRODUCTION,,,,,,2026-10-12
+iMeasure,Google AdMob,P0,Done,,,monetization,Ad revenue,Banner/interstitial/rewarded/native/app-open ads,admob.google.com,,"ADMOB_<FORMAT>_<PLATFORM>, android/ios app id","12 ad unit(s) + app ids in docs/admob-ids.json, passed at build time",,,,,,2026-10-12
+iMeasure,Google Sign-In (OAuth client),P1,Not started,,,auth,Free,Google sign-in (iOS needs its own OAuth client id),console.cloud.google.com/apis/credentials,,"GOOGLE_IOS_CLIENT_ID, GOOGLE_SERVER_CLIENT_ID",GOOGLE_IOS_CLIENT_ID: EMPTY in release; GOOGLE_SERVER_CLIENT_ID: default set,,,,,,2026-10-12
+iMeasure,Supabase,P3,Not started,,,data-api,Already have,,supabase.com,,,no credential read by code,lib/app_env.dart:50,in-code,,,,2026-10-12

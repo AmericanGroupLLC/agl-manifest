@@ -7,7 +7,6 @@
   "Kiwi.com Tequila": {},
   "Skyscanner": {},
   "Travelpayouts": {
-   "EventSpark": "mobile/lib/core/engine/affiliate.dart:82",
    "TripNest": "mobile/lib/core/engine/affiliate.dart:71"
   },
   "Expedia Group": {
@@ -35,7 +34,6 @@
   "Rome2Rio": {},
   "Trainline": {},
   "Viator": {
-   "EventSpark": "mobile/lib/core/engine/affiliate.dart:79",
    "TripNest": "mobile/lib/core/engine/affiliate.dart:107"
   },
   "GetYourGuide": {},
@@ -100,17 +98,15 @@
    "PilotEnRoute": "lib/services/aviation_api_service.dart:7"
   },
   "Open-Meteo": {
-   "daily-pulse": "lib/core/constants/app_constants.dart:28",
+   "daily-pulse": "lib/core/services/weather_service.dart:62",
    "iMaps": "lib/services/weather_service.dart:170",
    "MyHealth": "lib/services/weather.dart:9"
   },
   "Supabase": {
    "CalcMaster": "lib/main.dart:7",
    "CodeDeal": "mobile/codedeal_app/lib/core/auth/auth_repository.dart:4",
-   "daily-pulse": "lib/app_env.dart:46",
    "DriftDate": "lib/main.dart:8",
    "GroceryMatch": "lib/core/auth/auth_service.dart:20",
-   "HerJourney": "lib/app_env.dart:46",
    "iMaps": "lib/main.dart:10",
    "iMeasure": "lib/app_env.dart:50",
    "Kinnav": "lib/app_env.dart:46",
@@ -127,11 +123,10 @@
    "ApexMarketWatch": "mobile/lib/core/crash_reporting.dart:23",
    "CalcMaster": "lib/monetization/monetization_config.dart:140",
    "CarDeal": "mobile/lib/core/observability/crash_reporting.dart:21",
-   "daily-pulse": "lib/core/services/news_service.dart:508",
-   "EventSpark": "mobile/lib/features/settings/settings_screen.dart:27",
+   "daily-pulse": "lib/core/services/news_service.dart:595",
+   "EventSpark": "mobile/lib/features/settings/settings_screen.dart:26",
    "GadgetNest": "lib/core/observability/crash_reporting.dart:21",
    "GroceryMatch": "lib/core/config/api_config.dart:240",
-   "HerJourney": "lib/config/app_config.dart:28",
    "Kinnav": "lib/config/app_config.dart:55",
    "MyFinance": "lib/main.dart:6",
    "MyHealth": "lib/config/app_config.dart:56",
@@ -145,7 +140,6 @@
   },
   "Auth0": {},
   "Stripe": {
-   "FashionFactory": "lib/ui/screens/compare_screen.dart:85",
    "RoomCraft": "lib/domain/design_styles.dart:146",
    "Uscis-Case": "lib/services/civics_data.dart:668"
   },
@@ -153,8 +147,6 @@
    "CalcMaster": "lib/monetization/monetization_config.dart:100"
   },
   "OpenAI": {
-   "daily-pulse": "lib/core/constants/app_constants.dart:50",
-   "HerJourney": "lib/config/app_config.dart:77",
    "Photriya": "lib/core/providers/app_providers.dart:13"
   },
   "Google AI (Gemini)": {
@@ -179,6 +171,7 @@
   "Sentry": {
    "BuddyPlay": "mobile/lib/core/games/twenty_questions.dart:6",
    "DriftDate": "lib/services/crash_reporting.dart:1",
+   "HerJourney": "lib/screens/calendar/calendar_screen.dart:110",
    "MyHealth": "lib/config/app_config.dart:44",
    "NexusTransferPay": "flutter-mobile-app/lib/main.dart:11",
    "PilotEnRoute": "lib/services/integrations_service.dart:465",
@@ -192,42 +185,28 @@
    "WiFiTrail": "lib/domain/speed_test.dart:256"
   },
   "Rakuten Advertising": {
-   "FashionFactory": "lib/domain/stores.dart:37",
    "VirtuBand": "lib/services/monetization.dart:73"
   },
-  "Awin": {
-   "FashionFactory": "lib/domain/stores.dart:58"
-  },
+  "Awin": {},
   "CJ Affiliate": {},
   "Impact": {
    "GroceryMatch": "lib/services/dining/affiliate_links.dart:21"
   },
   "Amazon Associates": {
-   "ApexMarketWatch": "mobile/lib/features/filings/filings_screen.dart:323",
+   "ApexMarketWatch": "mobile/lib/features/filings/filings_screen.dart:328",
    "CalcMaster": "lib/monetization/affiliate_service.dart:23",
    "ChefCount": "lib/domain/models.dart:90",
-   "FashionFactory": "lib/domain/stores.dart:29",
-   "GadgetNest": "lib/core/engine/catalog.dart:156",
    "VirtuBand": "lib/services/monetization.dart:84"
   },
-  "eBay Partner Network": {
-   "GadgetNest": "lib/core/engine/catalog.dart:174"
-  },
-  "Best Buy": {
-   "GadgetNest": "lib/core/engine/catalog.dart:57"
-  },
+  "eBay Partner Network": {},
+  "Best Buy": {},
   "Walmart": {
-   "GadgetNest": "lib/core/engine/catalog.dart:49",
    "GroceryMatch": "lib/core/config/api_config.dart:51"
   },
   "ShareASale": {},
   "FlexOffers": {},
-  "Ticketmaster": {
-   "EventSpark": "mobile/lib/core/engine/affiliate.dart:87"
-  },
-  "Eventbrite": {
-   "EventSpark": "mobile/lib/core/engine/affiliate.dart:95"
-  },
+  "Ticketmaster": {},
+  "Eventbrite": {},
   "NewsAPI": {},
   "GNews": {},
   "Finnhub": {},
@@ -280,8 +259,9 @@
    "iMaps": "lib/services/realtime_data_service.dart:464"
   },
   "Agora": {
-   "AGStudio": "mobile/lib/l10n/app_localizations_pt.dart:320",
-   "daily-pulse": "lib/l10n/app_localizations_pt.dart:111",
+   "AGCleaner": "lib/l10n/generated/app_localizations_pt.dart:247",
+   "AGStudio": "mobile/lib/l10n/app_localizations_pt.dart:136",
+   "daily-pulse": "lib/l10n/app_localizations_pt.dart:75",
    "Kinnav": "lib/config/app_config.dart:23",
    "MyFinance": "lib/i18n/translations.dart:643",
    "NexusTransferPay": "flutter-mobile-app/lib/l10n/generated/app_localizations_pt.dart:105"

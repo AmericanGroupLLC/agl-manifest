@@ -26,36 +26,10 @@
     "effective_in_release": "EMPTY"
    }
   },
-  "CarDeal": {
-   "CARDEAL_API_KEY": {
-    "default": null,
-    "sites": [
-     "mobile/lib/core/config/app_config.dart:25"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   }
-  },
+  "CarDeal": {},
   "ChefCount": {},
   "CodeDeal": {},
-  "daily-pulse": {
-   "GOOGLE_SERVER_CLIENT_ID": {
-    "default": "146431650883-blpfddrf32ureu4ucqlp3oku9jo07luq.apps.googleusercontent.com",
-    "sites": [
-     "lib/core/services/supabase_config.dart:28"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "default"
-   },
-   "GOOGLE_IOS_CLIENT_ID": {
-    "default": null,
-    "sites": [
-     "lib/core/services/supabase_config.dart:37"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   }
-  },
+  "daily-pulse": {},
   "DriftDate": {
    "SENTRY_DSN": {
     "default": null,
@@ -83,44 +57,9 @@
     "effective_in_release": "EMPTY"
    }
   },
-  "EventSpark": {
-   "EVENTSPARK_AFFILIATE_MARKER": {
-    "default": "americangroupllc",
-    "sites": [
-     "mobile/lib/core/config/app_config.dart:50"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "default"
-   }
-  },
-  "FashionFactory": {
-   "AGL_API_GATEWAY_KEY": {
-    "default": null,
-    "sites": [
-     "lib/data/app_config.dart:31"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   },
-   "AGL_AFFILIATE_TAGS": {
-    "default": null,
-    "sites": [
-     "lib/data/app_config.dart:58"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   }
-  },
-  "GadgetNest": {
-   "GADGETNEST_AFFILIATE_MARKER": {
-    "default": "americangroupllc",
-    "sites": [
-     "lib/core/config/app_config.dart:33"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "default"
-   }
-  },
+  "EventSpark": {},
+  "FashionFactory": {},
+  "GadgetNest": {},
   "GroceryMatch": {
    "GOOGLE_SERVER_CLIENT_ID": {
     "default": "146431650883-blpfddrf32ureu4ucqlp3oku9jo07luq.apps.googleusercontent.com",
@@ -349,56 +288,7 @@
     "effective_in_release": "EMPTY"
    }
   },
-  "HerJourney": {
-   "FIREBASE_PROJECT_ID": {
-    "default": "americangroupllc-5bdfc",
-    "sites": [
-     "lib/config/app_config.dart:28"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "default"
-   },
-   "GOOGLE_CLIENT_ID": {
-    "default": "146431650883-blpfddrf32ureu4ucqlp3oku9jo07luq.apps.googleusercontent.com",
-    "sites": [
-     "lib/config/app_config.dart:32"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "default"
-   },
-   "APPLE_CLIENT_ID": {
-    "default": "TLH7Z3G27A.com.americangroupllc.app",
-    "sites": [
-     "lib/config/app_config.dart:37"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "default"
-   },
-   "GOOGLE_SERVER_CLIENT_ID": {
-    "default": "146431650883-blpfddrf32ureu4ucqlp3oku9jo07luq.apps.googleusercontent.com",
-    "sites": [
-     "lib/config/app_config.dart:52"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "default"
-   },
-   "GOOGLE_IOS_CLIENT_ID": {
-    "default": null,
-    "sites": [
-     "lib/config/app_config.dart:61"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   },
-   "LLM_API_KEY": {
-    "default": null,
-    "sites": [
-     "lib/config/app_config.dart:74"
-    ],
-    "passed_by_release_build": false,
-    "effective_in_release": "EMPTY"
-   }
-  },
+  "HerJourney": {},
   "HomeWise": {
    "HOMEWISE_LISTINGS_API_KEY": {
     "default": null,

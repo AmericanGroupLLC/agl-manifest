@@ -1,0 +1,8 @@
+app,vendor,priority,signup_status,api_access,token_vault_ref,kind,money,what_it_does,signup_url,commission,credential_names,token_in_build,code_evidence,registry_status,owner,next_action,notes,last_updated
+HerJourney,Apple App Store Connect,P0,Done,,,platform,Distribution,"iOS distribution (TestFlight, App Store)",appstoreconnect.apple.com,,,record 6816370228; build 202610121628 VALID; review REJECTED; HOLD 4.2.6,,,,,,2026-10-12
+HerJourney,Google Play Console,P0,Done,,,platform,Distribution,Android distribution,play.google.com/console,,,PRODUCTION_DRAFT_STAGED — console-only: App content declarations + press Publish,,,,,,2026-10-12
+HerJourney,Google AdMob,P0,Done,,,monetization,Ad revenue,Banner/interstitial/rewarded/native/app-open ads,admob.google.com,,"ADMOB_<FORMAT>_<PLATFORM>, android/ios app id","12 ad unit(s) + app ids in docs/admob-ids.json, passed at build time",,,,,,2026-10-12
+HerJourney,Firebase,P4,Not started,,,data-api,,removed from code on 2026-10-12 (was lib/config/app_config.dart:28),,,,no credential read by code,,proposed,,,,2026-10-12
+HerJourney,OpenAI,P4,Not started,,,data-api,Cost (usage) - server-side only,removed from code on 2026-10-12 (was lib/config/app_config.dart:77),platform.openai.com,,,no credential read by code,,proposed,,,,2026-10-12
+HerJourney,Supabase,P4,Not started,,,data-api,Already have,removed from code on 2026-10-12 (was lib/app_env.dart:46),supabase.com,,,no credential read by code,,proposed,,,,2026-10-12
+HerJourney,Sentry,P3,Not started,,,data-api,Optional,,sentry.io,,,no credential read by code,lib/screens/calendar/calendar_screen.dart:110,in-code,,,,2026-10-12

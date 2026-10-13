@@ -1,0 +1,9 @@
+app,vendor,priority,signup_status,api_access,token_vault_ref,kind,money,what_it_does,signup_url,commission,credential_names,token_in_build,code_evidence,registry_status,owner,next_action,notes,last_updated
+GadgetNest,Apple App Store Connect,P0,Done,,,platform,Distribution,"iOS distribution (TestFlight, App Store)",appstoreconnect.apple.com,,,record 6816369849; build 202610121628 VALID; review REJECTED; HOLD 4.2.6,,,,,,2026-10-12
+GadgetNest,Google Play Console,P0,Done,,,platform,Distribution,Android distribution,play.google.com/console,,,PRODUCTION_DRAFT_STAGED — console-only: App content declarations + press Publish,,,,,,2026-10-12
+GadgetNest,Google AdMob,P0,Done,,,monetization,Ad revenue,Banner/interstitial/rewarded/native/app-open ads,admob.google.com,,"ADMOB_<FORMAT>_<PLATFORM>, android/ios app id","12 ad unit(s) + app ids in docs/admob-ids.json, passed at build time",,,,,,2026-10-12
+GadgetNest,Amazon Associates,P4,Not started,,,affiliate,Affiliate commission,removed from code on 2026-10-12 (was lib/core/engine/catalog.dart:156),affiliate-program.amazon.com,,,no credential read by code,,proposed,,,,2026-10-12
+GadgetNest,Best Buy,P4,Not started,,,affiliate,Affiliate commission,removed from code on 2026-10-12 (was lib/core/engine/catalog.dart:57),bestbuy.com (affiliate programme),,,no credential read by code,,proposed,,,,2026-10-12
+GadgetNest,eBay Partner Network,P4,Not started,,,affiliate,Affiliate commission,removed from code on 2026-10-12 (was lib/core/engine/catalog.dart:174),partnernetwork.ebay.com,,,no credential read by code,,proposed,,,,2026-10-12
+GadgetNest,Walmart,P4,Not started,,,affiliate,Affiliate commission,removed from code on 2026-10-12 (was lib/core/engine/catalog.dart:49),affiliates.walmart.com,,,no credential read by code,,proposed,,,,2026-10-12
+GadgetNest,Firebase,P3,Not started,,,data-api,,,,,,no credential read by code,lib/core/observability/crash_reporting.dart:21,in-code,,,,2026-10-12

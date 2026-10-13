@@ -1,0 +1,9 @@
+app,vendor,priority,signup_status,api_access,token_vault_ref,kind,money,what_it_does,signup_url,commission,credential_names,token_in_build,code_evidence,registry_status,owner,next_action,notes,last_updated
+yourtube,Apple App Store Connect,P0,Done,,,platform,Distribution,"iOS distribution (TestFlight, App Store)",appstoreconnect.apple.com,,,record 6816370522; build 202610081949 VALID; review REJECTED; HOLD 4.2.6,,,,,,2026-10-12
+yourtube,Google Play Console,P0,Done,,,platform,Distribution,Android distribution,play.google.com/console,,,PRODUCTION_DRAFT_STAGED — console-only: App content declarations + press Publish,,,,,,2026-10-12
+yourtube,Google AdMob,P0,Done,,,monetization,Ad revenue,Banner/interstitial/rewarded/native/app-open ads,admob.google.com,,"ADMOB_<FORMAT>_<PLATFORM>, android/ios app id","12 ad unit(s) + app ids in docs/admob-ids.json, passed at build time",,,,,,2026-10-12
+yourtube,Google Sign-In (OAuth client),P1,Not started,,,auth,Free,Google sign-in (iOS needs its own OAuth client id),console.cloud.google.com/apis/credentials,,"GOOGLE_IOS_CLIENT_ID, GOOGLE_SERVER_CLIENT_ID",GOOGLE_IOS_CLIENT_ID: EMPTY in release; GOOGLE_SERVER_CLIENT_ID: default set,,,,,,2026-10-12
+yourtube,Pexels,P2,Not started,,,data-api,Free,,pexels.com/api,,PEXELS_API_KEY,PEXELS_API_KEY: EMPTY in release,lib/core/constants/app_constants.dart:36,in-code,,,,2026-10-12
+yourtube,Pixabay,P2,Not started,,,data-api,Free,,pixabay.com/api/docs,,PIXABAY_API_KEY,PIXABAY_API_KEY: EMPTY in release,lib/core/constants/app_constants.dart:44,in-code,,,,2026-10-12
+yourtube,Supabase,P3,Not started,,,data-api,Already have,,supabase.com,,,no credential read by code,lib/app_env.dart:46,in-code,,,,2026-10-12
+yourtube,YouTube Data API,P2,Not started,,,data-api,,,,,YOUTUBE_API_KEY,YOUTUBE_API_KEY: EMPTY in release,lib/core/constants/app_constants.dart:60,in-code,,,,2026-10-12

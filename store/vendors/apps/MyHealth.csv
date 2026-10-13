@@ -1,0 +1,15 @@
+app,vendor,priority,signup_status,api_access,token_vault_ref,kind,money,what_it_does,signup_url,commission,credential_names,token_in_build,code_evidence,registry_status,owner,next_action,notes,last_updated
+MyHealth,Apple App Store Connect,P0,Done,,,platform,Distribution,"iOS distribution (TestFlight, App Store)",appstoreconnect.apple.com,,,record 6778216891; build 202610081914 VALID; review REJECTED; HOLD 4.2.6,,,,,,2026-10-12
+MyHealth,Google Play Console,P0,Done,,,platform,Distribution,Android distribution,play.google.com/console,,,PRODUCTION_DRAFT_STAGED — console-only: App content declarations + press Publish,,,,,,2026-10-12
+MyHealth,Google AdMob,P0,Done,,,monetization,Ad revenue,Banner/interstitial/rewarded/native/app-open ads,admob.google.com,,"ADMOB_<FORMAT>_<PLATFORM>, android/ios app id","12 ad unit(s) + app ids in docs/admob-ids.json, passed at build time",,,,,,2026-10-12
+MyHealth,Google Sign-In (OAuth client),P1,Not started,,,auth,Free,Google sign-in (iOS needs its own OAuth client id),console.cloud.google.com/apis/credentials,,"GOOGLE_IOS_CLIENT_ID, GOOGLE_SERVER_CLIENT_ID",GOOGLE_IOS_CLIENT_ID: EMPTY in release; GOOGLE_SERVER_CLIENT_ID: default set,,,,,,2026-10-12
+MyHealth,Garmin,P4,Not started,,,data-api,-,"linked/named only, no API integration",see founder directory,,,no credential read by code,lib/data/profile_data.dart:347,proposed,,,,2026-10-12
+MyHealth,DoorDash,P1,Not started,,,affiliate,Affiliate commission,,,,,no credential read by code,lib/data/diary_data.dart:84,in-code,,,,2026-10-12
+MyHealth,Firebase,P2,Not started,,,data-api,,,,,"FIREBASE_API_KEY, FIREBASE_APP_ID, FIREBASE_MESSAGING_SENDER_ID, FIREBASE_PROJECT_ID",FIREBASE_API_KEY: EMPTY in release; FIREBASE_APP_ID: EMPTY in release; FIREBASE_MESSAGING_SENDER_ID: EMPTY in release; FIREBASE_PROJECT_ID: EMPTY in release,lib/config/app_config.dart:56,in-code,,,,2026-10-12
+MyHealth,Firebase Cloud Messaging,P2,Not started,,,data-api,,,,,"FIREBASE_API_KEY, FIREBASE_APP_ID, FIREBASE_MESSAGING_SENDER_ID, FIREBASE_PROJECT_ID",FIREBASE_API_KEY: EMPTY in release; FIREBASE_APP_ID: EMPTY in release; FIREBASE_MESSAGING_SENDER_ID: EMPTY in release; FIREBASE_PROJECT_ID: EMPTY in release,lib/config/app_config.dart:63,in-code,,,,2026-10-12
+MyHealth,Grubhub,P1,Not started,,,affiliate,Affiliate commission,,,,,no credential read by code,lib/data/diary_data.dart:86,in-code,,,,2026-10-12
+MyHealth,Open-Meteo,P3,Not started,,,data-api,Free (check commercial terms),,open-meteo.com,,,no credential read by code,lib/services/weather.dart:9,in-code,,,,2026-10-12
+MyHealth,PostHog,P2,Not started,,,data-api,Optional,,posthog.com,,POSTHOG_API_KEY,POSTHOG_API_KEY: EMPTY in release,lib/config/app_config.dart:48,in-code,,,,2026-10-12
+MyHealth,Sentry,P2,Not started,,,data-api,Optional,,sentry.io,,SENTRY_DSN,SENTRY_DSN: EMPTY in release,lib/config/app_config.dart:44,in-code,,,,2026-10-12
+MyHealth,Supabase,P3,Not started,,,data-api,Already have,,supabase.com,,,no credential read by code,lib/app_env.dart:46,in-code,,,,2026-10-12
+MyHealth,Uber Eats,P1,Not started,,,affiliate,Affiliate commission,,,,,no credential read by code,lib/data/diary_data.dart:85,in-code,,,,2026-10-12
