@@ -110,7 +110,10 @@ def linked_frameworks_needing_strings(d: pathlib.Path) -> list[str]:
     need = {
         "NSCameraUsageDescription": ("camera", "image_picker", "mobile_scanner", "qr_code"),
         "NSPhotoLibraryUsageDescription": ("image_picker", "photo_manager", "file_picker"),
-        "NSMicrophoneUsageDescription": ("record", "speech_to_text", "audio", "just_audio"),
+        # Recording only. `audio` matched audioplayers and just_audio, which play
+        # sound and link no recording API (PilotEnRoute's audioplayers_darwin
+        # has neither requestRecordPermission nor AVAudioRecorder).
+        "NSMicrophoneUsageDescription": ("record", "speech_to_text"),
         "NSLocationWhenInUseUsageDescription": ("geolocator", "location", "google_maps"),
         # geolocator's iOS code references requestAlwaysAuthorization, so Apple
         # requires this too even when the app never asks for "always".
@@ -121,6 +124,13 @@ def linked_frameworks_needing_strings(d: pathlib.Path) -> list[str]:
         "NSContactsUsageDescription": ("contacts_service", "flutter_contacts"),
         "NSBluetoothAlwaysUsageDescription": ("flutter_blue", "blue_plus", "nearby"),
     }
+    # A foreground-only app compiles that call out of geolocator_apple with the
+    # plugin's BYPASS_PERMISSION_LOCATION_ALWAYS macro in its Podfile, so the
+    # binary no longer references it and no "always" string is owed.
+    podfile = d / "ios/Podfile"
+    if podfile.exists() and any("BYPASS_PERMISSION_LOCATION_ALWAYS=1" in line.split("#", 1)[0]
+                                for line in podfile.read_text().splitlines()):
+        need["NSLocationAlwaysAndWhenInUseUsageDescription"] = ("location",)
     missing = []
     for key, markers in need.items():
         if any(m in pubspec for m in markers) and not plist_get(d, key):
