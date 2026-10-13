@@ -231,7 +231,13 @@ def run_auto(c: Ctx) -> dict:
     rec = json.loads((M / f"store/apps/{c.repo}.json").read_text()) if (M / f"store/apps/{c.repo}.json").exists() else {}
     url = ((rec.get("copy") or {}).get("en") or {}).get("privacy_url")
     if not url:
-        r["2.5"] = (FAIL, "no privacy_url in store/apps record")
+        # 24 store records carry no privacy_url; the policy page App Store
+        # Connect gets is the one verify_policy_urls.py proved live (asc_urls.rb
+        # sets it from there). It is still fetched below, now, not trusted.
+        pu = DIST / "policy-urls.json"
+        url = ((json.loads(pu.read_text()).get(c.repo) or {}).get("privacy") or {}).get("url") if pu.exists() else None
+    if not url:
+        r["2.5"] = (FAIL, "no privacy URL in the store record or in verify_policy_urls.py's results")
     else:
         try:
             req = urllib.request.Request(url, headers={"User-Agent": "agl-predelivery"})

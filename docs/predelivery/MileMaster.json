@@ -1,0 +1,442 @@
+{
+ "record": {
+  "app": "MileMaster",
+  "store_name": "MileMaster",
+  "version": "1.0.0",
+  "build": "202610121913",
+  "git_commit": "fb86606",
+  "configuration": "Release",
+  "ipa_sha256": "e6b3e1d807f17d9444de341ef1a1116577e01b9c76ecb5684d7a657182f9b768",
+  "measured_at": "2026-10-12T19:33:51",
+  "devices": [],
+  "outstanding": [
+   "3.2 Release build succeeds without errors: IPA built 2026-10-12T19:16 is older than the last commit \u2014 rebuild"
+  ]
+ },
+ "rows": [
+  {
+   "id": "1.1",
+   "section": "1",
+   "kind": "human",
+   "text": "App launches without crashing",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 1.1"
+  },
+  {
+   "id": "1.2",
+   "section": "1",
+   "kind": "human",
+   "text": "Every screen opens and renders correctly",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 1.2"
+  },
+  {
+   "id": "1.3",
+   "section": "1",
+   "kind": "human",
+   "text": "Navigation, back buttons, and deep links work",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 1.3"
+  },
+  {
+   "id": "1.4",
+   "section": "1",
+   "kind": "human",
+   "text": "Login, signup, logout, and password reset work",
+   "state": "n/a",
+   "evidence": "the app has no sign-in"
+  },
+  {
+   "id": "1.5",
+   "section": "1",
+   "kind": "human",
+   "text": "API calls, database operations, and error handling work",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 1.5"
+  },
+  {
+   "id": "1.6",
+   "section": "1",
+   "kind": "human",
+   "text": "Loading states, empty states, and offline behavior are handled",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 1.6"
+  },
+  {
+   "id": "1.7",
+   "section": "1",
+   "kind": "auto",
+   "text": "No placeholder content, debug menus, or test-only screens remain",
+   "state": "PASS",
+   "evidence": "no lorem/coming-soon/TODO/debug-banner/debug routes in lib/"
+  },
+  {
+   "id": "2.1",
+   "section": "2",
+   "kind": "auto",
+   "text": "Audit location-related dependencies and SDKs",
+   "state": "PASS",
+   "evidence": "location deps: geolocator; binary references requestAlwaysAuthorization=False, requestWhenInUseAuthorization=True"
+  },
+  {
+   "id": "2.2",
+   "section": "2",
+   "kind": "auto",
+   "text": "NSLocationAlwaysAndWhenInUseUsageDescription only if required, with an accurate purpose string",
+   "state": "n/a",
+   "evidence": "not required by the binary, not declared"
+  },
+  {
+   "id": "2.3",
+   "section": "2",
+   "kind": "auto",
+   "text": "Other required Info.plist purpose strings for APIs actually referenced",
+   "state": "PASS",
+   "evidence": "every purpose string the binary's APIs require is present"
+  },
+  {
+   "id": "2.4",
+   "section": "2",
+   "kind": "human",
+   "text": "Permission prompts appear at the correct time",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 2.4"
+  },
+  {
+   "id": "2.5",
+   "section": "2",
+   "kind": "auto",
+   "text": "Privacy policy URL is valid and accessible",
+   "state": "PASS",
+   "evidence": "https://www.americangroup.ai/policy/milemaster/ \u2192 HTTP 200, mentions privacy=True"
+  },
+  {
+   "id": "2.6",
+   "section": "2",
+   "kind": "auto",
+   "text": "App Privacy disclosures match actual data collection",
+   "state": "PASS",
+   "evidence": "label covers the SDKs the app links (MileMaster.json)"
+  },
+  {
+   "id": "2.7",
+   "section": "2",
+   "kind": "auto",
+   "text": "Account deletion works if account creation is supported",
+   "state": "n/a",
+   "evidence": "no account creation"
+  },
+  {
+   "id": "3.1",
+   "section": "3",
+   "kind": "auto",
+   "text": "Flutter dependencies resolve successfully",
+   "state": "PASS",
+   "evidence": "flutter pub get --enforce-lockfile: ok"
+  },
+  {
+   "id": "3.2",
+   "section": "3",
+   "kind": "auto",
+   "text": "Release build succeeds without errors",
+   "state": "FAIL",
+   "evidence": "IPA built 2026-10-12T19:16 is older than the last commit \u2014 rebuild"
+  },
+  {
+   "id": "3.3",
+   "section": "3",
+   "kind": "auto",
+   "text": "Xcode archive completes successfully",
+   "state": "PASS",
+   "evidence": "archive exported (app-store-connect, profile 'com.americangroupllc.milemaster AppStore')"
+  },
+  {
+   "id": "3.4",
+   "section": "3",
+   "kind": "auto",
+   "text": "Correct bundle identifier is configured",
+   "state": "PASS",
+   "evidence": "IPA com.americangroupllc.milemaster vs manifest com.americangroupllc.milemaster"
+  },
+  {
+   "id": "3.5",
+   "section": "3",
+   "kind": "auto",
+   "text": "Version and build number are correct and incremented",
+   "state": "PASS",
+   "evidence": "1.0.0 (202610121913); newest uploaded 202610121628"
+  },
+  {
+   "id": "3.6",
+   "section": "3",
+   "kind": "auto",
+   "text": "Signing certificate and provisioning profile are valid",
+   "state": "PASS",
+   "evidence": "Apple Distribution: American Group LLC (TLH7Z3G27A); signature valid; profile expires 2027-06-09"
+  },
+  {
+   "id": "3.7",
+   "section": "3",
+   "kind": "auto",
+   "text": "Deployment target matches supported iOS versions",
+   "state": "PASS",
+   "evidence": "iOS 16.0 (IPA, Podfile, project agree)"
+  },
+  {
+   "id": "3.8",
+   "section": "3",
+   "kind": "auto",
+   "text": "Required entitlements are correct",
+   "state": "PASS",
+   "evidence": "entitlements: application-identifier, beta-reports-active, com.apple.developer.team-identifier; get-task-allow=false"
+  },
+  {
+   "id": "3.9",
+   "section": "3",
+   "kind": "auto",
+   "text": "No unintended development configuration or debug logging is enabled",
+   "state": "PASS",
+   "evidence": "AOT release build, not debuggable, no print() in lib/"
+  },
+  {
+   "id": "4.1",
+   "section": "4",
+   "kind": "auto",
+   "text": "Production or intended testing API URL is configured",
+   "state": "PASS",
+   "evidence": "every host the code calls resolves \u2014 docs/api-hosts.json"
+  },
+  {
+   "id": "4.2",
+   "section": "4",
+   "kind": "human",
+   "text": "Backend is reachable from a real device",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 4.2"
+  },
+  {
+   "id": "4.3",
+   "section": "4",
+   "kind": "human",
+   "text": "Authentication and test accounts work",
+   "state": "n/a",
+   "evidence": "the app has no accounts"
+  },
+  {
+   "id": "4.4",
+   "section": "4",
+   "kind": "auto",
+   "text": "Required services, API keys, and configuration are present",
+   "state": "PASS",
+   "evidence": "every credential the code reads has a value in the release build"
+  },
+  {
+   "id": "4.5",
+   "section": "4",
+   "kind": "auto",
+   "text": "No localhost URLs or developer-only endpoints remain",
+   "state": "PASS",
+   "evidence": "no localhost/emulator/dev endpoints in lib/ or the App binary"
+  },
+  {
+   "id": "4.6",
+   "section": "4",
+   "kind": "human",
+   "text": "Push notifications and other integrations are tested if applicable",
+   "state": "n/a",
+   "evidence": "no push or third-party integration that needs device testing"
+  },
+  {
+   "id": "5.1",
+   "section": "5",
+   "kind": "human",
+   "text": "Install and launch the release build on a physical iPhone",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 5.1"
+  },
+  {
+   "id": "5.2",
+   "section": "5",
+   "kind": "human",
+   "text": "Test on the minimum supported iOS version when possible",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 5.2"
+  },
+  {
+   "id": "5.3",
+   "section": "5",
+   "kind": "human",
+   "text": "Test on a current iOS version",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 5.3"
+  },
+  {
+   "id": "5.4",
+   "section": "5",
+   "kind": "human",
+   "text": "Test clean installation and upgrade from the previous build",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 5.4"
+  },
+  {
+   "id": "5.5",
+   "section": "5",
+   "kind": "human",
+   "text": "Verify app behavior after force quit and relaunch",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 5.5"
+  },
+  {
+   "id": "5.6",
+   "section": "5",
+   "kind": "human",
+   "text": "Check layout, keyboard, safe areas, and different screen sizes",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 5.6"
+  },
+  {
+   "id": "5.7",
+   "section": "5",
+   "kind": "human",
+   "text": "Check performance, memory use, and crash logs",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 5.7"
+  },
+  {
+   "id": "6.1",
+   "section": "6",
+   "kind": "post",
+   "text": "Upload the correct .ipa/build through the intended workflow",
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
+  },
+  {
+   "id": "6.2",
+   "section": "6",
+   "kind": "post",
+   "text": "Wait until build processing finishes",
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
+  },
+  {
+   "id": "6.3",
+   "section": "6",
+   "kind": "post",
+   "text": "Confirm the build appears under TestFlight \u2192 Builds",
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
+  },
+  {
+   "id": "6.4",
+   "section": "6",
+   "kind": "human",
+   "text": "Resolve blocking errors and investigate warnings",
+   "state": "HUMAN",
+   "evidence": "needs a person: --sign 6.4"
+  },
+  {
+   "id": "6.5",
+   "section": "6",
+   "kind": "post",
+   "text": "Complete export-compliance questions if required",
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
+  },
+  {
+   "id": "6.6",
+   "section": "6",
+   "kind": "post",
+   "text": "Confirm internal testers are App Store Connect users with appropriate access",
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
+  },
+  {
+   "id": "6.7",
+   "section": "6",
+   "kind": "post",
+   "text": "Add the build to the internal testing group",
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
+  },
+  {
+   "id": "6.8",
+   "section": "6",
+   "kind": "post",
+   "text": "Verify testers can see the build and install it",
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
+  },
+  {
+   "id": "6.9",
+   "section": "6",
+   "kind": "post",
+   "text": "Send the testing notification and provide test instructions",
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
+  }
+ ],
+ "gates": [
+  {
+   "gate": "Gate 1 \u2014 Build",
+   "rule": "Flutter release build and Xcode archive succeed",
+   "checks": [
+    "3.1",
+    "3.2",
+    "3.3",
+    "3.4",
+    "3.5",
+    "3.6",
+    "3.7",
+    "3.8",
+    "3.9"
+   ],
+   "met": false
+  },
+  {
+   "gate": "Gate 2 \u2014 Installation",
+   "rule": "The release build installs and launches on a physical iPhone",
+   "checks": [
+    "5.1"
+   ],
+   "met": false
+  },
+  {
+   "gate": "Gate 3 \u2014 Functionality",
+   "rule": "Core journeys work: login, navigation, backend",
+   "checks": [
+    "1.1",
+    "1.3",
+    "1.4",
+    "1.5",
+    "4.2"
+   ],
+   "met": false
+  },
+  {
+   "gate": "Gate 4 \u2014 Privacy",
+   "rule": "Purpose strings and entitlements are correct",
+   "checks": [
+    "2.1",
+    "2.2",
+    "2.3",
+    "2.7",
+    "3.8"
+   ],
+   "met": true
+  },
+  {
+   "gate": "Gate 5 \u2014 Distribution",
+   "rule": "Processed, in the internal group, installable by testers",
+   "checks": [
+    "6.2",
+    "6.3",
+    "6.7",
+    "6.8"
+   ],
+   "met": false
+  }
+ ],
+ "deliverable": false,
+ "done": 21,
+ "total": 45
+}
