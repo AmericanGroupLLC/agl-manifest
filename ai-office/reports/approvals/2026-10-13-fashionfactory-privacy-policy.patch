@@ -1,0 +1,593 @@
+From efb379d9b0b31b1bf0cd798a0bee59db68a8e9b6 Mon Sep 17 00:00:00 2001
+From: srpatcha <srikanth.patchava@oculus.com>
+Date: Tue, 13 Oct 2026 11:49:17 -0700
+Subject: [PATCH] =?UTF-8?q?PENDING=20FOUNDER=20APPROVAL=20(Charter=20?=
+ =?UTF-8?q?=C2=A76)=20=E2=80=94=20do=20not=20push=20until=20approved:=20pr?=
+ =?UTF-8?q?ivacy=20policy=20for=203.0.0=20+=20the=20assertions=20coupled?=
+ =?UTF-8?q?=20to=20it?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Applies the policy text drafted in
+agl-manifest/ai-office/reports/approvals/2026-10-12-fashionfactory-privacy-policy.md
+to docs/privacy-policy.html, and changes the privacy_policy_test.dart
+assertions that encode the old (2.x) policy in the same commit, as the QA
+review required:
+
+- "Android requests only INTERNET": expected set is now
+  {INTERNET, RECEIVE_BOOT_COMPLETED} (the source manifest since 3.0.0), and the
+  page must name INTERNET, RECEIVE_BOOT_COMPLETED, POST_NOTIFICATIONS, VIBRATE.
+- api.fashionfactory.americangroupllc.com: flipped to assert the host is
+  ABSENT from the policy (the gateway client is gone), and that the page says
+  the app's own features make no network requests.
+- "the page documents no key the app does not store": now checks the 3.0.0
+  key pattern fashionfactory.<what>.vN and requires at least one match
+  (previously it matched only v2 keys and would have passed vacuously).
+- "the v1 keys are still read" -> "the 2.x and 1.x keys are deleted on
+  upgrade": asserts all six legacy keys are named in the store's clear list
+  and that the page says they are deleted, not carried across.
+- "Shop buttons leave the app" -> "opening a saved link leaves the app".
+- "what an affiliate tag identifies" -> "the policy makes no affiliate claim,
+  because the app has none" (affiliate tagging was removed with the catalog
+  in 0fcbad3; lib/ and the page must not mention it).
+- New: "the policy describes where ads appear as the code places them"
+  (AglAdBanner only in home_screen.dart and brand_screen.dart, no
+  interstitial; the page says so).
+
+Beyond the draft's wording: the header subtitle "Fashion, bags & footwear
+deals" becomes "Your clothing orders, sizes and return dates"; the orders row
+also names the exchanged-from link that Order.toJson stores; "Reminder
+timing" is written as the UI's actual label "Return reminders"; "Delete all
+data does the same" is written as what clearAll() does (orders, settings,
+reminders; not the IABTCF consent keys).
+
+flutter analyze: No issues found. flutter test: +460: All tests passed!
+---
+ docs/privacy-policy.html               | 194 ++++++++++++-------------
+ test/security/privacy_policy_test.dart | 168 +++++++++++++++------
+ 2 files changed, 211 insertions(+), 151 deletions(-)
+
+diff --git a/docs/privacy-policy.html b/docs/privacy-policy.html
+index 5d2a3b2..259d9e5 100644
+--- a/docs/privacy-policy.html
++++ b/docs/privacy-policy.html
+@@ -4,7 +4,7 @@
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Fashion Factory — Privacy Policy</title>
+-<meta name="description" content="Fashion Factory itself collects no personal data; it shows ads from Google AdMob. This policy explains exactly what the app stores on your device and what it sends over the network.">
++<meta name="description" content="Fashion Factory itself collects no personal data; your orders stay on your device. It shows ads from Google AdMob. This policy explains exactly what the app stores on your device and what it sends over the network.">
+ <!--
+   Fashion Factory privacy policy.
+ 
+@@ -12,11 +12,17 @@
+   policy is versioned alongside the behaviour it describes. Every claim below was
+   checked against the code, not written from a template:
+ 
+-    * direct dependencies: flutter, cupertino_icons, http, shared_preferences
+-    * no analytics, ads, crash-reporting or attribution SDK of any kind
+-    * one network destination, and only when a gateway is configured
+-    * one Android permission: INTERNET
+-    * exactly three persisted keys, listed in the table below
++    * direct dependencies (3.0.0): flutter, flutter_localizations,
++      cupertino_icons, shared_preferences, url_launcher, share_plus,
++      app_settings, flutter_local_notifications, timezone, flutter_timezone,
++      agl_i18n, agl_ads (Google Mobile Ads + UMP)
++    * no analytics, crash-reporting or attribution SDK of any kind
++    * no network destination of the app's own; only Google's ad requests
++    * two Android permissions in the app's manifest: INTERNET and
++      RECEIVE_BOOT_COMPLETED (the notifications plugin merges
++      POST_NOTIFICATIONS and VIBRATE)
++    * exactly two persisted keys, listed in the table below; the 2.x and 1.x
++      keys are deleted on first launch
+ 
+   If any of that changes, this page and ios/Runner/PrivacyInfo.xcprivacy must
+   change with it. test/security/privacy_policy_test.dart fails the build if a
+@@ -113,7 +119,7 @@
+   <div class="wrap">
+     <div class="org">AmericanGroupLLC</div>
+     <h1>Fashion Factory Privacy Policy</h1>
+-    <p class="sub">Fashion, bags &amp; footwear deals</p>
++    <p class="sub">Your clothing orders, sizes and return dates</p>
+     <div class="dots" aria-hidden="true">
+       <span style="background:var(--fashion)"></span>
+       <span style="background:var(--bags)"></span>
+@@ -128,9 +134,10 @@
+     <p style="margin:0"><strong>Fashion Factory itself collects no personal data;
+     the Google ads it shows do, as described below.</strong>
+     There is no account to create, no analytics and no tracking: the app never
+-    asks permission to track you. The handful of things the app remembers —
+-    your saved items, your alert switches and the category you last chose —
+-    stay on your device and are not sent to us. <strong>The app shows ads from
++    asks permission to track you. Everything you enter — your orders, their
++    sizes, prices, return dates and whether you kept them — stays on your
++    device and is not sent to us. Return reminders are scheduled on your device
++    too. <strong>The app shows ads from
+     Google AdMob.</strong> Google may use device identifiers to serve and
+     measure those ads; see <a href="#advertising">Advertising</a> below.</p>
+   </div>
+@@ -140,7 +147,7 @@
+ 
+   <h2>What the app stores on your device</h2>
+ 
+-  <p>Fashion Factory keeps three things in your device's own local storage
++  <p>Fashion Factory keeps two things in your device's own local storage
+   (<code>SharedPreferences</code> on Android, <code>NSUserDefaults</code> on
+   iOS). That is the complete list of what the app itself stores:</p>
+ 
+@@ -150,33 +157,38 @@
+     </thead>
+     <tbody>
+       <tr>
+-        <td data-label="What">Saved items and their price alerts</td>
+-        <td data-label="Why">So your saved list survives closing the app, and so
+-            the app can tell you how much a price has moved since you saved it</td>
+-        <td data-label="Stored as"><code>fashionfactory.v2.saved</code> — one row
+-            per item, holding a product identifier such as <code>bags-1</code>,
+-            the price at the moment you saved it, and the price you asked to be
+-            alerted below</td>
++        <td data-label="What">Your orders</td>
++        <td data-label="Why">So your size at each brand, and every return-by
++            date, survive closing the app</td>
++        <td data-label="Stored as"><code>fashionfactory.orders.v1</code> — for
++            each order: brand, category, size as typed (and shoe size system),
++            optional cut note, store, optional product link, optional price and
++            currency, order date, return-by date, kept / returned / exchanged
++            and the reason, the date you recorded it and, for an exchange, which
++            order it replaced</td>
+       </tr>
+       <tr>
+-        <td data-label="What">Notification switches</td>
+-        <td data-label="Why">So your four on/off choices are remembered</td>
+-        <td data-label="Stored as"><code>fashionfactory.v2.alerts</code> — the
+-            names of the alerts you enabled</td>
++        <td data-label="What">Your settings</td>
++        <td data-label="Why">So the app remembers your choices</td>
++        <td data-label="Stored as"><code>fashionfactory.settings.v1</code> —
++            whether the introduction was shown, reminder timing (3 days, 1 day
++            or off), default currency, and whether the reminder permission has
++            been asked</td>
+       </tr>
+       <tr>
+-        <td data-label="What">Chosen category</td>
+-        <td data-label="Why">So the app reopens where you left it</td>
+-        <td data-label="Stored as"><code>fashionfactory.v2.category</code> — one
+-            of <code>fashion</code>, <code>shoes</code>, <code>bags</code>,
+-            <code>perfume</code>, <code>watches</code>, <code>tech</code></td>
++        <td data-label="What">Scheduled reminders</td>
++        <td data-label="Why">To remind you before a return window closes</td>
++        <td data-label="Stored as">Held by your phone's own notification
++            scheduler (not by the app's storage): at most two per order,
++            cancelled when you record a verdict or delete the order</td>
+       </tr>
+     </tbody>
+   </table>
+ 
+-  <p>Earlier versions of this app stored the same three things under keys
+-  beginning <code>styleradar.v1.</code>. If you are upgrading, those are read
+-  once and carried across; nothing new is written under the old names.</p>
++  <p>Earlier versions stored a saved-products list, alert switches and a
++  category under keys beginning <code>fashionfactory.v2.</code> and
++  <code>styleradar.v1.</code>. Version 3.0.0 deletes those keys the first time
++  it opens; nothing is carried across.</p>
+ 
+   <p>None of it identifies you. There is no name, email address, phone number,
+   location, contact list, photo, advertising identifier or device identifier
+@@ -200,9 +212,12 @@
+     <li>No crash-reporting service. If the app hits an error it is written to the
+         device's own log and goes no further.</li>
+     <li>No third-party analytics, attribution or social SDKs. The app's entire
+-        set of third-party components is: an HTTP client, a local-storage
+-        plugin, a component that opens links in your browser, an icon font,
+-        and Google's Mobile Ads SDK, which shows the ads described below. The
++        set of third-party components is: a local-storage plugin, a
++        local-notifications plugin with its time-zone database, a component
++        that opens links in your browser, a component that opens your phone's
++        share sheet, a component that opens the app's page in system settings,
++        an icon font, and Google's Mobile Ads SDK, which shows the ads
++        described below. The
+         ads SDK brings Google's Firebase libraries with it; the app never
+         starts them, and their analytics and performance collection is
+         switched off in the app's configuration.</li>
+@@ -211,9 +226,9 @@
+ 
+   <h2 id="advertising">Advertising</h2>
+ 
+-  <p>Fashion Factory shows ads from Google AdMob: a banner between the screen's
+-  content and the tab bar, and occasionally a full-screen ad after you switch
+-  between sections. There are no ads on the Profile screen. Ads are served by
++  <p>Fashion Factory shows ads from Google AdMob: one banner at the end of the
++  home screen and one at the end of a brand page. There are no full-screen ads,
++  and no ads on the order form or in Settings. Ads are served by
+   Google, not by us; we receive only aggregate reports from Google, nothing
+   that identifies you.</p>
+ 
+@@ -227,93 +242,62 @@
+ 
+   <p>In the European Economic Area, the United Kingdom and Switzerland, Google's
+   consent form asks for your choice before any ad is requested, and a
+-  <strong>Privacy choices</strong> row on the Profile screen lets you change it
+-  at any time.</p>
+-
+-  <h2>Affiliate links</h2>
+-
+-  <p>Some of the stores Fashion Factory compares prices across are ones we reach
+-  through an affiliate network. Where that is the case, a purchase may earn us a
+-  commission, and your price is the same either way. Where it is not the case,
+-  the link is the retailer's own and we earn nothing. The app states which
+-  applies on the product page itself, and lists every store and its network on
+-  the Profile screen.</p>
+-
+-  <p>An affiliate link identifies <em>us</em> to the retailer, not you. It
+-  carries no identifier we hold about you, because we hold none.</p>
++  <strong>Privacy choices</strong> row in Settings, always visible, lets you
++  change it at any time.</p>
+ 
+   <h2>Network activity</h2>
+ 
+-  <p>Fashion Factory makes network requests for two purposes: fetching the
+-  product catalogue and its prices, and the Google ads described above. When
+-  configured for live pricing, the app requests the catalogue from
+-  <code>api.fashionfactory.americangroupllc.com</code> over HTTPS. That is the
+-  only host the app's own code connects to; ad requests go to Google's servers
+-  through Google's SDK.</p>
+-
+-  <p>The app also knows the web addresses of the stores it compares — for
+-  example <code>amazon.com</code> or <code>macys.com</code>. They are used in
+-  two places, and only one of them involves the network:</p>
+-
+-  <ul>
+-    <li><strong>Recognising a link you paste</strong> happens entirely on your
+-        device. Nothing is contacted.</li>
+-    <li><strong>Pressing a Shop or View button</strong> hands that store's
+-        address to your own browser and leaves Fashion Factory. From that point
+-        you are on the retailer's website, under the retailer's privacy policy,
+-        not ours. We are not part of that visit and cannot see it.</li>
+-  </ul>
+-
+-  <p>Where we have an affiliate link for a store, the address we hand your
+-  browser carries our affiliate tag. That tag identifies <em>us</em> to the
+-  retailer so the referral can be credited. It carries no identifier for you,
+-  because we hold none. Where we have no affiliate link, the address is the
+-  retailer's own and carries nothing of ours at all — and the app says so on the
+-  product page rather than implying otherwise.</p>
+-
+-  <p>That request carries no user identifier, no device identifier and nothing
+-  about you — it asks for the catalogue and nothing more. Standard connection
+-  information that any web request necessarily reveals, such as your IP address,
+-  is visible to the server as a technical consequence of the connection; it is
+-  not used to build a profile and is not combined with anything else.</p>
++  <p>Fashion Factory's own features make no network requests: orders, sizes
++  and reminders never leave your device. The only network activity is the
++  Google ads described above.</p>
+ 
+-  <p>The app refuses unencrypted connections outright. Apart from Google's ad
+-  servers, it talks to no other host.</p>
++  <p>If you paste a product link into an order, the store's name is recognised
++  from the link's address on your device; the page is never requested. Tapping
++  <strong>Open</strong> on a saved link, or <strong>Privacy policy</strong> in
++  Settings, hands that address to your own browser and leaves Fashion Factory.
++  From that point you are on that website, under its privacy policy.</p>
+ 
+-  <p>Where no live prices are connected, the app says so on screen and makes no
+-  catalogue request. Ad requests to Google are still made as described
+-  above.</p>
++  <p>The app refuses unencrypted connections outright.</p>
+ 
+   <h2>Permissions</h2>
+ 
+-  <p>On Android the app itself requests a single permission,
+-  <code>INTERNET</code>, used for the catalogue request and the ads above.
+-  Google's Mobile Ads SDK adds permissions that are granted without a prompt,
+-  including <code>ACCESS_NETWORK_STATE</code> and Android's ad-services
+-  permissions; the advertising-ID permission (<code>AD_ID</code>) is removed.
+-  The app asks for no location, camera, contacts, storage, microphone or phone
+-  permissions. On iOS it requests no permissions beyond what any app receives
+-  by default, and never shows the tracking prompt.</p>
++  <p>On Android the app requests <code>INTERNET</code> (used only by the ads
++  above) and <code>RECEIVE_BOOT_COMPLETED</code> (so your return reminders are
++  put back after the phone restarts). The notifications component adds
++  <code>POST_NOTIFICATIONS</code> — on Android 13 and later you are asked,
++  once, when you first save an order with a return date — and
++  <code>VIBRATE</code>. Google's Mobile Ads SDK adds permissions granted without
++  a prompt, including <code>ACCESS_NETWORK_STATE</code> and Android's
++  ad-services permissions; the advertising-ID permission (<code>AD_ID</code>)
++  is removed. On iOS the app asks only for permission to show notifications, at
++  the same moment, and never shows the tracking prompt. No location, camera,
++  contacts, storage, microphone or phone permissions.</p>
+ 
+   <h2>Children</h2>
+ 
+-  <p>Fashion Factory is a shopping-comparison app intended for a general audience,
++  <p>Fashion Factory is an app for keeping track of your own clothing orders,
++  intended for a general audience,
+   not directed at children. The app itself collects no personal information
+   from anyone, and therefore none from children.</p>
+ 
+   <h2>Your choices and your data</h2>
+ 
+   <ul>
+-    <li><strong>Clear your basket</strong> — "Clear all" on the Saved screen
+-        removes every saved item immediately.</li>
+-    <li><strong>Turn off alerts</strong> — every switch on the Alerts screen can
+-        be turned off.</li>
++    <li><strong>Delete an order</strong> — Delete on the order removes it and
++        its reminders.</li>
++    <li><strong>Turn reminders off</strong> — Settings → Return reminders →
++        Off, or in your phone's notification settings.</li>
++    <li><strong>Export or share</strong> — Settings → Export orders (CSV) and
++        Share my sizes hand a file or text to your share sheet; you choose where
++        it goes.</li>
+     <li><strong>Change your ad consent</strong> — where Google's consent form
+-        applies, the <strong>Privacy choices</strong> row on the Profile screen
+-        reopens it.</li>
+-    <li><strong>Delete everything</strong> — uninstalling the app removes all
+-        three stored values, and the stored ad consent choice, from your
+-        device. We hold nothing anywhere else, so there is no request you need
++        applies, the <strong>Privacy choices</strong> row in Settings reopens
++        it.</li>
++    <li><strong>Delete everything</strong> — uninstalling the app removes your
++        orders, your settings and any scheduled reminders, and the stored ad
++        consent choice, from your device. Settings → Delete all data removes
++        your orders, your settings and any scheduled reminders without
++        uninstalling. We hold nothing anywhere else, so there is no request you need
+         to make of us. Data Google collects for ads is governed by Google's
+         privacy policy.</li>
+   </ul>
+diff --git a/test/security/privacy_policy_test.dart b/test/security/privacy_policy_test.dart
+index 87cac6d..da6a629 100644
+--- a/test/security/privacy_policy_test.dart
++++ b/test/security/privacy_policy_test.dart
+@@ -56,8 +56,8 @@ void main() {
+       ]) {
+         expect(html, isNot(contains(tag)), reason: 'must not load $tag');
+       }
+-      // The only URLs allowed are the mailto contact and the gateway host the
+-      // policy explicitly discusses.
++      // No http(s) URL may be referenced at all; the mailto contact is the
++      // only link.
+       final Iterable<RegExpMatch> urls = RegExp(
+         r'''(?:src|href)=["'](https?://[^"']+)''',
+       ).allMatches(html);
+@@ -73,10 +73,7 @@ void main() {
+     test('every persisted key is documented on the page', () {
+       // If a new key appears in the store, it must appear on the page too.
+       // 3.0.0 stores its data under `fashionfactory.<what>.v1` (orders.v1,
+-      // settings.v1); the pattern below follows that. The page is legal text
+-      // (Charter §6) and is updated only with founder approval, so until the
+-      // drafted policy is approved this test fails — on purpose: the release
+-      // is blocked on that approval, not on this test.
++      // settings.v1); the pattern below follows that.
+       final String store = read('lib/data/shared_preferences_store.dart');
+       final String html = read(policy);
+ 
+@@ -102,35 +99,46 @@ void main() {
+     test('the page documents no key the app does not actually store', () {
+       final String store = read('lib/data/shared_preferences_store.dart');
+       final Iterable<RegExpMatch> documented = RegExp(
+-        r'fashionfactory\.v2\.([a-zA-Z]+)',
++        r'fashionfactory\.([a-z]+)\.v([0-9]+)',
+       ).allMatches(read(policy));
++      expect(
++        documented,
++        isNotEmpty,
++        reason: 'the page must name the keys the app stores',
++      );
+ 
+       for (final RegExpMatch m in documented) {
+         expect(
+           store,
+-          contains(
+-            r"'fashionfactory.$_v."
+-            '${m.group(1)}'
+-            "'",
+-          ),
++          contains("'${m.group(0)}'"),
+           reason:
+-              'the policy claims "${m.group(1)}" is stored, but the code does not',
++              'the policy claims "${m.group(0)}" is stored, but the code does not',
+         );
+       }
+     });
+ 
+-    test('the v1 keys are still read, and the policy says so', () {
+-      // An upgrade must not silently empty someone's saved list. The migration
+-      // is a fact about the app's storage, so the page states it.
++    test('the 2.x and 1.x keys are deleted on upgrade, and the policy says so',
++        () {
++      // The old keys can only hold an empty or stale saved list (nothing could
++      // be saved without a catalog), so 3.0.0 deletes them rather than
++      // carrying them across. That is a fact about the app's storage, so the
++      // page states it — and no longer claims they are carried across.
+       final String store = read('lib/data/shared_preferences_store.dart');
+       for (final String legacy in <String>[
++        'fashionfactory.v2.saved',
++        'fashionfactory.v2.alerts',
++        'fashionfactory.v2.category',
+         'styleradar.v1.savedIds',
+         'styleradar.v1.alerts',
+         'styleradar.v1.vertical',
+       ]) {
+-        expect(store, contains(legacy), reason: legacy);
++        expect(store, contains("'$legacy'"), reason: legacy);
+       }
+-      expect(read(policy), contains('styleradar.v1.'));
++      final String html = read(policy);
++      expect(html, contains('fashionfactory.v2.'));
++      expect(html, contains('styleradar.v1.'));
++      expect(html, contains('Version 3.0.0 deletes those keys'));
++      expect(html, isNot(contains('carried across;')));
+     });
+   });
+ 
+@@ -157,10 +165,10 @@ void main() {
+       // system locale, so the policy's claims are unchanged by it.
+       'agl_i18n',
+       'flutter_localizations',
+-      // Google AdMob (banner and capped interstitial) behind Google UMP
++      // Google AdMob (two inline banners, no interstitial) behind Google UMP
+       // consent. This one does send data off the device — to Google, for
+       // serving and measuring ads — and the policy's Advertising section,
+-      // the Profile screen and PrivacyInfo.xcprivacy say so. See the
++      // Settings and PrivacyInfo.xcprivacy say so. See the
+       // 'advertising is disclosed' group below.
+       'agl_ads',
+       // Return reminders: local notifications scheduled by the operating
+@@ -271,6 +279,35 @@ void main() {
+       expect(html, isNot(contains('no advertising')));
+     });
+ 
++    test('the policy describes where ads appear as the code places them', () {
++      // 3.0.0: one inline banner at the end of Home and of a brand page, and
++      // no interstitial anywhere.
++      final List<String> bannerFiles = <String>[];
++      bool interstitial = false;
++      for (final FileSystemEntity e in Directory(
++        '${repoRoot.path}/lib',
++      ).listSync(recursive: true)) {
++        if (e is! File || !e.path.endsWith('.dart')) continue;
++        final String src = e.readAsStringSync();
++        if (src.contains('AglAdBanner(')) {
++          bannerFiles.add(e.path.substring(repoRoot.path.length + 1));
++        }
++        if (src.contains('Interstitial')) interstitial = true;
++      }
++      bannerFiles.sort();
++      expect(bannerFiles, <String>[
++        'lib/features/brands/brand_screen.dart',
++        'lib/features/home/home_screen.dart',
++      ]);
++      expect(interstitial, isFalse);
++
++      final String html = read(policy);
++      expect(html, contains('one banner at the end of the'));
++      expect(html, contains('There are no full-screen ads'));
++      expect(html, isNot(contains('tab bar')));
++      expect(html, isNot(contains('Profile screen')));
++    });
++
+     test('AdMob app ids agree across main.dart and the native config', () {
+       // A mismatch is not cosmetic: on iOS the SDK terminates the app at
+       // launch.
+@@ -324,22 +361,44 @@ void main() {
+     // permissions in at build time (ACCESS_NETWORK_STATE, ad services), which
+     // the policy's Permissions section names; this pins what the app itself
+     // asks for.
+-    test('Android requests only INTERNET, as the policy states', () {
+-      final Set<String> requested = RegExp(r'android\.permission\.([A-Z_]+)')
+-          .allMatches(read('android/app/src/main/AndroidManifest.xml'))
+-          .map((RegExpMatch m) => m.group(1)!)
+-          .toSet();
++    test(
++      'Android requests only INTERNET and RECEIVE_BOOT_COMPLETED, as the '
++      'policy states',
++      () {
++        final Set<String> requested =
++            RegExp(r'android\.permission\.([A-Z_]+)')
++                .allMatches(read('android/app/src/main/AndroidManifest.xml'))
++                .map((RegExpMatch m) => m.group(1)!)
++                .toSet();
++
++        expect(
++          requested,
++          <String>{'INTERNET', 'RECEIVE_BOOT_COMPLETED'},
++          reason:
++              'the policy says INTERNET and RECEIVE_BOOT_COMPLETED are the '
++              'only permissions the app itself requests',
++        );
++      },
++    );
+ 
++    test('the policy names those permissions, and the plugin\'s, explicitly',
++        () {
++      final String html = read(policy);
++      for (final String permission in <String>[
++        'INTERNET',
++        'RECEIVE_BOOT_COMPLETED',
++        // Merged in by flutter_local_notifications' own manifest.
++        'POST_NOTIFICATIONS',
++        'VIBRATE',
++      ]) {
++        expect(html, contains('<code>$permission</code>'), reason: permission);
++      }
+       expect(
+-        requested,
+-        <String>{'INTERNET'},
+-        reason: 'the policy says INTERNET is the only permission requested',
++        html,
++        isNot(contains('a single permission')),
++        reason: 'the app requests two permissions itself',
+       );
+     });
+-
+-    test('the policy names that permission explicitly', () {
+-      expect(read(policy), contains('INTERNET'));
+-    });
+   });
+ 
+   group('the policy agrees with the iOS privacy manifest', () {
+@@ -403,8 +462,12 @@ void main() {
+         ),
+       );
+ 
+-      // Legal-text assertion (Charter §6), left exactly as it was.
+-      expect(read(policy), contains('api.fashionfactory.americangroupllc.com'));
++      // The gateway host is gone from the code, so the policy must not name
++      // it as a destination any more, and must say the app's own features
++      // make no requests.
++      final String html = read(policy);
++      expect(html, isNot(contains('api.fashionfactory.americangroupllc.com')));
++      expect(html, contains("own features make no network requests"));
+     });
+ 
+     test('the store registry holds hostnames, not URLs the app fetches', () {
+@@ -423,20 +486,33 @@ void main() {
+       }
+     });
+ 
+-    test('the policy discloses that Shop buttons leave the app', () {
+-      // Handing the browser a retailer URL is not collection, but it is the
+-      // user leaving our privacy policy for someone else's, and they should be
+-      // told that before they tap.
+-      final String html = read(policy).toLowerCase();
+-      expect(html, contains('recognising a link'));
+-      expect(html, contains("retailer's website"));
+-      expect(html, contains('affiliate tag'));
++    test('the policy discloses that opening a saved link leaves the app', () {
++      // Handing the browser a saved product URL is not collection, but it is
++      // the user leaving our privacy policy for someone else's, and they
++      // should be told that before they tap. Recognising the store from a
++      // pasted link happens on the device and fetches nothing.
++      final String html = read(policy);
++      expect(html, contains('recognised'));
++      expect(html, contains('the page is never requested'));
++      expect(html, contains('hands that address to your own browser'));
++      expect(html, contains('under its privacy policy'));
+     });
+ 
+-    test('the policy explains what an affiliate tag identifies', () {
+-      // The one thing a user actually needs to know: the tag is about us, not
+-      // about them.
+-      expect(read(policy), contains('identifies <em>us</em> to the retailer'));
++    test('the policy makes no affiliate claim, because the app has none', () {
++      // 3.0.0 removed affiliate tagging with the price catalog
++      // (AGL_AFFILIATE_TAGS is read nowhere). A policy that still described
++      // affiliate tags would describe an app that no longer exists.
++      for (final FileSystemEntity e in Directory(
++        '${repoRoot.path}/lib',
++      ).listSync(recursive: true)) {
++        if (e is! File || !e.path.endsWith('.dart')) continue;
++        expect(
++          e.readAsStringSync().toLowerCase(),
++          isNot(contains('affiliate')),
++          reason: e.path,
++        );
++      }
++      expect(read(policy).toLowerCase(), isNot(contains('affiliate')));
+     });
+ 
+     test('the launcher refuses anything that is not https', () {
+-- 
+2.53.0-Meta
+
