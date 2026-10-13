@@ -65,7 +65,8 @@ DESIGN: dict[str, tuple[str, str, str]] = {
     "ApexMarketWatch": ("candlestick_chart",  "#0D2818", "#2E7D32"),
     "BuddyPlay":       ("sports_esports",     "#1A237E", "#5C6BC0"),
     "CarDeal":         ("directions_car",     "#263238", "#546E7A"),
-    "ChefCount":       ("restaurant_menu",    "#BF360C", "#FF7043"),
+    # ChefCount is not listed: its skillet-and-countdown icon is drawn by
+    # ChefCount/tool/draw_icon.py, and a run of this script must not replace it.
     "EventSpark":      ("celebration",        "#6A1B9A", "#EC407A"),
     "GadgetNest":      ("devices_other",      "#1B1B3A", "#3F51B5"),
     "HomeWise":        ("home_work",          "#004D40", "#00897B"),
