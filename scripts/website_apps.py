@@ -117,8 +117,12 @@ def features_from(description: str) -> list[dict]:
 
 
 def url_ok(url: str) -> bool:
-    r = subprocess.run(["curl", "-s", "-o", "/dev/null", "-m", "25", "-L",
-                        "-w", "%{http_code}", url], capture_output=True, text=True)
+    try:
+        r = subprocess.run(["curl", "-s", "-o", "/dev/null", "-m", "25", "-L",
+                            "-w", "%{http_code}", url], capture_output=True, text=True,
+                           timeout=60)
+    except subprocess.TimeoutExpired:
+        return False
     return r.stdout.strip() == "200"
 
 
@@ -192,9 +196,15 @@ def main() -> int:
     # file --check compares against — is byte-for-byte what gets committed.
     # Without this, formatting the committed file made --check report the
     # site stale on every scheduled pass.
-    fmt = subprocess.run(["npx", "--no-install", "prettier", "--stdin-filepath", str(OUT)],
-                         input=body, capture_output=True, text=True, cwd=SITE)
-    if fmt.returncode == 0 and fmt.stdout:
+    # Bounded: this ran with no timeout, and the scheduled store watch killed
+    # the whole pass when --check exceeded its 900 s budget (issue #32).
+    try:
+        fmt = subprocess.run(["npx", "--no-install", "prettier", "--stdin-filepath", str(OUT)],
+                             input=body, capture_output=True, text=True, cwd=SITE,
+                             timeout=300)
+    except subprocess.TimeoutExpired:
+        fmt = None
+    if fmt is not None and fmt.returncode == 0 and fmt.stdout:
         body = fmt.stdout
     else:
         print("  prettier unavailable — writing unformatted output")

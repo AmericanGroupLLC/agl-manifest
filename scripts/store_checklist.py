@@ -144,6 +144,37 @@ GUEST = re.compile(r"(?i)continue as guest|guest mode|skip sign|browse as guest"
                    r"|continue without")
 
 
+# One `magick` process per screenshot was the slowest part of this script:
+# 364 PNGs, ~117 s of a ~200 s run measured 2026-10-13 (load average ~870),
+# and every exec is scanned by the endpoint agents. The scheduled store watch
+# gave this script 3600 s and it ran out (issue #32). A screenshot's grey-level
+# standard deviation only changes when the file does, so it is cached by
+# path, size and mtime; magick runs again only for new or changed files.
+SD_CACHE_FILE = DIST / "screenshot-sd-cache.json"
+_SD_CACHE: dict = {}
+_SD_DIRTY = False
+
+
+def screenshot_sd(png: pathlib.Path) -> float | None:
+    """magick's grey-level standard deviation (0..1), cached; None if unreadable."""
+    global _SD_DIRTY
+    st = png.stat()
+    key, stamp = str(png), [st.st_size, st.st_mtime_ns]
+    hit = _SD_CACHE.get(key)
+    if hit and hit[:2] == stamp:
+        return hit[2]
+    try:
+        out = subprocess.run(["magick", str(png), "-colorspace", "Gray", "-format",
+                              "%[fx:standard_deviation]", "info:"],
+                             capture_output=True, text=True, timeout=120).stdout.strip()
+        sd = float(out)
+    except (ValueError, subprocess.TimeoutExpired):
+        return None  # not cached: a magick failure should be retried next run
+    _SD_CACHE[key] = stamp + [sd]
+    _SD_DIRTY = True
+    return sd
+
+
 def login_gate(d: pathlib.Path) -> bool:
     """True when the app signs in and offers no way past it.
 
@@ -171,6 +202,7 @@ def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--app")
     args = ap.parse_args()
+    _SD_CACHE.update(load(SD_CACHE_FILE, {}))
 
     # store_eligible is still honoured so the manifest can exclude an app, but
 # nothing sets it false any more: all 43 are in scope. This comment used to
@@ -306,16 +338,11 @@ def main() -> int:
         # anyway on 2026-10-08 — committed by a sweep of uncommitted files,
         # not by the capture. So the gate reads what is actually in the
         # folder that fastlane's metadata lane uploads.
-        import subprocess as _sp
         _blank = []
         for _png in sorted((d / "fastlane/metadata").rglob("*creenshot*/*.png")) \
                 if (d / "fastlane/metadata").is_dir() else []:
-            _out = _sp.run(["magick", str(_png), "-colorspace", "Gray", "-format",
-                            "%[fx:standard_deviation]", "info:"],
-                           capture_output=True, text=True).stdout.strip()
-            try:
-                _sd = float(_out)
-            except ValueError:
+            _sd = screenshot_sd(_png)
+            if _sd is None:
                 continue
             # Two different things, named as what they are. Below 0.005 is a
             # solid frame. Up to 0.02 is a real screen with almost nothing on
@@ -598,6 +625,12 @@ def main() -> int:
         _json.dumps({repo: [{"check": n, "state": s, "detail": d}
                             for n, s, d in checks]
                      for repo, checks in rows}, indent=1) + "\n")
+    if _SD_DIRTY:
+        try:
+            SD_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+            SD_CACHE_FILE.write_text(_json.dumps(_SD_CACHE) + "\n")
+        except OSError as e:
+            print(f"  screenshot cache not saved: {e}")
     print(f"{len(rows)} apps -> docs/store-checklist.json "
           f"({total_fail} failing checks) — the `check: *` columns of status.csv")
     return 0

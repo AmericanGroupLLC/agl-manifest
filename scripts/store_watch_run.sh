@@ -25,6 +25,11 @@ cd "$MANIFEST" || exit 1
 # shellcheck disable=SC1091
 [ -f scripts/testflight/env.sh ] && . scripts/testflight/env.sh
 
+# The 09:27 pass on 2026-10-13 left only its header line: it was still
+# running when the Mac restarted at 10:54, and nothing said so (issue #32).
+# Say so.
+trap 'echo "=== killed by SIGTERM at $(date -Iseconds) ===" >>"$LOG"; exit 143' TERM
+
 {
   echo "=== store_watch $(date -Iseconds) ==="
   python3 scripts/store_watch.py --remediate

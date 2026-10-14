@@ -48,6 +48,15 @@ faster — Apple review takes days — and a tighter loop adds only load.
 Logs: `~/agl/.dist/store-watch/`, newest symlinked as `latest.log`, kept 30
 days. Stop it with `launchctl unload`.
 
+Each step logs a `start` line and an `OK`/`FAILED` line with its duration as
+it runs. A step that times out or cannot start is recorded as FAILED (also
+in `docs/store-watch.json` under `steps`) and the pass carries on to the
+report; if a gate step failed, nothing is submitted. The last line reads
+`=== exit 0 ===` (every step ran), `=== exit 2 ===` (report written, a step
+failed), `=== exit 1 ===` (a crash: there is a traceback above it), or
+`=== killed by SIGTERM ... ===` (the Mac restarted or the job was stopped
+mid-pass). Issue #32.
+
 ## What the wrapper has to set
 
 launchd runs with almost no environment. `store_watch_run.sh` sets PATH,
