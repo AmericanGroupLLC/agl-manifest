@@ -2,7 +2,8 @@ name: agl_ads
 description: >-
   Shared Google AdMob integration for the American Group LLC mobile portfolio:
   UMP consent, test-versus-production unit selection, a frequency-capped
-  interstitial, and an adaptive banner that occupies no space until it fills.
+  interstitial, an adaptive banner and a template native ad that occupy no
+  space until they fill, and a user-initiated rewarded ad.
 version: 1.0.0
 publish_to: none
 

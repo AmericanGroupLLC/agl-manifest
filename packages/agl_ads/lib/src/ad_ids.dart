@@ -25,6 +25,10 @@ class AglAdIds {
     this.androidInterstitial,
     this.iosBanner,
     this.iosInterstitial,
+    this.androidRewarded,
+    this.iosRewarded,
+    this.androidNative,
+    this.iosNative,
   });
 
   /// Reads production units from the environment, keeping them out of source.
@@ -56,6 +60,11 @@ class AglAdIds {
         'ADMOB_BANNER_IOS': String.fromEnvironment('ADMOB_BANNER_IOS'),
         'ADMOB_INTERSTITIAL_IOS':
             String.fromEnvironment('ADMOB_INTERSTITIAL_IOS'),
+        'ADMOB_REWARDED_ANDROID':
+            String.fromEnvironment('ADMOB_REWARDED_ANDROID'),
+        'ADMOB_REWARDED_IOS': String.fromEnvironment('ADMOB_REWARDED_IOS'),
+        'ADMOB_NATIVE_ANDROID': String.fromEnvironment('ADMOB_NATIVE_ANDROID'),
+        'ADMOB_NATIVE_IOS': String.fromEnvironment('ADMOB_NATIVE_IOS'),
       };
       final value = values[key];
       return (value == null || value.isEmpty) ? null : value;
@@ -68,6 +77,10 @@ class AglAdIds {
       androidInterstitial: env('ADMOB_INTERSTITIAL_ANDROID'),
       iosBanner: env('ADMOB_BANNER_IOS'),
       iosInterstitial: env('ADMOB_INTERSTITIAL_IOS'),
+      androidRewarded: env('ADMOB_REWARDED_ANDROID'),
+      iosRewarded: env('ADMOB_REWARDED_IOS'),
+      androidNative: env('ADMOB_NATIVE_ANDROID'),
+      iosNative: env('ADMOB_NATIVE_IOS'),
     );
   }
 
@@ -77,6 +90,10 @@ class AglAdIds {
   final String? androidInterstitial;
   final String? iosBanner;
   final String? iosInterstitial;
+  final String? androidRewarded;
+  final String? iosRewarded;
+  final String? androidNative;
+  final String? iosNative;
 
   /// Google's public test application id for iOS. Correct to ship while an app
   /// has no iOS AdMob app of its own — the Android application id is not valid
@@ -95,6 +112,14 @@ class AglAdIds {
       'ca-app-pub-3940256099942544/2934735716';
   static const String _testInterstitialIos =
       'ca-app-pub-3940256099942544/4411468910';
+  static const String _testRewardedAndroid =
+      'ca-app-pub-3940256099942544/5224354917';
+  static const String _testRewardedIos =
+      'ca-app-pub-3940256099942544/1712485313';
+  static const String _testNativeAndroid =
+      'ca-app-pub-3940256099942544/2247696110';
+  static const String _testNativeIos =
+      'ca-app-pub-3940256099942544/3986624511';
 
   /// True only where the AdMob SDK exists.
   ///
@@ -139,6 +164,22 @@ class AglAdIds {
     return _isIos ? _testInterstitialIos : _testInterstitialAndroid;
   }
 
+  String get rewarded {
+    if (kReleaseMode) {
+      final live = _isIos ? iosRewarded : androidRewarded;
+      if (live != null) return live;
+    }
+    return _isIos ? _testRewardedIos : _testRewardedAndroid;
+  }
+
+  String get native {
+    if (kReleaseMode) {
+      final live = _isIos ? iosNative : androidNative;
+      if (live != null) return live;
+    }
+    return _isIos ? _testNativeIos : _testNativeAndroid;
+  }
+
   /// Whether this build will serve real, billable ads.
   ///
   /// Worth showing in a settings or debug row: it is the difference between a
@@ -146,6 +187,8 @@ class AglAdIds {
   bool get servesLiveAds {
     if (!kReleaseMode) return false;
     return (_isIos ? iosBanner : androidBanner) != null ||
-        (_isIos ? iosInterstitial : androidInterstitial) != null;
+        (_isIos ? iosInterstitial : androidInterstitial) != null ||
+        (_isIos ? iosRewarded : androidRewarded) != null ||
+        (_isIos ? iosNative : androidNative) != null;
   }
 }

@@ -30,6 +30,8 @@ abstract final class AglAds {
   static int _transitions = 0;
   static DateTime? _lastShown;
   static bool _suspended = false;
+  static RewardedAd? _rewarded;
+  static bool _loadingRewarded = false;
 
   /// The ids in force. Null until [configure] is called, which is itself the
   /// signal that this app has no ads.
@@ -55,6 +57,8 @@ abstract final class AglAds {
     if (suspended) {
       _interstitial?.dispose();
       _interstitial = null;
+      _rewarded?.dispose();
+      _rewarded = null;
     }
   }
 
@@ -171,11 +175,96 @@ abstract final class AglAds {
     }
   }
 
+  /// Whether a rewarded ad is loaded, so a screen can enable its "watch an ad"
+  /// button only when pressing it will show something.
+  static bool get rewardedReady => _rewarded != null;
+
+  /// Loads a rewarded ad. Call when a screen that offers one opens — not from
+  /// `main()`: a rewarded ad nobody is offered is a wasted request, and
+  /// unshown requests lower the app's match rate.
+  static Future<void> preloadRewarded() async {
+    if (!isEnabled || _suspended || _loadingRewarded || _rewarded != null) {
+      return;
+    }
+    if (!await AglConsent.canRequestAds()) return;
+    _loadingRewarded = true;
+    try {
+      await RewardedAd.load(
+        adUnitId: _ids!.rewarded,
+        request: const AdRequest(),
+        rewardedAdLoadCallback: RewardedAdLoadCallback(
+          onAdLoaded: (ad) {
+            _loadingRewarded = false;
+            if (_suspended) {
+              ad.dispose();
+              return;
+            }
+            _rewarded = ad;
+          },
+          onAdFailedToLoad: (error) {
+            _loadingRewarded = false;
+            _rewarded = null;
+            AglLog.write('Rewarded not filled: ${error.code}');
+          },
+        ),
+      );
+    } catch (error, stack) {
+      _loadingRewarded = false;
+      await AglCrash.recordError(error, stack, reason: 'Rewarded load');
+    }
+  }
+
+  /// Shows a rewarded ad the user asked for, and calls [onReward] if they
+  /// earned it. Returns whether the reward was earned.
+  ///
+  /// Only ever from an explicit "watch an ad to …" button that states the
+  /// reward — never automatically, and never as the only way to reach a core
+  /// feature (App Store 3.1.1 / Play's rewarded-ads policy). When no ad is
+  /// ready it returns false at once and starts a load; the caller decides what
+  /// the user gets then, and a fair answer is usually the reward anyway.
+  static Future<bool> showRewarded({required VoidCallback onReward}) async {
+    if (!isEnabled || _suspended) return false;
+    final ad = _rewarded;
+    if (ad == null) {
+      unawaited(preloadRewarded());
+      return false;
+    }
+    _rewarded = null;
+    final done = Completer<bool>();
+    var earned = false;
+    ad.fullScreenContentCallback = FullScreenContentCallback(
+      onAdDismissedFullScreenContent: (ad) {
+        ad.dispose();
+        if (!done.isCompleted) done.complete(earned);
+        unawaited(preloadRewarded());
+      },
+      onAdFailedToShowFullScreenContent: (ad, error) {
+        ad.dispose();
+        AglLog.write('Rewarded failed to show: ${error.code}');
+        if (!done.isCompleted) done.complete(false);
+      },
+    );
+    try {
+      await ad.show(onUserEarnedReward: (_, __) {
+        earned = true;
+        onReward();
+      });
+    } catch (error, stack) {
+      await AglCrash.recordError(error, stack, reason: 'Rewarded show');
+      ad.dispose();
+      if (!done.isCompleted) done.complete(false);
+    }
+    return done.future;
+  }
+
   /// Test seam.
   @visibleForTesting
   static void resetForTest() {
     _interstitial?.dispose();
     _interstitial = null;
+    _rewarded?.dispose();
+    _rewarded = null;
+    _loadingRewarded = false;
     _ids = null;
     _initialised = false;
     _loading = false;

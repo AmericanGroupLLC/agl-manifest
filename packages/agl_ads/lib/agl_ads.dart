@@ -13,6 +13,13 @@
 ///
 /// // After a navigation the user asked for, never before it.
 /// AglAds.onTransition();
+///
+/// // Only where it fits the app: a native row in a list or feed …
+/// const AglNativeAd(),
+///
+/// // … or a reward the user chooses ("watch an ad to unlock …").
+/// unawaited(AglAds.preloadRewarded());           // when that screen opens
+/// await AglAds.showRewarded(onReward: unlock);   // from the button
 /// ```
 ///
 /// Three rules this package exists to enforce:
@@ -29,5 +36,6 @@ library;
 
 export 'src/ad_banner.dart' show AglAdBanner;
 export 'src/ad_ids.dart' show AglAdIds;
+export 'src/ad_native.dart' show AglNativeAd;
 export 'src/ads.dart' show AglAds;
 export 'src/consent.dart' show AglConsent;
