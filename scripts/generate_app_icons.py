@@ -57,7 +57,8 @@ CODEPOINTS = _codepoints()
 # Colours are chosen per app rather than generated from a hash, so that related
 # apps do not collide and each reads as a deliberate brand.
 DESIGN: dict[str, tuple[str, str, str]] = {
-    "AeroSwift":       ("flight",             "#0B3D91", "#1E88E5"),
+    # AeroSwift is not listed: its aircraft-and-range-rings icon is drawn by
+    # AeroSwift/mobile/tool/draw_app_icon.py, and a run of this script must not replace it.
     # AGCleaner is not listed: its card-merge icon is drawn by
     # AGCleaner/scripts/generate_card_mark_icons.py, and a run of this script must not replace it.
     # AGRecorder is not listed: its icon is drawn by AGRecorder/tool/draw_icon.py
