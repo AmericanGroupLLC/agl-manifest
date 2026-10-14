@@ -168,7 +168,7 @@ EventSpark has the hard part (a reliable guest list and door). But it ships as a
 - **Door mode** (`/host/:id/door`, replacing `check_in_screen.dart`'s layout):
   - Full-screen. On iPhone, a dark high-contrast surface regardless of theme.
   - Big live header: **heads in / capacity**, **taken tonight** split by method, **still owed**.
-  - A code field (autofocus, Martian Mono, uppercase formatter kept) and name search below it.
+  - A code field (autofocus, Kode Mono, uppercase formatter kept) and name search below it.
 - **One tap at the door.** A matched guest shows tier, party size and payment status:
   - Paid or Comp: **Check in**.
   - Owes: **Collect $X & check in**, with one button per enabled method. The payment and the check-in are recorded together.
@@ -271,7 +271,7 @@ EventSpark has the hard part (a reliable guest list and door). But it ships as a
   - **CSV export quoting** (names with commas, quotes and newlines).
   - **Run it again** copies tiers but not guests or money.
   - **Banned-phrase test**: scans string literals in `lib/**/*.dart` for the M8 list.
-  - **Theme test**: seed is `0xFF4A1942`; font families are Bricolage Grotesque, Figtree and Martian Mono; `F57F17` and `FF6B35` (TripNest) do not appear in `lib/`; the contrast pairs pass.
+  - **Theme test**: seed is `0xFF4A1942`; font families are Bricolage Grotesque, Plus Jakarta Sans and Kode Mono (amended 2026-10-14 with M5; Figtree and Martian Mono must not come back); `F57F17` and `FF6B35` (TripNest) do not appear in `lib/`; the contrast pairs pass.
   - **Shell test**: no `NavigationBar` in the tree; `AglAdBanner` appears only on Home.
 - **Screenshots**: rewrite `integration_test/store_screenshots_test.dart` so it creates a real event in the test (tiers, a pasted list, three door actions, one walk-in, a close-out) and captures from that. The developer launches on the iOS simulator and attaches screenshots of Home, Door mode, Close-out and onboarding to the report (memory: "build it and look at it").
 - Commits are path-limited (never `git add -A`; §9) and pushed to `main`.
