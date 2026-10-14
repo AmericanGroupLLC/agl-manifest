@@ -93,6 +93,11 @@ jobs:
           echo "- trigger: \`${{ github.event_name }}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "- apps: \`${{ inputs.apps || 'all' }}\`" >> "$GITHUB_STEP_SUMMARY"
           echo "- stops after: \`$stop\`" >> "$GITHUB_STEP_SUMMARY"
+      # Every app's keystore secret must be named in the android job below
+      # (it no longer receives the whole secrets context, see #31). Fails here, before
+      # anything is built, rather than shipping an app unsigned.
+      - name: Every app's keystore secret is named in this workflow
+        run: python3 scripts/materialise_signing.py --check-workflow .github/workflows/ship.yml
       - id: matrix
         run: |
           V="$(python3 scripts/resolve_matrix.py --spec '${{ inputs.apps || 'all' }}' --platform validate --shards 6)"
@@ -220,20 +225,70 @@ jobs:
         env:
           ANDROID_KEYSTORE_CONFIG: ${{ secrets.ANDROID_KEYSTORE_CONFIG }}
         run: |
-          # Every KEYSTORE_<APP>_BASE64 at once: naming them one by one meant a
-          # new app stayed unsigned until someone remembered to edit this file.
-          # Written to a file, not an env var - with all 43 keystores the JSON
-          # is a few hundred kilobytes, and in the environment it exceeded the
-          # exec limit, so every shard died before running a single step with
-          # "Argument list too long".
+          # Each app's KEYSTORE_<APP>_BASE64 by name, and nothing else. This was
+          # the whole secrets context (every secret in the repository) dumped to a
+          # file, and on 2026-10-13 GitHub held the scheduled run 38404249419
+          # with "GitHub detected that this workflow file may be malicious. It
+          # will not run until someone with write access approves it" (#31) -
+          # dumping all secrets is what secret-stealing workflows do. Naming
+          # them is the least-privilege form anyway. The list cannot fall
+          # behind silently: `resolve` runs materialise_signing.py
+          # --check-workflow, which fails when an app in apps.json has no line
+          # here. Still a file, not env vars: with all 43 keystores the values
+          # are a few hundred kilobytes, and in the environment they exceeded
+          # the exec limit ("Argument list too long", run 36311877819).
           umask 077
-          cat > "$RUNNER_TEMP/all-secrets.json" <<'AGL_SECRETS_EOF'
-          ${{ toJSON(secrets) }}
+          cat > "$RUNNER_TEMP/keystore-secrets.json" <<'AGL_SECRETS_EOF'
+          {
+            "KEYSTORE_AEROSWIFT_BASE64": "${{ secrets.KEYSTORE_AEROSWIFT_BASE64 }}",
+            "KEYSTORE_AGCLEANER_BASE64": "${{ secrets.KEYSTORE_AGCLEANER_BASE64 }}",
+            "KEYSTORE_AGRAMMARLY_BASE64": "${{ secrets.KEYSTORE_AGRAMMARLY_BASE64 }}",
+            "KEYSTORE_AGRECORDER_BASE64": "${{ secrets.KEYSTORE_AGRECORDER_BASE64 }}",
+            "KEYSTORE_AGSTUDIO_BASE64": "${{ secrets.KEYSTORE_AGSTUDIO_BASE64 }}",
+            "KEYSTORE_APEXMARKETWATCH_BASE64": "${{ secrets.KEYSTORE_APEXMARKETWATCH_BASE64 }}",
+            "KEYSTORE_BODYQUEST_BASE64": "${{ secrets.KEYSTORE_BODYQUEST_BASE64 }}",
+            "KEYSTORE_BUDDYPLAY_BASE64": "${{ secrets.KEYSTORE_BUDDYPLAY_BASE64 }}",
+            "KEYSTORE_CALCMASTER_BASE64": "${{ secrets.KEYSTORE_CALCMASTER_BASE64 }}",
+            "KEYSTORE_CARDEAL_BASE64": "${{ secrets.KEYSTORE_CARDEAL_BASE64 }}",
+            "KEYSTORE_CHEFCOUNT_BASE64": "${{ secrets.KEYSTORE_CHEFCOUNT_BASE64 }}",
+            "KEYSTORE_CODEDEAL_BASE64": "${{ secrets.KEYSTORE_CODEDEAL_BASE64 }}",
+            "KEYSTORE_DAILY_PULSE_BASE64": "${{ secrets.KEYSTORE_DAILY_PULSE_BASE64 }}",
+            "KEYSTORE_DRIFTDATE_BASE64": "${{ secrets.KEYSTORE_DRIFTDATE_BASE64 }}",
+            "KEYSTORE_EVENTSPARK_BASE64": "${{ secrets.KEYSTORE_EVENTSPARK_BASE64 }}",
+            "KEYSTORE_FASHIONFACTORY_BASE64": "${{ secrets.KEYSTORE_FASHIONFACTORY_BASE64 }}",
+            "KEYSTORE_GADGETNEST_BASE64": "${{ secrets.KEYSTORE_GADGETNEST_BASE64 }}",
+            "KEYSTORE_GROCERYMATCH_BASE64": "${{ secrets.KEYSTORE_GROCERYMATCH_BASE64 }}",
+            "KEYSTORE_HERJOURNEY_BASE64": "${{ secrets.KEYSTORE_HERJOURNEY_BASE64 }}",
+            "KEYSTORE_HOMEWISE_BASE64": "${{ secrets.KEYSTORE_HOMEWISE_BASE64 }}",
+            "KEYSTORE_IMAPS_BASE64": "${{ secrets.KEYSTORE_IMAPS_BASE64 }}",
+            "KEYSTORE_IMEASURE_BASE64": "${{ secrets.KEYSTORE_IMEASURE_BASE64 }}",
+            "KEYSTORE_KINNAV_BASE64": "${{ secrets.KEYSTORE_KINNAV_BASE64 }}",
+            "KEYSTORE_MILEMASTER_BASE64": "${{ secrets.KEYSTORE_MILEMASTER_BASE64 }}",
+            "KEYSTORE_MYCARD_BASE64": "${{ secrets.KEYSTORE_MYCARD_BASE64 }}",
+            "KEYSTORE_MYFINANCE_BASE64": "${{ secrets.KEYSTORE_MYFINANCE_BASE64 }}",
+            "KEYSTORE_MYHEALTH_BASE64": "${{ secrets.KEYSTORE_MYHEALTH_BASE64 }}",
+            "KEYSTORE_NEARSERVE_BASE64": "${{ secrets.KEYSTORE_NEARSERVE_BASE64 }}",
+            "KEYSTORE_NEWSBOARD_BASE64": "${{ secrets.KEYSTORE_NEWSBOARD_BASE64 }}",
+            "KEYSTORE_NEXUSTRANSFERPAY_BASE64": "${{ secrets.KEYSTORE_NEXUSTRANSFERPAY_BASE64 }}",
+            "KEYSTORE_PHOTRIYA_BASE64": "${{ secrets.KEYSTORE_PHOTRIYA_BASE64 }}",
+            "KEYSTORE_PILOTENROUTE_BASE64": "${{ secrets.KEYSTORE_PILOTENROUTE_BASE64 }}",
+            "KEYSTORE_PLANTPULSE_BASE64": "${{ secrets.KEYSTORE_PLANTPULSE_BASE64 }}",
+            "KEYSTORE_PORTFOLIO_BOARD_BASE64": "${{ secrets.KEYSTORE_PORTFOLIO_BOARD_BASE64 }}",
+            "KEYSTORE_RADIOTUNE_BASE64": "${{ secrets.KEYSTORE_RADIOTUNE_BASE64 }}",
+            "KEYSTORE_RIDEZAP_BASE64": "${{ secrets.KEYSTORE_RIDEZAP_BASE64 }}",
+            "KEYSTORE_ROOMCRAFT_BASE64": "${{ secrets.KEYSTORE_ROOMCRAFT_BASE64 }}",
+            "KEYSTORE_TRIPNEST_BASE64": "${{ secrets.KEYSTORE_TRIPNEST_BASE64 }}",
+            "KEYSTORE_USCIS_CASE_BASE64": "${{ secrets.KEYSTORE_USCIS_CASE_BASE64 }}",
+            "KEYSTORE_VERBA_BASE64": "${{ secrets.KEYSTORE_VERBA_BASE64 }}",
+            "KEYSTORE_VIRTUBAND_BASE64": "${{ secrets.KEYSTORE_VIRTUBAND_BASE64 }}",
+            "KEYSTORE_WIFITRAIL_BASE64": "${{ secrets.KEYSTORE_WIFITRAIL_BASE64 }}",
+            "KEYSTORE_YOURTUBE_BASE64": "${{ secrets.KEYSTORE_YOURTUBE_BASE64 }}"
+          }
           AGL_SECRETS_EOF
-          ALL_SECRETS_FILE="$RUNNER_TEMP/all-secrets.json" \
+          ALL_SECRETS_FILE="$RUNNER_TEMP/keystore-secrets.json" \
             python3 scripts/materialise_signing.py \
               --apps "${{ matrix.apps }}" --out "$RUNNER_TEMP"
-          rm -f "$RUNNER_TEMP/all-secrets.json"
+          rm -f "$RUNNER_TEMP/keystore-secrets.json"
 
       - name: Resolve the app list
         id: list
@@ -589,7 +644,15 @@ jobs:
         if: ${{ !cancelled() }}
         # The IPAs come from the iOS build shards (artifact ios-archives-*,
         # unpacked under work/.dist). This job has no app source to build from.
-        run: python3 scripts/testflight/run_batch.py --wave records --no-resume --prebuilt work/.dist --apps "${{ steps.list.outputs.csv }}"
+        # --defer-listing: upload every IPA first, then wait for App Store
+        # Connect to list all of them together (30 min cap for the lot). Each
+        # app used to wait for its own build before the next upload, and two
+        # builds Apple never listed cost an hour each (run 38294393167, #27).
+        # An app still counts as uploaded only once Apple lists its build.
+        run: >-
+          python3 scripts/testflight/run_batch.py --wave records --no-resume
+          --prebuilt work/.dist --apps "${{ steps.list.outputs.csv }}"
+          --defer-listing --listing-cap-min 30 --per-app-timeout 2700
 
       - name: Put every build in front of the testers
         if: ${{ !cancelled() }}

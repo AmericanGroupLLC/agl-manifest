@@ -162,6 +162,16 @@ platform :ios do
     # accepted the build. So: bounded attempts, each with a hard timeout, and a
     # check against App Store Connect before every attempt.
     require "timeout"
+    # defer_listing: return as soon as an attempt's upload command completes,
+    # printing UPLOAD_SENT, and leave "is it on App Store Connect?" to the
+    # caller. run_batch.py --defer-listing uploads every app first and then
+    # polls for all of them together, so one build Apple is slow to list (or
+    # never lists) no longer holds the rest: PilotEnRoute and yourtube each
+    # spent 3,600 s here in ship run 38294393167 (#27).
+    # listing_wait_minutes: how long to wait for a build to be listed after a
+    # failed attempt, before retrying (default 20).
+    defer_listing = o[:defer_listing].to_s == "true"
+    listing_wait = (o[:listing_wait_minutes] || 20).to_i
     attempts = 0
     loop do
       if build_present?(bundle_id, build_number)
@@ -185,6 +195,10 @@ platform :ios do
           else
             upload_to_testflight(api_key: key, app_identifier: bundle_id, ipa: ipa, skip_waiting_for_build_processing: true)
           end
+        end
+        if defer_listing
+          UI.success("UPLOAD_SENT #{bundle_id} build #{build_number} (attempt #{attempts}; not yet confirmed on App Store Connect)")
+          break
         end
       rescue Timeout::Error
         UI.error("attempt #{attempts} timed out after 25 minutes; killing altool")
@@ -210,7 +224,7 @@ platform :ios do
       # Apple usually has the build even when altool reported a lost
       # connection, but can take a while to list it. 20 minutes, and an
       # unknown answer keeps waiting rather than counting as absent.
-      20.times do
+      listing_wait.times do
         case build_state(bundle_id, build_number)
         when true then break
         when nil  then UI.message("App Store Connect did not answer; waiting…")

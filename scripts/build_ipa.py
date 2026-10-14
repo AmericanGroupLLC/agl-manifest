@@ -79,6 +79,14 @@ def build(app: dict, profile: str) -> dict:
         run([str(FLUTTER), "pub", "get"], cwd=d, timeout=900)
         r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}", *admob_defines(app["repo"])], cwd=d, timeout=3600)
         rec["retried_after_stale_package_graph"] = True
+    # A CocoaPods spec index older than a pod the app now needs. The runner's
+    # ~/.cocoapods comes from an Actions cache, so it lags: radiotune failed in
+    # 6 s in ship run 38294393167 with "CocoaPods's specs repository is too
+    # out-of-date to satisfy dependencies". Refresh the index once and retry.
+    if r.returncode != 0 and "specs repository is too out-of-date" in (r.stdout + r.stderr):
+        u = run(["pod", "install", "--repo-update"], cwd=ios, timeout=1800)
+        rec["retried_after_pod_repo_update"] = u.returncode == 0
+        r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}", *admob_defines(app["repo"])], cwd=d, timeout=3600)
     if r.returncode != 0:
         rec.update(result="FLUTTER_BUILD_FAILED", detail=tail(r.stdout + r.stderr))
         rec["seconds"] = round(time.time() - t0, 1)

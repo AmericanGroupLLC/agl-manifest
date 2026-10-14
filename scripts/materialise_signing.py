@@ -40,10 +40,14 @@ def secret_name(app: str) -> str:
 # only ANDROID_KEYSTORE_CONFIG, so every app reported "no keystore" and would
 # have produced debug-signed bundles that Play rejects at upload.
 #
-# The workflow hands over `toJSON(secrets)` instead, so a new app needs no
-# workflow edit. It arrives as a FILE, not a variable: with all 43 keystores
-# present the JSON is a few hundred kilobytes, and putting that in the process
-# environment made every shard die before it started with
+# The workflow used to hand over `toJSON(secrets)` so a new app needed no
+# workflow edit. GitHub then held ship run 38404249419 as "may be malicious"
+# (#31): dumping every secret is what secret-stealing workflows do. ship.yml
+# now names each KEYSTORE_<APP>_BASE64, and --check-workflow (run by its
+# `resolve` job) fails when an app has no line there, so the list still cannot
+# fall behind silently. The secrets arrive as a JSON FILE, not variables: with
+# all 43 keystores present they are a few hundred kilobytes, and putting that
+# in the process environment made every shard die before it started with
 # "An error occurred trying to start process '/usr/bin/bash' ... Argument list
 # too long" (run 36311877819). ALL_SECRETS is still read for small cases, and a
 # directly-set variable still wins, so a local run needs nothing but an
@@ -77,11 +81,32 @@ def select(spec: str) -> list[dict]:
     return [a for a in apps if a["repo"].lower() in wanted]
 
 
+def check_workflow(path: str) -> int:
+    """Every Flutter app's keystore secret must be named in the workflow."""
+    text = pathlib.Path(path).read_text()
+    missing = [a["repo"] for a in select("all")
+               if f"secrets.{secret_name(a['repo'])} " not in text]
+    if missing:
+        print(f"::error::{path} does not pass the keystore secret of: "
+              + ", ".join(f"{r} ({secret_name(r)})" for r in missing)
+              + ". Add a line for each to the 'Materialise per-app signing "
+              "material' step, or the app ships unsigned.")
+        return 1
+    print(f"{path}: all {len(select('all'))} keystore secrets are named")
+    return 0
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--apps", default="all")
-    ap.add_argument("--out", required=True, help="a directory outside the workspace")
+    ap.add_argument("--out", help="a directory outside the workspace")
+    ap.add_argument("--check-workflow", metavar="YML",
+                    help="only check that YML names every app's keystore secret")
     args = ap.parse_args()
+    if args.check_workflow:
+        return check_workflow(args.check_workflow)
+    if not args.out:
+        ap.error("--out is required")
 
     raw_config = os.environ.get("ANDROID_KEYSTORE_CONFIG", "").strip()
     if not raw_config:
