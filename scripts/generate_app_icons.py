@@ -58,7 +58,8 @@ CODEPOINTS = _codepoints()
 # apps do not collide and each reads as a deliberate brand.
 DESIGN: dict[str, tuple[str, str, str]] = {
     "AeroSwift":       ("flight",             "#0B3D91", "#1E88E5"),
-    "AGCleaner":       ("cleaning_services",  "#00695C", "#26A69A"),
+    # AGCleaner is not listed: its card-merge icon is drawn by
+    # AGCleaner/scripts/generate_card_mark_icons.py, and a run of this script must not replace it.
     # AGRecorder is not listed: its icon is drawn by AGRecorder/tool/draw_icon.py
     # (waveform and flag on paper), and a run of this script must not replace it.
     "AGStudio":        ("auto_awesome",       "#4A148C", "#AB47BC"),
