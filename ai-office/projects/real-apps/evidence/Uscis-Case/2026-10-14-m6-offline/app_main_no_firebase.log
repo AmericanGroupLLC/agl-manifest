@@ -1,0 +1,10 @@
+2026-10-14 11:01:01.474 Df Runner[40356:829a05] (Flutter) flutter: The Dart VM service is listening on http://127.0.0.1:60518/faDmNquwu-A=/
+2026-10-14 11:01:02.065 Df Runner[40356:829984] (Flutter) flutter: [AGL:warning] Crash reporting inactive — Firebase did not initialise ([core/not-initialized] Firebase has not been correctly initialized.
+2026-10-14 11:01:02.065 Df Runner[40356:829984] (Flutter) flutter:
+2026-10-14 11:01:02.065 Df Runner[40356:829984] (Flutter) flutter: Usually this means you've attempted to use a Firebase service before calling `Firebase.initializeApp`.
+2026-10-14 11:01:02.065 Df Runner[40356:829984] (Flutter) flutter:
+2026-10-14 11:01:02.065 Df Runner[40356:829984] (Flutter) flutter: View the documentation for more information: https://firebase.google.com/docs/flutter/setup
+2026-10-14 11:01:02.065 Df Runner[40356:829984] (Flutter) flutter:     ). Add google-services.json and GoogleService-Info.plist to enable it.
+2026-10-14 11:01:02.067 Df Runner[40356:829984] (Flutter) flutter: [AGL:warning] Insights inactive — Firebase is not initialised. Call AglCrash.init first; an app with no Firebase config runs unreported by design.
+2026-10-14 11:01:02.120 Df Runner[40356:829984] (Flutter) flutter: supabase.supabase_flutter: INFO: ***** Supabase init completed *****
+2026-10-14 11:01:02.586 Df Runner[40356:829984] (Flutter) flutter: [AGL:warning] Consent info update failed: 4 Failed to read publisher's account configuration; no form(s) configured for the input app ID. Verify that you have configured one or more forms for this application and try again. Received app ID: `ca-app-pub-8528784688453695~5246164144`.

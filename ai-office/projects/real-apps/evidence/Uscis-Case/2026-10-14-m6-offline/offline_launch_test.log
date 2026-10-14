@@ -1,0 +1,48 @@
+2026-10-14 10:57:41.571 Df Runner[23329:820446] (Flutter) flutter: The Dart VM service is listening on http://127.0.0.1:57580/XvShg-XtPHQ=/
+2026-10-14 10:57:42.587 Df Runner[23329:8202eb] (Flutter) flutter: 00:00 +0: fresh install with the network off: first screen, Docket with data, case page offline state
+2026-10-14 10:57:42.813 Df Runner[23329:8202eb] (Flutter) flutter: [m6] network probe refused: SocketException: Network is off (M6 offline launch test) (OS Error: Network is unreachable, errno = 51)
+2026-10-14 10:57:42.915 Df Runner[23329:8202eb] (Flutter) flutter: [AGL:warning] Crash reporting inactive — Firebase did not initialise ([core/not-initialized] Firebase has not been correctly initialized.
+2026-10-14 10:57:42.915 Df Runner[23329:8202eb] (Flutter) flutter:
+2026-10-14 10:57:42.915 Df Runner[23329:8202eb] (Flutter) flutter: Usually this means you've attempted to use a Firebase service before calling `Firebase.initializeApp`.
+2026-10-14 10:57:42.915 Df Runner[23329:8202eb] (Flutter) flutter:
+2026-10-14 10:57:42.915 Df Runner[23329:8202eb] (Flutter) flutter: View the documentation for more information: https://firebase.google.com/docs/flutter/setup
+2026-10-14 10:57:42.915 Df Runner[23329:8202eb] (Flutter) flutter:     ). Add google-services.json and GoogleService-Info.plist to enable it.
+2026-10-14 10:57:42.917 Df Runner[23329:8202eb] (Flutter) flutter: [AGL:warning] Insights inactive — Firebase is not initialised. Call AglCrash.init first; an app with no Firebase config runs unreported by design.
+2026-10-14 10:57:43.005 Df Runner[23329:8202eb] (Flutter) flutter: supabase.supabase_flutter: INFO: ***** Supabase init completed *****
+2026-10-14 10:57:43.461 Df Runner[23329:8202eb] (Flutter) flutter: [AGL:warning] Consent info update failed: 4 Failed to read publisher's account configuration; no form(s) configured for the input app ID. Verify that you have configured one or more forms for this application and try again. Received app ID: `ca-app-pub-8528784688453695~5246164144`.
+2026-10-14 10:57:43.840 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found first screen after 1023ms
+2026-10-14 10:57:43.840 Df Runner[23329:8202eb] (Flutter) flutter: [m6] first frame with content after 1026ms
+2026-10-14 10:57:43.840 Df Runner[23329:8202eb] (Flutter) flutter: [m6] AglCrash.isActive=false AglInsights.analyticsActive=false
+2026-10-14 10:57:45.020 Df Runner[23329:8202eb] (Flutter) flutter: [m6] SCREEN m6_01_first_screen
+2026-10-14 10:57:53.680 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found pending case after 1ms
+2026-10-14 10:57:54.173 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Add it after 0ms
+2026-10-14 10:57:55.843 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Receipt number field after 2ms
+2026-10-14 10:57:56.909 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found I-765 after 0ms
+2026-10-14 10:57:57.357 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Person field after 1ms
+2026-10-14 10:57:58.045 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Receipt date (on the I-797) field after 0ms
+2026-10-14 10:57:58.526 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found date picker after 0ms
+2026-10-14 10:57:59.949 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found date picker keyboard-entry toggle after 6ms
+2026-10-14 10:58:02.283 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found date text field after 4ms
+2026-10-14 10:58:02.649 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found date picker OK after 3ms
+2026-10-14 10:58:05.239 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Save receipt after 0ms
+2026-10-14 10:58:07.090 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Docket after 0ms
+2026-10-14 10:58:07.090 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Add after 0ms
+2026-10-14 10:58:08.753 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Card or document after 0ms
+2026-10-14 10:58:10.460 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found conditional card after 4ms
+2026-10-14 10:58:10.907 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Expiry date field after 1ms
+2026-10-14 10:58:11.355 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found date picker after 0ms
+2026-10-14 10:58:12.606 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found date picker keyboard-entry toggle after 1ms
+2026-10-14 10:58:14.638 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found date text field after 1ms
+2026-10-14 10:58:14.979 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found date picker OK after 1ms
+2026-10-14 10:58:16.946 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Person field after 1ms
+2026-10-14 10:58:17.957 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Save after 5ms
+2026-10-14 10:58:19.558 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Now open group after 0ms
+2026-10-14 10:58:19.559 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found I-751 window on the Docket after 0ms
+2026-10-14 10:58:21.075 Df Runner[23329:8202eb] (Flutter) flutter: [m6] SCREEN m6_02_docket_with_data
+2026-10-14 10:58:29.627 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Cases folder after 0ms
+2026-10-14 10:58:30.056 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found Ana case after 0ms
+2026-10-14 10:58:30.506 Df Runner[23329:8202eb] (Flutter) flutter: [m6] found case page after 0ms
+2026-10-14 10:58:31.926 Df Runner[23329:8202eb] (Flutter) flutter: [m6] SCREEN m6_03_case_offline
+2026-10-14 10:58:40.462 Df Runner[23329:8202eb] (Flutter) flutter: [m6] RESULT offline launch passed
+2026-10-14 10:58:40.487 Df Runner[23329:8202eb] (Flutter) flutter: 00:57 +1: (tearDownAll)
+2026-10-14 10:58:40.488 Df Runner[23329:8202eb] (Flutter) flutter: 00:57 +2: All tests passed!
