@@ -1209,10 +1209,10 @@
   "where_it_goes": "Supabase Edge Function secrets (uscis-case-status) \u2014 never in the app, chat or git",
   "cost": "Verify on the portal",
   "approval": "Sandbox on registration; production after USCIS review (verify)",
-  "notes": "Team agl_developersupport exists (founder, 2026-10-14; page requires sign-in \u2014 HTTP 403 to an anonymous check). Next: register the Uscis-Case app under the team, request Case Status (and FOIA, if listed) API access, then put the sandbox client ID/secret into Supabase Edge Function secrets. Spec: ai-office/projects/real-apps/specs/Uscis-Case-v2.md. Portal username stays in the founder vault."
+  "notes": "Team agl_developersupport: Uscis-Case app APPROVED; products enabled: 'Case Status API - Sandbox' and 'first-case-sbox' (likely the FIRST/FOIA sandbox \u2014 verify); 2 keys issued 2026-07-01, sandbox only \u2014 production access not yet requested/granted. 2026-10-14: both client secrets were pasted into a chat \u2014 ROTATE them in the portal before use. Store the new values only as Supabase Edge Function secrets (USCIS_CLIENT_ID / USCIS_CLIENT_SECRET); never in chat or git. Spec: ai-office/projects/real-apps/specs/Uscis-Case-v2.md."
  },
  "USCIS FOIA": {
-  "batch": "7 Later (no app uses it yet)",
+  "batch": "5 AI / server-side keys",
   "how_to_join": "Official USCIS FOIA portal; check developer.uscis.gov for a FOIA API",
   "signup_url": "https://first.uscis.gov/",
   "where_credential": "If an API exists: developer portal app credentials; otherwise none (user files on the official portal)",
@@ -1221,7 +1221,7 @@
   "where_it_goes": "Supabase Edge Function secret if an API exists",
   "cost": "Verify",
   "approval": "Verify",
-  "notes": "Uscis-Case v2 FOIA helper"
+  "notes": "The team's app has 'first-case-sbox' enabled (2026-10-14) \u2014 likely the FIRST (FOIA) sandbox API; verify its endpoints on developer.uscis.gov."
  },
  "CBP I-94": {
   "batch": "0 No signup",
