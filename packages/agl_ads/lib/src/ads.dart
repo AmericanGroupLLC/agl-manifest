@@ -90,8 +90,11 @@ abstract final class AglAds {
       }
       // Caches the answer for AglConsent.adsAllowed, which is what the
       // synchronous call sites in the apps read.
-      if (!await AglConsent.refresh()) return;
-      unawaited(_loadInterstitial());
+      await AglConsent.refresh();
+      // No interstitial is requested here: an app that never calls
+      // onTransition would send an unshown request on every launch, which
+      // lowers its match rate. The first onTransition loads one, and the
+      // warm-up transitions give it time to fill before it can show.
     } catch (error, stack) {
       await AglCrash.recordError(error, stack, reason: 'AdMob initialize');
     }
