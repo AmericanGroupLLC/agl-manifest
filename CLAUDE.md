@@ -23,6 +23,7 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | Question | File |
 | --- | --- |
 | **How do I do anything that calls an API?** | **`docs/API_ACTIONS.md`** — every script, and what the APIs refuse |
+| **One workbook with everything (apps, AdMob units, vendors, founder queue)** | **`store/AGL_Master_Tracker.xlsx`** — read-only roll-up from `python3 scripts/master_tracker.py` (needs openpyxl: `~/agl/.venv/bin/python`). A local copy with the founder's SFG sheets minus credentials is written to `~/agl/AGL_Master_Tracker.xlsx`, never committed |
 | What is the state of every app? | **`status.csv`** — the single sheet: one row per app, and column groups `check:`, `measured:`, `gate:`, `quality:`, `i18n:`, `apple:` alongside the store fields. Counts go stale, so it does not quote one. Every identifier, artefact, store state, store gate, measured fact, quality signal and per-app check. `STATUS.md` is a rendering of it |
 | Which apps have a signed binary, and is it really signed? | `docs/build-evidence.json` (generated) |
 | **What must pass before an app is submitted?** | **`docs/SUBMISSION_CHECKLIST.md`** — the gate, and why each row exists |
