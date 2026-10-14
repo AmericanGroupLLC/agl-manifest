@@ -1,0 +1,47 @@
+{
+ "repo": "TripNest",
+ "kids_or_families": false,
+ "kids_evidence": "Trip planner for travellers; category TRAVEL (store/apps/TripNest.json:28); Kids Category audit n-a (docs/store-policy/TripNest.md:53); store/ratings/TripNest.json has no kidsAgeBand.",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/home/home_screen.dart:185 (own AdBanner widget, inline at the end of Home)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No interstitial code: mobile/lib/core/ads/ad_service.dart has no InterstitialAd/onTransition (grep: no hit) and ad_config.dart reads only banner defines. Spec: one inline Home banner, no interstitials (specs/TripNest.md:290, :438). Keep it out."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "No content feed: Home lists the user's own trips (home_screen.dart:125-174, TripCard), and Day ideas is a short hand-written list for five places (mobile/lib/features/ideas/day_ideas_screen.dart:9, :43, :54). Neither is a feed of 8+ content items."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "No quota, premium or IAP (grep premium|in_app_purchase|quota|paywall: no hit); the app makes no network call for its own data. Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "How it does ads today: google_mobile_ads ^9.1.0 directly (mobile/pubspec.yaml:37, lock 9.1.0); own AdBanner (mobile/lib/core/ads/ad_banner.dart:26-110, inline adaptive <=50dp, zero height until filled), AdConfig (ad_config.dart: app ids ~8044208178 / ~7973677521 asserted against the manifests; release build with no ADMOB_BANNER_* define requests NO ad, never test units), ConsentService (UMP) and AdService.initialize (main.dart:52); Privacy choices tile in settings_screen.dart:37,178.",
+  "Move onto agl_ads? Not needed now. TripNest needs only the one banner (no native/rewarded recommended), and its wrapper is stricter than agl_ads in one respect: agl_ads serves Google test units in a release build when a unit define is missing (packages/agl_ads/lib/src/ad_ids.dart:147-154), TripNest requests nothing (ad_config.dart resolveUnit). Moving would also add agl_ads' unconditional interstitial preload (ads.dart:94). Revisit only if TripNest later needs native/rewarded or for portfolio consistency.",
+  "agl-manifest/apps.json TripNest.admob.ios_app_id is stale (Google test id ~1458002511); the app ships ~7973677521 (mobile/ios/Runner/Info.plist:42-43)."
+ ],
+ "evidence": [
+  "mobile/pubspec.yaml:37 google_mobile_ads ^9.1.0",
+  "mobile/lib/core/ads/ad_banner.dart:64 BannerAd",
+  "mobile/lib/core/ads/ad_config.dart (expectedAndroidAppId/expectedIosAppId, banner defines only)",
+  "mobile/lib/features/home/home_screen.dart:185 AdBanner",
+  "mobile/lib/main.dart:52 AdService.instance.initialize()",
+  "mobile/ios/Runner/Info.plist:42-43 GADApplicationIdentifier ~7973677521",
+  "mobile/android/app/src/main/AndroidManifest.xml:37-38 APPLICATION_ID ~8044208178",
+  "ai-office/projects/real-apps/specs/TripNest.md:290, :438"
+ ]
+}

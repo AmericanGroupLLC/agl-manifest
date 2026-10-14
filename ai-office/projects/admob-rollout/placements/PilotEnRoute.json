@@ -1,0 +1,49 @@
+{
+ "repo": "PilotEnRoute",
+ "kids_or_families": false,
+ "kids_evidence": "Not a children's app. Spec user: 'A private pilot who rents a club or FBO aircraft a few times a month, plus the student pilot' (PilotEnRoute.md:55). store/apps/PilotEnRoute.json primary_category = TRAVEL. store/ratings/PilotEnRoute.json has no kids field and advertising: true (:16).",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/logbook_screen.dart:189-194 (in-list AdBannerWidget after the 5th row, adAfterRow = 5 at :22) and lib/screens/weather_screen.dart:205-208 (between METAR and TAF; AdBannerWidget at :207). Own widget lib/widgets/ad_banner_widget.dart over lib/services/ad_service.dart:150 createBannerAd."
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Loaded but never shown. initialize() calls _loadInterstitialAd (lib/services/ad_service.dart:132, :167-195), and showInterstitialAd (:197) has no caller in lib/ (grep). Delete the loader. Pre-flight checks are task-focused and safety-relevant."
+ },
+ "native": {
+  "use": false,
+  "screen": "none",
+  "list_builder": "lib/screens/weather_screen.dart:292 (considered, rejected)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "Logbook (the user's flights) already carries the in-list banner after row 5 (logbook_screen.dart:189-194), and the founder said to keep the banner. A native in the same list would mean two ads in one personal record. The weather lists (lib/screens/weather_screen.dart:288-296 raw PIREP/METAR list; :307-330 G-AIRMET hazards) are go/no-go safety data. No ad belongs between hazard reports."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "none",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. A RewardedAd is loaded at launch (lib/services/ad_service.dart:133, :218-240). Its comment says 'for unlocking extra exam questions' (:217), but the app no longer has any exam or question bank (the lib/screens/ file list has none), and showRewardedAd (:242) has no caller. Delete it."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Move onto agl_ads: replace AdBannerWidget and AdService with AglAdBanner at the same two places (logbook_screen.dart:193, weather_screen.dart:207). Delete the interstitial and rewarded loaders, and drop the direct google_mobile_ads ^5.1.0 dependency (pubspec.yaml:60) unless something else needs it. Today agl_ads supplies only AglConsent (ad_service.dart:119, :123, :144).",
+  "ad_service.dart:128 has a placeholder testDeviceIds ['YOUR_TEST_DEVICE_ID'] (debug only, harmless). It goes with the move.",
+  "agl_ads is locked in pubspec.lock to f0fc3b2 (resolved-ref, line 17), which does not contain agl-manifest cb21ee5 (checked with `git merge-base --is-ancestor cb21ee5 f0fc3b2`). Run `flutter pub upgrade agl_ads` before using AglNativeAd / AglAds.showRewarded."
+ ],
+ "evidence": [
+  "lib/main.dart:57 unawaited(AdService().initialize())",
+  "lib/services/ad_service.dart:132-133 _loadInterstitialAd(); _loadRewardedAd();",
+  "lib/services/ad_service.dart:197 showInterstitialAd (no caller)",
+  "lib/services/ad_service.dart:217 '// Rewarded Ad (for unlocking extra exam questions)'",
+  "lib/services/ad_service.dart:242 showRewardedAd (no caller)",
+  "lib/screens/logbook_screen.dart:22 adAfterRow = 5; :193 AdBannerWidget()",
+  "lib/screens/weather_screen.dart:207 AdBannerWidget()",
+  "pubspec.yaml:60 google_mobile_ads: ^5.1.0",
+  "pubspec.lock:17 resolved-ref f0fc3b237de24a4f0b2a3b9548bf09b4bd9377c6",
+  "ai-office/projects/real-apps/specs/PilotEnRoute.md:233"
+ ]
+}

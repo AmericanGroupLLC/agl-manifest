@@ -1,0 +1,47 @@
+{
+ "repo": "AGrammarly",
+ "kids_or_families": false,
+ "kids_evidence": "Store category PRODUCTIVITY (agl-manifest/store/apps/AGrammarly.json:28); Kids Category audit row 'not applicable: none of [kids] detected' (docs/store-policy/AGrammarly.md:39); spec user is adults answering personal/work messages (ai-office/projects/real-apps/specs/AGrammarly.md:49).",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": false,
+  "where": "none - no google_mobile_ads/agl_ads in mobile/pubspec.yaml (grep: no hit), no GADApplicationIdentifier in mobile/ios/Runner/Info.plist, no APPLICATION_ID in mobile/android/app/src/main/AndroidManifest.xml. Recommended slot if integrated: footer of the Library list, mobile/lib/features/library/library_screen.dart (after the ListView.separated at :206), not on the Reply Desk where the ReplyPad docks under the editor."
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Not present (no SDK). Do not add one: the app is a quick, task-focused reply tool (paste message, pick reply, copy) - the founder rule says utilities in quick sessions get no interstitial."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "The only scrolling list is Library (mobile/lib/features/library/library_screen.dart:206-210 ListView.separated over SavedReply), which is the user's own private saved replies, not content/listings. An ad among private messages is a poor fit and contradicts the app's privacy pitch. No feed exists."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "No free quota or premium feature exists to extend: the reply engine runs on-device with no cost per answer, and the old isPremium code is dead and slated for deletion (specs/AGrammarly.md:30, :122). Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "RECOMMENDATION: integrate AdMob banner-only in the container app (Library footer), but this needs a founder decision: the spec explicitly says 'Ads. The app has no ad SDK and stays that way.' (specs/AGrammarly.md:242), and the in-app About copy says 'There is no analytics and no advertising.' (mobile/lib/features/about/about_screen.dart:66-70), which must be rewritten in the same change.",
+  "Integration checklist: (1) mobile/pubspec.yaml add `agl_ads: git: {url: https://github.com/AmericanGroupLLC/agl-manifest.git, path: packages/agl_ads, ref: master}` (same descriptor as GroceryMatch/pubspec.yaml:28-31); (2) mobile/ios/Runner/Info.plist GADApplicationIdentifier = ca-app-pub-8528784688453695~4841751723 plus the SKAdNetworkItems array (copy from GroceryMatch/ios/Runner/Info.plist, 50 SKAdNetworkIdentifier entries); (3) mobile/android/app/src/main/AndroidManifest.xml <meta-data android:name=\"com.google.android.gms.ads.APPLICATION_ID\" android:value=\"ca-app-pub-8528784688453695~8378416918\"/>; (4) mobile/lib/main.dart (after AglCrash.init at :25, before runApp at :38) AglAds.configure(AglAdIds.fromEnvironment(androidAppId: 'ca-app-pub-8528784688453695~8378416918', iosAppId: 'ca-app-pub-8528784688453695~4841751723')); unawaited(AglAds.initialize()); (5) a 'Privacy choices' row in Settings wired to AglConsent.isPrivacyOptionsRequired/showPrivacyOptions (pattern: GroceryMatch/lib/features/settings/settings_screen.dart:26-33); (6) store/privacy/AGrammarly.json currently derives ads:false (only CRASH_DATA) - add DEVICE_ID + ADVERTISING_DATA, THIRD_PARTY_ADVERTISING, not linked (as store/privacy/NearServe.json); create store/ratings/AGrammarly.json with advertising:true; Play Data safety + 'Contains ads' declaration; listing/review-notes ads sentence. App ids from docs/admob-ids.json key AGrammarly.",
+  "Keyboard extension: none exists today (no appex/keyboard target in mobile/ios/Runner.xcodeproj/project.pbxproj by grep). If the founder's Q2 system keyboard (specs/AGrammarly.md:238, :247) is built, ads must stay in the container app only - never link GoogleMobileAds into the keyboard extension.",
+  "Apple 5.6 freeze (MA-043) and the 4.3/4.2.6 rejection mean no resubmission is automatic either way."
+ ],
+ "evidence": [
+  "/Users/spatchava/agl/AGrammarly/mobile/pubspec.yaml (grep agl_ads|google_mobile_ads: no hit)",
+  "agl-manifest/apps.json AGrammarly: admob.integrated false, ads false",
+  "agl-manifest/docs/admob-ids.json AGrammarly: android_app_id ~8378416918, ios_app_id ~4841751723",
+  "mobile/lib/features/about/about_screen.dart:66-70 'There is no analytics and no advertising.'",
+  "mobile/lib/features/library/library_screen.dart:206-210 ListView.separated over saved replies",
+  "ai-office/projects/real-apps/specs/AGrammarly.md:242 'Ads. The app has no ad SDK and stays that way.'",
+  "agl-manifest/store/privacy/AGrammarly.json _derived_from.ads false"
+ ]
+}

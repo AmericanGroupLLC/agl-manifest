@@ -1,0 +1,47 @@
+{
+ "repo": "AGRecorder",
+ "kids_or_families": false,
+ "kids_evidence": "store/apps/AGRecorder.json:33 primary_category UTILITIES; docs/store-policy/AGRecorder.md:48 '1.3 Kids Category: no ... none of [kids] detected'; no store/ratings/AGRecorder.json, so store/ratings/default.json applies (all content NONE). Lecture/meeting recorder for adults (spec AGRecorder.md:178 keywords). Play target-audience form not verified (no API).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/home_screen.dart:225 (AglAdBanner below the record dock on the Library/Marks home)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "AglAds.onTransition() fires when a recording is opened from the library (lib/screens/home_screen.dart:107). This is a task-focused utility: the user opens a take to play it back or work its marks, and a full-screen ad at that moment interrupts the task. Founder question 2 on this exact interstitial is still open (spec AGRecorder.md:221, :232)."
+ },
+ "native": {
+  "use": true,
+  "screen": "lib/screens/library_view.dart (LibraryView)",
+  "list_builder": "lib/screens/library_view.dart:80-86 (for g in groups / for e in g.entries -> LibraryCard; the rows go into ListView at :92)",
+  "every_n_items": 10,
+  "template": "small",
+  "why": "The library is a chronological, day-grouped history of recordings (library_view.dart:12-14), the 'history' list type the founder allows. Insert one AglNativeAd after every 10th LibraryCard (counting across day groups), never as the first row, and only when the filtered list has more than 10 cards. Not in the Marks inbox (marks_view.dart:76-84): those are to-do items. Not on the recording session. It shares the screen with the existing banner, so keep the 1-per-10 spacing. Judgement call: these are the user's own files, not a public feed, so revenue will be small; drop native if the founder sees it as clutter."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. Every feature is free and unlimited: no quota, premium tier or IAP exists (grep for premium/pro/limit/quota/in_app_purchase/revenuecat in lib/ finds no such feature; sharing is unlimited, recording_screen.dart:259-282). Adding a limit just to unlock it with an ad would gate a core feature."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads in pubspec.lock resolves to 97e9a7f, an ancestor of cb21ee5 (checked with git merge-base --is-ancestor): AglNativeAd / AglAds.showRewarded are not available until `flutter pub upgrade agl_ads`",
+  "Founder question 2 (interstitial in a recording app) is open: spec AGRecorder.md:221",
+  "The store copy describes the ads (store/apps/AGRecorder.json:9 'a banner below the Recordings list and, occasionally, a full-screen ad'). It must be updated if native is added or the interstitial is removed."
+ ],
+ "evidence": [
+  "lib/main.dart:31-35 AglAds.configure/initialize",
+  "lib/screens/home_screen.dart:107 AglAds.onTransition()",
+  "lib/screens/home_screen.dart:225 AglAdBanner",
+  "lib/screens/library_view.dart:80-92 day groups -> LibraryCard -> ListView",
+  "lib/screens/marks_view.dart:76-89 Marks inbox list",
+  "pubspec.lock agl_ads resolved-ref 97e9a7f",
+  "docs/admob-ids.json AGRecorder has android/ios native + rewarded units",
+  "scripts/agl_paths.py:142-160 admob_defines passes ADMOB_NATIVE_*/ADMOB_REWARDED_* at build time"
+ ]
+}

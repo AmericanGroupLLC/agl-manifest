@@ -1,0 +1,44 @@
+{
+ "repo": "DriftDate",
+ "kids_or_families": false,
+ "kids_evidence": "store/ratings/DriftDate.json:24 ageRatingOverrideV2 EIGHTEEN_PLUS; store/apps/DriftDate.json:33 primary_category LIFESTYLE; lib/core/domain/age_gate.dart exists; docs/store-policy/DriftDate.md:54 '1.3 Kids Category: no'.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/matches_screen.dart:212 (AglAdBanner as the last row of the Matches list)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "AglAds.onTransition() fires on tab switches (lib/screens/main_tabs.dart:94), guarded against Safe Meet and quiet periods (:88-93). DriftDate is a dating-safety app. A full-screen ad in the same tab bar as the safety feature is intrusive. The spec recommends removing ads from DriftDate entirely (spec DriftDate.md:396, F7) and bans interstitials around Safe Meet (:169)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "No suitable feed. Discover is a swipe deck of real people (lib/screens/discover_screen.dart:600-606 SwipeCardStack/DiscoverCard), and an ad card there would pass as a profile. Matches (matches_screen.dart:205-209) lists the user's matches and conversations, which is personal relationship data. Chat, Safe Meet and Passport are sensitive. The founder rule limits native to browse lists, and DriftDate has none that is not people."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "No premium tier or quota exists, and the spec puts premium tiers and IAP out of scope (spec DriftDate.md:377). The debug 'DriftDate+' switch is being removed (:208). Founder guidance for dating safety is to lean no."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder decision F7 (keep the single Matches banner or remove AdMob from DriftDate; recommended: remove) is open: spec DriftDate.md:396",
+  "agl_ads lock d5e5b72 predates cb21ee5 (not needed for this plan)."
+ ],
+ "evidence": [
+  "lib/main.dart:54-58 AglAds.configure/initialize",
+  "lib/screens/main_tabs.dart:88-94 onTransition with Safe Meet guard",
+  "lib/screens/matches_screen.dart:205-212",
+  "lib/screens/discover_screen.dart:600-606",
+  "store/ratings/DriftDate.json:24",
+  "spec DriftDate.md:169,248,377,396"
+ ]
+}

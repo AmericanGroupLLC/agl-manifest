@@ -1,0 +1,49 @@
+{
+ "repo": "BodyQuest",
+ "kids_or_families": true,
+ "kids_evidence": "Family app with children in the audience. Spec user: 'A parent and a child aged about 8–12 learning together, and curious adults' (BodyQuest.md:52). The 'Young Explorer' reading level is the app's Kids mode: lib/services/reading_level_sync.dart:2,12 and lib/learning/progress_store.dart:27 ('Young Explorer is Kids mode (no ads, child-directed)'). lib/services/ad_service.dart:16 says 'Ads are DISABLED in Kids Mode (COPPA / Designed for Families compliance)'. It is not in Apple's Kids Category today (store/apps/BodyQuest.json primary_category = HEALTH_AND_FITNESS), and joining it is founder question F3 (BodyQuest.md:251). Founder rule: children's apps get no rewarded and no native.",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": false,
+  "where": "None shown. AdService.createBannerAd is defined (lib/services/ad_service.dart:172), but nothing in lib/ calls it: a grep for createBannerAd|AdWidget outside ad_service.dart finds nothing. The spec confirms 'with the Shop gone there is no ad placement left' (BodyQuest.md:263)."
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Loaded but never shown. AdService.initialize calls _loadInterstitial (lib/services/ad_service.dart:161, loader at :194-211), and showInterstitial (:214) has no caller in lib/. That is a wasted request in a family learning app. Delete the loader. Do not add an interstitial."
+ },
+ "native": {
+  "use": false,
+  "screen": "none",
+  "list_builder": "none",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "The app has a children's audience (see kids_evidence), so under the founder rule it gets no native. The only builder list is search results (lib/screens/search_screen.dart:115-119), and the founder rule excludes it anyway."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "none",
+  "existing_limit_or_quota": "none (the new-cards-per-day setting is user-chosen, not a quota)",
+  "why": "The app has a children's audience, so under the founder rule it gets no rewarded. A RewardedAd is loaded at launch (lib/services/ad_service.dart:162, loader :239-256), but showRewarded (:259) has no caller, and when no ad is ready it grants the reward anyway (:260-262). Delete it. 'New cards per day' (4/8/12, BodyQuest.md:112) is a learning setting, not a quota, and must not be gated."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder decision F2 (BodyQuest.md:248, :263) is open: remove AdMob and UMP from BodyQuest entirely (recommended by the spec), or keep ads. Today the UMP consent form can still appear for Grown-up users in the EEA/UK although no ad is ever shown (BodyQuest.md:263, lib/services/ad_service.dart:148).",
+  "store/ratings/BodyQuest.json:16 declares \"advertising\": true while the app shows no ad. Fix this once F2 is decided.",
+  "Move to agl_ads: if F2 removes ads, delete lib/services/ad_service.dart and google_mobile_ads ^5.1.0 (pubspec.yaml:69). If F2 keeps ads, replace AdService with AglAds and AglAdBanner, and gate Young Explorer with AglAds.setSuspended(suspended: true) (packages/agl_ads/lib/src/ads.dart:55-63) plus the existing child-directed RequestConfiguration (ad_service.dart:297-300).",
+  "agl_ads is locked in pubspec.lock to f0fc3b2 (resolved-ref, line 17), which does not contain agl-manifest cb21ee5 (checked with `git merge-base --is-ancestor cb21ee5 f0fc3b2`). Run `flutter pub upgrade agl_ads` before using AglNativeAd / AglAds.showRewarded."
+ ],
+ "evidence": [
+  "lib/main.dart:72 unawaited(AdService.instance.initialize())",
+  "lib/services/ad_service.dart:130 adsEnabled => !_isKidsMode && !screenshotMode && hasAnyAdUnit",
+  "lib/services/ad_service.dart:161-162 _loadInterstitial(); _loadRewarded();",
+  "lib/services/ad_service.dart:214 showInterstitial (no caller)",
+  "lib/services/ad_service.dart:259 showRewarded (no caller)",
+  "lib/services/reading_level_sync.dart:12 setKidsMode(level == ReadingLevel.young)",
+  "pubspec.yaml:69 google_mobile_ads: ^5.1.0",
+  "pubspec.lock:17 resolved-ref f0fc3b237de24a4f0b2a3b9548bf09b4bd9377c6",
+  "ai-office/projects/real-apps/specs/BodyQuest.md:52, :251, :263"
+ ]
+}

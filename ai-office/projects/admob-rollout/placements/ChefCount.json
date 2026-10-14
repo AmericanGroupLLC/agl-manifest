@@ -1,0 +1,43 @@
+{
+ "repo": "ChefCount",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/ChefCount.json:14 primary_category FOOD_AND_DRINK; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. Spec user is a home cook for 1-4 people (ChefCount.md:46).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/features/recipes/recipes_screen.dart:202-207 (end of Recipes list) and lib/features/kitchen/kitchen_screen.dart:269-275 (end of Kitchen list)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Not used now: grep for onTransition/Interstitial in lib/ finds 0 hits. Keep it out. The app is used in a quick 6 pm 'what can I cook' session (ChefCount.md:46-48). The spec's founder Q2 alternative of 'one after I cooked this' (ChefCount.md:107,197) is a founder money decision, not a fit recommendation."
+ },
+ "native": {
+  "use": true,
+  "screen": "lib/features/recipes/recipes_screen.dart (RecipesScreen, recipe card list)",
+  "list_builder": "lib/features/recipes/recipes_screen.dart:200 (SliverList.builder at :198-201)",
+  "every_n_items": 10,
+  "template": "small",
+  "why": "The Recipes tab is a browsable catalogue list: 40 bundled recipes (`Recipe(` entries in lib/domain/catalogue.dart from :144) plus the user's own. A small native row after every 10 recipe cards sits as a distinct item, and the end-of-list banner stays. Put no native row in Kitchen (the user's own inventory), on Tonight's first screenful or in the cook sheet (the spec bans ads there, ChefCount.md:102)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota, premium tier or IAP: grep for premium/quota/in_app/limit in lib/ finds no hits. Sharing a recipe is free (lib/app/app.dart:15-16)."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads must be re-resolved to include agl-manifest cb21ee5 (AglNativeAd / showRewarded): pubspec.lock resolved-ref is 97e9a7f40471bca73e66fa5a2903d7be232e8645, which `git merge-base --is-ancestor cb21ee5 97e9a7f40471bca73e66fa5a2903d7be232e8645` reports does NOT contain cb21ee5 (pubspec.lock:17).",
+  "Release builds need ADMOB_NATIVE_* dart-defines (ad-units-plan.csv rows 137 and 143 have 'Read by app'=no)."
+ ],
+ "evidence": [
+  "lib/features/recipes/recipes_screen.dart:198-207 SliverList.builder + end banner",
+  "lib/features/kitchen/kitchen_screen.dart:265-275 SliverList.builder + end banner",
+  "lib/domain/catalogue.dart:144 recipeCatalogue (40 entries)",
+  "lib/main.dart:56-60 AglAds.configure/initialize",
+  "ai-office/projects/real-apps/specs/ChefCount.md:102,107,197"
+ ]
+}

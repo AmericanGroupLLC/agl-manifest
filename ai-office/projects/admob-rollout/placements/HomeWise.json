@@ -1,0 +1,44 @@
+{
+ "repo": "HomeWise",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app: docs/store-policy/HomeWise.json:92 Apple 1.3 'Kids Category' applies=false ('none of [kids] detected in the current source', generated 2026-10-14); store/apps/HomeWise.json:30 primary_category FINANCE. No Kids/Families store metadata found (grep of store/ and docs/). Age-rating questionnaire answers for this app were not read (store/apps/HomeWise.json lists it as having no schema field).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/homes/homes_screen.dart:135 (row after the Homes list) and mobile/lib/features/schedule/schedule_screen.dart:189 (row after the amortization table)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No AglAds.onTransition() in mobile/lib (grep: none); the per-tab interstitial was removed per spec (HomeWise.md:239). Keep it absent: a mortgage/affordability calculator in a finance context with short, task-focused sessions."
+ },
+ "native": {
+  "use": false,
+  "screen": "mobile/lib/features/homes/homes_screen.dart (HomesScreen)",
+  "list_builder": "mobile/lib/features/homes/homes_screen.dart:122-125 (for (final c in shown) -> HomeCard)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "Finance context. The Homes list is the user's own saved homes with budget verdicts (sensitive financial data), and the code comment already rules out ads between homes (homes_screen.dart:132-135 'never between homes'). The Schedule is an amortization data table (schedule_screen.dart:178-181, _MonthTable at :179), not a feed. No browse/discovery list exists, so native = no."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none (grep quota/premium/in_app/purchase in mobile/lib: no hits)",
+  "why": "No free quota or premium extra; CSV export (schedule_screen.dart:80,194 _exportCsv) is a basic tool and gating it behind an ad in a finance app would be a poor fit. Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Banner placement is still pending founder question 2 in the spec (HomeWise.md:226,364)"
+ ],
+ "evidence": [
+  "mobile/pubspec.yaml:25-29 agl_ads dep",
+  "mobile/lib/main.dart:44-48 AglAds.configure + initialize",
+  "mobile/lib/features/homes/homes_screen.dart:122-135",
+  "mobile/lib/features/schedule/schedule_screen.dart:80,178-194",
+  "grep onTransition mobile/lib: no hits",
+  "ai-office/projects/real-apps/specs/HomeWise.md:226,239,364",
+  "docs/store-policy/HomeWise.json:92"
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "repo": "daily-pulse",
+ "kids_or_families": false,
+ "kids_evidence": "News app for adults' morning brief; category LIFESTYLE (store/apps/daily-pulse.json:30); Kids Category audit n-a (docs/store-policy/daily-pulse.md:47).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/presentation/screens/today/edition_view.dart:216 (after the edition end card) and lib/presentation/screens/archive/archive_screen.dart:132 (after the 5th archive row)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No AglAds.onTransition call in lib (grep: no hit); the spec removed the tab-switch interstitial (specs/daily-pulse.md:199, founder Q2 at :333). Keep it out: a five-minute morning brief is a quick session. Note agl_ads still preloads one (see blockers)."
+ },
+ "native": {
+  "use": true,
+  "screen": "lib/presentation/screens/lists/article_list.dart (ArticleListBody) - used by Bright side, World editions, Search and Topic screens",
+  "list_builder": "lib/presentation/screens/lists/article_list.dart:43 (`for (final a in articles)` inside HairlineList)",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "These are real scrolling feeds of publisher headlines (ArticleTile rows from ~40 RSS sources), exactly the news-feed case. Insert `const AglNativeAd()` as its own row after every 8th article. Recommendations: (a) HairlineList is a non-lazy Column, so cap at 2 natives per list to avoid firing many requests at once; (b) pass a flag so AlertsScreen (bright_side_screen.dart:41, hard news) shows none - brand safety next to tragedy headlines; (c) never inside the Today edition story sections, which the spec keeps ad-free (specs/daily-pulse.md:199)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "No quota, premium or IAP (grep premium|quota|in_app_purchase|paywall in lib: no hit). The only 'cap' is the reader's own morning hard-news cap, a wellbeing setting that must not be bought back with an ad. Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "pubspec.lock pins agl_ads at d5e5b72, which predates agl-manifest cb21ee5 (git merge-base --is-ancestor: not contained); run `flutter pub upgrade agl_ads` before using AglNativeAd/showRewarded.",
+  "agl_ads AglAds.initialize() preloads an interstitial on every launch even if the app never calls onTransition (packages/agl_ads/lib/src/ads.dart:94 `unawaited(_loadInterstitial());`). Removing the onTransition call does not stop that request; agl_ads needs an opt-out (e.g. a configure flag) or the app keeps sending one unused interstitial request per launch.",
+  "store/ratings/daily-pulse.json does not exist, so tooling falls back to store/ratings/default.json:16 \"advertising\": false although the app ships AdMob; apps with ads that have their own file say true (e.g. store/ratings/TripNest.json:16). Not verified what App Store Connect currently holds."
+ ],
+ "evidence": [
+  "pubspec.yaml:26-29 agl_ads git dep",
+  "lib/main.dart:42-46 AglAds.configure/initialize",
+  "lib/presentation/screens/today/edition_view.dart:216 AglAdBanner",
+  "lib/presentation/screens/archive/archive_screen.dart:132 AglAdBanner",
+  "lib/presentation/screens/lists/article_list.dart:43 article loop",
+  "lib/presentation/screens/lists/bright_side_screen.dart:18,41 ArticleListBody (Bright side, Alerts)",
+  "ai-office/projects/real-apps/specs/daily-pulse.md:199 ads rule, :333 Q2 interstitial"
+ ]
+}

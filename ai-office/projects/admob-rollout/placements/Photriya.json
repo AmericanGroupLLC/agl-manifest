@@ -1,0 +1,42 @@
+{
+ "repo": "Photriya",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/Photriya.json:30 primary_category PHOTO_AND_VIDEO; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. store/ratings/Photriya.json has no kidsAgeBand. Spec user is a designer or maker (Photriya.md:60).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/features/swatchbook/swatchbook_screen.dart:280-286 (one banner at the foot of the Swatchbook list)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "keep",
+  "why": "AglAds.onTransition() runs once, when the user comes back to the Swatchbook after a photo session they finished (lib/features/swatchbook/swatchbook_screen.dart:54-58). That is a natural break after a completed task, not mid-task. agl_ads skips the first 2 transitions and caps at 1 per 3 minutes (packages/agl_ads/lib/src/ads.dart:22,26). It is a creative tool, not a health or finance one."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "The only long list is the Swatchbook (SliverList.builder at swatchbook_screen.dart:269-279), which holds the user's own captured colours. Designers compare those colours side by side, and a native ad with its own imagery between swatches would get in the way of that work. It is a personal library rather than a content feed. I am unsure whether the founder's 'history' example covers it, so I chose no."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota or premium tier now: grep for premium/quota/unlock in lib/ finds nothing. All 5 export formats (ASE/GPL/CSS/JSON/PNG, lib/core/color/palette_export.dart:37) are free, and gating one would remove a feature."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads must be re-resolved to include agl-manifest cb21ee5 (AglNativeAd / showRewarded): pubspec.lock resolved-ref is 7b3c98edc563f9bfdf90e6b91def17b4c4d20de3, which `git merge-base --is-ancestor cb21ee5 7b3c98edc563f9bfdf90e6b91def17b4c4d20de3` reports does NOT contain cb21ee5 (pubspec.lock:25). Only relevant if a format is added later."
+ ],
+ "evidence": [
+  "lib/features/swatchbook/swatchbook_screen.dart:54-58 onTransition after photo session",
+  "lib/features/swatchbook/swatchbook_screen.dart:269-286 entry list + foot banner",
+  "lib/core/color/palette_export.dart:37 ExportFormat enum",
+  "lib/main.dart:31-35 AglAds.configure/initialize",
+  "packages/agl_ads/lib/src/ads.dart:22,26 caps (agl-manifest)"
+ ]
+}

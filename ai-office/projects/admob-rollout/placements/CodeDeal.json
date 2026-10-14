@@ -1,0 +1,45 @@
+{
+ "repo": "CodeDeal",
+ "kids_or_families": false,
+ "kids_evidence": "Not a children's app. Spec user: 'an online shopper who already receives promo codes and loses them' (CodeDeal.md:40). store/apps/CodeDeal.json primary_category = SHOPPING. No Kids or Families field.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/features/wallet/wallet_page.dart:270 (WalletPage, last sliver after the last ticket, :264-272)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "There is no AglAds.onTransition or InterstitialAd in lib/. Keep it absent. CodeDeal is used at checkout, a quick and task-focused moment, and the spec removed the interstitial (CodeDeal.md:115)."
+ },
+ "native": {
+  "use": false,
+  "screen": "lib/features/wallet/wallet_page.dart (WalletPage)",
+  "list_builder": "lib/features/wallet/wallet_page.dart:251 (for-loop, not a builder)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "The wallet list (lib/features/wallet/wallet_page.dart:233-262; tickets built in a for-loop at :251 inside SliverList.list per store group, with no itemBuilder) holds the user's own saved promo codes. In a coupon wallet, a native ad (often a retailer offer) between the user's codes could be mistaken for a code they hold, which is deceptive. The spec allows only one AglAdBanner as the last item of the wallet list (CodeDeal.md:115)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "none",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. Everything runs on the device and is free. There is no quota, premium tier or IAP: a grep of the Dart code in lib/ for premium|in_app_purchase|quota|subscription finds only the word 'LIMITED' in a parser stop-list (lib/domain/promo_parser.dart:268)."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder decision D6 (retire CodeDeal or keep it) is noted at CodeDeal.md:9. The current lib/ is the keep path.",
+  "Age-rating answers: there is no store/ratings/CodeDeal.json, so deliver_metadata.py:48 falls back to store/ratings/default.json, whose line 16 is \"advertising\": false, and passes it to Apple at deliver_metadata.py:75. This app does show banners. store-compliance should add store/ratings/CodeDeal.json with advertising: true.",
+  "agl_ads is locked in pubspec.lock to d5e5b72 (resolved-ref, line 17), which does not contain agl-manifest cb21ee5 (checked with `git merge-base --is-ancestor cb21ee5 d5e5b72`). Run `flutter pub upgrade agl_ads` before using AglNativeAd / AglAds.showRewarded."
+ ],
+ "evidence": [
+  "lib/main.dart:36 AglAds.configure(...)",
+  "lib/main.dart:40 unawaited(AglAds.initialize())",
+  "lib/features/wallet/wallet_page.dart:264-272 'The one ad slot in the app, after the last ticket' + AglAdBanner",
+  "lib/features/wallet/wallet_page.dart:251 for (final e in g.entries) CodeTicket",
+  "mobile/codedeal_app/pubspec.lock:17 resolved-ref d5e5b7269bce17efbf3fb9e0a331542e69c4cc26",
+  "ai-office/projects/real-apps/specs/CodeDeal.md:115"
+ ]
+}

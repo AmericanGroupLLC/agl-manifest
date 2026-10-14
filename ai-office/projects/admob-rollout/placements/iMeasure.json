@@ -1,0 +1,49 @@
+{
+ "repo": "iMeasure",
+ "kids_or_families": false,
+ "kids_evidence": "Not a children's app. Spec user: 'a DIY renovator, a handyperson, a tiler, or a renter putting up shelves' (iMeasure.md:50). store/apps/iMeasure.json primary_category = UTILITIES. store/ratings/iMeasure.json has no kids field and advertising: true (:16).",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/home_shell.dart:131-132 (BannerAdSlot, own widget lib/widgets/banner_ad_slot.dart, shown only on the Instruments and Jobs tabs: home_shell.dart:26)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "This is the app's own AdService, not agl_ads. Every 3rd instrument the user closes shows an interstitial: lib/screens/instruments_screen.dart:161 AdService.instance.onToolClosed(); lib/services/ad_service.dart:171-200; lib/services/ads_config.dart:154 interstitialEveryNTools = 3. iMeasure is a utility opened repeatedly in quick, task-focused sessions. Its own comment says 'utility tools people open repeatedly in a single session' (ads_config.dart:151-153)."
+ },
+ "native": {
+  "use": false,
+  "screen": "none",
+  "list_builder": "lib/screens/jobs_screen.dart:401 (considered, rejected)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "No content feed. The lists are the user's own jobs (lib/screens/jobs_screen.dart:80-104) and a job's readings (JobDetailScreen, lib/screens/jobs_screen.dart:396-406, for-loop at :401 inside an inset GroupedList, next to CSV export). These are working measurement records in an iOS-style grouped list. An ad row would break the grouping and sit inside a professional record. I am not sure it fits, so use=false."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "none",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota and no paid tier ('There is no paid tier' at lib/services/ad_service.dart:36). CSV and photo export (lib/screens/jobs_screen.dart:213-233, lib/screens/settings_screen.dart:170-175) is part of the core job and must not be gated."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Move onto agl_ads: replace AdService and BannerAdSlot (google_mobile_ads ^9.1.0 used directly, pubspec.yaml:67) with AglAds.configure/initialize and AglAdBanner on the Jobs and Instruments tabs. Delete the interstitial path (ad_service.dart:127-200, instruments_screen.dart:161, ads_config.dart:154). Today agl_ads supplies only AglConsent (ad_service.dart:81, :85, :107, :134).",
+  "Dead React Native files are tracked under lib/ (23 .ts/.tsx files per `git ls-files lib`), including lib/monetization/admob.tsx:88-90 (an InterstitialAd) and lib/monetization/revenuecat.ts. Flutter does not compile them, but they are misleading. Remove them in a separate cleanup.",
+  "Founder question Q2 (keep ads at all) is open (iMeasure.md:253).",
+  "agl_ads is locked in pubspec.lock to f0fc3b2 (resolved-ref, line 17), which does not contain agl-manifest cb21ee5 (checked with `git merge-base --is-ancestor cb21ee5 f0fc3b2`). Run `flutter pub upgrade agl_ads` before using AglNativeAd / AglAds.showRewarded."
+ ],
+ "evidence": [
+  "lib/services/ad_service.dart:17 class AdService; :111 BannerAd(; :142 InterstitialAd.load(",
+  "lib/screens/instruments_screen.dart:161 AdService.instance.onToolClosed()",
+  "lib/services/ads_config.dart:154 interstitialEveryNTools = 3",
+  "lib/screens/home_shell.dart:26 showsBanner(index) => index == instruments || index == jobs",
+  "lib/screens/home_shell.dart:132 const BannerAdSlot(key: ValueKey('list-banner'))",
+  "lib/screens/jobs_screen.dart:401 for (final r in visible) _ReadingRow",
+  "pubspec.yaml:67 google_mobile_ads: ^9.1.0",
+  "pubspec.lock:17 resolved-ref f0fc3b237de24a4f0b2a3b9548bf09b4bd9377c6",
+  "ios/Runner/Info.plist GADApplicationIdentifier = ca-app-pub-8528784688453695~7680755795 (plutil)"
+ ]
+}

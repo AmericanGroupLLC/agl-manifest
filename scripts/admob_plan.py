@@ -17,7 +17,11 @@ noted in Checks. The measured columns are rewritten on every run:
     App ID in app               the AdMob app id in Info.plist / AndroidManifest.xml equals this row's.
                                 A wrong iOS id terminates the app at launch.
     Read by app                 the app's code reads that define (agl_ads reads banner + interstitial)
-    Shown in app                the app's code loads that ad format
+    Ad code in app              code for that format exists in lib/ (it may be unreachable)
+    Shown in app                from the monetization review (ai-office/projects/admob-rollout/
+                                placements/<repo>.json, file:line evidence): the app displays it
+    Planned                     that review's plan under the founder's "fit per app" decision
+                                (2026-10-14): keep / remove / add / no
     Checks                      anything wrong with the row
 
 Also writes docs/ADMOB_PLAN.md, the per-app summary. Reads local files only.
@@ -40,7 +44,8 @@ PLAN = MANIFEST / "store" / "admob" / "ad-units-plan.csv"
 REPORT = MANIFEST / "docs" / "ADMOB_PLAN.md"
 FOUNDER = ["#", "App Name", "Package / Bundle ID", "Platform", "AdMob App ID", "Ad Format",
            "Ad Unit Name", "AdMob Ad Unit ID", "Status", "Notes"]
-MEASURED = ["Repo", "Define", "In build data", "App ID in app", "Read by app", "Shown in app", "Checks"]
+MEASURED = ["Repo", "Define", "In build data", "App ID in app", "Read by app", "Ad code in app",
+            "Shown in app", "Planned", "Checks"]
 FORMATS = {  # plan format -> (admob-ids.json / define suffix, code that loads it)
     "Banner": ("banner", r"AglAdBanner\b|\bBannerAd\("),
     "Interstitial": ("interstitial", r"AglAds\.onTransition|(?<!Rewarded)InterstitialAd\.load"),
@@ -74,9 +79,27 @@ def shipped_app_ids(d: pathlib.Path) -> dict:
     return out
 
 
-def code_of(d: pathlib.Path) -> str:
+def code_of(d: pathlib.Path) -> dict[str, str]:
     lib = d / "lib"
-    return "\n".join(p.read_text(errors="ignore") for p in lib.rglob("*.dart")) if lib.exists() else ""
+    # Comments stripped: a doc comment naming loadRewarded is not a call.
+    strip = re.compile(r"/\*.*?\*/|//[^\n]*", re.S)
+    return {str(p): strip.sub("", p.read_text(errors="ignore")) for p in lib.rglob("*.dart")} if lib.exists() else {}
+
+
+PLACEMENTS = MANIFEST / "ai-office" / "projects" / "admob-rollout" / "placements"
+
+
+def reviewed(repo: str) -> dict:
+    """The monetization review of one app (placements/<repo>.json): what it
+    shows today, read from the code with file:line evidence, and what is
+    planned. Whether an ad reaches the screen is not decidable by pattern
+    matching — loaders nobody calls and widgets no screen places look the same
+    as live ones — so the "Shown in app" column comes from this review."""
+    f = PLACEMENTS / f"{repo}.json"
+    try:
+        return json.loads(f.read_text())
+    except (OSError, ValueError):
+        return {}
 
 
 def main() -> int:
@@ -98,12 +121,14 @@ def main() -> int:
     facts = {}
     for repo, a in apps.items():
         d = app_dir(a)
-        code = code_of(d)
+        files = code_of(d)
+        code = "\n".join(files.values())
         facts[repo] = {
             "app_ids": shipped_app_ids(d),
+            "review": reviewed(repo),
             "code": code,
             "agl_ads": "AglAdIds.fromEnvironment" in code,
-            "ads_on": bool(re.search(r"AglAds\.configure|MobileAds\.instance\.initialize", code)),
+            "ads_on": bool(re.search(r"AglAds\.configure|MobileAds\.instance\.initialize|AglAds\.initialize", code)),
         }
 
     out, problems = [], 0
@@ -152,12 +177,23 @@ def main() -> int:
             checks.append("app id in app differs")
         code = f.get("code", "")
         read = bool(fmt) and (define in code or (f.get("agl_ads") and fmt[0] in ("banner", "interstitial")))
-        shown = bool(fmt) and f.get("ads_on") and bool(re.search(fmt[1], code))
+        present = bool(fmt) and bool(re.search(fmt[1], code))
+        rv = f.get("review", {})
+        key_ = fmt[0] if fmt else ""
+        if not rv:
+            shown, planned = "not reviewed", ""
+        else:
+            shown = "yes" if key_ in ("banner", "interstitial") and (rv.get(key_) or {}).get("present") else "no"
+            planned = {"banner": "keep" if (rv.get("banner") or {}).get("present") else "no",
+                       "interstitial": (rv.get("interstitial") or {}).get("recommend", "") if (rv.get("interstitial") or {}).get("present") else "no",
+                       "rewarded": "add" if (rv.get("rewarded") or {}).get("use") else "no",
+                       "native": "add" if (rv.get("native") or {}).get("use") else "no"}.get(key_, "no")
         hard = [c for c in checks if not c.startswith("package corrected")]
         problems += bool(hard)
         out.append({**row, "Repo": repo, "Define": define, "In build data": "yes" if in_data else "NO",
                     "App ID in app": app_id_state, "Read by app": "yes" if read else "no",
-                    "Shown in app": "yes" if shown else "no", "Checks": "; ".join(checks)})
+                    "Ad code in app": "yes" if present else "no", "Shown in app": shown,
+                    "Planned": planned, "Checks": "; ".join(checks)})
 
     PLAN.parent.mkdir(parents=True, exist_ok=True)
     with open(PLAN, "w", newline="", encoding="utf-8") as fh:
@@ -181,9 +217,10 @@ def main() -> int:
         f"**{sum(r['In build data'] == 'yes' for r in out)}/{len(out)}**",
         f"- Rows with a problem: **{problems}**",
         "",
-        "Formats: a ✅ means the app loads that format; ▫️ means the unit exists in AdMob and is passed "
-        "to the build but the app never shows it. Showing a format is a product decision per app "
-        "(placement, frequency, reward), not a data fix.",
+        "Formats, from the monetization review (`ai-office/projects/admob-rollout/placements/<repo>.json`, "
+        "file:line evidence) under the founder's \"fit per app\" decision (2026-10-14): ✅ shown and kept · "
+        "➖ shown, review recommends removing · ➕ not shown, review recommends adding · ▫️ unit exists, not used. "
+        "App open and rewarded interstitial are \"no\" for every app by that decision.",
         "",
         "| App | Units | App id iOS / Android | " + " | ".join(fmt_names) + " | Checks |",
         "| --- | --- | --- | " + " | ".join("---" for _ in fmt_names) + " | --- |",
@@ -193,14 +230,19 @@ def main() -> int:
         ida = {r["Platform"].lower(): r["App ID in app"] for r in rs}
         marks = []
         for fn in fmt_names:
-            shown = any(r["Ad Format"] == fn and r["Shown in app"] == "yes" for r in rs)
-            marks.append("✅" if shown else "▫️")
+            r0 = next((r for r in rs if r["Ad Format"] == fn), {})
+            shown, plan = r0.get("Shown in app") == "yes", r0.get("Planned", "")
+            marks.append("❔" if r0.get("Shown in app") == "not reviewed" else
+                         "➖" if shown and plan == "remove" else "✅" if shown else "➕" if plan == "add" else "▫️")
         chk = sorted({c for r in rs for c in r["Checks"].split("; ") if c})
         lines.append(f"| {app} | {len(rs)} | {ida.get('ios', '-')} / {ida.get('android', '-')} | "
                      + " | ".join(marks) + f" | {'; '.join(chk)} |")
-    counts = collections.Counter(sum(any(r["Ad Format"] == fn and r["Shown in app"] == "yes" for r in rs)
-                                     for fn in fmt_names) for rs in by_app.values())
-    lines += ["", "Formats shown per app: " + ", ".join(f"{n} format(s): {c} apps" for n, c in sorted(counts.items())), ""]
+    def n(fmt, col, val):
+        return sum(any(r["Ad Format"] == fmt and r[col] == val for r in rs) for rs in by_app.values())
+    lines += ["", "| Format | Apps showing it today | Review: remove | Review: add |", "| --- | --- | --- | --- |"]
+    for fn in fmt_names:
+        lines.append(f"| {fn} | {n(fn, 'Shown in app', 'yes')} | {n(fn, 'Planned', 'remove')} | {n(fn, 'Planned', 'add')} |")
+    lines.append("")
     REPORT.write_text("\n".join(lines))
 
     print(f"{PLAN.relative_to(MANIFEST)}: {len(out)} units, {len(by_app)} apps, {problems} with a problem")

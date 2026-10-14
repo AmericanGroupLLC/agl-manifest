@@ -1,0 +1,43 @@
+{
+ "repo": "MyCard",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app: docs/store-policy/MyCard.json:105 Apple 1.3 'Kids Category' applies=false ('none of [kids] detected in the current source', generated 2026-10-14); store/apps/MyCard.json:31 primary_category UTILITIES. No Kids/Families store metadata found (grep of store/ and docs/). Age-rating questionnaire answers for this app were not read (store/apps/MyCard.json lists it as having no schema field).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/cards/wallet_screen.dart:282 (inline, very end of the home scroll, key 'home-ad')"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No AglAds.onTransition() in mobile/lib (grep: none). Keep it absent: an encrypted card wallet / lost-wallet plan is a security/finance context used in quick moments (showing a card at a counter); the code comment lists screens that must never carry an ad (wallet_screen.dart:276-281)."
+ },
+ "native": {
+  "use": false,
+  "screen": "mobile/lib/features/cards/wallet_screen.dart (wallet home)",
+  "list_builder": "mobile/lib/features/cards/wallet_screen.dart:250 (for (final card in elsewhere) - not a builder)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "The only list is the user's own encrypted cards (sensitive financial/identity data). Founder rule: no native inside sensitive data screens; MyCard has no browse/discovery feed. Spec Q3 even offers removing ads from MyCard entirely (MyCard.md:410)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none (grep premium/quota/in_app/purchase/limit in mobile/lib: only text-length formatters and the OS biometric rate-limit)",
+  "why": "No quota or premium extra; backup, export and the lost-wallet plan are safety features that must not be gated. Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder Q3 (MyCard.md:410) may remove ads from MyCard entirely"
+ ],
+ "evidence": [
+  "mobile/pubspec.yaml:55-59 agl_ads dep",
+  "mobile/lib/main.dart:56-60 AglAds.configure + initialize",
+  "mobile/lib/features/cards/wallet_screen.dart:205,250,276-282",
+  "grep onTransition mobile/lib: no hits",
+  "ai-office/projects/real-apps/specs/MyCard.md:191,276-279,410",
+  "docs/store-policy/MyCard.json:105"
+ ]
+}

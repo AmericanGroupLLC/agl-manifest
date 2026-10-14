@@ -1,0 +1,48 @@
+{
+ "repo": "yourtube",
+ "kids_or_families": false,
+ "kids_evidence": "Archival public-domain film player for a general audience; category ENTERTAINMENT (store/apps/yourtube.json:63); Kids Category audit n-a (docs/store-policy/yourtube.md:41); store/ratings/yourtube.json:16 advertising true, no kidsAgeBand.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/presentation/screens/films/films_screen.dart:103 (below the first loaded shelf) and lib/presentation/screens/film/film_detail_screen.dart:325 (detail page) - own AdBannerWidget (lib/presentation/widgets/ads/ad_banner_widget.dart), not AglAdBanner"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No interstitial anywhere (grep InterstitialAd|onTransition in lib: no hit; app_constants.dart:38 'The app shows one ad format, the banner'). Keep it out of a video player."
+ },
+ "native": {
+  "use": true,
+  "screen": "lib/presentation/screens/search/search_screen.dart (search results list)",
+  "list_builder": "lib/presentation/screens/search/search_screen.dart:148-180 (ListView.builder; FilmRow at :177)",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "Search returns a paged, lazily built vertical list of Internet Archive films ('N films in the archive' header, Load more) - the results case, and the search screen has no banner today. Insert AglNativeAd as its own row after every 8th FilmRow (adjust itemCount/index math). Not in the horizontal shelf carousels (films_screen.dart:167), Library (user's own history/saved), the player or the contact sheet (specs/yourtube.md:246). Phone/tablet only: skip when TvPlatform.isTV (main_scaffold.dart:74)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none (recentLimit/watchedLimit/resumeLimit in providers are storage caps, not user quotas)",
+  "why": "All films are free public-domain items; no quota, premium or IAP (grep premium|in_app_purchase|quota|paywall: no hit). Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "yourtube imports agl_ads only for AglConsent (lib/main.dart:45-49, ad_banner_widget.dart:35) and never calls AglAds.configure, so AglNativeAd would render nothing (it needs AglAds.ids/isEnabled, packages/agl_ads/lib/src/ad_native.dart:48). Add AglAds.configure(AglAdIds.fromEnvironment(androidAppId: 'ca-app-pub-8528784688453695~2593320348', iosAppId: 'ca-app-pub-8528784688453695~7914938945')) in main; do NOT also call AglAds.initialize() (main.dart already runs AglConsent.gather + MobileAds.instance.initialize at :45-46, and initialize() would add an unused interstitial preload, ads.dart:94).",
+  "pubspec.lock pins agl_ads at f0fc3b2, which predates agl-manifest cb21ee5 (git merge-base --is-ancestor: not contained); run `flutter pub upgrade agl_ads` before using AglNativeAd/showRewarded. google_mobile_ads is locked at 5.3.1 (pubspec.yaml:59 ^5.1.0); agl_ads allows >=5.2.0 <10.0.0 - native template support on 5.3.1 not verified by build.",
+  "Hard-coded test device id in release path: MobileAds updateRequestConfiguration testDeviceIds (lib/main.dart:54-58) - harmless for users but worth confirming intended.",
+  "Store/review copy says banner-only ('The app shows one ad format', lib/core/constants/app_constants.dart:38); update listing/review notes when native ships. app_constants.dart:38 also mentions an AdCardWidget that no longer exists in lib (grep: no hit).",
+  "agl-manifest/apps.json yourtube.admob ids are stale (Google test ids); the app ships ~2593320348 (AndroidManifest.xml:66-67) and ~7914938945 (Info.plist:36)."
+ ],
+ "evidence": [
+  "pubspec.yaml:19-22 agl_ads git dep; :59 google_mobile_ads ^5.1.0",
+  "lib/main.dart:44-49 consent + MobileAds init",
+  "lib/presentation/screens/films/films_screen.dart:103 AdBannerWidget; :167 horizontal shelf",
+  "lib/presentation/screens/film/film_detail_screen.dart:325 AdBannerWidget",
+  "lib/presentation/screens/search/search_screen.dart:148-180 results ListView.builder",
+  "lib/core/constants/app_constants.dart:38",
+  "ai-office/projects/real-apps/specs/yourtube.md:246 ads rule"
+ ]
+}

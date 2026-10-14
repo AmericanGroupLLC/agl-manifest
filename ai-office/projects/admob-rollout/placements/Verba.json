@@ -1,0 +1,52 @@
+{
+ "repo": "Verba",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app: docs/store-policy/Verba.json:126 Apple 1.3 'Kids Category' applies=false ('none of [kids] detected in the current source', generated 2026-10-14); store/apps/Verba.json:32 primary_category EDUCATION. No Kids/Families store metadata found (grep of store/ and docs/). store/ratings/Verba.json read: all content descriptors NONE, advertising true. Category is EDUCATION but the audience is travellers (store/apps/Verba.json:36), not children.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": false,
+  "where": "none. VerbaBannerAd is defined (lib/core/widgets/ad_banner.dart:9) but no screen instantiates it (grep 'VerbaBannerAd(' in lib: definition only); lib/core/config/verba_config.dart:45 says 'No screen places a banner today'"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Verba does not use AglAds.onTransition. Its own service has showInterstitialIfReady (lib/core/services/monetization_service_mobile.dart:192-210), but nothing calls it (grep in lib outside the service: no hits; verba_config.dart:49 says 'No screen places one today'). Do not add one: a phrase translator is used in quick, task-focused moments at an airport, restaurant or hotel (store/apps/Verba.json:36)."
+ },
+ "native": {
+  "use": true,
+  "screen": "lib/features/history/history_screen.dart (HistoryScreen)",
+  "list_builder": "lib/features/history/history_screen.dart:173-178 (ListView.separated itemBuilder -> Dismissible ListTile)",
+  "every_n_items": 10,
+  "template": "small",
+  "why": "Translation history is a real scrolling list of items, newest first, capped at 500 (lib/core/data/history_store.dart:17,55). 'History' is one of the founder's allowed feed types. A small template as its own row after every 10th entry fits. The ad row must not be Dismissible or tappable as an entry, and _delete/onDismissed (history_screen.dart:180-192) must map indexes past the ad rows. Not a sensitive-data context under the founder rule (not health, finance or immigration). Deck (lib/features/deck/deck_screen.dart:227-231) is the user's study cards: no native there. CONDITIONAL on founder Q3 keeping AdMob in Verba at all (spec Verba.md:397)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none in-app. The only quota is upstream: MyMemory's anonymous daily allowance (spec Verba.md:169), which an ad cannot extend. The old Buddy quota_tracker is gone (no lib/core/domain/quota_tracker.dart in the current tree).",
+  "why": "There is no in-app free quota or premium extra. 'Watch an ad for more translations' would be false because the limit is MyMemory's per-connection allowance. The spec also removes every 'Pro/Unlock with Pro' string (Verba.md:200,364)."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder Q3 (spec Verba.md:397): keep or remove AdMob in Verba. If it is removed, native = no.",
+  "Verba serves ads through its own google_mobile_ads service (lib/core/services/monetization_service_mobile.dart:18-19,119-210) and uses agl_ads only for consent (:85-89). AglAds.configure/initialize is never called, so AglNativeAd would render nothing (ad_native.dart:45-46 returns when AglAds.ids is null). The developer must add AglAds.configure(AglAdIds.fromEnvironment(...)) + initialize first.",
+  "pubspec.lock pins agl_ads at f0fc3b2 (pubspec.lock) (pubspec.lock grep), which predates cb21ee5 and has no ad_native.dart (git cat-file checked) - developer must run `flutter pub upgrade agl_ads` before AglNativeAd/showRewarded exist",
+  "Verba pins google_mobile_ads ^5.1.0 directly (pubspec.yaml:49), while agl_ads needs >=5.2.0 <10.0.0 (packages/agl_ads/pubspec.yaml:22). The resolver must agree.",
+  "store/admob/ad-units-plan.csv rows 469/475 mark the Verba banner 'Shown in app = yes', but the code places no banner (verba_config.dart:45). The CSV is wrong for Verba."
+ ],
+ "evidence": [
+  "pubspec.yaml:11-15 agl_ads dep, :49 google_mobile_ads ^5.1.0",
+  "lib/main.dart:61 initializeAdMob",
+  "lib/core/config/verba_config.dart:45-70,165-180",
+  "lib/core/widgets/ad_banner.dart:9-32",
+  "lib/core/services/monetization_service_mobile.dart:18-19,85-89,192-210",
+  "lib/features/history/history_screen.dart:11-12,173-192",
+  "lib/core/data/history_store.dart:17,55",
+  "ai-office/projects/real-apps/specs/Verba.md:48,169,397",
+  "store/apps/Verba.json:32,36",
+  "docs/store-policy/Verba.json:126",
+  "store/admob/ad-units-plan.csv rows 469,473,475,479"
+ ]
+}

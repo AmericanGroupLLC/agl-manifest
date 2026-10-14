@@ -1,0 +1,44 @@
+{
+ "repo": "ApexMarketWatch",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/ApexMarketWatch.json:34 primary_category FINANCE; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. Spec user is a self-directed long-term US investor (ApexMarketWatch.md:44).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/filings/filings_screen.dart:173-176 (inline after the 10th 13F move card, kAdAfterCard=10 at :20)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "AglAds.onTransition() fires on every tab switch (mobile/lib/features/shell/home_shell.dart:47-52). This is a finance app checked in quick sessions ('is the market under stress right now?'), and the founder rule says to remove interstitials where they feel intrusive in a finance context. The spec already raises this as founder Q2 (ApexMarketWatch.md:258)."
+ },
+ "native": {
+  "use": true,
+  "screen": "mobile/lib/features/filings/filings_screen.dart (FilingsScreen, 13F position-change cards)",
+  "list_builder": "mobile/lib/features/filings/filings_screen.dart:168 (for-loop over shown move cards inside ListView at :75; cap _visibleMoveLimit=50 at :17)",
+  "every_n_items": 10,
+  "template": "small",
+  "why": "The Filings tab is a browse/discovery feed of public SEC 13F moves made by large funds. It holds no personal financial data, so it fits the founder's 'browse lists only' rule for sensitive contexts. The banner after card 10 stays. Add native rows after cards 20 and 40. The 50-card cap allows at most 2 native rows. Put no native row on Stress, Watchlist (the user's own tickers) or Replay."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota or premium tier. The 50-card cap (filings_screen.dart:17,99) exists to stop list jank, not as a free tier, so selling 'more results' behind an ad would turn a performance cap into an artificial gate. Replay 'Export CSV' is already free (mobile/lib/features/replay/replay_screen.dart:120-156)."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads must be re-resolved to include agl-manifest cb21ee5 (AglNativeAd / showRewarded): pubspec.lock resolved-ref is 904d8e9c958c71a9e171b0fafc9db5c4428e75b7, which `git merge-base --is-ancestor cb21ee5 904d8e9c958c71a9e171b0fafc9db5c4428e75b7` reports does NOT contain cb21ee5 (mobile/pubspec.lock:17).",
+  "Spec founder Q2 (keep or drop the interstitial) is open (ApexMarketWatch.md:258). Q1 (the 'MarketWatch' name) is also open (:257).",
+  "Release builds need ADMOB_NATIVE_* dart-defines (ad-units-plan.csv rows 65 and 71 have 'Read by app'=no)."
+ ],
+ "evidence": [
+  "mobile/lib/features/shell/home_shell.dart:47-52 AglAds.onTransition in _select",
+  "mobile/lib/features/filings/filings_screen.dart:17 _visibleMoveLimit=50; :20 kAdAfterCard=10; :75 ListView; :168-177 card loop with AglAdBanner",
+  "mobile/lib/features/replay/replay_screen.dart:120-156 free Export CSV",
+  "mobile/pubspec.yaml:16-20 agl_ads dep",
+  "ai-office/projects/real-apps/specs/ApexMarketWatch.md:132,258"
+ ]
+}

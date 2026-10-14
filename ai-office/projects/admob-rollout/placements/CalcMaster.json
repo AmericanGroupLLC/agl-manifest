@@ -1,0 +1,47 @@
+{
+ "repo": "CalcMaster",
+ "kids_or_families": false,
+ "kids_evidence": "store/apps/CalcMaster.json:32 primary_category UTILITIES; store/ratings/CalcMaster.json: all content NONE, advertising true (:16); docs/store-policy/CalcMaster.md:52 '1.3 Kids Category: no'. Play target-audience form not verified.",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/sheet/sheets_list_screen.dart:40 and lib/screens/tools/tools_drawer.dart:165 (app-owned BannerAdSlot, lib/widgets/banner_ad_slot.dart:18)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "AdService has interstitial code (lib/monetization/ad_service.dart:117-170), but nothing in lib/ calls showInterstitial or shouldShowInterstitial. monetization_config.dart:166-168 says 'interstitial/native have no call sites'. The app is a quick calculator/notepad utility, so do not add one. The unused code can be deleted."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "The only list is the Sheets list (sheets_list_screen.dart:150-153 ListView.separated -> _SheetTile): a short index of the user's own working documents (expenses, invoices, loans). It is not a content feed, it already carries the banner (:40), and it is finance-adjacent data. Convert lists (convert_detail.dart:445-618) are unit pickers, not content. No good native slot."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. The Pro paywall and in_app_purchase were removed in a4c0e19 ('sign-in and paywall removed'), and the paid features are now free. pubspec.yaml has no purchases_flutter or in_app_purchase, and lib/ has no RevenueCat or premium code. The brief's 'CalcMaster already has RevenueCat' is out of date for the current code. Any rewarded unlock would mean inventing a new limit on a feature that is free today."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "The brief's assumption is stale: RevenueCat/IAP is gone from CalcMaster (git log -S purchases_flutter -- pubspec.yaml -> a4c0e19). If the founder later re-adds Pro (spec CalcMaster.md:379, Q2), reassess rewarded against 3.1.1 then.",
+  "CalcMaster does not call AglAds.configure/initialize. It runs its own AdService (lib/main.dart:49) and imports agl_ads only for AglConsent, so AglNativeAd/AglAds.showRewarded would not work without that wiring. Not needed while native and rewarded are 'no'.",
+  "agl_ads lock e791c55 predates cb21ee5 (not needed for this plan)."
+ ],
+ "evidence": [
+  "lib/screens/sheet/sheets_list_screen.dart:40 BannerAdSlot",
+  "lib/screens/tools/tools_drawer.dart:165 BannerAdSlot",
+  "lib/monetization/ad_service.dart:117,143,151 interstitial methods with no external callers (grep)",
+  "lib/monetization/monetization_config.dart:166-168",
+  "lib/screens/sheet/sheets_list_screen.dart:150-153",
+  "lib/main.dart:49 AdService.instance.bootstrap",
+  "git a4c0e19 removed paywall",
+  "spec CalcMaster.md:249 banner never on sheet editor"
+ ]
+}

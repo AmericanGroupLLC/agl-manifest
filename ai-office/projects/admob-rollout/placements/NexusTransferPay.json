@@ -1,0 +1,44 @@
+{
+ "repo": "NexusTransferPay",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app: docs/store-policy/NexusTransferPay.json:95 Apple 1.3 'Kids Category' applies=false ('none of [kids] detected in the current source', generated 2026-10-14); store/apps/NexusTransferPay.json:12 primary_category FINANCE. No Kids/Families store metadata found (grep of store/ and docs/). Age-rating questionnaire answers for this app were not read (store/apps/NexusTransferPay.json lists it as having no schema field).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "flutter-mobile-app/lib/screens/corridor_screen.dart:141 (inline, end of the corridor page)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No AglAds.onTransition() in flutter-mobile-app/lib (grep: none); the tab-change interstitial was removed (spec NexusTransferPay.md:234). Keep it absent: money-transfer cost audit in a finance context; the code comment requires the ad never sit beside a form or money input (corridor_screen.dart:138-141). Spec Q4 (:410) is the founder's call if one is ever wanted."
+ },
+ "native": {
+  "use": false,
+  "screen": "flutter-mobile-app/lib/screens/corridor_screen.dart (CorridorScreen)",
+  "list_builder": "flutter-mobile-app/lib/screens/corridor_screen.dart:121-124 (for loop -> SendRow, not a builder)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "Finance/payments context. The only lists are the user's own recorded transfers (SendRow in corridor and ledger) - sensitive money data, where the founder rule forbids native. There is no browse/discovery feed of external content."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none (grep premium/quota/in_app/purchase in flutter-mobile-app/lib: no hits; no in_app_purchase in pubspec.yaml)",
+  "why": "Nothing non-essential to reward, and any rewarded unlock in an app Apple already flagged for IAP products (2.1(b), spec NexusTransferPay.md:18,409) would invite a 3.1.1 question. No."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder Q1 keep-or-retire (NexusTransferPay.md:407) is open",
+  "Apple 2.1(b) IAP-products question (NexusTransferPay.md:409) is open"
+ ],
+ "evidence": [
+  "flutter-mobile-app/pubspec.yaml:28-32 agl_ads dep",
+  "flutter-mobile-app/lib/main.dart:32-36 AglAds.configure + initialize",
+  "flutter-mobile-app/lib/screens/corridor_screen.dart:113-124,138-141",
+  "grep onTransition flutter-mobile-app/lib: no hits",
+  "ai-office/projects/real-apps/specs/NexusTransferPay.md:99,232-235,407-410",
+  "docs/store-policy/NexusTransferPay.json:95"
+ ]
+}

@@ -1,0 +1,47 @@
+{
+ "repo": "RoomCraft",
+ "kids_or_families": false,
+ "kids_evidence": "Not a children's app. Spec user: 'someone furnishing or rearranging one real room ... Typically a renter who has just moved in' (RoomCraft.md:50). store/apps/RoomCraft.json primary_category = LIFESTYLE. No Kids or Families field.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/rooms/rooms_screen.dart:235 (RoomsScreen, last item of the Rooms grid) and lib/materials/shops_section.dart:261 (ShopsSection, end of shop results)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "There is no AglAds.onTransition in lib/ (grep). Keep it absent. The spec recommends banner only 'for a drag-heavy editor and fewer surprises in review' (RoomCraft.md:299), and ads are never allowed on the plan canvas or in the wizard (:179)."
+ },
+ "native": {
+  "use": true,
+  "screen": "lib/materials/shops_section.dart (ShopsSection / _ShopsSectionState, 'Near <place>' results card)",
+  "list_builder": "lib/materials/shops_section.dart:244 (for (final s in r.shops) _ShopCard; a for-loop inside SectionCard, not a lazy builder)",
+  "every_n_items": 10,
+  "template": "small",
+  "why": "This is a real listings/results list: up to 20 nearby shops from OpenStreetMap (RoomCraftService.maxShops = 20, lib/domain/roomcraft_service.dart:171, :276), each a _ShopCard. One small native after the 10th shop, shown only when more shops follow, means at most one native per search on top of the existing end banner (:261). Never in 'Saved shops' (the user's own list), the Rooms grid, the plan canvas or the wizard. Native unit ids exist in docs/admob-ids.json (RoomCraft android_native and ios_native)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "none",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota, premium tier or IAP. The suggestion cap (suggestedAdditions limit = 3, lib/domain/redesign.dart:86, :97) and the shop cap (20) are design choices, not free quotas. Putting 'more' behind an ad would invent scarcity."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads is locked in pubspec.lock to 7b3c98e (resolved-ref, line 17), which does not contain agl-manifest cb21ee5 (checked with `git merge-base --is-ancestor cb21ee5 7b3c98e`). Run `flutter pub upgrade agl_ads` before using AglNativeAd / AglAds.showRewarded.",
+  "Age-rating answers: there is no store/ratings/RoomCraft.json, so deliver_metadata.py:48 falls back to store/ratings/default.json, whose line 16 is \"advertising\": false, and passes it to Apple at deliver_metadata.py:75. This app does show banners. store-compliance should add store/ratings/RoomCraft.json with advertising: true."
+ ],
+ "evidence": [
+  "lib/main.dart:35 AglAds.configure(...)",
+  "lib/main.dart:39 unawaited(AglAds.initialize())",
+  "lib/rooms/rooms_screen.dart:231-237 banner as last grid item",
+  "lib/materials/shops_section.dart:244 for (final s in r.shops) _ShopCard(",
+  "lib/materials/shops_section.dart:257-262 AglAdBanner after shop results",
+  "lib/domain/roomcraft_service.dart:171 static const maxShops = 20",
+  "docs/admob-ids.json RoomCraft ios_native ca-app-pub-8528784688453695/3379963415, android_native ca-app-pub-8528784688453695/1516217401",
+  "pubspec.lock:17 resolved-ref 7b3c98edc563f9bfdf90e6b91def17b4c4d20de3",
+  "ai-office/projects/real-apps/specs/RoomCraft.md:179, :299"
+ ]
+}

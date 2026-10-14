@@ -1,0 +1,43 @@
+{
+ "repo": "PlantPulse",
+ "kids_or_families": false,
+ "kids_evidence": "v2 is a plant-care app for adults (specs/PlantPulse-v2.md:3); category UTILITIES (store/apps/PlantPulse.json:39, pre-v2); Kids Category audit n-a (docs/store-policy/PlantPulse.md:42).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "Current (retired remote app): mobile/lib/features/home/home_page.dart:163. v2 plan: exactly one AglAdBanner at the end of the Today scroll (specs/PlantPulse-v2.md:611-612)."
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "Current code calls AglAds.onTransition() after the scene editor closes (mobile/lib/features/home/home_page.dart:32). Founder decision F12 = 'One banner, no interstitials' (specs/PlantPulse-v2.md:936); v2 removes the call (:614)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "Founder product rule: PlantPulse = one banner, no other formats (specs/PlantPulse-v2.md:936; no ads on camera, ID results, OCR, health check, light meter, assistant, onboarding - :613)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Founder product rule: one banner only, no other formats (specs/PlantPulse-v2.md:936). The server-side per-IP daily cap for quota-bearing ID vendors (:135) must not be bought back with an ad under this rule."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads AglAds.initialize() preloads an interstitial on every launch even if the app never calls onTransition (packages/agl_ads/lib/src/ads.dart:94 `unawaited(_loadInterstitial());`). Removing the onTransition call does not stop that request; agl_ads needs an opt-out (e.g. a configure flag) or the app keeps sending one unused interstitial request per launch. v2 removes the onTransition call, so this unused request would remain.",
+  "store/ratings/PlantPulse.json does not exist, so tooling falls back to store/ratings/default.json:16 \"advertising\": false although the app ships AdMob; apps with ads that have their own file say true (e.g. store/ratings/TripNest.json:16). Not verified what App Store Connect currently holds.",
+  "v2 not built yet; current code is the retired smart-home remote (HEAD d2e62f0)."
+ ],
+ "evidence": [
+  "mobile/pubspec.yaml:61-64 agl_ads git dep",
+  "mobile/lib/main.dart:37-41 AglAds.configure/initialize",
+  "mobile/lib/features/home/home_page.dart:32 onTransition; :163 AglAdBanner",
+  "ai-office/projects/real-apps/specs/PlantPulse-v2.md:611-615 ads; :936 F12 one banner no interstitials"
+ ]
+}

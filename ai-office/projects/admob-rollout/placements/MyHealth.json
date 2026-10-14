@@ -1,0 +1,45 @@
+{
+ "repo": "MyHealth",
+ "kids_or_families": false,
+ "kids_evidence": "Not a children's app. Spec user: 'An adult who manages ongoing care: two or more regular medicines...' (MyHealth.md:52). store/apps/MyHealth.json primary_category = HEALTH_AND_FITNESS. No Kids or Families field. This is a sensitive health context.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/timeline/timeline_screen.dart:145 (TimelineScreen, last item of the list, gated by AdsSlot at lib/main.dart:131, :154)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "There is no AglAds.onTransition in lib/ (grep). Keep it absent. This is a personal medical record, and the spec says 'no interstitial' (MyHealth.md:211)."
+ },
+ "native": {
+  "use": false,
+  "screen": "none",
+  "list_builder": "lib/screens/activity/exercise_screens.dart:53 (only candidate; not recommended)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "This is a health context. The founder rule allows native only in browse/discovery lists, never in sensitive data screens. The Timeline, medicines, labs, readings and care team are all health data. The only non-sensitive browse list is ExerciseLibraryScreen (lib/screens/activity/exercise_screens.dart:49-62, for-loop at :53 over a bundled catalogue of 40 exercises, lib/record/exercise_catalog.dart). But spec F2 (MyHealth.md:211, :338) limits ads to one Timeline banner, and it is still open. I am not sure, so use=false. If the founder wants one native, the exercise library is the only acceptable place: one native after the 10th exercise, small template."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "none",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward, and this is a health context. There is no quota, premium tier or IAP. The only 'limit' matches are API query parameters (lib/net/nppes.dart:66, lib/brief/recalls.dart:73)."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder question F2 (keep ads in a medical-record app) is open (MyHealth.md:338). The default if unanswered is the inline Timeline banner only.",
+  "Age-rating answers: there is no store/ratings/MyHealth.json, so deliver_metadata.py:48 falls back to store/ratings/default.json, whose line 16 is \"advertising\": false, and passes it to Apple at deliver_metadata.py:75. This app does show banners. store-compliance should add store/ratings/MyHealth.json with advertising: true.",
+  "agl_ads is locked in pubspec.lock to 7b3c98e (resolved-ref, line 17), which does not contain agl-manifest cb21ee5 (checked with `git merge-base --is-ancestor cb21ee5 7b3c98e`). Run `flutter pub upgrade agl_ads` before using AglNativeAd / AglAds.showRewarded."
+ ],
+ "evidence": [
+  "lib/main.dart:45 AglAds.configure(...)",
+  "lib/main.dart:49 unawaited(AglAds.initialize())",
+  "lib/screens/timeline/timeline_screen.dart:145 if (ads) ... AglAdBanner()",
+  "lib/screens/activity/exercise_screens.dart:53 for (final e in list) ListTile",
+  "pubspec.lock:17 resolved-ref 7b3c98edc563f9bfdf90e6b91def17b4c4d20de3",
+  "ai-office/projects/real-apps/specs/MyHealth.md:211, :338"
+ ]
+}

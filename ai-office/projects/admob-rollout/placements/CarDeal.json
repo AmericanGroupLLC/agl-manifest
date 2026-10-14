@@ -1,0 +1,48 @@
+{
+ "repo": "CarDeal",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app: docs/store-policy/CarDeal.json:90 Apple 1.3 'Kids Category' applies=false ('none of [kids] detected in the current source', generated 2026-10-14); store/apps/CarDeal.json:38 primary_category SHOPPING. No Kids/Families store metadata found (grep of store/ and docs/). Age-rating questionnaire answers for this app were not read (store/apps/CarDeal.json lists it as having no schema field).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/report/report_screen.dart:202 (inline, end of the car report below Sources)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No AglAds.onTransition() call in mobile/lib (grep: none); the tab-switch interstitial left with the tab bar (spec CarDeal.md:209). Keep it absent: a car check is a focused read of one report, and the spec already leaves any new interstitial to founder Q2 (CarDeal.md:381)."
+ },
+ "native": {
+  "use": true,
+  "screen": "mobile/lib/features/complaints/complaint_list_screen.dart (ComplaintListScreen)",
+  "list_builder": "mobile/lib/features/complaints/complaint_list_screen.dart:122-127 (SliverList.builder itemBuilder -> _ComplaintTile)",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "This is a genuine scrolling feed of public content items: the newest NHTSA owner complaints for the car, up to 200 (mobile/lib/services/complaint_digest.dart:39 keepNewest = 200; :84-99), filterable and searchable (complaint_list_screen.dart:12-13,47-109). A small template as its own row after every 8th complaint fits; it must stay visibly an ad (Google template badge) and never inside the report itself (the report keeps its single banner). Implementation note: itemCount must grow by shown.length ~/ 8 and the index mapping must skip ad rows; render nothing when the filtered list has fewer than 8 items. Not a finance/health screen: complaints are public federal records."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none. Only a design cap: mobile/lib/features/compare/compare_screen.dart:121 maxCars = 4 (side-by-side layout limit)",
+  "why": "CarDeal is free with no account, no paid tier and no upsell by design (spec CarDeal.md:79). There is no existing free quota to extend; the only cap is the 4-column Compare layout (compare_screen.dart:121), which is a layout limit - selling a 5th column for an ad would invent a limit. No IAP in pubspec."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "pubspec.lock pins agl_ads at 97e9a7f (mobile/pubspec.lock) (pubspec.lock grep), which predates cb21ee5 and has no ad_native.dart (git cat-file checked) - developer must run `flutter pub upgrade agl_ads` before AglNativeAd/showRewarded exist"
+ ],
+ "evidence": [
+  "mobile/pubspec.yaml:27-31 agl_ads dep",
+  "mobile/lib/main.dart:77-81 AglAds.configure + initialize",
+  "mobile/lib/features/report/report_screen.dart:198-202",
+  "mobile/lib/features/complaints/complaint_list_screen.dart:12-13,39,119-128",
+  "mobile/lib/services/complaint_digest.dart:39,83-99",
+  "mobile/lib/features/compare/compare_screen.dart:121",
+  "grep onTransition mobile/lib: no hits",
+  "ai-office/projects/real-apps/specs/CarDeal.md:207-210,381",
+  "docs/store-policy/CarDeal.json:90",
+  "store/admob/ad-units-plan.csv rows 113,119 (native units exist)",
+  "docs/admob-ids.json CarDeal has android_native/ios_native; scripts/agl_paths.py:142-159 passes them as --dart-define via scripts/build_release.py:450"
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "repo": "MyFinance",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/MyFinance.json:15 primary_category FINANCE; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. Spec user is an adult paid on a fixed rhythm (MyFinance.md:49).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/app/widgets.dart:446-469 AdvertisementRow (labelled 'Advertisement' + AglAdBanner), placed at lib/features/ledger/ledger_screen.dart:199 and lib/features/plan/plan_screen.dart:67"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Not used: grep for onTransition/Interstitial in lib/ finds 0 hits. This is a personal-finance context, where the founder rule says to remove interstitials. The spec removes the tab-change interstitial (MyFinance.md:208)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "Sensitive finance context. The only scrolling lists are the user's own transactions (lib/features/ledger/ledger_screen.dart:188-197) and schedules/budgets (Plan). These are personal-data screens, not browse or discovery lists, so the founder rule says no native ads."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota or premium tier ('limit' hits are budget monthly limits, lib/app/forms.dart:754-841). CSV export is free (lib/features/settings/settings_screen.dart:27-33,108-112). The spec bans 'premium' copy (MyFinance.md:206)."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads must be re-resolved to include agl-manifest cb21ee5 (AglNativeAd / showRewarded): pubspec.lock resolved-ref is 7b3c98edc563f9bfdf90e6b91def17b4c4d20de3, which `git merge-base --is-ancestor cb21ee5 7b3c98edc563f9bfdf90e6b91def17b4c4d20de3` reports does NOT contain cb21ee5 (pubspec.lock:17). Only relevant if a format is added later."
+ ],
+ "evidence": [
+  "lib/app/widgets.dart:446-469 AdvertisementRow",
+  "lib/features/ledger/ledger_screen.dart:188-199 transaction list + ad row",
+  "lib/features/plan/plan_screen.dart:67 ad row",
+  "lib/main.dart:30-34 AglAds.configure/initialize",
+  "ai-office/projects/real-apps/specs/MyFinance.md:203,206,208"
+ ]
+}

@@ -1,0 +1,48 @@
+{
+ "repo": "iMaps",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/iMaps.json:30 primary_category NAVIGATION; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. store/ratings/iMaps.json has no kidsAgeBand. It is a driving app.",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/safety_feed_screen.dart:143-146 (row after 5th alert) and lib/screens/notes_screen.dart:237 (after 5th road note), both via the app's own AdMobBannerAd (lib/widgets/admob_banner_ad.dart:19)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "AdMobService.maybeShowInterstitial() fires after a completed incident report (lib/screens/report_incident_screen.dart:88). The comment at :82-87 says it is 'Deliberately NOT shown while a route is being navigated', but I found no navigation check: maybeShowInterstitial (lib/services/admob_service.dart:165-182) checks only disabled/available/initialised/interval/trigger count. The Mark button that leads to the report form is rendered in navigation mode too (lib/screens/map_screen.dart:1117 positions the column by _isNavigating; :1211 _MarkButton; :1356-1359 'More types' pushes ReportIncidentScreen). So a full-screen ad can appear to a driver mid-route. This comes from reading the source; I did not run it on a device. Remove it for driver safety."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "The candidate feeds are the Alerts list (safety_feed_screen.dart:136-166, USGS/NWS/GDACS/roadworks alerts) and Live events (lib/screens/realtime_events_screen.dart:214-218). Both are safety information, and a native ad that looks like a feed row could be mistaken for a real alert. Notes is the user's own road notes. The banner row already sits after alert 5. Unsure, so no. Also, iMaps would need AglNativeAd or a native factory: its own AdMobService.loadNative (admob_service.dart:89) needs a platform factoryId and has no callers."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. in_app_purchase was removed (pubspec.yaml:64). SubscriptionService.isPremium (lib/services/subscription_service.dart:20-21) has no purchase path. AdMobService.showRewarded (admob_service.dart:236) exists but grep finds no caller. Inventing a premium unlock would conflict with the spec removing the dead premium copy."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "iMaps serves ads through its own lib/services/admob_service.dart on google_mobile_ads (pubspec.yaml:68), not through AglAds/AglAdBanner. agl_ads is used only for AglConsent (admob_service.dart:2,48-54). Any new format means either migrating to agl_ads or using the in-app service.",
+  "store/admob/ad-units-plan.csv rows 255, 257, 261 and 263 mark the iMaps rewarded and native units 'Read by app'=yes and 'Shown in app'=yes. The code has no caller of loadNative/showRewarded/loadRewarded outside admob_service.dart (grep), so 'Shown' is not true. The CSV should be corrected.",
+  "The spec lists lib/services/admob_service.dart and lib/widgets/admob_banner_ad.dart as someone else's uncommitted work, not to be edited (iMaps.md:9-11). Removing the interstitial call is at report_incident_screen.dart:88, which is not in that list.",
+  "agl_ads must be re-resolved to include agl-manifest cb21ee5 (AglNativeAd / showRewarded): pubspec.lock resolved-ref is f0fc3b237de24a4f0b2a3b9548bf09b4bd9377c6, which `git merge-base --is-ancestor cb21ee5 f0fc3b237de24a4f0b2a3b9548bf09b4bd9377c6` reports does NOT contain cb21ee5 (pubspec.lock:17)."
+ ],
+ "evidence": [
+  "lib/screens/report_incident_screen.dart:82-88 interstitial after report",
+  "lib/services/admob_service.dart:89-112 loadNative (no callers), :165-182 maybeShowInterstitial (no navigation guard), :217-250 rewarded (no callers)",
+  "lib/screens/map_screen.dart:1117,1211,1332-1360 Mark button and report flow available while navigating",
+  "lib/screens/safety_feed_screen.dart:136-146 banner row after 5th alert",
+  "lib/screens/notes_screen.dart:237 banner after 5th note",
+  "lib/screens/home_screen.dart:20-23 no ad in shell",
+  "lib/services/subscription_service.dart:20-21,36-38 premium gate, no purchase",
+  "ai-office/projects/real-apps/specs/iMaps.md:9-11,146"
+ ]
+}

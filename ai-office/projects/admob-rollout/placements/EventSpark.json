@@ -1,0 +1,43 @@
+{
+ "repo": "EventSpark",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app: docs/store-policy/EventSpark.json:85 Apple 1.3 'Kids Category' applies=false ('none of [kids] detected in the current source', generated 2026-10-14); store/apps/EventSpark.json:39 primary_category ENTERTAINMENT. No Kids/Families store metadata found (grep of store/ and docs/). Age-rating questionnaire answers for this app were not read (store/apps/EventSpark.json lists it as having no schema field).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/home/home_screen.dart:166 (inline, end of the Home list)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No AglAds.onTransition() in mobile/lib (grep: none); the spec removed the tab-change interstitial (EventSpark.md:229) and forbids ads on the door, ledger, close-out and forms (:231). Keep it absent: hosts use the app in task-focused moments (checking guests in at the door), where a full-screen ad is intrusive."
+ },
+ "native": {
+  "use": false,
+  "screen": "mobile/lib/features/home/home_screen.dart (HomeScreen)",
+  "list_builder": "mobile/lib/features/home/home_screen.dart:148 (for (final e in shown) - not a builder)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "The only list is the host's own events (upcoming/past segments, home_screen.dart:64-69,148), typically a handful - not a feed of content. A native row between someone's own events would sit next to private guest/money data and would rarely reach 8 items. The spec keeps exactly one inline banner at the end of Home and no ads on event screens (EventSpark.md:228-231)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none (grep quota/premium/in_app/purchase in mobile/lib: no hits)",
+  "why": "No free quota or premium extra exists; CSV export, door check-in and ledger are core host tools and must not be gated. Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Spec ad placement is a pending founder decision (EventSpark.md:232, issue #40; approval request reports/approvals/2026-10-14-eventspark-ads-placement.md - not read by me)"
+ ],
+ "evidence": [
+  "mobile/pubspec.yaml:28-32 agl_ads dep",
+  "mobile/lib/main.dart:35-39 AglAds.configure + initialize",
+  "mobile/lib/features/home/home_screen.dart:64-69,148,163-166",
+  "grep onTransition mobile/lib: no hits",
+  "ai-office/projects/real-apps/specs/EventSpark.md:228-232",
+  "docs/store-policy/EventSpark.json:85"
+ ]
+}

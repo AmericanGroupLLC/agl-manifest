@@ -1,0 +1,46 @@
+{
+ "repo": "NewsBoard",
+ "kids_or_families": false,
+ "kids_evidence": "store/apps/NewsBoard.json:14 primary_category NEWS; docs/store-policy/NewsBoard.md:28 '1.3 Kids Category: no'. General news from BBC/NPR/Guardian RSS. No store/ratings/NewsBoard.json (default.json applies).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/shell/main_shell.dart:87 (AglAdBanner above the tab bar on every tab except Settings)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "keep",
+  "why": "AglAds.onTransition() fires on a user-chosen switch between reading tabs, never into Settings (mobile/lib/features/shell/main_shell.dart:59-65). News reading is a browsing session, not a task-focused or sensitive context. agl_ads caps it at one per 3 minutes after 2 warm-up transitions (packages/agl_ads/lib/src/ads.dart:22,26,149)."
+ },
+ "native": {
+  "use": true,
+  "screen": "mobile/lib/features/sections/sections_screen.dart (SectionsScreen)",
+  "list_builder": "mobile/lib/features/sections/sections_screen.dart:93-95 (SliverList.builder -> NewsCard)",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "A real content feed of news stories, the format native ads are made for. Make the itemCount articles.length + articles.length ~/ 8. Every 9th slot (after each 8 stories) returns const AglNativeAd(), the others map back to the article index. The small template sits close to a NewsCard row with thumbnail (widgets/news_card.dart:101). The same pattern fits search results (mobile/lib/features/search/search_screen.dart:157-159, ListView.builder, header at index 0). Not on Desk (desk_screen.dart:146-149 lists the user's beats, not stories), Bookmarks, the article reader, Settings or onboarding."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "No quota or premium exists. The old 'NewsBoard Premium ... unlimited AI summaries' house ad was unused and is slated for deletion (spec NewsBoard.md:38, :231, :242). Every feature is free with no limit, so there is nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads in pubspec.lock resolves to 7b3c98e, an ancestor of cb21ee5 (checked with git merge-base --is-ancestor): AglNativeAd / AglAds.showRewarded are not available until `flutter pub upgrade agl_ads`",
+  "Founder question Q3 (BBC/NPR syndication terms for an ad-supported app; spec NewsBoard.md:338) is open. Native ads placed between publishers' headlines raise that question further: resolve it before shipping native.",
+  "Founder question Q4 / S1 (move banner inline into Sections; spec NewsBoard.md:265, :339) is open. If S1 lands, the Sections list would carry an inline banner after row 8. Then use native instead of that inline banner, not in addition."
+ ],
+ "evidence": [
+  "mobile/lib/main.dart:50-54 AglAds.configure/initialize",
+  "mobile/lib/features/shell/main_shell.dart:59-65,87",
+  "mobile/lib/features/sections/sections_screen.dart:93-104",
+  "mobile/lib/features/search/search_screen.dart:157-159",
+  "mobile/lib/features/desk/desk_screen.dart:146-149",
+  "packages/agl_ads/lib/src/ads.dart:22,26,140-149",
+  "spec NewsBoard.md:38,265,338,339"
+ ]
+}

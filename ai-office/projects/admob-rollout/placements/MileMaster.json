@@ -1,0 +1,43 @@
+{
+ "repo": "MileMaster",
+ "kids_or_families": false,
+ "kids_evidence": "store/apps/MileMaster.json:15 primary_category BUSINESS; docs/store-policy/MileMaster.md:60 '1.3 Kids Category: no'. A mileage log for IRS deductions (spec MileMaster.md:112-116 competitors).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/ui/logbook_screen.dart:153 (end of Logbook page) and lib/ui/full_log_screen.dart:158 (footer of Full log)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "AglAds.onTransition() fires on return from Full log to Logbook (lib/ui/logbook_screen.dart:87-93), never while recording. MileMaster is a quick, task-focused business/tax utility: start a drive, log a trip, export. Founder question 5 on keeping interstitials is open (spec MileMaster.md:344, :486)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "Full log (full_log_screen.dart:151-156, week groups -> tripRow) is the user's own IRS mileage record with dollar deductions, a finance/tax data screen that is also exported for audits. An ad row between trips risks being read as a trip. It already ends with a banner (:158). Treated as a sensitive finance screen under the founder rule. Judgement call; use=false."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Export and every other feature are free and unlimited: no quota, premium tier or IAP (grep in lib/ finds none). Inventing an export limit would gate a core feature."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder question 5 (keep interstitial on return from Full log) is open: spec MileMaster.md:486",
+  "agl_ads lock 7b3c98e predates cb21ee5 (not needed for this plan)."
+ ],
+ "evidence": [
+  "lib/main.dart:48-52 AglAds.configure/initialize",
+  "lib/ui/logbook_screen.dart:87-93,153",
+  "lib/ui/full_log_screen.dart:151-158",
+  "lib/ui/common.dart:345 tripRow",
+  "spec MileMaster.md:343-344,486"
+ ]
+}

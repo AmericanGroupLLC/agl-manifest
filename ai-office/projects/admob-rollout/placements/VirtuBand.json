@@ -1,0 +1,44 @@
+{
+ "repo": "VirtuBand",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/VirtuBand.json:30 primary_category MUSIC; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. store/ratings/VirtuBand.json has no kidsAgeBand. Spec user is a singer-songwriter or hobby musician (VirtuBand.md:45).",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/library_screen.dart:120 (empty library) and :217 (end of the song list), via the app's own BannerAdSlot (lib/widgets/banner_ad_slot.dart:25)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Not used: lib/services/ads_service.dart:21-22 says 'There is no interstitial (it used to fire after every saved take)', and grep for onTransition/Interstitial in lib/ finds 0 hits. Keep it out, because it interrupted recording (VirtuBand.md:191)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "There is no content feed. The Library is the user's own songs (library_screen.dart:212-216, for-loop of SongCard), usually a short list. The Instruments screen (lib/screens/instruments_screen.dart:18-22) is a small fixed set of instruments. The spec bans ads on the song screen, the record sheet and instrument surfaces (VirtuBand.md:190)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota or premium tier, and ads_service.dart:89 says 'Deliberately no interstitial and no rewarded ads'. Bounce/export of a demo is free (lib/state/app_state.dart:869-887)."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "VirtuBand serves its banner through its own BannerAdSlot/AdIds on google_mobile_ads (pubspec.yaml:77, lib/services/ads_service.dart). It does not call AglAds.configure, so AglNativeAd/AglAds.showRewarded would not work without that. Not needed, since both are 'no'.",
+  "Spec founder Q3: the review notes say 'the iOS build shows no ads', and that has not been checked against the shipped binary (VirtuBand.md:307)."
+ ],
+ "evidence": [
+  "lib/services/ads_service.dart:21-22,89 banner only, no interstitial/rewarded",
+  "lib/screens/library_screen.dart:106-120,212-217 song list + BannerAdSlot",
+  "lib/widgets/banner_ad_slot.dart:25-87 own banner",
+  "lib/screens/instruments_screen.dart:18-22 instrument list",
+  "ios/Runner/Info.plist:60-61 real GADApplicationIdentifier",
+  "ai-office/projects/real-apps/specs/VirtuBand.md:188-192,306-307"
+ ]
+}

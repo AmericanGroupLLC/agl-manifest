@@ -1,0 +1,43 @@
+{
+ "repo": "RideZap",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/RideZap.json:46 primary_category TRAVEL; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. Spec user is an adult checking Uber/Lyft quotes (RideZap.md:52-65).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/trips/trip_screen.dart:281 (one banner at the end of a trip page)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Not used: grep for onTransition/Interstitial in mobile/lib finds 0 hits. Keep it out. RideZap is used in a quick 'is this quote high?' moment before booking. The spec removes it (RideZap.md:236-237)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "There is no content feed. The lists are the user's own saved trips and logged fares/receipts (mobile/lib/features/rides/rides_log_screen.dart:131; trip_screen.dart:270-277 shows at most 30 of the user's entries). That is personal money data in a quick-decision flow, and the spec allows exactly one ad (RideZap.md:234-235)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota or premium tier. The only 'limit' is Sources.searchLimit=6 for place search results (mobile/lib/core/sources.dart:43), a request size, not a free tier."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder decision D1 is open: the portfolio director recommends retiring RideZap into TripNest (RideZap.md:9).",
+  "agl_ads must be re-resolved to include agl-manifest cb21ee5 (AglNativeAd / showRewarded): pubspec.lock resolved-ref is 7b3c98edc563f9bfdf90e6b91def17b4c4d20de3, which `git merge-base --is-ancestor cb21ee5 7b3c98edc563f9bfdf90e6b91def17b4c4d20de3` reports does NOT contain cb21ee5 (mobile/pubspec.lock:17). Only relevant if a format is added later."
+ ],
+ "evidence": [
+  "mobile/lib/features/trips/trip_screen.dart:270-281 entries + single banner",
+  "mobile/lib/features/rides/rides_log_screen.dart:117-131 user's ride log",
+  "mobile/lib/core/sources.dart:43 searchLimit",
+  "mobile/lib/main.dart:42-46 AglAds.configure/initialize",
+  "ai-office/projects/real-apps/specs/RideZap.md:9,233-237"
+ ]
+}

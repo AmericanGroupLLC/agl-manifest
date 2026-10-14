@@ -1,0 +1,45 @@
+{
+ "repo": "NearServe",
+ "kids_or_families": false,
+ "kids_evidence": "Local tradespeople call-around app for adults; category LIFESTYLE (store/apps/NearServe.json:30); Kids Category audit n-a (docs/store-policy/NearServe.md:44).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/directory/directory_screen.dart:368 (end of Directory results, the app's one banner)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No onTransition in mobile/lib (grep: no hit); the spec removed the tab-switch interstitial (specs/NearServe.md:322, Q2 at :477). Keep it out: task-focused 'find and call a pro' sessions. agl_ads still preloads one (see blockers)."
+ },
+ "native": {
+  "use": true,
+  "screen": "mobile/lib/features/directory/directory_screen.dart (_Results)",
+  "list_builder": "mobile/lib/features/directory/directory_screen.dart:356 (`for (final l in shown)` ListingRow loop)",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "Directory results are OpenStreetMap business listings (up to 100 per category, mobile/lib/services/osm_directory_source.dart:127) - the listings case. One small native after every 8th ListingRow, max 3 (the parent ListView at :65 builds children eagerly). Must be visibly an ad (template badge), separated like the rows' Padding but not styled as a ListingRow, because an ad for a trade service could be mistaken for a local listing. None on Jobs board, job page, quote board, onboarding or Settings (specs/NearServe.md:321)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "No quota, premium or IAP (grep premium|in_app_purchase|quota|paywall: no hit). Calling around and quote compare are the core job. Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "pubspec.lock pins agl_ads at 7b3c98e, which predates agl-manifest cb21ee5 (git merge-base --is-ancestor: not contained); run `flutter pub upgrade agl_ads` before using AglNativeAd/showRewarded.",
+  "agl_ads AglAds.initialize() preloads an interstitial on every launch even if the app never calls onTransition (packages/agl_ads/lib/src/ads.dart:94 `unawaited(_loadInterstitial());`). Removing the onTransition call does not stop that request; agl_ads needs an opt-out (e.g. a configure flag) or the app keeps sending one unused interstitial request per launch.",
+  "store/ratings/NearServe.json does not exist, so tooling falls back to store/ratings/default.json:16 \"advertising\": false although the app ships AdMob; apps with ads that have their own file say true (e.g. store/ratings/TripNest.json:16). Not verified what App Store Connect currently holds.",
+  "Spec acceptance test expects `grep -rn \"AglAdBanner\" mobile/lib` -> 1 hit (specs/NearServe.md:323); adding AglNativeAd is a different symbol but the spec's 'one ad' wording (:321, store copy :420 'one ad at the bottom of directory results') must be updated with the native."
+ ],
+ "evidence": [
+  "mobile/pubspec.yaml:25-28 agl_ads git dep",
+  "mobile/lib/main.dart:25-29 AglAds.configure/initialize",
+  "mobile/lib/features/directory/directory_screen.dart:356 listing loop; :368 AglAdBanner",
+  "mobile/lib/services/osm_directory_source.dart:127 osmPerCategoryLimit = 100",
+  "ai-office/projects/real-apps/specs/NearServe.md:320-323 ads rule; :420 store copy; :477 Q2"
+ ]
+}

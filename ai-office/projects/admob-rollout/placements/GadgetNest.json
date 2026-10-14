@@ -1,0 +1,45 @@
+{
+ "repo": "GadgetNest",
+ "kids_or_families": false,
+ "kids_evidence": "Not a children's app. Spec user: 'the person who looks after the family's devices' (an adult; GadgetNest.md:41). store/apps/GadgetNest.json primary_category = SHOPPING. No Kids or Families field.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/features/home/home_screen.dart:157 (HomeScreen bottomNavigationBar: AdSlot(child: AglAdBanner()))"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "There is no AglAds.onTransition in lib/ (grep). Keep it absent. This is a short-session utility, and spec M6 says to add none until founder question 4 is answered (GadgetNest.md:134)."
+ },
+ "native": {
+  "use": false,
+  "screen": "none",
+  "list_builder": "lib/features/picker/picker_screen.dart:330 (considered, rejected)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "No content feed. The home list (lib/features/home/home_screen.dart:160-167, a ListView with one Column of the household's own devices) is the user's own small inventory. The model picker (lib/features/picker/picker_screen.dart:327-330, ListView.builder over endoflife.date releases) is a selection step inside the add-device flow, where an ad row invites mis-taps. Spec M6 says 'Never on onboarding, the picker, device detail, or Settings' (GadgetNest.md:133)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "none",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota, premium tier or IAP: a grep of the Dart code in lib/ finds only 'Pro' inside device model names (e.g. lib/domain/device.dart:126). Reminders and the support clock are the core job."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder decision on the pivot, merge or retire (GadgetNest.md:9-10). The lib/ inspected is the pivot (endoflife.date) build.",
+  "Age-rating answers: there is no store/ratings/GadgetNest.json, so deliver_metadata.py:48 falls back to store/ratings/default.json, whose line 16 is \"advertising\": false, and passes it to Apple at deliver_metadata.py:75. This app does show banners. store-compliance should add store/ratings/GadgetNest.json with advertising: true.",
+  "agl_ads is locked in pubspec.lock to d5e5b72 (resolved-ref, line 17), which does not contain agl-manifest cb21ee5 (checked with `git merge-base --is-ancestor cb21ee5 d5e5b72`). Run `flutter pub upgrade agl_ads` before using AglNativeAd / AglAds.showRewarded."
+ ],
+ "evidence": [
+  "lib/main.dart:35 AglAds.configure(...)",
+  "lib/main.dart:39 unawaited(AglAds.initialize())",
+  "lib/features/home/home_screen.dart:157 bottomNavigationBar: const AdSlot(child: AglAdBanner())",
+  "lib/features/picker/picker_screen.dart:327-330 ListView.builder itemBuilder",
+  "pubspec.lock:17 resolved-ref d5e5b7269bce17efbf3fb9e0a331542e69c4cc26",
+  "ai-office/projects/real-apps/specs/GadgetNest.md:133-134"
+ ]
+}

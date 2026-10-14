@@ -1,0 +1,43 @@
+{
+ "repo": "FashionFactory",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/FashionFactory.json:28 primary_category LIFESTYLE; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. Spec user is a 25-45-year-old online clothes shopper (FashionFactory.md:40).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/features/home/home_screen.dart:438 (end of Home) and lib/features/brands/brand_screen.dart:98 (end of a brand page)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Not used: grep for onTransition/Interstitial in lib/ finds 0 hits. AglAds is only configured and initialised (lib/main.dart:44-50). Keep it out. This is a task-focused utility (log an order, check a return deadline), and the spec removes the interstitial (FashionFactory.md:110,250)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "There is no content feed. The only lists are the user's own order and return records, with sizes and prices paid (lib/features/orders/all_orders_screen.dart:80 ListView; lib/features/brands/brand_screen.dart:54). The spec removed deals, browse and catalogue (FashionFactory.md:57,70). An ad row between a person's purchase records is ad-in-personal-data, and most users keep few orders, so I chose no. Unsure whether the founder counts 'order history' as a feed: flagged."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. There is no quota or premium tier. 'Export orders (CSV)' is free (lib/features/settings/settings_screen.dart:150-154), and gating it would remove a feature."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads must be re-resolved to include agl-manifest cb21ee5 (AglNativeAd / showRewarded): pubspec.lock resolved-ref is d5e5b7269bce17efbf3fb9e0a331542e69c4cc26, which `git merge-base --is-ancestor cb21ee5 d5e5b7269bce17efbf3fb9e0a331542e69c4cc26` reports does NOT contain cb21ee5 (pubspec.lock:17). Only relevant if a format is added later."
+ ],
+ "evidence": [
+  "lib/main.dart:44-50 AglAds.configure/initialize",
+  "lib/features/home/home_screen.dart:436-438 AglAdBanner end of Home",
+  "lib/features/brands/brand_screen.dart:96-98 AglAdBanner end of brand page",
+  "lib/features/orders/all_orders_screen.dart:80 ListView of the user's orders",
+  "lib/features/settings/settings_screen.dart:150-154 free CSV export",
+  "ai-office/projects/real-apps/specs/FashionFactory.md:57,70,110,250"
+ ]
+}

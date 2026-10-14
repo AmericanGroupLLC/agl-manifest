@@ -1,0 +1,46 @@
+{
+ "repo": "AeroSwift",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app. store/apps/AeroSwift.json:34 primary_category TRAVEL; `grep -rn kidsAgeBand store/ratings` -> 0 hits; no KIDS category. Spec user is plane spotters/aviation hobbyists (ai-office/projects/real-apps/specs/AeroSwift.md:44-48).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/search/search_screen.dart:199 (list row after 5th Find result) and mobile/lib/features/airports/airport_board_screen.dart:279 (list row after 5th board flight, adAfterRows=5 at :31)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "AglAds.onTransition() fires on every user tab change (mobile/lib/app/app.dart:79-87). Spotters use the app in short, time-critical moments (an aircraft on final; spec AeroSwift.md:46). A full-screen ad on a tab switch can cost the sighting. The in-list banners and the proposed native row keep revenue without interrupting. This is a judgment call: the app is a hobby tool, not a health or finance one."
+ },
+ "native": {
+  "use": true,
+  "screen": "mobile/lib/features/airports/airport_board_screen.dart (AirportBoardScreen, departures/arrivals board list)",
+  "list_builder": "mobile/lib/features/airports/airport_board_screen.dart:274 (SliverList.builder itemBuilder at :272-286; row mapping boardItemCount/boardRowFor at :386-393)",
+  "every_n_items": 10,
+  "template": "small",
+  "why": "Boards are a long scrolling list of observed flights (the spec measured 110-126 KSFO departures over 8-20 h, AeroSwift.md:22). That is a listings feed where a native row reads as a distinct, labelled item. Put the first native row after flight 10, then one every 10 flights. The existing banner row after flight 5 stays. boardRowFor must be extended so flight indices skip both kinds of ad row. Find results (search_screen.dart:190-199) would also work, but Boards is the longer feed. Leave the Scope tab, the Log tab and the detail screen with no native row."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. The app has no quota, premium tier or IAP: grep for premium/quota/in_app in mobile/lib finds nothing, and the only 'limit' hits are OpenSky API limits and airport-search result counts. 'Copy as CSV' on the Log is already free (mobile/lib/features/log/log_screen.dart:56-82). Gating it would take away an existing feature."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads must be re-resolved to include agl-manifest cb21ee5 (AglNativeAd / showRewarded): pubspec.lock resolved-ref is 904d8e9c958c71a9e171b0fafc9db5c4428e75b7, which `git merge-base --is-ancestor cb21ee5 904d8e9c958c71a9e171b0fafc9db5c4428e75b7` reports does NOT contain cb21ee5 (mobile/pubspec.lock:17).",
+  "Spec founder question F1 (AeroSwift.md, section 8): OpenSky data is quoted as 'free for non-commercial use', and whether an ad-supported app may use it is unresolved. Any added ad format sits on that open question.",
+  "Release builds need ADMOB_NATIVE_ANDROID/IOS dart-defines. store/admob/ad-units-plan.csv rows 5 and 11 show the native units DONE but 'Read by app'=no."
+ ],
+ "evidence": [
+  "mobile/lib/app/app.dart:79-87 AglAds.onTransition on tab select",
+  "mobile/lib/features/search/search_screen.dart:22 adAfterRows=5; :190-199 SliverList.builder with AglAdBanner row",
+  "mobile/lib/features/airports/airport_board_screen.dart:31 adAfterRows=5; :272-286 SliverList.builder; :386-393 boardItemCount/boardRowFor",
+  "mobile/lib/features/log/log_screen.dart:56-82 free Copy as CSV",
+  "mobile/pubspec.yaml:33-37 agl_ads git dep ref master",
+  "mobile/ios/Runner/Info.plist:71-72 real GADApplicationIdentifier",
+  "store/admob/ad-units-plan.csv:4-12 rewarded/native units exist (DONE)"
+ ]
+}

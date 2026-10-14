@@ -1,0 +1,48 @@
+{
+ "repo": "Uscis-Case",
+ "kids_or_families": false,
+ "kids_evidence": "store/apps/Uscis-Case.json:30 primary_category UTILITIES; store/ratings/Uscis-Case.json: all content NONE, advertising true (:16); docs/store-policy/Uscis-Case.md:51 '1.3 Kids Category: no'. Audience: immigrants and families tracking cases (spec Uscis-Case.md:100).",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/case_detail_screen.dart:106 (app-owned BannerAdSlot at the end of a case page, below the status log and Federal Register list)"
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "No interstitial. lib/services/ad_service.dart:8-10: 'The app has one ad: a banner at the end of a case page. It shows no interstitial.' This is an immigration context and should stay without one. v1 left it as founder Q4 (spec Uscis-Case.md:228), still open per v2 F12 (spec Uscis-Case-v2.md:700)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "The only browse-type list is the Federal Register feed on Sources (lib/screens/sources_screen.dart:70 -> lib/widgets/federal_register_list.dart:134-140, at most 20 items, federal_register_client.dart:163,175). Every row is an official government notice. An ad row among them risks being read as an official notice, in an app already flagged for government-impersonation risk (spec Uscis-Case.md:299). It would yield at most 2 impressions per visit. The same list is embedded in the case detail page (case_detail_screen.dart:102), a sensitive data screen where native is forbidden. Judgement call; use=false. If the founder wants one, the only acceptable slot is after item 8 on SourcesScreen only, small template."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "spec Uscis-Case-v2.md:387-388 (v2 abuse/quota limits, not a monetisable free tier)",
+  "why": "Nothing honest to reward. v1 features are free and unlimited. v2's only limits are abuse and USCIS-quota guards on live status lookups (spec Uscis-Case-v2.md:387-388: 1 call per receipt per 10 min, 30/user/hour, 25 receipts). Letting an ad lift those would spend the shared USCIS quota and undercut the guards. Founder leans no for immigration."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "Founder Q4 (ads in Uscis-Case) is open, and VERIFY-23 (USCIS API Terms of Use: commercial / ad-supported use; HTTP 403, not read) must be resolved before v2 live status ships with ads: spec Uscis-Case-v2.md:650, :691, :700.",
+  "The existing banner sits on the case detail page (case_detail_screen.dart:106), which is the user's immigration-case data screen. The founder brief says keep the banner, but under the sensitive-context rule it would sit better on Sources or Docket. Flagged for decision, not changed.",
+  "v2 S2 widgets and notifications must carry no ads (spec Uscis-Case-v2.md:503, :548).",
+  "Uscis-Case runs its own AdService (lib/main.dart:58) and never calls AglAds.configure, so AglNativeAd/showRewarded would not work without that wiring. Not needed while native and rewarded are 'no'. agl_ads lock f0fc3b2 predates cb21ee5."
+ ],
+ "evidence": [
+  "lib/screens/case_detail_screen.dart:67-110",
+  "lib/services/ad_service.dart:8-10",
+  "lib/main.dart:58",
+  "lib/screens/sources_screen.dart:69-70",
+  "lib/widgets/federal_register_list.dart:134-140",
+  "lib/services/federal_register_client.dart:163,175 per_page=20",
+  "spec Uscis-Case.md:228,299",
+  "spec Uscis-Case-v2.md:387-388,503,548,650,700"
+ ]
+}

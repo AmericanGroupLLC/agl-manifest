@@ -1,0 +1,45 @@
+{
+ "repo": "AGStudio",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app: docs/store-policy/AGStudio.json:99 Apple 1.3 'Kids Category' applies=false ('none of [kids] detected in the current source', generated 2026-10-14); store/apps/AGStudio.json:42 primary_category PHOTO_AND_VIDEO. No Kids/Families store metadata found (grep of store/ and docs/). Age-rating questionnaire answers for this app were not read (store/apps/AGStudio.json lists it as having no schema field).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/widgets/ad_slot.dart:32 (AdSlot wraps AglAdBanner), placed at mobile/lib/features/studio/studio_screen.dart:272 (under the result) and mobile/lib/features/gallery/gallery_screen.dart:228 (foot of Prints)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "keep",
+  "why": "Fires once when Prints (gallery) opens, after the push (mobile/lib/features/studio/studio_screen.dart:194-199 openPrints -> AglAds.onTransition()). That is a natural break between creating and browsing, not mid-task; agl_ads caps it (warm-up 2 transitions, min 3 min, packages/agl_ads/lib/src/ads.dart:22,26). Creative app, not finance/health/payments."
+ },
+ "native": {
+  "use": false,
+  "screen": "mobile/lib/features/gallery/gallery_screen.dart (GalleryScreen)",
+  "list_builder": "mobile/lib/features/gallery/gallery_screen.dart:217-220 (SliverChildBuilderDelegate -> _PrintTile)",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "The only content list is the user's own prints, laid out as a SliverGrid of image tiles (gallery_screen.dart:209-216, maxCrossAxisExtent 240, aspect 0.74). Google's native templates are full-width rows (small ~90-120dp) or ~320dp media cards (packages/agl_ads/lib/src/ad_native.dart:20-22); squeezed into a print-shaped grid cell it would either break or read like one of the user's prints. Fitting it would mean splitting the grid into chunks with full-width rows between them - a layout rework, not a natural slot. The gallery already carries the banner at its foot (gallery_screen.dart:228). Studio's ListView.builder (studio_screen.dart:811-813) is a prompt-match picker, not a feed."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none in-app. Limits that exist: upstream Pollinations rate-limit pause mobile/lib/features/studio/studio_controller.dart:116 (rateLimitPauseSeconds = 30) and gallery storage cap mobile/lib/services/history_repository.dart:24 (defaultMaxEntries = 200)",
+  "why": "No honest non-essential extra to give. The 30 s pause is the free Pollinations.ai tier's own limit (spec AGStudio.md:88-89; studio_controller.dart:291-302 starts the cooldown only after a 402/429); watching an ad cannot make the upstream accept a request sooner, so 'watch an ad to skip the wait' would be false. The 200-print cap is a disk-growth guard that already skips starred/proof-sheet prints (history_repository.dart:29-31,148-156), not a quota to sell. Proof-sheet export has no limit (proof_sheet_exporter.dart: no limit/quota found by grep). No IAP or premium tier (grep in_app_purchase/premium/pro in lib and pubspec: none)."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [],
+ "evidence": [
+  "mobile/pubspec.yaml:29-33 agl_ads git dep (ref master)",
+  "mobile/lib/main.dart:38-44 AglAds.configure(AglAdIds.fromEnvironment(...)) + initialize",
+  "mobile/lib/widgets/ad_slot.dart:4-8,32",
+  "mobile/lib/features/studio/studio_screen.dart:194-199,270-273",
+  "mobile/lib/features/gallery/gallery_screen.dart:209-228",
+  "mobile/lib/services/history_repository.dart:24",
+  "mobile/lib/features/studio/studio_controller.dart:116",
+  "ai-office/projects/real-apps/specs/AGStudio.md:109 (banner on Prints + under result; onTransition when Prints opens)",
+  "docs/store-policy/AGStudio.json:99-108",
+  "store/admob/ad-units-plan.csv rows 51,53,57,59 (rewarded/native units exist, 'Shown in app' = no)"
+ ]
+}

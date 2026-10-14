@@ -1,0 +1,48 @@
+{
+ "repo": "AGCleaner",
+ "kids_or_families": false,
+ "kids_evidence": "Not a children's app. Spec user is 'a small-business owner, a salesperson or a family \"IT person\" with 500 to 5,000 contacts' (ai-office/projects/real-apps/specs/AGCleaner.md:40). store/apps/AGCleaner.json primary_category = UTILITIES. No Kids-category or Families field in store/apps/AGCleaner.json and no store/ratings/AGCleaner.json.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/features/home/home_screen.dart:50 (HomeScreen footer), lib/features/contacts/contacts_screen.dart:102 and lib/features/photos/photos_screen.dart:105 (footer, hidden while a scan runs)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "Fires through _ReturnToHomeObserver when the user pops a page back to Home (lib/app/app.dart:127-138, AglAds.onTransition at :137). AGCleaner is a task-focused utility (scan, review a group, merge, restore), used in short sessions, so a full-screen ad on the way back from a merge or restore feels intrusive. The spec already left it as founder money question 3 (AGCleaner.md:185, :200)."
+ },
+ "native": {
+  "use": false,
+  "screen": "none",
+  "list_builder": "none",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "No list fits. The long list is the duplicate-group queue, lib/features/contacts/contacts_screen.dart:259-261 (SliverList.builder over GroupStackCard). It is a work queue of the user's own contacts where each row leads to a merge decision, so an ad row there invites mis-taps and could be read as one more card. History (lib/features/history/history_screen.dart:40-42) fits the letter of the 'history' rule and is capped at 200 entries (lib/domain/app_state.dart:367), but it is an audit log of the app's own merges and restores, opened rarely. I am not confident it would reach 8-10 rows for a typical user, so use=false."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "none",
+  "existing_limit_or_quota": "none",
+  "why": "Nothing honest to reward. No free quota, premium tier or IAP exists. A grep of the Dart code in lib/ for premium|in_app_purchase|quota|subscription finds nothing, and the store description says 'There is no account, no sign-in and no purchase' (store/apps/AGCleaner.json description). The only extra-looking action is sharing a restore point (lib/features/restore/restore_points_screen.dart:138-154). That is a safety backup, so it must never sit behind an ad."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "agl_ads is locked in pubspec.lock to 97e9a7f (resolved-ref, line 17), which does not contain agl-manifest cb21ee5 (checked with `git merge-base --is-ancestor cb21ee5 97e9a7f`). Run `flutter pub upgrade agl_ads` before using AglNativeAd / AglAds.showRewarded.",
+  "Age-rating answers: there is no store/ratings/AGCleaner.json, so deliver_metadata.py:48 falls back to store/ratings/default.json, whose line 16 is \"advertising\": false, and passes it to Apple at deliver_metadata.py:75. This app does show banners. store-compliance should add store/ratings/AGCleaner.json with advertising: true.",
+  "Founder question 3 in AGCleaner.md:185 (keep or remove the interstitial) is still open. This file recommends remove."
+ ],
+ "evidence": [
+  "lib/main.dart:28 AglAds.configure(AglAdIds.fromEnvironment(",
+  "lib/main.dart:32 unawaited(AglAds.initialize())",
+  "lib/app/app.dart:137 AglAds.onTransition() in _ReturnToHomeObserver.didPop",
+  "lib/features/home/home_screen.dart:50 footer: const AglAdBanner()",
+  "lib/features/contacts/contacts_screen.dart:259-261 SliverList.builder itemBuilder -> GroupStackCard",
+  "lib/features/history/history_screen.dart:40-42 SliverList.builder -> _HistoryTile",
+  "lib/domain/app_state.dart:367 maxHistory = 200",
+  "pubspec.lock:17 resolved-ref 97e9a7f40471bca73e66fa5a2903d7be232e8645",
+  "store/ratings/default.json:16 \"advertising\": false"
+ ]
+}

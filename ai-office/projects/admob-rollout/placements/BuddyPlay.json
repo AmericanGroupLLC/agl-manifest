@@ -1,0 +1,48 @@
+{
+ "repo": "BuddyPlay",
+ "kids_or_families": false,
+ "kids_evidence": "Not in a Kids category: store category ENTERTAINMENT / UTILITIES (store/apps/BuddyPlay.json:35,38); Kids Category audit 'not applicable' (docs/store-policy/BuddyPlay.md:44); no store/ratings/BuddyPlay.json and no kidsAgeBand anywhere in store/ratings. BUT it is a mixed/family audience: the spec's primary users include 'a parent and a school-age child' (specs/BuddyPlay.md:65) and it proposes secondary category GAMES > Family (specs/BuddyPlay.md:258). Play Console target-audience answer is not readable via the API (docs/PLAY_PUBLISH_CHECKLIST.md:24) - not verified. Treat as family-adjacent: no native, no rewarded.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "mobile/lib/features/home/home_screen.dart:155 (inline after Board classics section) and mobile/lib/features/rivalries/rivalries_screen.dart:117 (Rivalry Book list footer)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "keep",
+  "why": "AglAds.onTransition() on tab switch in RootNav._select (mobile/lib/app/app.dart:65), capped by agl_ads (3 min, 2 warm-up). Leisure game app, not a utility or sensitive context, so the founder rule allows keeping it; no interstitial on game/lobby/settings screens. Caveat: if the founder sets a GAMES > Family category or an under-13 Play target audience, revisit (Families policy)."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "No content feed. The scrolling lists are the Rivalry Book (mobile/lib/features/rivalries/rivalries_screen.dart:104 `for (final r in shown)`) - the family's own head-to-head records, usually a handful of people - and a game grid. Native among personal records of family members is not a natural fit, and the audience is family-adjacent."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "No quota, premium, IAP or locked content exists (grep premium|quota|in_app in lib: no hit; all 23 games are free). Nothing honest to reward, and family-adjacent audience."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "pubspec.lock pins agl_ads at 97e9a7f, which predates agl-manifest cb21ee5 (git merge-base --is-ancestor: not contained); run `flutter pub upgrade agl_ads` before using AglNativeAd/showRewarded. (only needed if formats change; none recommended)",
+  "store/ratings/BuddyPlay.json does not exist, so tooling falls back to store/ratings/default.json:16 \"advertising\": false although the app ships AdMob; apps with ads that have their own file say true (e.g. store/ratings/TripNest.json:16). Not verified what App Store Connect currently holds.",
+  "Founder decision pending on category GAMES > Family (specs/BuddyPlay.md:258, :267) - if accepted, re-check Families policy for the interstitial."
+ ],
+ "evidence": [
+  "mobile/pubspec.yaml:53-56 agl_ads git dep",
+  "mobile/lib/main.dart:36-40 AglAds.configure/initialize",
+  "mobile/lib/app/app.dart:65 AglAds.onTransition() on tab switch",
+  "mobile/lib/features/home/home_screen.dart:155 AglAdBanner",
+  "mobile/lib/features/rivalries/rivalries_screen.dart:117 AglAdBanner",
+  "store/apps/BuddyPlay.json:35 primary_category ENTERTAINMENT",
+  "docs/store-policy/BuddyPlay.md:44 Kids Category n-a",
+  "ai-office/projects/real-apps/specs/BuddyPlay.md:65 parent and school-age child",
+  "specs/BuddyPlay.md:258 proposed GAMES > Family"
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "repo": "radiotune",
+ "kids_or_families": false,
+ "kids_evidence": "Not a kids/families app: docs/store-policy/radiotune.json:121 Apple 1.3 'Kids Category' applies=false ('none of [kids] detected in the current source', generated 2026-10-14); store/apps/radiotune.json:30 primary_category MUSIC. No Kids/Families store metadata found (grep of store/ and docs/). store/ratings/radiotune.json read: all content descriptors NONE, advertising true - no kids targeting.",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/screens/today_screen.dart:364 and :413 (_InlineAd -> AglAdBanner at :655-660) and lib/screens/dial_screen.dart:363 (after Genres)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "It fires on every tab change (lib/screens/main_shell.dart:104-111 _goToTab -> AglAds.onTransition()), and nothing checks whether a station is playing; agl_ads only applies the warm-up/3-minute cap (packages/agl_ads/lib/src/ads.dart:140-153). Switching tabs while listening is the normal way to use the app, so a video interstitial can start over the live stream. That breaks the founder rule that ads must never interrupt playback unexpectedly. (Whether the ad ducks or pauses the just_audio stream was not checked on a device.) Remove it, or at minimum gate the call on !AudioPlayerService.instance.isPlaying (getter declared at lib/services/audio_player_service.dart:61). Note: spec radiotune.md:187 said onTransition 'stays'; this recommendation follows the newer 2026-10-14 founder rule."
+ },
+ "native": {
+  "use": true,
+  "screen": "lib/screens/genre_stations_screen.dart (GenreStationsScreen)",
+  "list_builder": "lib/screens/genre_stations_screen.dart:146-158 (ListView.builder itemBuilder -> StationTile)",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "A browse/discovery list of stations: up to 60 stations per genre, country or language (genre_stations_screen.dart:79-82 limit: 60), and it has no ad today. A small template after every 8th StationTile is a natural native slot. Use small, not medium: the small template has no media view, so it cannot play video audio over the radio. Keep the bottom padding (150) and the MiniPlayer bottomSheet (:148-149,160) clear of the ad. Map the index so 'Shuffle all' and the playStation queue (:117-125,155-156) still get the plain _stations list without ad rows. Optional second slot, same rule: Dial station search results (dial_screen.dart:233-244, up to 40 results, :131). No native on Log, Library favourites/recent (the user's own lists), Now Playing, Car mode or Settings (spec radiotune.md:187)."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none (no quota/premium/IAP found in lib or pubspec.yaml)",
+  "why": "Every feature (alarm, sleep timer, car mode, favourites, log) is core and free, and there is no premium tier or free quota to extend. A rewarded video also plays audio, which would cut into playback. Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "pubspec.lock pins agl_ads at 7b3c98e (pubspec.lock) (pubspec.lock grep), which predates cb21ee5 and has no ad_native.dart (git cat-file checked) - developer must run `flutter pub upgrade agl_ads` before AglNativeAd/showRewarded exist",
+  "Founder confirmation that the interstitial goes against spec radiotune.md:187 ('AglAds.onTransition() on tab change stays')",
+  "agl-manifest/apps.json still lists radiotune admob.ios_app_id as Google's test id ca-app-pub-3940256099942544~1458002511, while lib/main.dart:42 and ios/Runner/Info.plist:43 carry the real ~3988881237. The manifest record is stale (not an app bug)."
+ ],
+ "evidence": [
+  "pubspec.yaml:29-33 agl_ads dep",
+  "lib/main.dart:40-44 AglAds.configure (real iOS id ~3988881237)",
+  "lib/screens/main_shell.dart:7-10,104-111",
+  "lib/screens/today_screen.dart:364,413,655-660",
+  "lib/screens/dial_screen.dart:131,233-244,361-363",
+  "lib/screens/genre_stations_screen.dart:79-82,111-161",
+  "lib/services/audio_player_service.dart:61",
+  "packages/agl_ads/lib/src/ads.dart:22,26,140-153",
+  "packages/agl_ads/lib/src/ad_native.dart:20-22",
+  "ai-office/projects/real-apps/specs/radiotune.md:187",
+  "store/ratings/radiotune.json",
+  "docs/store-policy/radiotune.json:121",
+  "store/admob/ad-units-plan.csv rows 425,431 (native units exist)"
+ ]
+}

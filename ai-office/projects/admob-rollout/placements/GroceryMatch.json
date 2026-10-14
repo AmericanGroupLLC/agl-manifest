@@ -1,0 +1,45 @@
+{
+ "repo": "GroceryMatch",
+ "kids_or_families": false,
+ "kids_evidence": "Grocery list/allergen app for households; category SHOPPING (store/apps/GroceryMatch.json:36); Kids Category audit n-a (docs/store-policy/GroceryMatch.md:50).",
+ "uses_agl_ads": true,
+ "banner": {
+  "present": true,
+  "where": "lib/features/stores/stores_screen.dart:350 (bottom of Stores) and lib/features/history/history_screen.dart:115 (bottom of History)"
+ },
+ "interstitial": {
+  "present": true,
+  "recommend": "remove",
+  "why": "AglAds.onTransition() after the user's own 'Finish trip' (lib/features/trip/trip_screen.dart:242). It is the least-bad trigger (the spec allows it only there, specs/GroceryMatch.md:214), but this is a task-focused shopping utility used at the checkout with allergen/health information, so the founder rule says remove. If the founder wants the revenue, this is the only acceptable spot."
+ },
+ "native": {
+  "use": true,
+  "screen": "lib/features/stores/stores_screen.dart (StoresScreen, list view of nearby supermarkets)",
+  "list_builder": "lib/features/stores/stores_screen.dart:524 (`for (var i = 0; i < visible.length; i++)`)",
+  "every_n_items": 8,
+  "template": "small",
+  "why": "Nearby-store results from OpenStreetMap (up to 25, lib/services/location/nearby_grocery_service.dart:89,107) are a listings/results list. One small native after the 8th store, only when more than 8 are visible, outside the store tile styling (it sits inside a bordered Container of _StoreTile rows separated by DashedRule - put the ad between rows with its own spacing so it cannot pass as a store). Not in History (personal trip records), list, trip mode, scan or Basket check (spec forbids ads there, specs/GroceryMatch.md:143, :214). Note the same screen already has the bottom banner; cap at 1 native."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none (basket checks are cached 24 h per item to limit API calls - lib/services/basket/basket_check_service.dart:17-19 - not a user quota)",
+  "why": "No user-facing quota, premium or IAP (grep premium|in_app_purchase|paywall: no hit). Basket check and allergen swaps are core, health-related features and must not be gated. Nothing honest to reward."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "pubspec.lock pins agl_ads at d5e5b72, which predates agl-manifest cb21ee5 (git merge-base --is-ancestor: not contained); run `flutter pub upgrade agl_ads` before using AglNativeAd/showRewarded.",
+  "agl_ads AglAds.initialize() preloads an interstitial on every launch even if the app never calls onTransition (packages/agl_ads/lib/src/ads.dart:94 `unawaited(_loadInterstitial());`). Removing the onTransition call does not stop that request; agl_ads needs an opt-out (e.g. a configure flag) or the app keeps sending one unused interstitial request per launch. (applies once the trip_screen.dart:242 call is removed)",
+  "store/ratings/GroceryMatch.json does not exist, so tooling falls back to store/ratings/default.json:16 \"advertising\": false although the app ships AdMob; apps with ads that have their own file say true (e.g. store/ratings/TripNest.json:16). Not verified what App Store Connect currently holds."
+ ],
+ "evidence": [
+  "pubspec.yaml:28-31 agl_ads git dep",
+  "lib/main.dart:44-50 AglAds.configure/initialize",
+  "lib/features/trip/trip_screen.dart:240-242 onTransition after Finish trip",
+  "lib/features/stores/stores_screen.dart:350 AglAdBanner; :524 store loop",
+  "lib/features/history/history_screen.dart:115 AglAdBanner",
+  "ai-office/projects/real-apps/specs/GroceryMatch.md:143 no ads in trip mode; :214 ads rule"
+ ]
+}

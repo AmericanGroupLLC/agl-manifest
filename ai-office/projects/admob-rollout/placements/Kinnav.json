@@ -1,0 +1,46 @@
+{
+ "repo": "Kinnav",
+ "kids_or_families": false,
+ "kids_evidence": "Personal-safety walking app for adults (spec title 'get home on foot, with someone expecting you', specs/Kinnav.md:1); category NAVIGATION (store/apps/Kinnav.json:29); Kids Category audit n-a (docs/store-policy/Kinnav.md:52).",
+ "uses_agl_ads": false,
+ "banner": {
+  "present": false,
+  "where": "none - no agl_ads/google_mobile_ads in pubspec.yaml, no GADApplicationIdentifier in ios/Runner/Info.plist, no APPLICATION_ID in android/app/src/main/AndroidManifest.xml (grep: no hits). Only acceptable slot if ads are ever added: History screen (lib/history/history_screen.dart, ListView.builder at :119), per spec option F4(b)."
+ },
+ "interstitial": {
+  "present": false,
+  "recommend": "remove",
+  "why": "Not present. Personal-safety context (active walk, alert, safe havens): a full-screen ad there is unacceptable."
+ },
+ "native": {
+  "use": false,
+  "screen": "",
+  "list_builder": "",
+  "every_n_items": 0,
+  "template": "small",
+  "why": "Safety app. Havens is a list of safe places to go now and History is the user's own walk records; spec says ads never on Home, active walk, Alert, Safe Havens or contacts (specs/Kinnav.md:271). No native."
+ },
+ "rewarded": {
+  "use": false,
+  "reward": "",
+  "trigger_screen": "",
+  "existing_limit_or_quota": "none",
+  "why": "No quota/premium/IAP (grep premium|in_app_purchase|quota|paywall: no hit; spec :346 'no In-App Purchase'). Nothing honest to reward in a safety app."
+ },
+ "app_open": false,
+ "rewarded_interstitial": false,
+ "blockers": [
+  "RECOMMENDATION: do NOT integrate AdMob now. The spec's founder question F4 recommends and defaults to 'no ads' for this safety app (specs/Kinnav.md:376), and the developer removed agl_ads on that default (specs/Kinnav.md:384). No founder answer to F4 is recorded in ai-office/company/decision-log.md. Revenue at stake was measured as $0 (specs/Kinnav.md:376).",
+  "If the founder picks F4(b) (one banner on History only), checklist: pubspec.yaml agl_ads git dep (url agl-manifest, path packages/agl_ads, ref master); ios/Runner/Info.plist GADApplicationIdentifier ca-app-pub-8528784688453695~7413568036 + SKAdNetworkItems (copy GroceryMatch/ios/Runner/Info.plist); AndroidManifest meta-data com.google.android.gms.ads.APPLICATION_ID = ca-app-pub-8528784688453695~2931397544; lib/main.dart AglAds.configure(AglAdIds.fromEnvironment(androidAppId: '...~2931397544', iosAppId: '...~7413568036')) + unawaited(AglAds.initialize()) without blocking startup; one AglAdBanner below the History list; Privacy choices row in Settings; store/ratings/Kinnav.json:16 advertising -> true; Play ads declaration + Data safety.",
+  "Stale store data either way: store/privacy/Kinnav.json still declares DEVICE_ID and ADVERTISING_DATA (THIRD_PARTY_ADVERTISING) with _derived_from.ads true, and account true, although the shipped code has no AdMob (and the spec removes sign-in). The label should be re-derived to drop the ad rows if F4(a) stands (spec :384 says the same)."
+ ],
+ "evidence": [
+  "/Users/spatchava/agl/Kinnav/pubspec.yaml (grep agl_ads|google_mobile_ads: no hit)",
+  "ios/Runner/Info.plist (grep GADApplicationIdentifier: no hit)",
+  "ai-office/projects/real-apps/specs/Kinnav.md:271, :376 (F4), :384",
+  "agl-manifest/docs/admob-ids.json Kinnav app ids ~2931397544 / ~7413568036",
+  "agl-manifest/store/ratings/Kinnav.json:16 advertising false",
+  "agl-manifest/store/privacy/Kinnav.json DEVICE_ID/ADVERTISING_DATA rows, _derived_from.ads true",
+  "lib/history/history_screen.dart:119-124 ListView.builder"
+ ]
+}
