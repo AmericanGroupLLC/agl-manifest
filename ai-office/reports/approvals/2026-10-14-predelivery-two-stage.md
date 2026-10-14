@@ -6,7 +6,7 @@ Date: 2026-10-14 · Prepared by: release-manager (AI office) · Founder rule of 
 
 Change **when** each pre-delivery check is enforced. The checks themselves don't change.
 
-- **Stage A, before TestFlight (internal testers only).** Every automated check (28) must PASS on the exact IPA that is uploaded. CI runs `predelivery.py` on the IPA it just built, and the upload gate checks that IPA's sha256 as it does today.
+- **Stage A, before TestFlight (internal testers only).** Every automated pre-upload check (20) must PASS (the 8 post-upload checks in section 6 run after the upload, as now) on the exact IPA that is uploaded. CI runs `predelivery.py` on the IPA it just built, and the upload gate checks that IPA's sha256 as it does today.
 - **Stage B, before App Store review submission.** The 18 checks only a person can do (1.1–1.6 core journeys, 2.4 prompt timing, 4.2/4.3/4.6 backend and accounts on a device, 5.1–5.7 physical-device testing) are signed against the **TestFlight build number** that was tested. A submission is refused until every Stage B check for that build is PASS or n/a.
 
 ## Why now
@@ -30,5 +30,5 @@ Answer "approve two-stage checklist" (or "no"). The office will then:
 
 ## Risks / how to undo
 
-- Internal testers could get a build a person hasn't touched yet. They are our own team, and every automated check (privacy strings, signing, store-policy FAILs, pre-release SDK) still blocks.
+- Internal testers could get a build a person hasn't touched yet. They are our own team, and every automated pre-upload check (privacy strings, signing, store-policy FAILs, pre-release SDK) still blocks.
 - Undo: put `PRE_UPLOAD_SECTIONS` back to sections 1–5.
