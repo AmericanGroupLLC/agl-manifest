@@ -237,7 +237,7 @@
   "where_it_goes": "NASA_FIRMS_KEY define (iMaps)",
   "cost": "Free",
   "approval": "Instant (email)",
-  "notes": ""
+  "notes": "MAP_KEY received 2026-10-14 (valid for FIRMS Global and US/Canada; NASA status check: 5,000 transactions / 10 min). Kept outside git at ~/agl/.secrets/nasa-firms-map-key. Not yet passed to iMaps builds."
  },
  "Open Charge Map": {
   "batch": "4 Free data keys",
@@ -258,10 +258,10 @@
   "where_credential": "Form \u2192 key emailed",
   "what_to_submit": "Name, email",
   "what_you_receive": "api.data.gov key (replaces DEMO_KEY)",
-  "where_it_goes": "NREL_API_KEY (iMaps), USDA_API_KEY",
+  "where_it_goes": "NREL_API_KEY define (iMaps; DEMO_KEY fallback today). Optional: openFDA in MyHealth (keyless works). No app reads USDA_API_KEY",
   "cost": "Free",
   "approval": "Instant",
-  "notes": ""
+  "notes": "api.data.gov key received 2026-10-14 in chat; not stored or tested yet (AI Office judge: storing credentials is the founder's step). Store it at ~/agl/.secrets/api-data-gov-key."
  },
  "Anthropic": {
   "batch": "5 AI / server-side keys",
@@ -330,10 +330,10 @@
   "where_credential": "Apps \u2192 Add app \u2192 per app per platform; link the store listing when live",
   "what_to_submit": "App name, platform, store listing (after release)",
   "what_you_receive": "AdMob app ID (ca-app-pub-\u2026~\u2026) and ad unit IDs",
-  "where_it_goes": "docs/admob-ids.json (already holds units)",
+  "where_it_goes": "docs/admob-ids.json (what builds pass); plan + measured checks in store/admob/ad-units-plan.csv",
   "cost": "Free",
   "approval": "Instant",
-  "notes": "Issue #15: the AdMob apps must be created in the UI"
+  "notes": "Done 2026-10-12: 43 apps x 2 platforms x 6 formats = 516 units, all DONE; 516/516 match docs/admob-ids.json (scripts/admob_plan.py, docs/ADMOB_PLAN.md). Apps show banner/interstitial; rewarded, rewarded interstitial, native and app open units exist but most apps do not show them. AGrammarly and Kinnav ship no AdMob. Issue #15 closed."
  },
  "Supabase": {
   "batch": "0 Done",

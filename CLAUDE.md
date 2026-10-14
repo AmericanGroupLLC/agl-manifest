@@ -34,6 +34,7 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | Why is it built this way? | `docs/DECISIONS.md` |
 | How does delivery work? | `docs/DELIVERY_ARCHITECTURE.md`, `docs/RELEASE_PIPELINE.md` |
 | Package names, bundle ids, AdMob ids | `status.csv`, `docs/app-identifiers.json`, `docs/admob-ids.json` |
+| The founder's AdMob plan (516 units), and which formats each app shows | `store/admob/ad-units-plan.csv`, `docs/ADMOB_PLAN.md` (`python3 scripts/admob_plan.py`) |
 | Store metadata and requirements | `docs/STORE_METADATA.md`, `status.csv` |
 | Crash reporting | `docs/CRASHLYTICS.md` |
 | Test file counts per app | the `measured: test_files` column of `status.csv` |
