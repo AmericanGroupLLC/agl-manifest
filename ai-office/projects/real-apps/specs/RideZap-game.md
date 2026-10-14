@@ -47,6 +47,45 @@ They are R1–R4 from the approval request, plus new ones found while writing th
 
 ---
 
+## 0.3 Competitive bar — founder, 2026-10-14: "it has to be good and better"
+
+The founder named the games RideZap must stand next to: CarX Street (open world), Asphalt Legends (arcade, nitro, stunts),
+Drive Zone Online (open-world multiplayer), Need for Speed No Limits (street racing, police chases), GRID Autosport
+(circuit realism), Wreckfest (damage and destruction), CarX Drift Racing 3 (drift), Rush Rally 3 (rally surfaces),
+Traffic Rider (bike traffic weaving) and Mad Skills Motocross 3 (bike stunts). All of them except Mad Skills are **3D**.
+
+**Consequence for R1 (office position, revised):** a top-down 2D game (R1 a) would not be judged against these titles
+at all. It would look like a different, smaller genre. To meet the founder's bar, RideZap has to be 3D. The revised
+recommendation is a new option:
+
+- **R1 d — stylized low-poly 3D open world in Godot 4** (Godot 4.7.2-stable, MIT, no account or licence fee; checked
+  with `gh api repos/godotengine/godot/releases/latest` on 2026-10-14). Assets: Kenney Car Kit and City Kit Roads
+  (CC0, licence text checked on kenney.nl 2026-10-14) plus original models. Ads: poingstudios/godot-admob-plugin
+  (MIT, last push 2026-10-13). Purchases: godot-sdk-integrations/godot-google-play-billing (MIT) and
+  godot-ios-plugins `inappstore`. Builds are headless CLI exports, so they fit CI. The cost is a **new lane in ship.yml**,
+  because the other 42 apps are Flutter.
+- R1 c (Unity) gives the same 3D, but needs a Unity account and Editor licence and has a heavier CI footprint.
+- R1 a (Flame, top-down) stays the cheapest. `flame_3d` is 0.3.2 and labelled "Experimental", so Flame is not the 3D path.
+
+**What RideZap can honestly beat them on.** It will not beat Asphalt or CarX on photorealism; that takes studio budgets.
+It can beat them on fairness, size, offline play, variety and older phones:
+
+| Founder's reference | Their strength we match | Where RideZap goes further |
+| --- | --- | --- |
+| CarX Street, Drive Zone | Free-roam city and highway map, tuning | Map regions are seamless and offline. No energy timers and no online requirement to roam |
+| Asphalt Legends | Nitro, jumps, spectacle | Every vehicle earnable by play (§2). No random boxes |
+| NFS No Limits | Police chases, street culture | Heat level and pursuit events in free roam, not menu-only |
+| Wreckfest | Crashes and damage | Visual damage and wrecks on cars **and** bikes (cartoon-level, age rating stays 9+ or lower, confirm) |
+| CarX Drift 3, Rush Rally 3 | Drift scoring, surfaces | Surface-grip table (§4): tarmac, gravel, dirt, sand, wet; drift and rally events in the same world |
+| Traffic Rider, Mad Skills | Bikes, traffic weaving, stunts | Cars and bikes in one garage, with highway weaving events and trick ramps in the mountains |
+| All of them | | Download target ≤ 250 MB (Asphalt-class games are multi-GB), 60 fps target on an iPhone 11-class device, ads never during a race |
+
+Multiplayer (Drive Zone, Asphalt) is **out of v1**. It needs a realtime server we don't run. It is a candidate for v2 on
+the existing Supabase project (Realtime), as a founder decision because of the cost.
+
+Claims about the competitors' features come from the founder's list and general knowledge, and were not checked on the
+stores (store pages are blocked from this machine). Download sizes and pay-to-win claims are **not verified**.
+
 ## 1. Product identity (Apple 4.3 applies to games too)
 
 **[R1 b/c]** Under b, the seamless map becomes long routes with forks. Under c, the same identity in 3D (§0.2).
