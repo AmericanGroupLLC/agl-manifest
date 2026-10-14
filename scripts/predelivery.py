@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The iOS pre-delivery checklist: 45 checks, 5 gates, a release record — per app, per build.
+"""The iOS pre-delivery checklist: 46 checks, 5 gates, a release record — per app, per build.
 
     python3 scripts/predelivery.py BodyQuest                 # run every check on ~/agl/.dist/BodyQuest.ipa
     python3 scripts/predelivery.py BodyQuest --after-upload  # also section 6 (asks App Store Connect)
@@ -69,6 +69,7 @@ CHECKS = [  # (id, kind, text)
     ("2.5", "auto", "Privacy policy URL is valid and accessible"),
     ("2.6", "auto", "App Privacy disclosures match actual data collection"),
     ("2.7", "auto", "Account deletion works if account creation is supported"),
+    ("2.8", "auto", "Store policy audit (Apple + Google) — no FAIL"),
     ("3.1", "auto", "Flutter dependencies resolve successfully"),
     ("3.2", "auto", "Release build succeeds without errors"),
     ("3.3", "auto", "Xcode archive completes successfully"),
@@ -106,7 +107,8 @@ GATES = [
      ["3.1", "3.2", "3.3", "3.4", "3.5", "3.6", "3.7", "3.8", "3.9"]),
     ("Gate 2 — Installation", "The release build installs and launches on a physical iPhone", ["5.1"]),
     ("Gate 3 — Functionality", "Core journeys work: login, navigation, backend", ["1.1", "1.3", "1.4", "1.5", "4.2"]),
-    ("Gate 4 — Privacy", "Purpose strings and entitlements are correct", ["2.1", "2.2", "2.3", "2.7", "3.8"]),
+    ("Gate 4 — Privacy", "Purpose strings and entitlements are correct; no store-policy rule fails",
+     ["2.1", "2.2", "2.3", "2.7", "2.8", "3.8"]),
     ("Gate 5 — Distribution", "Processed, in the internal group, installable by testers", ["6.2", "6.3", "6.7", "6.8"]),
 ]
 # Delivery needs every section 1-5 check PASS (or n/a) and gates 1-4; gate 5 is after upload.
@@ -271,6 +273,22 @@ def run_auto(c: Ctx) -> dict:
     except Exception as e:  # a broken check must show, not pass
         st, detail = FAIL, f"check errored: {type(e).__name__}: {e}"
     r["2.7"] = ({"PASS": PASS, "FAIL": FAIL, "n/a": NA}.get(st, HUMAN), detail)
+
+    # 2.8 every applicable Apple/Google rule in store/policy/catalogue.json —
+    # docs/store-policy/<App>.json, re-run here when stale. HUMAN and FOUNDER
+    # rules are listed in that report; only a FAIL blocks this check.
+    try:
+        from store_policy_audit import audit_for_gate
+        pol = audit_for_gate(c.a)
+        bad = [f"{x['store']} {x['ref']}" for x in pol["rules"] if x["state"] == "FAIL"]
+        sm = pol["summary"]
+        tail = (f" — docs/store-policy/{c.repo}.md (audited {pol['generated_at']}"
+                + (f", re-run: {pol['rerun_reason']}" if pol.get("rerun_reason") else "") + ")")
+        r["2.8"] = (FAIL, f"{len(bad)} applicable rule(s) fail: " + ", ".join(bad) + tail) if bad else \
+            (PASS, f"no applicable rule fails ({sm.get('PASS', 0)} pass, {sm.get('HUMAN', 0)} for a person, "
+                   f"{sm.get('FOUNDER', 0)} founder)" + tail)
+    except Exception as e:  # a broken check must show, not pass
+        r["2.8"] = (FAIL, f"store policy audit errored: {type(e).__name__}: {e}")
 
     # 3.1 dependencies resolve without touching the lockfile
     rc, out = sh([FLUTTER, "pub", "get", "--enforce-lockfile"], cwd=c.d, timeout=900)

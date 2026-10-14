@@ -26,7 +26,8 @@ org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.
 | What is the state of every app? | **`status.csv`** — the single sheet: one row per app, and column groups `check:`, `measured:`, `gate:`, `quality:`, `i18n:`, `apple:` alongside the store fields. Counts go stale, so it does not quote one. Every identifier, artefact, store state, store gate, measured fact, quality signal and per-app check. `STATUS.md` is a rendering of it |
 | Which apps have a signed binary, and is it really signed? | `docs/build-evidence.json` (generated) |
 | **What must pass before an app is submitted?** | **`docs/SUBMISSION_CHECKLIST.md`** — the gate, and why each row exists |
-| **Can this build go to TestFlight?** | **`python3 scripts/predelivery.py <App>`** → `docs/predelivery/<App>.md`: 45 checks, 5 gates, release record. The upload gate refuses any IPA without a PASS for that exact file |
+| **Can this build go to TestFlight?** | **`python3 scripts/predelivery.py <App>`** → `docs/predelivery/<App>.md`: 46 checks, 5 gates, release record. The upload gate refuses any IPA without a PASS for that exact file |
+| **Will Apple or Google reject it? (every store rule, per app)** | **`python3 scripts/store_policy_audit.py [App …]`** → `docs/store-policy/<App>.md` and `docs/STORE_POLICY.md`: each catalogue rule (`store/policy/catalogue.json`) with applies?, PASS/FAIL/HUMAN/FOUNDER/n-a, evidence and owner. predelivery check 2.8 refuses delivery on any FAIL |
 | **A rejection or upload warning arrived** | **`docs/REJECTION_PLAYBOOK.md`** — capture, make it a check, sweep all 43, fix, rebuild |
 | What must a human do that I cannot? | `docs/MANUAL_ACTIONS.md` |
 | What is broken right now? | `docs/KNOWN_ISSUES.md` |

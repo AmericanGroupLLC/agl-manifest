@@ -1,0 +1,1672 @@
+{
+ "app": "CodeDeal",
+ "generated_at": "2026-10-14T01:50:40",
+ "generated_epoch": 1791967840,
+ "catalogue_about": "Store policy catalogue. Written from knowledge of the Apple App Review Guidelines and the Google Play Developer Program Policies as of 2026; every entry must be verified against the current official text (web access is off in this session). 'applies' = feature tags detected per app; 'check' = auto:<existing check> | human: | founder: | n/a.",
+ "app_dir": "mobile/codedeal_app",
+ "source_commit_time": "2026-10-13T11:28",
+ "ipa": "CodeDeal.ipa build 15 (2026-09-22T11:14) \u2014 OLDER than the last source commit; binary checks describe that build",
+ "target_sdk_required": 36,
+ "features": {
+  "ads": {
+   "count": 3,
+   "evidence": [
+    "mobile/codedeal_app/lib/main.dart:36 `AglAds.configure(AglAdIds.fromEnvironment(`",
+    "mobile/codedeal_app/lib/main.dart:40 `unawaited(AglAds.initialize());`",
+    "mobile/codedeal_app/lib/features/wallet/wallet_page.dart:270 `child: Center(child: AglAdBanner()),`"
+   ]
+  },
+  "push": {
+   "count": 1,
+   "evidence": [
+    "mobile/codedeal_app/lib/data/reminders.dart:40 `: _plugin = plugin ?? FlutterLocalNotificationsPlugin();` (local notifications)"
+   ]
+  }
+ },
+ "sign_in_with_apple": [],
+ "android_permissions": [
+  "ACCESS_NETWORK_STATE",
+  "INTERNET",
+  "POST_NOTIFICATIONS",
+  "RECEIVE_BOOT_COMPLETED",
+  "VIBRATE",
+  "WAKE_LOCK"
+ ],
+ "summary": {
+  "FAIL": 5,
+  "HUMAN": 31,
+  "FOUNDER": 4,
+  "PASS": 21,
+  "n-a": 52
+ },
+ "failing": [
+  "apple 2.3.3",
+  "apple 4.2.6",
+  "apple 4.3(a)",
+  "apple 5.1.1(i)",
+  "google User Data"
+ ],
+ "rules": [
+  {
+   "store": "apple",
+   "ref": "1.1",
+   "title": "Objectionable content",
+   "check": "human: review every screen and bundled content",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "review every screen and bundled content"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "1.1.6",
+   "title": "False information / trick features",
+   "check": "auto:no_fake_data + human",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "/Users/spatchava/agl/.dist/fake-data-audit.json (2026-10-09T09:55, older than current code): 3 release-visible fake-data site(s) then; re-read every screen"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "apple",
+   "ref": "1.2",
+   "title": "User-generated content",
+   "check": "auto:apple_requirements:ugc-1.2",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [ugc] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "1.3",
+   "title": "Kids Category",
+   "check": "human: confirm the app is not in the Kids category or meets 1.3",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [kids] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "1.4",
+   "title": "Physical harm",
+   "check": "human: health claims backed, disclaimer present",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [health] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "1.4.1",
+   "title": "Medical apps",
+   "check": "human",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [health] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "1.5",
+   "title": "Developer information",
+   "check": "auto:store_checklist:Privacy & support URLs serve the right page",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Privacy & support URLs serve the right page': PASS 3 checked"
+   ],
+   "owner": "store-compliance"
+  },
+  {
+   "store": "apple",
+   "ref": "1.6",
+   "title": "Data security",
+   "check": "auto:appsec (secure storage, no secrets in binary)",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [accounts] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "1.7",
+   "title": "Reporting criminal activity / emergency",
+   "check": "human: Kinnav-type safety features use the real emergency number and say what they do",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [emergency_safety] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.1(a)",
+   "title": "App completeness \u2014 crashes",
+   "check": "auto:apple_requirements:launch-2.1a + predelivery 1.x/5.x",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "docs/apple-requirements.json (2026-10-14T01:23) launch-2.1a: IPA build 15 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+   ],
+   "owner": "qa-reviewer"
+  },
+  {
+   "store": "apple",
+   "ref": "2.1(b)",
+   "title": "App completeness \u2014 in-app purchases",
+   "check": "auto:apple_requirements:iap-2.1b",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [iap] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.1",
+   "title": "Information Needed",
+   "check": "auto:store_checklist:Demo account when the app gates on sign-in + Review notes answer Apple's 7 items",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [accounts] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.2",
+   "title": "Beta testing",
+   "check": "auto:no 'beta'/'coming soon'/'preview' in lib + metadata",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "no beta/coming-soon/preview/demo-mode wording in lib/ strings, the English ARB or iOS metadata"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3",
+   "title": "Accurate metadata",
+   "check": "human + auto:aso copy vs features",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "aso copy vs features"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.1",
+   "title": "Hidden or undocumented features",
+   "check": "auto:no remote config/feature flags/deep-link-only screens (code-hygiene)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "firebase_remote_config in pubspec.lock but not imported \u2014 remove it"
+   ],
+   "owner": "code-hygiene"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.3",
+   "title": "Screenshots",
+   "check": "auto:apple_requirements:screenshots-2.3.3",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "FAIL",
+   "evidence": [
+    "docs/apple-requirements.json (2026-10-14T01:23) screenshots-2.3.3: APP_IPAD_PRO_3GEN_129: first screenshot is error (Exception); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPHONE_67: first screenshot is error (Exception); APP_IPHONE_67: 3 of 4 are not the app in use"
+   ],
+   "owner": "store-creative"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.4",
+   "title": "App previews",
+   "check": "human (if a preview exists)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "n-a",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'App preview video': HUMAN none recorded \u2014 rule applies only when a preview exists"
+   ],
+   "owner": "store-creative"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.6",
+   "title": "Age rating",
+   "check": "auto:store_checklist:Apple age rating answered",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Apple age rating answered': PASS declaration matches the shipped binary"
+   ],
+   "owner": "store-compliance"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.7",
+   "title": "Name, keywords, metadata",
+   "check": "auto:store_checklist name/keywords limits + human: no competitor names in keywords",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'App Store name': PASS CodeDeal",
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'App Store keywords (<=100)': PASS 71 chars",
+    "no brand from a 72-name list in name/subtitle/keywords; the list is partial \u2014 a person checks keywords for competitor and trademark terms"
+   ],
+   "owner": "aso-specialist"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.8",
+   "title": "Metadata for all audiences",
+   "check": "human",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "a person reviews: Metadata for all audiences"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.10",
+   "title": "Third-party platforms",
+   "check": "auto:grep 'Android|Google Play|Play Store' in iOS metadata and iOS UI strings",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "confirm iOS never shows these (URLs, identifiers, proper names, platform branches): mobile/codedeal_app/lib/domain/promo_parser.dart:186 `'apple.com', 'apps.apple.com', 'play.google.com', 'pinterest.com',`"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "apple",
+   "ref": "2.4.1",
+   "title": "iPad support",
+   "check": "auto:apple_requirements:launch-2.1a (iPad)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "docs/apple-requirements.json (2026-10-14T01:23) launch-2.1a: IPA build 15 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+   ],
+   "owner": "qa-reviewer"
+  },
+  {
+   "store": "apple",
+   "ref": "2.4.2",
+   "title": "Power efficiency",
+   "check": "human + auto:background modes declared vs used",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "no UIBackgroundModes",
+    "battery/heat under normal use needs a person on a device"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.4.5",
+   "title": "Mac App Store",
+   "check": "n/a",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "catalogue marks it not applicable"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.1",
+   "title": "Public APIs only",
+   "check": "auto:binary scan for private API strings (appsec)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "CodeDeal.ipa build 15 (2026-09-22T11:14): 26 Mach-O(s); no PrivateFrameworks link, LSApplicationWorkspace, UIGetScreenImage or MobileGestalt (scope: these markers only)"
+   ],
+   "owner": "appsec-engineer"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.2",
+   "title": "Self-contained",
+   "check": "auto:no dynamic code loading (appsec)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "none of shorebird_code_push, flutter_eval, dart_eval, hetu_script, flutter_js, flutter_qjs, js_interpreter in pubspec.lock (127 packages)"
+   ],
+   "owner": "appsec-engineer"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.4",
+   "title": "Background modes",
+   "check": "auto:UIBackgroundModes vs code usage",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [background_modes] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.6",
+   "title": "WebKit",
+   "check": "auto:webview plugin is WKWebView-based",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [webview] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.14",
+   "title": "Recording consent",
+   "check": "human: recording indicator + consent",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [microphone] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.15",
+   "title": "Files / external storage",
+   "check": "auto:upload_scan_plist (ITMS-90737)",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [file_documents] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.16",
+   "title": "Widgets/extensions",
+   "check": "human",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [extensions] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.18",
+   "title": "Ads",
+   "check": "auto:ads not in extensions + human: interstitial frequency/close",
+   "applies": true,
+   "applies_because": [
+    "ads"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "CodeDeal.ipa build 15 (2026-09-22T11:14): no app extension links GoogleMobileAds",
+    "packages/agl_ads caps interstitials (3 min, 2 warm-up transitions); a person checks placement and close buttons"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "3.1.1",
+   "title": "In-App Purchase",
+   "check": "auto:no Stripe/PayPal for digital goods + apple_requirements:iap-2.1b",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [iap] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "3.1.2",
+   "title": "Subscriptions",
+   "check": "human + auto:restore purchases present",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [subscriptions] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "3.1.3",
+   "title": "Other purchase methods",
+   "check": "human",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [external_purchase_links] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "3.1.4",
+   "title": "Hardware-specific content",
+   "check": "n/a",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "catalogue marks it not applicable"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "3.2.1",
+   "title": "Acceptable business models",
+   "check": "auto:affiliate disclosure visible near links",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [affiliate_links] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "3.2.2(ii)",
+   "title": "Unacceptable: creating an interface for displaying third-party apps or ads",
+   "check": "human: app has value beyond links (4.3 spec)",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [affiliate_links] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "4.0",
+   "title": "Design",
+   "check": "human + store-creative review",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "a person reviews: Design"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "4.1",
+   "title": "Copycats",
+   "check": "human",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "a person reviews: Copycats"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "4.2",
+   "title": "Minimum functionality",
+   "check": "auto:Real Apps QA pass (#24)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "ai-office/projects/real-apps/continue/CodeDeal.json (2026-10-13T11:23): last QA verdict 'partial', 5 must-fix item(s)",
+    "M1: delete the unreachable legacy deals client and accounts code from lib/ (trpc_client.dart, api/providers.dart, core/auth/*, features/{home,deals,search,categ",
+    "M1: after the deletion, remove from pubspec.yaml dio, supabase_flutter, speech_to_text, dynamic_color, flutter_secure_storage, cached_network_image, go_router, "
+   ],
+   "owner": "product-manager"
+  },
+  {
+   "store": "apple",
+   "ref": "4.2.6",
+   "title": "App generation services",
+   "check": "auto:Real Apps QA + differentiation answers (store_checklist 4.3 statement)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "FAIL",
+   "evidence": [
+    "docs/store-holds.json: Apple hold 4.2.6 (App generation service), seen 2026-10-13T21:30:46",
+    "docs/store-checklist-detail.json (2026-10-14T01:23) '4.3 differentiation statement': FAIL 4 unanswered question(s)",
+    "ai-office/projects/real-apps/continue/CodeDeal.json (2026-10-13T11:23): last QA verdict 'partial', 5 must-fix item(s)"
+   ],
+   "owner": "product-manager"
+  },
+  {
+   "store": "apple",
+   "ref": "4.3(a)",
+   "title": "Spam \u2014 duplicates",
+   "check": "auto:overlap analysis (#25) + differentiation statement",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "FAIL",
+   "evidence": [
+    "docs/store-holds.json: Apple hold 4.2.6 (App generation service), seen 2026-10-13T21:30:46",
+    "docs/store-checklist-detail.json (2026-10-14T01:23) '4.3 differentiation statement': FAIL 4 unanswered question(s)",
+    "ai-office/projects/real-apps/continue/CodeDeal.json (2026-10-13T11:23): last QA verdict 'partial', 5 must-fix item(s)"
+   ],
+   "owner": "product-manager"
+  },
+  {
+   "store": "apple",
+   "ref": "4.3(b)",
+   "title": "Saturated categories",
+   "check": "human + aso competitors",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "a person reviews: Saturated categories"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "4.4",
+   "title": "Extensions",
+   "check": "human",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [extensions] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "4.5.4",
+   "title": "Push notifications",
+   "check": "human + auto:push permission not requested at launch",
+   "applies": true,
+   "applies_because": [
+    "push"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "mobile/codedeal_app/lib/data/reminders.dart:73 IOSFlutterLocalNotificationsPlugin in LocalNotificationReminders.requestPermission \u2014 not reached from main() or any screen's initState without a user action",
+    "mobile/codedeal_app/lib/data/reminders.dart:79 requestNotificationsPermission( in LocalNotificationReminders.requestPermission \u2014 not reached from main() or any screen's initState without a user action",
+    "heuristic call graph (10 hops; on*-callbacks and route builders count as user actions)"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "apple",
+   "ref": "4.7",
+   "title": "Mini apps / HTML5 / AI chatbots",
+   "check": "human: AI output moderated and labelled",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [ai_generated] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "4.8",
+   "title": "Login services",
+   "check": "auto:Sign in with Apple offered when Google/Facebook login is offered",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [sign_in_third_party] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "4.9",
+   "title": "Streaming games",
+   "check": "n/a",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "catalogue marks it not applicable"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(i)",
+   "title": "Privacy policy",
+   "check": "auto:policy page live + in-app privacy link (grep)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "FAIL",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Privacy & support URLs serve the right page': PASS 3 checked",
+    "no in-app privacy-policy link in lib/ (no privacy URL literal, no 'Privacy' label next to a link opener)"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(ii)",
+   "title": "Permission",
+   "check": "auto:privacy_scan (ITMS-90683) + human: purpose-string wording",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "not in docs/apple-requirements.json",
+    "read each purpose string (0): "
+   ],
+   "owner": "privacy-engineer"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(iii)",
+   "title": "Data minimization",
+   "check": "auto:permissions requested vs used (privacy-engineer)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "CodeDeal.ipa build 15 (2026-09-22T11:14): every judged purpose string is backed by an API in the binary (2 declared)"
+   ],
+   "owner": "privacy-engineer"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(iv)",
+   "title": "Access",
+   "check": "human: app still works after denying each permission",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "app still works after denying each permission"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(v)",
+   "title": "Account sign-in & deletion",
+   "check": "auto:apple_requirements:account-deletion-5.1.1v",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [accounts] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(ix)",
+   "title": "Regulated fields",
+   "check": "human: app is a tool, not a regulated service (or entity qualifies)",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [finance|health|crypto] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.2",
+   "title": "Data use and sharing",
+   "check": "auto:apple_requirements:att-2.1 + UMP consent before ads",
+   "applies": true,
+   "applies_because": [
+    "ads"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "docs/apple-requirements.json (2026-10-14T01:23) att-2.1: does not request tracking (App Privacy must not declare tracking)",
+    "UMP consent gathered before ads by AglAds.initialize() (packages/agl_ads/lib/src/ads.dart): mobile/codedeal_app/lib/main.dart:40 `unawaited(AglAds.initialize());`"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.3",
+   "title": "Health and health research",
+   "check": "human + privacy-engineer",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [health] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.4",
+   "title": "Kids",
+   "check": "human",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [kids] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.5",
+   "title": "Location services",
+   "check": "auto:location purpose strings + no always-location unless used",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [location] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.2.1",
+   "title": "Intellectual property \u2014 generally",
+   "check": "human: data-source licences and fonts (OFL etc.)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "data-source licences and fonts (OFL etc.)"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.2.2",
+   "title": "Third-party sites/services",
+   "check": "human: each API's terms allow commercial use (e.g. OpenSky)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "each API's terms allow commercial use (e.g. OpenSky)"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.2.3",
+   "title": "Audio/video downloading",
+   "check": "human: radio/video sources licensed for the use",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [streaming_media] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.2.5",
+   "title": "Apple products",
+   "check": "human",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "a person reviews: Apple products"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.3",
+   "title": "Gaming, gambling, lotteries",
+   "check": "n/a unless present",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [gambling] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.4",
+   "title": "VPN apps",
+   "check": "auto:apple_requirements:vpn-notes",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [vpn_networkext] detected in the current source"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.5",
+   "title": "Mobile device management",
+   "check": "n/a",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "catalogue marks it not applicable"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "apple",
+   "ref": "5.6",
+   "title": "Developer Code of Conduct",
+   "check": "auto:code-hygiene hidden-feature scan + founder: MA-043 replies",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "firebase_remote_config in pubspec.lock but not imported \u2014 remove it"
+   ],
+   "owner": "code-hygiene"
+  },
+  {
+   "store": "apple",
+   "ref": "5.6.1",
+   "title": "App Store reviews",
+   "check": "auto:no custom review prompts/incentives",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "no custom rating prompt, incentive or rating gate in lib/ strings"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "apple",
+   "ref": "ITMS-91053",
+   "title": "Privacy manifest \u2014 required-reason APIs",
+   "check": "auto:privacy manifest declares required reasons used by the binary",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "CodeDeal.ipa build 15 (2026-09-22T11:14): every required-reason API in 26 Mach-O(s) is declared (app manifest: ['DiskSpace', 'FileTimestamp', 'SystemBootTime', 'UserDefaults'])"
+   ],
+   "owner": "privacy-engineer"
+  },
+  {
+   "store": "apple",
+   "ref": "ITMS-91061",
+   "title": "Third-party SDK privacy manifests",
+   "check": "auto:SDK manifests present in IPA",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "CodeDeal.ipa build 15 (2026-09-22T11:14): 14 of 25 frameworks are on Apple's SDK list; each carries a privacy manifest (FBLPromises, FirebaseCore, FirebaseCoreExtension, FirebaseCoreInternal, FirebaseCrashlytics, FirebaseInstallations, Flutter, GoogleDataTransport...)",
+    "not checked: SDK signatures"
+   ],
+   "owner": "privacy-engineer"
+  },
+  {
+   "store": "apple",
+   "ref": "ITMS-90683",
+   "title": "Purpose strings",
+   "check": "auto:apple_requirements:purpose-strings-90683",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "CodeDeal not in docs/apple-requirements.json \u2014 run scripts/apple_requirements.py"
+   ],
+   "owner": "privacy-engineer"
+  },
+  {
+   "store": "apple",
+   "ref": "Export compliance",
+   "title": "Encryption declaration",
+   "check": "auto:store_checklist:Export compliance answered",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Export compliance answered': PASS ITSAppUsesNonExemptEncryption=false"
+   ],
+   "owner": "store-compliance"
+  },
+  {
+   "store": "google",
+   "ref": "Target API",
+   "title": "Target API level",
+   "check": "auto:targetSdk \u2265 Play's current requirement",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "targetSdk 36: mobile/codedeal_app/android/app/build.gradle.kts:58 `targetSdk = flutter.targetSdkVersion` -> Flutter SDK default 36 (/Users/spatchava/agl/.flutter-sdk/packages/flutter_tools/gradle/src/main/kotlin/FlutterExtension.kt)",
+    "Play requires >= 36 (PLAY_TARGET_SDK_REQUIRED \u2014 verify)"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "16 KB pages",
+   "title": "16 KB page-size support",
+   "check": "auto:store_gates align16k",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "docs/store-gates.json (2026-09-28T21:02) align16k=True"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "App bundle",
+   "title": "Android App Bundle + Play App Signing",
+   "check": "auto:store_checklist:Android .aab signed",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Android .aab signed with this app's upload key': PASS SIGNED"
+   ],
+   "owner": "release-manager"
+  },
+  {
+   "store": "google",
+   "ref": "Data safety",
+   "title": "Data safety form",
+   "check": "auto:privacy-engineer inventory vs docs/console-answers + founder: Console form",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "FOUNDER",
+   "evidence": [
+    "answers prepared in docs/console-answers/CodeDeal.md (2026-10-09T20:47); the Console form is a founder action"
+   ],
+   "owner": "founder"
+  },
+  {
+   "store": "google",
+   "ref": "User Data",
+   "title": "User Data policy",
+   "check": "auto:privacy policy live + in-app link",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "FAIL",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Privacy & support URLs serve the right page': PASS 3 checked",
+    "no in-app privacy-policy link in lib/ (no privacy URL literal, no 'Privacy' label next to a link opener)"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "Account deletion",
+   "title": "Account deletion requirement",
+   "check": "auto:store_checklist:Account-deletion page + apple 5.1.1(v)",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [accounts] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Permissions",
+   "title": "Permissions and APIs that access sensitive info",
+   "check": "auto:AndroidManifest permissions vs code usage",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "merged release permissions: source manifests + 15 plugin manifest(s) from pubspec.lock",
+    "POST_NOTIFICATIONS (from mobile/codedeal_app/android/app/src/main/AndroidManifest.xml, plugin flutter_local_notifications 17.2.4) \u2014 used at mobile/codedeal_app/lib/data/reminders.dart:9 `import 'package:flutter_local_notifications/flutter_local_notifications.dart';`"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "Location",
+   "title": "Background location",
+   "check": "auto:no ACCESS_BACKGROUND_LOCATION unless used + founder: declaration",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [background_location] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Photo/video",
+   "title": "Photo and video permissions",
+   "check": "auto:no READ_MEDIA_* unless core + photo picker used",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [photos] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Foreground services",
+   "title": "Foreground service types",
+   "check": "auto:FGS types declared + founder: Console declaration",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [foreground_service] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Exact alarms",
+   "title": "SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM",
+   "check": "auto:permission present only if needed",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [exact_alarms] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "SMS/Call log",
+   "title": "SMS and Call Log permissions",
+   "check": "auto:not requested",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [sms_call_log] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "All files",
+   "title": "MANAGE_EXTERNAL_STORAGE",
+   "check": "auto:not requested",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "none of MANAGE_EXTERNAL_STORAGE in the merged release manifest (source + 15 plugin manifests)"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "Package visibility",
+   "title": "QUERY_ALL_PACKAGES",
+   "check": "auto:not requested",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "none of QUERY_ALL_PACKAGES in the merged release manifest (source + 15 plugin manifests)"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "Accessibility",
+   "title": "AccessibilityService API",
+   "check": "auto:not used",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "no service bound to BIND_ACCESSIBILITY_SERVICE in source or 15 plugin manifests"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "Install packages",
+   "title": "REQUEST_INSTALL_PACKAGES",
+   "check": "auto:not requested",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "none of REQUEST_INSTALL_PACKAGES in the merged release manifest (source + 15 plugin manifests)"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "Health Connect",
+   "title": "Health apps",
+   "check": "founder: Health apps declaration in Console + privacy-engineer",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [health] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Financial",
+   "title": "Financial services declaration",
+   "check": "founder: Console declaration (tools/calculators answer 'no financial service')",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [finance] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Ads",
+   "title": "Ads policy",
+   "check": "auto:AdMob ad placement review + human: interstitial frequency",
+   "applies": true,
+   "applies_because": [
+    "ads"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "no automated check for 'auto:AdMob ad placement review + human: interstitial frequency' \u2014 a person verifies: No deceptive/disruptive ads; interstitials not unexpected; no ads on lock screen; families-safe if targeting kids."
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Ads ID",
+   "title": "Advertising ID declaration",
+   "check": "founder: Console Advertising ID declaration (answers in console-answers)",
+   "applies": true,
+   "applies_because": [
+    "ads"
+   ],
+   "state": "FOUNDER",
+   "evidence": [
+    "Console Advertising ID declaration (answers in console-answers)"
+   ],
+   "owner": "founder"
+  },
+  {
+   "store": "google",
+   "ref": "Families",
+   "title": "Families policy / target audience",
+   "check": "founder: Target audience form + auto:ads SDK config",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "FOUNDER",
+   "evidence": [
+    "Target audience form is a founder action (answers in docs/console-answers)"
+   ],
+   "owner": "founder"
+  },
+  {
+   "store": "google",
+   "ref": "Content rating",
+   "title": "IARC questionnaire",
+   "check": "founder: Console IARC (store_checklist: Play IARC questionnaire)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "FOUNDER",
+   "evidence": [
+    "Console IARC (store_checklist: Play IARC questionnaire)"
+   ],
+   "owner": "founder"
+  },
+  {
+   "store": "google",
+   "ref": "Metadata",
+   "title": "Store listing and promotion",
+   "check": "auto:store_checklist listing limits + aso review",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Play title': PASS CodeDeal",
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Play short description (<=80)': PASS 45 chars",
+    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Full description': PASS 793 chars",
+    "a person checks the listing for keyword stuffing, ranking claims and emoji/caps misuse"
+   ],
+   "owner": "aso-specialist"
+  },
+  {
+   "store": "google",
+   "ref": "Impersonation",
+   "title": "Impersonation and IP",
+   "check": "human",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "no listed brand in the store name; a person checks icon/name similarity to other apps"
+   ],
+   "owner": "apple-review-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Spam",
+   "title": "Spam and minimum functionality",
+   "check": "auto:Real Apps QA + overlap (#25)",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "ai-office/projects/real-apps/continue/CodeDeal.json (2026-10-13T11:23): last QA verdict 'partial', 5 must-fix item(s)",
+    "M1: delete the unreachable legacy deals client and accounts code from lib/ (trpc_client.dart, api/providers.dart, core/auth/*, features/{home,deals,search,categ",
+    "M1: after the deletion, remove from pubspec.yaml dio, supabase_flutter, speech_to_text, dynamic_color, flutter_secure_storage, cached_network_image, go_router, ",
+    "a person checks minimum functionality and duplication against our other listings"
+   ],
+   "owner": "product-manager"
+  },
+  {
+   "store": "google",
+   "ref": "Deceptive behavior",
+   "title": "Deceptive behavior",
+   "check": "auto:no fake data + code-hygiene",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "/Users/spatchava/agl/.dist/fake-data-audit.json (2026-10-09T09:55, older than current code): 3 release-visible fake-data site(s) then; re-read every screen",
+    "firebase_remote_config in pubspec.lock but not imported \u2014 remove it"
+   ],
+   "owner": "software-developer"
+  },
+  {
+   "store": "google",
+   "ref": "Malware/MUwS",
+   "title": "Mobile unwanted software",
+   "check": "auto:appsec",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "none of shorebird_code_push, flutter_eval, dart_eval, hetu_script, flutter_js, flutter_qjs, js_interpreter in pubspec.lock (127 packages)",
+    "no REQUEST_INSTALL_PACKAGES",
+    "undisclosed data collection is judged against the Data safety form (privacy-engineer)"
+   ],
+   "owner": "appsec-engineer"
+  },
+  {
+   "store": "google",
+   "ref": "UGC",
+   "title": "User-generated content",
+   "check": "auto:apple_requirements:ugc-1.2",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [ugc] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "AI-generated content",
+   "title": "AI-generated content",
+   "check": "human + auto:report control present",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [ai_generated] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Payments",
+   "title": "Payments policy",
+   "check": "auto:billing library for digital goods",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [iap] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Subscriptions",
+   "title": "Subscriptions policy",
+   "check": "human",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [subscriptions] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Gambling",
+   "title": "Real-money gambling",
+   "check": "n/a unless present",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [gambling] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Health misinformation",
+   "title": "Health content",
+   "check": "human",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [health] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "News",
+   "title": "News apps",
+   "check": "human: sources attributed, publisher contact",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [news] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Dating",
+   "title": "Dating apps",
+   "check": "human + auto:age gate present",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [dating] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Government",
+   "title": "Government apps",
+   "check": "human: Uscis-Case states it is not affiliated with USCIS",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [government_topic] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Device and network abuse",
+   "title": "Device and network abuse",
+   "check": "human: third-party API terms",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "third-party API terms"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Background",
+   "title": "Background work / battery",
+   "check": "human",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "a person reviews: Background work / battery"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "App access",
+   "title": "App access declaration",
+   "check": "founder: Console App access (answers in console-answers)",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
+   "evidence": [
+    "not applicable: none of [accounts] detected in the current source"
+   ],
+   "owner": "play-policy-auditor"
+  },
+  {
+   "store": "google",
+   "ref": "Contact details",
+   "title": "Developer contact info",
+   "check": "auto:play_gap_audit contact details",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "PASS",
+   "evidence": [
+    "/Users/spatchava/agl/.dist/play-gap-audit.json (2026-10-13T21:06): gaps none"
+   ],
+   "owner": "store-compliance"
+  },
+  {
+   "store": "google",
+   "ref": "Play Integrity",
+   "title": "Pre-launch report",
+   "check": "human: read pre-launch report after internal upload",
+   "applies": true,
+   "applies_because": [
+    "all"
+   ],
+   "state": "HUMAN",
+   "evidence": [
+    "read pre-launch report after internal upload"
+   ],
+   "owner": "play-policy-auditor"
+  }
+ ]
+}
