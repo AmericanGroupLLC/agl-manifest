@@ -301,7 +301,7 @@
  },
  "Sentry": {
   "batch": "6 Optional monitoring",
-  "how_to_join": "Direct",
+  "how_to_join": "Account exists: Sentry organization 'american-group-llc' (founder, 2026-10-14)",
   "signup_url": "https://sentry.io/signup/",
   "where_credential": "Project \u2192 Settings \u2192 Client Keys (DSN)",
   "what_to_submit": "Account email, organisation (American Group LLC), project/app name, intended use; a card for paid tiers",
@@ -309,7 +309,7 @@
   "where_it_goes": "SENTRY_DSN define (DriftDate, NexusTransferPay)",
   "cost": "Free tier",
   "approval": "Instant",
-  "notes": "Optional \u2014 Crashlytics already covers crashes"
+  "notes": "Org american-group-llc exists (sign-in page confirmed 2026-10-14). Only DriftDate uses Sentry today (sentry_flutter + SENTRY_DSN, empty in builds); MyHealth reads SENTRY_DSN without the SDK (dead config); NexusTransferPay no longer uses it. Next: a 'driftdate' Flutter project \u2192 DSN (public by design) passed at build time; privacy label adds crash data. Other apps use Crashlytics \u2014 no duplicate SDK."
  },
  "PostHog": {
   "batch": "6 Optional monitoring",

@@ -924,3 +924,16 @@ The founder signs up for every key (Charter §4). Keys are never pasted in chat;
 - **V-37** Play Data safety "processed ephemerally" for weather coordinates.
 - **V-38** Trefle service status.
 - **V-C** Every care-type interval, light band, feeding month and health rule. Each needs a cited horticultural source before it ships.
+
+## Founder decisions — 2026-10-14
+
+| # | Decision | Answer |
+| --- | --- | --- |
+| F15 | Web/curl access for developers | **Approved**: curl for public downloads and documentation (WebSearch/WebFetch tools stay off by org policy) |
+| F2 | Weather source | **MET Norway** (free, commercial use allowed) — also for daily-pulse and iMaps |
+| F3 | AI model hosting | **Hugging Face** |
+| F4 | Pl@ntNet key | **Sign up (free)** — founder action; key goes to the Supabase secret `PLANTNET_API_KEY` |
+| F12 | Ads | **One banner, no interstitials** |
+| F14 | Age rating with AI chat | **13+** |
+| F16 | Store name | **"iPlantPulse: Plant ID & Care"**, category **Lifestyle** |
+| F11 | Old remote's Play production draft | **Delete** (approved) |

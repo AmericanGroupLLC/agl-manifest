@@ -10,7 +10,8 @@ published sandbox receipts and one malformed receipt:
     EAC9999103403  expect 200 with history
     EAC9999103400  expect 200 without history
     EAC123         expect 422, USCIS not called
-    EAC9999103403  again within 15 min: expect "cached": true
+    EAC9999103403  again: "cached": true only with USCIS_STORE=db (the
+                   in-memory store lasts one function instance)
 
 Prints status codes and the normalised fields only — no token, no password.
 The USCIS sandbox answers Monday–Friday 7 AM–8 PM US Eastern; outside those
@@ -62,9 +63,13 @@ def main() -> int:
     ok = True
     for receipt, want in [("EAC9999103403", 200), ("EAC9999103400", 200), ("EAC123", 422), ("EAC9999103403", 200)]:
         code, b = call(receipt, jwt, anon)
-        shown = {k: b.get(k) for k in ("form_type", "status_title", "last_updated", "cached", "error", "code") if k in b}
-        if "history" in b:
-            shown["history_items"] = len(b.get("history") or [])
+        snap = b.get("snapshot") or {}
+        shown = {k: snap.get(k) for k in ("form_type", "status_title", "last_updated") if k in snap}
+        shown.update({k: b[k] for k in ("cached", "error") if k in b})
+        if "history" in snap:
+            shown["history_items"] = len(snap.get("history") or [])
+        if snap and not shown.keys() & {"form_type", "status_title"}:
+            shown["snapshot_keys"] = sorted(snap)
         print(f"  {receipt:14} HTTP {code} (want {want})  {json.dumps(shown)[:300]}")
         ok &= code == want
     print("PASS" if ok else "NOT ALL AS EXPECTED")
