@@ -30,6 +30,12 @@ production drafts staged.
 3. **#25 — decide the consolidations** (D1–D6, six overlapping apps). Apple's
    questions 5 and 6 ask exactly this; merging or retiring is yours (§8).
 
+4a. **#33 — accept the App Store Connect agreement (MA-019).** App Store Connect →
+   Business (Agreements, Tax, and Banking) → accept the pending agreement. Until
+   then every TestFlight Beta App Review submission fails with "Beta contract is
+   missing" (8 of 8 in run 38294393167), so external testers get nothing. No API
+   can accept it.
+
 ## B. Make the backend work in production
 
 4. **#12 — Supabase Site URL is `http://localhost:3000`**: auth emails send
@@ -39,6 +45,7 @@ production drafts staged.
 6. **#19 — approve the DriftDate schema** (Backend PR #1); **#5** — the backend
    deploy cannot reach the database (pooler tenant not found); **#10** —
    anonymous sign-ins are disabled.
+7a. **#34, #35 — approve the FashionFactory 3.0.0 and ChefCount privacy-policy text** (Charter §6); both releases wait on them.
 7. **#18 — merge the privacy-policy PR** (website PR #1) so the policies disclose
    the crash and analytics data the App Privacy labels already declare.
 
