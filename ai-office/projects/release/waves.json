@@ -1,0 +1,416 @@
+{
+ "measured": "2026-10-13",
+ "rule": "Founder 2026-10-13: deliver now only apps that reach production with their AdMob IDs alone; apps needing a vendor token or partner ID wait for it.",
+ "apps": [
+  {
+   "app": "AeroSwift",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "AGCleaner",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "AGrammarly",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": false,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "AGRecorder",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "AGStudio",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "ApexMarketWatch",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "BodyQuest",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "BuddyPlay",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "CalcMaster",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "CarDeal",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "ChefCount",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [
+    "models.dart: tag=americangroupllc"
+   ],
+   "needs": "Amazon Associates tag (current tag=americangroupllc is not a valid store ID)"
+  },
+  {
+   "app": "CodeDeal",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "daily-pulse",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "DriftDate",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [
+    "GOOGLE_IOS_CLIENT_ID"
+   ],
+   "placeholders": [],
+   "needs": "Google iOS OAuth client ID"
+  },
+  {
+   "app": "EventSpark",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "FashionFactory",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "GadgetNest",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "GroceryMatch",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "HerJourney",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "HomeWise",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "iMaps",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [
+    "OPENCHARGEMAP_KEY",
+    "NASA_FIRMS_KEY",
+    "GOOGLE_IOS_CLIENT_ID"
+   ],
+   "placeholders": [],
+   "needs": "Google iOS OAuth client ID; NASA FIRMS key; Open Charge Map key"
+  },
+  {
+   "app": "iMeasure",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [
+    "GOOGLE_IOS_CLIENT_ID"
+   ],
+   "placeholders": [],
+   "needs": "Google iOS OAuth client ID"
+  },
+  {
+   "app": "Kinnav",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": false,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "MileMaster",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "MyCard",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "MyFinance",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "MyHealth",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "NearServe",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "NewsBoard",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "NexusTransferPay",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "Photriya",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "PilotEnRoute",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [
+    "ANTHROPIC_API_KEY",
+    "GOOGLE_IOS_CLIENT_ID"
+   ],
+   "placeholders": [],
+   "needs": "Google iOS OAuth client ID; Anthropic API key (server-side)"
+  },
+  {
+   "app": "PlantPulse",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "portfolio-board",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "radiotune",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [
+    "GOOGLE_IOS_CLIENT_ID"
+   ],
+   "placeholders": [],
+   "needs": "Google iOS OAuth client ID"
+  },
+  {
+   "app": "RideZap",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "RoomCraft",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "TripNest",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [
+    "app_config.dart: TRIPNEST_AFFILIATE_MARKER defaults to 'americangroupllc' (not a numeric Travelpayouts marker)"
+   ],
+   "needs": "Travelpayouts numeric marker"
+  },
+  {
+   "app": "Uscis-Case",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [
+    "GOOGLE_IOS_CLIENT_ID"
+   ],
+   "placeholders": [],
+   "needs": "Google iOS OAuth client ID"
+  },
+  {
+   "app": "Verba",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "VirtuBand",
+   "wave": "2 wait for vendor token",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [
+    "AI_API_KEY"
+   ],
+   "placeholders": [
+    "monetization.dart: tag=virtuband-20"
+   ],
+   "needs": "Amazon Associates tag (virtuband-20 not verified as registered); AI_API_KEY provider"
+  },
+  {
+   "app": "WiFiTrail",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  },
+  {
+   "app": "yourtube",
+   "wave": "1 deliver now (AdMob only)",
+   "ads": true,
+   "admob_units": 12,
+   "empty_keys": [],
+   "placeholders": [],
+   "needs": ""
+  }
+ ]
+}
