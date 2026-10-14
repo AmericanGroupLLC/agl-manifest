@@ -4,17 +4,17 @@
   "store_name": "BodyQuest \u2014 Health Game",
   "version": "1.1.0",
   "build": "202610081811",
-  "git_commit": "874a7fd",
+  "git_commit": "b81740b",
   "configuration": "Release",
   "ipa_sha256": "76fbdf36805f0d3f2fa34ca1cd5ee813146e69d880c2148317874ae83412c132",
-  "measured_at": "2026-10-12T18:39:59",
+  "measured_at": "2026-10-14T12:02:19",
   "devices": [],
   "outstanding": [
+   "2.8 Store policy audit (Apple + Google) \u2014 no FAIL: 4 applicable rule(s) fail: apple 4.2.6, apple 4.3(a), apple 5.1.1(i), google User Data \u2014 docs/store-policy/BodyQuest.md (audited 2026-10-14T12:02:13, re-run: docs/apple-requirements.json changed after the audit)",
    "3.2 Release build succeeds without errors: IPA built 2026-10-08T18:41 is older than the last commit \u2014 rebuild",
+   "3.3 Xcode archive completes successfully: built with a pre-release Xcode/SDK (DTSDKBuild 24A94403) \u2014 Apple refuses it for review; build with a release Xcode (CI macos-latest)",
    "3.5 Version and build number are correct and incremented: build 202610081811 is not above the newest build Apple holds (202610081811)",
-   "3.8 Required entitlements are correct: Sign in with Apple entitlement present but the current source has no Apple sign-in",
-   "6.8 Verify testers can see the build and install it: internal state IN_BETA_TESTING; testers {'INVITED': 2} \u2014 no tester has accepted the invitation, so nobody can install it",
-   "6.9 Send the testing notification and provide test instructions: no What to Test text \u2014 testers get no instructions"
+   "3.8 Required entitlements are correct: Sign in with Apple entitlement present but the current source has no Apple sign-in"
   ]
  },
  "rows": [
@@ -131,6 +131,14 @@
    "evidence": "no account creation"
   },
   {
+   "id": "2.8",
+   "section": "2",
+   "kind": "auto",
+   "text": "Store policy audit (Apple + Google) \u2014 no FAIL",
+   "state": "FAIL",
+   "evidence": "4 applicable rule(s) fail: apple 4.2.6, apple 4.3(a), apple 5.1.1(i), google User Data \u2014 docs/store-policy/BodyQuest.md (audited 2026-10-14T12:02:13, re-run: docs/apple-requirements.json changed after the audit)"
+  },
+  {
    "id": "3.1",
    "section": "3",
    "kind": "auto",
@@ -151,8 +159,8 @@
    "section": "3",
    "kind": "auto",
    "text": "Xcode archive completes successfully",
-   "state": "PASS",
-   "evidence": "archive exported (app-store-connect, profile 'com.americangroupllc.bodyquest AppStore')"
+   "state": "FAIL",
+   "evidence": "built with a pre-release Xcode/SDK (DTSDKBuild 24A94403) \u2014 Apple refuses it for review; build with a release Xcode (CI macos-latest)"
   },
   {
    "id": "3.4",
@@ -311,24 +319,24 @@
    "section": "6",
    "kind": "post",
    "text": "Upload the correct .ipa/build through the intended workflow",
-   "state": "PASS",
-   "evidence": "build 202610081811 from IPA sha256 76fbdf36805f is the one Apple holds"
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
   },
   {
    "id": "6.2",
    "section": "6",
    "kind": "post",
    "text": "Wait until build processing finishes",
-   "state": "PASS",
-   "evidence": "processing state VALID"
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
   },
   {
    "id": "6.3",
    "section": "6",
    "kind": "post",
    "text": "Confirm the build appears under TestFlight \u2192 Builds",
-   "state": "PASS",
-   "evidence": "listed; internal state IN_BETA_TESTING, expired=False"
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
   },
   {
    "id": "6.4",
@@ -343,40 +351,40 @@
    "section": "6",
    "kind": "post",
    "text": "Complete export-compliance questions if required",
-   "state": "PASS",
-   "evidence": "answered: no non-exempt encryption"
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
   },
   {
    "id": "6.6",
    "section": "6",
    "kind": "post",
    "text": "Confirm internal testers are App Store Connect users with appropriate access",
-   "state": "PASS",
-   "evidence": "'Internal testers': 2 ASC user(s)"
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
   },
   {
    "id": "6.7",
    "section": "6",
    "kind": "post",
    "text": "Add the build to the internal testing group",
-   "state": "PASS",
-   "evidence": "in Internal testers (all builds)"
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
   },
   {
    "id": "6.8",
    "section": "6",
    "kind": "post",
    "text": "Verify testers can see the build and install it",
-   "state": "FAIL",
-   "evidence": "internal state IN_BETA_TESTING; testers {'INVITED': 2} \u2014 no tester has accepted the invitation, so nobody can install it"
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
   },
   {
    "id": "6.9",
    "section": "6",
    "kind": "post",
    "text": "Send the testing notification and provide test instructions",
-   "state": "FAIL",
-   "evidence": "no What to Test text \u2014 testers get no instructions"
+   "state": "HUMAN",
+   "evidence": "after upload: run with --after-upload"
   }
  ],
  "gates": [
@@ -418,12 +426,13 @@
   },
   {
    "gate": "Gate 4 \u2014 Privacy",
-   "rule": "Purpose strings and entitlements are correct",
+   "rule": "Purpose strings and entitlements are correct; no store-policy rule fails",
    "checks": [
     "2.1",
     "2.2",
     "2.3",
     "2.7",
+    "2.8",
     "3.8"
    ],
    "met": false
@@ -441,6 +450,6 @@
   }
  ],
  "deliverable": false,
- "done": 25,
- "total": 45
+ "done": 18,
+ "total": 46
 }

@@ -316,6 +316,19 @@ def run_auto(c: Ctx) -> dict:
             r[k] = no_ipa
         return r
 
+    # 3.3 also: App Store review refuses builds from a pre-release Xcode/SDK
+    # (BUILD_SDK_NOT_ALLOWED / BUILD_XCODE_NOT_ALLOWED_FOR_APP_STORE_SUBMISSION).
+    # 2026-10-14: SDK 24A94403 refused for 5 apps; 23F81a and 24A430 accepted.
+    # Seed builds carry a 5-digit number after the train letter (24A94403,
+    # 24A94232); some releases have 4 (16C5032a), so 4 digits is not flagged.
+    pre = [f"{k} {c.info.get(k)}" for k in ("DTSDKBuild", "DTXcodeBuild")
+           if re.fullmatch(r"\d+[A-Z]\d{5,}[a-z]?", str(c.info.get(k) or ""))]
+    if pre and r.get("3.3", (None,))[0] != FAIL:
+        r["3.3"] = (FAIL, "built with a pre-release Xcode/SDK (" + ", ".join(pre) + ") — Apple refuses it for "
+                    "review; build with a release Xcode (CI macos-latest)")
+    elif r.get("3.3", (None,))[0] == PASS:
+        r["3.3"] = (PASS, r["3.3"][1] + f"; SDK {c.info.get('DTSDKBuild')}, Xcode {c.info.get('DTXcodeBuild')}")
+
     # 3.4 bundle id
     bid = c.info.get("CFBundleIdentifier")
     r["3.4"] = (PASS if bid == c.a.get("bundle_id") else FAIL, f"IPA {bid} vs manifest {c.a.get('bundle_id')}")

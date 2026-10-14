@@ -25,6 +25,13 @@ def req(verb, path, body = nil)
   res = Net::HTTP.start(u.host, 443, use_ssl: true, read_timeout: 120) { |h| h.request(r) }
   [res.code.to_i, (JSON.parse(res.body) rescue {})]
 end
+# Apple's 409 says only "check associated errors"; the reasons are in meta.associatedErrors.
+def why(b)
+  (b["errors"] || [{}]).flat_map do |e|
+    assoc = (e.dig("meta", "associatedErrors") || {}).flat_map { |path, list| list.map { |x| "#{path.split('/').last(2).join('/')}: #{x['code']} #{x['detail']}" } }
+    [e["detail"] || e["title"], *assoc]
+  end.compact.join("; ")
+end
 apps = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"].select { |a| ONLY.empty? || ONLY.include?(a["repo"]) }
 out = {}
 apps.each do |a|
@@ -42,13 +49,13 @@ apps.each do |a|
   errs = []
   rejected.each do |i|
     c, b = req(:patch, "v1/reviewSubmissionItems/#{i['id']}", { data: { type: "reviewSubmissionItems", id: i["id"], attributes: { resolved: true } } })
-    errs << "resolve #{c} #{(b['errors'] || [{}])[0]['detail']}" unless c.between?(200, 299)
+    errs << "resolve #{c} #{why(b)}" unless c.between?(200, 299)
   end
   c, b = req(:patch, "v1/reviewSubmissions/#{sub['id']}", { data: { type: "reviewSubmissions", id: sub["id"], attributes: { submitted: true } } })
   if c.between?(200, 299)
     puts "#{repo}: RESUBMITTED in place (#{sub['id'][0, 8]}, state #{b.dig('data', 'attributes', 'state')})"; out[repo] = { "status" => "resubmitted", "submission" => sub["id"] }
   else
-    d = (b["errors"] || [{}]).map { |e| e["detail"] || e["title"] }.join("; ")
+    d = why(b)
     puts "#{repo}: refused #{c} — #{d}#{errs.any? ? " (#{errs.join(', ')})" : ''}"; out[repo] = { "status" => "refused", "code" => c, "detail" => d, "item_errors" => errs }
   end
 end
