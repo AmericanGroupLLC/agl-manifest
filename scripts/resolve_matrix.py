@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import pathlib
 from typing import Any
 
@@ -81,6 +82,27 @@ def _shard(apps: list[str], shard_count: int, costs: dict[str, float]) -> dict[s
     return {"include": include}
 
 
+def _shard_count(selected: list[str], pool: list[str], max_shards: int,
+                 costs: dict[str, float]) -> int:
+    """Shards in proportion to the work, measured against the whole pool.
+
+    `--shards` is what the full pool ("all") needs. A list naming most of the
+    pool needs about as many; a list of three apps needs one. Explicit lists
+    used to get a single shard whatever their size, and a dispatch naming 42
+    apps ran them in one iOS and one Android job: Android hit its 180-minute
+    timeout and the last 9 iOS apps failed in about a second each on a runner
+    that had already built 33 (ship run 38536298465).
+    """
+    if max_shards < 1:
+        return 1
+    total = sum(costs.get(a, 1.0) for a in pool)
+    if not selected or total <= 0:
+        return 1
+    per_shard = total / max_shards
+    wanted = sum(costs.get(a, 1.0) for a in selected)
+    return max(1, min(max_shards, math.ceil(round(wanted / per_shard, 6))))
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--spec", default="all")
@@ -88,13 +110,17 @@ def main() -> int:
     ap.add_argument("--shards", type=int, required=True)
     ap.add_argument("--manifest", default="apps.json")
     ap.add_argument("--costs", default="")
+    # Apps to leave out, e.g. the ones that failed validation in this run.
+    ap.add_argument("--exclude", default="")
     args = ap.parse_args()
 
     apps = _load_apps(pathlib.Path(args.manifest))
     selected = _select_apps(apps, args.spec, args.platform)
-    explicit = args.spec.strip() not in ("", "all", "android-deliverable", "ios-deliverable", "ads")
+    excluded = {x.strip() for x in args.exclude.split(",") if x.strip()}
+    selected = [a for a in selected if a not in excluded]
+    pool = _select_apps(apps, "all", args.platform)
     costs = _load_costs(pathlib.Path(args.costs) if args.costs else None)
-    matrix = _shard(selected, 1 if explicit else args.shards, costs)
+    matrix = _shard(selected, _shard_count(selected, pool, args.shards, costs), costs)
     print(json.dumps(matrix))
     return 0
 

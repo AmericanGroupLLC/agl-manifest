@@ -41,6 +41,10 @@ on:
         description: 'Raise build numbers past Play when they collide (scheduled runs always do)'
         default: true
         type: boolean
+      simulate_validate_failure:
+        description: 'Drill only: comma-separated apps whose validation is forced to fail, to prove the per-app gate. Leave empty.'
+        default: ''
+        type: string
   push:
     tags: ['v*']
   schedule:
@@ -98,6 +102,9 @@ jobs:
       # anything is built, rather than shipping an app unsigned.
       - name: Every app's keystore secret is named in this workflow
         run: python3 scripts/materialise_signing.py --check-workflow .github/workflows/ship.yml
+      # Explicit lists are sharded like "all", in proportion to their size
+      # (resolve_matrix.py): a 42-app list used to run in one iOS and one
+      # Android job and fail on time and disk (run 38536298465).
       - id: matrix
         run: |
           V="$(python3 scripts/resolve_matrix.py --spec '${{ inputs.apps || 'all' }}' --platform validate --shards 6)"
@@ -145,7 +152,54 @@ jobs:
         # An empty list means "every app" to fastlane, which is why the guard
         # above is an `if:` and not a shell test — a mistake here validates the
         # whole portfolio on six runners at once.
+        env:
+          # Per-app verdicts, read by the gate job below so that one app's
+          # failure blocks only that app's build.
+          AGL_BATCH_RESULTS: ${{ runner.temp }}/validate-result/shard-${{ matrix.shard }}.json
+          AGL_SIMULATE_VALIDATE_FAILURE: ${{ inputs.simulate_validate_failure }}
         run: bundle exec fastlane validate apps:"${{ matrix.apps }}"
+      - uses: actions/upload-artifact@v4
+        # Even when the shard failed - that is the point. A shard that never
+        # wrote its file fails all its apps in the gate, so nothing slips
+        # through untested.
+        if: always() && matrix.apps != ''
+        with:
+          name: validate-result-${{ matrix.shard }}
+          path: ${{ runner.temp }}/validate-result/
+          if-no-files-found: warn
+          retention-days: 14
+
+  gate:
+    # One failing test used to skip every build: run 38534910952 lost all 43
+    # to a single Uscis-Case test, because the build jobs needed the whole
+    # validate matrix to succeed. This drops only the apps that failed. The
+    # validate job still fails, so the run still ends red, and the summary
+    # names the apps that were held back.
+    name: Drop apps that failed validation
+    needs: [resolve, validate]
+    if: ${{ !cancelled() && needs.resolve.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      failed: ${{ steps.gate.outputs.failed }}
+      apps: ${{ steps.gate.outputs.apps }}
+      android_matrix: ${{ steps.gate.outputs.android_matrix }}
+      ios_matrix: ${{ steps.gate.outputs.ios_matrix }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        continue-on-error: true
+        with: { pattern: validate-result-*, path: "${{ runner.temp }}/validate-results" }
+      - id: gate
+        env:
+          VALIDATE_MATRIX: ${{ needs.resolve.outputs.validate_matrix }}
+          SPEC: ${{ needs.resolve.outputs.apps }}
+        run: >-
+          python3 scripts/validate_gate.py --spec "$SPEC"
+          --validate-matrix "$VALIDATE_MATRIX"
+          --results-dir "$RUNNER_TEMP/validate-results"
+          --android-shards 6 --ios-shards 4
+          --costs generated/build-costs.json
 
   android:
     # Sharded because one job cannot do all 43. A signed bundle takes 6-11
@@ -154,13 +208,15 @@ jobs:
     # job's timeout and past the point where a single failure is worth
     # re-running. Six shards is about 50 minutes each.
     name: Build signed Android bundles (${{ matrix.shard }})
-    needs: [resolve, validate]
-    if: needs.resolve.outputs.stop_after != 'validate'
+    # The gate, not validate: an app that failed validation is already out of
+    # this matrix, and the rest build anyway.
+    needs: [resolve, gate]
+    if: ${{ !cancelled() && needs.gate.result == 'success' && needs.resolve.outputs.stop_after != 'validate' }}
     runs-on: ubuntu-latest
     timeout-minutes: 180
     strategy:
       fail-fast: false
-      matrix: ${{ fromJson(needs.resolve.outputs.android_matrix) }}
+      matrix: ${{ fromJson(needs.gate.outputs.android_matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-agl
@@ -345,9 +401,8 @@ jobs:
             -Dorg.gradle.workers.max=2
             -Dkotlin.daemon.jvmargs=-Xmx1200m
         run: |
-          # An explicit app list is already small enough to build in one job,
-          # so only shard the "all" case — otherwise asking for three apps
-          # would spread them over six runners and waste five of them.
+          # Explicit lists are sharded too, in proportion to their size
+          # (resolve_matrix.py), so three apps still get one runner.
           python3 scripts/build_release.py ${{ steps.list.outputs.names }}
 
       - uses: actions/upload-artifact@v4
@@ -380,13 +435,13 @@ jobs:
 
   ios:
     name: Build signed iOS archives (${{ matrix.shard }})
-    needs: [resolve, validate]
-    if: needs.resolve.outputs.stop_after != 'validate'
+    needs: [resolve, gate]
+    if: ${{ !cancelled() && needs.gate.result == 'success' && needs.resolve.outputs.stop_after != 'validate' }}
     runs-on: macos-latest
     timeout-minutes: 300
     strategy:
       fail-fast: false
-      matrix: ${{ fromJson(needs.resolve.outputs.ios_matrix) }}
+      matrix: ${{ fromJson(needs.gate.outputs.ios_matrix) }}
     steps:
       - uses: actions/checkout@v4
       - uses: ./.github/actions/setup-agl
@@ -507,13 +562,14 @@ jobs:
 
   release:
     name: Publish a labelled release per app
-    needs: [resolve, android, ios]
+    needs: [resolve, gate, android, ios]
     # One app's failed build must not hold back the other 42: ship run
     # 38137433920 skipped every upload because AeroSwift's lockfile was stale.
     # Runs when at least one build job produced something; apps without an
     # artefact are reported by the steps below, not silently dropped.
     if: >-
       !cancelled() && needs.resolve.result == 'success' &&
+      needs.gate.result == 'success' && needs.gate.outputs.apps != '' &&
       (needs.android.result == 'success' || needs.android.result == 'failure' ||
        needs.ios.result == 'success' || needs.ios.result == 'failure') &&
       contains(fromJSON('["release","internal","production"]'), needs.resolve.outputs.stop_after)
@@ -557,7 +613,8 @@ jobs:
             echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
           fi
         env:
-          SPEC: ${{ needs.resolve.outputs.apps }}
+          # Apps that failed validation are left out (gate job).
+          SPEC: ${{ needs.gate.outputs.apps }}
       - name: Attach binaries to each app's GitHub Release
         env:
           GH_TOKEN: ${{ secrets.AGL_PACKAGES_TOKEN }}
@@ -565,7 +622,7 @@ jobs:
 
   internal:
     name: Internal testing
-    needs: [resolve, release]
+    needs: [resolve, gate, release]
     # Same reasoning: upload whatever was built (run_batch --prebuilt reports
     # an app with no IPA as no_ipa). Production promotion below stays strict.
     if: >-
@@ -630,7 +687,8 @@ jobs:
             echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
           fi
         env:
-          SPEC: ${{ needs.resolve.outputs.apps }}
+          # Apps that failed validation are left out (gate job).
+          SPEC: ${{ needs.gate.outputs.apps }}
       - name: Upload to the Play internal track
         run: python3 scripts/play_upload.py ${{ steps.list.outputs.names }} --status completed --no-resume
 
@@ -670,7 +728,7 @@ jobs:
 
   production:
     name: Promote to production
-    needs: [resolve, internal]
+    needs: [resolve, gate, internal]
     if: needs.resolve.outputs.stop_after == 'production'
     runs-on: macos-latest
     timeout-minutes: 120
@@ -719,7 +777,8 @@ jobs:
             echo "csv=$SPEC" >> "$GITHUB_OUTPUT"
           fi
         env:
-          SPEC: ${{ needs.resolve.outputs.apps }}
+          # Apps that failed validation are left out (gate job).
+          SPEC: ${{ needs.gate.outputs.apps }}
       - name: Promote on Play where the app is not a Draft
         continue-on-error: true
         run: python3 scripts/play_release.py ${{ steps.list.outputs.names }} --production
@@ -873,7 +932,7 @@ jobs:
 
   report:
     name: What happened
-    needs: [resolve, housekeeping, validate, android, ios, release, internal, production, testers]
+    needs: [resolve, housekeeping, validate, gate, android, ios, release, internal, production, testers]
     if: always()
     runs-on: ubuntu-latest
     steps:
@@ -882,6 +941,8 @@ jobs:
         continue-on-error: true
         with: { name: internal-testing-results, path: .dist }
       - name: Summarise
+        env:
+          FAILED_VALIDATION: ${{ needs.gate.outputs.failed }}
         run: |
           {
             echo "## Ship report"
@@ -889,6 +950,7 @@ jobs:
             echo "| stage | result |"
             echo "| --- | --- |"
             echo "| validate | ${{ needs.validate.result }} |"
+            echo "| gate | ${{ needs.gate.result }} |"
             echo "| android | ${{ needs.android.result }} |"
             echo "| ios | ${{ needs.ios.result }} |"
             echo "| release | ${{ needs.release.result }} |"
@@ -896,5 +958,9 @@ jobs:
             echo "| production | ${{ needs.production.result }} |"
             echo "| housekeeping | ${{ needs.housekeeping.result }} |"
             echo "| testers | ${{ needs.testers.result }} |"
+            echo
+            if [ -n "$FAILED_VALIDATION" ]; then
+              echo "**Failed validation, not built or released:** $FAILED_VALIDATION"
+            fi
           } >> "$GITHUB_STEP_SUMMARY"
           python3 scripts/ship_report.py >> "$GITHUB_STEP_SUMMARY" || true

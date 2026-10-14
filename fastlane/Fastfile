@@ -19,6 +19,7 @@
 #   PLAY_JSON_KEY_FILE                                Play service account
 #   ANDROID_KEYSTORE_PATH / _PASSWORD / KEY_ALIAS / KEY_PASSWORD
 
+require "fileutils"
 require "json"
 require "shellwords"
 
@@ -109,14 +110,27 @@ end
 # broken rather than only the first thing.
 def run_batch(apps)
   failures = []
+  passed = []
+  failed = {}
   apps.each_with_index do |app, i|
     UI.header("[#{i + 1}/#{apps.size}] #{app['repo']}")
     begin
       yield app
+      passed << app["repo"]
     rescue StandardError => e
       failures << "#{app['repo']}: #{e.message.lines.first.to_s.strip}"
+      failed[app["repo"]] = e.message.lines.first.to_s.strip
       UI.error("#{app['repo']} failed: #{e.message.lines.first}")
     end
+  end
+
+  # Per-app verdicts for CI. ship.yml builds only the apps listed as passed,
+  # so one app's failing test no longer skips every other app's build (ship
+  # run 38534910952: a Uscis-Case test skipped all 43). An app missing from
+  # this file - because the lane died before reaching it - counts as failed.
+  if (path = ENV["AGL_BATCH_RESULTS"].to_s) != ""
+    FileUtils.mkdir_p(File.dirname(path))
+    File.write(path, JSON.pretty_generate({ "passed" => passed, "failed" => failed }))
   end
 
   UI.header("Summary")
@@ -131,7 +145,12 @@ desc "Analyze and test every selected app. Replaces 37 separate CI runs."
 lane :validate do |options|
   spec = options[:apps] || "all"
   checkout!(spec)
+  # Drill only: ship.yml's `simulate_validate_failure` input names apps to fail
+  # here, to prove the per-app gate with a real run. Empty on every
+  # scheduled, tag and normal manual run.
+  drill = ENV["AGL_SIMULATE_VALIDATE_FAILURE"].to_s.split(",").map(&:strip).reject(&:empty?)
   run_batch(manifest_apps(spec)) do |app|
+    UI.user_error!("simulated validation failure (drill, simulate_validate_failure input)") if drill.include?(app["repo"])
     pub_get(app)
     # --no-fatal-infos: `flutter analyze` exits non-zero for *infos* as well
     # as errors, so a lint hint failed the app. CarDeal reported "16 issues
