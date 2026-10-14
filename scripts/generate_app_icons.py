@@ -74,7 +74,8 @@ DESIGN: dict[str, tuple[str, str, str]] = {
     # GadgetNest/tool/draw_icon.py, and a run of this script must not replace it.
     # HomeWise is not listed: its house-on-a-dimension-line icon is drawn by
     # HomeWise/mobile/tool/draw_icon.py, and a run of this script must not replace it.
-    "MileMaster":      ("speed",              "#0D47A1", "#42A5F5"),
+    # MileMaster is not listed: its road-and-mile-marker-on-a-logbook-page icon is
+    # drawn by MileMaster/tool/draw_icon.py, and a run of this script must not replace it.
     "MyCard":          ("credit_card",        "#212121", "#616161"),
     # MyFinance is not listed: its ledger-sheet-and-runway icon is drawn by
     # MyFinance/tool/draw_icon.py, and a run of this script must not replace it.
@@ -83,7 +84,8 @@ DESIGN: dict[str, tuple[str, str, str]] = {
     "portfolio-board": ("dashboard",          "#37474F", "#78909C"),
     "RideZap":         ("electric_bolt",      "#F57F17", "#FFCA28"),
     "RoomCraft":       ("weekend",            "#4E342E", "#A1887F"),
-    "WiFiTrail":       ("wifi_find",          "#01579B", "#4FC3F7"),
+    # WiFiTrail is not listed: its dashed-trail-and-signal-dot icon is drawn by
+    # WiFiTrail/tool/draw_icon.py, and a run of this script must not replace it.
 }
 
 DENSITIES = {"mdpi": 48, "hdpi": 72, "xhdpi": 96, "xxhdpi": 144, "xxxhdpi": 192}
