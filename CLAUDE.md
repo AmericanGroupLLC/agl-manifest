@@ -140,7 +140,7 @@ dependencies, which is why CI needs `AGL_PACKAGES_TOKEN` before anything builds.
 
 ## AI office
 
-`ai-office/` is the AI organisation that runs this repo day to day: 34 roles
+`ai-office/` is the AI organisation that runs this repo day to day: 41 roles
 (`ai-office/.claude/agents/`), standing procedures (skills and workflows), the
 charter of founder-only decisions, runbooks and reports. Open Claude Code in
 `ai-office/` to work as the office; start with `ai-office/README.md`.
