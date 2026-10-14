@@ -96,6 +96,9 @@
   "https://developer.edamam.com/": "OK (HTTP 200)",
   "https://public.cj.com/signup/publisher": "OK (HTTP 200)",
   "https://platform.claude.com/": "OK (HTTP 200)",
-  "https://massive.com/dashboard/signup": "OK (HTTP 200)"
+  "https://massive.com/dashboard/signup": "OK (HTTP 200)",
+  "https://developer.uscis.gov/": "OK (HTTP 200)",
+  "https://first.uscis.gov/": "OK (HTTP 200)",
+  "https://i94.cbp.dhs.gov/": "OK (HTTP 200)"
  }
 }

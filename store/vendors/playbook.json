@@ -1198,5 +1198,41 @@
   "cost": "Free tier / paid plans \u2014 confirm on the page",
   "approval": "Instant",
   "notes": "Signing up earns nothing until an app is built to use it"
+ },
+ "USCIS Developer Portal (Case Status API)": {
+  "batch": "5 AI / server-side keys",
+  "how_to_join": "Founder's developer.uscis.gov account (exists) \u2192 register an app \u2192 request Case Status API access",
+  "signup_url": "https://developer.uscis.gov/",
+  "where_credential": "Developer portal \u2192 My Apps \u2192 your app \u2192 client ID / secret (sandbox first; production after USCIS approves the use case)",
+  "what_to_submit": "App name and description (Uscis-Case), use case (show a user their own case status by receipt number), privacy policy URL https://www.americangroup.ai/policy/uscis-case-tracker/, company details",
+  "what_you_receive": "OAuth2 client ID + client secret (sandbox, then production)",
+  "where_it_goes": "Supabase Edge Function secrets (uscis-case-status) \u2014 never in the app, chat or git",
+  "cost": "Verify on the portal",
+  "approval": "Sandbox on registration; production after USCIS review (verify)",
+  "notes": "Spec: ai-office/projects/real-apps/specs/Uscis-Case-v2.md. The portal username stays in the founder vault, not in this file."
+ },
+ "USCIS FOIA": {
+  "batch": "7 Later (no app uses it yet)",
+  "how_to_join": "Official USCIS FOIA portal; check developer.uscis.gov for a FOIA API",
+  "signup_url": "https://first.uscis.gov/",
+  "where_credential": "If an API exists: developer portal app credentials; otherwise none (user files on the official portal)",
+  "what_to_submit": "Verify on developer.uscis.gov",
+  "what_you_receive": "Verify",
+  "where_it_goes": "Supabase Edge Function secret if an API exists",
+  "cost": "Verify",
+  "approval": "Verify",
+  "notes": "Uscis-Case v2 FOIA helper"
+ },
+ "CBP I-94": {
+  "batch": "0 No signup",
+  "how_to_join": "No public API \u2014 link to the official site",
+  "signup_url": "https://i94.cbp.dhs.gov/",
+  "where_credential": "\u2014",
+  "what_to_submit": "Nothing",
+  "what_you_receive": "\u2014",
+  "where_it_goes": "\u2014",
+  "cost": "Free",
+  "approval": "\u2014",
+  "notes": "No scraping of government sites; the user enters their I-94 details"
  }
 }

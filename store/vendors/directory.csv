@@ -72,7 +72,7 @@ Shared,Sentry,Error monitoring,Free and paid tiers,https://sentry.io/,DriftDate;
 Shared,PostHog,Product analytics,Free allowances and paid usage,https://posthog.com/,MyHealth
 Shared,Cloudflare,"DNS, security, edge services",Free and paid plans,https://www.cloudflare.com/,americangroup.ai; WiFiTrail
 Commerce,Rakuten Advertising,Retail and travel affiliates,Publisher application,https://rakutenadvertising.com/,FashionFactory; VirtuBand
-Commerce,Awin,"Retail product and fashion affiliates (incl. ShareASale)",Publisher application,https://www.awin.com/,FashionFactory; TripNest
+Commerce,Awin,Retail product and fashion affiliates (incl. ShareASale),Publisher application,https://www.awin.com/,FashionFactory; TripNest
 Commerce,CJ Affiliate,Retail and merchant affiliates,Publisher application,https://www.cj.com/,TripNest; CodeDeal; GadgetNest
 Commerce,Impact,Brand partnerships,Partner application,https://impact.com/,GroceryMatch; MyHealth; TripNest
 Commerce,Amazon Associates,Retail referrals,Affiliate application,https://affiliate-program.amazon.com/,CalcMaster; ChefCount; VirtuBand; FashionFactory; GadgetNest
@@ -90,3 +90,6 @@ Other,Alpha Vantage,Stock market data,API key,https://www.alphavantage.co/,ApexM
 Other,SEC EDGAR,Company filings,Public API,https://www.sec.gov/edgar,ApexMarketWatch
 Other,Spoonacular,Recipes and nutrition,API key / plans,https://spoonacular.com/food-api,ChefCount; GroceryMatch
 Other,Edamam,Recipes and nutrition,API key / plans,https://www.edamam.com/,ChefCount; GroceryMatch
+Other,USCIS Developer Portal (Case Status API),Official USCIS case status,OAuth2 client credentials; sandbox then production approval,https://developer.uscis.gov/,Uscis-Case
+Other,USCIS FOIA,FOIA requests and status,Official portal (API availability: verify on developer.uscis.gov),https://first.uscis.gov/,Uscis-Case
+Other,CBP I-94,I-94 record and travel history,No public API — official site links only,https://i94.cbp.dhs.gov/,Uscis-Case
