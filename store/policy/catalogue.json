@@ -1,0 +1,909 @@
+{
+ "_about": "Store policy catalogue. Written from knowledge of the Apple App Review Guidelines and the Google Play Developer Program Policies as of 2026; every entry must be verified against the current official text (web access is off in this session). 'applies' = feature tags detected per app; 'check' = auto:<existing check> | human: | founder: | n/a.",
+ "rules": [
+  {
+   "store": "apple",
+   "ref": "1.1",
+   "title": "Objectionable content",
+   "rule": "No offensive, discriminatory, violent, sexual or defamatory content.",
+   "applies": "all",
+   "check": "human: review every screen and bundled content"
+  },
+  {
+   "store": "apple",
+   "ref": "1.1.6",
+   "title": "False information / trick features",
+   "rule": "No fake functionality, misleading claims or prank features.",
+   "applies": "all",
+   "check": "auto:no_fake_data + human"
+  },
+  {
+   "store": "apple",
+   "ref": "1.2",
+   "title": "User-generated content",
+   "rule": "UGC needs filtering, a report mechanism, user blocking and published contact info.",
+   "applies": "ugc",
+   "check": "auto:apple_requirements:ugc-1.2"
+  },
+  {
+   "store": "apple",
+   "ref": "1.3",
+   "title": "Kids Category",
+   "rule": "Kids apps: no third-party analytics/ads without parental gates and compliance.",
+   "applies": "kids",
+   "check": "human: confirm the app is not in the Kids category or meets 1.3"
+  },
+  {
+   "store": "apple",
+   "ref": "1.4",
+   "title": "Physical harm",
+   "rule": "Medical/health claims must be accurate; no dangerous activities; disclose limitations.",
+   "applies": "health",
+   "check": "human: health claims backed, disclaimer present"
+  },
+  {
+   "store": "apple",
+   "ref": "1.4.1",
+   "title": "Medical apps",
+   "rule": "Apps that measure health data must be validated or clearly say they are not medical devices.",
+   "applies": "health",
+   "check": "human"
+  },
+  {
+   "store": "apple",
+   "ref": "1.5",
+   "title": "Developer information",
+   "rule": "Easy way to contact the developer (support URL working).",
+   "applies": "all",
+   "check": "auto:store_checklist:Privacy & support URLs serve the right page"
+  },
+  {
+   "store": "apple",
+   "ref": "1.6",
+   "title": "Data security",
+   "rule": "Appropriate security for user data.",
+   "applies": "accounts",
+   "check": "auto:appsec (secure storage, no secrets in binary)"
+  },
+  {
+   "store": "apple",
+   "ref": "1.7",
+   "title": "Reporting criminal activity / emergency",
+   "rule": "Apps reporting crime or emergencies must involve local law enforcement and be by appropriate entities.",
+   "applies": "emergency_safety",
+   "check": "human: Kinnav-type safety features use the real emergency number and say what they do"
+  },
+  {
+   "store": "apple",
+   "ref": "2.1(a)",
+   "title": "App completeness \u2014 crashes",
+   "rule": "Launches and works on the latest iOS on iPhone and iPad; no crashes, broken links or placeholder content.",
+   "applies": "all",
+   "check": "auto:apple_requirements:launch-2.1a + predelivery 1.x/5.x"
+  },
+  {
+   "store": "apple",
+   "ref": "2.1(b)",
+   "title": "App completeness \u2014 in-app purchases",
+   "rule": "IAP products complete and submitted with the binary; review access to paid features.",
+   "applies": "iap",
+   "check": "auto:apple_requirements:iap-2.1b"
+  },
+  {
+   "store": "apple",
+   "ref": "2.1",
+   "title": "Information Needed",
+   "rule": "Demo account or demo mode for gated features; review notes complete.",
+   "applies": "accounts",
+   "check": "auto:store_checklist:Demo account when the app gates on sign-in + Review notes answer Apple's 7 items"
+  },
+  {
+   "store": "apple",
+   "ref": "2.2",
+   "title": "Beta testing",
+   "rule": "No demos, betas or trial versions in the App Store.",
+   "applies": "all",
+   "check": "auto:no 'beta'/'coming soon'/'preview' in lib + metadata"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3",
+   "title": "Accurate metadata",
+   "rule": "Description, screenshots, previews reflect the core experience; no hidden features.",
+   "applies": "all",
+   "check": "human + auto:aso copy vs features"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.1",
+   "title": "Hidden or undocumented features",
+   "rule": "No hidden, dormant or undocumented features; no remote switches that change behaviour after review.",
+   "applies": "all",
+   "check": "auto:no remote config/feature flags/deep-link-only screens (code-hygiene)"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.3",
+   "title": "Screenshots",
+   "rule": "Show the app in use \u2014 not just title art, login or splash.",
+   "applies": "all",
+   "check": "auto:apple_requirements:screenshots-2.3.3"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.4",
+   "title": "App previews",
+   "rule": "Previews show only video captured from the app.",
+   "applies": "all",
+   "check": "human (if a preview exists)"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.6",
+   "title": "Age rating",
+   "rule": "Answer the age-rating questions honestly.",
+   "applies": "all",
+   "check": "auto:store_checklist:Apple age rating answered"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.7",
+   "title": "Name, keywords, metadata",
+   "rule": "Unique name \u226430; no trademarks, prices, other apps' names, or irrelevant keywords.",
+   "applies": "all",
+   "check": "auto:store_checklist name/keywords limits + human: no competitor names in keywords"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.8",
+   "title": "Metadata for all audiences",
+   "rule": "Icons, screenshots and previews suitable for 4+.",
+   "applies": "all",
+   "check": "human"
+  },
+  {
+   "store": "apple",
+   "ref": "2.3.10",
+   "title": "Third-party platforms",
+   "rule": "No mention of other mobile platforms (Android, Google Play) in metadata or UI.",
+   "applies": "all",
+   "check": "auto:grep 'Android|Google Play|Play Store' in iOS metadata and iOS UI strings"
+  },
+  {
+   "store": "apple",
+   "ref": "2.4.1",
+   "title": "iPad support",
+   "rule": "iPhone apps should run on iPad.",
+   "applies": "all",
+   "check": "auto:apple_requirements:launch-2.1a (iPad)"
+  },
+  {
+   "store": "apple",
+   "ref": "2.4.2",
+   "title": "Power efficiency",
+   "rule": "No unrelated background processes, mining, or battery drain.",
+   "applies": "all",
+   "check": "human + auto:background modes declared vs used"
+  },
+  {
+   "store": "apple",
+   "ref": "2.4.5",
+   "title": "Mac App Store",
+   "rule": "n/a (iOS only)",
+   "applies": "none",
+   "check": "n/a"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.1",
+   "title": "Public APIs only",
+   "rule": "Only public APIs; no private frameworks.",
+   "applies": "all",
+   "check": "auto:binary scan for private API strings (appsec)"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.2",
+   "title": "Self-contained",
+   "rule": "No downloading/executing code that changes features.",
+   "applies": "all",
+   "check": "auto:no dynamic code loading (appsec)"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.4",
+   "title": "Background modes",
+   "rule": "Use background services only for their intended purpose (audio, location, VoIP\u2026).",
+   "applies": "background_modes",
+   "check": "auto:UIBackgroundModes vs code usage"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.6",
+   "title": "WebKit",
+   "rule": "Web browsing must use WebKit.",
+   "applies": "webview",
+   "check": "auto:webview plugin is WKWebView-based"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.14",
+   "title": "Recording consent",
+   "rule": "Explicit consent and visible indication when recording users.",
+   "applies": "microphone",
+   "check": "human: recording indicator + consent"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.15",
+   "title": "Files / external storage",
+   "rule": "Use the Files app properly.",
+   "applies": "file_documents",
+   "check": "auto:upload_scan_plist (ITMS-90737)"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.16",
+   "title": "Widgets/extensions",
+   "rule": "Extensions must be related to the app.",
+   "applies": "extensions",
+   "check": "human"
+  },
+  {
+   "store": "apple",
+   "ref": "2.5.18",
+   "title": "Ads",
+   "rule": "Ads only in the main app binary; age-appropriate; no ads in extensions, keyboards or widgets; easy to close.",
+   "applies": "ads",
+   "check": "auto:ads not in extensions + human: interstitial frequency/close"
+  },
+  {
+   "store": "apple",
+   "ref": "3.1.1",
+   "title": "In-App Purchase",
+   "rule": "Digital goods/features must use IAP; no external purchase links for digital content.",
+   "applies": "iap",
+   "check": "auto:no Stripe/PayPal for digital goods + apple_requirements:iap-2.1b"
+  },
+  {
+   "store": "apple",
+   "ref": "3.1.2",
+   "title": "Subscriptions",
+   "rule": "Ongoing value; clear terms, price, period; restore purchases; links to terms and privacy.",
+   "applies": "subscriptions",
+   "check": "human + auto:restore purchases present"
+  },
+  {
+   "store": "apple",
+   "ref": "3.1.3",
+   "title": "Other purchase methods",
+   "rule": "Reader apps, multiplatform services, person-to-person services \u2014 specific rules.",
+   "applies": "external_purchase_links",
+   "check": "human"
+  },
+  {
+   "store": "apple",
+   "ref": "3.1.4",
+   "title": "Hardware-specific content",
+   "rule": "Unlocking via hardware rules.",
+   "applies": "none",
+   "check": "n/a"
+  },
+  {
+   "store": "apple",
+   "ref": "3.2.1",
+   "title": "Acceptable business models",
+   "rule": "Affiliate/commission links and real-world goods allowed when disclosed and appropriate.",
+   "applies": "affiliate_links",
+   "check": "auto:affiliate disclosure visible near links"
+  },
+  {
+   "store": "apple",
+   "ref": "3.2.2(ii)",
+   "title": "Unacceptable: creating an interface for displaying third-party apps or ads",
+   "rule": "No apps primarily for ads/affiliate catalogues; no incentivised actions.",
+   "applies": "affiliate_links",
+   "check": "human: app has value beyond links (4.3 spec)"
+  },
+  {
+   "store": "apple",
+   "ref": "4.0",
+   "title": "Design",
+   "rule": "Simple, refined, intuitive UI; meets HIG basics.",
+   "applies": "all",
+   "check": "human + store-creative review"
+  },
+  {
+   "store": "apple",
+   "ref": "4.1",
+   "title": "Copycats",
+   "rule": "No copying other apps' icons, names or UI.",
+   "applies": "all",
+   "check": "human"
+  },
+  {
+   "store": "apple",
+   "ref": "4.2",
+   "title": "Minimum functionality",
+   "rule": "Beyond a repackaged website; lasting entertainment or utility value.",
+   "applies": "all",
+   "check": "auto:Real Apps QA pass (#24)"
+  },
+  {
+   "store": "apple",
+   "ref": "4.2.6",
+   "title": "App generation services",
+   "rule": "Not created from a commercialized template unless submitted by the content provider.",
+   "applies": "all",
+   "check": "auto:Real Apps QA + differentiation answers (store_checklist 4.3 statement)"
+  },
+  {
+   "store": "apple",
+   "ref": "4.3(a)",
+   "title": "Spam \u2014 duplicates",
+   "rule": "Don't submit multiple apps with the same functionality; consolidate.",
+   "applies": "all",
+   "check": "auto:overlap analysis (#25) + differentiation statement"
+  },
+  {
+   "store": "apple",
+   "ref": "4.3(b)",
+   "title": "Saturated categories",
+   "rule": "Unique high-quality experience required in saturated categories.",
+   "applies": "all",
+   "check": "human + aso competitors"
+  },
+  {
+   "store": "apple",
+   "ref": "4.4",
+   "title": "Extensions",
+   "rule": "Keyboard/Safari/other extensions follow their rules (e.g. keyboard works offline without full access).",
+   "applies": "extensions",
+   "check": "human"
+  },
+  {
+   "store": "apple",
+   "ref": "4.5.4",
+   "title": "Push notifications",
+   "rule": "Not required to use the app; no marketing pushes without opt-in; no sensitive data in pushes.",
+   "applies": "push",
+   "check": "human + auto:push permission not requested at launch"
+  },
+  {
+   "store": "apple",
+   "ref": "4.7",
+   "title": "Mini apps / HTML5 / AI chatbots",
+   "rule": "Software not embedded in the binary must follow guidelines; AI content disclosed and moderated.",
+   "applies": "ai_generated",
+   "check": "human: AI output moderated and labelled"
+  },
+  {
+   "store": "apple",
+   "ref": "4.8",
+   "title": "Login services",
+   "rule": "If third-party/social login is used, offer an equivalent privacy-focused login (e.g. Sign in with Apple).",
+   "applies": "sign_in_third_party",
+   "check": "auto:Sign in with Apple offered when Google/Facebook login is offered"
+  },
+  {
+   "store": "apple",
+   "ref": "4.9",
+   "title": "Streaming games",
+   "rule": "n/a",
+   "applies": "none",
+   "check": "n/a"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(i)",
+   "title": "Privacy policy",
+   "rule": "Policy linked in App Store Connect and inside the app; says what is collected, how, and deletion.",
+   "applies": "all",
+   "check": "auto:policy page live + in-app privacy link (grep)"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(ii)",
+   "title": "Permission",
+   "rule": "Get consent before collecting data; purpose strings explain why.",
+   "applies": "all",
+   "check": "auto:privacy_scan (ITMS-90683) + human: purpose-string wording"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(iii)",
+   "title": "Data minimization",
+   "rule": "Request only data relevant to the core function.",
+   "applies": "all",
+   "check": "auto:permissions requested vs used (privacy-engineer)"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(iv)",
+   "title": "Access",
+   "rule": "Respect permission denial; don't force consent; offer alternatives.",
+   "applies": "all",
+   "check": "human: app still works after denying each permission"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(v)",
+   "title": "Account sign-in & deletion",
+   "rule": "Don't require login unless needed; if accounts are created, in-app deletion.",
+   "applies": "accounts",
+   "check": "auto:apple_requirements:account-deletion-5.1.1v"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.1(ix)",
+   "title": "Regulated fields",
+   "rule": "Banking, health, crypto, legal, gov apps must come from the qualified entity.",
+   "applies": "finance|health|crypto",
+   "check": "human: app is a tool, not a regulated service (or entity qualifies)"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.2",
+   "title": "Data use and sharing",
+   "rule": "ATT required before tracking; no sharing without consent.",
+   "applies": "ads",
+   "check": "auto:apple_requirements:att-2.1 + UMP consent before ads"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.3",
+   "title": "Health and health research",
+   "rule": "HealthKit/health data not for ads or data mining; accurate; consent.",
+   "applies": "health",
+   "check": "human + privacy-engineer"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.4",
+   "title": "Kids",
+   "rule": "COPPA/GDPR-K compliance if kids' data.",
+   "applies": "kids",
+   "check": "human"
+  },
+  {
+   "store": "apple",
+   "ref": "5.1.5",
+   "title": "Location services",
+   "rule": "Only when directly relevant; purpose explained; background only if needed.",
+   "applies": "location",
+   "check": "auto:location purpose strings + no always-location unless used"
+  },
+  {
+   "store": "apple",
+   "ref": "5.2.1",
+   "title": "Intellectual property \u2014 generally",
+   "rule": "Only content you own or have licensed (logos, maps, data, music, fonts).",
+   "applies": "all",
+   "check": "human: data-source licences and fonts (OFL etc.)"
+  },
+  {
+   "store": "apple",
+   "ref": "5.2.2",
+   "title": "Third-party sites/services",
+   "rule": "Permission/terms for using third-party services and data (APIs).",
+   "applies": "all",
+   "check": "human: each API's terms allow commercial use (e.g. OpenSky)"
+  },
+  {
+   "store": "apple",
+   "ref": "5.2.3",
+   "title": "Audio/video downloading",
+   "rule": "No illegal downloading/streaming of third-party content.",
+   "applies": "streaming_media",
+   "check": "human: radio/video sources licensed for the use"
+  },
+  {
+   "store": "apple",
+   "ref": "5.2.5",
+   "title": "Apple products",
+   "rule": "No Apple trademarks misuse.",
+   "applies": "all",
+   "check": "human"
+  },
+  {
+   "store": "apple",
+   "ref": "5.3",
+   "title": "Gaming, gambling, lotteries",
+   "rule": "Rules for contests and real-money gambling.",
+   "applies": "gambling",
+   "check": "n/a unless present"
+  },
+  {
+   "store": "apple",
+   "ref": "5.4",
+   "title": "VPN apps",
+   "rule": "VPN only via NEVPNManager by organizations; declare.",
+   "applies": "vpn_networkext",
+   "check": "auto:apple_requirements:vpn-notes"
+  },
+  {
+   "store": "apple",
+   "ref": "5.5",
+   "title": "Mobile device management",
+   "rule": "n/a",
+   "applies": "none",
+   "check": "n/a"
+  },
+  {
+   "store": "apple",
+   "ref": "5.6",
+   "title": "Developer Code of Conduct",
+   "rule": "Honest, no manipulation, no hidden features, no review manipulation; respond to App Review.",
+   "applies": "all",
+   "check": "auto:code-hygiene hidden-feature scan + founder: MA-043 replies"
+  },
+  {
+   "store": "apple",
+   "ref": "5.6.1",
+   "title": "App Store reviews",
+   "rule": "No incentivised or fake reviews; use SKStoreReviewController.",
+   "applies": "all",
+   "check": "auto:no custom review prompts/incentives"
+  },
+  {
+   "store": "apple",
+   "ref": "ITMS-91053",
+   "title": "Privacy manifest \u2014 required-reason APIs",
+   "rule": "Declare reasons for UserDefaults, file timestamp, boot time, disk space APIs in PrivacyInfo.xcprivacy.",
+   "applies": "all",
+   "check": "auto:privacy manifest declares required reasons used by the binary"
+  },
+  {
+   "store": "apple",
+   "ref": "ITMS-91061",
+   "title": "Third-party SDK privacy manifests",
+   "rule": "Listed SDKs ship their own privacy manifests and signatures.",
+   "applies": "all",
+   "check": "auto:SDK manifests present in IPA"
+  },
+  {
+   "store": "apple",
+   "ref": "ITMS-90683",
+   "title": "Purpose strings",
+   "rule": "Info.plist purpose string for every API the binary references.",
+   "applies": "all",
+   "check": "auto:apple_requirements:purpose-strings-90683"
+  },
+  {
+   "store": "apple",
+   "ref": "Export compliance",
+   "title": "Encryption declaration",
+   "rule": "ITSAppUsesNonExemptEncryption answered.",
+   "applies": "all",
+   "check": "auto:store_checklist:Export compliance answered"
+  },
+  {
+   "store": "google",
+   "ref": "Target API",
+   "title": "Target API level",
+   "rule": "New apps/updates target the current required Android API level.",
+   "applies": "all",
+   "check": "auto:targetSdk \u2265 Play's current requirement"
+  },
+  {
+   "store": "google",
+   "ref": "16 KB pages",
+   "title": "16 KB page-size support",
+   "rule": "Native libraries aligned for 16 KB page sizes (Android 15+ requirement for new apps/updates).",
+   "applies": "all",
+   "check": "auto:store_gates align16k"
+  },
+  {
+   "store": "google",
+   "ref": "App bundle",
+   "title": "Android App Bundle + Play App Signing",
+   "rule": "Publish as AAB, signed with the upload key.",
+   "applies": "all",
+   "check": "auto:store_checklist:Android .aab signed"
+  },
+  {
+   "store": "google",
+   "ref": "Data safety",
+   "title": "Data safety form",
+   "rule": "Declare collection/sharing/security accurately for the app and its SDKs.",
+   "applies": "all",
+   "check": "auto:privacy-engineer inventory vs docs/console-answers + founder: Console form"
+  },
+  {
+   "store": "google",
+   "ref": "User Data",
+   "title": "User Data policy",
+   "rule": "Prominent disclosure + consent before collecting personal/sensitive data; privacy policy in Console and in app.",
+   "applies": "all",
+   "check": "auto:privacy policy live + in-app link"
+  },
+  {
+   "store": "google",
+   "ref": "Account deletion",
+   "title": "Account deletion requirement",
+   "rule": "Apps with account creation offer in-app and web deletion; URL in Data safety.",
+   "applies": "accounts",
+   "check": "auto:store_checklist:Account-deletion page + apple 5.1.1(v)"
+  },
+  {
+   "store": "google",
+   "ref": "Permissions",
+   "title": "Permissions and APIs that access sensitive info",
+   "rule": "Request only needed permissions; justify sensitive ones.",
+   "applies": "all",
+   "check": "auto:AndroidManifest permissions vs code usage"
+  },
+  {
+   "store": "google",
+   "ref": "Location",
+   "title": "Background location",
+   "rule": "Background location only with core feature need, prominent disclosure and Console declaration.",
+   "applies": "background_location",
+   "check": "auto:no ACCESS_BACKGROUND_LOCATION unless used + founder: declaration"
+  },
+  {
+   "store": "google",
+   "ref": "Photo/video",
+   "title": "Photo and video permissions",
+   "rule": "READ_MEDIA_IMAGES/VIDEO only for core use; otherwise use the system photo picker.",
+   "applies": "photos",
+   "check": "auto:no READ_MEDIA_* unless core + photo picker used"
+  },
+  {
+   "store": "google",
+   "ref": "Foreground services",
+   "title": "Foreground service types",
+   "rule": "Declare the type and justify in Console (Android 14+).",
+   "applies": "foreground_service",
+   "check": "auto:FGS types declared + founder: Console declaration"
+  },
+  {
+   "store": "google",
+   "ref": "Exact alarms",
+   "title": "SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM",
+   "rule": "Only for alarm/calendar core functionality.",
+   "applies": "exact_alarms",
+   "check": "auto:permission present only if needed"
+  },
+  {
+   "store": "google",
+   "ref": "SMS/Call log",
+   "title": "SMS and Call Log permissions",
+   "rule": "Restricted to default handlers or approved exceptions.",
+   "applies": "sms_call_log",
+   "check": "auto:not requested"
+  },
+  {
+   "store": "google",
+   "ref": "All files",
+   "title": "MANAGE_EXTERNAL_STORAGE",
+   "rule": "Only for file managers/backup etc. with declaration.",
+   "applies": "all",
+   "check": "auto:not requested"
+  },
+  {
+   "store": "google",
+   "ref": "Package visibility",
+   "title": "QUERY_ALL_PACKAGES",
+   "rule": "Only with approved use; use <queries> instead.",
+   "applies": "all",
+   "check": "auto:not requested"
+  },
+  {
+   "store": "google",
+   "ref": "Accessibility",
+   "title": "AccessibilityService API",
+   "rule": "Only for accessibility purposes, with disclosure and declaration.",
+   "applies": "all",
+   "check": "auto:not used"
+  },
+  {
+   "store": "google",
+   "ref": "Install packages",
+   "title": "REQUEST_INSTALL_PACKAGES",
+   "rule": "Only for core app-install functionality.",
+   "applies": "all",
+   "check": "auto:not requested"
+  },
+  {
+   "store": "google",
+   "ref": "Health Connect",
+   "title": "Health apps",
+   "rule": "Health Connect access declared; health apps declaration form.",
+   "applies": "health",
+   "check": "founder: Health apps declaration in Console + privacy-engineer"
+  },
+  {
+   "store": "google",
+   "ref": "Financial",
+   "title": "Financial services declaration",
+   "rule": "Declare financial features; loan apps have extra rules.",
+   "applies": "finance",
+   "check": "founder: Console declaration (tools/calculators answer 'no financial service')"
+  },
+  {
+   "store": "google",
+   "ref": "Ads",
+   "title": "Ads policy",
+   "rule": "No deceptive/disruptive ads; interstitials not unexpected; no ads on lock screen; families-safe if targeting kids.",
+   "applies": "ads",
+   "check": "auto:AdMob ad placement review + human: interstitial frequency"
+  },
+  {
+   "store": "google",
+   "ref": "Ads ID",
+   "title": "Advertising ID declaration",
+   "rule": "Declare AD_ID permission use in Console.",
+   "applies": "ads",
+   "check": "founder: Console Advertising ID declaration (answers in console-answers)"
+  },
+  {
+   "store": "google",
+   "ref": "Families",
+   "title": "Families policy / target audience",
+   "rule": "Target audience declared; if children are included, Families requirements and certified ad SDKs.",
+   "applies": "all",
+   "check": "founder: Target audience form + auto:ads SDK config"
+  },
+  {
+   "store": "google",
+   "ref": "Content rating",
+   "title": "IARC questionnaire",
+   "rule": "Complete the content rating questionnaire.",
+   "applies": "all",
+   "check": "founder: Console IARC (store_checklist: Play IARC questionnaire)"
+  },
+  {
+   "store": "google",
+   "ref": "Metadata",
+   "title": "Store listing and promotion",
+   "rule": "No misleading metadata, keyword stuffing, unattributed testimonials, or performance claims; icon/screenshots accurate.",
+   "applies": "all",
+   "check": "auto:store_checklist listing limits + aso review"
+  },
+  {
+   "store": "google",
+   "ref": "Impersonation",
+   "title": "Impersonation and IP",
+   "rule": "No imitation of other apps/brands; licensed content only.",
+   "applies": "all",
+   "check": "human"
+  },
+  {
+   "store": "google",
+   "ref": "Spam",
+   "title": "Spam and minimum functionality",
+   "rule": "No repetitive content, duplicate apps, webview-only wrappers.",
+   "applies": "all",
+   "check": "auto:Real Apps QA + overlap (#25)"
+  },
+  {
+   "store": "google",
+   "ref": "Deceptive behavior",
+   "title": "Deceptive behavior",
+   "rule": "App does what the listing says; no hidden features or false claims.",
+   "applies": "all",
+   "check": "auto:no fake data + code-hygiene"
+  },
+  {
+   "store": "google",
+   "ref": "Malware/MUwS",
+   "title": "Mobile unwanted software",
+   "rule": "No undisclosed data collection, no hiding icons, no unexpected behaviour.",
+   "applies": "all",
+   "check": "auto:appsec"
+  },
+  {
+   "store": "google",
+   "ref": "UGC",
+   "title": "User-generated content",
+   "rule": "Moderation, reporting, blocking, terms for UGC apps.",
+   "applies": "ugc",
+   "check": "auto:apple_requirements:ugc-1.2"
+  },
+  {
+   "store": "google",
+   "ref": "AI-generated content",
+   "title": "AI-generated content",
+   "rule": "Generative AI apps prevent offensive output and let users report it.",
+   "applies": "ai_generated",
+   "check": "human + auto:report control present"
+  },
+  {
+   "store": "google",
+   "ref": "Payments",
+   "title": "Payments policy",
+   "rule": "Digital goods via Google Play Billing; physical goods may use other methods.",
+   "applies": "iap",
+   "check": "auto:billing library for digital goods"
+  },
+  {
+   "store": "google",
+   "ref": "Subscriptions",
+   "title": "Subscriptions policy",
+   "rule": "Clear offer terms; easy cancellation; no misleading trials.",
+   "applies": "subscriptions",
+   "check": "human"
+  },
+  {
+   "store": "google",
+   "ref": "Gambling",
+   "title": "Real-money gambling",
+   "rule": "Restricted.",
+   "applies": "gambling",
+   "check": "n/a unless present"
+  },
+  {
+   "store": "google",
+   "ref": "Health misinformation",
+   "title": "Health content",
+   "rule": "No medical misinformation; disclaimers.",
+   "applies": "health",
+   "check": "human"
+  },
+  {
+   "store": "google",
+   "ref": "News",
+   "title": "News apps",
+   "rule": "News apps must provide sources and contact info; Google News policies.",
+   "applies": "news",
+   "check": "human: sources attributed, publisher contact"
+  },
+  {
+   "store": "google",
+   "ref": "Dating",
+   "title": "Dating apps",
+   "rule": "Age gate 18+, safety features, UGC rules.",
+   "applies": "dating",
+   "check": "human + auto:age gate present"
+  },
+  {
+   "store": "google",
+   "ref": "Government",
+   "title": "Government apps",
+   "rule": "Must be official or clearly not affiliated.",
+   "applies": "government_topic",
+   "check": "human: Uscis-Case states it is not affiliated with USCIS"
+  },
+  {
+   "store": "google",
+   "ref": "Device and network abuse",
+   "title": "Device and network abuse",
+   "rule": "No interfering with other apps/services; respect API terms.",
+   "applies": "all",
+   "check": "human: third-party API terms"
+  },
+  {
+   "store": "google",
+   "ref": "Background",
+   "title": "Background work / battery",
+   "rule": "Respect background limits.",
+   "applies": "all",
+   "check": "human"
+  },
+  {
+   "store": "google",
+   "ref": "App access",
+   "title": "App access declaration",
+   "rule": "Provide reviewer access instructions for gated features.",
+   "applies": "accounts",
+   "check": "founder: Console App access (answers in console-answers)"
+  },
+  {
+   "store": "google",
+   "ref": "Contact details",
+   "title": "Developer contact info",
+   "rule": "Valid email, website, privacy policy URL in Console.",
+   "applies": "all",
+   "check": "auto:play_gap_audit contact details"
+  },
+  {
+   "store": "google",
+   "ref": "Play Integrity",
+   "title": "Pre-launch report",
+   "rule": "Fix crashes/ANRs/security warnings in the pre-launch report.",
+   "applies": "all",
+   "check": "human: read pre-launch report after internal upload"
+  }
+ ]
+}

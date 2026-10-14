@@ -42,7 +42,7 @@
 <div id="scene"></div>
 <div id="hud">
   <h1>AI Office — agent flow</h1>
-  <div class="sub">American Group LLC · 39 roles · built from <code>ai-office/.claude</code> and <code>CHARTER.md</code></div>
+  <div class="sub">American Group LLC · 41 roles · built from <code>ai-office/.claude</code> and <code>CHARTER.md</code></div>
   <div class="flows" id="flows"></div>
   <div id="steps"></div>
 </div>
@@ -59,13 +59,15 @@ import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer
 // ── Data: departments and roles exactly as ai-office/README.md and .claude/agents/*.md define them ──
 const DEPTS = {
   Executive:                 { color:0xffc857, roles:['chief-of-staff','strategy-analyst','project-coordinator','portfolio-director'] },
-  'Product & Engineering':   { color:0x4cc9f0, roles:['product-manager','technical-architect','software-developer','test-engineer','security-reviewer','release-manager','store-compliance','qa-screenshots','data-honesty','backend-supabase','web-domains','monetization','code-hygiene','privacy-engineer','appsec-engineer'] },
+  'Product & Engineering':   { color:0x4cc9f0, roles:['product-manager','technical-architect','software-developer','test-engineer','security-reviewer','release-manager','store-compliance','qa-screenshots','data-honesty','backend-supabase','web-domains','monetization','code-hygiene','privacy-engineer','appsec-engineer','apple-review-auditor','play-policy-auditor'] },
   Marketing:                 { color:0xf72585, roles:['marketing-manager','market-researcher','content-strategist','copywriter','seo-analyst','aso-specialist','store-creative'] },
   'Sales & Support':         { color:0x90be6d, roles:['sales-manager','lead-researcher','outreach-specialist','support-analyst'] },
   'Finance & Admin':         { color:0xb388eb, roles:['finance-manager','budget-analyst','business-analyst','hr-assistant'] },
   Operations:                { color:0xff8c42, roles:['operations-manager','workflow-designer','documentation-specialist','qa-reviewer','data-analyst'] },
 };
 const ROLE = {
+  'apple-review-auditor':['Mock App Review before every submission against all App Review Guidelines (store/policy/catalogue.json); blocks submission while a rule fails.','Read and run checks; submissions and replies are founder actions.'],
+  'play-policy-auditor':['Mock Google Play review against the Developer Program Policies and technical requirements before every production release.','Read and run checks; Console declarations and Publish are founder actions.'],
   'code-hygiene':['Finds and removes dead code and data: unreferenced files, unused dependencies/assets, routes with no entry point, config read by nothing.','May delete dead code and push after analyze + tests pass; removing a feature or product is a founder decision.'],
   'privacy-engineer':['Builds each app\'s data inventory from the code and makes the privacy label, privacy manifest, Data safety answers, consent and policy match it.','May fix labels, manifests and privacy code; policy text and production data changes are founder approvals.'],
   'appsec-engineer':['Hardens the apps: no secrets in binaries, obfuscated release builds, secure storage, network security, Supabase row-level security.','May implement hardening after tests and a release build pass; key rotation and production database changes are founder actions.'],
@@ -154,7 +156,7 @@ const FLOWS = [
   { id:'quality', name:'Release quality gate', note:'skill release-quality-gate — every delivery', steps:[
     ['repos','code-hygiene','dead code & data'], ['code-hygiene','privacy-engineer','data inventory'], ['privacy-engineer','appsec-engineer','hardening'],
     ['appsec-engineer','aso-specialist','listing vs competitors'], ['aso-specialist','store-creative','marketing screenshots'],
-    ['store-creative','qa-reviewer','independent check'], ['qa-reviewer','release-manager','pass'], ['release-manager','gate','predelivery.py'],
+    ['store-creative','apple-review-auditor','mock App Review'], ['apple-review-auditor','play-policy-auditor','mock Play review'], ['play-policy-auditor','qa-reviewer','independent check'], ['qa-reviewer','release-manager','pass'], ['release-manager','gate','predelivery.py'],
     ['gate','stores','upload on PASS'] ]},
   { id:'vendor', name:'Vendor scout', note:'skill vendor-scout (issue #26)', steps:[
     ['market-researcher','qa-reviewer','vendors, official sources'], ['qa-reviewer','registry','confirmed / rejected'],

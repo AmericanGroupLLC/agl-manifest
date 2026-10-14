@@ -18,6 +18,10 @@ Per app, in this order — each step pushes its own commits after analyze + test
    only real features and real languages.
 5. **store-creative** — captioned, branded screenshots of the real app for every
    size, feature graphic; `screenshot_audit.py` PASS.
+5b. **apple-review-auditor** and **play-policy-auditor** — mock store review against
+   every applicable rule in `store/policy/catalogue.json`:
+   `python3 scripts/store_policy_audit.py <App>`; every FAIL fixed, every HUMAN rule
+   checked by hand with evidence. Goal: the stores never reject a submission.
 6. **qa-reviewer** — independent re-check of 1–5 (default "not done" without
    evidence) plus `flutter analyze` / `flutter test`.
 7. **release-manager** — build the IPA/AAB, `python3 scripts/predelivery.py <App>`;
