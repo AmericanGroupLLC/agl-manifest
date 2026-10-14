@@ -5,6 +5,7 @@ description: "Get apps from code to TestFlight and Play internal testing through
 
 1. Gate (release-manager): `python3 scripts/preflight_version_codes.py --check`
    (`--bump` + commit if behind Play); `python3 scripts/apple_requirements.py`.
+1a. **Only the current wave** (`ai-office/projects/release/waves.md`), and only apps that passed the **release-quality-gate** skill (dead code, privacy, hardening, listing, creatives, independent QA).
 1b. **Pre-delivery checklist (mandatory, founder rule 2026-10-12)**: build the IPA
    (`python3 scripts/build_ipa.py <App>`), run `python3 scripts/predelivery.py <App>`,
    fix every ❌, and get every 👤 signed by the person who tested it on a device

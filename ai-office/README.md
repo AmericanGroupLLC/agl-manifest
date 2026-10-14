@@ -6,16 +6,16 @@ the automation it runs (`agl-manifest`).
 ## Use it
 ```bash
 cd ~/agl/agl-manifest/ai-office
-claude            # the 34 roles, skills and workflows load from .claude/
+claude            # the 39 roles, skills and workflows load from .claude/
 ```
 Then ask in plain language — "run the standup", "handle the new rejection for
 MyCard", "release train", "what is blocking AdMob?". The chief-of-staff routes
 it.
 
-## Departments (34 roles in `.claude/agents/`)
+## Departments (39 roles in `.claude/agents/`)
 - **Executive:** chief-of-staff, strategy-analyst, project-coordinator, portfolio-director
-- **Product & Engineering:** product-manager, technical-architect, software-developer, test-engineer, security-reviewer, release-manager, store-compliance, qa-screenshots, data-honesty, backend-supabase, web-domains, monetization
-- **Marketing:** marketing-manager, market-researcher, content-strategist, copywriter, seo-analyst
+- **Product & Engineering:** product-manager, technical-architect, software-developer, test-engineer, security-reviewer, release-manager, store-compliance, qa-screenshots, data-honesty, backend-supabase, web-domains, monetization, code-hygiene, privacy-engineer, appsec-engineer
+- **Marketing:** marketing-manager, market-researcher, content-strategist, copywriter, seo-analyst, aso-specialist, store-creative
 - **Sales & Support:** sales-manager, lead-researcher, outreach-specialist, support-analyst
 - **Finance & Admin:** finance-manager, budget-analyst, business-analyst, hr-assistant
 - **Operations:** operations-manager, workflow-designer, documentation-specialist, qa-reviewer, data-analyst

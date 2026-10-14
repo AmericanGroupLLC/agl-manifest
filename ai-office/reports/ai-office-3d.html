@@ -42,7 +42,7 @@
 <div id="scene"></div>
 <div id="hud">
   <h1>AI Office — agent flow</h1>
-  <div class="sub">American Group LLC · 34 roles · built from <code>ai-office/.claude</code> and <code>CHARTER.md</code></div>
+  <div class="sub">American Group LLC · 39 roles · built from <code>ai-office/.claude</code> and <code>CHARTER.md</code></div>
   <div class="flows" id="flows"></div>
   <div id="steps"></div>
 </div>
@@ -59,13 +59,18 @@ import { CSS2DRenderer, CSS2DObject } from 'three/addons/renderers/CSS2DRenderer
 // ── Data: departments and roles exactly as ai-office/README.md and .claude/agents/*.md define them ──
 const DEPTS = {
   Executive:                 { color:0xffc857, roles:['chief-of-staff','strategy-analyst','project-coordinator','portfolio-director'] },
-  'Product & Engineering':   { color:0x4cc9f0, roles:['product-manager','technical-architect','software-developer','test-engineer','security-reviewer','release-manager','store-compliance','qa-screenshots','data-honesty','backend-supabase','web-domains','monetization'] },
-  Marketing:                 { color:0xf72585, roles:['marketing-manager','market-researcher','content-strategist','copywriter','seo-analyst'] },
+  'Product & Engineering':   { color:0x4cc9f0, roles:['product-manager','technical-architect','software-developer','test-engineer','security-reviewer','release-manager','store-compliance','qa-screenshots','data-honesty','backend-supabase','web-domains','monetization','code-hygiene','privacy-engineer','appsec-engineer'] },
+  Marketing:                 { color:0xf72585, roles:['marketing-manager','market-researcher','content-strategist','copywriter','seo-analyst','aso-specialist','store-creative'] },
   'Sales & Support':         { color:0x90be6d, roles:['sales-manager','lead-researcher','outreach-specialist','support-analyst'] },
   'Finance & Admin':         { color:0xb388eb, roles:['finance-manager','budget-analyst','business-analyst','hr-assistant'] },
   Operations:                { color:0xff8c42, roles:['operations-manager','workflow-designer','documentation-specialist','qa-reviewer','data-analyst'] },
 };
 const ROLE = {
+  'code-hygiene':['Finds and removes dead code and data: unreferenced files, unused dependencies/assets, routes with no entry point, config read by nothing.','May delete dead code and push after analyze + tests pass; removing a feature or product is a founder decision.'],
+  'privacy-engineer':['Builds each app\'s data inventory from the code and makes the privacy label, privacy manifest, Data safety answers, consent and policy match it.','May fix labels, manifests and privacy code; policy text and production data changes are founder approvals.'],
+  'appsec-engineer':['Hardens the apps: no secrets in binaries, obfuscated release builds, secure storage, network security, Supabase row-level security.','May implement hardening after tests and a release build pass; key rotation and production database changes are founder actions.'],
+  'aso-specialist':['Store listing strategy against named competitors: title, subtitle, keywords, descriptions, localisation — only real features.','Drafts listing copy; store-compliance uploads; no submissions, no invented claims.'],
+  'store-creative':['Marketing-grade screenshots and feature graphics from the real app, captioned and branded, every size; never fake UI.','Produces assets; qa-screenshots vets and uploads.'],
   'backend-supabase':['Owns the Supabase backend: migrations, auth config, account deletion.','May write and commit migrations. Production deploys need the founder\'s approval in GitHub.'],
   'budget-analyst':['Cost calculations against approved budgets.','Analysis only.'],
   'business-analyst':['Turns business questions into measurable requirements and KPIs.','Analysis only.'],
@@ -146,6 +151,11 @@ const FLOWS = [
     ['product-manager','software-developer','spec per app'], ['software-developer','repos','build + push'],
     ['software-developer','qa-reviewer','evidence'], ['qa-reviewer','software-developer','one repair round'],
     ['qa-reviewer','chief-of-staff','verdict'], ['chief-of-staff','reports','run report'] ]},
+  { id:'quality', name:'Release quality gate', note:'skill release-quality-gate — every delivery', steps:[
+    ['repos','code-hygiene','dead code & data'], ['code-hygiene','privacy-engineer','data inventory'], ['privacy-engineer','appsec-engineer','hardening'],
+    ['appsec-engineer','aso-specialist','listing vs competitors'], ['aso-specialist','store-creative','marketing screenshots'],
+    ['store-creative','qa-reviewer','independent check'], ['qa-reviewer','release-manager','pass'], ['release-manager','gate','predelivery.py'],
+    ['gate','stores','upload on PASS'] ]},
   { id:'vendor', name:'Vendor scout', note:'skill vendor-scout (issue #26)', steps:[
     ['market-researcher','qa-reviewer','vendors, official sources'], ['qa-reviewer','registry','confirmed / rejected'],
     ['registry','founder','sign up (founder)'], ['founder','registry','status in per-app CSV'] ]},
