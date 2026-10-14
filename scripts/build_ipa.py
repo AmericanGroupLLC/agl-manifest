@@ -79,13 +79,19 @@ def build(app: dict, profile: str) -> dict:
         run([str(FLUTTER), "pub", "get"], cwd=d, timeout=900)
         r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}", *admob_defines(app["repo"])], cwd=d, timeout=3600)
         rec["retried_after_stale_package_graph"] = True
-    # A CocoaPods spec index older than a pod the app now needs. The runner's
-    # ~/.cocoapods comes from an Actions cache, so it lags: radiotune failed in
-    # 6 s in ship run 38294393167 with "CocoaPods's specs repository is too
-    # out-of-date to satisfy dependencies". Refresh the index once and retry.
+    # "CocoaPods's specs repository is too out-of-date to satisfy
+    # dependencies". The runner's ~/.cocoapods comes from an Actions cache and
+    # can lag, so refresh the index once and retry. CocoaPods prints the same
+    # words when ios/Podfile.lock pins a version the plugin no longer accepts,
+    # which no index refresh fixes: radiotune (ship runs 38294393167 and
+    # 38553467641) locks Google-Mobile-Ads-SDK 11.13.0 while its
+    # google_mobile_ads 9.1.0 requires ~> 13.7 - the app's Podfile.lock has to
+    # be regenerated. The refresh's own output is kept to tell the two apart.
     if r.returncode != 0 and "specs repository is too out-of-date" in (r.stdout + r.stderr):
         u = run(["pod", "install", "--repo-update"], cwd=ios, timeout=1800)
         rec["retried_after_pod_repo_update"] = u.returncode == 0
+        if u.returncode != 0:
+            rec["pod_repo_update_detail"] = tail(u.stdout + u.stderr, 6)
         r = run([str(FLUTTER), "build", "ios", "--release", "--no-codesign", f"--build-number={BUILD_NUMBER}", *admob_defines(app["repo"])], cwd=d, timeout=3600)
     if r.returncode != 0:
         rec.update(result="FLUTTER_BUILD_FAILED", detail=tail(r.stdout + r.stderr))
