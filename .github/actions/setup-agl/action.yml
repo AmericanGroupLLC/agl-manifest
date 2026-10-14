@@ -41,39 +41,27 @@ runs:
           url."https://x-access-token:$TOKEN@github.com/".insteadOf \
           "https://github.com/"
 
-    # pub checks out a git dependency (agl_i18n, agl_observability, agl_ads =
-    # this repository) with `git clone --no-checkout <pub-cache>/git/cache/...`,
-    # a local clone, which git does with hardlinks. git (builtin/clone.c) then
-    # re-checks every hardlink and aborts if the source file changed while it
-    # was linking, and that killed `pub get` in seconds (#17):
+    # pub keeps one mirror of this repository (the agl_* git dependencies) in
+    # <pub-cache>/git/cache, runs `git fetch` in it when the locked commit is
+    # missing, and then `git clone --no-checkout`s the package out of it. git
+    # fetch ends by starting `git maintenance run --auto --detach`, which in a
+    # mirror with many packs (the Actions cache keeps every run's) repacks in
+    # the background while pub's clone is reading the same files. That is
+    # #17, and why it always hit the first app of a shard:
     #   fatal: hardlink different from source at '.../objects/pack/tmp_pack_...'
-    # (BuddyPlay, run 38260863743, Linux; AGRecorder, run 38294393167, macOS).
-    # Reproduced: a local clone of a repo whose tmp_pack_ file is being written
-    # failed 60 times out of 60 with exactly that message; with --no-hardlinks,
-    # 0 out of 60. git has no config for this and pub has no option, so a shim
-    # first on PATH adds --no-hardlinks to clones out of the pub cache only.
-    - name: Clone pub's git dependencies without hardlinks
+    #     (BuddyPlay run 38260863743; AGRecorder run 38294393167)
+    #   fatal: failed to copy file to '.../objects/pack/pack-4192d74....pack':
+    #     No such file or directory   (AGCleaner, AGRecorder, AGStudio, run
+    #     38512124391, after a --no-hardlinks shim; the old pack was repacked away)
+    # Reproduced locally: fetch into a 60-pack mirror, then clone out of it -
+    # 3 of 8 clones failed by default, 0 of 8 with the settings below, under
+    # which fetch runs `git maintenance run --auto --no-detach` (traced): the
+    # repack finishes before pub's clone starts.
+    - name: git maintenance after fetch runs in the foreground
       shell: bash
       run: |
-        real="$(command -v git)"
-        shim="$RUNNER_TEMP/agl-git-shim"
-        mkdir -p "$shim"
-        cat > "$shim/git" <<EOF
-        #!/usr/bin/env bash
-        # Written by .github/actions/setup-agl (issue #17).
-        if [ "\$1" = clone ]; then
-          for a in "\$@"; do
-            case "\$a" in
-              */.pub-cache/git/cache/*|"\${PUB_CACHE:-/nonexistent}"/git/cache/*)
-                shift; exec "$real" clone --no-hardlinks "\$@" ;;
-            esac
-          done
-        fi
-        exec "$real" "\$@"
-        EOF
-        chmod +x "$shim/git"
-        echo "$shim" >> "$GITHUB_PATH"
-        PATH="$shim:$PATH" git --version
+        git config --global maintenance.autoDetach false
+        git config --global gc.autoDetach false
 
     - uses: subosito/flutter-action@v2
       with:
