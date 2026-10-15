@@ -1,0 +1,31 @@
+AGCleaner HEAD 18abcbe — merged Android manifest permissions (debug APK)
+Built 2026-10-14 with: flutter build apk --debug (Flutter 3.44.2, /Users/spatchava/agl/.flutter-sdk), result: ✓ Built build/app/outputs/flutter-apk/app-debug.apk
+
+$ aapt2 dump permissions build/app/outputs/flutter-apk/app-debug.apk
+package: com.americangroupllc.agcleaner
+uses-permission: name='android.permission.INTERNET'
+uses-permission: name='android.permission.READ_CONTACTS'
+uses-permission: name='android.permission.WRITE_CONTACTS'
+uses-permission: name='android.permission.READ_MEDIA_IMAGES'
+uses-permission: name='android.permission.READ_EXTERNAL_STORAGE' maxSdkVersion='32'
+uses-permission: name='android.permission.WRITE_EXTERNAL_STORAGE' maxSdkVersion='29'
+uses-permission: name='android.permission.ACCESS_NETWORK_STATE'
+uses-permission: name='android.permission.WAKE_LOCK'
+uses-permission: name='android.permission.ACCESS_ADSERVICES_TOPICS'
+uses-permission: name='com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE'
+uses-permission: name='android.permission.FOREGROUND_SERVICE'
+permission: com.americangroupllc.agcleaner.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+uses-permission: name='com.americangroupllc.agcleaner.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION'
+
+Removed by tools:node="remove" in android/app/src/main/AndroidManifest.xml (manifest-merger-debug-report.txt: REJECTED from play-services-ads-api 25.4.0 and play-services-measurement-api 23.2.0):
+  com.google.android.gms.permission.AD_ID
+  android.permission.ACCESS_ADSERVICES_AD_ID
+  android.permission.ACCESS_ADSERVICES_ATTRIBUTION
+
+Sources of the library-added permissions (manifest-merger-debug-report.txt):
+  INTERNET: src/debug/AndroidManifest.xml and firebase_analytics
+  ACCESS_NETWORK_STATE, WAKE_LOCK: firebase_analytics / play-services-measurement-api
+  ACCESS_ADSERVICES_TOPICS: play-services-ads-api 25.4.0 (not stripped)
+  BIND_GET_INSTALL_REFERRER_SERVICE: play-services-measurement 23.2.0
+  FOREGROUND_SERVICE: androidx.work:work-runtime 2.7.0
+  DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION: androidx.core 1.17.0
