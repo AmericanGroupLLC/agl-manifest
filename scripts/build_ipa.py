@@ -57,6 +57,35 @@ def tail(text: str, n: int = 12) -> str:
     return " | ".join(lines[-n:])[:1500]
 
 
+def app_entitlements(ios: pathlib.Path) -> dict:
+    """The Release entitlements the app declares (ios/Runner/Runner.entitlements), or {}."""
+    f = ios / "Runner" / "Runner.entitlements"
+    try:
+        return plistlib.loads(f.read_bytes()) if f.exists() else {}
+    except Exception:
+        return {}
+
+
+def entitlements_missing(ipa: pathlib.Path, wanted: dict) -> list[str]:
+    """Keys of `wanted` that the signed app inside `ipa` does not carry with the same value."""
+    if not wanted:
+        return []
+    import tempfile
+    import zipfile
+    with tempfile.TemporaryDirectory() as t:
+        with zipfile.ZipFile(ipa) as z:
+            z.extractall(t)
+        app = next(pathlib.Path(t, "Payload").glob("*.app"), None)
+        if app is None:
+            return sorted(wanted)
+        r = run(["codesign", "-d", "--entitlements", ":-", str(app)])
+        try:
+            have = plistlib.loads(r.stdout.encode()) if r.stdout.strip() else {}
+        except Exception:
+            have = {}
+    return sorted(k for k, v in wanted.items() if have.get(k) != v)
+
+
 def build(app: dict, profile: str) -> dict:
     repo = app["repo"]
     d = ROOT / repo if app.get("dir", ".") == "." else ROOT / repo / app["dir"]
@@ -124,6 +153,30 @@ def build(app: dict, profile: str) -> dict:
         shutil.rmtree(archive, ignore_errors=True)
         return rec
 
+    # 2b. The app's own entitlements. The unsigned archive records none
+    #     (CODE_SIGN_ENTITLEMENTS is blanked above for the Pods' sake), and
+    #     -exportArchive signs with what the archive recorded plus the
+    #     profile's fixed keys. So until 2026-10-15 every CI IPA shipped
+    #     without ios/Runner/Runner.entitlements: Verba without aps-environment
+    #     (ITMS-90078 with firebase_messaging), DriftDate without
+    #     com.apple.developer.applesignin, WiFiTrail without wifi-info — while
+    #     each App Store profile allowed them (ship run 38785102658). Export
+    #     re-signs keeping the entitlements of the archived app's existing
+    #     signature, so give the main executable an ad-hoc signature that
+    #     carries them (writing archived-expanded-entitlements.xcent instead
+    #     was tried and export ignored it). entitlements_missing() below proves
+    #     the result either way.
+    wanted = app_entitlements(ios)
+    built = list((archive / "Products" / "Applications").glob("*.app"))
+    if wanted and built:
+        ent_file = WORK / f"{repo}.entitlements.plist"
+        ent_file.write_bytes(plistlib.dumps(wanted))
+        exe = built[0] / plistlib.loads((built[0] / "Info.plist").read_bytes()).get("CFBundleExecutable", "Runner")
+        r = run(["codesign", "--force", "--sign", "-", "--entitlements", str(ent_file), str(exe)])
+        rec["entitlements"] = sorted(wanted)
+        if r.returncode != 0:
+            rec["entitlements_detail"] = tail(r.stdout + r.stderr)
+
     # 3. Export. Xcode 15.4+ calls the App Store destination "app-store-connect";
     #    the older name is accepted as a fallback for safety.
     out = WORK / f"{repo}-export"
@@ -152,6 +205,14 @@ def build(app: dict, profile: str) -> dict:
 
     if not exported:
         rec.update(result="EXPORT_FAILED")
+        rec["seconds"] = round(time.time() - t0, 1)
+        shutil.rmtree(archive, ignore_errors=True)
+        return rec
+
+    # The entitlements must be in the signed app, or the build is not the app.
+    missing = entitlements_missing(exported, wanted)
+    if missing:
+        rec.update(result="ENTITLEMENTS_MISSING", detail=f"exported IPA lacks {missing} from ios/Runner/Runner.entitlements")
         rec["seconds"] = round(time.time() - t0, 1)
         shutil.rmtree(archive, ignore_errors=True)
         return rec
