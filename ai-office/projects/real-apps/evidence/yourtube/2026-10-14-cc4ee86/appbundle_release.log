@@ -1,0 +1,15 @@
+If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
+Note: /Users/spatchava/.pub-cache/hosted/pub.dev/google_mobile_ads-5.3.1/android/src/main/java/io/flutter/plugins/googlemobileads/AdMessageCodec.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+/Users/spatchava/.pub-cache/hosted/pub.dev/video_player_android-2.7.16/android/src/main/java/io/flutter/plugins/videoplayer/VideoPlayer.java:99: warning: [removal] onSurfaceDestroyed() in Callback has been deprecated and marked for removal
+  public void onSurfaceDestroyed() {
+              ^
+1 warning
+Font asset "CupertinoIcons.ttf" was tree-shaken, reducing it from 257628 to 2448 bytes (99.0% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Font asset "MaterialIcons-Regular.otf" was tree-shaken, reducing it from 1645184 to 8360 bytes (99.5% reduction). Tree-shaking can be disabled by providing the --no-tree-shake-icons flag when building your app.
+Running Gradle task 'bundleProdRelease'...                        296.3s
+✓ Built build/app/outputs/bundle/prodRelease/app-prod-release.aab (63.3MB)
+exit=0
+aab: app-prod-release.aab, built from e15a820 (fonts) with flutter build appbundle --release --flavor prod
+sha256 37f059193c0481a8ee754acfce38359930973e97fb012a9d9a30f9f5e2f3066a
+signer SHA256 2E:A5:95:F4:1F:A6:14:68:5B:DF:85:CF:05:D5:9D:13:24:D4:28:99:81:39:29:36:80:4E:BD:53:92:63:D1:5A (= yourtube-upload.jks alias upload)

@@ -1,0 +1,25 @@
+Resolving dependencies...
+Downloading packages...
+  cross_file 0.3.4+2 (0.4.0 available)
+Got dependencies!
+74 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+The following plugins do not support Swift Package Manager for ios:
+  - google_mobile_ads
+This will become an error in a future version of Flutter. Please contact the plugin maintainers to request Swift Package Manager adoption.
+Running Xcode build...                                          
+Xcode build done.                                           29.7s
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:51077/9or05g7FpCU=/
+VMServiceFlutterDriver: Isolate found with number: 5690953369512607
+VMServiceFlutterDriver: Isolate 5690953369512607 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+flutter: 00:00 +0: store screenshots and the 04:30 playback proof
+VMServiceFlutterDriver: Connected to Flutter application.
+flutter: [AGL:info] Insights active: analytics, performance, remote_config
+VMServiceFlutterDriver: request_data message is taking a long time to complete...
+flutter: PLAYBACK PROOF: playhead 271 s -> 283 s over 12 s of wall time
+flutter: 01:14 +1: (tearDownAll)
+flutter: 01:15 +2: All tests passed!
+All tests passed.
+exit=0
