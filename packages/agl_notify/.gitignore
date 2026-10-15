@@ -1,0 +1,6 @@
+.dart_tool/
+.packages
+build/
+# A library, not an application: consumers resolve their own versions.
+pubspec.lock
+.flutter-plugins-dependencies

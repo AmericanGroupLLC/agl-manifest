@@ -1,0 +1,25 @@
+name: agl_notify
+description: >-
+  Cancels local notifications without freezing the app. On the iOS 27.0
+  simulator a cancel-by-id waits on the main thread for an answer the system
+  notification server may not give yet; this package asks first, cancels only
+  what is actually pending or delivered, and never drops a cancel that matters.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.4.0 <4.0.0"
+  flutter: ">=3.22.0"
+
+# Deliberately no dependency on flutter_local_notifications: the portfolio runs
+# 17.2.4 (positional `cancel(id)`) and 22.3.2 (named `cancel(id: id)`) side by
+# side, and no single version range covers both APIs. Each app passes four
+# small closures over its own plugin instead.
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
