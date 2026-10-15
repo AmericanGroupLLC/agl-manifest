@@ -20,6 +20,9 @@ DRY = ARGV.include?("--dry-run")
 ONLY = ARGV.reject { |x| x.start_with?("--") }
 require_relative "account_freeze"
 AccountFreeze.enforce!(ARGV) unless DRY
+# Decision log 2026-10-15: Stage B + the submission hold, for the exact build
+# that would go to review. No override flag on purpose.
+require_relative "submission_gate"
 
 Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
   key_id: ENV.fetch("ASC_KEY_ID"), issuer_id: ENV.fetch("ASC_ISSUER_ID"), filepath: ENV.fetch("ASC_KEY_PATH"))
@@ -49,6 +52,15 @@ apps.each do |a|
                                       .find { |b| b.processing_state == "VALID" }
   (out[repo] = { "status" => "no-valid-build" }; puts("#{repo}: no processed build"); next) if build.nil?
 
+  # Before anything changes on App Store Connect (attaching included): the
+  # build that would be submitted must pass gate_for_submission.
+  gate_ok, gate_msg = SubmissionGate.check(repo, build.version, build.uploaded_date)
+  unless gate_ok || DRY
+    out[repo] = { "status" => "refused-by-gate", "build" => build.version, "detail" => gate_msg }
+    puts "#{repo}: NOT SUBMITTED — #{gate_msg}"
+    next
+  end
+
   begin
     ver.select_build(build_id: build.id)
     attached = true
@@ -58,8 +70,17 @@ apps.each do |a|
   end
 
   if DRY
-    out[repo] = { "status" => "build-attached", "build" => build.version, "version" => ver.version_string }
-    puts "#{repo}: build #{build.version} on version #{ver.version_string} (dry run, not submitted)"
+    out[repo] = { "status" => "build-attached", "build" => build.version, "version" => ver.version_string,
+                  "gate" => gate_msg }
+    puts "#{repo}: build #{build.version} on version #{ver.version_string} (dry run, not submitted); gate: #{gate_msg}"
+    next
+  end
+  # The gate passed for `build`; if it is not the one attached, the version
+  # would go to review with another (unchecked) build.
+  unless attached
+    out[repo] = { "status" => "refused-by-gate", "build" => build.version,
+                  "detail" => "build #{build.version} could not be attached to the version" }
+    puts "#{repo}: NOT SUBMITTED — build #{build.version} could not be attached; the version holds another build"
     next
   end
 
@@ -76,7 +97,8 @@ apps.each do |a|
       begin
         Spaceship::ConnectAPI.patch_review_submission(review_submission_id: stuck.id,
                                                       attributes: { submitted: true })
-        out[repo] = { "status" => "resubmitted", "submission" => stuck.id }
+        out[repo] = { "status" => "resubmitted", "submission" => stuck.id, "build" => build.version }
+        SubmissionGate.record!(repo, build.version, "resubmitted", "submit_production.rb")
         puts "#{repo}: RESUBMITTED the rejected submission"
         next
       rescue StandardError => e
@@ -102,6 +124,7 @@ apps.each do |a|
     end
     Spaceship::ConnectAPI.patch_review_submission(review_submission_id: sub.id, attributes: { submitted: true })
     out[repo] = { "status" => "submitted", "build" => build.version, "version" => ver.version_string }
+    SubmissionGate.record!(repo, build.version, "submitted", "submit_production.rb")
     puts "#{repo}: SUBMITTED FOR APP STORE REVIEW (build #{build.version})"
   rescue StandardError => e
     msg = e.message.gsub(/\s+/, ' ')

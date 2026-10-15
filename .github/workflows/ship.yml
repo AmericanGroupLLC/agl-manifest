@@ -545,17 +545,62 @@ jobs:
         if: matrix.apps != ''
         run: python3 scripts/verify_ipa_signing.py ${{ steps.list.outputs.names }}
 
+      # Stage A of the pre-delivery checklist (decision #48, 2026-10-15): the
+      # 20 automated checks of sections 1-5, on the exact IPA this runner just
+      # built from the app's current main. An IPA that does not pass is moved
+      # out of work/.dist, so it is neither published nor uploaded; the upload
+      # gate (run_batch.py -> ipa_blocker -> gate_for_upload) checks the same
+      # record again by sha256 before anything reaches TestFlight. Checks that
+      # need laptop-only data either run here (2.5 derives the policy URL and
+      # fetches it live) or stay open with the reason (2.7's server probe
+      # without SUPABASE_ANON_KEY) — never a silent PASS.
+      # !cancelled(): one app's failed export fails "Build every IPA", and the
+      # apps that did build must still be checked, not dropped.
+      - name: Stage A pre-delivery checklist on every IPA built here
+        if: ${{ !cancelled() && matrix.apps != '' }}
+        env:
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+        run: |
+          shopt -s nullglob
+          mkdir -p work/.dist/refused
+          passed=(); refused=()
+          for ipa in work/.dist/*.ipa; do
+            app="$(basename "$ipa" .ipa)"
+            echo "::group::Stage A: $app"
+            if python3 scripts/predelivery.py "$app" --stage A; then
+              passed+=("$app")
+            else
+              mv "$ipa" work/.dist/refused/
+              refused+=("$app")
+            fi
+            echo "::endgroup::"
+          done
+          {
+            echo "### Stage A pre-delivery (iOS shard ${{ matrix.shard }})"
+            echo "- passed, kept for TestFlight (${#passed[@]}): ${passed[*]:-none}"
+            echo "- refused, not uploaded (${#refused[@]}): ${refused[*]:-none}"
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ ${#refused[@]} -gt 0 ]; then
+            echo "::error::Stage A refused ${#refused[@]} IPA(s): ${refused[*]} (work/.dist/predelivery/<App>.md in the artifact says why)"
+            exit 1
+          fi
+
       - uses: actions/upload-artifact@v4
         # Even when the build failed — same reason as the Android side. The
         # one artefact that explains a failure must not be the one that does
         # not survive it: PlantPulse reported FLUTTER_BUILD_FAILED and the
         # Flutter output went nowhere.
+        # Only IPAs that passed Stage A are left in work/.dist/*.ipa. The
+        # Stage A records travel with them: the internal job's upload gate
+        # reads them, and Stage B later needs them.
         if: always() && matrix.apps != ''
         with:
           name: ios-archives-${{ matrix.shard }}
           path: |
             work/.dist/*.ipa
             docs/ios-ipa-evidence.json
+            work/.dist/predelivery/
+            store/predelivery/stage-a/
           include-hidden-files: true
           if-no-files-found: warn
           retention-days: 14
@@ -630,6 +675,10 @@ jobs:
       contains(fromJSON('["internal","production"]'), needs.resolve.outputs.stop_after)
     runs-on: macos-latest
     timeout-minutes: 300
+    # contents: write for one thing only: committing the Stage A records
+    # (store/predelivery/stage-a) that Stage B needs, in the last step.
+    permissions:
+      contents: write
     # The build jobs write bundles and IPAs to $AGL_ROOT/.dist = work/.dist,
     # and the artifacts unpack there. Without this the upload scripts looked in
     # <workspace>/../.dist and run 38203990386 reported "uploaded 0/43" to Play
@@ -715,6 +764,26 @@ jobs:
       - name: Put every build in front of the testers
         if: ${{ !cancelled() }}
         run: bundle exec ruby scripts/testflight/distribute.rb --all
+
+      # Stage B (before App Review) needs the Stage A record of the exact
+      # TestFlight build a person signs off: gate_for_submission refuses
+      # without it. The records were written on the iOS runners and arrived
+      # here with the IPAs; keep them. Path-limited: nothing else this job
+      # downloaded or regenerated is committed.
+      - name: Keep the Stage A records for Stage B
+        if: ${{ !cancelled() }}
+        run: |
+          if [ ! -d store/predelivery/stage-a ]; then echo "no Stage A records in this run"; exit 0; fi
+          git add -- store/predelivery/stage-a
+          if git diff --cached --quiet -- store/predelivery/stage-a; then echo "no new Stage A records"; exit 0; fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "Stage A pre-delivery records from ship run ${GITHUB_RUN_ID}" -- store/predelivery/stage-a
+          for i in 1 2 3 4; do
+            git pull --rebase --autostash -q && git push && exit 0
+            sleep $((i * 15))
+          done
+          exit 1
 
       - uses: actions/upload-artifact@v4
         if: always()
