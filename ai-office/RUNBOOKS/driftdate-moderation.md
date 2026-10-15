@@ -4,52 +4,128 @@ DriftDate is a real dating app (founder, 2026-10-14). App Store guideline 1.2
 requires the developer to act on reports of objectionable content **within 24
 hours**, by removing the content and ejecting the user who posted it. This is
 how a person does that. Everything below exists in Backend PR #1 (branch
-`driftdate-schema`, `supabase/migrations/20261014_driftdate_3_safety.sql`), and
-**none of it works until PR #1 is merged and deployed** (issue #19).
+`driftdate-schema`: `supabase/migrations/20261014_driftdate_3_safety.sql` and
+`.github/workflows/driftdate-moderation-alerts.yml`), and **none of it works
+until PR #1 is merged and deployed** (issue #19).
 
-Who answers reports is a founder decision (Charter §7, spec question F5).
-Until a named person is assigned, the office cannot meet the SLA. The SQL
-below is run by that person in the Supabase SQL editor. The AI office does
-not run SQL on production (company/policies.md); it can prepare the
-statements and read the email.
+**Moderator: the founder (GitHub `srpatcha`) by default.** Office decision,
+2026-10-14, under the amended charter. Alerts arrive as a GitHub issue in the
+private repository AmericanGroupLLC/AmericanGroupLLC-Backend. Per-report
+email through Resend is **optional** and not set up: it needs a vendor
+account nobody has created. The moderator runs the SQL below in the Supabase
+SQL editor. The AI office does not run SQL on production
+(company/policies.md); it can prepare the statements and read the issue.
 
 ## The SLA
 
 - Every report must be **actioned or dismissed within 24 hours of
   `created_at`**. `moderation_queue()` returns `due_at` (created + 24 h) and
   `overdue`.
-- Check the queue **at least twice a day** (morning and evening, US time),
-  even when no email arrived. The email is a prompt, not the system of record:
-  the `driftdate.reports` table is.
-- Child safety and threats of violence go first, the moment they are seen.
+- The alert issue is checked every 30 minutes. GitHub can start scheduled
+  runs late, by minutes and sometimes longer, so act on the issue the day it
+  appears, not at hour 23. Also look at the queue **at least once a day**
+  even with no alert: the issue is a prompt, the `driftdate.reports` table
+  is the system of record.
+- Child safety ("Appears to be under 18") and threats of violence go first,
+  the moment they are seen. The issue marks under-18 reports "review first".
 
 ## How a report reaches a person
 
 1. A member reports a profile, a photo (`photo_path`) or a message
    (`message_id`, with the text copied into `message_text` at report time).
    Reporting also blocks the person for the reporter.
-2. Trigger `driftdate.reports_notify` posts the report id to the Edge Function
-   `driftdate-report-notify`, which emails **support@americangroup.ai** with the
-   reason, the reported member's id, the deadline and the commands below. The
-   email holds no message text, photo or reporter id. This needs the one-time
-   setup below. Without it, nothing is emailed and the twice-daily check is the
-   only path.
+2. **GitHub issue.** Every 30 minutes the workflow *DriftDate — moderation
+   alerts* (Backend repo → Actions) reads `driftdate.moderation_queue()` and
+   keeps one open issue, **"DriftDate: reports waiting for review"**, label
+   `moderation`, assigned to the moderators:
+   - first open report: the issue is created and the moderators are
+     @-mentioned. GitHub emails them (new issue, assignment, mention);
+   - every run: the table in the issue is rewritten (report id, reason, age,
+     due time in UTC, overdue);
+   - a report that is new since the last run, or that has just passed 24
+     hours: **one comment** naming it, with an @-mention, which emails the
+     moderators again. (Editing the table alone sends no email.);
+   - queue empty: the workflow comments and closes the issue. The next
+     report opens a new one.
+
+   The issue holds **no personal data**: only opaque report ids, the reason
+   (one of the app's fixed reasons; anything typed in by a client shows as
+   "Other (custom text…)"), ages and due times. No names, member or
+   reporter ids, notes, message text or photos. Keep it that way: never
+   paste a name, message or screenshot into an issue comment. The decision
+   note goes into `moderate_report(…, '<why>')`.
+
+   If the database secret is missing, the connection fails or the query
+   fails, the run goes **red**, and GitHub emails whoever last changed the
+   workflow's schedule (normally the founder's account). A red
+   run means nobody is being alerted: fix it the same day (see "Is the alert
+   path working?").
 3. **Auto-hide.** When 3 distinct members with a confirmed email or phone have
    open reports against the same person, that profile is hidden at once:
    nobody sees it, and it cannot wave or send messages until a moderator
    decides. The trigger writes `moderation_actions` row `auto_hide`.
+4. Optional: per-report email (see the end of the setup section). Without
+   it, a report insert still always succeeds; the database skips the email
+   silently.
 
-## One-time setup (founder)
+## One-time setup
 
 1. Merge PR #1 into `dev` and approve the deploy (issue #19 / MA-044).
-2. Database → Extensions: enable **pg_net**. (Vault is on by default.)
-3. Pick a mail provider. The function is written for **Resend**
-   (`api.resend.com`). No provider is configured on this project today, and
-   the office has not signed up for one. Whether it costs money depends on
-   the plan and volume: check the provider's pricing before choosing.
-   Verify `americangroup.ai` (or a subdomain) with the provider so mail can be
-   sent from it.
-4. Deploy the function and set its secrets. Never paste a secret into git or
+   Scheduled workflows only run from the default branch (`dev`), so the
+   alerts start with the merge. Until the migrations are deployed, each run
+   is red ("moderation_queue() failed"), which is intended.
+2. The repository secret **`DATABASE_URL_SESSION`** must hold a working
+   Session pooler connection string (Supabase → Connect → Session pooler),
+   the same secret `deploy.yml` uses. This is the founder's connection-string
+   step for the deploy. Nothing else is needed: the workflow uses only the
+   built-in `GITHUB_TOKEN`.
+3. The moderator makes sure GitHub emails reach them: Settings →
+   Notifications → Email enabled for "Participating, @mentions and custom".
+   Assignment and @-mentions notify even without watching the repository.
+4. Test it: Actions → *DriftDate — moderation alerts* → Run workflow. Green
+   with "open reports: 0" means the connection works. Then report a test
+   profile from a second staff account, run it again, and check that the
+   issue and the email arrive. Dismiss the test report; the next run closes
+   the issue.
+5. Optional, only to moderate from a signed-in app session (the SQL editor
+   does not need it; a session with no JWT counts as a moderator). The
+   DriftDate account id comes from Authentication → Users:
+   ```sql
+   insert into driftdate.moderators (user_id, note) values ('<auth user id>', 'safety on-call');
+   ```
+
+### Add another moderator later
+
+1. GitHub: give the person at least **Read** access to
+   AmericanGroupLLC-Backend (the repository is private). Then set the
+   repository variable `DRIFTDATE_MODERATORS` (Settings → Secrets and
+   variables → Actions → Variables) to a comma-separated list of logins,
+   keeping the founder: `srpatcha,<their-login>`. The next run assigns and
+   @-mentions everyone in the list. A login without access is skipped with a
+   warning in the run log.
+2. Supabase: invite them to the project (Organization → Team) so they can
+   open the SQL editor, or add their DriftDate account to
+   `driftdate.moderators` (step 5 above) once there is an in-app moderator
+   view.
+3. Removing someone: take them out of the variable and the team, and
+   `delete from driftdate.moderators where user_id = '<id>';`.
+
+### Optional: per-report email (Resend)
+
+The Edge Function `driftdate-report-notify` and the trigger
+`driftdate.reports_notify` stay in the code. They send one email per report
+to support@americangroup.ai with the reason, the reported member's id and the
+deadline. Without the steps below the trigger does nothing, and a report insert
+never fails: covered by `supabase/tests/driftdate_rls_pglite.mjs` (no pg_net,
+pg_net without Vault, Vault without secrets, only the URL secret, an
+unreadable Vault, a failing call). The migration does not enable pg_net,
+because the alert issue does not need it. Only if email is wanted as well:
+
+1. Database → Extensions: enable **pg_net**. (Vault is on by default.)
+2. A Resend account (`api.resend.com`), with `americangroup.ai` or a
+   subdomain verified. Not created: it needs a sign-up with the founder's
+   identity. Check Resend's pricing first.
+3. Deploy the function and set its secrets. Never paste a secret into git or
    chat:
    ```
    supabase functions deploy driftdate-report-notify --no-verify-jwt --project-ref smvvjivvlprjhzhoizym
@@ -59,22 +135,27 @@ statements and read the email.
      REPORT_MAIL_FROM='DriftDate safety <safety@americangroup.ai>' \
      REPORT_MAIL_TO=support@americangroup.ai
    ```
-5. SQL editor: store the same secret and the function URL in Vault:
+4. SQL editor: store the same secret and the function URL in Vault:
    ```sql
    select vault.create_secret('https://smvvjivvlprjhzhoizym.supabase.co/functions/v1/driftdate-report-notify',
                               'driftdate_report_notify_url');
    select vault.create_secret('<the same long random string>', 'driftdate_report_notify_secret');
    ```
-6. Name the moderators. Their DriftDate account id comes from Authentication →
-   Users:
-   ```sql
-   insert into driftdate.moderators (user_id, note) values ('<auth user id>', 'safety on-call');
-   ```
-   The SQL editor works without this (a session with no JWT counts as a
-   moderator). The row is for moderating from a signed-in session.
-7. Test it: report a test profile from a second staff account, then check the
-   email arrived and `select notified_at from driftdate.reports order by created_at desc limit 1;`
+5. Report a test profile and check
+   `select notified_at from driftdate.reports order by created_at desc limit 1;`
    is not null.
+
+## Review a report from the issue
+
+1. Open the issue, oldest row first. Under-18 and threat reports come first
+   whatever their age.
+2. In the Supabase SQL editor, look up the report by its id (queries below):
+   who was reported, the message text or photo path, and how many open reports
+   the person has.
+3. Read the context (the conversation, the profile, the photo) and choose
+   `dismiss`, `remove_content` or `ban` with the table in "Decide and act".
+4. Run `moderate_report` with a short note. Within 30 minutes the report
+   leaves the issue; when the last one is decided, the issue closes itself.
 
 ## Daily review (SQL editor, project smvvjivvlprjhzhoizym)
 
@@ -83,6 +164,9 @@ statements and read the email.
 select report_id, created_at, due_at, overdue, reason, target_name, target_id,
        target_hidden, open_reports, message_text, photo_path, note
   from driftdate.moderation_queue();
+
+-- One report from the issue.
+select * from driftdate.moderation_queue() where report_id = '<report id from the issue>';
 
 -- Everything, including what was already decided.
 select * from driftdate.moderation_queue(include_resolved => true) limit 100;
@@ -178,7 +262,21 @@ Delete them from the Storage dashboard or the Storage API, not with SQL
 `delete`: Supabase says to delete objects through Storage, and a SQL delete
 of the row does not remove the stored file.
 
-Is the email path working?
+Is the alert path working?
+
+- Backend repo → Actions → *DriftDate — moderation alerts*: the runs should
+  be green every ~30 minutes. A red run says why in its log:
+  - "secret DATABASE_URL_SESSION is missing or empty": set the secret.
+  - "could not connect with DATABASE_URL_SESSION": the connection string or
+    password is wrong, or Supabase moved the project to another pooler.
+    Copy the Session pooler string again from Supabase → Connect.
+  - "moderation_queue() failed": the DriftDate migrations are not deployed
+    (or a migration broke the function).
+- No runs at all: scheduled workflows run only from `dev`; check that the
+  workflow file is on `dev` and the workflow is not disabled in the Actions
+  tab.
+
+Optional email path only (if it was set up):
 
 ```sql
 select count(*) filter (where notified_at is null) as not_emailed, count(*) as open
@@ -188,7 +286,7 @@ select count(*) filter (where notified_at is null) as not_emailed, count(*) as o
 If `not_emailed` keeps growing, check Edge Functions → driftdate-report-notify
 → Logs. A `503` means the mail secrets are not set.
 
-## Not built (options, all founder decisions)
+## Not built (options)
 
 - **Automated nudity / CSAM detection.** There is none. Photos are checked on
   the device only for quality (`photo_quality.dart`), not for content. Options
