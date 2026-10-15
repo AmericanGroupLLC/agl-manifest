@@ -1,0 +1,703 @@
+Resolving dependencies...
+Downloading packages...
+  clock 1.1.2 (1.1.3 available)
+  cupertino_icons 1.0.9 (2.0.0 available)
+  firebase_core_web 3.11.0 (3.12.0 available)
+  flutter_lints 4.0.0 (6.0.0 available)
+  flutter_riverpod 2.6.1 (3.4.3 available)
+  go_router 14.8.1 (18.0.2 available)
+  intl 0.20.2 (0.20.3 available)
+  lints 4.0.0 (6.1.0 available)
+  matcher 0.12.19 (0.12.20 available)
+  material_color_utilities 0.13.0 (0.13.1 available)
+  meta 1.18.0 (1.19.0 available)
+  package_info_plus 9.0.1 (10.2.2 available)
+  package_info_plus_platform_interface 3.2.1 (4.1.0 available)
+  riverpod 2.6.1 (3.4.3 available)
+  shared_preferences 2.5.5 (2.5.6 available)
+  stack_trace 1.12.1 (1.12.2 available)
+  test_api 0.7.11 (0.7.15 available)
+  url_launcher 6.3.2 (6.3.3 available)
+  vector_math 2.2.0 (2.4.3 available)
+  webview_flutter_wkwebview 3.26.2 (3.27.0 available)
+  win32 5.15.0 (6.4.0 available)
+Got dependencies!
+21 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleDebug'...                          
+Picked up JAVA_TOOL_OPTIONS: -Djava.net.preferIPv4Stack=true -Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=10054 -Dhttps.proxyHost=127.0.0.1 -Dhttps.proxyPort=10054 -Dhttp.nonProxyHosts=localhost|127.0.0.1
+WARNING: Your app uses the following plugins that apply Kotlin Gradle Plugin (KGP): firebase_analytics, firebase_core, firebase_crashlytics, firebase_performance, firebase_remote_config, package_info_plus
+Future versions of Flutter will fail to build if your app uses plugins that apply KGP.
+
+Please check the changelogs of these plugins and upgrade to a version that supports Built-in Kotlin.
+If no such version exists, report the issue to the plugin. If necessary, here is a guide on filing 
+an issue against a plugin: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-app-developers#report-incompatible-kotlin-gradle-plugin-usage-to-plugin-authors
+
+If you are a plugin author, please migrate your plugin to Built-in Kotlin using this guide: https://docs.flutter.dev/release/breaking-changes/migrate-to-built-in-kotlin/for-plugin-authors
+Running Gradle task 'assembleDebug'...                            346.5s
+✓ Built build/app/outputs/flutter-apk/app-debug.apk
+Installing build/app/outputs/flutter-apk/app-debug.apk...        1,278ms
+I/Choreographer(16799): Skipped 38 frames!  The application may be doing too much work on its main thread.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+VMServiceFlutterDriver: Connecting to Flutter application at http://127.0.0.1:54571/nhsKK9tQlt0=/
+VMServiceFlutterDriver: Isolate found with number: 5817950669576907
+VMServiceFlutterDriver: Isolate 5817950669576907 is runnable.
+VMServiceFlutterDriver: Isolate is paused at start.
+VMServiceFlutterDriver: Attempting to resume isolate
+I/flutter (16799): 00:00 +0: store screenshots
+VMServiceFlutterDriver: Connected to Flutter application.
+I/ImeTracker(16799): com.americangroupllc.homewise:a685c13f: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F....ID 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:271055d: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F....ID 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16799): Flattened final assist data: 404 bytes, containing 1 windows, 3 views
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:22afd0f6: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:271055d: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+W/WindowOnBackDispatcher(16799): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@43762222 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@8c72be7
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/ProfileInstaller(16799): Installing profile for com.americangroupllc.homewise
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=471.84ms min=106.27ms max=1189.83ms count=5
+I/ImeTracker(16799): com.americangroupllc.homewise:673fb749: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker(16799): com.americangroupllc.homewise:22afd0f6: onHidden
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:5d9fe5f2: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:3ca3feeb: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16799): Flattened final assist data: 404 bytes, containing 1 windows, 3 views
+D/InsetsController(16799): show(ime(), fromIme=true)
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=261.79ms min=10.51ms max=1445.92ms count=13
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=143.10ms min=48.32ms max=475.49ms count=10
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:3ca3feeb: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:ee8069ee: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+W/WindowOnBackDispatcher(16799): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@43762222 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@d397418
+I/ImeTracker(16799): com.americangroupllc.homewise:5d9fe5f2: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:ba618df3: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker(16799): com.americangroupllc.homewise:ee8069ee: onHidden
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=118.22ms min=34.69ms max=336.32ms count=8
+VMServiceFlutterDriver: request_data message is taking a long time to complete...
+W/GoogleApiManager(16799): com.google.android.gms.internal.measurement.zzku could not execute call because it requires feature (get_storage_info_api, 1).
+D/EGL_emulation(16799): app_time_stats: avg=116.73ms min=113.59ms max=121.28ms count=9
+D/EGL_emulation(16799): app_time_stats: avg=116.35ms min=113.23ms max=119.75ms count=9
+D/EGL_emulation(16799): app_time_stats: avg=114.93ms min=104.41ms max=119.31ms count=9
+D/EGL_emulation(16799): app_time_stats: avg=114.93ms min=107.27ms max=120.75ms count=9
+I/ImeTracker(16799): com.americangroupllc.homewise:48f81e17: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:ce877638: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16799): Flattened final assist data: 404 bytes, containing 1 windows, 3 views
+W/FrameTracker(16799): Missed SF frame:UNKNOWN: 66, 760588, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/FrameTracker(16799): Missed SF frame:UNKNOWN: 66, 760618, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/FrameTracker(16799): Missed App frame:UNKNOWN: 88, 760628, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/FrameTracker(16799): Missed SF frame:UNKNOWN: 88, 760628, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/FrameTracker(16799): Missed SF frame:UNKNOWN: 65, 760645, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/FrameTracker(16799): Missed SF frame:UNKNOWN: 65, 760685, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/FrameTracker(16799): Missed SF frame:UNKNOWN: 80, 760700, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/FrameTracker(16799): Missed SF frame:UNKNOWN: 80, 760709, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/FrameTracker(16799): Missed SF frame:UNKNOWN: 80, 760724, 0, CUJ=J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+V/PerfettoTrigger(16799): Triggering /system/bin/trigger_perfetto com.android.telemetry.interaction-jank-monitor-69
+D/InsetsController(16799): show(ime(), fromIme=true)
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=465.14ms min=7.03ms max=5503.88ms count=13
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:ce877638: onShown
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:7924fe74: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+W/WindowOnBackDispatcher(16799): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@43762222 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@aef04f2
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=170.65ms min=45.56ms max=531.34ms count=7
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:993de27f: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker(16799): com.americangroupllc.homewise:7924fe74: onHidden
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:d8657ac6: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:fce7484d: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16799): Flattened final assist data: 404 bytes, containing 1 windows, 3 views
+D/InsetsController(16799): show(ime(), fromIme=true)
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:fce7484d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=57.39ms min=6.83ms max=506.04ms count=17
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:74dd73e6: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=217.33ms min=53.02ms max=397.74ms count=5
+I/ImeTracker(16799): com.americangroupllc.homewise:d8657ac6: onCancelled at PHASE_CLIENT_ANIMATION_CANCEL
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+W/WindowOnBackDispatcher(16799): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@43762222 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@e26404a
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:d7766710: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker(16799): com.americangroupllc.homewise:74dd73e6: onHidden
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=68.99ms min=7.08ms max=586.66ms count=16
+D/EGL_emulation(16799): app_time_stats: avg=252.43ms min=101.01ms max=360.13ms count=5
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+D/EGL_emulation(16799): app_time_stats: avg=89.05ms min=30.19ms max=258.70ms count=8
+D/EGL_emulation(16799): app_time_stats: avg=105.40ms min=26.77ms max=306.07ms count=4
+D/EGL_emulation(16799): app_time_stats: avg=127.44ms min=41.73ms max=301.72ms count=5
+D/EGL_emulation(16799): app_time_stats: avg=53.20ms min=25.17ms max=115.98ms count=9
+D/EGL_emulation(16799): app_time_stats: avg=97.74ms min=29.00ms max=143.00ms count=9
+D/EGL_emulation(16799): app_time_stats: avg=877.62ms min=877.62ms max=877.62ms count=1
+D/EGL_emulation(16799): app_time_stats: avg=147.95ms min=114.31ms max=268.80ms count=7
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.americangroupllc.homewise>
+E/AccessibilityBridge(16799): transform has not been initialized for id = 57
+I/AccessibilityBridge(16799): Semantics tree:SemanticsNode id=0 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:  +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:  +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:  +-- rect.ltrb=(0.0, 0.0, 1080.0, 2337.0)
+I/AccessibilityBridge(16799): Semantics tree:  +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:  SemanticsNode id=1 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:    +-- rect.ltrb=(0.0, 0.0, 411.42856, 890.2857)
+I/AccessibilityBridge(16799): Semantics tree:    +-- transform=[2.625, 0.0, 0.0, 0.0, 0.0, 2.625, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:    SemanticsNode id=27 identifier=null label=null actions=0 flags=2048
+I/AccessibilityBridge(16799): Semantics tree:      +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:      +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:      +-- rect.ltrb=(0.0, 0.0, 411.42856, 890.2857)
+I/AccessibilityBridge(16799): Semantics tree:      +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:      SemanticsNode id=56 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:        +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:        +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:        +-- rect.ltrb=(0.0, 0.0, 411.42856, 810.2857)
+I/AccessibilityBridge(16799): Semantics tree:        +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:        SemanticsNode id=59 identifier=null label=null actions=0 flags=2048
+I/AccessibilityBridge(16799): Semantics tree:          +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:          +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:          +-- rect.ltrb=(0.0, 0.0, 409.15298, 810.2857)
+I/AccessibilityBridge(16799): Semantics tree:          +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 2.2755718, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:          SemanticsNode id=87 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:            +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:            +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:            +-- rect.ltrb=(0.0, 0.0, 409.15298, 106.28571)
+I/AccessibilityBridge(16799): Semantics tree:            +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:            SemanticsNode id=88 identifier=null label=Back actions=4194305 flags=2097352
+I/AccessibilityBridge(16799): Semantics tree:              +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:              +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:              +-- rect.ltrb=(0.0, 0.0, 48.0, 48.0)
+I/AccessibilityBridge(16799): Semantics tree:              +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 4.0, 54.285713, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:            SemanticsNode id=89 identifier=null label=Settings actions=0 flags=4608
+I/AccessibilityBridge(16799): Semantics tree:              +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:              +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:              +-- rect.ltrb=(0.0, 0.0, 85.77576, 30.0)
+I/AccessibilityBridge(16799): Semantics tree:              +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 72.0, 63.285713, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:          SemanticsNode id=60 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:            +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:            +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:            +-- rect.ltrb=(0.0, 0.0, 409.15298, 704.0)
+I/AccessibilityBridge(16799): Semantics tree:            +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 106.28571, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:            SemanticsNode id=86 identifier=null label=null actions=8388624 flags=262144
+I/AccessibilityBridge(16799): Semantics tree:              +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:              +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:              +-- rect.ltrb=(0.0, 0.0, 409.15298, 704.0)
+I/AccessibilityBridge(16799): Semantics tree:              +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:              SemanticsNode id=61 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:                +-- rect.ltrb=(0.0, 0.0, 379.42856, 348.0)
+I/AccessibilityBridge(16799): Semantics tree:                +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 8.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                SemanticsNode id=62 identifier=null label=Lending limits
+I/AccessibilityBridge(16799): The two ratios a lender checks. 28% and 36% are the conventional starting point.
+I/AccessibilityBridge(16799): Housing limit (front-end)
+I/AccessibilityBridge(16799): 28.0%
+I/AccessibilityBridge(16799): The whole monthly cost of the home as a share of gross income.
+I/AccessibilityBridge(16799): Total-debt limit (back-end)
+I/AccessibilityBridge(16799): 36.0%
+I/AccessibilityBridge(16799): The home plus every other debt payment. 43% is the Qualified Mortgage ceiling; lenders go to 45–50% with strong reserves or a large deposit. actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                  +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                  +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                  +-- rect.ltrb=(0.0, 0.0, 379.42856, 348.0)
+I/AccessibilityBridge(16799): Semantics tree:                  +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=63 identifier=null label=28.0% actions=4194496 flags=10485952
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(111.73061, 0.0, 159.7306, 48.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 112.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=64 identifier=null label=36.0% actions=4194496 flags=10485952
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(120.171425, 0.0, 168.17143, 48.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 226.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=57 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=null
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(0.0, 0.0, 0.0, 0.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=null
+I/AccessibilityBridge(16799): Semantics tree:              SemanticsNode id=65 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:                +-- rect.ltrb=(0.0, 0.0, 379.42856, 12.0)
+I/AccessibilityBridge(16799): Semantics tree:                +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 356.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:              SemanticsNode id=66 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:                +-- rect.ltrb=(0.0, 0.0, 379.42856, 336.0)
+I/AccessibilityBridge(16799): Semantics tree:                +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 368.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                SemanticsNode id=67 identifier=null label=Costs that scale with price
+I/AccessibilityBridge(16799): Used for your ceiling and for any home without its own tax bill, insurance quote or HOA. actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                  +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                  +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                  +-- rect.ltrb=(0.0, 0.0, 379.42856, 336.0)
+I/AccessibilityBridge(16799): Semantics tree:                  +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=68 identifier=null label=Property tax actions=4194305 flags=2097360
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(0.0, 0.0, 347.42856, 88.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 88.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                    SemanticsNode id=69 identifier=null label=Your county assessor publishes the effective rate. A listing's annual tax bill divided by its price gives it too. actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                      +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                      +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                      +-- rect.ltrb=(0.0, 0.0, 315.42856, 32.0)
+I/AccessibilityBridge(16799): Semantics tree:                      +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 56.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=70 identifier=null label=Home insurance actions=4194305 flags=2097360
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(0.0, 0.0, 347.42856, 72.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 190.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                    SemanticsNode id=71 identifier=null label=An annual premium divided by the home’s value. actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                      +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                      +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                      +-- rect.ltrb=(0.0, 0.0, 279.5039, 16.0)
+I/AccessibilityBridge(16799): Semantics tree:                      +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 56.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=72 identifier=null label=Mortgage insurance (PMI) actions=4194305 flags=2097360
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(0.0, 0.0, 347.42856, 60.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 276.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                    SemanticsNode id=73 identifier=null label=Charged on the original loan while loan-to-value is over 80%. Your lender quotes it. actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                      +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                      +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                      +-- rect.ltrb=(0.0, 0.0, 315.42856, 4.0)
+I/AccessibilityBridge(16799): Semantics tree:                      +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 56.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=74 identifier=null label=Default HOA dues actions=4194305 flags=2105552
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(0.0, 0.0, 347.42856, 72.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 378.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                    SemanticsNode id=75 identifier=null label=For homes where you have not entered their own. actions=0 flags=8192
+I/AccessibilityBridge(16799): Semantics tree:                      +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                      +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                      +-- rect.ltrb=(0.0, 0.0, 289.45407, 16.0)
+I/AccessibilityBridge(16799): Semantics tree:                      +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 56.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:              SemanticsNode id=76 identifier=null label=null actions=0 flags=8192
+I/AccessibilityBridge(16799): Semantics tree:                +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:                +-- rect.ltrb=(0.0, 0.0, 379.42856, 12.0)
+I/AccessibilityBridge(16799): Semantics tree:                +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 834.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:              SemanticsNode id=77 identifier=null label=null actions=0 flags=8192
+I/AccessibilityBridge(16799): Semantics tree:                +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:                +-- rect.ltrb=(0.0, 0.0, 379.42856, 108.0)
+I/AccessibilityBridge(16799): Semantics tree:                +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 846.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                SemanticsNode id=78 identifier=null label=Rate source
+I/AccessibilityBridge(16799): Your lender's rate
+I/AccessibilityBridge(16799): Couldn't reach Freddie Mac's weekly survey. Enter your lender's rate.
+I/AccessibilityBridge(16799): Couldn't reach Freddie Mac's weekly survey. Nothing was filled in; enter your lender's rate, or try again.
+I/AccessibilityBridge(16799): The weekly average is Freddie Mac’s Primary Mortgage Market Survey, published through the St. Louis Fed (FRED), for 30- and 15-year fixed loans. It is a national average; your own rate depends on your credit, deposit and lender. actions=4194305 flags=2105552
+I/AccessibilityBridge(16799): Semantics tree:                  +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                  +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                  +-- rect.ltrb=(0.0, 0.0, 379.42856, 108.0)
+I/AccessibilityBridge(16799): Semantics tree:                  +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=80 identifier=null label=null actions=4194305 flags=2105544
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(0.0, 0.0, 48.0, 48.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 315.42856, 16.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=81 identifier=null label=Weekly average actions=4194305 flags=270541256
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(0.0, 0.0, 141.19951, 30.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 16.0, 78.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                  SemanticsNode id=83 identifier=null label=My lender's quote actions=4194305 flags=270541260
+I/AccessibilityBridge(16799): Semantics tree:                    +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                    +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                    +-- rect.ltrb=(0.0, 0.0, 141.19951, 30.0)
+I/AccessibilityBridge(16799): Semantics tree:                    +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 157.19951, 78.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:                SemanticsNode id=79 identifier=null label=% actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:                  +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:                  +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:                  +-- rect.ltrb=(332.52075, 108.0, 347.42856, 144.0)
+I/AccessibilityBridge(16799): Semantics tree:                  +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:      SemanticsNode id=50 identifier=null label=null actions=0 flags=0
+I/AccessibilityBridge(16799): Semantics tree:        +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:        +-- textDirection=UNKNOWN
+I/AccessibilityBridge(16799): Semantics tree:        +-- rect.ltrb=(0.0, 0.0, 411.42856, 80.0)
+I/AccessibilityBridge(16799): Semantics tree:        +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 810.2857, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:        SemanticsNode id=51 identifier=null label=Budget
+I/AccessibilityBridge(16799): Tab 1 of 4 actions=4194305 flags=270532812
+I/AccessibilityBridge(16799): Semantics tree:          +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:          +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:          +-- rect.ltrb=(0.0, 0.0, 102.85714, 80.0)
+I/AccessibilityBridge(16799): Semantics tree:          +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:        SemanticsNode id=52 identifier=null label=Homes
+I/AccessibilityBridge(16799): Tab 2 of 4 actions=4194305 flags=270532808
+I/AccessibilityBridge(16799): Semantics tree:          +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:          +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:          +-- rect.ltrb=(0.0, 0.0, 102.85714, 80.0)
+I/AccessibilityBridge(16799): Semantics tree:          +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 102.85714, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:        SemanticsNode id=53 identifier=null label=Loan
+I/AccessibilityBridge(16799): Tab 3 of 4 actions=4194305 flags=270532808
+I/AccessibilityBridge(16799): Semantics tree:          +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:          +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:          +-- rect.ltrb=(0.0, 0.0, 102.85714, 80.0)
+I/AccessibilityBridge(16799): Semantics tree:          +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 205.71428, 0.0, 0.0, 1.0]
+I/AccessibilityBridge(16799): Semantics tree:        SemanticsNode id=54 identifier=null label=Compare
+I/AccessibilityBridge(16799): Tab 4 of 4 actions=4194305 flags=270532808
+I/AccessibilityBridge(16799): Semantics tree:          +-- headingLevel=0
+I/AccessibilityBridge(16799): Semantics tree:          +-- textDirection=LTR
+I/AccessibilityBridge(16799): Semantics tree:          +-- rect.ltrb=(0.0, 0.0, 102.85714, 80.0)
+I/AccessibilityBridge(16799): Semantics tree:          +-- transform=[1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 308.57144, 0.0, 0.0, 1.0]
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=198.79ms min=108.69ms max=254.08ms count=5
+I/ImeTracker(16799): com.americangroupllc.homewise:c1f4bf35: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:58e80b5d: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16799): Flattened final assist data: 404 bytes, containing 1 windows, 3 views
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+D/InsetsController(16799): show(ime(), fromIme=true)
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=9918.41ms min=9918.41ms max=9918.41ms count=1
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:58e80b5d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=145.87ms min=13.81ms max=442.15ms count=7
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:c1f4bf35: onShown
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:8b4885fb: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:f879e7ae: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16799): Flattened final assist data: 404 bytes, containing 1 windows, 3 views
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:8b4885fb: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:f879e7ae: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/EGL_emulation(16799): app_time_stats: avg=146.77ms min=46.20ms max=287.65ms count=7
+I/ImeTracker(16799): com.americangroupllc.homewise:f1af9f8a: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:2691cfb7: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/AssistStructure(16799): Flattened final assist data: 404 bytes, containing 1 windows, 3 views
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:f1af9f8a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:2691cfb7: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+I/ImeTracker(16799): com.americangroupllc.homewise:f6dfaf50: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+W/WindowOnBackDispatcher(16799): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@43762222 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@29c6ae3
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=266.75ms min=25.54ms max=1490.13ms count=7
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:4d8a0348: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker(16799): com.americangroupllc.homewise:f6dfaf50: onHidden
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=316.56ms min=55.43ms max=515.88ms count=4
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=88.18ms min=34.54ms max=130.92ms count=5
+D/EGL_emulation(16799): app_time_stats: avg=159.62ms min=59.15ms max=332.17ms count=5
+D/EGL_emulation(16799): app_time_stats: avg=106.71ms min=47.53ms max=176.03ms count=7
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=129.82ms min=66.56ms max=195.13ms count=5
+I/ImeTracker(16799): com.americangroupllc.homewise:ed0a9b8e: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:3e07bdaa: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/EGL_emulation(16799): app_time_stats: avg=107.43ms min=47.70ms max=213.27ms count=4
+I/ImeTracker(16799): com.americangroupllc.homewise:c4b966c2: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:e30aba08: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/EGL_emulation(16799): app_time_stats: avg=679.67ms min=572.60ms max=786.74ms count=2
+D/InsetsController(16799): show(ime(), fromIme=true)
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:3e07bdaa: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=1546.39ms min=49.99ms max=7474.81ms count=5
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:ed0a9b8e: onShown
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:e30aba08: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.americangroupllc.homewise>
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=187.85ms min=86.36ms max=470.50ms count=5
+I/ImeTracker(16799): com.americangroupllc.homewise:451a9d2a: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:eef20af7: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:451a9d2a: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:eef20af7: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+I/ImeTracker(16799): com.americangroupllc.homewise:141e9dab: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:ec8b5a85: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:141e9dab: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:ec8b5a85: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/EGL_emulation(16799): app_time_stats: avg=163.75ms min=62.40ms max=358.07ms count=7
+I/ImeTracker(16799): com.americangroupllc.homewise:4eaf8a9f: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:2286595: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:4eaf8a9f: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:2286595: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+I/ImeTracker(16799): com.americangroupllc.homewise:9c39a09f: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+W/WindowOnBackDispatcher(16799): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@43762222 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@f9c0a93
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=679.69ms min=9.90ms max=2662.06ms count=4
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=308.73ms min=81.94ms max=531.52ms count=4
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:284df24: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker(16799): com.americangroupllc.homewise:9c39a09f: onHidden
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=124.77ms min=51.71ms max=280.94ms count=8
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+D/EGL_emulation(16799): app_time_stats: avg=109.08ms min=19.09ms max=315.84ms count=8
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=93.56ms min=15.17ms max=144.16ms count=10
+I/ImeTracker(16799): com.americangroupllc.homewise:490d154e: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:a6f6df1d: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:a6f6df1d: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=607.89ms min=27.79ms max=3934.59ms count=7
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=173.07ms min=31.05ms max=620.60ms count=8
+I/Choreographer(16799): Skipped 36 frames!  The application may be doing too much work on its main thread.
+I/ImeTracker(16799): com.americangroupllc.homewise:490d154e: onShown
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/OpenGLRenderer(16799): Davey! duration=701ms; Flags=0, FrameTimelineVsyncId=771930, IntendedVsync=5004629400695, Vsync=5005229400671, InputEventId=0, HandleInputStart=5005254859177, AnimationStart=5005254863385, PerformTraversalsStart=5005307241344, DrawStart=5005310346469, FrameDeadline=5004946067349, FrameInterval=5005237267885, FrameStartTime=16666666, SyncQueued=5005310937636, SyncStart=5005311177802, IssueDrawCommandsStart=5005311354719, SwapBuffers=5005315017802, FrameCompleted=5005331153136, DequeueBufferDuration=26333, QueueBufferDuration=3673541, GpuCompleted=5005331153136, SwapBuffersCompleted=5005320705469, DisplayPresentTime=2081526, CommandSubmissionCompleted=5005315017802, 
+I/ImeTracker(16799): com.americangroupllc.homewise:45360984: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:89395193: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:89395193: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=231.74ms min=70.68ms max=533.35ms count=5
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+I/ImeTracker(16799): com.americangroupllc.homewise:9c129466: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:6114e32c: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:9c129466: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:6114e32c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:5eaca84b: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+W/WindowOnBackDispatcher(16799): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@43762222 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@2d8e05
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=439.47ms min=16.68ms max=1905.81ms count=6
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=142.51ms min=35.69ms max=446.55ms count=8
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+I/ImeTracker(16799): com.americangroupllc.homewise:edfae2aa: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker(16799): com.americangroupllc.homewise:5eaca84b: onHidden
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.americangroupllc.homewise>
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=94.21ms min=16.33ms max=266.38ms count=9
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+D/EGL_emulation(16799): app_time_stats: avg=107.11ms min=17.20ms max=316.25ms count=9
+D/EGL_emulation(16799): app_time_stats: avg=201.29ms min=100.31ms max=379.27ms count=6
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+I/ImeTracker(16799): com.americangroupllc.homewise:2e6bd154: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:884ec972: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:884ec972: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/EGL_emulation(16799): app_time_stats: avg=607.99ms min=18.51ms max=4026.88ms count=7
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=115.20ms min=32.82ms max=265.08ms count=7
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:2e6bd154: onShown
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+I/ImeTracker(16799): com.americangroupllc.homewise:e907f61f: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:a8871bf6: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:a8871bf6: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=154.60ms min=26.92ms max=378.58ms count=6
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+I/ImeTracker(16799): com.americangroupllc.homewise:2e56578c: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+I/ImeTracker(16799): com.americangroupllc.homewise:350c4d79: onRequestShow at ORIGIN_CLIENT_SHOW_SOFT_INPUT reason SHOW_SOFT_INPUT
+D/InputMethodManager(16799): showSoftInput() view=io.flutter.embedding.android.FlutterView{f7be3c9 VFE...... .F...... 0,0-1080,2337 #1 aid=1073741824} flags=0 reason=SHOW_SOFT_INPUT
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:2e56578c: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+D/InsetsController(16799): show(ime(), fromIme=true)
+I/ImeTracker(16799): com.americangroupllc.homewise:350c4d79: onCancelled at PHASE_CLIENT_APPLY_ANIMATION
+I/ImeTracker(16799): com.americangroupllc.homewise:a359fb8f: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT
+W/WindowOnBackDispatcher(16799): sendCancelIfRunning: isInProgress=falsecallback=ImeCallback=ImeOnBackInvokedCallback@43762222 Callback=android.window.IOnBackInvokedCallback$Stub$Proxy@c604994
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/EGL_emulation(16799): app_time_stats: avg=238.74ms min=9.16ms max=1532.21ms count=8
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+D/EGL_emulation(16799): app_time_stats: avg=251.93ms min=69.00ms max=454.65ms count=4
+I/ImeTracker(16799): com.americangroupllc.homewise:3fe33ebb: onRequestHide at ORIGIN_CLIENT_HIDE_SOFT_INPUT reason HIDE_SOFT_INPUT_BY_INSETS_API
+I/ImeTracker(16799): com.americangroupllc.homewise:a359fb8f: onHidden
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+D/FlutterJNI(16799): Sending viewport metrics to the engine.
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=108.47ms min=30.26ms max=232.27ms count=7
+E/AccessibilityBridge(16799): Scroll index is out of bounds.
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.americangroupllc.homewise>
+D/EGL_emulation(16799): app_time_stats: avg=138.51ms min=28.59ms max=298.78ms count=6
+D/EGL_emulation(16799): app_time_stats: avg=159.53ms min=44.03ms max=317.64ms count=6
+D/CompatibilityChangeReporter(16799): Compat change id reported: 236825255; UID 10198; state: ENABLED
+D/EGL_emulation(16799): app_time_stats: avg=616.65ms min=23.12ms max=3424.27ms count=6
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+D/EGL_emulation(16799): app_time_stats: avg=139.25ms min=5.17ms max=467.71ms count=10
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+D/EGL_emulation(16799): app_time_stats: avg=114.85ms min=60.82ms max=267.60ms count=10
+D/EGL_emulation(16799): app_time_stats: avg=1892.84ms min=228.14ms max=3557.53ms count=2
+D/EGL_emulation(16799): app_time_stats: avg=287.00ms min=121.27ms max=379.79ms count=4
+W/WindowOnBackDispatcher(16799): OnBackInvokedCallback is not enabled for the application.
+W/WindowOnBackDispatcher(16799): Set 'android:enableOnBackInvokedCallback="true"' in the application manifest.
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::0@1@com.americangroupllc.homewise>
+D/EGL_emulation(16799): app_time_stats: avg=111.29ms min=43.25ms max=232.55ms count=9
+D/EGL_emulation(16799): app_time_stats: avg=2057.23ms min=2057.23ms max=2057.23ms count=1
+D/EGL_emulation(16799): app_time_stats: avg=252.17ms min=114.59ms max=317.94ms count=4
+E/FrameTracker(16799): force finish cuj, time out: J<IME_INSETS_ANIMATION::1@1@com.americangroupllc.homewise>
+D/EGL_emulation(16799): app_time_stats: avg=61.63ms min=34.48ms max=122.94ms count=17
+D/EGL_emulation(16799): app_time_stats: avg=225.43ms min=110.84ms max=318.15ms count=5
+D/EGL_emulation(16799): app_time_stats: avg=2536.64ms min=2536.64ms max=2536.64ms count=1
+D/EGL_emulation(16799): app_time_stats: avg=147.91ms min=37.77ms max=502.14ms count=7
+D/EGL_emulation(16799): app_time_stats: avg=175.11ms min=111.30ms max=320.35ms count=6
+D/EGL_emulation(16799): app_time_stats: avg=2398.25ms min=2398.25ms max=2398.25ms count=1
+D/EGL_emulation(16799): app_time_stats: avg=203.30ms min=41.35ms max=500.88ms count=5
+I/flutter (16799): 01:04 +1: (tearDownAll)
+I/flutter (16799): 01:04 +2: All tests passed!
+D/EGL_emulation(16799): app_time_stats: avg=1323.90ms min=1323.90ms max=1323.90ms count=1
+All tests passed.
+rc=0
+Night mode: yes
