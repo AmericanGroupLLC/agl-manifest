@@ -1,0 +1,40 @@
+ADDING: libgodot_camera.visionos.release.xcframework/Info.plist size: 1011
+READ: libgodot.ios.debug.xcframework/
+READ: libgodot.ios.debug.xcframework/Info.plist
+ADDING: RideZap.xcframework/Info.plist size: 1028
+Creating ../build/ios/RideZap.xcframework
+READ: libgodot.ios.debug.xcframework/ios-arm64_x86_64-simulator/
+READ: libgodot.ios.debug.xcframework/ios-arm64_x86_64-simulator/empty
+READ: libgodot.ios.debug.xcframework/ios-arm64_x86_64-simulator/libgodot.a
+ADDING: RideZap.xcframework/ios-arm64_x86_64-simulator/libgodot.a size: 207733080
+Creating ../build/ios/RideZap.xcframework/ios-arm64_x86_64-simulator
+READ: libgodot.ios.debug.xcframework/ios-arm64/
+READ: libgodot.ios.debug.xcframework/ios-arm64/empty
+READ: libgodot.ios.debug.xcframework/ios-arm64/libgodot.a
+ADDING: RideZap.xcframework/ios-arm64/libgodot.a size: 220864544
+Creating ../build/ios/RideZap.xcframework/ios-arm64
+READ: libgodot.ios.release.xcframework/
+READ: libgodot.ios.release.xcframework/Info.plist
+READ: libgodot.ios.release.xcframework/ios-arm64/
+READ: libgodot.ios.release.xcframework/ios-arm64/empty
+READ: libgodot.ios.release.xcframework/ios-arm64/libgodot.a
+READ: libgodot.ios.release.xcframework/ios-arm64_x86_64-simulator/
+READ: libgodot.ios.release.xcframework/ios-arm64_x86_64-simulator/empty
+READ: libgodot.ios.release.xcframework/ios-arm64_x86_64-simulator/libgodot.a
+READ: MoltenVK.xcframework/
+READ: MoltenVK.xcframework/ios-arm64_x86_64-simulator/
+READ: MoltenVK.xcframework/ios-arm64_x86_64-simulator/libMoltenVK.a
+ADDING: MoltenVK.xcframework/ios-arm64_x86_64-simulator/libMoltenVK.a size: 13712744
+Creating ../build/ios/MoltenVK.xcframework/ios-arm64_x86_64-simulator
+READ: MoltenVK.xcframework/Info.plist
+ADDING: MoltenVK.xcframework/Info.plist size: 3177
+READ: MoltenVK.xcframework/ios-arm64/
+READ: MoltenVK.xcframework/ios-arm64/libMoltenVK.a
+ADDING: MoltenVK.xcframework/ios-arm64/libMoltenVK.a size: 6917632
+Creating ../build/ios/MoltenVK.xcframework/ios-arm64
+READ: PrivacyInfo.xcprivacy
+ADDING: PrivacyInfo.xcprivacy size: 990
+Exporting launch screen storyboard
+Exporting additional assets
+[ DONE ] export
+

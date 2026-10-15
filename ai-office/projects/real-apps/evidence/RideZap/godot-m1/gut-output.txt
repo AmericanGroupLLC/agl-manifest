@@ -1,0 +1,114 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+---  GUT  ---
+[INFO]:  using [/Users/spatchava/Library/Application Support/Godot/app_userdata/RideZap] for temporary output.
+Godot version:  4.7.2
+GUT version:  9.7.1
+
+
+res://test/unit/test_checkpoints.gd
+* test_forward_crossing_counts
+* test_backward_crossing_does_not_count
+* test_crossing_outside_the_gate_does_not_count
+* test_fast_step_of_1_5_m_is_caught
+* test_landing_exactly_on_the_line_counts_once
+* test_first_start_crossing_starts_lap_one_without_completing_it
+* test_gates_must_be_taken_in_order
+* test_lap_needs_every_gate
+* test_lap_times_in_ticks_and_finish_after_last_lap
+* test_reversing_back_over_a_gate_does_not_count_twice
+* test_sprint_is_a_single_lap
+* test_m1_circuit_gates_face_along_the_route
+12/12 passed.
+
+
+res://test/unit/test_chunk_index.gd
+* test_floor_division_with_negative_coordinates
+* test_wanted_set_is_3x3_inside_and_clipped_at_the_slice_edge
+* test_resident_set_never_exceeds_25
+* test_lru_evicts_least_recently_used
+* test_same_chunk_same_content
+5/5 passed.
+
+
+res://test/unit/test_ip_names.gd
+* test_no_trademarked_names_in_game_sources
+1/1 passed.
+
+
+res://test/unit/test_race_clock.gd
+* test_time_is_ticks_over_60
+* test_clock_does_not_run_before_start_or_while_paused
+* test_format_hundredths_truncated
+* test_split_delta
+* test_reset
+5/5 passed.
+
+
+res://test/unit/test_tire_model.gd
+* test_zero_to_100_matches_the_spec_table
+* test_drive_force_falls_to_zero_at_top_speed
+* test_terminal_speed_within_2_percent_on_dry_asphalt
+* test_nitro_raises_force_and_top_speed
+* test_steering_keeps_35_percent_at_top_speed
+* test_surface_table
+* test_drift_cuts_rear_grip
+* test_lateral_force_is_clamped_to_grip
+* test_bike_lean_is_clamped_to_45_degrees
+9/9 passed.
+
+
+res://test/unit/test_world_layout.gd
+* test_slice_is_2_by_2_km_of_8_by_8_chunks
+* test_circuit_gates_and_corners_are_on_road_inside_the_slice
+* test_circuit_length
+* test_spawn_is_behind_the_start_line_on_road
+* test_surface_is_asphalt_on_road
+* test_hash_is_deterministic_and_in_range
+6/6 passed.
+
+
+res://test/smoke/test_export_filter.gd
+* test_every_preset_excludes_tests_gut_and_tools
+* test_presets_use_the_permanent_bundle_id
+2/2 passed.
+
+
+res://test/smoke/test_race_scene_smoke.gd
+* test_scene_builds_world_car_race_and_hud
+* test_car_settles_then_drives_forward_after_the_countdown
+    --- Awaiting 185 physics frames  ---
+    --- Awaiting 120 physics frames  ---
+* test_crossing_the_start_line_starts_lap_one
+    --- Awaiting 182 physics frames  ---
+    --- Awaiting 300 physics frames  ---
+3/3 passed.
+
+
+res://test/smoke/test_touch_controls.gd
+* test_every_m1_control_exists
+* test_steer_and_throttle_together
+* test_slide_from_left_to_right_pad
+* test_nitro_and_brake
+* test_touch_outside_pads_does_nothing
+5/5 passed.
+
+
+
+
+==============================================
+= Run Summary
+==============================================
+
+Totals
+------
+Scripts               9
+Tests                48
+Passing Tests        48
+Asserts             593
+Time              14.147s
+
+
+---- All tests passed! ----
+
+Results saved to /Users/spatchava/agl/agl-manifest/ai-office/projects/real-apps/evidence/RideZap/godot-m1/gut-junit.xml

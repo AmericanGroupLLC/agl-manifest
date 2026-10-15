@@ -1,0 +1,21 @@
+{
+  "adapter": "Apple M1 Max (Apple7)",
+  "chunks_built": 49,
+  "draw_calls_max": 191.0,
+  "draw_calls_p50": 161.0,
+  "frame_ms_max": 43.3,
+  "frame_ms_mean": 16.68,
+  "frame_ms_p50": 16.67,
+  "frame_ms_p95": 18.16,
+  "frame_ms_p99": 19.79,
+  "frames": 3569,
+  "lap_times": [],
+  "max_chunk_build_ms": 112.98,
+  "mode": "fps",
+  "primitives_max": 123512.0,
+  "primitives_p50": 98930.0,
+  "race_finished": false,
+  "renderer": "mobile",
+  "shots": {},
+  "ticks": 3601
+}

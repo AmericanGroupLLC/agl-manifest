@@ -485,7 +485,7 @@ The Flutter apps use Firebase Crashlytics and Analytics through `agl_observabili
 - **Stuck:** after 3 s below 2 km/h while throttling, a **Reset** button appears and puts the vehicle on the nearest road node.
 - **Fixed step:** physics at 60 Hz, `max_physics_steps_per_frame = 4`; rendering uses physics interpolation (`physics/common/physics_interpolation = true`).
 
-**Surface and weather multipliers.** Each ground collider carries a `surface` metadata key. A unit test pins this table.
+**Surface and weather multipliers.** Each ground collider carries a `surface` metadata key (M1 reads the surface from the deterministic layout, `WorldLayout.surface_at`, instead). A unit test pins this table.
 
 | Surface | Grip | Top-speed cap | Off-road vehicles (dirt / sand specialists) |
 |---|---|---|---|
@@ -539,7 +539,7 @@ Cartoon street-racing pursuit, matching what NFS No Limits players expect, witho
 
 - A checkpoint is a gate: a segment on the ground plane (XZ) with a forward normal, and a visible arch.
 - It counts when the vehicle's movement in one physics tick (previous → current position, projected to XZ) **crosses the gate segment in the forward direction**, and it is the **next expected** gate.
-- A gate crossed out of order or backwards does nothing. If the vehicle gets more than 150 m beyond the next expected gate along the route without crossing it, the HUD shows "Missed checkpoint" and an arrow back.
+- A gate crossed out of order or backwards does nothing. If the vehicle gets more than 150 m beyond the next expected gate along the route without crossing it, the HUD shows "Missed checkpoint" and an arrow back. *(M1 shows the warning when a later gate is crossed while an earlier one is still expected; the 150 m distance rule and the arrow come in M2 with the route polyline.)*
 - **Circuit:** gate 0 is start/finish. A lap counts on crossing gate 0 only after every other gate in that lap, in order. **Sprint:** finishing means crossing the last gate.
 - **Timing uses physics ticks** (`tick × 1/60 s`), never the wall clock, so pause and frame drops do not change times. The race clock only advances while the race state is "running". Times are reported to 0.01 s. Best lap and best event time are saved per event and per vehicle type; split deltas against your best are shown at each gate.
 
@@ -574,7 +574,7 @@ The world is 8 km × 8 km = 64 km², split into 32 × 32 = 1,024 chunks of 256 m
 ### 5.3 Streaming (`chunk_streamer.gd`)
 
 - Active set: the chunks within a 1-chunk ring of the player (3 × 3 = 768 m wide); preload ring 5 × 5 biased in the direction of travel; at most 25 chunks resident, least-recently-used eviction.
-- Chunk geometry data (transforms, mesh arrays) is computed on `WorkerThreadPool`; node creation and `add_child` happen on the main thread under a **2 ms per frame budget**, spread across frames above that.
+- Chunk geometry data (transforms, mesh arrays) is computed on `WorkerThreadPool`; node creation and `add_child` happen on the main thread under a **2 ms per frame budget**, spread across frames above that. *(M1 builds a whole chunk on the main thread, one preload chunk per frame at most: measured 15–113 ms per chunk on a loaded M1 Max, so the budget is not met yet; moving to `WorkerThreadPool` is an M2 item.)*
 - Distance hiding: `visibility_range_end` on props (150 m) and buildings (500 m), plus depth fog, so the active set never shows a hard edge.
 - An S-class vehicle at top speed crosses a chunk in about 2.9 s; preloading 2 chunks ahead gives at least 5 s.
 - Chunk coordinates use floor division, so negative coordinates are correct. A unit test covers this.
@@ -773,8 +773,10 @@ GODOT=~/agl/.tools/godot/4.7.2-stable/editor/Godot.app/Contents/MacOS/Godot   # 
 $GODOT --headless --path game --import                                         # first run: builds .godot/
 $GODOT --headless --path game -s addons/gut/gut_cmdln.gd \
        -gdir=res://test/unit,res://test/smoke -ginclude_subdirs -gexit \
-       -gjunit_xml_file=res://../build/gut-junit.xml
+       -gjunit_xml_file=<abs path>/gut-junit.xml
 ```
+
+Verified on 2026-10-15 for M1: 48 tests, exit 0 (`evidence/RideZap/godot-m1/gut-output.txt`); a run with failing tests exited 1.
 
 `-gexit` makes the process exit non-zero when any test fails, which is what CI keys on. The JUnit file is kept as the run's evidence.
 
@@ -817,7 +819,7 @@ These instantiate real scenes under `--headless` (dummy renderer, real physics) 
 The office rule "build it and look at it":
 - `tools/capture/capture_race.gd` (run with `--write-movie` or with its own `save_png` timer) drives a lap with the autopilot and saves frames to `agl-manifest/ai-office/projects/real-apps/evidence/RideZap/<milestone>/`. Every frame is opened and described in the evidence README.
 - `tools/capture/fps_probe.gd` logs frame-time percentiles, draw calls and primitives.
-- iOS simulator: Godot iOS export (Xcode project) → `xcodebuild -sdk iphonesimulator` → `simctl install / launch` → `simctl io screenshot`.
+- iOS simulator: Godot iOS export (Xcode project) → `xcodebuild -sdk iphonesimulator` → `simctl install / launch` → `simctl io screenshot`. **Found in M1:** the official 4.7.2 templates' simulator `libgodot.a` (debug and release) is **x86_64 only** (`lipo -info`), and the iOS 26.4 / 26.5 simulators on this machine refuse x86_64 apps ("Failed to find matching arch"). Simulator runs need an arm64 simulator template built from the 4.7.2 source (`scons platform=ios ios_simulator=yes arch=arm64`), cached by version like the other templates; until then iOS is checked on a device build.
 - **Device performance (§6.1)** must be measured on hardware. Until then it is reported as **not verified**.
 
 ### 8.4 Milestones
@@ -872,6 +874,7 @@ The office rule "build it and look at it":
 | **Mid-range Android GPU performance** on the mobile renderer | Draw-call budget with `MultiMesh`, visibility ranges, fog, a 30 fps battery saver, `gl_compatibility` fallback evaluated in M2, and measurement on a device (R9). |
 | **`inappstore` has no Godot 4 binary release and uses StoreKit 1** | Built from source at a pinned SHA in CI; Pass state through an office-owned StoreKit 2 bridge; if the bridge slips the Pass is held back on iOS, not shipped wrong. |
 | **Godot Android signing takes one password** (`GODOT_ANDROID_KEYSTORE_RELEASE_PASSWORD` is used for both the store and the key) | Check in the Godot lane that RideZap's `storePassword` equals its `keyPassword` in `ANDROID_KEYSTORE_CONFIG` (compare, never print). If they differ, the lane converts a temporary copy of the keystore with `keytool -keypasswd` inside `$RUNNER_TEMP`. **Not verified** (the office has not read the secret). |
+| **No arm64 iOS simulator template** in the official 4.7.2 release (simulator slice is x86_64 only; found in M1) | Build the simulator template from source once per engine version and cache it; device builds through the signing path meanwhile. |
 | **A second CI lane** (the other 42 apps are Flutter) | One job, reusing the existing signing secrets, `build_ipa.py`'s archive/export step, `run_batch.py` and `play_upload.py` unchanged (§10). |
 | **IAP edge cases with no server**: refunds, fraud, Android subscription restore | Accepted for v1 (§3.2). Confirm Android restore in M3 with a licence tester. |
 | **Ad policy** in a game | `AdPolicy` tests; interstitials only after finished events, every 2nd one, 3-minute cap; rating G (§3.1). |

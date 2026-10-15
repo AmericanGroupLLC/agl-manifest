@@ -1,0 +1,16 @@
+# xcodebuild arm64 simulator (2026-10-15)
+Undefined symbols for architecture arm64:
+  "_main", referenced from:
+ld: symbol(s) not found for architecture arm64
+** BUILD FAILED **
+
+# example ignored-object warning (x86_64 objects in the simulator slice)
+/Users/spatchava/agl/RideZap/build/ios/RideZap.xcodeproj: RideZap: ld: warning: ignoring file '/Users/spatchava/agl/RideZap/build/ios-dd/Build/Products/Debug-iphonesimulator/libgodot.a(icudata_stub.ios.template_debug.x86_64.simulator.o)': found architecture 'x86_64', required architecture 'arm64'
+/Users/spatchava/agl/RideZap/build/ios/RideZap.xcodeproj: RideZap: ld: warning: ignoring file '/Users/spatchava/agl/RideZap/build/ios-dd/Build/Products/Debug-iphonesimulator/libgodot.a(uspoof_impl.ios.template_debug.x86_64.simulator.o)': found architecture 'x86_64', required architecture 'arm64'
+
+# lipo
+Non-fat file: /Users/spatchava/agl/RideZap/build/ios/RideZap.xcframework/ios-arm64_x86_64-simulator/libgodot.a is architecture: x86_64
+
+# xcodebuild x86_64 simulator
+** BUILD SUCCEEDED **
+/Users/spatchava/agl/RideZap/build/ios-dd/Build/Products/Debug-iphonesimulator/RideZap.app/RideZap: Mach-O 64-bit executable x86_64

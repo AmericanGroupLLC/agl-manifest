@@ -1,0 +1,136 @@
+{
+  "adapter": "Apple M1 Max (Apple7)",
+  "chunks_built": 61,
+  "draw_calls_max": 213.0,
+  "draw_calls_p50": 158.0,
+  "frame_ms_max": 117.53,
+  "frame_ms_mean": 16.71,
+  "frame_ms_p50": 16.67,
+  "frame_ms_p95": 17.88,
+  "frame_ms_p99": 20.15,
+  "frames": 6039,
+  "lap_times": [
+    "1:35.63"
+  ],
+  "max_chunk_build_ms": 14.99,
+  "mode": "frames",
+  "primitives_max": 123512.0,
+  "primitives_p50": 93856.0,
+  "race_finished": true,
+  "renderer": "mobile",
+  "shots": {
+    "01_countdown": {
+      "chunks_loaded": 25,
+      "draw_calls": 151,
+      "lap": 0,
+      "next_gate": 0,
+      "pos": [
+        170.0,
+        8.0
+      ],
+      "primitives": 84156,
+      "race_ticks": 0,
+      "speed_kmh": 0.0,
+      "tick": 60
+    },
+    "02_go": {
+      "chunks_loaded": 25,
+      "draw_calls": 151,
+      "lap": 0,
+      "next_gate": 0,
+      "pos": [
+        170.4,
+        8.0
+      ],
+      "primitives": 84164,
+      "race_ticks": 30,
+      "speed_kmh": 6.0,
+      "tick": 210
+    },
+    "03_start_straight": {
+      "chunks_loaded": 25,
+      "draw_calls": 137,
+      "lap": 1,
+      "next_gate": 1,
+      "pos": [
+        237.4,
+        8.0
+      ],
+      "primitives": 89578,
+      "race_ticks": 420,
+      "speed_kmh": 63.3,
+      "tick": 600
+    },
+    "04_first_corner": {
+      "chunks_loaded": 25,
+      "draw_calls": 156,
+      "lap": 1,
+      "next_gate": 1,
+      "pos": [
+        378.3,
+        8.2
+      ],
+      "primitives": 105614,
+      "race_ticks": 830,
+      "speed_kmh": 63.3,
+      "tick": 1010
+    },
+    "05_mid_lap": {
+      "chunks_loaded": 25,
+      "draw_calls": 181,
+      "lap": 1,
+      "next_gate": 2,
+      "pos": [
+        354.7,
+        265.5
+      ],
+      "primitives": 116584,
+      "race_ticks": 1800,
+      "speed_kmh": 58.7,
+      "tick": 1980
+    },
+    "06_overview_slice": {
+      "chunks_loaded": 25,
+      "draw_calls": 213,
+      "lap": 1,
+      "next_gate": 3,
+      "pos": [
+        143.4,
+        265.3
+      ],
+      "primitives": 85122,
+      "race_ticks": 2402,
+      "speed_kmh": 52.8,
+      "tick": 2582
+    },
+    "07_nitro": {
+      "chunks_loaded": 25,
+      "draw_calls": 177,
+      "lap": 1,
+      "next_gate": 1,
+      "pos": [
+        394.6,
+        37.4
+      ],
+      "primitives": 98662,
+      "race_ticks": 999,
+      "speed_kmh": 54.1,
+      "tick": 1179
+    },
+    "08_results": {
+      "chunks_loaded": 25,
+      "draw_calls": 144,
+      "lap": 1,
+      "next_gate": 0,
+      "pos": [
+        223.0,
+        8.1
+      ],
+      "primitives": 93640,
+      "race_ticks": 5738,
+      "speed_kmh": 21.7,
+      "tick": 6008
+    }
+  },
+  "ticks": 6069
+}

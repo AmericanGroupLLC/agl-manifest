@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="GutTests" failures="0" tests="48" >
+  <testsuite name="test/unit/test_checkpoints.gd" tests="12" failures="0" skipped="0" time="0.001629" >
+      <testcase name="test_forward_crossing_counts" assertions="1" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000108" >
+      </testcase>
+      <testcase name="test_backward_crossing_does_not_count" assertions="1" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000096" >
+      </testcase>
+      <testcase name="test_crossing_outside_the_gate_does_not_count" assertions="1" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000069" >
+      </testcase>
+      <testcase name="test_fast_step_of_1_5_m_is_caught" assertions="1" status="pass" classname="test/unit/test_checkpoints.gd" time="0.00006" >
+      </testcase>
+      <testcase name="test_landing_exactly_on_the_line_counts_once" assertions="2" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000058" >
+      </testcase>
+      <testcase name="test_first_start_crossing_starts_lap_one_without_completing_it" assertions="5" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000222" >
+      </testcase>
+      <testcase name="test_gates_must_be_taken_in_order" assertions="6" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000203" >
+      </testcase>
+      <testcase name="test_lap_needs_every_gate" assertions="2" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000092" >
+      </testcase>
+      <testcase name="test_lap_times_in_ticks_and_finish_after_last_lap" assertions="9" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000337" >
+      </testcase>
+      <testcase name="test_reversing_back_over_a_gate_does_not_count_twice" assertions="2" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000152" >
+      </testcase>
+      <testcase name="test_sprint_is_a_single_lap" assertions="2" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000079" >
+      </testcase>
+      <testcase name="test_m1_circuit_gates_face_along_the_route" assertions="8" status="pass" classname="test/unit/test_checkpoints.gd" time="0.000153" >
+      </testcase>
+  </testsuite>
+  <testsuite name="test/unit/test_chunk_index.gd" tests="5" failures="0" skipped="0" time="0.013905" >
+      <testcase name="test_floor_division_with_negative_coordinates" assertions="6" status="pass" classname="test/unit/test_chunk_index.gd" time="0.000172" >
+      </testcase>
+      <testcase name="test_wanted_set_is_3x3_inside_and_clipped_at_the_slice_edge" assertions="4" status="pass" classname="test/unit/test_chunk_index.gd" time="0.000207" >
+      </testcase>
+      <testcase name="test_resident_set_never_exceeds_25" assertions="2" status="pass" classname="test/unit/test_chunk_index.gd" time="0.000165" >
+      </testcase>
+      <testcase name="test_lru_evicts_least_recently_used" assertions="1" status="pass" classname="test/unit/test_chunk_index.gd" time="0.000142" >
+      </testcase>
+      <testcase name="test_same_chunk_same_content" assertions="11" status="pass" classname="test/unit/test_chunk_index.gd" time="0.013219" >
+      </testcase>
+  </testsuite>
+  <testsuite name="test/unit/test_ip_names.gd" tests="1" failures="0" skipped="0" time="0.051578" >
+      <testcase name="test_no_trademarked_names_in_game_sources" assertions="2" status="pass" classname="test/unit/test_ip_names.gd" time="0.051578" >
+      </testcase>
+  </testsuite>
+  <testsuite name="test/unit/test_race_clock.gd" tests="5" failures="0" skipped="0" time="0.000597" >
+      <testcase name="test_time_is_ticks_over_60" assertions="2" status="pass" classname="test/unit/test_race_clock.gd" time="0.000126" >
+      </testcase>
+      <testcase name="test_clock_does_not_run_before_start_or_while_paused" assertions="3" status="pass" classname="test/unit/test_race_clock.gd" time="0.000118" >
+      </testcase>
+      <testcase name="test_format_hundredths_truncated" assertions="7" status="pass" classname="test/unit/test_race_clock.gd" time="0.000171" >
+      </testcase>
+      <testcase name="test_split_delta" assertions="3" status="pass" classname="test/unit/test_race_clock.gd" time="0.000104" >
+      </testcase>
+      <testcase name="test_reset" assertions="2" status="pass" classname="test/unit/test_race_clock.gd" time="0.000078" >
+      </testcase>
+  </testsuite>
+  <testsuite name="test/unit/test_tire_model.gd" tests="9" failures="0" skipped="0" time="0.003042" >
+      <testcase name="test_zero_to_100_matches_the_spec_table" assertions="1" status="pass" classname="test/unit/test_tire_model.gd" time="0.000264" >
+      </testcase>
+      <testcase name="test_drive_force_falls_to_zero_at_top_speed" assertions="2" status="pass" classname="test/unit/test_tire_model.gd" time="0.000154" >
+      </testcase>
+      <testcase name="test_terminal_speed_within_2_percent_on_dry_asphalt" assertions="1" status="pass" classname="test/unit/test_tire_model.gd" time="0.001883" >
+      </testcase>
+      <testcase name="test_nitro_raises_force_and_top_speed" assertions="1" status="pass" classname="test/unit/test_tire_model.gd" time="0.00024" >
+      </testcase>
+      <testcase name="test_steering_keeps_35_percent_at_top_speed" assertions="1" status="pass" classname="test/unit/test_tire_model.gd" time="0.000097" >
+      </testcase>
+      <testcase name="test_surface_table" assertions="6" status="pass" classname="test/unit/test_tire_model.gd" time="0.000169" >
+      </testcase>
+      <testcase name="test_drift_cuts_rear_grip" assertions="1" status="pass" classname="test/unit/test_tire_model.gd" time="0.000074" >
+      </testcase>
+      <testcase name="test_lateral_force_is_clamped_to_grip" assertions="2" status="pass" classname="test/unit/test_tire_model.gd" time="0.000083" >
+      </testcase>
+      <testcase name="test_bike_lean_is_clamped_to_45_degrees" assertions="2" status="pass" classname="test/unit/test_tire_model.gd" time="0.000078" >
+      </testcase>
+  </testsuite>
+  <testsuite name="test/unit/test_world_layout.gd" tests="6" failures="0" skipped="0" time="0.004147" >
+      <testcase name="test_slice_is_2_by_2_km_of_8_by_8_chunks" assertions="2" status="pass" classname="test/unit/test_world_layout.gd" time="0.000154" >
+      </testcase>
+      <testcase name="test_circuit_gates_and_corners_are_on_road_inside_the_slice" assertions="28" status="pass" classname="test/unit/test_world_layout.gd" time="0.000256" >
+      </testcase>
+      <testcase name="test_circuit_length" assertions="1" status="pass" classname="test/unit/test_world_layout.gd" time="0.000254" >
+      </testcase>
+      <testcase name="test_spawn_is_behind_the_start_line_on_road" assertions="2" status="pass" classname="test/unit/test_world_layout.gd" time="0.000148" >
+      </testcase>
+      <testcase name="test_surface_is_asphalt_on_road" assertions="1" status="pass" classname="test/unit/test_world_layout.gd" time="0.000239" >
+      </testcase>
+      <testcase name="test_hash_is_deterministic_and_in_range" assertions="400" status="pass" classname="test/unit/test_world_layout.gd" time="0.003096" >
+      </testcase>
+  </testsuite>
+  <testsuite name="test/smoke/test_export_filter.gd" tests="2" failures="0" skipped="0" time="0.001372" >
+      <testcase name="test_every_preset_excludes_tests_gut_and_tools" assertions="8" status="pass" classname="test/smoke/test_export_filter.gd" time="0.001" >
+      </testcase>
+      <testcase name="test_presets_use_the_permanent_bundle_id" assertions="3" status="pass" classname="test/smoke/test_export_filter.gd" time="0.000372" >
+      </testcase>
+  </testsuite>
+  <testsuite name="test/smoke/test_race_scene_smoke.gd" tests="3" failures="0" skipped="0" time="13.243763" >
+      <testcase name="test_scene_builds_world_car_race_and_hud" assertions="17" status="pass" classname="test/smoke/test_race_scene_smoke.gd" time="0.047832" >
+      </testcase>
+      <testcase name="test_car_settles_then_drives_forward_after_the_countdown" assertions="10" status="pass" classname="test/smoke/test_race_scene_smoke.gd" time="5.120922" >
+      </testcase>
+      <testcase name="test_crossing_the_start_line_starts_lap_one" assertions="2" status="pass" classname="test/smoke/test_race_scene_smoke.gd" time="8.075009" >
+      </testcase>
+  </testsuite>
+  <testsuite name="test/smoke/test_touch_controls.gd" tests="5" failures="0" skipped="0" time="0.006628" >
+      <testcase name="test_every_m1_control_exists" assertions="5" status="pass" classname="test/smoke/test_touch_controls.gd" time="0.001542" >
+      </testcase>
+      <testcase name="test_steer_and_throttle_together" assertions="5" status="pass" classname="test/smoke/test_touch_controls.gd" time="0.001336" >
+      </testcase>
+      <testcase name="test_slide_from_left_to_right_pad" assertions="2" status="pass" classname="test/smoke/test_touch_controls.gd" time="0.001263" >
+      </testcase>
+      <testcase name="test_nitro_and_brake" assertions="2" status="pass" classname="test/smoke/test_touch_controls.gd" time="0.001166" >
+      </testcase>
+      <testcase name="test_touch_outside_pads_does_nothing" assertions="5" status="pass" classname="test/smoke/test_touch_controls.gd" time="0.001321" >
+      </testcase>
+  </testsuite>
+</testsuites>
