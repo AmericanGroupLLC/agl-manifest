@@ -14,6 +14,10 @@
 require "json"; require "net/http"; require "spaceship"; require "uri"
 require_relative "../agl_paths"
 require_relative "account_freeze"
+# Decision log 2026-10-15: Stage B + the submission hold, for the build the
+# rejected version carries. On 2026-10-14 this script resubmitted 35 OLD
+# binaries in place; all came back 4.3(a). No override flag on purpose.
+require_relative "submission_gate"
 DRY = ARGV.include?("--dry-run")
 ONLY = ARGV.reject { |a| a.start_with?("--") }
 AccountFreeze.enforce!(ARGV) unless DRY
@@ -41,10 +45,21 @@ apps.each do |a|
   _, s = req(:get, "v1/apps/#{app['id']}/reviewSubmissions?limit=10")
   sub = (s["data"] || []).find { |x| x.dig("attributes", "state") == "UNRESOLVED_ISSUES" }
   next (puts("#{repo}: no UNRESOLVED_ISSUES submission"); out[repo] = { "status" => "nothing_to_resubmit" }) unless sub
-  _, it = req(:get, "v1/reviewSubmissions/#{sub['id']}/items")
+  _, it = req(:get, "v1/reviewSubmissions/#{sub['id']}/items?include=appStoreVersion")
   rejected = (it["data"] || []).select { |i| i.dig("attributes", "state") == "REJECTED" && !i.dig("attributes", "resolved") }
+  # Resubmitting in place sends whatever build the version holds — find it and gate it.
+  vid = (it["data"] || []).map { |i| i.dig("relationships", "appStoreVersion", "data", "id") }.compact.first
+  bc, bb = vid ? req(:get, "v1/appStoreVersions/#{vid}/build") : [0, {}]
+  build_no = bb.dig("data", "attributes", "version")
+  gate_ok, gate_msg = build_no ? SubmissionGate.check(repo, build_no, bb.dig("data", "attributes", "uploadedDate"))
+                               : [false, "#{repo}: no build found on the rejected version (#{vid ? "HTTP #{bc}" : 'no appStoreVersion item'})"]
   if DRY
-    puts "#{repo}: would resolve #{rejected.size} item(s) and resubmit #{sub['id'][0, 8]}"; out[repo] = { "status" => "dry_run" }; next
+    puts "#{repo}: would resolve #{rejected.size} item(s) and resubmit #{sub['id'][0, 8]} with build #{build_no}; gate: #{gate_msg}"
+    out[repo] = { "status" => "dry_run", "build" => build_no, "gate" => gate_msg }; next
+  end
+  unless gate_ok
+    puts "#{repo}: NOT RESUBMITTED — #{gate_msg}"
+    out[repo] = { "status" => "refused-by-gate", "build" => build_no, "detail" => gate_msg }; next
   end
   errs = []
   rejected.each do |i|
@@ -53,7 +68,8 @@ apps.each do |a|
   end
   c, b = req(:patch, "v1/reviewSubmissions/#{sub['id']}", { data: { type: "reviewSubmissions", id: sub["id"], attributes: { submitted: true } } })
   if c.between?(200, 299)
-    puts "#{repo}: RESUBMITTED in place (#{sub['id'][0, 8]}, state #{b.dig('data', 'attributes', 'state')})"; out[repo] = { "status" => "resubmitted", "submission" => sub["id"] }
+    puts "#{repo}: RESUBMITTED in place (#{sub['id'][0, 8]}, state #{b.dig('data', 'attributes', 'state')})"; out[repo] = { "status" => "resubmitted", "submission" => sub["id"], "build" => build_no }
+    SubmissionGate.record!(repo, build_no, "resubmitted", "resolve_and_resubmit.rb")
   else
     d = why(b)
     puts "#{repo}: refused #{c} — #{d}#{errs.any? ? " (#{errs.join(', ')})" : ''}"; out[repo] = { "status" => "refused", "code" => c, "detail" => d, "item_errors" => errs }

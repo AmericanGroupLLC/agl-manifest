@@ -233,12 +233,16 @@ DELETE_CALL = re.compile(r"""rpc\(\s*['"]delete_user['"]""")
 
 
 def _rpc_exists(name: str) -> bool | None:
-    import subprocess, urllib.request, urllib.error
+    import os, subprocess, urllib.request, urllib.error
     try:
-        keys = json.loads(subprocess.run(
-            ["supabase", "projects", "api-keys", "--project-ref", "smvvjivvlprjhzhoizym", "-o", "json"],
-            capture_output=True, text=True, timeout=60).stdout)
-        anon = next(k["api_key"] for k in keys if k["name"] == "anon")
+        # A CI runner has no `supabase` CLI login; it can pass the (public)
+        # anon key as SUPABASE_ANON_KEY instead. Neither -> None (not probed).
+        anon = os.environ.get("SUPABASE_ANON_KEY")
+        if not anon:
+            keys = json.loads(subprocess.run(
+                ["supabase", "projects", "api-keys", "--project-ref", "smvvjivvlprjhzhoizym", "-o", "json"],
+                capture_output=True, text=True, timeout=60).stdout)
+            anon = next(k["api_key"] for k in keys if k["name"] == "anon")
         req = urllib.request.Request(
             f"https://smvvjivvlprjhzhoizym.supabase.co/rest/v1/rpc/{name}", data=b"{}", method="POST",
             headers={"apikey": anon, "Content-Type": "application/json"})
