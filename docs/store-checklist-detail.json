@@ -2743,37 +2743,37 @@
   {
    "check": "App Store name",
    "state": "PASS",
-   "detail": "Fashion Factory: Deals"
+   "detail": "Fashion Factory: Fit File"
   },
   {
    "check": "Play title",
    "state": "PASS",
-   "detail": "Fashion Factory \u2014 Deals"
+   "detail": "Fashion Factory: Fit File"
   },
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1084 chars"
+   "detail": "2000 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "72 chars"
+   "detail": "76 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "76 chars"
+   "detail": "100 chars"
   },
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "127 chars"
+   "detail": "152 chars"
   },
   {
    "check": "Primary category",
    "state": "PASS",
-   "detail": "LIFESTYLE"
+   "detail": "SHOPPING"
   },
   {
    "check": "Per-app review notes",
@@ -2837,8 +2837,8 @@
   },
   {
    "check": "Review notes answer Apple's 7 items",
-   "state": "PASS",
-   "detail": "6/6 numbered answers present"
+   "state": "FAIL",
+   "detail": "4/6 numbered answers present"
   },
   {
    "check": "Demo account when the app gates on sign-in",

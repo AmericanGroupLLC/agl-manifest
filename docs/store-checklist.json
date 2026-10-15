@@ -591,7 +591,7 @@
   "Play release": "FAIL",
   "Play reaches Console account users": "HUMAN",
   "Firebase config (crash reporting works)": "FAIL",
-  "Review notes answer Apple's 7 items": "PASS",
+  "Review notes answer Apple's 7 items": "FAIL",
   "Demo account when the app gates on sign-in": "PASS",
   "Screenshots show the app, not a login screen": "HUMAN",
   "App preview video": "HUMAN",
