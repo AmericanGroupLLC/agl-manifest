@@ -151,9 +151,14 @@ P._real_llc = P.last_lib_commit  # the gate tests call it with fetch=False (no n
 
 # ==================================================================== Stage A
 class StageATest(Sandbox):
-    def test_stage_a_counts_exactly_the_20_automated_checks_of_sections_1_to_5(self):
-        self.assertEqual(len(P.STAGE_A_IDS), 20)
-        self.assertTrue(all(i.split(".")[0] in "12345" for i in P.STAGE_A_IDS))
+    def test_stage_a_is_every_automated_check_of_sections_1_to_5(self):
+        # By definition, not by count: 20 when #48 was approved, 21 once 1.8
+        # (iOS 27 notification-cancel freeze, 088e653) was added.
+        want = [c for c, k, _t in P.CHECKS if k == "auto" and c.split(".")[0] in "12345"]
+        self.assertEqual(P.STAGE_A_IDS, want)
+        original = ["1.7", "2.1", "2.2", "2.3", "2.5", "2.6", "2.7", "2.8", "3.1", "3.2", "3.3", "3.4", "3.5",
+                    "3.6", "3.7", "3.8", "3.9", "4.1", "4.4", "4.5"]
+        self.assertTrue(set(original) <= set(P.STAGE_A_IDS))
         self.assertEqual(len(P.STAGE_B_IDS), 18)
 
     def test_human_checks_do_not_block_stage_a(self):
