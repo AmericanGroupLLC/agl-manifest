@@ -1,5 +1,5 @@
 {
- "_about": "Store policy catalogue. Written from knowledge of the Apple App Review Guidelines and the Google Play Developer Program Policies as of 2026; every entry must be verified against the current official text (web access is off in this session). 'applies' = feature tags detected per app; 'check' = auto:<existing check> | human: | founder: | n/a.",
+ "_about": "Store policy catalogue. Written from knowledge of the Apple App Review Guidelines and the Google Play Developer Program Policies as of 2026; every entry must be verified against the current official text (web access is off in this session). 'applies' = feature tags detected per app; 'check' = auto:<existing check> | human: | founder: | n/a. 'judged_on' = binary | review: binary only when the rule is decided by the contents of the uploaded binary itself (Info.plist keys, entitlements, embedded frameworks, privacy manifests, Mach-O symbols; for Google the .aab), i.e. what the store's upload/processing scan judges; review for anything judged on metadata, store records, console answers, runtime behaviour, source-level product behaviour or a reviewer's judgement, and for every borderline rule. predelivery.py check 2.8 blocks Stage A (TestFlight) only on FAILs of apple+binary rules; every rule blocks Stage B (App Review submission).",
  "rules": [
   {
    "store": "apple",
@@ -7,7 +7,8 @@
    "title": "Objectionable content",
    "rule": "No offensive, discriminatory, violent, sexual or defamatory content.",
    "applies": "all",
-   "check": "human: review every screen and bundled content"
+   "check": "human: review every screen and bundled content",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -15,7 +16,8 @@
    "title": "False information / trick features",
    "rule": "No fake functionality, misleading claims or prank features.",
    "applies": "all",
-   "check": "auto:no_fake_data + human"
+   "check": "auto:no_fake_data + human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -23,7 +25,8 @@
    "title": "User-generated content",
    "rule": "UGC needs filtering, a report mechanism, user blocking and published contact info.",
    "applies": "ugc",
-   "check": "auto:apple_requirements:ugc-1.2"
+   "check": "auto:apple_requirements:ugc-1.2",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -31,7 +34,8 @@
    "title": "Kids Category",
    "rule": "Kids apps: no third-party analytics/ads without parental gates and compliance.",
    "applies": "kids",
-   "check": "human: confirm the app is not in the Kids category or meets 1.3"
+   "check": "human: confirm the app is not in the Kids category or meets 1.3",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -39,7 +43,8 @@
    "title": "Physical harm",
    "rule": "Medical/health claims must be accurate; no dangerous activities; disclose limitations.",
    "applies": "health",
-   "check": "human: health claims backed, disclaimer present"
+   "check": "human: health claims backed, disclaimer present",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -47,7 +52,8 @@
    "title": "Medical apps",
    "rule": "Apps that measure health data must be validated or clearly say they are not medical devices.",
    "applies": "health",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -55,7 +61,8 @@
    "title": "Developer information",
    "rule": "Easy way to contact the developer (support URL working).",
    "applies": "all",
-   "check": "auto:store_checklist:Privacy & support URLs serve the right page"
+   "check": "auto:store_checklist:Privacy & support URLs serve the right page",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -63,7 +70,8 @@
    "title": "Data security",
    "rule": "Appropriate security for user data.",
    "applies": "accounts",
-   "check": "auto:appsec (secure storage, no secrets in binary)"
+   "check": "auto:appsec (secure storage, no secrets in binary)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -71,7 +79,8 @@
    "title": "Reporting criminal activity / emergency",
    "rule": "Apps reporting crime or emergencies must involve local law enforcement and be by appropriate entities.",
    "applies": "emergency_safety",
-   "check": "human: Kinnav-type safety features use the real emergency number and say what they do"
+   "check": "human: Kinnav-type safety features use the real emergency number and say what they do",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -79,7 +88,8 @@
    "title": "App completeness \u2014 crashes",
    "rule": "Launches and works on the latest iOS on iPhone and iPad; no crashes, broken links or placeholder content.",
    "applies": "all",
-   "check": "auto:apple_requirements:launch-2.1a + predelivery 1.x/5.x"
+   "check": "auto:apple_requirements:launch-2.1a + predelivery 1.x/5.x",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -87,7 +97,8 @@
    "title": "App completeness \u2014 in-app purchases",
    "rule": "IAP products complete and submitted with the binary; review access to paid features.",
    "applies": "iap",
-   "check": "auto:apple_requirements:iap-2.1b"
+   "check": "auto:apple_requirements:iap-2.1b",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -95,7 +106,8 @@
    "title": "Information Needed",
    "rule": "Demo account or demo mode for gated features; review notes complete.",
    "applies": "accounts",
-   "check": "auto:store_checklist:Demo account when the app gates on sign-in + Review notes answer Apple's 7 items"
+   "check": "auto:store_checklist:Demo account when the app gates on sign-in + Review notes answer Apple's 7 items",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -103,7 +115,8 @@
    "title": "Beta testing",
    "rule": "No demos, betas or trial versions in the App Store.",
    "applies": "all",
-   "check": "auto:no 'beta'/'coming soon'/'preview' in lib + metadata"
+   "check": "auto:no 'beta'/'coming soon'/'preview' in lib + metadata",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -111,7 +124,8 @@
    "title": "Accurate metadata",
    "rule": "Description, screenshots, previews reflect the core experience; no hidden features.",
    "applies": "all",
-   "check": "human + auto:aso copy vs features"
+   "check": "human + auto:aso copy vs features",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -119,7 +133,8 @@
    "title": "Hidden or undocumented features",
    "rule": "No hidden, dormant or undocumented features; no remote switches that change behaviour after review.",
    "applies": "all",
-   "check": "auto:no remote config/feature flags/deep-link-only screens (code-hygiene)"
+   "check": "auto:no remote config/feature flags/deep-link-only screens (code-hygiene)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -127,7 +142,8 @@
    "title": "Screenshots",
    "rule": "Show the app in use \u2014 not just title art, login or splash.",
    "applies": "all",
-   "check": "auto:apple_requirements:screenshots-2.3.3"
+   "check": "auto:apple_requirements:screenshots-2.3.3",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -135,7 +151,8 @@
    "title": "App previews",
    "rule": "Previews show only video captured from the app.",
    "applies": "all",
-   "check": "human (if a preview exists)"
+   "check": "human (if a preview exists)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -143,7 +160,8 @@
    "title": "Age rating",
    "rule": "Answer the age-rating questions honestly.",
    "applies": "all",
-   "check": "auto:store_checklist:Apple age rating answered"
+   "check": "auto:store_checklist:Apple age rating answered",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -151,7 +169,8 @@
    "title": "Name, keywords, metadata",
    "rule": "Unique name \u226430; no trademarks, prices, other apps' names, or irrelevant keywords.",
    "applies": "all",
-   "check": "auto:store_checklist name/keywords limits + human: no competitor names in keywords"
+   "check": "auto:store_checklist name/keywords limits + human: no competitor names in keywords",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -159,7 +178,8 @@
    "title": "Metadata for all audiences",
    "rule": "Icons, screenshots and previews suitable for 4+.",
    "applies": "all",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -167,7 +187,8 @@
    "title": "Third-party platforms",
    "rule": "No mention of other mobile platforms (Android, Google Play) in metadata or UI.",
    "applies": "all",
-   "check": "auto:grep 'Android|Google Play|Play Store' in iOS metadata and iOS UI strings"
+   "check": "auto:grep 'Android|Google Play|Play Store' in iOS metadata and iOS UI strings",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -175,7 +196,8 @@
    "title": "iPad support",
    "rule": "iPhone apps should run on iPad.",
    "applies": "all",
-   "check": "auto:apple_requirements:launch-2.1a (iPad)"
+   "check": "auto:apple_requirements:launch-2.1a (iPad)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -183,7 +205,8 @@
    "title": "Power efficiency",
    "rule": "No unrelated background processes, mining, or battery drain.",
    "applies": "all",
-   "check": "human + auto:background modes declared vs used"
+   "check": "human + auto:background modes declared vs used",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -191,7 +214,8 @@
    "title": "Mac App Store",
    "rule": "n/a (iOS only)",
    "applies": "none",
-   "check": "n/a"
+   "check": "n/a",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -199,7 +223,8 @@
    "title": "Public APIs only",
    "rule": "Only public APIs; no private frameworks.",
    "applies": "all",
-   "check": "auto:binary scan for private API strings (appsec)"
+   "check": "auto:binary scan for private API strings (appsec)",
+   "judged_on": "binary"
   },
   {
    "store": "apple",
@@ -207,7 +232,8 @@
    "title": "Self-contained",
    "rule": "No downloading/executing code that changes features.",
    "applies": "all",
-   "check": "auto:no dynamic code loading (appsec)"
+   "check": "auto:no dynamic code loading (appsec)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -215,7 +241,8 @@
    "title": "Background modes",
    "rule": "Use background services only for their intended purpose (audio, location, VoIP\u2026).",
    "applies": "background_modes",
-   "check": "auto:UIBackgroundModes vs code usage"
+   "check": "auto:UIBackgroundModes vs code usage",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -223,7 +250,8 @@
    "title": "WebKit",
    "rule": "Web browsing must use WebKit.",
    "applies": "webview",
-   "check": "auto:webview plugin is WKWebView-based"
+   "check": "auto:webview plugin is WKWebView-based",
+   "judged_on": "binary"
   },
   {
    "store": "apple",
@@ -231,7 +259,8 @@
    "title": "Recording consent",
    "rule": "Explicit consent and visible indication when recording users.",
    "applies": "microphone",
-   "check": "human: recording indicator + consent"
+   "check": "human: recording indicator + consent",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -239,7 +268,8 @@
    "title": "Files / external storage",
    "rule": "Use the Files app properly.",
    "applies": "file_documents",
-   "check": "auto:upload_scan_plist (ITMS-90737)"
+   "check": "auto:upload_scan_plist (ITMS-90737)",
+   "judged_on": "binary"
   },
   {
    "store": "apple",
@@ -247,7 +277,8 @@
    "title": "Widgets/extensions",
    "rule": "Extensions must be related to the app.",
    "applies": "extensions",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -255,7 +286,8 @@
    "title": "Ads",
    "rule": "Ads only in the main app binary; age-appropriate; no ads in extensions, keyboards or widgets; easy to close.",
    "applies": "ads",
-   "check": "auto:ads not in extensions + human: interstitial frequency/close"
+   "check": "auto:ads not in extensions + human: interstitial frequency/close",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -263,7 +295,8 @@
    "title": "In-App Purchase",
    "rule": "Digital goods/features must use IAP; no external purchase links for digital content.",
    "applies": "iap",
-   "check": "auto:no Stripe/PayPal for digital goods + apple_requirements:iap-2.1b"
+   "check": "auto:no Stripe/PayPal for digital goods + apple_requirements:iap-2.1b",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -271,7 +304,8 @@
    "title": "Subscriptions",
    "rule": "Ongoing value; clear terms, price, period; restore purchases; links to terms and privacy.",
    "applies": "subscriptions",
-   "check": "human + auto:restore purchases present"
+   "check": "human + auto:restore purchases present",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -279,7 +313,8 @@
    "title": "Other purchase methods",
    "rule": "Reader apps, multiplatform services, person-to-person services \u2014 specific rules.",
    "applies": "external_purchase_links",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -287,7 +322,8 @@
    "title": "Hardware-specific content",
    "rule": "Unlocking via hardware rules.",
    "applies": "none",
-   "check": "n/a"
+   "check": "n/a",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -295,7 +331,8 @@
    "title": "Acceptable business models",
    "rule": "Affiliate/commission links and real-world goods allowed when disclosed and appropriate.",
    "applies": "affiliate_links",
-   "check": "auto:affiliate disclosure visible near links"
+   "check": "auto:affiliate disclosure visible near links",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -303,7 +340,8 @@
    "title": "Unacceptable: creating an interface for displaying third-party apps or ads",
    "rule": "No apps primarily for ads/affiliate catalogues; no incentivised actions.",
    "applies": "affiliate_links",
-   "check": "human: app has value beyond links (4.3 spec)"
+   "check": "human: app has value beyond links (4.3 spec)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -311,7 +349,8 @@
    "title": "Design",
    "rule": "Simple, refined, intuitive UI; meets HIG basics.",
    "applies": "all",
-   "check": "human + store-creative review"
+   "check": "human + store-creative review",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -319,7 +358,8 @@
    "title": "Copycats",
    "rule": "No copying other apps' icons, names or UI.",
    "applies": "all",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -327,7 +367,8 @@
    "title": "Minimum functionality",
    "rule": "Beyond a repackaged website; lasting entertainment or utility value.",
    "applies": "all",
-   "check": "auto:Real Apps QA pass (#24)"
+   "check": "auto:Real Apps QA pass (#24)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -335,7 +376,8 @@
    "title": "App generation services",
    "rule": "Not created from a commercialized template unless submitted by the content provider.",
    "applies": "all",
-   "check": "auto:Real Apps QA + differentiation answers (store_checklist 4.3 statement)"
+   "check": "auto:Real Apps QA + differentiation answers (store_checklist 4.3 statement)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -343,7 +385,8 @@
    "title": "Spam \u2014 duplicates",
    "rule": "Don't submit multiple apps with the same functionality; consolidate.",
    "applies": "all",
-   "check": "auto:overlap analysis (#25) + differentiation statement"
+   "check": "auto:overlap analysis (#25) + differentiation statement",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -351,7 +394,8 @@
    "title": "Saturated categories",
    "rule": "Unique high-quality experience required in saturated categories.",
    "applies": "all",
-   "check": "human + aso competitors"
+   "check": "human + aso competitors",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -359,7 +403,8 @@
    "title": "Extensions",
    "rule": "Keyboard/Safari/other extensions follow their rules (e.g. keyboard works offline without full access).",
    "applies": "extensions",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -367,7 +412,8 @@
    "title": "Push notifications",
    "rule": "Not required to use the app; no marketing pushes without opt-in; no sensitive data in pushes.",
    "applies": "push",
-   "check": "human + auto:push permission not requested at launch"
+   "check": "human + auto:push permission not requested at launch",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -375,7 +421,8 @@
    "title": "Mini apps / HTML5 / AI chatbots",
    "rule": "Software not embedded in the binary must follow guidelines; AI content disclosed and moderated.",
    "applies": "ai_generated",
-   "check": "human: AI output moderated and labelled"
+   "check": "human: AI output moderated and labelled",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -383,7 +430,8 @@
    "title": "Login services",
    "rule": "If third-party/social login is used, offer an equivalent privacy-focused login (e.g. Sign in with Apple).",
    "applies": "sign_in_third_party",
-   "check": "auto:Sign in with Apple offered when Google/Facebook login is offered"
+   "check": "auto:Sign in with Apple offered when Google/Facebook login is offered",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -391,7 +439,8 @@
    "title": "Streaming games",
    "rule": "n/a",
    "applies": "none",
-   "check": "n/a"
+   "check": "n/a",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -399,7 +448,8 @@
    "title": "Privacy policy",
    "rule": "Policy linked in App Store Connect and inside the app; says what is collected, how, and deletion.",
    "applies": "all",
-   "check": "auto:policy page live + in-app privacy link (grep)"
+   "check": "auto:policy page live + in-app privacy link (grep)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -407,7 +457,8 @@
    "title": "Permission",
    "rule": "Get consent before collecting data; purpose strings explain why.",
    "applies": "all",
-   "check": "auto:privacy_scan (ITMS-90683) + human: purpose-string wording"
+   "check": "auto:privacy_scan (ITMS-90683) + human: purpose-string wording",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -415,7 +466,8 @@
    "title": "Data minimization",
    "rule": "Request only data relevant to the core function.",
    "applies": "all",
-   "check": "auto:permissions requested vs used (privacy-engineer)"
+   "check": "auto:permissions requested vs used (privacy-engineer)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -423,7 +475,8 @@
    "title": "Access",
    "rule": "Respect permission denial; don't force consent; offer alternatives.",
    "applies": "all",
-   "check": "human: app still works after denying each permission"
+   "check": "human: app still works after denying each permission",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -431,7 +484,8 @@
    "title": "Account sign-in & deletion",
    "rule": "Don't require login unless needed; if accounts are created, in-app deletion.",
    "applies": "accounts",
-   "check": "auto:apple_requirements:account-deletion-5.1.1v"
+   "check": "auto:apple_requirements:account-deletion-5.1.1v",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -439,7 +493,8 @@
    "title": "Regulated fields",
    "rule": "Banking, health, crypto, legal, gov apps must come from the qualified entity.",
    "applies": "finance|health|crypto",
-   "check": "human: app is a tool, not a regulated service (or entity qualifies)"
+   "check": "human: app is a tool, not a regulated service (or entity qualifies)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -447,7 +502,8 @@
    "title": "Data use and sharing",
    "rule": "ATT required before tracking; no sharing without consent.",
    "applies": "ads",
-   "check": "auto:apple_requirements:att-2.1 + UMP consent before ads"
+   "check": "auto:apple_requirements:att-2.1 + UMP consent before ads",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -455,7 +511,8 @@
    "title": "Health and health research",
    "rule": "HealthKit/health data not for ads or data mining; accurate; consent.",
    "applies": "health",
-   "check": "human + privacy-engineer"
+   "check": "human + privacy-engineer",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -463,7 +520,8 @@
    "title": "Kids",
    "rule": "COPPA/GDPR-K compliance if kids' data.",
    "applies": "kids",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -471,7 +529,8 @@
    "title": "Location services",
    "rule": "Only when directly relevant; purpose explained; background only if needed.",
    "applies": "location",
-   "check": "auto:location purpose strings + no always-location unless used"
+   "check": "auto:location purpose strings + no always-location unless used",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -479,7 +538,8 @@
    "title": "Intellectual property \u2014 generally",
    "rule": "Only content you own or have licensed (logos, maps, data, music, fonts).",
    "applies": "all",
-   "check": "human: data-source licences and fonts (OFL etc.)"
+   "check": "human: data-source licences and fonts (OFL etc.)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -487,7 +547,8 @@
    "title": "Third-party sites/services",
    "rule": "Permission/terms for using third-party services and data (APIs).",
    "applies": "all",
-   "check": "human: each API's terms allow commercial use (e.g. OpenSky)"
+   "check": "human: each API's terms allow commercial use (e.g. OpenSky)",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -495,7 +556,8 @@
    "title": "Audio/video downloading",
    "rule": "No illegal downloading/streaming of third-party content.",
    "applies": "streaming_media",
-   "check": "human: radio/video sources licensed for the use"
+   "check": "human: radio/video sources licensed for the use",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -503,7 +565,8 @@
    "title": "Apple products",
    "rule": "No Apple trademarks misuse.",
    "applies": "all",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -511,7 +574,8 @@
    "title": "Gaming, gambling, lotteries",
    "rule": "Rules for contests and real-money gambling.",
    "applies": "gambling",
-   "check": "n/a unless present"
+   "check": "n/a unless present",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -519,7 +583,8 @@
    "title": "VPN apps",
    "rule": "VPN only via NEVPNManager by organizations; declare.",
    "applies": "vpn_networkext",
-   "check": "auto:apple_requirements:vpn-notes"
+   "check": "auto:apple_requirements:vpn-notes",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -527,7 +592,8 @@
    "title": "Mobile device management",
    "rule": "n/a",
    "applies": "none",
-   "check": "n/a"
+   "check": "n/a",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -535,7 +601,8 @@
    "title": "Developer Code of Conduct",
    "rule": "Honest, no manipulation, no hidden features, no review manipulation; respond to App Review.",
    "applies": "all",
-   "check": "auto:code-hygiene hidden-feature scan + founder: MA-043 replies"
+   "check": "auto:code-hygiene hidden-feature scan + founder: MA-043 replies",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -543,7 +610,8 @@
    "title": "App Store reviews",
    "rule": "No incentivised or fake reviews; use SKStoreReviewController.",
    "applies": "all",
-   "check": "auto:no custom review prompts/incentives"
+   "check": "auto:no custom review prompts/incentives",
+   "judged_on": "review"
   },
   {
    "store": "apple",
@@ -551,7 +619,8 @@
    "title": "Privacy manifest \u2014 required-reason APIs",
    "rule": "Declare reasons for UserDefaults, file timestamp, boot time, disk space APIs in PrivacyInfo.xcprivacy.",
    "applies": "all",
-   "check": "auto:privacy manifest declares required reasons used by the binary"
+   "check": "auto:privacy manifest declares required reasons used by the binary",
+   "judged_on": "binary"
   },
   {
    "store": "apple",
@@ -559,7 +628,8 @@
    "title": "Third-party SDK privacy manifests",
    "rule": "Listed SDKs ship their own privacy manifests and signatures.",
    "applies": "all",
-   "check": "auto:SDK manifests present in IPA"
+   "check": "auto:SDK manifests present in IPA",
+   "judged_on": "binary"
   },
   {
    "store": "apple",
@@ -567,7 +637,8 @@
    "title": "Purpose strings",
    "rule": "Info.plist purpose string for every API the binary references.",
    "applies": "all",
-   "check": "auto:apple_requirements:purpose-strings-90683"
+   "check": "auto:apple_requirements:purpose-strings-90683",
+   "judged_on": "binary"
   },
   {
    "store": "apple",
@@ -575,7 +646,8 @@
    "title": "Encryption declaration",
    "rule": "ITSAppUsesNonExemptEncryption answered.",
    "applies": "all",
-   "check": "auto:store_checklist:Export compliance answered"
+   "check": "auto:store_checklist:Export compliance answered",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -583,7 +655,8 @@
    "title": "Target API level",
    "rule": "New apps/updates target the current required Android API level.",
    "applies": "all",
-   "check": "auto:targetSdk \u2265 Play's current requirement"
+   "check": "auto:targetSdk \u2265 Play's current requirement",
+   "judged_on": "binary"
   },
   {
    "store": "google",
@@ -591,7 +664,8 @@
    "title": "16 KB page-size support",
    "rule": "Native libraries aligned for 16 KB page sizes (Android 15+ requirement for new apps/updates).",
    "applies": "all",
-   "check": "auto:store_gates align16k"
+   "check": "auto:store_gates align16k",
+   "judged_on": "binary"
   },
   {
    "store": "google",
@@ -599,7 +673,8 @@
    "title": "Android App Bundle + Play App Signing",
    "rule": "Publish as AAB, signed with the upload key.",
    "applies": "all",
-   "check": "auto:store_checklist:Android .aab signed"
+   "check": "auto:store_checklist:Android .aab signed",
+   "judged_on": "binary"
   },
   {
    "store": "google",
@@ -607,7 +682,8 @@
    "title": "Data safety form",
    "rule": "Declare collection/sharing/security accurately for the app and its SDKs.",
    "applies": "all",
-   "check": "auto:privacy-engineer inventory vs docs/console-answers + founder: Console form"
+   "check": "auto:privacy-engineer inventory vs docs/console-answers + founder: Console form",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -615,7 +691,8 @@
    "title": "User Data policy",
    "rule": "Prominent disclosure + consent before collecting personal/sensitive data; privacy policy in Console and in app.",
    "applies": "all",
-   "check": "auto:privacy policy live + in-app link"
+   "check": "auto:privacy policy live + in-app link",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -623,7 +700,8 @@
    "title": "Account deletion requirement",
    "rule": "Apps with account creation offer in-app and web deletion; URL in Data safety.",
    "applies": "accounts",
-   "check": "auto:store_checklist:Account-deletion page + apple 5.1.1(v)"
+   "check": "auto:store_checklist:Account-deletion page + apple 5.1.1(v)",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -631,7 +709,8 @@
    "title": "Permissions and APIs that access sensitive info",
    "rule": "Request only needed permissions; justify sensitive ones.",
    "applies": "all",
-   "check": "auto:AndroidManifest permissions vs code usage"
+   "check": "auto:AndroidManifest permissions vs code usage",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -639,7 +718,8 @@
    "title": "Background location",
    "rule": "Background location only with core feature need, prominent disclosure and Console declaration.",
    "applies": "background_location",
-   "check": "auto:no ACCESS_BACKGROUND_LOCATION unless used + founder: declaration"
+   "check": "auto:no ACCESS_BACKGROUND_LOCATION unless used + founder: declaration",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -647,7 +727,8 @@
    "title": "Photo and video permissions",
    "rule": "READ_MEDIA_IMAGES/VIDEO only for core use; otherwise use the system photo picker.",
    "applies": "photos",
-   "check": "auto:no READ_MEDIA_* unless core + photo picker used"
+   "check": "auto:no READ_MEDIA_* unless core + photo picker used",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -655,7 +736,8 @@
    "title": "Foreground service types",
    "rule": "Declare the type and justify in Console (Android 14+).",
    "applies": "foreground_service",
-   "check": "auto:FGS types declared + founder: Console declaration"
+   "check": "auto:FGS types declared + founder: Console declaration",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -663,7 +745,8 @@
    "title": "SCHEDULE_EXACT_ALARM / USE_EXACT_ALARM",
    "rule": "Only for alarm/calendar core functionality.",
    "applies": "exact_alarms",
-   "check": "auto:permission present only if needed"
+   "check": "auto:permission present only if needed",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -671,7 +754,8 @@
    "title": "SMS and Call Log permissions",
    "rule": "Restricted to default handlers or approved exceptions.",
    "applies": "sms_call_log",
-   "check": "auto:not requested"
+   "check": "auto:not requested",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -679,7 +763,8 @@
    "title": "MANAGE_EXTERNAL_STORAGE",
    "rule": "Only for file managers/backup etc. with declaration.",
    "applies": "all",
-   "check": "auto:not requested"
+   "check": "auto:not requested",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -687,7 +772,8 @@
    "title": "QUERY_ALL_PACKAGES",
    "rule": "Only with approved use; use <queries> instead.",
    "applies": "all",
-   "check": "auto:not requested"
+   "check": "auto:not requested",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -695,7 +781,8 @@
    "title": "AccessibilityService API",
    "rule": "Only for accessibility purposes, with disclosure and declaration.",
    "applies": "all",
-   "check": "auto:not used"
+   "check": "auto:not used",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -703,7 +790,8 @@
    "title": "REQUEST_INSTALL_PACKAGES",
    "rule": "Only for core app-install functionality.",
    "applies": "all",
-   "check": "auto:not requested"
+   "check": "auto:not requested",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -711,7 +799,8 @@
    "title": "Health apps",
    "rule": "Health Connect access declared; health apps declaration form.",
    "applies": "health",
-   "check": "founder: Health apps declaration in Console + privacy-engineer"
+   "check": "founder: Health apps declaration in Console + privacy-engineer",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -719,7 +808,8 @@
    "title": "Financial services declaration",
    "rule": "Declare financial features; loan apps have extra rules.",
    "applies": "finance",
-   "check": "founder: Console declaration (tools/calculators answer 'no financial service')"
+   "check": "founder: Console declaration (tools/calculators answer 'no financial service')",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -727,7 +817,8 @@
    "title": "Ads policy",
    "rule": "No deceptive/disruptive ads; interstitials not unexpected; no ads on lock screen; families-safe if targeting kids.",
    "applies": "ads",
-   "check": "auto:AdMob ad placement review + human: interstitial frequency"
+   "check": "auto:AdMob ad placement review + human: interstitial frequency",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -735,7 +826,8 @@
    "title": "Advertising ID declaration",
    "rule": "Declare AD_ID permission use in Console.",
    "applies": "ads",
-   "check": "founder: Console Advertising ID declaration (answers in console-answers)"
+   "check": "founder: Console Advertising ID declaration (answers in console-answers)",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -743,7 +835,8 @@
    "title": "Families policy / target audience",
    "rule": "Target audience declared; if children are included, Families requirements and certified ad SDKs.",
    "applies": "all",
-   "check": "founder: Target audience form + auto:ads SDK config"
+   "check": "founder: Target audience form + auto:ads SDK config",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -751,7 +844,8 @@
    "title": "IARC questionnaire",
    "rule": "Complete the content rating questionnaire.",
    "applies": "all",
-   "check": "founder: Console IARC (store_checklist: Play IARC questionnaire)"
+   "check": "founder: Console IARC (store_checklist: Play IARC questionnaire)",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -759,7 +853,8 @@
    "title": "Store listing and promotion",
    "rule": "No misleading metadata, keyword stuffing, unattributed testimonials, or performance claims; icon/screenshots accurate.",
    "applies": "all",
-   "check": "auto:store_checklist listing limits + aso review"
+   "check": "auto:store_checklist listing limits + aso review",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -767,7 +862,8 @@
    "title": "Impersonation and IP",
    "rule": "No imitation of other apps/brands; licensed content only.",
    "applies": "all",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -775,7 +871,8 @@
    "title": "Spam and minimum functionality",
    "rule": "No repetitive content, duplicate apps, webview-only wrappers.",
    "applies": "all",
-   "check": "auto:Real Apps QA + overlap (#25)"
+   "check": "auto:Real Apps QA + overlap (#25)",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -783,7 +880,8 @@
    "title": "Deceptive behavior",
    "rule": "App does what the listing says; no hidden features or false claims.",
    "applies": "all",
-   "check": "auto:no fake data + code-hygiene"
+   "check": "auto:no fake data + code-hygiene",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -791,7 +889,8 @@
    "title": "Mobile unwanted software",
    "rule": "No undisclosed data collection, no hiding icons, no unexpected behaviour.",
    "applies": "all",
-   "check": "auto:appsec"
+   "check": "auto:appsec",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -799,7 +898,8 @@
    "title": "User-generated content",
    "rule": "Moderation, reporting, blocking, terms for UGC apps.",
    "applies": "ugc",
-   "check": "auto:apple_requirements:ugc-1.2"
+   "check": "auto:apple_requirements:ugc-1.2",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -807,7 +907,8 @@
    "title": "AI-generated content",
    "rule": "Generative AI apps prevent offensive output and let users report it.",
    "applies": "ai_generated",
-   "check": "human + auto:report control present"
+   "check": "human + auto:report control present",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -815,7 +916,8 @@
    "title": "Payments policy",
    "rule": "Digital goods via Google Play Billing; physical goods may use other methods.",
    "applies": "iap",
-   "check": "auto:billing library for digital goods"
+   "check": "auto:billing library for digital goods",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -823,7 +925,8 @@
    "title": "Subscriptions policy",
    "rule": "Clear offer terms; easy cancellation; no misleading trials.",
    "applies": "subscriptions",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -831,7 +934,8 @@
    "title": "Real-money gambling",
    "rule": "Restricted.",
    "applies": "gambling",
-   "check": "n/a unless present"
+   "check": "n/a unless present",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -839,7 +943,8 @@
    "title": "Health content",
    "rule": "No medical misinformation; disclaimers.",
    "applies": "health",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -847,7 +952,8 @@
    "title": "News apps",
    "rule": "News apps must provide sources and contact info; Google News policies.",
    "applies": "news",
-   "check": "human: sources attributed, publisher contact"
+   "check": "human: sources attributed, publisher contact",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -855,7 +961,8 @@
    "title": "Dating apps",
    "rule": "Age gate 18+, safety features, UGC rules.",
    "applies": "dating",
-   "check": "human + auto:age gate present"
+   "check": "human + auto:age gate present",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -863,7 +970,8 @@
    "title": "Government apps",
    "rule": "Must be official or clearly not affiliated.",
    "applies": "government_topic",
-   "check": "human: Uscis-Case states it is not affiliated with USCIS"
+   "check": "human: Uscis-Case states it is not affiliated with USCIS",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -871,7 +979,8 @@
    "title": "Device and network abuse",
    "rule": "No interfering with other apps/services; respect API terms.",
    "applies": "all",
-   "check": "human: third-party API terms"
+   "check": "human: third-party API terms",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -879,7 +988,8 @@
    "title": "Background work / battery",
    "rule": "Respect background limits.",
    "applies": "all",
-   "check": "human"
+   "check": "human",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -887,7 +997,8 @@
    "title": "App access declaration",
    "rule": "Provide reviewer access instructions for gated features.",
    "applies": "accounts",
-   "check": "founder: Console App access (answers in console-answers)"
+   "check": "founder: Console App access (answers in console-answers)",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -895,7 +1006,8 @@
    "title": "Developer contact info",
    "rule": "Valid email, website, privacy policy URL in Console.",
    "applies": "all",
-   "check": "auto:play_gap_audit contact details"
+   "check": "auto:play_gap_audit contact details",
+   "judged_on": "review"
   },
   {
    "store": "google",
@@ -903,7 +1015,8 @@
    "title": "Pre-launch report",
    "rule": "Fix crashes/ANRs/security warnings in the pre-launch report.",
    "applies": "all",
-   "check": "human: read pre-launch report after internal upload"
+   "check": "human: read pre-launch report after internal upload",
+   "judged_on": "review"
   }
  ]
 }

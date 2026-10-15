@@ -24,6 +24,7 @@ from unittest import mock
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent.parent))
 import predelivery as P  # noqa: E402
+import store_policy_audit  # noqa: E402
 
 REPO = "TestApp"
 BUILD = "202610151200"
@@ -47,6 +48,18 @@ class Sandbox(unittest.TestCase):
             {"repo": REPO, "dir": "mobile", "bundle_id": "com.example.testapp"},
             {"repo": "Other", "dir": ".", "bundle_id": "com.example.other"}]}))
         (self.m / "docs/asc-build-state.json").write_text("[]")
+        (self.m / "store/policy").mkdir(parents=True)
+        (self.m / "store/policy/catalogue.json").write_text(json.dumps({"rules": [
+            {"store": "apple", "ref": "ITMS-90683", "judged_on": "binary"},
+            {"store": "apple", "ref": "4.3(a)", "judged_on": "review"},
+            {"store": "apple", "ref": "Export compliance", "judged_on": "review"},
+            {"store": "google", "ref": "Target API", "judged_on": "binary"},
+            {"store": "apple", "ref": "2.5.99"}]}))
+        # The store-policy audit, as gate_for_submission and check 2.8 see it.
+        self.pol = {"rules": [], "summary": {}, "generated_at": "test"}
+        p = mock.patch.object(store_policy_audit, "audit_for_gate", lambda a: self.pol)
+        p.start()
+        self.addCleanup(p.stop)
         sign = self.m / "store/predelivery"
         patches = {
             "M": self.m, "ROOT": self.root, "DIST": self.dist, "OUT_DIR": self.m / "docs/predelivery",
@@ -125,6 +138,10 @@ class Sandbox(unittest.TestCase):
         with mock.patch.object(P, "last_lib_commit", lambda a, fetch=True: P.__dict__["_real_llc"](a, fetch=False)):
             return P.gate_for_submission(REPO, BUILD, uploaded, now=ts(now), asc_submissions=asc)
 
+    def fail(self, *rules):
+        self.pol = {"rules": [{"store": st, "ref": ref, "state": "FAIL"} for st, ref in rules],
+                    "summary": {}, "generated_at": "test"}
+
     def log(self, *entries):
         P.SUBMISSION_LOG.write_text("".join(json.dumps(e) + "\n" for e in entries))
 
@@ -162,6 +179,97 @@ class StageATest(Sandbox):
         ipa = self.ipa()
         self.assertIsNone(P.write_stage_a_record(self.result(ipa, self.rows(overrides={"3.3": P.FAIL}))))
         self.assertFalse(P.STAGE_A_DIR.exists())
+
+
+class PolicySplitTest(Sandbox):
+    """Decision log 2026-10-15 (c579677): 2.8 blocks Stage A only on binary rules."""
+
+    def test_apple_binary_fails_block_stage_a_and_review_fails_wait_for_stage_b(self):
+        self.fail(("apple", "ITMS-90683"), ("apple", "4.3(a)"), ("apple", "Export compliance"))
+        self.assertEqual(P.policy_fails(self.pol), (["apple ITMS-90683"], ["apple 4.3(a)", "apple Export compliance"]))
+
+    def test_google_binary_rules_do_not_block_the_ios_gate(self):
+        self.fail(("google", "Target API"))
+        self.assertEqual(P.policy_fails(self.pol), ([], ["google Target API"]))
+
+    def test_unclassified_or_unknown_rules_count_as_review(self):
+        self.fail(("apple", "2.5.99"), ("apple", "not-in-catalogue"))
+        self.assertEqual(P.policy_fails(self.pol)[0], [])
+
+    def test_non_fail_states_are_ignored(self):
+        self.pol = {"rules": [{"store": "apple", "ref": "ITMS-90683", "state": s} for s in ("PASS", "HUMAN", "n-a")]}
+        self.assertEqual(P.policy_fails(self.pol), ([], []))
+
+
+class CatalogueClassificationTest(unittest.TestCase):
+    """The real store/policy/catalogue.json."""
+
+    @classmethod
+    def setUpClass(cls):
+        cat = json.loads((pathlib.Path(__file__).resolve().parents[2] / "store/policy/catalogue.json").read_text())
+        cls.rules = {(r["store"], r["ref"]): r for r in cat["rules"]}
+
+    def test_every_rule_is_classified(self):
+        self.assertTrue(all(r.get("judged_on") in ("binary", "review") for r in self.rules.values()))
+
+    def test_review_and_listing_rules_named_in_the_decision_are_stage_b(self):
+        for ref in ("4.3(a)", "4.2.6", "2.3.6", "Export compliance", "2.3.3", "5.1.1(i)", "4.2", "2.2", "2.3.10"):
+            self.assertEqual(self.rules[("apple", ref)]["judged_on"], "review", ref)
+
+    def test_upload_scan_rules_are_binary(self):
+        for ref in ("ITMS-90683", "ITMS-91053", "ITMS-91061", "2.5.1", "2.5.15", "2.5.6"):
+            self.assertEqual(self.rules[("apple", ref)]["judged_on"], "binary", ref)
+
+    def test_the_binary_set_is_small_and_explicit(self):
+        self.assertEqual(sorted(r for (st, r), x in self.rules.items() if st == "apple" and x["judged_on"] == "binary"),
+                         sorted(["2.5.1", "2.5.6", "2.5.15", "ITMS-90683", "ITMS-91053", "ITMS-91061"]))
+
+
+class FalsePositiveTest(unittest.TestCase):
+    def test_todo_as_a_word_is_not_placeholder_content(self):
+        for line in ("  todo('todo', 'To do'),", "    return IncidentStatus.todo;", "      final todo =",
+                     "  'st.deleteEverything': 'Borrar todo de este teléfono',", "    all: 'Todo',",
+                     "  enum MarkType { keyPoint, question, todo, note }"):
+            self.assertIsNone(P.PLACEHOLDER.search(line), line)
+
+    def test_real_placeholders_are_still_caught(self):
+        for line in ("Text('TODO')", "Text('Coming soon')", "body: 'Lorem ipsum dolor'",
+                     "debugShowCheckedModeBanner: true", "GoRoute(path: '/debug-menu')"):
+            self.assertIsNotNone(P.PLACEHOLDER.search(line), line)
+
+    def test_mdns_hint_text_is_not_a_dev_endpoint(self):
+        self.assertFalse(P.dev_endpoint_hit("                hintText: 'http://homeassistant.local:8123/api/webhook/…',"))
+
+    def test_dev_endpoints_are_still_caught(self):
+        for line in ("const base = 'http://localhost:8080';", "hintText: 'http://localhost:3000'",
+                     "final url = 'http://printer.local/api';", "url: 'https://abc.ngrok.io'",
+                     "const emu = 'http://10.0.2.2:5000';"):
+            self.assertTrue(P.dev_endpoint_hit(line), line)
+
+
+class CredentialReadsTest(unittest.TestCase):
+    """4.4 reads the current source (api_vendor_audit.credential_reads), not a committed snapshot."""
+
+    def test_empty_and_defaulted_credentials(self):
+        import api_vendor_audit
+        with tempfile.TemporaryDirectory() as t:
+            repo = pathlib.Path(t)
+            (repo / "lib").mkdir()
+            (repo / "lib/config.dart").write_text(
+                "const a = String.fromEnvironment('GOOGLE_IOS_CLIENT_ID', defaultValue: '');\n"
+                "const b = String.fromEnvironment(\n  'GOOGLE_SERVER_CLIENT_ID',\n  defaultValue: 'x.apps.googleusercontent.com');\n"
+                "const c = String.fromEnvironment('SUPABASE_URL');\n"
+                "const d = bool.fromEnvironment('SCREENSHOT');\n")
+            keys = api_vendor_audit.credential_reads(repo / "lib", repo)
+        self.assertEqual(sorted(keys), ["GOOGLE_IOS_CLIENT_ID", "GOOGLE_SERVER_CLIENT_ID"])
+        self.assertIsNone(keys["GOOGLE_IOS_CLIENT_ID"]["default"])
+        self.assertEqual(keys["GOOGLE_IOS_CLIENT_ID"]["sites"], ["lib/config.dart:1"])
+        self.assertTrue(keys["GOOGLE_SERVER_CLIENT_ID"]["default"])
+
+    def test_removed_code_reads_nothing(self):
+        import api_vendor_audit
+        with tempfile.TemporaryDirectory() as t:
+            self.assertEqual(api_vendor_audit.credential_reads(pathlib.Path(t) / "lib", pathlib.Path(t)), {})
 
 
 class UploadGateTest(Sandbox):
@@ -336,6 +444,26 @@ class SubmissionGateTest(Sandbox):
         self.assertIn("3 other app(s)", self.gate())
         self.assertTrue(P.SUBMISSION_LOG.exists())
         self.assertEqual(len(P.SUBMISSION_LOG.read_text().splitlines()), 3)
+
+    def test_refuses_while_an_app_review_rule_fails(self):
+        self.ready()
+        self.fail(("apple", "4.3(a)"), ("apple", "Export compliance"))
+        why = self.gate()
+        self.assertIn("2 App Review/listing store-policy rule(s) fail: apple 4.3(a), apple Export compliance", why)
+
+    def test_binary_rules_in_the_current_audit_are_left_to_stage_a(self):
+        # The laptop's staged IPA may be another build; Stage A proved this one.
+        self.ready()
+        self.fail(("apple", "ITMS-90683"))
+        self.assertIsNone(self.gate())
+
+    def test_refuses_when_the_policy_audit_cannot_run(self):
+        self.ready()
+
+        def boom(a):
+            raise RuntimeError("no checkout")
+        with mock.patch.object(store_policy_audit, "audit_for_gate", boom):
+            self.assertIn("store policy audit could not run", self.gate())
 
     def test_record_submission_appends(self):
         self.log()

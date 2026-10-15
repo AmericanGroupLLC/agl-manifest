@@ -227,14 +227,32 @@ class Ctx:
         return sh(["codesign", "-d", "--entitlements", ":-", str(self.app_dir)])[1]
 
 
+# 1.7. TODO is matched case-sensitively: comment lines never reach the check
+# (code_lines drops them), so a hit is a string or identifier. In run
+# 38785102658 every case-insensitive hit was an ordinary word: MarkType.todo,
+# IncidentStatus.todo, `final todo =`, Spanish 'Borrar todo' / 'Todo'.
+PLACEHOLDER = re.compile(r"(?i:lorem ipsum|coming soon|placeholder text|debugShowCheckedModeBanner:\s*true|"
+                         r"'/(debug|test|dev)[-_a-z]*')|\bTODO\b")
+# 4.5.
+DEV_ENDPOINT = re.compile(r"localhost|127\.0\.0\.1|10\.0\.2\.2|0\.0\.0\.0:|\.ngrok|\.local[:/]")
+HINT_FIELD = re.compile(r"\b(hintText|helperText|labelText|hint|placeholder)\s*:")
+
+
+def dev_endpoint_hit(line: str) -> bool:
+    """A developer endpoint on this source line. A `.local` (mDNS) host in a
+    field's hint text is an example of the user's own device, not a developer
+    endpoint (PlantPulse's Home Assistant form: 'http://homeassistant.local:8123/
+    api/webhook/…'); localhost, 127.0.0.1, 10.0.2.2, 0.0.0.0 and ngrok count anywhere."""
+    found = {m.group(0) for m in DEV_ENDPOINT.finditer(line)}
+    return bool(found) and not (all(x.startswith(".local") for x in found) and HINT_FIELD.search(line))
+
+
 def run_auto(c: Ctx) -> dict:
     r: dict[str, tuple[str, str]] = {}
     no_ipa = (FAIL, f"no IPA at {c.ipa} — run `python3 scripts/build_ipa.py {c.repo}`")
 
     # 1.7 placeholder / debug / test-only content
-    pat = re.compile(r"lorem ipsum|coming soon|\bTODO\b|placeholder text|debugShowCheckedModeBanner:\s*true|"
-                     r"'/(debug|test|dev)[-_a-z]*'", re.I)
-    hits = [f"{f.relative_to(c.repo_dir)}:{i}" for f, i, l in code_lines(c.lib) if pat.search(l)]
+    hits = [f"{f.relative_to(c.repo_dir)}:{i}" for f, i, l in code_lines(c.lib) if PLACEHOLDER.search(l)]
     gated = [h for h in hits if "kDebugMode" in h]
     r["1.7"] = (FAIL, f"{len(hits)} line(s): " + ", ".join(hits[:6])) if hits else \
         (PASS, "no lorem/coming-soon/TODO/debug-banner/debug routes in lib/")
@@ -331,16 +349,21 @@ def run_auto(c: Ctx) -> dict:
     # 2.8 every applicable Apple/Google rule in store/policy/catalogue.json —
     # docs/store-policy/<App>.json, re-run here when stale. HUMAN and FOUNDER
     # rules are listed in that report; only a FAIL blocks this check.
+    # Stage A (decision log 2026-10-15, c579677): only rules judged on the
+    # binary itself block (catalogue `judged_on: binary`, apple — this is the
+    # iOS TestFlight gate). App Review / listing rules are listed here and
+    # block at Stage B (gate_for_submission -> policy_fails).
     try:
         from store_policy_audit import audit_for_gate
         pol = audit_for_gate(c.a)
-        bad = [f"{x['store']} {x['ref']}" for x in pol["rules"] if x["state"] == "FAIL"]
         sm = pol["summary"]
+        binary, review = policy_fails(pol)
         tail = (f" — docs/store-policy/{c.repo}.md (audited {pol['generated_at']}"
                 + (f", re-run: {pol['rerun_reason']}" if pol.get("rerun_reason") else "") + ")")
-        r["2.8"] = (FAIL, f"{len(bad)} applicable rule(s) fail: " + ", ".join(bad) + tail) if bad else \
-            (PASS, f"no applicable rule fails ({sm.get('PASS', 0)} pass, {sm.get('HUMAN', 0)} for a person, "
-                   f"{sm.get('FOUNDER', 0)} founder)" + tail)
+        later = (f"; {len(review)} App Review/listing rule(s) fail and block Stage B: " + ", ".join(review)) if review else ""
+        r["2.8"] = (FAIL, f"{len(binary)} binary rule(s) fail: " + ", ".join(binary) + later + tail) if binary else \
+            (PASS, f"no binary rule fails ({sm.get('PASS', 0)} pass, {sm.get('HUMAN', 0)} for a person, "
+                   f"{sm.get('FOUNDER', 0)} founder overall)" + later + tail)
     except Exception as e:  # a broken check must show, not pass
         r["2.8"] = (FAIL, f"store policy audit errored: {type(e).__name__}: {e}")
 
@@ -483,23 +506,42 @@ def run_auto(c: Ctx) -> dict:
     r["4.1"] = (FAIL, "dead hosts: " + ", ".join(dead)) if dead else \
         (PASS, f"every host the code calls resolves{' (' + str(len(unv)) + ' unverified)' if unv else ''} — docs/api-hosts.json")
 
-    # 4.4 credentials the code reads that are empty in a release build
-    keys_json = json.loads((M / "docs/api-vendor-keys.json").read_text())["apps"].get(c.repo, {})
+    # 4.4 credentials the code reads that are empty in a release build —
+    # measured on the current source with api_vendor_audit's own patterns.
+    # It read the committed docs/api-vendor-keys.json, last regenerated
+    # 2026-10-13, so run 38785102658 failed 6 apps on GOOGLE_IOS_CLIENT_ID
+    # reads the Real Apps rebuilds had already removed.
+    from api_vendor_audit import credential_reads
+    keys_now = credential_reads(c.lib, c.repo_dir)
     optional = ("SENTRY", "POSTHOG")
-    empty = [k for k, v in keys_json.items() if not v.get("default") and not k.startswith(optional)]
+    empty = [f"{k} ({v['sites'][0]})" for k, v in keys_now.items() if not v.get("default") and not k.startswith(optional)]
     r["4.4"] = (FAIL, "empty in this build: " + ", ".join(empty) +
                 " — wire it, or remove the feature that needs it") if empty else \
-        (PASS, "every credential the code reads has a value in the release build")
+        (PASS, f"every credential the code reads ({len(keys_now)}) has a value in the release build")
 
     # 4.5 localhost / developer endpoints, in source and in the shipped binary
-    dev_pat = re.compile(r"localhost|127\.0\.0\.1|10\.0\.2\.2|0\.0\.0\.0:|\.ngrok|\.local[:/]")
-    src = [f"{f.relative_to(c.repo_dir)}:{i}" for f, i, l in code_lines(c.lib) if dev_pat.search(l)]
+    src = [f"{f.relative_to(c.repo_dir)}:{i}" for f, i, l in code_lines(c.lib) if dev_endpoint_hit(l)]
     app_bin = c.app_dir / "Frameworks/App.framework/App"
     in_bin = sorted({m.group(0).decode() for m in re.finditer(rb"https?://(localhost|127\.0\.0\.1|10\.0\.2\.2)[:/\w.-]*",
                                                               app_bin.read_bytes())}) if app_bin.exists() else []
     r["4.5"] = (FAIL, "source: " + ", ".join(src[:5]) + (f"; binary: {in_bin[:3]}" if in_bin else "")) \
         if (src or in_bin) else (PASS, "no localhost/emulator/dev endpoints in lib/ or the App binary")
     return r
+
+
+def policy_fails(pol: dict) -> tuple[list[str], list[str]]:
+    """FAILing rules of a store-policy audit, split by store/policy/catalogue.json
+    `judged_on`: (apple binary rules — block Stage A, every other rule — block
+    Stage B). A rule missing from the catalogue or without a class counts as review."""
+    cat = {(x["store"], x["ref"]): x.get("judged_on", "review")
+           for x in json.loads((M / "store/policy/catalogue.json").read_text())["rules"]}
+    binary, review = [], []
+    for x in pol["rules"]:
+        if x["state"] != "FAIL":
+            continue
+        name = f"{x['store']} {x['ref']}"
+        (binary if x["store"] == "apple" and cat.get((x["store"], x["ref"])) == "binary" else review).append(name)
+    return binary, review
 
 
 def preconditions(c: Ctx, auto: dict) -> dict:
@@ -935,6 +977,18 @@ def gate_for_submission(repo: str, build_number: str, uploaded_at: str | None = 
                                for c in commits):
             why.append(f"build {build} was checked at commit {', '.join(commits)}, which does not contain the last "
                        f"lib/ commit {lib[0][:9]} — build a new one from current main")
+
+    # Every store-policy rule blocks submission; the binary ones were already
+    # proven on this build's IPA by Stage A, so only the rest are read here,
+    # from the current audit (re-run when stale).
+    try:
+        from store_policy_audit import audit_for_gate
+        _binary, review = policy_fails(audit_for_gate(a))
+        if review:
+            why.append(f"{len(review)} App Review/listing store-policy rule(s) fail: {', '.join(review)} "
+                       f"(docs/store-policy/{repo}.md)")
+    except Exception as e:  # fail closed
+        why.append(f"store policy audit could not run: {type(e).__name__}: {e}")
 
     # Hold rule 3: at most 3 apps a week, never dozens at once.
     subs = submissions(now - datetime.timedelta(days=7), asc_submissions)

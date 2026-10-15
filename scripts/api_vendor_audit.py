@@ -90,25 +90,33 @@ NOT_VENDOR = re.compile(r"^(ADMOB_|SUPABASE_|FLAVOR$|APP_ENV$|BACKEND|SCREENSHOT
                         r"API_BASE_URL$|API_URL$|USE_|ENABLE_|DEBUG|IAP_)")
 
 
+def credential_reads(lib: pathlib.Path, repo_dir: pathlib.Path) -> dict[str, dict]:
+    """Every vendor credential the Dart code under `lib` reads with fromEnvironment:
+    {KEY: {"default": <value or None>, "sites": ["path:line", ...]}}. Also used by
+    predelivery.py check 4.4 on the current source, so it never judges stale data."""
+    keys: dict[str, dict] = {}
+    for f in sorted(lib.rglob("*.dart")) if lib.is_dir() else []:
+        text = f.read_text(errors="ignore")
+        for m in DEFINE.finditer(text):
+            k = m.group(1)
+            if NOT_VENDOR.search(k) or not CREDENTIAL.search(k):
+                continue
+            default = m.group(2) if m.group(2) is not None else (m.group(3) or "").strip()
+            rec = keys.setdefault(k, {"default": None, "sites": []})
+            if default and default not in ("''", '""'):
+                rec["default"] = default
+            line = text[:m.start()].count("\n") + 1
+            rec["sites"].append(f"{f.relative_to(repo_dir)}:{line}")
+    return keys
+
+
 def main() -> int:
     apps = json.loads((M / "apps.json").read_text())["apps"]
     passed = set()  # nothing beyond ADMOB_* reaches a release build today
     report = {}
     for a in apps:
         lib = ROOT / a["repo"] / (a.get("dir") or ".") / "lib"
-        keys: dict[str, dict] = {}
-        for f in sorted(lib.rglob("*.dart")):
-            text = f.read_text(errors="ignore")
-            for m in DEFINE.finditer(text):
-                k = m.group(1)
-                if NOT_VENDOR.search(k) or not CREDENTIAL.search(k):
-                    continue
-                default = m.group(2) if m.group(2) is not None else (m.group(3) or "").strip()
-                rec = keys.setdefault(k, {"default": None, "sites": []})
-                if default and default not in ("''", '""'):
-                    rec["default"] = default
-                line = text[:m.start()].count("\n") + 1
-                rec["sites"].append(f"{f.relative_to(ROOT / a['repo'])}:{line}")
+        keys = credential_reads(lib, ROOT / a["repo"])
         for k, rec in keys.items():
             rec["passed_by_release_build"] = k in passed
             rec["effective_in_release"] = ("default" if rec["default"] else "EMPTY")
