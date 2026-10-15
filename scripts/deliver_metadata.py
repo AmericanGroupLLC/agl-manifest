@@ -46,6 +46,20 @@ for a in sel:
     repo = a["repo"]; d = ROOT / repo / (a["dir"] if a["dir"] != "." else "")
     ver = a["version"].split("+")[0]
     rating = M / "store/ratings" / (f"{repo}.json" if (M / "store/ratings" / f"{repo}.json").exists() else "default.json")
+    # "advertising" must say whether the app shows ads, not what a shared
+    # default file says: 12 apps that show AdMob banners (DriftDate among them)
+    # told Apple "advertising": false (store/ratings/default.json). It is
+    # measured from the code: an app that initialises the Mobile Ads SDK
+    # (AglAds or MobileAds) shows ads.
+    _rc = json.loads(rating.read_text())
+    _shows_ads = any(re.search(r"AglAds\.(configure|initialize)|MobileAds\.instance\.initialize", f.read_text(errors="ignore"))
+                     for f in (d / "lib").rglob("*.dart")) if (d / "lib").exists() else False
+    if _rc.get("advertising") != _shows_ads:
+        _rc["advertising"] = _shows_ads
+        _tmp = ROOT / ".dist" / "ratings"
+        _tmp.mkdir(parents=True, exist_ok=True)
+        rating = _tmp / f"{repo}.json"
+        rating.write_text(json.dumps(_rc, indent=2) + "\n")
     shots = d / "fastlane/screenshots"
     use_shots = with_shots and any(shots.glob("en-US/*.png"))
     # Never upload a set App Review would reject under 2.3.3. The same audit
