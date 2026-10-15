@@ -13,3 +13,4 @@ full index. These runbooks group them by job, with how to verify each.
 | [monetization.md](monetization.md) | monetization |
 | [automation.md](automation.md) | operations-manager |
 | [security.md](security.md) | security-reviewer |
+| [driftdate-moderation.md](driftdate-moderation.md) | the named safety moderator (founder to assign, F5); trust-and-safety prepares |
