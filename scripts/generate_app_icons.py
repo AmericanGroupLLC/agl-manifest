@@ -83,7 +83,9 @@ DESIGN: dict[str, tuple[str, str, str]] = {
     # MyFinance/tool/draw_icon.py, and a run of this script must not replace it.
     "NearServe":       ("handyman",           "#E65100", "#FFA726"),
     "PlantPulse":      ("local_florist",      "#1B5E20", "#7CB342"),
-    "portfolio-board": ("dashboard",          "#37474F", "#78909C"),
+    # portfolio-board is not listed: its index-card icon is rendered from
+    # portfolio-board/mobile/tool/brand/*.svg by portfolio-board/mobile/tool/render_icons.sh,
+    # and a run of this script must not replace it.
     "RideZap":         ("electric_bolt",      "#F57F17", "#FFCA28"),
     "RoomCraft":       ("weekend",            "#4E342E", "#A1887F"),
     # WiFiTrail is not listed: its dashed-trail-and-signal-dot icon is drawn by
