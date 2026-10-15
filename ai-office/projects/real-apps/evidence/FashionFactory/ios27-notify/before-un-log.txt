@@ -1,0 +1,5 @@
+2026-10-15 11:21:02.163 Df Runner[11029:fee732] [com.apple.UserNotifications:Connections] [com.americangroupllc.fashionfactory] Creating a user notification center
+2026-10-15 11:21:04.515 Df Runner[11029:fee732] [com.apple.UserNotifications:Connections] [com.americangroupllc.fashionfactory] Getting notification settings (async)
+2026-10-15 11:24:50.465 Df Runner[59043:1002121] [com.apple.UserNotifications:Connections] [com.americangroupllc.fashionfactory] Creating a user notification center
+2026-10-15 11:24:51.742 Df Runner[59043:1002121] [com.apple.UserNotifications:Connections] [com.americangroupllc.fashionfactory] Getting notification settings (async)
+2026-10-15 11:27:15.491 Df Runner[59043:1002121] [com.apple.UserNotifications:Connections] [com.americangroupllc.fashionfactory] Removing 1 pending notification requests with identifiers (

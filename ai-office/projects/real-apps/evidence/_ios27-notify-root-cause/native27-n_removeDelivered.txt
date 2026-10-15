@@ -1,0 +1,7 @@
+1792034007.938 didFinishLaunching args=["/Users/spatchava/Library/Developer/CoreSimulator/Devices/5763E3DD-1ABE-4F2B-BA34-F190334938DD/data/Containers/Bundle/Application/657ECA52-15F3-4A76-BC2C-5ED8F6D0676C/Runner.app/Runner", "-steps", "n:
+1792034010.300 DART plugin=22.3.2 steps=[n:removeDelivered]
+1792034010.332 DART STEP n:removeDelivered start
+1792034010.361 NATIVE removeDelivered bg=false start thread=main
+1792034010.382 NATIVE removeDelivered bg=false returned after 21ms
+1792034010.383 DART STEP n:removeDelivered done 75ms -> 21
+1792034010.396 DART ALL DONE

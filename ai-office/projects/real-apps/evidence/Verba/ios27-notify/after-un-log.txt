@@ -1,0 +1,5 @@
+2026-10-15 11:45:17.572 Df Runner[90165:1021648] [com.apple.UserNotifications:Connections] [com.americangroupllc.verba] Creating a user notification center
+2026-10-15 11:45:19.295 Df Runner[90165:1021648] [com.apple.UserNotifications:Connections] [com.americangroupllc.verba] Getting pending notification requests (async)
+2026-10-15 11:45:19.295 Df Runner[90165:1021648] [com.apple.UserNotifications:Connections] [com.americangroupllc.verba] Getting delivered notifications
+2026-10-15 11:45:19.295 Df Runner[90165:1021648] [com.apple.UserNotifications:Connections] [com.americangroupllc.verba] Getting pending notification requests (async)
+2026-10-15 11:45:19.295 Df Runner[90165:1021648] [com.apple.UserNotifications:Connections] [com.americangroupllc.verba] Getting delivered notifications

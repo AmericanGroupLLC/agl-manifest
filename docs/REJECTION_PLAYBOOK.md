@@ -47,6 +47,17 @@ MileMaster: `NSLocationAlwaysAndWhenInUseUsageDescription`, because
 Sweep result the same day: IPAs for MileMaster, AGStudio and AGRecorder, and
 the source of iMaps, Kinnav, WiFiTrail and PilotEnRoute, were short a key.
 
+Added 2026-10-15: **2.1(a) risk — app freezes on iOS 27 at a notification
+cancel** (Verba's launch screen, FashionFactory's first "Save order", iOS 27.0
+simulators; App Review tests on iOS 27.0 devices). flutter_local_notifications'
+`cancel(id)` runs `removePendingNotificationRequests(withIdentifiers:)` on the
+main thread, and on iOS 27.0 that waits for SpringBoard's notification server
+(up 7.5 h after a simulator boot). Apps cancel through `AglNotify`
+(`packages/agl_notify`). Check: predelivery **1.8**
+(`scripts/notify_cancel_check.py`, no plugin cancel outside AglNotify).
+Sweep the same day: 9 apps used the plugin; 8 cancelled directly and were
+fixed, iMaps cancels nothing.
+
 ## Upload warnings not received yet — coverage
 
 Known Apple upload-scan warnings, and whether a check exists. A gap here is

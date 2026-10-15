@@ -1,0 +1,8 @@
+2026-10-15 12:01:58.657 Df Runner[28036:10440d0] [com.apple.UserNotifications:Connections] [com.americangroupllc.kinnav] Creating a user notification center
+2026-10-15 12:04:15.577 Df Runner[28036:10440d0] [com.apple.UserNotifications:Connections] [com.americangroupllc.kinnav] Getting notification settings (async)
+2026-10-15 12:05:59.688 Df Runner[28036:10440d0] [com.apple.UserNotifications:Connections] [com.americangroupllc.kinnav] Getting pending notification requests (async)
+2026-10-15 12:05:59.688 Df Runner[28036:10440d0] [com.apple.UserNotifications:Connections] [com.americangroupllc.kinnav] Getting delivered notifications
+2026-10-15 12:06:02.709 Df Runner[28036:10440d0] [com.apple.UserNotifications:Connections] [com.americangroupllc.kinnav] Adding notification request 07EE-33E4 to destinations: Default, contentDate: (n
+2026-10-15 12:06:48.367 Df Runner[28036:10440d0] [com.apple.UserNotifications:Connections] [com.americangroupllc.kinnav] Getting pending notification requests (async)
+2026-10-15 12:06:48.367 Df Runner[28036:10440d0] [com.apple.UserNotifications:Connections] [com.americangroupllc.kinnav] Getting delivered notifications
+2026-10-15 12:06:51.413 Df Runner[28036:10440d0] [com.apple.UserNotifications:Connections] [com.americangroupllc.kinnav] Getting notification settings (async)

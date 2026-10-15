@@ -1,0 +1,17 @@
+1792033791.999 didFinishLaunching args=["/Users/spatchava/Library/Developer/CoreSimulator/Devices/5763E3DD-1ABE-4F2B-BA34-F190334938DD/data/Containers/Bundle/Application/C5A12DD2-620F-4513-BAE4-36E388B1ABAA/Runner.app/Runner", "-steps", "in
+1792033793.236 DART plugin=22.3.2 steps=[init, auth, cancel, pending, active, cancelAll]
+1792033793.254 DART STEP init start
+1792033793.275 DART STEP init done 29ms -> false
+1792033793.275 DART STEP auth start
+1792033793.277 DART STEP auth done 2ms -> unknown step
+1792033793.278 DART STEP cancel start
+1792033795.527 WATCHDOG main thread stalled 2s
+1792033796.534 WATCHDOG main thread stalled 3s
+1792033797.544 WATCHDOG main thread stalled 4s
+1792033798.558 WATCHDOG main thread stalled 5s
+1792033799.577 WATCHDOG main thread stalled 6s
+1792033800.579 WATCHDOG main thread stalled 7s
+1792033801.609 WATCHDOG main thread stalled 8s
+1792033802.623 WATCHDOG main thread stalled 9s
+1792033803.640 WATCHDOG main thread stalled 10s
+1792033804.665 WATCHDOG main thread stalled 11s

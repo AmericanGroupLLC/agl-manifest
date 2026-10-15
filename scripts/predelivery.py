@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""The iOS pre-delivery checklist: 46 checks, 5 gates, two stages, a release record — per app, per build.
+"""The iOS pre-delivery checklist: 47 checks, 5 gates, two stages, a release record — per app, per build.
 
     python3 scripts/predelivery.py BodyQuest --stage A       # Stage A on ~/agl/.dist/BodyQuest.ipa (the default)
     python3 scripts/predelivery.py BodyQuest --after-upload  # also section 6 (asks App Store Connect)
@@ -11,7 +11,7 @@
 Founder rule (2026-10-12): **no checklist pass, no delivery.** Split into two
 stages by decision #48 (decision log, 2026-10-15):
 
-  Stage A — before TestFlight (internal testers). The 20 `auto` checks in
+  Stage A — before TestFlight (internal testers). The 21 `auto` checks in
             sections 1-5 must be PASS or n/a on the exact IPA (sha256).
             `gate_for_upload()`, called by testflight/transporter_upload.py's
             ipa_blocker() on every upload path (CI's run_batch.py included),
@@ -93,6 +93,7 @@ CHECKS = [  # (id, kind, text)
     ("1.5", "human", "API calls, database operations, and error handling work"),
     ("1.6", "human", "Loading states, empty states, and offline behavior are handled"),
     ("1.7", "auto", "No placeholder content, debug menus, or test-only screens remain"),
+    ("1.8", "auto", "No notification cancel that freezes the main thread on iOS 27 (cancel through agl_notify)"),
     ("2.1", "auto", "Audit location-related dependencies and SDKs"),
     ("2.2", "auto", "NSLocationAlwaysAndWhenInUseUsageDescription only if required, with an accurate purpose string"),
     ("2.3", "auto", "Other required Info.plist purpose strings for APIs actually referenced"),
@@ -143,7 +144,7 @@ GATES = [
     ("Gate 5 — Distribution", "Processed, in the internal group, installable by testers", ["6.2", "6.3", "6.7", "6.8"]),
 ]
 PRE_UPLOAD_SECTIONS = ("1", "2", "3", "4", "5")
-# Stage A (TestFlight internal): the 20 automated checks in sections 1-5.
+# Stage A (TestFlight internal): the 21 automated checks in sections 1-5.
 # Gates 1 and 4 consist only of these, so Stage A meets them by construction.
 STAGE_A_IDS = [cid for cid, kind, _t in CHECKS if kind == "auto" and cid.split(".")[0] in PRE_UPLOAD_SECTIONS]
 # Stage B (App Store review): every human check, signed against the TestFlight
@@ -256,6 +257,10 @@ def run_auto(c: Ctx) -> dict:
     gated = [h for h in hits if "kDebugMode" in h]
     r["1.7"] = (FAIL, f"{len(hits)} line(s): " + ", ".join(hits[:6])) if hits else \
         (PASS, "no lorem/coming-soon/TODO/debug-banner/debug routes in lib/")
+
+    # 1.8 a main-thread notification cancel froze Verba and FashionFactory on iOS 27
+    from notify_cancel_check import scan as notify_cancel_scan
+    r["1.8"] = notify_cancel_scan(c.lib)
 
     # 2.1-2.3 purpose strings, judged on the binary like Apple
     loc_deps = [d for d in ("geolocator", "location", "google_maps_flutter", "flutter_map", "background_location",
@@ -1007,7 +1012,7 @@ def main() -> int:
     ap.add_argument("apps", nargs="*")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--stage", choices=["A", "B"], default="A",
-                    help="A (default): the 20 automated checks on the IPA, before TestFlight. "
+                    help="A (default): the 21 automated checks on the IPA, before TestFlight. "
                          "B: is TestFlight build --build ready for App Review?")
     ap.add_argument("--build", help="TestFlight build number (for --sign, --stage B, --gate-submission)")
     ap.add_argument("--after-upload", action="store_true")
