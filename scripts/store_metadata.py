@@ -163,6 +163,10 @@ def do_generate() -> None:
         source = APPS / f"{a['repo']}.json"
         if not source.exists():
             continue
+        # Locally only the focus app is checked out (one app at a time, 2026-10-16);
+        # the mkdir below would otherwise recreate a stub tree for every archived one.
+        if not (ROOT / a["repo"]).is_dir():
+            continue
         record = json.loads(source.read_text())
         md = app_dir(a) / "fastlane" / "metadata"
         files = 0
