@@ -5598,6 +5598,16 @@
    "detail": ""
   },
   {
+   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
+   "state": "PASS",
+   "detail": "UIApplicationSceneManifest present"
+  },
+  {
+   "check": "Has a launch screen",
+   "state": "PASS",
+   "detail": ""
+  },
+  {
    "check": "Bundle id / applicationId",
    "state": "PASS",
    "detail": "com.americangroupllc.pilotenroute"
@@ -5609,8 +5619,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "FAIL",
-   "detail": "no 1024 icon"
+   "state": "PASS",
+   "detail": "603cd6e478f6"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -5619,38 +5629,38 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "FAIL",
-   "detail": "apple 0, play 0"
+   "state": "PASS",
+   "detail": "apple 14, play 7"
   },
   {
    "check": "App Store name",
    "state": "PASS",
-   "detail": "PilotEnRoute: Pilot Training"
+   "detail": "PilotEnRoute: Pilot Logbook"
   },
   {
    "check": "Play title",
    "state": "PASS",
-   "detail": "PilotEnRoute \u2014 Pilot Training"
+   "detail": "PilotEnRoute - Pilot Logbook"
   },
   {
    "check": "Full description",
    "state": "PASS",
-   "detail": "1742 chars"
+   "detail": "1658 chars"
   },
   {
    "check": "Play short description (<=80)",
    "state": "PASS",
-   "detail": "77 chars"
+   "detail": "79 chars"
   },
   {
    "check": "App Store keywords (<=100)",
    "state": "PASS",
-   "detail": "99 chars"
+   "detail": "95 chars"
   },
   {
    "check": "Promotional text (<=170)",
    "state": "PASS",
-   "detail": "152 chars"
+   "detail": "138 chars"
   },
   {
    "check": "Primary category",
@@ -5664,17 +5674,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "HUMAN",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "4 checked"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "FAIL",
-   "detail": "required by Play"
+   "state": "PASS",
+   "detail": ""
   },
   {
    "check": "iOS privacy manifest",
-   "state": "FAIL",
+   "state": "PASS",
    "detail": ""
   },
   {
@@ -5684,13 +5694,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "FAIL",
-   "detail": "key absent - ASC will ask on every upload"
+   "state": "PASS",
+   "detail": "ITSAppUsesNonExemptEncryption=false"
   },
   {
    "check": "Apple age rating answered",
-   "state": "FAIL",
-   "detail": "not measured yet"
+   "state": "PASS",
+   "detail": "declaration matches the shipped binary"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5704,18 +5714,18 @@
   },
   {
    "check": "Play release",
-   "state": "FAIL",
-   "detail": "no release on any track"
+   "state": "PASS",
+   "detail": "live on the internal testing track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "not measured yet"
+   "detail": "app is still a Draft in Console - MA-022"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "FAIL",
-   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
+   "state": "PASS",
+   "detail": "android=y ios=y ios-bundled=y"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -5729,8 +5739,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "HUMAN",
-   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
+   "state": "PASS",
+   "detail": "capture walked past the sign-in gate"
   },
   {
    "check": "App preview video",
@@ -5739,8 +5749,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "HUMAN",
-   "detail": "ios=? android=?"
+   "state": "PASS",
+   "detail": "ios=running android=running"
   },
   {
    "check": "4.3 differentiation statement",

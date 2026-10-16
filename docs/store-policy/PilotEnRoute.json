@@ -1,36 +1,19 @@
 {
  "app": "PilotEnRoute",
- "generated_at": "2026-10-14T01:51:21",
- "generated_epoch": 1791967881,
- "catalogue_about": "Store policy catalogue. Written from knowledge of the Apple App Review Guidelines and the Google Play Developer Program Policies as of 2026; every entry must be verified against the current official text (web access is off in this session). 'applies' = feature tags detected per app; 'check' = auto:<existing check> | human: | founder: | n/a.",
+ "generated_at": "2026-10-16T12:47:14",
+ "generated_epoch": 1792180034,
+ "catalogue_about": "Store policy catalogue. Written from knowledge of the Apple App Review Guidelines and the Google Play Developer Program Policies as of 2026; every entry must be verified against the current official text (web access is off in this session). 'applies' = feature tags detected per app; 'check' = auto:<existing check> | human: | founder: | n/a. 'judged_on' = binary | review: binary only when the rule is decided by the contents of the uploaded binary itself (Info.plist keys, entitlements, embedded frameworks, privacy manifests, Mach-O symbols; for Google the .aab), i.e. what the store's upload/processing scan judges; review for anything judged on metadata, store records, console answers, runtime behaviour, source-level product behaviour or a reviewer's judgement, and for every borderline rule. predelivery.py check 2.8 blocks Stage A (TestFlight) only on FAILs of apple+binary rules; every rule blocks Stage B (App Review submission).",
  "app_dir": ".",
- "source_commit_time": "2026-10-12T14:53",
- "ipa": "PilotEnRoute.ipa build 202610081927 (2026-10-08T19:31) \u2014 OLDER than the last source commit; binary checks describe that build",
+ "source_commit_time": "2026-10-16T12:44",
+ "ipa": "no staged IPA",
  "target_sdk_required": 36,
  "features": {
-  "accounts": {
-   "count": 6,
-   "evidence": [
-    "lib/screens/account_screen.dart:118 `? await _auth.signInWithApple()`",
-    "lib/screens/login_screen.dart:213 `onPressed: () => _runSocial(_auth.signInWithApple),`",
-    "lib/services/auth_service.dart:305 `final response = await Supabase.instance.client.auth.signUp(`",
-    "lib/services/auth_service.dart:456 `Future<AuthResult> signInWithApple() async {`",
-    "lib/services/auth_service.dart:477 `final res = await Supabase.instance.client.auth.signInWithIdToken(`",
-    "lib/services/auth_service.dart:556 `final res = await Supabase.instance.client.auth.signInWithIdToken(`"
-   ]
-  },
   "ads": {
    "count": 3,
    "evidence": [
     "lib/services/ad_service.dart:153 `return BannerAd(`",
     "lib/services/ad_service.dart:174 `InterstitialAd.load(`",
     "lib/services/ad_service.dart:225 `RewardedAd.load(`"
-   ]
-  },
-  "ai_generated": {
-   "count": 1,
-   "evidence": [
-    "lib/services/ai_service.dart:19 `const String _anthropicEndpoint = 'https://api.anthropic.com/v1/messages';`"
    ]
   },
   "camera": {
@@ -40,74 +23,33 @@
     "lib/screens/documents_screen.dart:670 `title: source == ImageSource.camera ? 'Captured Document' : '',`"
    ]
   },
-  "emergency_safety": {
-   "count": 1,
-   "evidence": [
-    "lib/screens/drone_screen.dart:302 `'use': 'Delivery, emergency services',`"
-   ]
-  },
   "government_topic": {
-   "count": 129,
+   "count": 17,
    "evidence": [
-    "lib/screens/drone_screen.dart:38 `'q': 'Under FAA Part 107, what is the maximum altitude for sUAS operations without a waive`",
-    "lib/screens/drone_screen.dart:70 `'LAANC or FAA authorization',`",
-    "lib/screens/drone_screen.dart:78 `'q': 'How must a drone be registered with the FAA?',`",
-    "lib/screens/drone_screen.dart:86 `'explanation': 'Drones weighing between 0.55 lbs (250g) and 55 lbs must be registered with`",
-    "lib/screens/drone_screen.dart:191 `'FAA Part 107 | sUAS Operations | Safety',`",
-    "lib/screens/drone_screen.dart:205 `'Study FAA Part 107 regulations, airspace rules, weather, '`",
-    "... and 123 more"
-   ]
-  },
-  "news": {
-   "count": 5,
-   "evidence": [
-    "lib/services/news_service.dart:53 `url: 'https://www.avweb.com/feed/',`",
-    "lib/services/news_service.dart:58 `url: 'https://www.aopa.org/news-and-media/all-news/rss',`",
-    "lib/services/news_service.dart:63 `url: 'https://aviationweek.com/awn-rss/feed',`",
-    "lib/services/news_service.dart:68 `url: 'https://www.flyingmag.com/feed/',`",
-    "lib/services/news_service.dart:73 `url: 'https://www.faa.gov/rss/news_update.xml',`"
+    "lib/screens/charts_screen.dart:198 `'approaches, departures, arrivals and minimums \u2014 on the FAA\\'s official '`",
+    "lib/screens/charts_screen.dart:235 `'Official FAA d-TPP charts on faa.gov \u2014 US airports only.',`",
+    "lib/screens/settings_screen.dart:210 `'(aviationweather.gov, NOAA) public data API.'),`",
+    "lib/screens/settings_screen.dart:213 `p('Charts: links to the FAA d-TPP on faa.gov.'),`",
+    "lib/screens/airport_screen.dart:185 `d.source == 'FAA'`",
+    "lib/screens/airport_screen.dart:186 `? 'Source: FAA data via aviationweather.gov'`",
+    "... and 11 more"
    ]
   },
   "photos": {
    "count": 2,
    "evidence": [
     "lib/screens/documents_screen.dart:643 `_addImage(ImageSource.gallery);`",
-    "lib/services/document_service.dart:273 `picked = await _picker.pickImage(`"
+    "lib/services/document_service.dart:280 `picked = await _picker.pickImage(`"
    ]
   },
   "push": {
-   "count": 2,
+   "count": 1,
    "evidence": [
-    "lib/services/notification_service.dart:94 `FlutterLocalNotificationsPlugin();` (local notifications)",
-    "lib/services/alert_service.dart:34 `FlutterLocalNotificationsPlugin();` (local notifications)"
-   ]
-  },
-  "sign_in_third_party": {
-   "count": 4,
-   "evidence": [
-    "lib/services/auth_service.dart:7 `import 'package:google_sign_in/google_sign_in.dart';`",
-    "lib/services/auth_service.dart:539 `final googleSignIn = GoogleSignIn(`",
-    "lib/services/auth_service.dart:557 `provider: OAuthProvider.google,`",
-    "lib/services/auth_service.dart:676 `await GoogleSignIn().signOut();`"
-   ]
-  },
-  "webview": {
-   "count": 6,
-   "evidence": [
-    "lib/screens/regulations_screen.dart:7 `import 'package:webview_flutter/webview_flutter.dart';`",
-    "lib/screens/regulations_screen.dart:542 `_controller = WebViewController()`",
-    "lib/screens/regulations_screen.dart:636 `WebViewWidget(controller: _controller),`",
-    "lib/screens/wind_screen.dart:4 `import 'package:webview_flutter/webview_flutter.dart';`",
-    "lib/screens/wind_screen.dart:52 `_controller = WebViewController()`",
-    "lib/screens/wind_screen.dart:145 `WebViewWidget(controller: _controller),`"
+    "lib/services/notification_service.dart:15 `FlutterLocalNotificationsPlugin();` (local notifications)"
    ]
   }
  },
- "sign_in_with_apple": [
-  "lib/services/auth_service.dart:9 `import 'package:sign_in_with_apple/sign_in_with_apple.dart';`",
-  "lib/services/auth_service.dart:462 `final credential = await SignInWithApple.getAppleIDCredential(`",
-  "lib/services/auth_service.dart:478 `provider: OAuthProvider.apple,`"
- ],
+ "sign_in_with_apple": [],
  "android_permissions": [
   "ACCESS_NETWORK_STATE",
   "INTERNET",
@@ -119,23 +61,16 @@
   "WRITE_EXTERNAL_STORAGE"
  ],
  "summary": {
-  "FAIL": 10,
-  "HUMAN": 36,
-  "FOUNDER": 5,
-  "PASS": 23,
-  "n-a": 39
+  "FAIL": 3,
+  "HUMAN": 35,
+  "FOUNDER": 4,
+  "PASS": 21,
+  "n-a": 50
  },
  "failing": [
   "apple 2.3.3",
-  "apple 2.3.10",
   "apple 4.2.6",
-  "apple 4.3(a)",
-  "apple 5.1.1(i)",
-  "apple 5.1.1(v)",
-  "google User Data",
-  "google Account deletion",
-  "google AI-generated content",
-  "google Government"
+  "apple 4.3(a)"
  ],
  "rules": [
   {
@@ -231,7 +166,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Privacy & support URLs serve the right page': PASS 4 checked"
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Privacy & support URLs serve the right page': PASS 4 checked"
    ],
    "owner": "store-compliance"
   },
@@ -240,29 +175,24 @@
    "ref": "1.6",
    "title": "Data security",
    "check": "auto:appsec (secure storage, no secrets in binary)",
-   "applies": true,
-   "applies_because": [
-    "accounts"
-   ],
-   "state": "HUMAN",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "no secret keys (sk-/sk_live_/AKIA/service_role JWT/private key/ghp_/xox) in lib/ literals",
-    "not verified: how session tokens and personal data are stored and sent \u2014 appsec review"
+    "not applicable: none of [accounts] detected in the current source"
    ],
-   "owner": "appsec-engineer"
+   "owner": "apple-review-auditor"
   },
   {
    "store": "apple",
    "ref": "1.7",
    "title": "Reporting criminal activity / emergency",
    "check": "human: Kinnav-type safety features use the real emergency number and say what they do",
-   "applies": true,
-   "applies_because": [
-    "emergency_safety"
-   ],
-   "state": "HUMAN",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "Kinnav-type safety features use the real emergency number and say what they do"
+    "not applicable: none of [emergency_safety] detected in the current source"
    ],
    "owner": "apple-review-auditor"
   },
@@ -277,7 +207,7 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "docs/apple-requirements.json (2026-10-14T01:23) launch-2.1a: IPA build 202610081927 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+    "docs/apple-requirements.json (2026-10-16T10:51) launch-2.1a: IPA build 202610081927 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
    ],
    "owner": "qa-reviewer"
   },
@@ -299,17 +229,13 @@
    "ref": "2.1",
    "title": "Information Needed",
    "check": "auto:store_checklist:Demo account when the app gates on sign-in + Review notes answer Apple's 7 items",
-   "applies": true,
-   "applies_because": [
-    "accounts"
-   ],
-   "state": "PASS",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Demo account when the app gates on sign-in': PASS no sign-in gate",
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Review notes answer Apple's 7 items': PASS 6/6 numbered answers present",
-    "live: store_checklist.login_gate()=False, demo_account_name=set"
+    "not applicable: none of [accounts] detected in the current source"
    ],
-   "owner": "store-compliance"
+   "owner": "apple-review-auditor"
   },
   {
    "store": "apple",
@@ -367,7 +293,7 @@
    ],
    "state": "FAIL",
    "evidence": [
-    "docs/apple-requirements.json (2026-10-14T01:23) screenshots-2.3.3: APP_IPAD_PRO_3GEN_129: first screenshot is dev_ui (test account); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is dev_ui (test account); APP_IPHONE_67: first screenshot is dev_ui (test account); APP_IPHONE_67: 2 of 2 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is dev_ui (test account); APP_IPHONE_67: APP_IPHONE_67-02.png is dev_ui (test account)"
+    "docs/apple-requirements.json (2026-10-16T10:51) screenshots-2.3.3: APP_IPAD_PRO_3GEN_129: first screenshot is dev_ui (test account); APP_IPAD_PRO_3GEN_129: 1 of 1 are not the app in use; APP_IPAD_PRO_3GEN_129: APP_IPAD_PRO_3GEN_129-01.png is dev_ui (test account); APP_IPHONE_67: first screenshot is dev_ui (test account); APP_IPHONE_67: 2 of 2 are not the app in use; APP_IPHONE_67: APP_IPHONE_67-01.png is dev_ui (test account); APP_IPHONE_67: APP_IPHONE_67-02.png is dev_ui (test account)"
    ],
    "owner": "store-creative"
   },
@@ -382,7 +308,7 @@
    ],
    "state": "n-a",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'App preview video': HUMAN none recorded \u2014 rule applies only when a preview exists"
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'App preview video': HUMAN none recorded \u2014 rule applies only when a preview exists"
    ],
    "owner": "store-creative"
   },
@@ -397,7 +323,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Apple age rating answered': PASS declaration matches the shipped binary"
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Apple age rating answered': PASS declaration matches the shipped binary"
    ],
    "owner": "store-compliance"
   },
@@ -412,8 +338,8 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'App Store name': PASS PilotEnRoute: Pilot Training",
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'App Store keywords (<=100)': PASS 99 chars",
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'App Store name': PASS PilotEnRoute: Pilot Logbook",
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'App Store keywords (<=100)': PASS 95 chars",
     "no brand from a 72-name list in name/subtitle/keywords; the list is partial \u2014 a person checks keywords for competitor and trademark terms"
    ],
    "owner": "aso-specialist"
@@ -442,14 +368,9 @@
    "applies_because": [
     "all"
    ],
-   "state": "FAIL",
+   "state": "PASS",
    "evidence": [
-    "lib/screens/garmin_screen.dart:546 `'platform': 'iOS & Android',`",
-    "lib/screens/garmin_screen.dart:553 `'platform': 'iOS & Android',`",
-    "lib/screens/garmin_screen.dart:560 `'platform': 'iOS & Android',`",
-    "lib/screens/garmin_screen.dart:567 `'platform': 'iOS & Android',`",
-    "lib/screens/garmin_screen.dart:574 `'platform': 'iOS & Android',`",
-    "lib/screens/garmin_screen.dart:581 `'platform': 'iOS & Android',`"
+    "no 'Android'/'Google Play'/'Play Store'/play.google.com in iOS metadata, lib/ strings or the English ARB"
    ],
    "owner": "software-developer"
   },
@@ -464,7 +385,7 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "docs/apple-requirements.json (2026-10-14T01:23) launch-2.1a: IPA build 202610081927 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
+    "docs/apple-requirements.json (2026-10-16T10:51) launch-2.1a: IPA build 202610081927 adopts UIScene; no iPad launch recorded \u2014 sim_install.py --ios --ipad"
    ],
    "owner": "qa-reviewer"
   },
@@ -506,9 +427,9 @@
    "applies_because": [
     "all"
    ],
-   "state": "PASS",
+   "state": "HUMAN",
    "evidence": [
-    "PilotEnRoute.ipa build 202610081927 (2026-10-08T19:31): 41 Mach-O(s); no PrivateFrameworks link, LSApplicationWorkspace, UIGetScreenImage or MobileGestalt (scope: these markers only)"
+    "no staged IPA at /Users/spatchava/agl/.dist/PilotEnRoute.ipa \u2014 build one (scripts/build_ipa.py) to check the binary"
    ],
    "owner": "appsec-engineer"
   },
@@ -523,7 +444,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "none of shorebird_code_push, flutter_eval, dart_eval, hetu_script, flutter_js, flutter_qjs, js_interpreter in pubspec.lock (258 packages)"
+    "none of shorebird_code_push, flutter_eval, dart_eval, hetu_script, flutter_js, flutter_qjs, js_interpreter in pubspec.lock (145 packages)"
    ],
    "owner": "appsec-engineer"
   },
@@ -545,17 +466,13 @@
    "ref": "2.5.6",
    "title": "WebKit",
    "check": "auto:webview plugin is WKWebView-based",
-   "applies": true,
-   "applies_because": [
-    "webview"
-   ],
-   "state": "PASS",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "webview_flutter renders with WKWebView on iOS",
-    "lib/screens/regulations_screen.dart:7 `import 'package:webview_flutter/webview_flutter.dart';`",
-    "lib/screens/regulations_screen.dart:542 `_controller = WebViewController()`"
+    "not applicable: none of [webview] detected in the current source"
    ],
-   "owner": "software-developer"
+   "owner": "apple-review-auditor"
   },
   {
    "store": "apple",
@@ -607,10 +524,9 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "PilotEnRoute.ipa build 202610081927 (2026-10-08T19:31): no app extension links GoogleMobileAds",
-    "packages/agl_ads caps interstitials (3 min, 2 warm-up transitions); a person checks placement and close buttons"
+    "no staged IPA at /Users/spatchava/agl/.dist/PilotEnRoute.ipa \u2014 build one (scripts/build_ipa.py) to check the binary"
    ],
-   "owner": "apple-review-auditor"
+   "owner": "appsec-engineer"
   },
   {
    "store": "apple",
@@ -731,7 +647,7 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "ai-office/projects/real-apps/continue/PilotEnRoute.json (2026-10-13T20:46): last QA verdict 'none', 0 must-fix item(s)"
+    "ai-office/projects/real-apps/continue/PilotEnRoute.json (2026-10-16T10:51): last QA verdict 'none', 0 must-fix item(s)"
    ],
    "owner": "product-manager"
   },
@@ -746,9 +662,9 @@
    ],
    "state": "FAIL",
    "evidence": [
-    "docs/store-holds.json: Apple hold 4.2.6 (App generation service), seen 2026-10-13T21:30:46",
-    "docs/store-checklist-detail.json (2026-10-14T01:23) '4.3 differentiation statement': FAIL 4 unanswered question(s)",
-    "ai-office/projects/real-apps/continue/PilotEnRoute.json (2026-10-13T20:46): last QA verdict 'none', 0 must-fix item(s)"
+    "docs/store-holds.json: Apple hold 4.2.6 (App generation service), seen 2026-10-08T22:59:50",
+    "docs/store-checklist-detail.json (2026-10-16T12:47) '4.3 differentiation statement': FAIL 4 unanswered question(s)",
+    "ai-office/projects/real-apps/continue/PilotEnRoute.json (2026-10-16T10:51): last QA verdict 'none', 0 must-fix item(s)"
    ],
    "owner": "product-manager"
   },
@@ -763,9 +679,9 @@
    ],
    "state": "FAIL",
    "evidence": [
-    "docs/store-holds.json: Apple hold 4.2.6 (App generation service), seen 2026-10-13T21:30:46",
-    "docs/store-checklist-detail.json (2026-10-14T01:23) '4.3 differentiation statement': FAIL 4 unanswered question(s)",
-    "ai-office/projects/real-apps/continue/PilotEnRoute.json (2026-10-13T20:46): last QA verdict 'none', 0 must-fix item(s)"
+    "docs/store-holds.json: Apple hold 4.2.6 (App generation service), seen 2026-10-08T22:59:50",
+    "docs/store-checklist-detail.json (2026-10-16T12:47) '4.3 differentiation statement': FAIL 4 unanswered question(s)",
+    "ai-office/projects/real-apps/continue/PilotEnRoute.json (2026-10-16T10:51): last QA verdict 'none', 0 must-fix item(s)"
    ],
    "owner": "product-manager"
   },
@@ -806,13 +722,11 @@
    "applies_because": [
     "push"
    ],
-   "state": "HUMAN",
+   "state": "PASS",
    "evidence": [
-    "lib/services/alert_service.dart:250 requestNotificationsPermission( in AlertService._ensureNotifications \u2014 prompts as soon as _AlertsScreenState opens, without a tap: _AlertsScreenState.initState: lib/screens/alerts_screen.dart:41 _AlertsScreenState.initState -> lib/screens/alerts_screen.dart:45 calls AlertService.init (lib/services/alert_service.dart:58) -> lib/services/alert_service.dart:61 calls AlertService._ensureNotifications (lib/services/alert_service.dart:230) \u2014 check whether _AlertsScreenState is the first screen",
-    "lib/services/alert_service.dart:262 IOSFlutterLocalNotificationsPlugin in AlertService._ensureNotifications \u2014 prompts as soon as _AlertsScreenState opens, without a tap: _AlertsScreenState.initState: lib/screens/alerts_screen.dart:41 _AlertsScreenState.initState -> lib/screens/alerts_screen.dart:45 calls AlertService.init (lib/services/alert_service.dart:58) -> lib/services/alert_service.dart:61 calls AlertService._ensureNotifications (lib/services/alert_service.dart:230) \u2014 check whether _AlertsScreenState is the first screen",
-    "lib/services/alert_service.dart:235 DarwinInitializationSettings without requestAlertPermission: false (initialize() prompts) in AlertService._ensureNotifications \u2014 prompts as soon as _AlertsScreenState opens, without a tap: _AlertsScreenState.initState: lib/screens/alerts_screen.dart:41 _AlertsScreenState.initState -> lib/screens/alerts_screen.dart:45 calls AlertService.init (lib/services/alert_service.dart:58) -> lib/services/alert_service.dart:61 calls AlertService._ensureNotifications (lib/services/alert_service.dart:230) \u2014 check whether _AlertsScreenState is the first screen",
-    "lib/services/notification_service.dart:147 IOSFlutterLocalNotificationsPlugin in NotificationService.requestPermissions \u2014 not reached from main() or any screen's initState without a user action",
-    "lib/services/notification_service.dart:158 requestNotificationsPermission( in NotificationService.requestPermissions \u2014 not reached from main() or any screen's initState without a user action"
+    "lib/services/notification_service.dart:68 IOSFlutterLocalNotificationsPlugin in NotificationService.requestPermissions \u2014 not reached from main() or any screen's initState without a user action",
+    "lib/services/notification_service.dart:76 requestNotificationsPermission( in NotificationService.requestPermissions \u2014 not reached from main() or any screen's initState without a user action",
+    "heuristic call graph (10 hops; on*-callbacks and route builders count as user actions)"
    ],
    "owner": "software-developer"
   },
@@ -821,14 +735,11 @@
    "ref": "4.7",
    "title": "Mini apps / HTML5 / AI chatbots",
    "check": "human: AI output moderated and labelled",
-   "applies": true,
-   "applies_because": [
-    "ai_generated"
-   ],
-   "state": "HUMAN",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "AI output: a person checks it is labelled as AI-generated and moderated",
-    "lib/services/ai_service.dart:19 `const String _anthropicEndpoint = 'https://api.anthropic.com/v1/messages';`"
+    "not applicable: none of [ai_generated] detected in the current source"
    ],
    "owner": "apple-review-auditor"
   },
@@ -837,17 +748,13 @@
    "ref": "4.8",
    "title": "Login services",
    "check": "auto:Sign in with Apple offered when Google/Facebook login is offered",
-   "applies": true,
-   "applies_because": [
-    "sign_in_third_party"
-   ],
-   "state": "PASS",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "third-party: lib/services/auth_service.dart:7 `import 'package:google_sign_in/google_sign_in.dart';`",
-    "Sign in with Apple: lib/services/auth_service.dart:9 `import 'package:sign_in_with_apple/sign_in_with_apple.dart';`",
-    "entitlement com.apple.developer.applesignin present"
+    "not applicable: none of [sign_in_third_party] detected in the current source"
    ],
-   "owner": "software-developer"
+   "owner": "apple-review-auditor"
   },
   {
    "store": "apple",
@@ -871,10 +778,10 @@
    "applies_because": [
     "all"
    ],
-   "state": "FAIL",
+   "state": "PASS",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Privacy & support URLs serve the right page': PASS 4 checked",
-    "no in-app privacy-policy link in lib/ (no privacy URL literal, no 'Privacy' label next to a link opener)"
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Privacy & support URLs serve the right page': PASS 4 checked",
+    "in-app link: lib/screens/settings_screen.dart:35 `defaultValue: 'https://www.americangroup.ai/policy/pilotenroute/',`"
    ],
    "owner": "software-developer"
   },
@@ -905,10 +812,9 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "the staged IPA predates the last source commit \u2014 rebuild (scripts/build_ipa.py) and re-run; on the staged build:",
-    "PilotEnRoute.ipa build 202610081927 (2026-10-08T19:31) declares purpose string(s) for APIs no binary in it references: NSMicrophoneUsageDescription, NSPhotoLibraryAddUsageDescription"
+    "no staged IPA at /Users/spatchava/agl/.dist/PilotEnRoute.ipa \u2014 build one (scripts/build_ipa.py) to check the binary"
    ],
-   "owner": "privacy-engineer"
+   "owner": "appsec-engineer"
   },
   {
    "store": "apple",
@@ -930,15 +836,13 @@
    "ref": "5.1.1(v)",
    "title": "Account sign-in & deletion",
    "check": "auto:apple_requirements:account-deletion-5.1.1v",
-   "applies": true,
-   "applies_because": [
-    "accounts"
-   ],
-   "state": "FAIL",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "docs/apple-requirements.json (2026-10-14T01:23) account-deletion-5.1.1v: lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
+    "not applicable: none of [accounts] detected in the current source"
    ],
-   "owner": "backend-supabase"
+   "owner": "apple-review-auditor"
   },
   {
    "store": "apple",
@@ -964,7 +868,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "docs/apple-requirements.json (2026-10-14T01:23) att-2.1: does not request tracking (App Privacy must not declare tracking)",
+    "docs/apple-requirements.json (2026-10-16T10:51) att-2.1: does not request tracking (App Privacy must not declare tracking)",
     "UMP consent calls: lib/services/ad_service.dart:119 `await AglConsent.gather();`"
    ],
    "owner": "software-developer"
@@ -1144,9 +1048,9 @@
    "applies_because": [
     "all"
    ],
-   "state": "PASS",
+   "state": "HUMAN",
    "evidence": [
-    "PilotEnRoute.ipa build 202610081927 (2026-10-08T19:31): every required-reason API in 41 Mach-O(s) is declared (app manifest: ['DiskSpace', 'FileTimestamp', 'SystemBootTime', 'UserDefaults'])"
+    "no staged IPA; source manifest present \u2014 build an IPA to compare declarations with the binary"
    ],
    "owner": "privacy-engineer"
   },
@@ -1159,10 +1063,9 @@
    "applies_because": [
     "all"
    ],
-   "state": "PASS",
+   "state": "HUMAN",
    "evidence": [
-    "PilotEnRoute.ipa build 202610081927 (2026-10-08T19:31): 24 of 40 frameworks are on Apple's SDK list; each carries a privacy manifest (AppAuth, FBLPromises, FirebaseABTesting, FirebaseCore, FirebaseCoreExtension, FirebaseCoreInternal, FirebaseCrashlytics, FirebaseInstallations...)",
-    "not checked: SDK signatures"
+    "no staged IPA at /Users/spatchava/agl/.dist/PilotEnRoute.ipa"
    ],
    "owner": "privacy-engineer"
   },
@@ -1192,7 +1095,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Export compliance answered': PASS ITSAppUsesNonExemptEncryption=false"
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Export compliance answered': PASS ITSAppUsesNonExemptEncryption=false"
    ],
    "owner": "store-compliance"
   },
@@ -1223,7 +1126,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "docs/store-gates.json (2026-09-28T21:02) align16k=True"
+    "docs/store-gates.json (2026-10-16T10:51) align16k=True"
    ],
    "owner": "software-developer"
   },
@@ -1238,7 +1141,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Android .aab signed with this app's upload key': PASS SIGNED"
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Android .aab signed with this app's upload key': PASS SIGNED"
    ],
    "owner": "release-manager"
   },
@@ -1253,7 +1156,7 @@
    ],
    "state": "FOUNDER",
    "evidence": [
-    "answers prepared in docs/console-answers/PilotEnRoute.md (2026-10-09T20:47); the Console form is a founder action"
+    "answers prepared in docs/console-answers/PilotEnRoute.md (2026-10-16T10:51); the Console form is a founder action"
    ],
    "owner": "founder"
   },
@@ -1266,10 +1169,10 @@
    "applies_because": [
     "all"
    ],
-   "state": "FAIL",
+   "state": "PASS",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Privacy & support URLs serve the right page': PASS 4 checked",
-    "no in-app privacy-policy link in lib/ (no privacy URL literal, no 'Privacy' label next to a link opener)"
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Privacy & support URLs serve the right page': PASS 4 checked",
+    "in-app link: lib/screens/settings_screen.dart:35 `defaultValue: 'https://www.americangroup.ai/policy/pilotenroute/',`"
    ],
    "owner": "software-developer"
   },
@@ -1278,16 +1181,13 @@
    "ref": "Account deletion",
    "title": "Account deletion requirement",
    "check": "auto:store_checklist:Account-deletion page + apple 5.1.1(v)",
-   "applies": true,
-   "applies_because": [
-    "accounts"
-   ],
-   "state": "FAIL",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Account-deletion page (if accounts)': PASS",
-    "docs/apple-requirements.json (2026-10-14T01:23) account-deletion-5.1.1v: lib/services/auth_service.dart calls delete_user, which is not applied in Supabase (MA-044)"
+    "not applicable: none of [accounts] detected in the current source"
    ],
-   "owner": "backend-supabase"
+   "owner": "play-policy-auditor"
   },
   {
    "store": "google",
@@ -1300,8 +1200,8 @@
    ],
    "state": "PASS",
    "evidence": [
-    "merged release permissions: source manifests + 23 plugin manifest(s) from pubspec.lock",
-    "POST_NOTIFICATIONS (from android/app/src/main/AndroidManifest.xml, plugin flutter_local_notifications 17.2.4) \u2014 used at lib/services/notification_service.dart:2 `import 'package:flutter_local_notifications/flutter_local_notifications.dart';`"
+    "merged release permissions: source manifests + 16 plugin manifest(s) from pubspec.lock",
+    "POST_NOTIFICATIONS (from android/app/src/main/AndroidManifest.xml, plugin flutter_local_notifications 17.2.4) \u2014 used at lib/services/notification_service.dart:3 `import 'package:flutter_local_notifications/flutter_local_notifications.dart';`"
    ],
    "owner": "software-developer"
   },
@@ -1384,7 +1284,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "none of MANAGE_EXTERNAL_STORAGE in the merged release manifest (source + 23 plugin manifests)"
+    "none of MANAGE_EXTERNAL_STORAGE in the merged release manifest (source + 16 plugin manifests)"
    ],
    "owner": "software-developer"
   },
@@ -1399,7 +1299,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "none of QUERY_ALL_PACKAGES in the merged release manifest (source + 23 plugin manifests)"
+    "none of QUERY_ALL_PACKAGES in the merged release manifest (source + 16 plugin manifests)"
    ],
    "owner": "software-developer"
   },
@@ -1414,7 +1314,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "no service bound to BIND_ACCESSIBILITY_SERVICE in source or 23 plugin manifests"
+    "no service bound to BIND_ACCESSIBILITY_SERVICE in source or 16 plugin manifests"
    ],
    "owner": "software-developer"
   },
@@ -1429,7 +1329,7 @@
    ],
    "state": "PASS",
    "evidence": [
-    "none of REQUEST_INSTALL_PACKAGES in the merged release manifest (source + 23 plugin manifests)"
+    "none of REQUEST_INSTALL_PACKAGES in the merged release manifest (source + 16 plugin manifests)"
    ],
    "owner": "software-developer"
   },
@@ -1530,9 +1430,9 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Play title': PASS PilotEnRoute \u2014 Pilot Training",
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Play short description (<=80)': PASS 77 chars",
-    "docs/store-checklist-detail.json (2026-10-14T01:23) 'Full description': PASS 1742 chars",
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Play title': PASS PilotEnRoute - Pilot Logbook",
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Play short description (<=80)': PASS 79 chars",
+    "docs/store-checklist-detail.json (2026-10-16T12:47) 'Full description': PASS 1658 chars",
     "a person checks the listing for keyword stuffing, ranking claims and emoji/caps misuse"
    ],
    "owner": "aso-specialist"
@@ -1563,7 +1463,7 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "ai-office/projects/real-apps/continue/PilotEnRoute.json (2026-10-13T20:46): last QA verdict 'none', 0 must-fix item(s)",
+    "ai-office/projects/real-apps/continue/PilotEnRoute.json (2026-10-16T10:51): last QA verdict 'none', 0 must-fix item(s)",
     "a person checks minimum functionality and duplication against our other listings"
    ],
    "owner": "product-manager"
@@ -1595,7 +1495,7 @@
    ],
    "state": "HUMAN",
    "evidence": [
-    "none of shorebird_code_push, flutter_eval, dart_eval, hetu_script, flutter_js, flutter_qjs, js_interpreter in pubspec.lock (258 packages)",
+    "none of shorebird_code_push, flutter_eval, dart_eval, hetu_script, flutter_js, flutter_qjs, js_interpreter in pubspec.lock (145 packages)",
     "no REQUEST_INSTALL_PACKAGES",
     "undisclosed data collection is judged against the Data safety form (privacy-engineer)"
    ],
@@ -1619,16 +1519,13 @@
    "ref": "AI-generated content",
    "title": "AI-generated content",
    "check": "human + auto:report control present",
-   "applies": true,
-   "applies_because": [
-    "ai_generated"
-   ],
-   "state": "FAIL",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "AI-generated output with no report/flag control in lib/",
-    "lib/services/ai_service.dart:19 `const String _anthropicEndpoint = 'https://api.anthropic.com/v1/messages';`"
+    "not applicable: none of [ai_generated] detected in the current source"
    ],
-   "owner": "software-developer"
+   "owner": "play-policy-auditor"
   },
   {
    "store": "google",
@@ -1687,13 +1584,11 @@
    "ref": "News",
    "title": "News apps",
    "check": "human: sources attributed, publisher contact",
-   "applies": true,
-   "applies_because": [
-    "news"
-   ],
-   "state": "HUMAN",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "sources attributed, publisher contact"
+    "not applicable: none of [news] detected in the current source"
    ],
    "owner": "play-policy-auditor"
   },
@@ -1719,9 +1614,10 @@
    "applies_because": [
     "government_topic"
    ],
-   "state": "FAIL",
+   "state": "HUMAN",
    "evidence": [
-    "the listing presents government information (iOS metadata store/apps/PilotEnRoute.json copy.en.subtitle: '...FAA study, logbook & E6B...'; iOS metadata store/apps/PilotEnRoute.json copy.en.description: '...cs or navigation product.  \u2014\u2014 Study \u2014\u2014  FAA EDUCATION Ground-school mater...') with no 'not affiliated with' statement in the app or listing"
+    "non-affiliation statement: store/apps/PilotEnRoute.json copy.en.description; fastlane/metadata/en-US/description.txt",
+    "a person checks it is prominent and the data source is named"
    ],
    "owner": "store-compliance"
   },
@@ -1760,15 +1656,13 @@
    "ref": "App access",
    "title": "App access declaration",
    "check": "founder: Console App access (answers in console-answers)",
-   "applies": true,
-   "applies_because": [
-    "accounts"
-   ],
-   "state": "FOUNDER",
+   "applies": false,
+   "applies_because": [],
+   "state": "n-a",
    "evidence": [
-    "Console App access (answers in console-answers)"
+    "not applicable: none of [accounts] detected in the current source"
    ],
-   "owner": "founder"
+   "owner": "play-policy-auditor"
   },
   {
    "store": "google",

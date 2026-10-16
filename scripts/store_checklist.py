@@ -618,13 +618,16 @@ def main() -> int:
     # rendering too, but eleven overlapping status documents is how they drift.
     total_fail = sum(1 for _, checks in rows for _, s, _ in checks if s == NO)
     import json as _json
-    (MANIFEST_DIR / "docs/store-checklist.json").write_text(
-        _json.dumps({repo: {name: state for name, state, _ in checks}
-                     for repo, checks in rows}, indent=1) + "\n")
-    (MANIFEST_DIR / "docs/store-checklist-detail.json").write_text(
-        _json.dumps({repo: [{"check": n, "state": s, "detail": d}
-                            for n, s, d in checks]
-                     for repo, checks in rows}, indent=1) + "\n")
+    summary = {repo: {name: state for name, state, _ in checks} for repo, checks in rows}
+    detail = {repo: [{"check": n, "state": s, "detail": d} for n, s, d in checks]
+              for repo, checks in rows}
+    if args.app:
+        # --app measures one app; it must not erase the other apps' rows (with
+        # one app checked out locally that is every run).
+        summary = {**load(MANIFEST_DIR / "docs/store-checklist.json", {}), **summary}
+        detail = {**load(MANIFEST_DIR / "docs/store-checklist-detail.json", {}), **detail}
+    (MANIFEST_DIR / "docs/store-checklist.json").write_text(_json.dumps(summary, indent=1) + "\n")
+    (MANIFEST_DIR / "docs/store-checklist-detail.json").write_text(_json.dumps(detail, indent=1) + "\n")
     if _SD_DIRTY:
         try:
             SD_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
