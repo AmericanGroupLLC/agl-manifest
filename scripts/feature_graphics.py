@@ -21,16 +21,20 @@ for a in sorted(apps, key=lambda x: x["repo"].lower()):
     if not icons: print(f"{repo:18} NO ICON"); continue
     sj = M / "store/apps" / f"{repo}.json"; en = json.load(open(sj))["copy"]["en"] if sj.exists() else {}
     name = en.get("title") or en.get("name") or repo; sub = en.get("short_description") or en.get("subtitle") or ""
-    if len(sub) > 60: sub = sub[:57].rsplit(" ", 1)[0] + "…"
+    if len(sub) > 90: sub = sub[:87].rsplit(" ", 1)[0] + "…"  # wraps inside its box
     out.parent.mkdir(parents=True, exist_ok=True)
     # dominant icon colour for the background, darkened
     col = subprocess.run(["magick", str(icons[0]), "-resize", "1x1!", "-format", "%[pixel:p{0,0}]", "info:"], capture_output=True, text=True).stdout.strip() or "srgb(30,40,60)"
     cmd = ["magick", "-size", "1024x500", f"xc:{col}", "-fill", "rgba(0,0,0,0.45)", "-draw", "rectangle 0,0 1024,500",
            "(", str(icons[0]), "-resize", "300x300", "-alpha", "set", "(", "+clone", "-alpha", "extract", "-draw", "fill black polygon 0,0 0,60 60,0 fill white circle 60,60 60,0", "(", "+clone", "-flip", ")", "-compose", "Multiply", "-composite", "(", "+clone", "-flop", ")", "-compose", "Multiply", "-composite", ")", "-alpha", "off", "-compose", "CopyOpacity", "-composite", ")", "-gravity", "West", "-geometry", "+80+0", "-compose", "Over", "-composite",
-           "-gravity", "NorthWest", "-fill", "white", "-font", FONT, "-pointsize", "58" if len(name) <= 22 else "46", "-annotate", "+430+150", name,
-           "-fill", "rgba(255,255,255,0.85)", "-font", FONT2, "-pointsize", "30", "-annotate", "+430+250", sub,
-           "-fill", "rgba(255,255,255,0.6)", "-pointsize", "22", "-annotate", "+430+320", "American Group LLC",
-           str(out)]
+           # Name and subtitle are fitted into boxes (caption: picks the point
+           # size) — fixed sizes ran "PilotEnRoute - Pilot Logbook" off the edge.
+           "(", "-size", "550x90", "-background", "none", "-fill", "white", "-font", FONT, "-gravity", "West", f"caption:{name}", ")",
+           "-gravity", "NorthWest", "-geometry", "+430+120", "-compose", "Over", "-composite",
+           "(", "-size", "550x90", "-background", "none", "-fill", "rgba(255,255,255,0.85)", "-font", FONT2, "-gravity", "West", f"caption:{sub}", ")",
+           "-gravity", "NorthWest", "-geometry", "+430+225", "-compose", "Over", "-composite",
+           "-gravity", "NorthWest", "-fill", "rgba(255,255,255,0.6)", "-font", FONT2, "-pointsize", "22", "-annotate", "+430+340", "American Group LLC",
+           "-alpha", "off", f"PNG24:{out}"]  # Play: JPEG or 24-bit PNG, no alpha
     r = subprocess.run(cmd, capture_output=True, text=True)
     ok = r.returncode == 0 and out.exists()
     dims = subprocess.run(["magick", "identify", "-format", "%wx%h", str(out)], capture_output=True, text=True).stdout if ok else ""
