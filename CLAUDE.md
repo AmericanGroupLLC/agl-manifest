@@ -13,7 +13,7 @@ organisation. Read this, read what it points you at, and nothing else.
 | Backend | `AmericanGroupLLC-Backend` |
 | Website | `https://www.americangroup.ai` |
 | Stack | Flutter / Dart, targeting iOS and Android |
-| Local mirror | `/Users/spatchava/agl/<repo>` — all org repos are cloned here |
+| Local mirror | `/Users/spatchava/agl/<repo>`. Since 2026-10-16 (one app at a time) only **PilotEnRoute**, this repo, `AmericanGroupLLC-Backend` and `americangroup.ai` are local; the other 42 apps are verified git bundles in `~/agl/.archive/` (restore steps in its README) and on GitHub. Measuring scripts read missing apps as empty, so for an all-app run use `python3 scripts/checkout.py --apps all` first (ROOT then resolves to `work/`) |
 
 Only `agl-manifest` runs CI. Per-repo Actions are deliberately disabled so the
 org is not paying 37× for the same validation; see `docs/DELIVERY_ARCHITECTURE.md`.
