@@ -12,7 +12,7 @@ require "spaceship"
 
 require_relative "../agl_paths"
 ROOT = AglPaths::ROOT
-apps = JSON.parse(File.read("#{ROOT}/agl-manifest/apps.json"))["apps"]
+apps = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
 apps = apps.select { |a| ARGV.include?(a["repo"]) } unless ARGV.empty?
 
 ENTITLEMENT_TO_CAPABILITY = {

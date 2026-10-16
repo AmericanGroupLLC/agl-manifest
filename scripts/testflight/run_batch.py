@@ -39,6 +39,11 @@ SKIP: set[str] = set()
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--no-distribute", action="store_true", help="upload only; do not add the build to the tester group")
+ap.add_argument("--no-beta-review", action="store_true",
+                help="distribute without submitting the build to Beta App Review for the external group "
+                     "(distribute.rb --no-submit). Internal testers get it either way. ship.yml's internal "
+                     "stage passes this: its job is TestFlight internal, and every submission in run "
+                     "38812509219 was refused anyway ('Beta contract is missing', an Account Holder step).")
 ap.add_argument("--wave", choices=["records", "all"], default="records")
 ap.add_argument("--apps", default="")
 ap.add_argument("--prebuilt", default="",
@@ -181,7 +186,7 @@ for i, a in enumerate(apps, 1):
     # group. Do that straight away so every app lands in testers' TestFlight
     # without a second manual pass.
     if status == "uploaded" and not args.no_distribute:
-        d = subprocess.run(["bundle", "exec", "ruby", "distribute.rb", "--app", repo],
+        d = subprocess.run(["bundle", "exec", "ruby", "distribute.rb", "--app", repo, *(["--no-submit"] if args.no_beta_review else [])],
                            cwd=HERE, env=env, capture_output=True, text=True, timeout=1800)
         print("    " + (d.stdout.strip().splitlines() or ["distribute produced no output"])[-1], flush=True)
 
@@ -215,7 +220,7 @@ if pending:
             json.dump(results, open(RESULTS, "w"), indent=1)
             print(f"    {repo}: listed — {listed[v['bundle_id']]}", flush=True)
             if not args.no_distribute:
-                d = subprocess.run(["bundle", "exec", "ruby", "distribute.rb", "--app", repo],
+                d = subprocess.run(["bundle", "exec", "ruby", "distribute.rb", "--app", repo, *(["--no-submit"] if args.no_beta_review else [])],
                                    cwd=HERE, env=env, capture_output=True, text=True, timeout=1800)
                 print("    " + (d.stdout.strip().splitlines() or ["distribute produced no output"])[-1], flush=True)
         if pending:

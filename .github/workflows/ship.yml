@@ -261,7 +261,10 @@ jobs:
         if: matrix.apps != ''
         run: |
           mkdir -p "$RUNNER_TEMP/dist"
-          python3 scripts/play_version_codes.py --out "$RUNNER_TEMP/dist/play-version-codes.json"
+          # This shard's apps only: six shards reading all 43 at once made
+          # some reads fail and come back as code 0 (run 38812509219).
+          python3 scripts/play_version_codes.py --apps "${{ matrix.apps }}" \
+            --out "$RUNNER_TEMP/dist/play-version-codes.json"
           # Bump by default: a collision with a code Play already holds is fixed
           # here (the bundle is built with the next free code) instead of failing
           # the run. Scheduled runs have no inputs, so only an explicit
@@ -741,6 +744,15 @@ jobs:
       - name: Upload to the Play internal track
         run: python3 scripts/play_upload.py ${{ steps.list.outputs.names }} --status completed --no-resume
 
+      # --wave records uploads only apps with an App Store Connect record, as
+      # listed in docs/appstore-records.json. The committed copy was from
+      # 2026-09-26 and still carried five apps' old bundle ids, so run
+      # 38812509219 never tried BodyQuest, MyHealth, PlantPulse or radiotune.
+      # Ask App Store Connect now (GET only) instead of trusting the snapshot.
+      - name: Which apps have an App Store Connect record, now
+        if: ${{ !cancelled() }}
+        run: bundle exec ruby scripts/appstore_records.rb
+
       # Guard 3 lives inside run_batch.py: an upload is confirmed by asking App
       # Store Connect whether the build arrived, because altool reports failure
       # for builds Apple has in fact accepted.
@@ -756,14 +768,19 @@ jobs:
         # app used to wait for its own build before the next upload, and two
         # builds Apple never listed cost an hour each (run 38294393167, #27).
         # An app still counts as uploaded only once Apple lists its build.
+        # --no-beta-review: this stage is TestFlight internal. Internal groups
+        # see every build without review; submitting each build to Beta App
+        # Review for the external group is a separate, deliberate step (and was
+        # refused for all 34 in run 38812509219: "Beta contract is missing").
         run: >-
           python3 scripts/testflight/run_batch.py --wave records --no-resume
           --prebuilt work/.dist --apps "${{ steps.list.outputs.csv }}"
           --defer-listing --listing-cap-min 30 --per-app-timeout 2700
+          --no-beta-review
 
       - name: Put every build in front of the testers
         if: ${{ !cancelled() }}
-        run: bundle exec ruby scripts/testflight/distribute.rb --all
+        run: bundle exec ruby scripts/testflight/distribute.rb --all --no-submit
 
       # Stage B (before App Review) needs the Stage A record of the exact
       # TestFlight build a person signs off: gate_for_submission refuses
@@ -789,9 +806,12 @@ jobs:
         if: always()
         with:
           name: internal-testing-results
+          # ios-logs: the per-app upload log is the only place Apple's own
+          # refusal text appears (ChefCount, run 38812509219, had none to read).
           path: |
             work/.dist/play-results.json
             work/.dist/ios-batch/results.json
+            work/.dist/ios-logs/*.log
           if-no-files-found: warn
           include-hidden-files: true
 

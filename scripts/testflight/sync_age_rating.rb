@@ -51,7 +51,7 @@ BOOLEAN_FIELDS = %w[
 
 require_relative "../agl_paths"
 ROOT = AglPaths::ROOT
-M = "#{ROOT}/agl-manifest"
+M = AglPaths::MANIFEST
 DRY = ARGV.include?("--dry-run")
 ONLY = ARGV.reject { |a| a.start_with?("--") }
 

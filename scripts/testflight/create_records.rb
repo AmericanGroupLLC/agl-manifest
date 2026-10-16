@@ -10,7 +10,7 @@ require "spaceship"
 
 require_relative "../agl_paths"
 ROOT = AglPaths::ROOT
-apps = JSON.parse(File.read("#{ROOT}/agl-manifest/apps.json"))["apps"]
+apps = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
 
 NAMES = {
   "AeroSwift" => "AeroSwift",
@@ -20,7 +20,7 @@ NAMES = {
 }
 def store_name(repo)
   return NAMES[repo] if NAMES[repo]
-  path = "#{ROOT}/agl-manifest/store/apps/#{repo}.json"
+  path = File.join(AglPaths::MANIFEST, "store/apps/#{repo}.json")
   File.exist?(path) ? JSON.parse(File.read(path)).dig("copy", "en", "name") || repo : repo
 end
 

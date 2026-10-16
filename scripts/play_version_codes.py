@@ -65,36 +65,64 @@ def call(method: str, url: str, tok: str):
             return e.code, {"raw": raw[:200]}
 
 
+def read_codes(pkg: str, tok: str, attempts: int = 3) -> dict:
+    """Every version code Play has used for `pkg`, from a throwaway edit.
+
+    A failed read is never "no codes". Ship run 38812509219 ran this on six
+    Android shards at once; in the shard that built AGRecorder (and in the one
+    that built MyCard and Photriya) the bundles read for that app failed, the
+    status was ignored, the empty answer became highest=0, nothing was bumped,
+    and Play refused all three: "Version code 4 has already been used" (every
+    other shard saw 7-8). So check each status, retry with a fresh edit, and
+    report ERROR rather than a code that is not true."""
+    import time
+    detail = ""
+    for attempt in range(1, attempts + 1):
+        status, edit = call("POST", f"{BASE}/{pkg}/edits", tok)
+        if status == 404:
+            return {"state": "NO_LISTING", "detail": (edit.get("error") or {}).get("message", "")[:90]}
+        if status == 200:
+            eid = edit["id"]
+            # bundles.list is every .aab Play has accepted, including ones no
+            # track points at; apks.list adds codes used by APK uploads.
+            bs, bundles = call("GET", f"{BASE}/{pkg}/edits/{eid}/bundles", tok)
+            as_, apks = call("GET", f"{BASE}/{pkg}/edits/{eid}/apks", tok)
+            call("DELETE", f"{BASE}/{pkg}/edits/{eid}", tok)
+            if bs == 200 and as_ == 200:
+                codes = [b.get("versionCode") for b in bundles.get("bundles", []) + apks.get("apks", [])
+                         if isinstance(b.get("versionCode"), int)]
+                highest = max(codes) if codes else 0
+                return {"state": "OK", "highest": highest, "count": len(codes), "next": highest + 1}
+            detail = f"bundles HTTP {bs}, apks HTTP {as_}: {str(bundles if bs != 200 else apks)[:90]}"
+        else:
+            detail = f"edit HTTP {status}: {(edit.get('error') or {}).get('message', str(edit))[:90]}"
+        time.sleep(5 * attempt)
+    return {"state": "ERROR", "detail": detail}
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--out", default=str(OUT),
                     help="where to write the result; CI keeps it in RUNNER_TEMP")
+    ap.add_argument("--apps", default="all",
+                    help="'all' or comma-separated repos. Each ship.yml Android shard asks only for "
+                         "its own apps: six shards opening an edit on all 43 packages at once is "
+                         "what made the reads fail (run 38812509219)")
     args = ap.parse_args()
     out = pathlib.Path(args.out)
 
     tok = token()
     apps = json.loads((M / "apps.json").read_text())["apps"]
+    if args.apps not in ("", "all"):
+        wanted = {x.strip().lower() for x in args.apps.split(",") if x.strip()}
+        apps = [a for a in apps if a["repo"].lower() in wanted]
     result = {}
     for a in apps:
         repo, pkg = a["repo"], a["application_id"]
-        status, edit = call("POST", f"{BASE}/{pkg}/edits", tok)
-        if status != 200:
-            msg = (edit.get("error") or {}).get("message", str(edit))[:90]
-            result[repo] = {"state": "NO_LISTING" if status == 404 else "ERROR",
-                         "detail": msg}
-            print(f"{repo:18} {result[repo]['state']}")
-            continue
-        eid = edit["id"]
-        # bundles.list is the authoritative set of version codes Play has ever
-        # accepted for this package, including ones no track points at.
-        _, bundles = call("GET", f"{BASE}/{pkg}/edits/{eid}/bundles", tok)
-        codes = [b.get("versionCode") for b in bundles.get("bundles", [])
-                 if isinstance(b.get("versionCode"), int)]
-        call("DELETE", f"{BASE}/{pkg}/edits/{eid}", tok)
-        highest = max(codes) if codes else 0
-        result[repo] = {"state": "OK", "highest": highest, "count": len(codes),
-                     "next": highest + 1}
-        print(f"{repo:18} highest={highest:<4} next={highest + 1}")
+        result[repo] = read_codes(pkg, tok)
+        r = result[repo]
+        print(f"{repo:18} " + (f"highest={r['highest']:<4} next={r['next']}" if r["state"] == "OK"
+                               else f"{r['state']} {r.get('detail', '')}"))
 
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(result, indent=1) + "\n")

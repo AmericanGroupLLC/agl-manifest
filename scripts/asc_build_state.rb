@@ -18,7 +18,7 @@ Spaceship::ConnectAPI.token = Spaceship::ConnectAPI::Token.create(
 
 require_relative "agl_paths"
 root  = AglPaths::ROOT
-apps  = JSON.parse(File.read(File.join(root, "agl-manifest/apps.json")))["apps"].select { |a| a["flutter"] }
+apps  = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"].select { |a| a["flutter"] }
 by_bid = {}
 Spaceship::ConnectAPI::App.all.each { |a| by_bid[a.bundle_id] = a }
 

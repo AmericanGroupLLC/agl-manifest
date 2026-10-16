@@ -84,7 +84,7 @@ puts
 # store_eligible is still honoured so the manifest can exclude an app, but
 # nothing sets it false any more: all 43 are in scope. This comment used to
 # say the portfolio was 42.
-apps = JSON.parse(File.read("#{ROOT}/agl-manifest/apps.json"))["apps"]
+apps = JSON.parse(File.read(File.join(AglPaths::MANIFEST, "apps.json")))["apps"]
          .select { |a| a["flutter"] && a["store_eligible"] != false }
 by_bundle = {}
 Spaceship::ConnectAPI::App.all.each { |a| by_bundle[a.bundle_id] = a }

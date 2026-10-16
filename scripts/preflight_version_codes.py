@@ -63,6 +63,12 @@ def main() -> int:
     for a in apps:
         repo = a["repo"]
         info = codes.get(repo, {})
+        if info.get("state") == "ERROR":
+            # Not "no listing": Play has codes we could not read, so this build
+            # may collide. Say so where the run summary will show it.
+            print(f"::warning::{repo}: could not read Play's version codes ({info.get('detail', '')}); "
+                  "the build keeps its pubspec code and Play may refuse it as already used")
+            continue
         if info.get("state") != "OK":
             skipped.append(repo)
             continue

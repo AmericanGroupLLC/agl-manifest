@@ -1,10 +1,5 @@
 [
   {
-    "bundleId": "com.americangroupllc.Mykarma",
-    "name": "iMykarma",
-    "sku": "imykarma-001"
-  },
-  {
     "bundleId": "com.americangroupllc.aeroswift",
     "name": "AeroSwift",
     "sku": "aeroswift-001"
@@ -35,6 +30,11 @@
     "sku": "ApexMarketWatch-001"
   },
   {
+    "bundleId": "com.americangroupllc.bodyquest",
+    "name": "BodyQuest: Health Game",
+    "sku": "BQ001"
+  },
+  {
     "bundleId": "com.americangroupllc.buddyplay",
     "name": "iBuddyPlay",
     "sku": "iBuddyPlay-001"
@@ -61,13 +61,8 @@
   },
   {
     "bundleId": "com.americangroupllc.dailypulse",
-    "name": "iDailyPulse",
+    "name": "Daily Pulse: Morning Brief",
     "sku": "dailypulse-001"
-  },
-  {
-    "bundleId": "com.americangroupllc.dealzap",
-    "name": "iDealZap",
-    "sku": "idealzap-001"
   },
   {
     "bundleId": "com.americangroupllc.driftdate",
@@ -78,6 +73,11 @@
     "bundleId": "com.americangroupllc.eventspark",
     "name": "iEventSpark",
     "sku": "ieventspark-001"
+  },
+  {
+    "bundleId": "com.americangroupllc.fashionfactory",
+    "name": "Fashion Factory: Fit File",
+    "sku": "fashionfactory-001"
   },
   {
     "bundleId": "com.americangroupllc.gadgetnest",
@@ -130,6 +130,11 @@
     "sku": "imyfinance-001"
   },
   {
+    "bundleId": "com.americangroupllc.myhealth",
+    "name": "MyHealth: Fitness Tracker",
+    "sku": "MYHEALTH001"
+  },
+  {
     "bundleId": "com.americangroupllc.nearserve",
     "name": "NearServe",
     "sku": "NearServe-001"
@@ -145,11 +150,6 @@
     "sku": "NexusTransferPay-001"
   },
   {
-    "bundleId": "com.americangroupllc.offlinebuddy",
-    "name": "OfflineBuddy",
-    "sku": "offlinebuddy-001"
-  },
-  {
     "bundleId": "com.americangroupllc.photriya",
     "name": "Photriya",
     "sku": "PH001"
@@ -160,9 +160,19 @@
     "sku": "pilotenroute-001"
   },
   {
+    "bundleId": "com.americangroupllc.plantpulse",
+    "name": "iPlantPulse",
+    "sku": "plantpulse-001"
+  },
+  {
     "bundleId": "com.americangroupllc.portfolioboard",
     "name": "Portfolio Board",
     "sku": "portfolioboard-001"
+  },
+  {
+    "bundleId": "com.americangroupllc.radiotune",
+    "name": "Radio Tune: Live Radio",
+    "sku": "RADIOTUNE001"
   },
   {
     "bundleId": "com.americangroupllc.ridezap",
@@ -175,13 +185,8 @@
     "sku": "iroomcraft-001"
   },
   {
-    "bundleId": "com.americangroupllc.styleradar",
-    "name": "Fashion Factory: Deals",
-    "sku": "styleradar-001"
-  },
-  {
     "bundleId": "com.americangroupllc.tripnest",
-    "name": "TripNest: Travel Booking",
+    "name": "TripNest: Trip Planner",
     "sku": "travelzap-001"
   },
   {
