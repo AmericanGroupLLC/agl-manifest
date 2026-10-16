@@ -1,0 +1,121 @@
+{
+ "record": {
+  "app": "HerJourney",
+  "store_name": "HerJourney \u2014 Cycle & Health",
+  "version": "1.2.0",
+  "build": "202610161042",
+  "git_commit": "81d5d29",
+  "configuration": "Release",
+  "ipa_sha256": "fe54ab5b94ea4185ec73a284e166273786d8c2fe6395eca4e363ac5377579bf5",
+  "measured_at": "2026-10-16T11:36:25",
+  "runner": "ci run 38887608641",
+  "devices": [],
+  "outstanding": []
+ },
+ "stage_a": {
+  "passed": true,
+  "open": [],
+  "stage_b_blocked_by": [],
+  "checks": 21
+ },
+ "checks": {
+  "1.7": {
+   "state": "PASS",
+   "evidence": "no lorem/coming-soon/TODO/debug-banner/debug routes in lib/"
+  },
+  "1.8": {
+   "state": "n/a",
+   "evidence": "does not use flutter_local_notifications"
+  },
+  "2.1": {
+   "state": "PASS",
+   "evidence": "location deps: none; binary references requestAlwaysAuthorization=False, requestWhenInUseAuthorization=False"
+  },
+  "2.2": {
+   "state": "n/a",
+   "evidence": "not required by the binary, not declared"
+  },
+  "2.3": {
+   "state": "PASS",
+   "evidence": "every purpose string the binary's APIs require is present"
+  },
+  "2.5": {
+   "state": "PASS",
+   "evidence": "https://www.americangroup.ai/policy/herjourney/ \u2192 HTTP 200, mentions privacy=True"
+  },
+  "2.6": {
+   "state": "PASS",
+   "evidence": "label covers the SDKs the app links (HerJourney.json)"
+  },
+  "2.7": {
+   "state": "n/a",
+   "evidence": "no account creation"
+  },
+  "2.8": {
+   "state": "PASS",
+   "evidence": "no binary rule fails (17 pass, 40 for a person, 5 founder overall); 5 App Review/listing rule(s) fail and block Stage B: apple 2.3.3, apple 2.3.6, apple 4.2.6, apple 4.3(a), apple Export compliance \u2014 docs/store-policy/HerJourney.md (audited 2026-10-16T11:36:24, re-run: store/policy/catalogue.json changed after the audit)"
+  },
+  "3.1": {
+   "state": "PASS",
+   "evidence": "flutter pub get --enforce-lockfile: ok"
+  },
+  "3.2": {
+   "state": "PASS",
+   "evidence": "release IPA built 2026-10-16T11:07, newer than the last commit"
+  },
+  "3.3": {
+   "state": "PASS",
+   "evidence": "archive exported (app-store-connect, profile 'com.americangroupllc.herjourney AppStore'); SDK 23F81a, Xcode 17F113"
+  },
+  "3.4": {
+   "state": "PASS",
+   "evidence": "IPA com.americangroupllc.herjourney vs manifest com.americangroupllc.herjourney"
+  },
+  "3.5": {
+   "state": "PASS",
+   "evidence": "1.2.0 (202610161042); newest uploaded 3"
+  },
+  "3.6": {
+   "state": "PASS",
+   "evidence": "Apple Distribution: American Group LLC (TLH7Z3G27A); signature valid; profile expires 2027-09-30"
+  },
+  "3.7": {
+   "state": "PASS",
+   "evidence": "iOS 16.0 (IPA, Podfile, project agree)"
+  },
+  "3.8": {
+   "state": "PASS",
+   "evidence": "entitlements: application-identifier, beta-reports-active, com.apple.developer.team-identifier; get-task-allow=false"
+  },
+  "3.9": {
+   "state": "PASS",
+   "evidence": "AOT release build, not debuggable, no print() in lib/"
+  },
+  "4.1": {
+   "state": "PASS",
+   "evidence": "every host the code calls resolves \u2014 docs/api-hosts.json"
+  },
+  "4.4": {
+   "state": "PASS",
+   "evidence": "every credential the code reads (0) has a value in the release build"
+  },
+  "4.5": {
+   "state": "PASS",
+   "evidence": "no localhost/emulator/dev endpoints in lib/ or the App binary"
+  }
+ },
+ "preconditions": {
+  "1.4": {
+   "state": "n/a",
+   "evidence": "the app has no sign-in"
+  },
+  "4.3": {
+   "state": "n/a",
+   "evidence": "the app has no accounts"
+  },
+  "4.6": {
+   "state": "n/a",
+   "evidence": "no push or third-party integration that needs device testing"
+  }
+ }
+}
