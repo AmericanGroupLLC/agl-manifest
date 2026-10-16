@@ -60,7 +60,8 @@ ONBOARD = re.compile(r"(?i)\b(welcome|get ?started|let.s go|skip|onboarding|next
 GATE = re.compile(r"(?i)accept\s*(&|and)\s*continue|agree\s*(&|and)\s*continue|let.s begin|"
                   r"i understand (this|that)|before you continue|by continuing,? you agree")
 ERROR = re.compile(r"(?i)something went wrong|failed to load|no internet|you.re offline|"
-                   r"connection (failed|error)|exception|error loading|try again later")
+                   r"connection (failed|error)|\bexception\b|error loading|try again later")
+# \b: "the 61.57(e) exceptions" on PilotEnRoute's Go Card is regulation text, not an error.
 EMPTY = re.compile(r"(?i)nothing (here|saved|yet)|no (items|data|results|entries)( yet)?\b|"
                    r"you have(n.t| no)")
 STATUS = re.compile(r"^\d{1,2}:\d{2}$")
