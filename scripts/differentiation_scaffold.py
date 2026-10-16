@@ -326,8 +326,9 @@ def main() -> int:
         roles = {"agl_i18n": "shared translations", "agl_observability": "crash reporting",
                  "agl_ads": "ad mediation"}
         q7 = ("Yes, infrastructure only: " + "; ".join(f"{p} ({roles[p]})" for p in ours)
-              + ". It also uses the same Supabase project as our other apps for sign-in. "
-              "No screens, features or content are shared; the similarity figure in 5 "
+              + (". It also uses the same Supabase project as our other apps for sign-in"
+                 if "supabase" in (d / "pubspec.yaml").read_text(errors="ignore") else "")
+              + ". No screens, features or content are shared; the similarity figure in 5 "
               "measures exactly that.") if ours else "No shared in-house packages."
         ev = evidence.get(repo)
         fb_count = "an unmeasured number of"
