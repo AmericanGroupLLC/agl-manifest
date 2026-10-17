@@ -5598,16 +5598,6 @@
    "detail": ""
   },
   {
-   "check": "Adopts the UIScene lifecycle (launches on iOS 27)",
-   "state": "PASS",
-   "detail": "UIApplicationSceneManifest present"
-  },
-  {
-   "check": "Has a launch screen",
-   "state": "PASS",
-   "detail": ""
-  },
-  {
    "check": "Bundle id / applicationId",
    "state": "PASS",
    "detail": "com.americangroupllc.pilotenroute"
@@ -5619,8 +5609,8 @@
   },
   {
    "check": "App icon (1024, opaque, not a placeholder)",
-   "state": "PASS",
-   "detail": "603cd6e478f6"
+   "state": "FAIL",
+   "detail": "no 1024 icon"
   },
   {
    "check": "Play feature graphic 1024x500",
@@ -5629,8 +5619,8 @@
   },
   {
    "check": "Screenshots (Apple >=1, Play >=2)",
-   "state": "PASS",
-   "detail": "apple 14, play 7"
+   "state": "FAIL",
+   "detail": "apple 0, play 0"
   },
   {
    "check": "App Store name",
@@ -5674,17 +5664,17 @@
   },
   {
    "check": "Privacy & support URLs serve the right page",
-   "state": "PASS",
-   "detail": "4 checked"
+   "state": "HUMAN",
+   "detail": "not measured yet"
   },
   {
    "check": "Account-deletion page (if accounts)",
-   "state": "PASS",
-   "detail": ""
+   "state": "FAIL",
+   "detail": "required by Play"
   },
   {
    "check": "iOS privacy manifest",
-   "state": "PASS",
+   "state": "FAIL",
    "detail": ""
   },
   {
@@ -5694,13 +5684,13 @@
   },
   {
    "check": "Export compliance answered",
-   "state": "PASS",
-   "detail": "ITSAppUsesNonExemptEncryption=false"
+   "state": "FAIL",
+   "detail": "key absent - ASC will ask on every upload"
   },
   {
    "check": "Apple age rating answered",
-   "state": "PASS",
-   "detail": "declaration matches the shipped binary"
+   "state": "FAIL",
+   "detail": "not measured yet"
   },
   {
    "check": "Play IARC questionnaire",
@@ -5714,18 +5704,18 @@
   },
   {
    "check": "Play release",
-   "state": "PASS",
-   "detail": "live on the internal testing track"
+   "state": "FAIL",
+   "detail": "no release on any track"
   },
   {
    "check": "Play reaches Console account users",
    "state": "HUMAN",
-   "detail": "app is still a Draft in Console - MA-022"
+   "detail": "not measured yet"
   },
   {
    "check": "Firebase config (crash reporting works)",
-   "state": "PASS",
-   "detail": "android=y ios=y ios-bundled=y"
+   "state": "FAIL",
+   "detail": "android=n ios=n ios-bundled=n  <- plist not referenced by Xcode"
   },
   {
    "check": "Review notes answer Apple's 7 items",
@@ -5739,8 +5729,8 @@
   },
   {
    "check": "Screenshots show the app, not a login screen",
-   "state": "PASS",
-   "detail": "capture walked past the sign-in gate"
+   "state": "HUMAN",
+   "detail": "not recorded \u2014 re-run scripts/screenshots.py"
   },
   {
    "check": "App preview video",
@@ -5749,8 +5739,8 @@
   },
   {
    "check": "Launches on a simulator and stays up",
-   "state": "PASS",
-   "detail": "ios=running android=running"
+   "state": "HUMAN",
+   "detail": "ios=? android=?"
   },
   {
    "check": "4.3 differentiation statement",
