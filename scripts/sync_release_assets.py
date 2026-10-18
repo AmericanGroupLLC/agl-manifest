@@ -34,6 +34,9 @@ import sys as _sys
 _sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from agl_paths import ROOT, MANIFEST  # noqa: E402
 ORG = "AmericanGroupLLC"
+# Releases live in the monorepo since 2026-10-17 (app repos are archived); see
+# publish_releases.py, which must agree with this on repo and tag.
+RELEASE_REPO = f"{ORG}/agl-monorepo"
 AUDIT = MANIFEST / "docs/release-readiness.json"
 EVIDENCE = [MANIFEST / "docs/build-evidence.json", MANIFEST / "docs/build-evidence-apk.json"]
 
@@ -77,8 +80,8 @@ def main() -> int:
     missing_total = fixed = still_bad = 0
     for repo in sorted(todo):
         version = (audit.get(repo, {}).get("version") or "0.0.0").split("+")[0]
-        tag = f"v{version}-android"
-        info = gh_json(["gh", "release", "view", tag, "--repo", f"{ORG}/{repo}",
+        tag = f"{repo}/v{version}-android"
+        info = gh_json(["gh", "release", "view", tag, "--repo", RELEASE_REPO,
                         "--json", "assets"])
         if info is None:
             print(f"{repo:18} no release {tag} — run publish_releases.py first")
@@ -97,12 +100,12 @@ def main() -> int:
             for attempt in range(1, args.attempts + 1):
                 r = subprocess.run(
                     ["gh", "release", "upload", tag, str(artefact),
-                     "--repo", f"{ORG}/{repo}", "--clobber"],
+                     "--repo", RELEASE_REPO, "--clobber"],
                     capture_output=True, text=True)
                 if r.returncode == 0:
                     # Trust the check, not the exit code: a proxy that corrupts
                     # bodies can also produce a successful-looking short write.
-                    chk = gh_json(["gh", "release", "view", tag, "--repo", f"{ORG}/{repo}",
+                    chk = gh_json(["gh", "release", "view", tag, "--repo", RELEASE_REPO,
                                    "--json", "assets"]) or {}
                     got = {a["name"]: a["size"] for a in chk.get("assets", [])}.get(artefact.name)
                     if got == local:

@@ -32,6 +32,9 @@ from agl_paths import MANIFEST as _MANIFEST, ROOT as _ROOT  # noqa: E402
 ROOT = _ROOT
 MANIFEST = _MANIFEST
 ORG = "AmericanGroupLLC"
+# Since 2026-10-17 the app repos are archived (read-only) and every app lives in
+# the monorepo, so each app's releases go there, tagged <App>/v<version>-android.
+RELEASE_REPO = f"{ORG}/agl-monorepo"
 AAB_EVIDENCE = MANIFEST / "docs/build-evidence.json"
 APK_EVIDENCE = MANIFEST / "docs/build-evidence-apk.json"
 AUDIT = MANIFEST / "docs/release-readiness.json"
@@ -86,11 +89,11 @@ def publish(repo: str, tag: str, version: str,
     # here: if any upload fails, gh deletes the release it just made, so a flaky
     # 50 MB upload loses the whole thing and the next run starts over. Creating
     # first makes the operation resumable.
-    exists = subprocess.run(["gh", "release", "view", tag, "--repo", f"{ORG}/{repo}"],
+    exists = subprocess.run(["gh", "release", "view", tag, "--repo", RELEASE_REPO],
                             capture_output=True, text=True).returncode == 0
     if not exists:
         r = subprocess.run(["gh", "release", "create", tag,
-                            "--repo", f"{ORG}/{repo}",
+                            "--repo", RELEASE_REPO,
                             "--title", f"{repo} {version}",
                             "--notes", body], capture_output=True, text=True)
         if r.returncode != 0:
@@ -104,7 +107,7 @@ def publish(repo: str, tag: str, version: str,
     for asset in assets:
         for attempt in range(1, ATTEMPTS + 1):
             r = subprocess.run(["gh", "release", "upload", tag, str(asset),
-                                "--repo", f"{ORG}/{repo}", "--clobber"],
+                                "--repo", RELEASE_REPO, "--clobber"],
                                capture_output=True, text=True)
             if r.returncode == 0:
                 break
@@ -132,11 +135,9 @@ def main() -> int:
     if args.apps:
         repos = [r for r in repos if r in set(args.apps)]
 
-    # Kinnav lives outside the org and is reachable only via a redirect; a
-    # release created through one lands somewhere confusing. Skip it explicitly
-    # rather than let it fail halfway through the run.
-    skipped = [r for r in repos if r == "Kinnav"]
-    repos = [r for r in repos if r != "Kinnav"]
+    # Kinnav used to be skipped: its repo sat outside the org behind a redirect.
+    # Its releases now go to the monorepo like every other app's.
+    skipped: list[str] = []
 
     created = failed = 0
     for i, repo in enumerate(repos, 1):
@@ -149,7 +150,7 @@ def main() -> int:
             continue
 
         version = (audit.get(repo, {}).get("version") or "0.0.0").split("+")[0]
-        tag = f"v{version}-android"
+        tag = f"{repo}/v{version}-android"
         body = notes(repo, version, aab, apk)
         outcome = publish(repo, tag, version, assets, body, args.dry_run)
         print(f"[{i}/{len(repos)}] {repo}: {outcome} ({len(assets)} asset(s))")
